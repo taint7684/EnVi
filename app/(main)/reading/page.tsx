@@ -1,10 +1,14 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { ReadingPractice } from "@/components/reading/reading-practice";
 
 export default function ReadingPage() {
   return (
-    <PlaceholderPage title="Đọc to" phase="Phase 3">
-      Hiển thị đoạn text, TTS đọc mẫu, ghi âm đọc lại và phát lại so sánh — Phase
-      3.
-    </PlaceholderPage>
+    <div className="mx-auto max-w-5xl">
+      <h1 className="mb-2 font-serif text-2xl font-semibold">Đọc to</h1>
+      <p className="mb-6 text-muted-foreground">
+        Đọc to đoạn văn và ghi âm để luyện phát âm.
+      </p>
+
+      <ReadingPractice />
+    </div>
   );
 }

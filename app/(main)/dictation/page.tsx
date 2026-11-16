@@ -1,9 +1,14 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { DictationGame } from "@/components/dictation/dictation-game";
 
 export default function DictationPage() {
   return (
-    <PlaceholderPage title="Dictation" phase="Phase 3">
-      Nghe → gõ lại → so sánh diff → nghe lại, có gợi ý và đáp án — Phase 3.
-    </PlaceholderPage>
+    <div className="mx-auto max-w-5xl">
+      <h1 className="mb-2 font-serif text-2xl font-semibold">Dictation</h1>
+      <p className="mb-6 text-muted-foreground">
+        Nghe và gõ lại câu. Hệ thống sẽ kiểm tra và hiển thị từ đúng (xanh) / sai (đỏ).
+      </p>
+
+      <DictationGame />
+    </div>
   );
 }
