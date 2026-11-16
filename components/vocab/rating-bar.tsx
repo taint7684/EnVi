@@ -36,10 +36,8 @@ const RATINGS: {
 
 export function RatingBar({
   onRate,
-  disabled,
 }: {
   onRate: (grade: ReviewGrade) => void;
-  disabled?: boolean;
 }) {
   return (
     <div className="mx-auto mt-6 grid max-w-xl grid-cols-4 gap-2">
@@ -47,9 +45,8 @@ export function RatingBar({
         <button
           key={rating.grade}
           type="button"
-          disabled={disabled}
           onClick={() => onRate(rating.grade)}
-          className={`flex flex-col items-center gap-0.5 rounded-xl px-2 py-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${rating.className}`}
+          className={`flex flex-col items-center gap-0.5 rounded-xl px-2 py-3 text-sm font-semibold transition-colors ${rating.className}`}
         >
           <span>{rating.label}</span>
           <span className="text-[11px] font-normal opacity-80">

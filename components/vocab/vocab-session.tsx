@@ -22,51 +22,47 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
   const [queue, setQueue] = useState<DueCard[]>(cards);
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const requeueCount = useRef<Record<string, number>>({});
+  const ratedIndex = useRef<number | null>(null);
 
   const current = queue[index];
   const done = index >= queue.length;
 
   const rate = useCallback(
-    async (grade: ReviewGrade) => {
-      if (!current || submitting) return;
+    (grade: ReviewGrade) => {
+      if (!current || ratedIndex.current === index) return;
+      ratedIndex.current = index;
 
-      setSubmitting(true);
       setError(null);
 
-      try {
-        await reviewWord(current.word.id, grade);
-
-        if (grade === "again") {
-          const count = requeueCount.current[current.word.id] ?? 0;
-          if (count < MAX_REQUEUE) {
-            requeueCount.current[current.word.id] = count + 1;
-            setQueue((previous) => [...previous, current]);
-          }
+      if (grade === "again") {
+        const count = requeueCount.current[current.word.id] ?? 0;
+        if (count < MAX_REQUEUE) {
+          requeueCount.current[current.word.id] = count + 1;
+          setQueue((previous) => [...previous, current]);
         }
+      }
 
-        setIndex((previous) => previous + 1);
-        setFlipped(false);
+      setIndex((previous) => previous + 1);
+      setFlipped(false);
 
-        if (document.activeElement instanceof HTMLElement) {
-          document.activeElement.blur();
-        }
-      } catch (cause) {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
+      void reviewWord(current.word.id, grade).catch((cause) => {
         setError(
           cause instanceof Error ? cause.message : "Có lỗi xảy ra khi lưu.",
         );
-      } finally {
-        setSubmitting(false);
-      }
+      });
     },
-    [current, submitting],
+    [current, index],
   );
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (done || submitting) return;
+      if (done) return;
 
       if (event.key === " " || event.key === "Enter") {
         if (isInteractive(event.target)) return;
@@ -77,13 +73,13 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
 
       if (event.key >= "1" && event.key <= "4") {
         const grade = GRADES[Number(event.key) - 1];
-        if (grade) void rate(grade);
+        if (grade) rate(grade);
       }
     }
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [done, submitting, rate]);
+  }, [done, rate]);
 
   if (done) {
     return (
@@ -129,7 +125,7 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
         />
       </div>
 
-      <RatingBar onRate={rate} disabled={submitting} />
+      <RatingBar onRate={rate} />
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Space để lật · 1–4 để đánh giá
