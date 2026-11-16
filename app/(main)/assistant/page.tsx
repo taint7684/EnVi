@@ -1,10 +1,14 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { AssistantChat } from "@/components/assistant/assistant-chat";
 
 export default function AssistantPage() {
   return (
-    <PlaceholderPage title="Trợ lý AI" phase="Phase 5">
-      Chat phụ trợ: giải thích từ/ngữ pháp, sửa câu, tạo bài tập — luôn ngắn gọn,
-      ưu tiên tiếng Việt.
-    </PlaceholderPage>
+    <div className="mx-auto max-w-3xl">
+      <h1 className="mb-2 font-serif text-2xl font-semibold">Trợ lý AI</h1>
+      <p className="mb-6 text-muted-foreground">
+        Hỏi đáp về tiếng Anh, ngữ pháp, từ vựng, hoặc luyện nói.
+      </p>
+
+      <AssistantChat />
+    </div>
   );
 }
