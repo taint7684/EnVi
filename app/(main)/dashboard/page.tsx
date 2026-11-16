@@ -1,19 +1,7 @@
 import Link from "next/link";
-import {
-  Flame,
-  Clock,
-  Layers,
-  Mic,
-  ArrowRight,
-} from "lucide-react";
+import { Flame, Clock, Layers, Mic, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const stats = [
-  { icon: Flame, label: "Streak", value: "0 ngày" },
-  { icon: Clock, label: "Phút hôm nay", value: "0" },
-  { icon: Layers, label: "Từ đã ôn", value: "0" },
-  { icon: Mic, label: "Phiên speaking", value: "0" },
-];
+import { getDueCount } from "@/lib/vocab";
 
 const quickLinks = [
   { href: "/speaking", label: "Luyện nói với AI", desc: "Speaking coach 5 bước" },
@@ -21,7 +9,16 @@ const quickLinks = [
   { href: "/roadmap", label: "Lộ trình 90 ngày", desc: "Check-in hôm nay" },
 ];
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const { due, new: newCount, total } = await getDueCount();
+
+  const stats = [
+    { icon: Flame, label: "Streak", value: "0 ngày" },
+    { icon: Clock, label: "Phút hôm nay", value: "0" },
+    { icon: Layers, label: "Thẻ đến hạn", value: `${total}` },
+    { icon: Mic, label: "Phiên speaking", value: "0" },
+  ];
+
   return (
     <div className="mx-auto grid max-w-5xl gap-6">
       <div>
@@ -29,6 +26,26 @@ export default function DashboardPage() {
         <p className="mt-1 text-muted-foreground">
           Hôm nay là một ngày tốt để luyện nói. Bắt đầu với 35 phút Speaking nhé.
         </p>
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm text-muted-foreground">Hôm nay</p>
+            <p className="mt-1 text-3xl font-semibold text-foreground">
+              {total} thẻ đến hạn
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {due} thẻ ôn lại · {newCount} từ mới
+            </p>
+          </div>
+          <Button asChild size="lg">
+            <Link href="/vocab">
+              Bắt đầu học
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
