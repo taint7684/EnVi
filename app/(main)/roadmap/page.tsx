@@ -1,10 +1,14 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { RoadmapContent } from "@/components/roadmap/roadmap-content";
 
 export default function RoadmapPage() {
   return (
-    <PlaceholderPage title="Lộ trình 90 ngày" phase="Phase 4">
-      Kế hoạch 3h/ngày theo khung cố định, check-in hằng ngày và điều chỉnh —
-      Phase 4.
-    </PlaceholderPage>
+    <div className="mx-auto max-w-5xl">
+      <h1 className="mb-2 font-serif text-2xl font-semibold">Lộ trình 90 ngày</h1>
+      <p className="mb-6 text-muted-foreground">
+        Theo dõi tiến độ học tập và duy trì streak.
+      </p>
+
+      <RoadmapContent />
+    </div>
   );
 }

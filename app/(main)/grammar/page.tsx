@@ -1,10 +1,14 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { GrammarContent } from "@/components/grammar/grammar-content";
 
 export default function GrammarPage() {
   return (
-    <PlaceholderPage title="Ngữ pháp 6 thì" phase="Phase 4">
-      Hiện tại đơn, hiện tại tiếp diễn, hiện tại hoàn thành, quá khứ đơn, tương
-      lai đơn, tương lai gần — lý thuyết ngắn + bài tập + giải thích.
-    </PlaceholderPage>
+    <div className="mx-auto max-w-5xl">
+      <h1 className="mb-2 font-serif text-2xl font-semibold">Ngữ pháp 6 thì</h1>
+      <p className="mb-6 text-muted-foreground">
+        Học 6 thì cơ bản và làm bài tập trắc nghiệm.
+      </p>
+
+      <GrammarContent />
+    </div>
   );
 }
