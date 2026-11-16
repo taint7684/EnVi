@@ -43,6 +43,8 @@ supabase db push   # nếu dùng Supabase CLI
 Migration `0001_init.sql` tạo toàn bộ schema + RLS + trigger tạo profile +
 function `delete_my_account()` (xoá tài khoản & dữ liệu).
 
+Migration `0002_words_extend.sql` thêm `cefr_level` + unique index.
+
 ## Scripts
 
 ```bash
@@ -50,6 +52,7 @@ npm run dev         # dev server
 npm run build       # build production
 npm run lint        # eslint
 npm run typecheck   # tsc --noEmit
+npm run import:words  # import từ vựng từ CSV
 ```
 
 ## Cấu trúc
@@ -57,17 +60,34 @@ npm run typecheck   # tsc --noEmit
 ```
 app/              # App Router: (main) khu đăng nhập, login, auth/callback
 components/       # UI (shadcn) + component theo chức năng
-lib/              # supabase clients, utils
+lib/              # supabase clients, utils, AI clients
 db/migrations/    # SQL migrations
-middleware.ts     # refresh session + bảo vệ route
+middleware.ts     # refresh session + bảo vệ route (proxy.ts)
 ```
 
 ## Lộ trình
 
 - **Phase 0** ✅ Skeleton + Auth + design system xanh/trắng + migration + CI
-- Phase 1 — Flashcard 3000 từ + SRS
-- Phase 2 — AI Speaking Coach (5 bước) + eval
-- Phase 3 — Shadowing + Dictation + Reading Aloud
-- Phase 4 — Ngữ pháp 6 thì + Dashboard + Lộ trình 90 ngày
-- Phase 5 — AI Assistant + P1
-- Phase 6 — Polish + deploy
+- **Phase 1** ✅ Flashcard 3000 từ + SRS + import 5029 từ
+- **Phase 2** ✅ AI Speaking Coach (5 bước) + eval
+- **Phase 3** ✅ Shadowing (Media Player + Transcript) + Dictation (diff highlight) + Reading Aloud
+- **Phase 4** ✅ Ngữ pháp 6 thì + Dashboard (streak, minutes, 7-day chart) + Lộ trình 90 ngày
+- **Phase 5** ✅ AI Assistant (chatbot UI) + Settings (AI usage counter)
+- **Phase 6** ✅ Polish + deploy ready
+
+## Tính năng
+
+- **Speaking**: AI Speaking Coach 5 bước với Gemini/Groq
+- **Vocabulary**: Flashcard SRS với 5029 từ (Oxford 5000 + NGSL)
+- **Shadowing**: Media player với transcript click-to-seek + record & compare
+- **Dictation**: TTS audio + diff highlight (từ đúng xanh, sai đỏ)
+- **Reading**: Đoạn văn + TTS + record để luyện phát âm
+- **Grammar**: 6 thì cơ bản + bài tập trắc nghiệm
+- **Roadmap**: Lộ trình 90 ngày + daily check-in + streak
+- **Dashboard**: Thống kê streak, phút học, biểu đồ 7 ngày
+- **Assistant**: Chatbot AI hỏi đáp
+- **Settings**: Hồ sơ + AI usage stats
+
+## License
+
+MIT
