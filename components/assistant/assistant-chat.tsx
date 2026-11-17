@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Send, Bot, User, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { toast } from "sonner";
 
 type Message = {
   role: "user" | "assistant";
@@ -58,6 +59,7 @@ export function AssistantChat() {
             content: "Xin lỗi, có lỗi xảy ra. Hãy thử lại sau.",
           },
         ]);
+        toast.error("Không thể gửi tin nhắn. Vui lòng thử lại.");
       } else {
         setMessages((prev) => [
           ...prev,

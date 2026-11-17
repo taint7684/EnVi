@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -32,7 +33,10 @@ export default function RootLayout({
       lang="vi"
       className={`${beVietnamPro.variable} ${lora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Toaster position="bottom-right" richColors closeButton />
+      </body>
     </html>
   );
 }

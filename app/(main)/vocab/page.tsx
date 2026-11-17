@@ -1,4 +1,5 @@
 import { VocabSession } from "@/components/vocab/vocab-session";
+import { EmptyFlashcard } from "@/components/vocab/empty-flashcard";
 import { getDueCards } from "@/lib/vocab";
 
 export default async function VocabPage() {
@@ -16,15 +17,7 @@ export default async function VocabPage() {
       </div>
 
       {cards.length === 0 ? (
-        <div className="mx-auto max-w-xl rounded-3xl border border-border bg-card p-10 text-center shadow-sm">
-          <p className="text-4xl">🎉</p>
-          <h2 className="mt-4 font-serif text-2xl font-semibold text-foreground">
-            Hôm nay bạn đã ôn hết thẻ!
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Quay lại sau để tiếp tục.
-          </p>
-        </div>
+        <EmptyFlashcard />
       ) : (
         <VocabSession cards={cards} />
       )}
