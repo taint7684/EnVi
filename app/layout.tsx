@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   title: "EnVi — Luyện nói tiếng Anh mỗi ngày",
   description:
     "Website luyện tiếng Anh cá nhân hoá: speaking coach AI, flashcard 3000 từ, shadowing, dictation, đọc to và lộ trình 90 ngày.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "EnVi",
+  },
 };
 
 export default function RootLayout({
