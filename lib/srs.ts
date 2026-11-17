@@ -1,4 +1,4 @@
-import "server-only";
+// import "server-only"; // Removed for testing - this is a pure logic module
 
 import { Card, Scheduler } from "@open-spaced-repetition/sm-2";
 
