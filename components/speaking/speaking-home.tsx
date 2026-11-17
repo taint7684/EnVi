@@ -1,43 +1,11 @@
 "use client";
 
 import { useState } from "react";
-
 import { startSpeakingSession } from "@/app/actions/speaking";
-
 import { SpeakingSession } from "./speaking-session";
+import topicsData from "@/data/speaking-topics.json";
 
-const TOPICS = [
-  {
-    id: "daily-routine",
-    label: "Daily Routine",
-    emoji: "🌅",
-    desc: "Những việc bạn làm mỗi ngày",
-  },
-  {
-    id: "work",
-    label: "Work",
-    emoji: "💼",
-    desc: "Công việc, đồng nghiệp, họp",
-  },
-  {
-    id: "hobbies",
-    label: "Hobbies",
-    emoji: "🎨",
-    desc: "Sở thích, thời gian rảnh",
-  },
-  {
-    id: "travel",
-    label: "Travel",
-    emoji: "✈️",
-    desc: "Đi lại, đặt phòng, hỏi đường",
-  },
-  {
-    id: "food",
-    label: "Food",
-    emoji: "🍜",
-    desc: "Đồ ăn, nhà hàng, gọi món",
-  },
-];
+const GROUPS = topicsData.groups;
 
 export function SpeakingHome() {
   const [session, setSession] = useState<{
@@ -46,6 +14,7 @@ export function SpeakingHome() {
   } | null>(null);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [activeGroup, setActiveGroup] = useState(GROUPS[0].id);
 
   async function start(topic: string) {
     setStarting(true);
@@ -73,8 +42,10 @@ export function SpeakingHome() {
     );
   }
 
+  const currentGroup = GROUPS.find((g) => g.id === activeGroup) ?? GROUPS[0];
+
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-4xl">
       <div className="mb-6 text-center">
         <h1 className="font-serif text-2xl font-semibold text-foreground">
           AI Speaking Coach
@@ -90,21 +61,42 @@ export function SpeakingHome() {
         </p>
       ) : null}
 
-      <div className="grid gap-3 sm:grid-cols-2">
-        {TOPICS.map((topic) => (
+      <div className="mb-6 flex gap-1 overflow-x-auto rounded-xl bg-muted p-1">
+        {GROUPS.map((group) => (
+          <button
+            key={group.id}
+            type="button"
+            onClick={() => setActiveGroup(group.id)}
+            className={`flex-shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+              activeGroup === group.id
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {group.name}
+          </button>
+        ))}
+      </div>
+
+      <p className="mb-3 text-xs uppercase tracking-wide text-muted-foreground">
+        {currentGroup.nameEn} — {currentGroup.topics.length} chủ đề
+      </p>
+
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {currentGroup.topics.map((topic) => (
           <button
             key={topic.id}
             type="button"
             disabled={starting}
             onClick={() => void start(topic.label)}
-            className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-left shadow-sm transition-colors hover:border-primary/40 hover:bg-accent/40 disabled:opacity-50"
+            className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-4 text-left shadow-sm transition-colors hover:border-primary/40 hover:bg-accent/40 disabled:opacity-50"
           >
-            <span className="text-3xl">{topic.emoji}</span>
+            <span className="text-2xl">{topic.emoji}</span>
             <span className="flex-1">
               <span className="block font-medium text-foreground">
                 {topic.label}
               </span>
-              <span className="mt-1 block text-sm text-muted-foreground">
+              <span className="mt-0.5 block text-xs text-muted-foreground">
                 {topic.desc}
               </span>
             </span>

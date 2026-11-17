@@ -1,0 +1,55 @@
+{
+  "groups": [
+    {
+      "id": "daily-life",
+      "name": "Đời sống hằng ngày",
+      "nameEn": "Daily Life",
+      "topics": [
+        { "id": "daily-routine", "label": "Daily Routine", "emoji": "🌅", "desc": "Những việc bạn làm mỗi ngày" },
+        { "id": "hobbies", "label": "Hobbies", "emoji": "🎨", "desc": "Sở thích, thời gian rảnh" },
+        { "id": "food", "label": "Food & Cooking", "emoji": "🍜", "desc": "Đồ ăn, nấu nướng, nhà hàng" },
+        { "id": "family", "label": "Family", "emoji": "👨‍👩‍👧‍👦", "desc": "Gia đình, người thân" },
+        { "id": "shopping", "label": "Shopping", "emoji": "🛍️", "desc": "Mua sắm, quần áo, đồ dùng" },
+        { "id": "health", "label": "Health & Fitness", "emoji": "💪", "desc": "Sức khỏe, tập thể dục" },
+        { "id": "weather", "label": "Weather & Seasons", "emoji": "🌦️", "desc": "Thời tiết, khí hậu" },
+        { "id": "housing", "label": "Housing", "emoji": "🏠", "desc": "Nhà cửa, thuê nhà, mua đồ nội thất" },
+        { "id": "transport", "label": "Transport", "emoji": "🚌", "desc": "Đi lại, phương tiện công cộng" },
+        { "id": "technology", "label": "Everyday Tech", "emoji": "📱", "desc": "Điện thoại, máy tính, app" }
+      ]
+    },
+    {
+      "id": "work-it",
+      "name": "Công việc / IT",
+      "nameEn": "Work & IT",
+      "topics": [
+        { "id": "work", "label": "Workplace", "emoji": "💼", "desc": "Công việc, đồng nghiệp, họp" },
+        { "id": "job-interview", "label": "Job Interview", "emoji": "🤝", "desc": "Phỏng vấn xin việc" },
+        { "id": "email", "label": "Emails", "emoji": "📧", "desc": "Viết email, phản hồi công việc" },
+        { "id": "meetings", "label": "Meetings", "emoji": "📊", "desc": "Họp, thuyết trình, brainstorming" },
+        { "id": "deadlines", "label": "Deadlines & Projects", "emoji": "📅", "desc": "Quản lý dự án, thời hạn" },
+        { "id": "it-support", "label": "IT Support", "emoji": "🖥️", "desc": "Sự cố máy tính, hỗ trợ kỹ thuật" },
+        { "id": "coding", "label": "Coding & Dev", "emoji": "⌨️", "desc": "Lập trình, code review, debugging" },
+        { "id": "remote-work", "label": "Remote Work", "emoji": "🏡", "desc": "Làm việc từ xa, online meetings" },
+        { "id": "career", "label": "Career Growth", "emoji": "📈", "desc": "Thăng tiến, đổi việc, kỹ năng" },
+        { "id": "business-english", "label": "Business English", "emoji": "📝", "desc": "Thư từ thương mại, negotiation" }
+      ]
+    },
+    {
+      "id": "travel-social",
+      "name": "Du lịch & Giao tiếp xã hội",
+      "nameEn": "Travel & Social",
+      "topics": [
+        { "id": "travel", "label": "Travel", "emoji": "✈️", "desc": "Đi lại, đặt phòng, hỏi đường" },
+        { "id": "airport", "label": "Airport", "emoji": "🛫", "desc": "Check-in, an ninh, boarding" },
+        { "id": "hotel", "label": "Hotel", "emoji": "🏨", "desc": "Nhận phòng, dịch vụ, than phiền" },
+        { "id": "restaurant", "label": "Restaurant", "emoji": "🍽️", "desc": "Gọi món, đặt bàn, tính tiền" },
+        { "id": "directions", "label": "Directions", "emoji": "🗺️", "desc": "Hỏi đường, chỉ đường" },
+        { "id": "social", "label": "Socializing", "emoji": "🎉", "desc": "Làm quen, nói chuyện phiếm" },
+        { "id": "small-talk", "label": "Small Talk", "emoji": "💬", "desc": "Giao tiếp thông thường" },
+        { "id": "dating", "label": "Dating & Relationships", "emoji": "💕", "desc": "Hẹn hò, mối quan hệ" },
+        { "id": "culture", "label": "Culture & Customs", "emoji": "🎭", "desc": "Văn hóa, phong tục các nước" },
+        { "id": "emergencies", "label": "Emergencies", "emoji": "🆘", "desc": "Tình huống khẩn cấp khi đi du lịch" }
+      ]
+    }
+  ]
+}
