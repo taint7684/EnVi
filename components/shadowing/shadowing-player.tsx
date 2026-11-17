@@ -15,27 +15,17 @@ type Props = {
 const SPEEDS = [0.75, 1, 1.25, 1.5];
 
 export function ShadowingPlayer({ lesson }: Props) {
-  const audioRef = useRef<HTMLAudioElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [speed, setSpeed] = useState(1);
-  const [volume, setVolume] = useState(1);
-  const [isMuted, setIsMuted] = useState(false);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
+  const [useIframe, setUseIframe] = useState(false);
 
   const recorder = useRecorder();
   const [recordedUrl, setRecordedUrl] = useState<string | null>(null);
-  const [comparisonPlaying, setComparisonPlaying] = useState(false);
-  const comparisonAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.playbackRate = speed;
-      audioRef.current.volume = isMuted ? 0 : volume;
-    }
-  }, [speed, volume, isMuted]);
+  const youtubeUrl = `https://www.youtube.com/embed/${lesson.youtubeId}?enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`;
 
   useEffect(() => {
     if (recorder.audioBlob) {
@@ -48,38 +38,75 @@ export function ShadowingPlayer({ lesson }: Props) {
   useEffect(() => {
     return () => {
       if (recordedUrl) URL.revokeObjectURL(recordedUrl);
-      comparisonAudioRef.current?.pause();
     };
   }, [recordedUrl]);
 
-  const handlePlayPause = useCallback(() => {
-    if (isPlaying) {
-      audioRef.current?.pause();
-    } else {
-      audioRef.current?.play();
-    }
-    setIsPlaying(!isPlaying);
-  }, [isPlaying]);
+  useEffect(() => {
+    if (!useIframe || !iframeRef.current) return;
 
-  const handleSeek = useCallback((time: number) => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = time;
-      setCurrentTime(time);
-    }
-  }, []);
+    const updateTime = () => {
+      if (!iframeRef.current?.contentWindow) return;
+      iframeRef.current.contentWindow.postMessage(
+        '{"event":"listening","id":"shadowing-player"}',
+        "*",
+      );
+    };
+
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== "https://www.youtube.com") return;
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event === "onStateChange" && data.info === 1) {
+          setIsPlaying(true);
+        } else if (data.event === "onStateChange" && data.info === 2) {
+          setIsPlaying(false);
+        }
+      } catch {
+        // ignore
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    const interval = setInterval(updateTime, 1000);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+      clearInterval(interval);
+    };
+  }, [useIframe]);
+
+  useEffect(() => {
+    if (!useIframe || !isPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentTime((prev) => {
+        const active = lesson.transcript.find(
+          (s) => s.startTime <= prev && prev < s.endTime,
+        );
+        if (active) setActiveSegment(active.id);
+        return prev + 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [useIframe, isPlaying, lesson.transcript]);
 
   const handleSegmentClick = useCallback(
     (segment: ShadowingSegment) => {
-      handleSeek(segment.start);
       setActiveSegment(segment.id);
+      if (useIframe && iframeRef.current) {
+        iframeRef.current.contentWindow?.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: "seekTo",
+            args: [segment.startTime, true],
+          }),
+          "*",
+        );
+      }
     },
-    [handleSeek],
+    [useIframe],
   );
-
-  const handleSpeedChange = useCallback((newSpeed: number) => {
-    setSpeed(newSpeed);
-    if (audioRef.current) audioRef.current.playbackRate = newSpeed;
-  }, []);
 
   const handleRecord = useCallback(async () => {
     if (recorder.isRecording) {
@@ -89,127 +116,70 @@ export function ShadowingPlayer({ lesson }: Props) {
     }
   }, [recorder]);
 
-  const handlePlayComparison = useCallback(
-    (which: "original" | "recorded") => {
-      comparisonAudioRef.current?.pause();
-      if (which === "original" && audioRef.current) {
-        audioRef.current.currentTime = activeSegment
-          ? lesson.transcript.find((s) => s.id === activeSegment)?.start ?? 0
-          : 0;
-        audioRef.current.play();
-        setIsPlaying(true);
-      } else if (which === "recorded" && recordedUrl) {
-        if (!comparisonAudioRef.current) {
-          comparisonAudioRef.current = new Audio(recordedUrl);
-        }
-        comparisonAudioRef.current.src = recordedUrl;
-        comparisonAudioRef.current.play();
-        setComparisonPlaying(true);
-        comparisonAudioRef.current.onended = () => setComparisonPlaying(false);
-      }
-    },
-    [activeSegment, lesson.transcript, recordedUrl],
-  );
+  const handleSpeedChange = useCallback((newSpeed: number) => {
+    setSpeed(newSpeed);
+    if (useIframe && iframeRef.current) {
+      iframeRef.current.contentWindow?.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "setPlaybackRate",
+          args: [newSpeed],
+        }),
+        "*",
+      );
+    }
+  }, [useIframe]);
 
   return (
     <div className="space-y-6">
-      {/* Player */}
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-medium">{lesson.title}</h3>
-          <span className="text-sm text-muted-foreground">{lesson.duration}</span>
+          <div>
+            <h3 className="font-medium">{lesson.title}</h3>
+            <p className="text-sm text-muted-foreground">{lesson.titleVi}</p>
+          </div>
+          <span className="rounded-full bg-accent px-2 py-1 text-xs font-medium text-accent-foreground">
+            {lesson.level}
+          </span>
         </div>
 
-        {lesson.type === "audio" ? (
-          <div className="relative overflow-hidden rounded-xl bg-black/5">
-            <audio
-              ref={audioRef}
-              src={lesson.url}
-              onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-              onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-              onEnded={() => setIsPlaying(false)}
-              className="hidden"
-            />
-            <div className="flex flex-col items-center gap-2 p-6">
-              <div className="flex items-center gap-3">
-                <Button
-                  size="icon"
-                  className="h-12 w-12 rounded-full"
-                  onClick={handlePlayPause}
-                >
-                  {isPlaying ? (
-                    <Pause className="h-6 w-6" />
-                  ) : (
-                    <Play className="h-6 w-6" />
-                  )}
-                </Button>
-                <div className="text-sm text-muted-foreground">
-                  {formatTime(currentTime)} / {formatTime(duration)}
-                </div>
-              </div>
+        <div className="overflow-hidden rounded-xl bg-black">
+          <iframe
+            ref={iframeRef}
+            src={youtubeUrl}
+            title={lesson.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="aspect-video w-full"
+          />
+        </div>
 
-              <div className="relative h-2 w-full max-w-md rounded-full bg-muted">
-                <div
-                  className="absolute h-full rounded-full bg-primary"
-                  style={{ width: `${(currentTime / duration) * 100}%` }}
-                />
-                <input
-                  type="range"
-                  min={0}
-                  max={duration}
-                  value={currentTime}
-                  onChange={(e) => handleSeek(Number(e.target.value))}
-                  className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
-                />
-              </div>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          {SPEEDS.map((s) => (
+            <Button
+              key={s}
+              size="sm"
+              variant={speed === s ? "default" : "outline"}
+              onClick={() => handleSpeedChange(s)}
+              className="h-7 text-xs"
+            >
+              {s}x
+            </Button>
+          ))}
 
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1">
-                  {SPEEDS.map((s) => (
-                    <Button
-                      key={s}
-                      size="sm"
-                      variant={speed === s ? "default" : "outline"}
-                      onClick={() => handleSpeedChange(s)}
-                      className="h-7 text-xs"
-                    >
-                      {s}x
-                    </Button>
-                  ))}
-                </div>
-
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => {
-                    setVolume(volume > 0 ? 0 : 1);
-                    setIsMuted(volume > 0);
-                  }}
-                >
-                  {isMuted ? (
-                    <VolumeX className="h-4 w-4" />
-                  ) : (
-                    <Volume2 className="h-4 w-4" />
-                  )}
-                </Button>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="aspect-video overflow-hidden rounded-xl bg-black">
-            <iframe
-              ref={iframeRef}
-              src={lesson.url}
-              title={lesson.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="h-full w-full"
-            />
-          </div>
-        )}
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => {
+              setUseIframe((prev) => !prev);
+            }}
+          >
+            <Play className="mr-1 h-4 w-4" />
+            {useIframe ? "YouTube" : "Tải video"}
+          </Button>
+        </div>
       </div>
 
-      {/* Transcript + Record */}
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
           <h4 className="mb-3 font-medium">Lời thoại</h4>
@@ -226,7 +196,7 @@ export function ShadowingPlayer({ lesson }: Props) {
                 )}
               >
                 <span className="mr-2 text-xs text-muted-foreground">
-                  {formatTime(seg.start)}
+                  {formatTime(seg.startTime)}
                 </span>
                 {seg.text}
               </button>
@@ -255,7 +225,18 @@ export function ShadowingPlayer({ lesson }: Props) {
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() => handlePlayComparison("original")}
+                    onClick={() => {
+                      if (iframeRef.current?.contentWindow) {
+                        iframeRef.current.contentWindow.postMessage(
+                          JSON.stringify({
+                            event: "command",
+                            func: "playVideo",
+                            args: [],
+                          }),
+                          "*",
+                        );
+                      }
+                    }}
                   >
                     <Play className="mr-1 h-4 w-4" />
                     Bản gốc
@@ -263,7 +244,10 @@ export function ShadowingPlayer({ lesson }: Props) {
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() => handlePlayComparison("recorded")}
+                    onClick={() => {
+                      const audio = new Audio(recordedUrl);
+                      audio.play();
+                    }}
                   >
                     <Play className="mr-1 h-4 w-4" />
                     Giọng bạn

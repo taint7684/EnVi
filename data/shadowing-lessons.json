@@ -1,0 +1,174 @@
+[
+  {
+    "id": "voa-health",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "VOA Learning English - Health Report",
+    "titleVi": "VOA Learning English - Báo cáo Sức khỏe",
+    "level": "A2-B1",
+    "duration": "5:30",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 8, "text": "Welcome to The Health Report. I'm Ashley Thompson." },
+      { "id": 2, "startTime": 8, "endTime": 16, "text": "Today we're going to talk about a new study on sleep and memory." },
+      { "id": 3, "startTime": 16, "endTime": 24, "text": "Researchers at Stanford University found that people who sleep at least seven hours a night perform better on memory tests." },
+      { "id": 4, "startTime": 24, "endTime": 32, "text": "The study followed over five hundred participants for six months." },
+      { "id": 5, "startTime": 32, "endTime": 40, "text": "Participants were divided into two groups: those who slept eight hours and those who slept six hours." },
+      { "id": 6, "startTime": 40, "endTime": 48, "text": "The results showed that the eight-hour group scored twenty percent higher on average." },
+      { "id": 7, "startTime": 48, "endTime": 56, "text": "Dr. Martinez, the lead researcher, says sleep is essential for consolidating memories." },
+      { "id": 8, "startTime": 56, "endTime": 64, "text": "Without adequate rest, the brain cannot properly process and store new information." },
+      { "id": 9, "startTime": 64, "endTime": 72, "text": "The researchers recommend that adults aim for seven to nine hours of sleep each night." },
+      { "id": 10, "startTime": 72, "endTime": 80, "text": "That's all for today's Health Report. Join us next week for more updates." }
+    ]
+  },
+  {
+    "id": "ted-learning",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "TED Talk - How to Learn Anything",
+    "titleVi": "TED Talk - Cách Học Bất Cứ Điều Gì",
+    "level": "B1-B2",
+    "duration": "18:42",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 10, "text": "Thank you so much. It's a pleasure to be here today." },
+      { "id": 2, "startTime": 10, "endTime": 20, "text": "I want to talk about something that changed my life completely." },
+      { "id": 3, "startTime": 20, "endTime": 30, "text": "Five years ago, I decided to learn how to play the guitar." },
+      { "id": 4, "startTime": 30, "endTime": 40, "text": "I had always wanted to play, but I thought I was too old to start." },
+      { "id": 5, "startTime": 40, "endTime": 50, "text": "I was wrong. The truth is, anyone can learn anything at any age." },
+      { "id": 6, "startTime": 50, "endTime": 60, "text": "The key is not talent, but practice and persistence." },
+      { "id": 7, "startTime": 60, "endTime": 70, "text": "I practiced for thirty minutes every single day." },
+      { "id": 8, "startTime": 70, "endTime": 80, "text": "After six months, I could play my first complete song." },
+      { "id": 9, "startTime": 80, "endTime": 90, "text": "After one year, I joined a band and performed at local venues." },
+      { "id": 10, "startTime": 90, "endTime": 100, "text": "The lesson I learned is simple: consistency beats intensity." }
+    ]
+  },
+  {
+    "id": "voa-tech",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "VOA Learning English - Technology Report",
+    "titleVi": "VOA Learning English - Báo cáo Công nghệ",
+    "level": "A2-B1",
+    "duration": "5:45",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 6, "text": "Hello and welcome to the Technology Report from VOA Learning English." },
+      { "id": 2, "startTime": 6, "endTime": 12, "text": "Artificial intelligence is changing the way we work and live." },
+      { "id": 3, "startTime": 12, "endTime": 18, "text": "A new report from MIT shows that AI could replace forty percent of jobs in the next decade." },
+      { "id": 4, "startTime": 18, "endTime": 24, "text": "However, the report also emphasizes that AI will create new opportunities." },
+      { "id": 5, "startTime": 24, "endTime": 30, "text": "Jobs in data analysis, machine learning, and robotics are growing rapidly." },
+      { "id": 6, "startTime": 30, "endTime": 36, "text": "Experts advise workers to develop skills in critical thinking and creativity." },
+      { "id": 7, "startTime": 36, "endTime": 42, "text": "These human abilities are difficult for machines to replicate." },
+      { "id": 8, "startTime": 42, "endTime": 48, "text": "The report concludes that continuous learning will be essential for career success." }
+    ]
+  },
+  {
+    "id": "ted-education",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "TED-Ed - Why We Study History",
+    "titleVi": "TED-Ed - Tại Sao Chúng Ta Học Lịch Sử",
+    "level": "B1-B2",
+    "duration": "4:20",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 5, "text": "Have you ever wondered why we study history?" },
+      { "id": 2, "startTime": 5, "endTime": 10, "text": "It's not just about memorizing dates and names." },
+      { "id": 3, "startTime": 10, "endTime": 15, "text": "History helps us understand how societies evolved over time." },
+      { "id": 4, "startTime": 15, "endTime": 20, "text": "It teaches us about cause and effect, patterns, and consequences." },
+      { "id": 5, "startTime": 20, "endTime": 25, "text": "By studying the past, we can make better decisions for the future." },
+      { "id": 6, "startTime": 25, "endTime": 30, "text": "History also helps us appreciate different cultures and perspectives." },
+      { "id": 7, "startTime": 30, "endTime": 35, "text": "It reminds us that we are part of a larger human story." }
+    ]
+  },
+  {
+    "id": "voa-english",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "VOA Learning English - English in a Minute",
+    "titleVi": "VOA Learning English - Tiếng Anh Trong Một Phút",
+    "level": "A2-B1",
+    "duration": "3:15",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 4, "text": "Welcome to English in a Minute." },
+      { "id": 2, "startTime": 4, "endTime": 8, "text": "Today's phrase is: to break the ice." },
+      { "id": 3, "startTime": 8, "endTime": 12, "text": "This means to make people feel more comfortable in a social situation." },
+      { "id": 4, "startTime": 12, "endTime": 16, "text": "For example: I told a joke to break the ice at the party." },
+      { "id": 5, "startTime": 16, "endTime": 20, "text": "The phrase comes from the idea of breaking through a barrier." },
+      { "id": 6, "startTime": 20, "endTime": 24, "text": "Try using this phrase in your next conversation." }
+    ]
+  },
+  {
+    "id": "ted-science",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "TED Talk - The Power of Curiosity",
+    "titleVi": "TED Talk - Sức Mạnh Của Sự Tò Mò",
+    "level": "B1-B2",
+    "duration": "12:30",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 12, "text": "Curiosity is one of the most powerful drivers of learning." },
+      { "id": 2, "startTime": 12, "endTime": 24, "text": "When we're curious, our brains release dopamine, which makes learning feel rewarding." },
+      { "id": 3, "startTime": 24, "endTime": 36, "text": "Children are naturally curious, but as we grow older, we often lose that sense of wonder." },
+      { "id": 4, "startTime": 36, "endTime": 48, "text": "The good news is that we can rekindle curiosity by asking questions and exploring new topics." },
+      { "id": 5, "startTime": 48, "endTime": 60, "text": "Studies show that curious people tend to be more creative and better problem-solvers." },
+      { "id": 6, "startTime": 60, "endTime": 72, "text": "So next time you encounter something new, take a moment to ask: why? and how?" }
+    ]
+  },
+  {
+    "id": "voa-travel",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "VOA Learning English - Travel Tips",
+    "titleVi": "VOA Learning English - Mẹo Du Lịch",
+    "level": "A2-B1",
+    "duration": "4:50",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 5, "text": "Traveling can be exciting but also stressful." },
+      { "id": 2, "startTime": 5, "endTime": 10, "text": "Here are some tips to make your trip smoother." },
+      { "id": 3, "startTime": 10, "endTime": 15, "text": "Always keep your passport and important documents in a safe place." },
+      { "id": 4, "startTime": 15, "endTime": 20, "text": "Make copies of your documents in case you lose the originals." },
+      { "id": 5, "startTime": 20, "endTime": 25, "text": "Learn a few basic phrases in the local language." },
+      { "id": 6, "startTime": 25, "endTime": 30, "text": "This can help you connect with locals and navigate more easily." },
+      { "id": 7, "startTime": 30, "endTime": 35, "text": "Remember to stay hydrated and take breaks during long journeys." }
+    ]
+  },
+  {
+    "id": "ted-creativity",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "TED Talk - Unlocking Creativity",
+    "titleVi": "TED Talk - Khơi Dậy Sáng Tạo",
+    "level": "B1-B2",
+    "duration": "15:20",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 15, "text": "Creativity is not something you're born with; it's a skill you can develop." },
+      { "id": 2, "startTime": 15, "endTime": 30, "text": "The first step is to embrace curiosity and ask more questions." },
+      { "id": 3, "startTime": 30, "endTime": 45, "text": "Don't be afraid to make mistakes; they are part of the creative process." },
+      { "id": 4, "startTime": 45, "endTime": 60, "text": "Try combining ideas from different fields to create something new." },
+      { "id": 5, "startTime": 60, "endTime": 75, "text": "Take breaks and give your mind time to wander; this often leads to breakthroughs." },
+      { "id": 6, "startTime": 75, "endTime": 90, "text": "Surround yourself with diverse perspectives and experiences." }
+    ]
+  },
+  {
+    "id": "voa-environment",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "VOA Learning English - Environment Report",
+    "titleVi": "VOA Learning English - Báo cáo Môi trường",
+    "level": "B1-B2",
+    "duration": "5:10",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 5, "text": "Climate change is one of the biggest challenges facing our planet." },
+      { "id": 2, "startTime": 5, "endTime": 10, "text": "Rising temperatures are causing ice caps to melt and sea levels to rise." },
+      { "id": 3, "startTime": 10, "endTime": 15, "text": "Scientists warn that we need to reduce carbon emissions significantly." },
+      { "id": 4, "startTime": 15, "endTime": 20, "text": "Renewable energy sources like solar and wind power are becoming more affordable." },
+      { "id": 5, "startTime": 20, "endTime": 25, "text": "Individuals can help by reducing waste and conserving energy." },
+      { "id": 6, "startTime": 25, "endTime": 30, "text": "Small changes in our daily habits can make a big difference over time." }
+    ]
+  },
+  {
+    "id": "ted-leadership",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "TED Talk - What Makes a Great Leader",
+    "titleVi": "TED Talk - Điều Tạo Nên Nhà Lãnh Đạo Giỏi",
+    "level": "B1-B2",
+    "duration": "14:10",
+    "transcript": [
+      { "id": 1, "startTime": 0, "endTime": 14, "text": "Great leaders inspire others to achieve their full potential." },
+      { "id": 2, "startTime": 14, "endTime": 28, "text": "They communicate a clear vision and set achievable goals." },
+      { "id": 3, "startTime": 28, "endTime": 42, "text": "Good leaders listen actively and value their team's input." },
+      { "id": 4, "startTime": 42, "endTime": 56, "text": "They lead by example and demonstrate integrity in their actions." },
+      { "id": 5, "startTime": 56, "endTime": 70, "text": "Great leaders also know how to delegate and empower others." },
+      { "id": 6, "startTime": 70, "endTime": 84, "text": "They remain calm under pressure and make thoughtful decisions." }
+    ]
+  }
+]

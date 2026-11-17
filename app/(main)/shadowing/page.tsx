@@ -6,7 +6,7 @@ export default function ShadowingPage() {
     <div className="mx-auto max-w-5xl">
       <h1 className="mb-2 font-serif text-2xl font-semibold">Shadowing</h1>
       <p className="mb-6 text-muted-foreground">
-        Nghe và nói lại theo audio/video. Nhấp vào lời thoại để tua đến đoạn đó.
+        Nghe và nói lại theo video. Nhấp vào lời thoại để tua đến đoạn đó.
       </p>
 
       <div className="space-y-6">
