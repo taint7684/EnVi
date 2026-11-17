@@ -1,29 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Volume2, RotateCcw, Check, X } from "lucide-react";
+import { Volume2, RotateCcw, Check, Play, Film } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { diffWords } from "diff";
-
-const DICTATION_SENTENCES = [
-  "The weather is beautiful today.",
-  "I would like to order a cup of coffee.",
-  "She has been working here for five years.",
-  "They are going to visit their grandparents next week.",
-  "Could you please tell me where the library is?",
-  "The meeting has been postponed until tomorrow afternoon.",
-  "Learning a new language takes time and practice.",
-  "He always arrives at work before eight o'clock.",
-];
-
-function speak(text: string) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 0.9;
-  window.speechSynthesis.speak(utterance);
-}
+import { DICTATION_LESSONS } from "@/lib/dictation-data";
 
 function DiffResult({ userText, expected }: { userText: string; expected: string }) {
   const diff = diffWords(userText.toLowerCase(), expected.toLowerCase());
@@ -52,16 +35,25 @@ function DiffResult({ userText, expected }: { userText: string; expected: string
   );
 }
 
+function speak(text: string) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.9;
+  window.speechSynthesis.speak(utterance);
+}
+
 export function DictationGame() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [userText, setUserText] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
+  const [showVideo, setShowVideo] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const currentSentence = DICTATION_SENTENCES[currentIndex];
-  const isCorrect = userText.trim().toLowerCase() === currentSentence.toLowerCase();
+  const currentLesson = DICTATION_LESSONS[currentIndex];
+  const isCorrect = userText.trim().toLowerCase() === currentLesson.transcript.toLowerCase();
 
   useEffect(() => {
     return () => {
@@ -69,9 +61,17 @@ export function DictationGame() {
     };
   }, []);
 
-  const handlePlay = () => {
+  const handlePlayTTS = () => {
     window.speechSynthesis.cancel();
-    speak(currentSentence);
+    speak(currentLesson.transcript);
+  };
+
+  const handlePlayVideo = () => {
+    setShowVideo(true);
+  };
+
+  const handleVideoEnd = () => {
+    setShowVideo(false);
   };
 
   const handleSubmit = () => {
@@ -81,9 +81,10 @@ export function DictationGame() {
   };
 
   const handleNext = () => {
-    setCurrentIndex((i) => (i + 1) % DICTATION_SENTENCES.length);
+    setCurrentIndex((i) => (i + 1) % DICTATION_LESSONS.length);
     setUserText("");
     setShowResult(false);
+    setShowVideo(false);
     inputRef.current?.focus();
   };
 
@@ -96,31 +97,89 @@ export function DictationGame() {
   };
 
   return (
-    <div className="mx-auto max-w-2xl space-y-6">
+    <div className="mx-auto max-w-3xl space-y-4">
       <div className="flex items-center justify-between">
         <span className="text-sm text-muted-foreground">
-          Câu {currentIndex + 1}/{DICTATION_SENTENCES.length}
+          Bài {currentIndex + 1}/{DICTATION_LESSONS.length}
         </span>
         <span className="text-sm text-muted-foreground">
           Điểm: {score}/{total}
         </span>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-center">
-          <Button
-            size="icon"
-            className="h-14 w-14 rounded-full"
-            onClick={handlePlay}
-          >
-            <Volume2 className="h-6 w-6" />
-          </Button>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+          <h4 className="mb-3 font-medium">Video / Audio</h4>
+
+          {showVideo ? (
+            <div className="overflow-hidden rounded-xl bg-black">
+              <iframe
+                ref={iframeRef}
+                src={`${currentLesson.videoUrl}?autoplay=1&enablejsapi=1`}
+                title={currentLesson.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="aspect-video w-full"
+                onLoad={() => {
+                  // Video ended detection via postMessage
+                  const handleMessage = (event: MessageEvent) => {
+                    if (event.origin !== "https://www.youtube.com") return;
+                    try {
+                      const data = JSON.parse(event.data);
+                      if (data.event === "onStateChange" && data.info === 0) {
+                        handleVideoEnd();
+                      }
+                    } catch {
+                      // ignore
+                    }
+                  };
+                  window.addEventListener("message", handleMessage);
+                }}
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center gap-3 rounded-xl bg-muted p-8">
+              <div
+                className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted"
+                style={{
+                  backgroundImage: `url(${currentLesson.thumbnail})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                  <button
+                    onClick={handlePlayVideo}
+                    className="flex size-16 items-center justify-center rounded-full bg-white/90 text-black shadow-lg transition-transform hover:scale-105"
+                  >
+                    <Film className="size-6" />
+                  </button>
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <Button onClick={handlePlayVideo} size="sm">
+                  <Film className="mr-1 h-4 w-4" />
+                  Xem video
+                </Button>
+                <Button onClick={handlePlayTTS} variant="outline" size="sm">
+                  <Volume2 className="mr-1 h-4 w-4" />
+                  Nghe TTS
+                </Button>
+              </div>
+            </div>
+          )}
+
+          <p className="mt-2 text-xs text-muted-foreground">
+            {currentLesson.title} · {currentLesson.titleVi} · {currentLesson.level}
+          </p>
         </div>
 
-        <div className="space-y-3">
+        <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
+          <h4 className="mb-3 font-medium">Gõ lại lời thoại</h4>
+
           <Input
             ref={inputRef}
-            placeholder="Gõ lại câu bạn nghe được..."
+            placeholder="Gõ lại những gì bạn nghe được..."
             value={userText}
             onChange={(e) => setUserText(e.target.value)}
             onKeyDown={(e) => {
@@ -128,14 +187,14 @@ export function DictationGame() {
               if (e.key === "Enter" && showResult) handleNext();
             }}
             disabled={showResult}
-            className="text-center text-lg"
+            className="mb-3"
           />
 
           {showResult && (
-            <DiffResult userText={userText} expected={currentSentence} />
+            <DiffResult userText={userText} expected={currentLesson.transcript} />
           )}
 
-          <div className="flex items-center justify-center gap-2">
+          <div className="mt-3 flex items-center justify-center gap-2">
             {!showResult ? (
               <Button onClick={handleSubmit} disabled={!userText.trim()}>
                 <Check className="mr-1 h-4 w-4" />
@@ -143,7 +202,7 @@ export function DictationGame() {
               </Button>
             ) : (
               <Button onClick={handleNext}>
-                Câu tiếp theo
+                Bài tiếp theo
                 <RotateCcw className="ml-1 h-4 w-4" />
               </Button>
             )}

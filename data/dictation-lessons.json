@@ -1,0 +1,102 @@
+[
+  {
+    "id": "dict-1",
+    "title": "At the Coffee Shop",
+    "titleVi": "Tại Quán Cà Phê",
+    "level": "A2",
+    "duration": "15s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to order a cup of coffee with milk, please. Could I also have a slice of chocolate cake? The total comes to eight dollars and fifty cents."
+  },
+  {
+    "id": "dict-2",
+    "title": "Directions to the Station",
+    "titleVi": "Chỉ Đường Đến Ga",
+    "level": "A2-B1",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Excuse me, could you tell me how to get to the train station? Go straight down this street and turn left at the second traffic light. The station is about two hundred meters from here. You cannot miss it."
+  },
+  {
+    "id": "dict-3",
+    "title": "Job Interview",
+    "titleVi": "Phỏng Vấn Xin Việc",
+    "level": "B1-B2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tell me about yourself and why you are interested in this position. I have five years of experience in software development. I am passionate about creating user-friendly applications and solving complex technical challenges."
+  },
+  {
+    "id": "dict-4",
+    "title": "Hotel Check-in",
+    "titleVi": "Nhận Phòng Khách Sạn",
+    "level": "A2-B1",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Good evening. I have a reservation under the name Johnson. I would like a room with a city view for two nights. Does the room rate include breakfast? What time is check-out?"
+  },
+  {
+    "id": "dict-5",
+    "title": "Weather Forecast",
+    "titleVi": "Dự Báo Thời Tiết",
+    "level": "A2",
+    "duration": "15s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tomorrow will be sunny with a high of twenty-five degrees Celsius. In the evening, there is a chance of light rain. Make sure to carry an umbrella if you are going out late."
+  },
+  {
+    "id": "dict-6",
+    "title": "Shopping for Clothes",
+    "titleVi": "Mua Sắm Quần Áo",
+    "level": "A2",
+    "duration": "16s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Do you have this shirt in a medium size? I am looking for something in blue. How much does it cost? Is there a discount if I buy two items? Can I try it on in the fitting room?"
+  },
+  {
+    "id": "dict-7",
+    "title": "At the Doctor's Office",
+    "titleVi": "Tại Phòng Khám Bác Sĩ",
+    "level": "B1-B2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been experiencing headaches for the past week. The pain is usually in the morning and gets worse when I look at screens. I have tried over-the-counter medication but it has not helped much."
+  },
+  {
+    "id": "dict-8",
+    "title": "Making Plans with Friends",
+    "titleVi": "Lên Kế Hoạch Với Bạn Bè",
+    "level": "B1",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Are you free this Saturday? I was thinking we could go to the new Italian restaurant downtown. I have heard the pasta is excellent. We could meet at six o'clock and maybe catch a movie afterwards."
+  },
+  {
+    "id": "dict-9",
+    "title": "Tech Support Call",
+    "titleVi": "Gọi Hỗ Trợ Kỹ Thuật",
+    "level": "B1-B2",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My internet connection has been unstable for the past hour. The router lights are blinking red. I have already tried restarting the router and checking all cables. Could you run a diagnostic test on your end?"
+  },
+  {
+    "id": "dict-10",
+    "title": "Airport Announcement",
+    "titleVi": "Thông Báo Tại Sân Bay",
+    "level": "B1-B2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Attention passengers: Flight AA237 to New York has been delayed due to weather conditions. The new departure time is three thirty PM. We apologize for the inconvenience and appreciate your patience."
+  }
+]
