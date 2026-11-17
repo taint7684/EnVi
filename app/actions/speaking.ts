@@ -58,4 +58,10 @@ export async function endSpeakingSession(sessionId: string): Promise<void> {
     .eq("user_id", user.id);
 
   if (error) throw new Error(error.message);
+
+  // Award XP for completing a speaking session (50 XP)
+  await supabase.rpc("add_xp", {
+    user_uuid: user.id,
+    xp_amount: 50,
+  });
 }

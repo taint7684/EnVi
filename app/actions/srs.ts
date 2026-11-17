@@ -37,5 +37,13 @@ export async function reviewWord(
 
   if (error) throw new Error(error.message);
 
+  // Award XP for reviewing a card (Good/Easy = 10 XP)
+  if (grade === "good" || grade === "easy") {
+    await supabase.rpc("add_xp", {
+      user_uuid: user.id,
+      xp_amount: 10,
+    });
+  }
+
   return { ok: true, dueAt: next.due.toISOString() };
 }

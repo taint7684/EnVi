@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/app-nav";
+import { XpBar } from "@/components/gamification/xp-bar";
 import { SignOutButton } from "@/components/sign-out-button";
 
 export default async function MainLayout({
@@ -32,7 +33,8 @@ export default async function MainLayout({
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex items-center justify-between gap-4 border-b border-border px-4 py-3 md:px-8">
-          <span className="truncate text-sm text-muted-foreground">
+          <XpBar />
+          <span className="hidden truncate text-sm text-muted-foreground sm:inline">
             {user.email}
           </span>
           <SignOutButton />

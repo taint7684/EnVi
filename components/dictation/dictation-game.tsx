@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { diffWords } from "diff";
 import { DICTATION_LESSONS } from "@/lib/dictation-data";
+import { awardDictationXp } from "@/app/actions/dictation";
 
 function DiffResult({ userText, expected }: { userText: string; expected: string }) {
   const diff = diffWords(userText.toLowerCase(), expected.toLowerCase());
@@ -77,7 +78,11 @@ export function DictationGame() {
   const handleSubmit = () => {
     setShowResult(true);
     setTotal((t) => t + 1);
-    if (isCorrect) setScore((s) => s + 1);
+    if (isCorrect) {
+      setScore((s) => s + 1);
+      // Award 20 XP for correct answer
+      void awardDictationXp();
+    }
   };
 
   const handleNext = () => {
