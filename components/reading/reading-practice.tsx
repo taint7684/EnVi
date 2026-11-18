@@ -26,14 +26,24 @@ const LEVEL_STYLES: Record<string, string> = {
   B2: "bg-violet-100 text-violet-700",
 };
 
+const PAGE_SIZE = 9;
+
 export function ReadingPractice() {
   const [level, setLevel] = useState<string>("A2");
+  const [visible, setVisible] = useState<number>(PAGE_SIZE);
   const [selected, setSelected] = useState<ReadingPassage | null>(null);
 
   const list = useMemo(
     () => READING_PASSAGES.filter((p) => p.level === level),
     [level],
   );
+
+  const shown = list.slice(0, visible);
+
+  function changeLevel(lv: string) {
+    setLevel(lv);
+    setVisible(PAGE_SIZE);
+  }
 
   if (selected) {
     return (
@@ -54,7 +64,7 @@ export function ReadingPractice() {
           <button
             key={lv}
             type="button"
-            onClick={() => setLevel(lv)}
+            onClick={() => changeLevel(lv)}
             className={cn(
               "rounded-full px-4 py-1.5 text-sm font-medium transition-colors",
               level === lv
@@ -71,7 +81,7 @@ export function ReadingPractice() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((p) => (
+        {shown.map((p) => (
           <button
             key={p.id}
             type="button"
@@ -106,6 +116,17 @@ export function ReadingPractice() {
           </button>
         ))}
       </div>
+
+      {visible < list.length ? (
+        <div className="flex justify-center">
+          <Button
+            variant="outline"
+            onClick={() => setVisible((v) => v + PAGE_SIZE)}
+          >
+            Xem thêm ({list.length - visible} bài)
+          </Button>
+        </div>
+      ) : null}
     </div>
   );
 }

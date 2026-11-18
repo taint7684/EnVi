@@ -1,13 +1,17 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Search, Command, BookOpen, Mic, FileText, Sparkles, ArrowRight } from "lucide-react";
+import { Search, BookOpen, Mic, FileText, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { createClient } from "@/lib/supabase/client";
+import { READING_PASSAGES } from "@/lib/reading-data";
 import { cn } from "@/lib/utils";
 
+const MAX_RESULTS = 10;
+
 type SearchResult = {
-  type: "page" | "word";
+  type: "page" | "word" | "reading";
   title: string;
   subtitle?: string;
   href: string;
@@ -17,11 +21,13 @@ type SearchResult = {
 const PAGES: SearchResult[] = [
   { type: "page", title: "Dashboard", subtitle: "Tổng quan", href: "/dashboard", icon: <BookOpen className="size-4" /> },
   { type: "page", title: "Học từ vựng", subtitle: "Flashcard SRS", href: "/vocab", icon: <BookOpen className="size-4" /> },
+  { type: "page", title: "Phản xạ", subtitle: "Luyện câu giao tiếp", href: "/reflex", icon: <Mic className="size-4" /> },
   { type: "page", title: "Speaking Coach", subtitle: "Luyện nói với AI", href: "/speaking", icon: <Mic className="size-4" /> },
   { type: "page", title: "Shadowing", subtitle: "Nghe và nói lại", href: "/shadowing", icon: <Mic className="size-4" /> },
   { type: "page", title: "Dictation", subtitle: "Nghe chép chính tả", href: "/dictation", icon: <FileText className="size-4" /> },
-  { type: "page", title: "Đọc to", subtitle: "Luyện phát âm", href: "/reading", icon: <BookOpen className="size-4" /> },
-  { type: "page", title: "Ngữ pháp", subtitle: "6 thì + B1-B2", href: "/grammar", icon: <FileText className="size-4" /> },
+  { type: "page", title: "Đọc hiểu", subtitle: "50 bài đọc A2/B1/B2", href: "/reading", icon: <BookOpen className="size-4" /> },
+  { type: "page", title: "Ngữ pháp", subtitle: "16 chủ đề + luyện tập", href: "/grammar", icon: <FileText className="size-4" /> },
+  { type: "page", title: "Kiểm tra", subtitle: "Bài test 20 câu", href: "/progress-test", icon: <FileText className="size-4" /> },
   { type: "page", title: "Lộ trình 90 ngày", subtitle: "Check-in", href: "/roadmap", icon: <Sparkles className="size-4" /> },
   { type: "page", title: "Trợ lý AI", subtitle: "Chatbot", href: "/assistant", icon: <Sparkles className="size-4" /> },
   { type: "page", title: "Cài đặt", subtitle: "Profile", href: "/settings", icon: <FileText className="size-4" /> },
@@ -45,29 +51,43 @@ export function GlobalSearch() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  useEffect(() => {
-    if (!open) {
+  function handleOpenChange(next: boolean) {
+    setOpen(next);
+    if (!next) {
       setQuery("");
       setResults([]);
     }
-  }, [open]);
+  }
 
   const search = useCallback(async (q: string) => {
-    if (!q.trim()) {
+    const term = q.trim().toLowerCase();
+    if (!term) {
       setResults([]);
       return;
     }
 
     setLoading(true);
 
-    // Search pages first
     const pageResults = PAGES.filter(
       (p) =>
-        p.title.toLowerCase().includes(q.toLowerCase()) ||
-        p.subtitle?.toLowerCase().includes(q.toLowerCase()),
+        p.title.toLowerCase().includes(term) ||
+        p.subtitle?.toLowerCase().includes(term),
     );
 
-    // Search words from database
+    const readingResults: SearchResult[] = READING_PASSAGES.filter(
+      (p) =>
+        p.title.toLowerCase().includes(term) ||
+        p.titleVi.toLowerCase().includes(term),
+    )
+      .slice(0, MAX_RESULTS)
+      .map((p) => ({
+        type: "reading" as const,
+        title: p.title,
+        subtitle: `${p.level} · ${p.titleVi}`,
+        href: "/reading",
+        icon: <BookOpen className="size-4" />,
+      }));
+
     let wordResults: SearchResult[] = [];
     try {
       const supabase = createClient();
@@ -75,22 +95,27 @@ export function GlobalSearch() {
         .from("words")
         .select("lemma, meaning_vi")
         .ilike("lemma", `%${q}%`)
-        .limit(5);
+        .limit(MAX_RESULTS);
 
       if (data) {
-        wordResults = data.map((w) => ({
-          type: "word" as const,
-          title: (w as { lemma: string }).lemma,
-          subtitle: (w as { meaning_vi: string }).meaning_vi,
-          href: `/vocab?word=${encodeURIComponent((w as { lemma: string }).lemma)}`,
-          icon: <BookOpen className="size-4" />,
-        }));
+        wordResults = data.map((w) => {
+          const row = w as { lemma: string; meaning_vi: string };
+          return {
+            type: "word" as const,
+            title: row.lemma,
+            subtitle: row.meaning_vi,
+            href: `/vocab?word=${encodeURIComponent(row.lemma)}`,
+            icon: <BookOpen className="size-4" />,
+          };
+        });
       }
     } catch {
       // ignore database errors
     }
 
-    setResults([...pageResults, ...wordResults]);
+    setResults(
+      [...pageResults, ...readingResults, ...wordResults].slice(0, MAX_RESULTS),
+    );
     setLoading(false);
   }, []);
 
@@ -103,14 +128,14 @@ export function GlobalSearch() {
   }, [query, search]);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-lg gap-0 overflow-hidden p-0">
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
           <Search className="size-4 shrink-0 text-muted-foreground" />
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Tìm kiếm trang hoặc từ vựng..."
+            placeholder="Tìm trang, bài đọc hoặc từ vựng..."
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
             autoFocus
           />
@@ -132,7 +157,7 @@ export function GlobalSearch() {
           ) : (
             <div className="space-y-1">
               {results.map((result, i) => (
-                <a
+                <Link
                   key={i}
                   href={result.href}
                   onClick={() => setOpen(false)}
@@ -153,7 +178,7 @@ export function GlobalSearch() {
                     )}
                   </div>
                   <ArrowRight className="size-4 text-muted-foreground" />
-                </a>
+                </Link>
               ))}
             </div>
           )}
