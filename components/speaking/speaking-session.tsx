@@ -9,6 +9,7 @@ import {
 } from "react";
 import {
   ArrowLeft,
+  ArrowRight,
   Keyboard,
   Mic,
   Send,
@@ -19,6 +20,7 @@ import {
 import { endSpeakingSession } from "@/app/actions/speaking";
 import { useRecorder } from "@/hooks/use-recorder";
 import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis";
+import { getFallbackTopic } from "@/data/fallback-questions";
 import type {
   SpeakingError,
   SpeakingNextAction,
@@ -76,6 +78,13 @@ export function SpeakingSession({
   const [loading, setLoading] = useState(false);
   const [transcribing, setTranscribing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [rateLimitRetry, setRateLimitRetry] = useState<{
+    userMessage: string;
+    step: number;
+  } | null>(null);
+  const [fallbackMode, setFallbackMode] = useState(false);
+  const [fallbackQuestionIndex, setFallbackQuestionIndex] = useState(0);
+  const [fallbackAudioUrl, setFallbackAudioUrl] = useState<string | null>(null);
   const [textInput, setTextInput] = useState("");
   const [showTextInput, setShowTextInput] = useState(false);
 
@@ -144,7 +153,19 @@ export function SpeakingSession({
         setCurrentStep(mapNextAction(result.next_action));
         speak(result.ai_response_en);
       } catch (cause) {
-        setError(cause instanceof Error ? cause.message : "Có lỗi xảy ra.");
+        const message =
+          cause instanceof Error ? cause.message : "Có lỗi xảy ra.";
+        const isRateLimit =
+          /429|rate.?limit|quota|hết lượt|đã quá giới hạn/i.test(message);
+
+        if (isRateLimit) {
+          setError(null);
+          setRateLimitRetry({ userMessage, step });
+        } else {
+          setRateLimitRetry(null);
+          setFallbackMode(false);
+          setError(message);
+        }
       } finally {
         setLoading(false);
       }
@@ -249,6 +270,46 @@ export function SpeakingSession({
     sendUserMessage(textInput);
   };
 
+  const handleFallbackToggleRecording = useCallback(async () => {
+    if (isRecording) {
+      try {
+        const blob = await stopRecording();
+        const url = URL.createObjectURL(blob);
+        setFallbackAudioUrl(url);
+      } catch (cause) {
+        setError(
+          cause instanceof Error ? cause.message : "Không thể xử lý ghi âm.",
+        );
+      }
+      return;
+    }
+    setFallbackAudioUrl(null);
+    await startRecording();
+  }, [isRecording, startRecording, stopRecording]);
+
+  const handleFallbackPlayback = useCallback(() => {
+    if (!fallbackAudioUrl) return;
+    const audio = new Audio(fallbackAudioUrl);
+    audio.play();
+  }, [fallbackAudioUrl]);
+
+  const handleFallbackNext = useCallback(() => {
+    const topicInfo = getFallbackTopic(topic);
+    const nextIndex =
+      fallbackQuestionIndex + 1 < topicInfo.questions.length
+        ? fallbackQuestionIndex + 1
+        : 0;
+    setFallbackQuestionIndex(nextIndex);
+    setFallbackAudioUrl(null);
+  }, [fallbackQuestionIndex, topic]);
+
+  const handleRetryAI = useCallback(() => {
+    setFallbackMode(false);
+    setFallbackQuestionIndex(0);
+    setFallbackAudioUrl(null);
+    setRateLimitRetry(null);
+  }, []);
+
   return (
     <div className="mx-auto flex max-w-2xl flex-col">
       <div className="mb-4 flex items-center justify-between gap-3">
@@ -271,41 +332,128 @@ export function SpeakingSession({
         </button>
       </div>
 
-      <div className="mb-4 flex gap-1">
-        {STEPS.map((label, index) => (
-          <div
-            key={label}
-            className={`h-1.5 flex-1 rounded-full transition-colors ${
-              index < displayStep ? "bg-primary" : "bg-muted"
-            }`}
-          />
-        ))}
-      </div>
+      {!fallbackMode && (
+        <>
+          <div className="mb-4 flex gap-1">
+            {STEPS.map((label, index) => (
+              <div
+                key={label}
+                className={`h-1.5 flex-1 rounded-full transition-colors ${
+                  index < displayStep ? "bg-primary" : "bg-muted"
+                }`}
+              />
+            ))}
+          </div>
 
-      <div className="flex min-h-[420px] max-h-[60vh] flex-col gap-3 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
-        {messages.map((message) => (
-          <MessageBubble
-            key={message.id}
-            message={message}
-            onSpeak={() => speak(message.text)}
-          />
-        ))}
+          <div className="flex min-h-[420px] max-h-[60vh] flex-col gap-3 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
+            {messages.map((message) => (
+              <MessageBubble
+                key={message.id}
+                message={message}
+                onSpeak={() => speak(message.text)}
+              />
+            ))}
 
-        {loading ? <TypingIndicator label="AI đang suy nghĩ" /> : null}
-        {transcribing ? (
-          <TypingIndicator label="Đang nghe giọng nói" />
-        ) : null}
+            {loading ? <TypingIndicator label="AI đang suy nghĩ" /> : null}
+            {transcribing ? (
+              <TypingIndicator label="Đang nghe giọng nói" />
+            ) : null}
 
-        <div ref={bottomRef} />
-      </div>
+            <div ref={bottomRef} />
+          </div>
+        </>
+      )}
 
-      {recorderError || error ? (
+      {rateLimitRetry ? (
+        <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex items-center justify-between gap-2">
+          <span>
+            AI đang bận một chút, bạn vui lòng đợi trong giây lát nhé!
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              const { userMessage, step } = rateLimitRetry;
+              setRateLimitRetry(null);
+              void requestAI(userMessage, step);
+            }}
+            className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
+          >
+            Thử lại
+          </button>
+        </div>
+      ) : recorderError || error ? (
         <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
           {recorderError ?? error}
         </div>
       ) : null}
 
-      {showTextInput || recorderError ? (
+      {fallbackMode ? (
+        <div className="mt-3 flex flex-col items-center gap-4">
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
+            <p className="text-sm font-semibold text-foreground mb-4">
+              Câu hỏi {fallbackQuestionIndex + 1}/{
+              getFallbackTopic(topic).questions.length
+            }
+            </p>
+            <p className="text-lg text-foreground italic">
+              {"\""}
+              {getFallbackTopic(topic).questions[fallbackQuestionIndex]}
+              {"\""}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleFallbackToggleRecording}
+              disabled={isRecording}
+              className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                isRecording
+                  ? "animate-pulse bg-red-500 hover:bg-red-600"
+                  : "bg-primary hover:bg-primary/90"
+              }`}
+            >
+              {isRecording ? (
+                <Square className="size-4" />
+              ) : (
+                <Mic className="size-4" />
+              )}
+              {isRecording ? "Dừng" : "Ghi âm"}
+            </button>
+
+            {fallbackAudioUrl ? (
+              <button
+                type="button"
+                onClick={handleFallbackPlayback}
+                className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <Volume2 className="size-4" />
+                Phát lại
+              </button>
+            ) : null}
+
+            <button
+              type="button"
+              onClick={handleFallbackNext}
+              disabled={isRecording}
+              className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
+            >
+              <ArrowRight className="size-4" />
+              Tiếp theo
+            </button>
+          </div>
+
+          <button
+            type="button"
+            onClick={handleRetryAI}
+            className="text-sm text-muted-foreground underline hover:text-foreground"
+          >
+            ← Thử kết nối lại AI
+          </button>
+        </div>
+      ) : null}
+
+      {!fallbackMode && (showTextInput || recorderError) ? (
         <form onSubmit={handleManualSubmit} className="mt-3 flex gap-2">
           <input
             value={textInput}
@@ -324,34 +472,36 @@ export function SpeakingSession({
         </form>
       ) : null}
 
-      <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
-        <button
-          type="button"
-          onClick={() => void handleToggleRecording()}
-          disabled={loading || transcribing}
-          className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
-            isRecording
-              ? "animate-pulse bg-red-500 hover:bg-red-600"
-              : "bg-primary hover:bg-primary/90"
-          }`}
-        >
-          {isRecording ? (
-            <Square className="size-4" />
-          ) : (
-            <Mic className="size-4" />
-          )}
-          {isRecording ? "Dừng thu âm" : "Ghi âm"}
-        </button>
+      {!fallbackMode && (
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => void handleToggleRecording()}
+            disabled={loading || transcribing}
+            className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+              isRecording
+                ? "animate-pulse bg-red-500 hover:bg-red-600"
+                : "bg-primary hover:bg-primary/90"
+            }`}
+          >
+            {isRecording ? (
+              <Square className="size-4" />
+            ) : (
+              <Mic className="size-4" />
+            )}
+            {isRecording ? "Dừng thu âm" : "Ghi âm"}
+          </button>
 
-        <button
-          type="button"
-          onClick={() => setShowTextInput((value) => !value)}
-          className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-        >
-          <Keyboard className="size-4" />
-          {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={() => setShowTextInput((value) => !value)}
+            className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <Keyboard className="size-4" />
+            {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

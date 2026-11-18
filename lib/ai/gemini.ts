@@ -16,7 +16,10 @@ const MODELS = [
   "gemini-3.1-flash-lite",
 ] as const;
 
-const MAX_ATTEMPTS_PER_MODEL = 2;
+const MAX_ATTEMPTS = 5;
+const BASE_BACKOFF_MS = 1000;
+const MAX_BACKOFF_MS = 60000;
+const JITTER_MAX_MS = 500;
 
 export async function callGemini({
   systemPrompt,
@@ -42,46 +45,45 @@ export async function callGemini({
 
   let lastError: unknown;
 
-  for (const model of MODELS) {
-    for (let attempt = 0; attempt < MAX_ATTEMPTS_PER_MODEL; attempt++) {
-      try {
-        const res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`,
-          {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(body),
-            signal: AbortSignal.timeout(60000),
-          },
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+    const model = MODELS[attempt % MODELS.length];
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body),
+          signal: AbortSignal.timeout(60000),
+        },
+      );
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new GeminiError(
+          `Gemini ${res.status} (${model}): ${text.slice(0, 300)}`,
+          res.status,
         );
-
-        if (!res.ok) {
-          const text = await res.text().catch(() => "");
-          throw new GeminiError(
-            `Gemini ${res.status} (${model}): ${text.slice(0, 300)}`,
-            res.status,
-          );
-        }
-
-        const data = (await res.json()) as GeminiResponse;
-        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!text || !text.trim()) {
-          throw new GeminiError("Gemini trả về rỗng", 0);
-        }
-
-        return text;
-      } catch (error) {
-        lastError = error;
-        const status = error instanceof GeminiError ? error.status : undefined;
-        const retryable =
-          status === undefined ||
-          status === 429 ||
-          status === 503 ||
-          (status !== undefined && status >= 500);
-
-        if (attempt === MAX_ATTEMPTS_PER_MODEL - 1 || !retryable) break;
-        await sleep(backoff(attempt));
       }
+
+      const data = (await res.json()) as GeminiResponse;
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text || !text.trim()) {
+        throw new GeminiError("Gemini trả về rỗng", 0);
+      }
+
+      return text;
+    } catch (error) {
+      lastError = error;
+      const status = error instanceof GeminiError ? error.status : undefined;
+      const retryable =
+        status === undefined ||
+        status === 429 ||
+        status === 503 ||
+        (status !== undefined && status >= 500);
+
+      if (attempt === MAX_ATTEMPTS - 1 || !retryable) break;
+      await sleep(backoff(attempt));
     }
   }
 
@@ -99,7 +101,10 @@ type GeminiResponse = {
 };
 
 function backoff(attempt: number): number {
-  return Math.pow(2, attempt) * 1000 + Math.floor(Math.random() * 500);
+  return (
+    Math.min(Math.pow(2, attempt) * BASE_BACKOFF_MS, MAX_BACKOFF_MS) +
+    Math.floor(Math.random() * JITTER_MAX_MS)
+  );
 }
 
 function sleep(ms: number): Promise<void> {
