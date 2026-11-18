@@ -13,6 +13,7 @@ import {
   CalendarCheck,
   Sparkles,
   Settings,
+  ClipboardCheck,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,6 +26,7 @@ const items = [
   { href: "/dictation", label: "Dictation", icon: Headphones },
   { href: "/reading", label: "Đọc to", icon: BookOpen },
   { href: "/grammar", label: "Ngữ pháp", icon: PenLine },
+  { href: "/progress-test", label: "Kiểm tra", icon: ClipboardCheck },
   { href: "/roadmap", label: "Lộ trình", icon: CalendarCheck },
   { href: "/assistant", label: "Trợ lý AI", icon: Sparkles },
   { href: "/settings", label: "Cài đặt", icon: Settings },
