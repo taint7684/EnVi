@@ -93,3 +93,29 @@ export type DuePhrase = {
   phrase: PhraseRow;
   review: PhraseReviewRow | null;
 };
+
+export type StudyTaskType =
+  | "vocab"
+  | "reflex"
+  | "speaking"
+  | "dictation"
+  | "grammar"
+  | "progress-test"
+  | "streak";
+
+export type StudyTask = {
+  id: StudyTaskType;
+  title: string;
+  type: StudyTaskType;
+  url: string;
+  estimatedMinutes: number;
+  isUrgent: boolean;
+};
+
+export type DailyStudyPlan = {
+  priority: string[];
+  targetMinutes: number;
+  tasks: StudyTask[];
+  completedTaskIds: string[];
+  bonusAwarded: boolean;
+};

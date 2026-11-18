@@ -3,14 +3,17 @@
 import { Flame, Clock, Layers, Mic, ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { DailyStudyPlan } from "@/components/dashboard/daily-study-plan";
 import type { DashboardStats, DayData } from "@/lib/dashboard";
+import type { DailyStudyPlan as Plan } from "@/lib/types";
 
 type Props = {
   stats: DashboardStats;
   weekData: DayData[];
+  plan: Plan;
 };
 
-export function DashboardContent({ stats, weekData }: Props) {
+export function DashboardContent({ stats, weekData, plan }: Props) {
   const maxMinutes = Math.max(...weekData.map((d) => d.minutes), 60);
 
   return (
@@ -22,25 +25,7 @@ export function DashboardContent({ stats, weekData }: Props) {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm text-muted-foreground">Hôm nay</p>
-            <p className="mt-1 text-3xl font-semibold text-foreground">
-              {stats.dueCards} thẻ đến hạn
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {stats.dueCards - stats.newCards} thẻ ôn lại · {stats.newCards} từ mới
-            </p>
-          </div>
-          <Button asChild size="lg">
-            <Link href="/vocab">
-              Bắt đầu học
-              <ArrowRight className="size-4" />
-            </Link>
-          </Button>
-        </div>
-      </div>
+      <DailyStudyPlan plan={plan} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <div
