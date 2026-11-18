@@ -1,6 +1,6 @@
 "use client";
 
-import { Volume2 } from "lucide-react";
+import { ExternalLink, Volume2 } from "lucide-react";
 
 import { playWordAudio } from "@/lib/audio";
 import { emojiForTopic } from "@/lib/emoji";
@@ -51,17 +51,31 @@ export function Flashcard({
               <p className="mt-2 text-lg text-muted-foreground">/{word.ipa}/</p>
             ) : null}
 
-            <button
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                playWordAudio(word);
-              }}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent/80"
-            >
-              <Volume2 className="size-4" />
-              Nghe
-            </button>
+            <div className="mt-6 flex items-center gap-2">
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  playWordAudio(word);
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent/80"
+              >
+                <Volume2 className="size-4" />
+                Nghe
+              </button>
+
+              <a
+                href={`https://youglish.com/pronounce/${encodeURIComponent(word.lemma)}/english`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => event.stopPropagation()}
+                className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+                aria-label={`Nghe "${word.lemma}" trong ngữ cảnh thực tế trên YouGlish`}
+              >
+                <ExternalLink className="size-4" />
+                YouGlish
+              </a>
+            </div>
 
             <p className="absolute bottom-4 text-xs text-muted-foreground">
               Nhấn để lật
