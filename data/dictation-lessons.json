@@ -4,99 +4,299 @@
     "title": "At the Coffee Shop",
     "titleVi": "Tại Quán Cà Phê",
     "level": "A2",
-    "duration": "15s",
+    "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "I would like to order a cup of coffee with milk, please. Could I also have a slice of chocolate cake? The total comes to eight dollars and fifty cents."
+    "transcript": "I would like a cup of coffee with milk, please. Could I also have a slice of chocolate cake? The total comes to eight dollars."
   },
   {
     "id": "dict-2",
     "title": "Directions to the Station",
     "titleVi": "Chỉ Đường Đến Ga",
     "level": "A2-B1",
-    "duration": "20s",
+    "duration": "27s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Excuse me, could you tell me how to get to the train station? Go straight down this street and turn left at the second traffic light. The station is about two hundred meters from here. You cannot miss it."
+    "transcript": "Excuse me, how do I get to the train station? Go straight and turn left at the second traffic light. It is about two hundred meters away."
   },
   {
     "id": "dict-3",
     "title": "Job Interview",
     "titleVi": "Phỏng Vấn Xin Việc",
     "level": "B1-B2",
-    "duration": "25s",
+    "duration": "22s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Tell me about yourself and why you are interested in this position. I have five years of experience in software development. I am passionate about creating user-friendly applications and solving complex technical challenges."
+    "transcript": "Tell me about yourself. I have five years of experience in software development and I am passionate about building user friendly applications."
   },
   {
     "id": "dict-4",
     "title": "Hotel Check-in",
     "titleVi": "Nhận Phòng Khách Sạn",
     "level": "A2-B1",
-    "duration": "18s",
+    "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Good evening. I have a reservation under the name Johnson. I would like a room with a city view for two nights. Does the room rate include breakfast? What time is check-out?"
+    "transcript": "Good evening. I have a reservation under the name Johnson for two nights. Does the room rate include breakfast? What time is check out?"
   },
   {
     "id": "dict-5",
     "title": "Weather Forecast",
     "titleVi": "Dự Báo Thời Tiết",
     "level": "A2",
-    "duration": "15s",
+    "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Tomorrow will be sunny with a high of twenty-five degrees Celsius. In the evening, there is a chance of light rain. Make sure to carry an umbrella if you are going out late."
+    "transcript": "Tomorrow will be sunny with a high of twenty five degrees. In the evening there is a chance of light rain, so carry an umbrella."
   },
   {
     "id": "dict-6",
     "title": "Shopping for Clothes",
     "titleVi": "Mua Sắm Quần Áo",
     "level": "A2",
-    "duration": "16s",
+    "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Do you have this shirt in a medium size? I am looking for something in blue. How much does it cost? Is there a discount if I buy two items? Can I try it on in the fitting room?"
+    "transcript": "Do you have this shirt in a medium size? I am looking for something in blue. Is there a discount if I buy two items?"
   },
   {
     "id": "dict-7",
-    "title": "At the Doctor's Office",
-    "titleVi": "Tại Phòng Khám Bác Sĩ",
-    "level": "B1-B2",
-    "duration": "20s",
+    "title": "At the Doctor",
+    "titleVi": "Tại Phòng Khám",
+    "level": "A2-B1",
+    "duration": "26s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "I have been experiencing headaches for the past week. The pain is usually in the morning and gets worse when I look at screens. I have tried over-the-counter medication but it has not helped much."
+    "transcript": "What seems to be the problem today? I have had a headache and a sore throat since yesterday. Take this medicine twice a day and rest."
   },
   {
     "id": "dict-8",
-    "title": "Making Plans with Friends",
-    "titleVi": "Lên Kế Hoạch Với Bạn Bè",
-    "level": "B1",
-    "duration": "18s",
+    "title": "Making a Phone Call",
+    "titleVi": "Gọi Điện Thoại",
+    "level": "A2-B1",
+    "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Are you free this Saturday? I was thinking we could go to the new Italian restaurant downtown. I have heard the pasta is excellent. We could meet at six o'clock and maybe catch a movie afterwards."
+    "transcript": "Hello, may I speak to Mr. Smith, please? I am sorry, he is not available right now. Could I leave a message for him?"
   },
   {
     "id": "dict-9",
-    "title": "Tech Support Call",
-    "titleVi": "Gọi Hỗ Trợ Kỹ Thuật",
-    "level": "B1-B2",
-    "duration": "22s",
+    "title": "At the Airport",
+    "titleVi": "Tại Sân Bay",
+    "level": "A2-B1",
+    "duration": "21s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "My internet connection has been unstable for the past hour. The router lights are blinking red. I have already tried restarting the router and checking all cables. Could you run a diagnostic test on your end?"
+    "transcript": "Your flight to London has been delayed by one hour. Please proceed to gate twelve for boarding. Keep your passport ready."
   },
   {
     "id": "dict-10",
-    "title": "Airport Announcement",
-    "titleVi": "Thông Báo Tại Sân Bay",
-    "level": "B1-B2",
-    "duration": "20s",
+    "title": "A Birthday Party",
+    "titleVi": "Tiệc Sinh Nhật",
+    "level": "A2",
+    "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Attention passengers: Flight AA237 to New York has been delayed due to weather conditions. The new departure time is three thirty PM. We apologize for the inconvenience and appreciate your patience."
+    "transcript": "We are having a birthday party on Saturday at six. The party is at my house on Maple Street. Please bring your favorite drink."
+  },
+  {
+    "id": "dict-11",
+    "title": "Healthy Eating",
+    "titleVi": "Ăn Uống Lành Mạnh",
+    "level": "A2-B1",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Eating vegetables and fruit every day keeps you healthy. Try to drink more water and less soda. Small changes make a big difference."
+  },
+  {
+    "id": "dict-12",
+    "title": "Booking a Flight",
+    "titleVi": "Đặt Vé Máy Bay",
+    "level": "A2-B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to book a round trip flight to Paris in July. A window seat would be great, please. The total is four hundred dollars."
+  },
+  {
+    "id": "dict-13",
+    "title": "Asking for Help",
+    "titleVi": "Nhờ Giúp Đỡ",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you help me carry these boxes, please? They are quite heavy. Thank you so much, I really appreciate your help."
+  },
+  {
+    "id": "dict-14",
+    "title": "At the Library",
+    "titleVi": "Ở Thư Viện",
+    "level": "A2-B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to borrow these two books. They are due back in two weeks. You can renew them online if you need more time."
+  },
+  {
+    "id": "dict-15",
+    "title": "A Busy Monday",
+    "titleVi": "Một Thứ Hai Bận Rộn",
+    "level": "A2-B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Monday is always busy at our office. We have three meetings and a report to finish. I hope we can leave on time today."
+  },
+  {
+    "id": "dict-16",
+    "title": "Learning a New Skill",
+    "titleVi": "Học Một Kỹ Năng Mới",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. Practice for twenty minutes every day. You will be surprised how fast you improve."
+  },
+  {
+    "id": "dict-17",
+    "title": "Saving the Planet",
+    "titleVi": "Cứu Lấy Hành Tinh",
+    "level": "B1",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "We can all help protect the environment. Recycle paper and plastic, save water, and use less electricity. Together our actions matter."
+  },
+  {
+    "id": "dict-18",
+    "title": "City Life",
+    "titleVi": "Cuộc Sống Thành Phố",
+    "level": "B1",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Living in a big city is exciting but expensive. There is always something to do. However, the traffic and noise can be stressful."
+  },
+  {
+    "id": "dict-19",
+    "title": "A Movie Review",
+    "titleVi": "Đánh Giá Phim",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new science fiction movie is amazing. The special effects are realistic and the story is touching. I highly recommend watching it."
+  },
+  {
+    "id": "dict-20",
+    "title": "Working from Home",
+    "titleVi": "Làm Việc Tại Nhà",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Working from home saves time on commuting. However, it is important to keep a clear schedule. Take short breaks to stay focused."
+  },
+  {
+    "id": "dict-21",
+    "title": "Travel Tips",
+    "titleVi": "Mẹo Du Lịch",
+    "level": "B1",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When you travel, keep copies of your documents. Learn a few local phrases. And always stay aware of your surroundings in new places."
+  },
+  {
+    "id": "dict-22",
+    "title": "The Power of Reading",
+    "titleVi": "Sức Mạnh Của Việc Đọc",
+    "level": "B1-B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Reading every day improves your vocabulary and focus. It also reduces stress and helps you sleep better. Start with just ten pages a day."
+  },
+  {
+    "id": "dict-23",
+    "title": "Dealing with Stress",
+    "titleVi": "Đối Phó Với Căng Thẳng",
+    "level": "B1-B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Stress is a normal part of life, but too much can harm your health. Exercise, deep breathing, and talking to friends can really help."
+  },
+  {
+    "id": "dict-24",
+    "title": "A Better Morning",
+    "titleVi": "Một Buổi Sáng Tốt Hơn",
+    "level": "B1-B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "A good morning starts the night before. Prepare your clothes and pack your bag early. A calm morning makes the whole day better."
+  },
+  {
+    "id": "dict-25",
+    "title": "Customer Support",
+    "titleVi": "Hỗ Trợ Khách Hàng",
+    "level": "B1-B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Thank you for calling customer support. I understand your internet has been slow. Let me run a quick test on your connection right now."
+  },
+  {
+    "id": "dict-26",
+    "title": "The Sharing Economy",
+    "titleVi": "Nền Kinh Tế Chia Sẽ",
+    "level": "B2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Apps like ride sharing and home rentals have changed how we travel. They offer convenience, but they also raise questions about safety and fair pay."
+  },
+  {
+    "id": "dict-27",
+    "title": "Artificial Intelligence",
+    "titleVi": "Trí Tuệ Nhân Tạo",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Artificial intelligence can process huge amounts of data quickly. Yet it still struggles with creativity and empathy. The best results come from human and machine working together."
+  },
+  {
+    "id": "dict-28",
+    "title": "Climate Action",
+    "titleVi": "Hành Động Vì Khí Hậu",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Governments must invest in renewable energy and public transport. Individuals can reduce waste and consume less. Meaningful change requires both policy and personal action."
+  },
+  {
+    "id": "dict-29",
+    "title": "The Value of Failure",
+    "titleVi": "Giá Trị Của Thất Bại",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Failure is not the opposite of success; it is part of it. Every mistake teaches us something. People who learn from failure tend to grow the most."
+  },
+  {
+    "id": "dict-30",
+    "title": "A Meaningful Life",
+    "titleVi": "Một Cuộc Sống Ý Nghĩa",
+    "level": "B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "A meaningful life is not about money or fame. It is about relationships, growth, and contribution. Focus on what truly matters to you."
   }
 ]

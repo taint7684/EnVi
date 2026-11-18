@@ -1,174 +1,1202 @@
 [
   {
-    "id": "voa-health",
+    "id": "sh-morning",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "VOA Learning English - Health Report",
-    "titleVi": "VOA Learning English - Báo cáo Sức khỏe",
+    "title": "My Morning Routine",
+    "titleVi": "Thói Quen Buổi Sáng Của Tôi",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "My name is Daniel and I am a teacher."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Every morning I wake up at six thirty."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "First, I drink a glass of water and stretch."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Then I take a warm shower and get dressed."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I eat breakfast with my family before work."
+      }
+    ]
+  },
+  {
+    "id": "sh-cafe",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Ordering at a Café",
+    "titleVi": "Gọi Món Ở Quán Cà Phê",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Good morning, what would you like to order?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "I would like a small latte with oat milk, please."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Would you like anything to eat with that?"
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Yes, I will take a blueberry muffin."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "That will be five dollars and fifty cents."
+      }
+    ]
+  },
+  {
+    "id": "sh-directions",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Asking for Directions",
+    "titleVi": "Hỏi Đường",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Excuse me, could you help me find the museum?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Sure, go straight and turn left at the bank."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "The museum is next to the big library."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "It is about a ten minute walk from here."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Thank you so much for your help!"
+      }
+    ]
+  },
+  {
+    "id": "sh-weather",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Talking About the Weather",
+    "titleVi": "Nói Về Thời Tiết",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "It is really cold today, is not it?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Yes, I think it might snow this evening."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "The weather app says it will be sunny tomorrow."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I hope so, I want to go for a picnic."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Do not forget to bring a warm jacket."
+      }
+    ]
+  },
+  {
+    "id": "sh-shopping",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Shopping for Groceries",
+    "titleVi": "Mua Đồ Ở Siêu Thị",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I need to buy some vegetables and fruit."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "The tomatoes look fresh and red today."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "How much are these apples per kilo?"
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "They are two dollars and ninety cents."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I will take three kilos, please."
+      }
+    ]
+  },
+  {
+    "id": "sh-health",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "A New Study on Sleep",
+    "titleVi": "Một Nghiên Cứu Mới Về Giấc Ngủ",
     "level": "A2-B1",
-    "duration": "5:30",
+    "duration": "1:20",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 8, "text": "Welcome to The Health Report. I'm Ashley Thompson." },
-      { "id": 2, "startTime": 8, "endTime": 16, "text": "Today we're going to talk about a new study on sleep and memory." },
-      { "id": 3, "startTime": 16, "endTime": 24, "text": "Researchers at Stanford University found that people who sleep at least seven hours a night perform better on memory tests." },
-      { "id": 4, "startTime": 24, "endTime": 32, "text": "The study followed over five hundred participants for six months." },
-      { "id": 5, "startTime": 32, "endTime": 40, "text": "Participants were divided into two groups: those who slept eight hours and those who slept six hours." },
-      { "id": 6, "startTime": 40, "endTime": 48, "text": "The results showed that the eight-hour group scored twenty percent higher on average." },
-      { "id": 7, "startTime": 48, "endTime": 56, "text": "Dr. Martinez, the lead researcher, says sleep is essential for consolidating memories." },
-      { "id": 8, "startTime": 56, "endTime": 64, "text": "Without adequate rest, the brain cannot properly process and store new information." },
-      { "id": 9, "startTime": 64, "endTime": 72, "text": "The researchers recommend that adults aim for seven to nine hours of sleep each night." },
-      { "id": 10, "startTime": 72, "endTime": 80, "text": "That's all for today's Health Report. Join us next week for more updates." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Scientists have found that sleep improves memory."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Adults should sleep between seven and nine hours."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "People who sleep less often feel tired and stressed."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "A regular sleep schedule helps the body rest."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Try to avoid your phone before bedtime."
+      }
     ]
   },
   {
-    "id": "ted-learning",
+    "id": "sh-travel",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "TED Talk - How to Learn Anything",
-    "titleVi": "TED Talk - Cách Học Bất Cứ Điều Gì",
-    "level": "B1-B2",
-    "duration": "18:42",
-    "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 10, "text": "Thank you so much. It's a pleasure to be here today." },
-      { "id": 2, "startTime": 10, "endTime": 20, "text": "I want to talk about something that changed my life completely." },
-      { "id": 3, "startTime": 20, "endTime": 30, "text": "Five years ago, I decided to learn how to play the guitar." },
-      { "id": 4, "startTime": 30, "endTime": 40, "text": "I had always wanted to play, but I thought I was too old to start." },
-      { "id": 5, "startTime": 40, "endTime": 50, "text": "I was wrong. The truth is, anyone can learn anything at any age." },
-      { "id": 6, "startTime": 50, "endTime": 60, "text": "The key is not talent, but practice and persistence." },
-      { "id": 7, "startTime": 60, "endTime": 70, "text": "I practiced for thirty minutes every single day." },
-      { "id": 8, "startTime": 70, "endTime": 80, "text": "After six months, I could play my first complete song." },
-      { "id": 9, "startTime": 80, "endTime": 90, "text": "After one year, I joined a band and performed at local venues." },
-      { "id": 10, "startTime": 90, "endTime": 100, "text": "The lesson I learned is simple: consistency beats intensity." }
-    ]
-  },
-  {
-    "id": "voa-tech",
-    "youtubeId": "dQw4w9WgXcQ",
-    "title": "VOA Learning English - Technology Report",
-    "titleVi": "VOA Learning English - Báo cáo Công nghệ",
+    "title": "Planning a Trip",
+    "titleVi": "Lên Kế Hoạch Cho Chuyến Đi",
     "level": "A2-B1",
-    "duration": "5:45",
+    "duration": "1:20",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 6, "text": "Hello and welcome to the Technology Report from VOA Learning English." },
-      { "id": 2, "startTime": 6, "endTime": 12, "text": "Artificial intelligence is changing the way we work and live." },
-      { "id": 3, "startTime": 12, "endTime": 18, "text": "A new report from MIT shows that AI could replace forty percent of jobs in the next decade." },
-      { "id": 4, "startTime": 18, "endTime": 24, "text": "However, the report also emphasizes that AI will create new opportunities." },
-      { "id": 5, "startTime": 24, "endTime": 30, "text": "Jobs in data analysis, machine learning, and robotics are growing rapidly." },
-      { "id": 6, "startTime": 30, "endTime": 36, "text": "Experts advise workers to develop skills in critical thinking and creativity." },
-      { "id": 7, "startTime": 36, "endTime": 42, "text": "These human abilities are difficult for machines to replicate." },
-      { "id": 8, "startTime": 42, "endTime": 48, "text": "The report concludes that continuous learning will be essential for career success." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "We are planning a trip to the mountains next month."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We will rent a small cabin near the lake."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "The drive takes about four hours from the city."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "I have booked the tickets and the hotel already."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "I cannot wait to see the beautiful views."
+      }
     ]
   },
   {
-    "id": "ted-education",
+    "id": "sh-food",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "TED-Ed - Why We Study History",
-    "titleVi": "TED-Ed - Tại Sao Chúng Ta Học Lịch Sử",
-    "level": "B1-B2",
-    "duration": "4:20",
-    "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 5, "text": "Have you ever wondered why we study history?" },
-      { "id": 2, "startTime": 5, "endTime": 10, "text": "It's not just about memorizing dates and names." },
-      { "id": 3, "startTime": 10, "endTime": 15, "text": "History helps us understand how societies evolved over time." },
-      { "id": 4, "startTime": 15, "endTime": 20, "text": "It teaches us about cause and effect, patterns, and consequences." },
-      { "id": 5, "startTime": 20, "endTime": 25, "text": "By studying the past, we can make better decisions for the future." },
-      { "id": 6, "startTime": 25, "endTime": 30, "text": "History also helps us appreciate different cultures and perspectives." },
-      { "id": 7, "startTime": 30, "endTime": 35, "text": "It reminds us that we are part of a larger human story." }
-    ]
-  },
-  {
-    "id": "voa-english",
-    "youtubeId": "dQw4w9WgXcQ",
-    "title": "VOA Learning English - English in a Minute",
-    "titleVi": "VOA Learning English - Tiếng Anh Trong Một Phút",
+    "title": "Cooking Dinner",
+    "titleVi": "Nấu Cơm Tối",
     "level": "A2-B1",
-    "duration": "3:15",
+    "duration": "1:20",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 4, "text": "Welcome to English in a Minute." },
-      { "id": 2, "startTime": 4, "endTime": 8, "text": "Today's phrase is: to break the ice." },
-      { "id": 3, "startTime": 8, "endTime": 12, "text": "This means to make people feel more comfortable in a social situation." },
-      { "id": 4, "startTime": 12, "endTime": 16, "text": "For example: I told a joke to break the ice at the party." },
-      { "id": 5, "startTime": 16, "endTime": 20, "text": "The phrase comes from the idea of breaking through a barrier." },
-      { "id": 6, "startTime": 20, "endTime": 24, "text": "Try using this phrase in your next conversation." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Tonight I am cooking pasta with tomato sauce."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "First, I boil water and add a little salt."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Then I cook the pasta for about ten minutes."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "While it cooks, I prepare a fresh green salad."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Dinner is ready, let us eat together."
+      }
     ]
   },
   {
-    "id": "ted-science",
+    "id": "sh-work",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "TED Talk - The Power of Curiosity",
-    "titleVi": "TED Talk - Sức Mạnh Của Sự Tò Mò",
+    "title": "A Day at the Office",
+    "titleVi": "Một Ngày Ở Văn Phòng",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "The office was busy from the moment we arrived."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We had a team meeting to discuss the new project."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Everyone shared ideas and gave useful feedback."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "By lunchtime, we had finished the first draft."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "It felt great to work together as a team."
+      }
+    ]
+  },
+  {
+    "id": "sh-tech",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "How AI Is Changing Work",
+    "titleVi": "AI Đang Thay Đổi Công Việc",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Artificial intelligence is changing many industries."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It can analyze data faster than any human."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "However, it cannot replace human creativity easily."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Workers should learn new skills to stay competitive."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Continuous learning is the key to future success."
+      }
+    ]
+  },
+  {
+    "id": "sh-env",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Protecting the Environment",
+    "titleVi": "Bảo Vệ Môi Trường",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Climate change is a serious global challenge."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We must reduce the amount of plastic we use."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Recycling helps save energy and natural resources."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Governments and businesses need to act together."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Small daily actions can make a real difference."
+      }
+    ]
+  },
+  {
+    "id": "sh-edu",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Why We Study History",
+    "titleVi": "Tại Sao Chúng Ta Học Lịch Sử",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "History is not only about dates and names."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It helps us understand how societies have changed."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "By studying the past, we learn from mistakes."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "It also teaches us to respect other cultures."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Understanding history helps us build a better future."
+      }
+    ]
+  },
+  {
+    "id": "sh-science",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Power of Curiosity",
+    "titleVi": "Sức Mạnh Của Sự Tò Mò",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Curiosity is one of the strongest drivers of learning."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "When we are curious, our brain releases dopamine."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "This makes learning feel exciting and rewarding."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Children are naturally curious about the world."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "We can keep that curiosity alive by asking questions."
+      }
+    ]
+  },
+  {
+    "id": "sh-culture",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Festivals Around the World",
+    "titleVi": "Lễ Hội Trên Thế Giới",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Every culture has its own special festivals."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "In Japan, people celebrate the cherry blossom season."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "In India, the festival of colors brings people together."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "These events teach us about local traditions."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Traveling during a festival is an unforgettable experience."
+      }
+    ]
+  },
+  {
+    "id": "sh-sport",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Benefits of Exercise",
+    "titleVi": "Lợi Ích Của Việc Tập Thể Dục",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Regular exercise keeps both the body and mind healthy."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It reduces stress and improves your mood."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Doctors recommend at least thirty minutes a day."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "You do not need a gym; walking is enough."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "The most important thing is to stay consistent."
+      }
+    ]
+  },
+  {
+    "id": "sh-money",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Managing Money Wisely",
+    "titleVi": "Quản Lý Tiền Bạc Khôn Ngoan",
     "level": "B1-B2",
-    "duration": "12:30",
+    "duration": "1:30",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 12, "text": "Curiosity is one of the most powerful drivers of learning." },
-      { "id": 2, "startTime": 12, "endTime": 24, "text": "When we're curious, our brains release dopamine, which makes learning feel rewarding." },
-      { "id": 3, "startTime": 24, "endTime": 36, "text": "Children are naturally curious, but as we grow older, we often lose that sense of wonder." },
-      { "id": 4, "startTime": 36, "endTime": 48, "text": "The good news is that we can rekindle curiosity by asking questions and exploring new topics." },
-      { "id": 5, "startTime": 48, "endTime": 60, "text": "Studies show that curious people tend to be more creative and better problem-solvers." },
-      { "id": 6, "startTime": 60, "endTime": 72, "text": "So next time you encounter something new, take a moment to ask: why? and how?" }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Managing money is a skill everyone should learn."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Start by tracking your daily expenses carefully."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Try to save at least ten percent of your income."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Avoid buying things you do not really need."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "A budget gives you control over your financial future."
+      }
     ]
   },
   {
-    "id": "voa-travel",
+    "id": "sh-interview",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "VOA Learning English - Travel Tips",
-    "titleVi": "VOA Learning English - Mẹo Du Lịch",
-    "level": "A2-B1",
-    "duration": "4:50",
-    "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 5, "text": "Traveling can be exciting but also stressful." },
-      { "id": 2, "startTime": 5, "endTime": 10, "text": "Here are some tips to make your trip smoother." },
-      { "id": 3, "startTime": 10, "endTime": 15, "text": "Always keep your passport and important documents in a safe place." },
-      { "id": 4, "startTime": 15, "endTime": 20, "text": "Make copies of your documents in case you lose the originals." },
-      { "id": 5, "startTime": 20, "endTime": 25, "text": "Learn a few basic phrases in the local language." },
-      { "id": 6, "startTime": 25, "endTime": 30, "text": "This can help you connect with locals and navigate more easily." },
-      { "id": 7, "startTime": 30, "endTime": 35, "text": "Remember to stay hydrated and take breaks during long journeys." }
-    ]
-  },
-  {
-    "id": "ted-creativity",
-    "youtubeId": "dQw4w9WgXcQ",
-    "title": "TED Talk - Unlocking Creativity",
-    "titleVi": "TED Talk - Khơi Dậy Sáng Tạo",
+    "title": "A Job Interview",
+    "titleVi": "Một Buổi Phỏng Vấn Xin Việc",
     "level": "B1-B2",
-    "duration": "15:20",
+    "duration": "1:30",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 15, "text": "Creativity is not something you're born with; it's a skill you can develop." },
-      { "id": 2, "startTime": 15, "endTime": 30, "text": "The first step is to embrace curiosity and ask more questions." },
-      { "id": 3, "startTime": 30, "endTime": 45, "text": "Don't be afraid to make mistakes; they are part of the creative process." },
-      { "id": 4, "startTime": 45, "endTime": 60, "text": "Try combining ideas from different fields to create something new." },
-      { "id": 5, "startTime": 60, "endTime": 75, "text": "Take breaks and give your mind time to wander; this often leads to breakthroughs." },
-      { "id": 6, "startTime": 75, "endTime": 90, "text": "Surround yourself with diverse perspectives and experiences." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Thank you for coming in for the interview today."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Could you tell me a little about yourself?"
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "I have three years of experience in marketing."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Why do you want to work for our company?"
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "I admire your mission and I would love to contribute."
+      }
     ]
   },
   {
-    "id": "voa-environment",
+    "id": "sh-negotiate",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "VOA Learning English - Environment Report",
-    "titleVi": "VOA Learning English - Báo cáo Môi trường",
+    "title": "Negotiating a Price",
+    "titleVi": "Mặc Cả Giá Cả",
     "level": "B1-B2",
-    "duration": "5:10",
+    "duration": "1:30",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 5, "text": "Climate change is one of the biggest challenges facing our planet." },
-      { "id": 2, "startTime": 5, "endTime": 10, "text": "Rising temperatures are causing ice caps to melt and sea levels to rise." },
-      { "id": 3, "startTime": 10, "endTime": 15, "text": "Scientists warn that we need to reduce carbon emissions significantly." },
-      { "id": 4, "startTime": 15, "endTime": 20, "text": "Renewable energy sources like solar and wind power are becoming more affordable." },
-      { "id": 5, "startTime": 20, "endTime": 25, "text": "Individuals can help by reducing waste and conserving energy." },
-      { "id": 6, "startTime": 25, "endTime": 30, "text": "Small changes in our daily habits can make a big difference over time." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "This sofa is beautiful, but it is quite expensive."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Would you consider a small discount if I pay cash?"
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "I can offer ten percent off for cash payments."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "That sounds fair, do you deliver to my home?"
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Yes, delivery is free within the city."
+      }
     ]
   },
   {
-    "id": "ted-leadership",
+    "id": "sh-opinion",
     "youtubeId": "dQw4w9WgXcQ",
-    "title": "TED Talk - What Makes a Great Leader",
-    "titleVi": "TED Talk - Điều Tạo Nên Nhà Lãnh Đạo Giỏi",
+    "title": "Giving Your Opinion",
+    "titleVi": "Đưa Ra Ý Kiến",
     "level": "B1-B2",
-    "duration": "14:10",
+    "duration": "1:30",
     "transcript": [
-      { "id": 1, "startTime": 0, "endTime": 14, "text": "Great leaders inspire others to achieve their full potential." },
-      { "id": 2, "startTime": 14, "endTime": 28, "text": "They communicate a clear vision and set achievable goals." },
-      { "id": 3, "startTime": 28, "endTime": 42, "text": "Good leaders listen actively and value their team's input." },
-      { "id": 4, "startTime": 42, "endTime": 56, "text": "They lead by example and demonstrate integrity in their actions." },
-      { "id": 5, "startTime": 56, "endTime": 70, "text": "Great leaders also know how to delegate and empower others." },
-      { "id": 6, "startTime": 70, "endTime": 84, "text": "They remain calm under pressure and make thoughtful decisions." }
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "In my opinion, public transport should be free."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It would reduce traffic and air pollution."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "However, some people think it is too expensive."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "I believe the long term benefits are worth it."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "What do you think about this idea?"
+      }
+    ]
+  },
+  {
+    "id": "sh-story",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "A Short Story",
+    "titleVi": "Một Câu Chuyện Ngắn",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Last summer, I traveled to a small coastal town."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Every morning, I walked along the quiet beach."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "One day, I met an old fisherman named Thomas."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "He told me fascinating stories about the sea."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "That trip taught me to slow down and enjoy life."
+      }
+    ]
+  },
+  {
+    "id": "sh-psych",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Science of Habits",
+    "titleVi": "Khoa Học Về Thói Quen",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Habits shape our lives more than we realize."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Each habit follows a cue, routine, and reward loop."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "To change a habit, you must change the routine."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Small improvements, repeated daily, lead to big results."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Focus on systems rather than short term goals."
+      }
+    ]
+  },
+  {
+    "id": "sh-econ",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Understanding the Economy",
+    "titleVi": "Hiểu Về Kinh Tế",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "The economy affects almost every part of our lives."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Inflation reduces the purchasing power of money."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Central banks raise interest rates to control it."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Unemployment and growth are closely connected."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Understanding these ideas helps us make better choices."
+      }
+    ]
+  },
+  {
+    "id": "sh-tech2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Future of Remote Work",
+    "titleVi": "Tương Lai Của Làm Việc Từ Xa",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Remote work has become common in many industries."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It offers flexibility but also brings new challenges."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Employees must manage their time and stay motivated."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Companies need clear communication and good tools."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The future of work will likely be a hybrid model."
+      }
+    ]
+  },
+  {
+    "id": "sh-lead",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "What Makes a Great Leader",
+    "titleVi": "Điều Tạo Nên Một Nhà Lãnh Đạo Giỏi",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Great leaders inspire people to reach their potential."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "They communicate a clear and honest vision."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "They listen carefully and respect different opinions."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Most importantly, they lead by example every day."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Leadership is about service, not about power."
+      }
+    ]
+  },
+  {
+    "id": "sh-creative",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Unlocking Creativity",
+    "titleVi": "Khơi Mở Sự Sáng Tạo",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Creativity is not a gift; it is a skill you can build."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It begins with curiosity and the courage to experiment."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Do not fear mistakes, because they teach you quickly."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Combine ideas from different fields to find new solutions."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Give your mind time to rest and ideas will appear."
+      }
+    ]
+  },
+  {
+    "id": "sh-med",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Living a Balanced Life",
+    "titleVi": "Sống Cân Bằng",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "A balanced life includes work, rest, and relationships."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We often focus too much on productivity alone."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Taking breaks actually improves our performance."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Strong relationships are linked to long term happiness."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Balance is not a destination but a daily practice."
+      }
+    ]
+  },
+  {
+    "id": "sh-global",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Speaking Globally",
+    "titleVi": "Giao Tiếp Toàn Cầu",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "English connects people from very different cultures."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Speaking clearly matters more than a perfect accent."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Listeners focus on your message, not your mistakes."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Confidence grows every time you practice speaking."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Do not wait until you are perfect to start talking."
+      }
+    ]
+  },
+  {
+    "id": "sh-future",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Preparing for the Future",
+    "titleVi": "Chuẩn Bị Cho Tương Lai",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "The world is changing faster than ever before."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Jobs that exist today may disappear in ten years."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Adaptability has become the most valuable skill."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Keep learning, stay curious, and embrace change."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Your future depends on the choices you make today."
+      }
+    ]
+  },
+  {
+    "id": "sh-reflect",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Reflecting on Your Day",
+    "titleVi": "Nhìn Lại Một Ngày Của Bạn",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "At the end of each day, take a moment to reflect."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Ask yourself what went well and what did not."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Celebrate small wins, even the ones others miss."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Learn from mistakes without being hard on yourself."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Tomorrow is a fresh chance to grow a little more."
+      }
+    ]
+  },
+  {
+    "id": "sh-books",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Why I Love Books",
+    "titleVi": "Tại Sao Tôi Yêu Sách",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Books have always been my favorite way to travel."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "With a single page, I can visit another country."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "They introduce me to ideas I would never find alone."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Reading before bed helps me relax and sleep well."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "A good book stays with you long after the last page."
+      }
     ]
   }
 ]
