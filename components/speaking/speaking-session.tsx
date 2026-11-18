@@ -365,21 +365,33 @@ export function SpeakingSession({
       )}
 
       {rateLimitRetry ? (
-        <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex items-center justify-between gap-2">
+        <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex flex-col items-start gap-2">
           <span>
             AI đang bận một chút, bạn vui lòng đợi trong giây lát nhé!
           </span>
-          <button
-            type="button"
-            onClick={() => {
-              const { userMessage, step } = rateLimitRetry;
-              setRateLimitRetry(null);
-              void requestAI(userMessage, step);
-            }}
-            className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
-          >
-            Thử lại
-          </button>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                const { userMessage, step } = rateLimitRetry;
+                setRateLimitRetry(null);
+                void requestAI(userMessage, step);
+              }}
+              className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
+            >
+              Thử lại
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setRateLimitRetry(null);
+                setFallbackMode(true);
+              }}
+              className="text-sm font-medium text-blue-600 underline hover:text-blue-700"
+            >
+              Chuyển sang chế độ Tự luyện tập
+            </button>
+          </div>
         </div>
       ) : recorderError || error ? (
         <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
