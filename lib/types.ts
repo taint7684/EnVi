@@ -53,3 +53,43 @@ export type DueCount = {
   new: number;
   total: number;
 };
+
+export type PhraseRow = {
+  id: string;
+  vi_text: string;
+  en_text: string;
+  audio_url: string | null;
+  topic: string;
+  difficulty: string;
+  created_at: string;
+};
+
+export type PhraseReviewRow = {
+  id: string;
+  user_id: string;
+  phrase_id: string;
+  ease: number;
+  interval: number;
+  due_at: string;
+  reps: number;
+  lapses: number;
+  last_reviewed_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type PhraseReviewRowInsert = {
+  user_id: string;
+  phrase_id: string;
+  ease: number;
+  interval: number;
+  due_at: string;
+  reps: number;
+  lapses: number;
+  last_reviewed_at: string;
+};
+
+export type DuePhrase = {
+  phrase: PhraseRow;
+  review: PhraseReviewRow | null;
+};

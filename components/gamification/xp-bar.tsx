@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Flame, Trophy } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -31,11 +31,7 @@ export function XpBar() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadProfile();
-  }, []);
-
-  async function loadProfile() {
+  const loadProfile = useCallback(async () => {
     const supabase = createClient();
     const {
       data: { user },
@@ -63,7 +59,17 @@ export function XpBar() {
       });
     }
     setLoading(false);
-  }
+  }, []);
+
+  useEffect(() => {
+    loadProfile();
+
+    function handleRefresh() {
+      loadProfile();
+    }
+    window.addEventListener("envi:xp-refresh", handleRefresh);
+    return () => window.removeEventListener("envi:xp-refresh", handleRefresh);
+  }, [loadProfile]);
 
   if (loading || !profile) {
     return (

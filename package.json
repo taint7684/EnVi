@@ -9,7 +9,9 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "import:words": "tsx scripts/import-words.ts",
-    "import:words:dry": "tsx scripts/import-words.ts --dry-run"
+    "import:words:dry": "tsx scripts/import-words.ts --dry-run",
+    "import:phrases": "tsx scripts/import-phrases.ts",
+    "import:phrases:dry": "tsx scripts/import-phrases.ts --dry-run"
   },
   "dependencies": {
     "@open-spaced-repetition/sm-2": "^0.2.1",

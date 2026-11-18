@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   Layers,
   Mic,
+  Zap,
   Headphones,
   BookOpen,
   PenLine,
@@ -18,6 +19,7 @@ import { cn } from "@/lib/utils";
 const items = [
   { href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard },
   { href: "/vocab", label: "Học từ", icon: Layers },
+  { href: "/reflex", label: "Phản xạ", icon: Zap },
   { href: "/speaking", label: "Speaking", icon: Mic },
   { href: "/shadowing", label: "Shadowing", icon: Headphones },
   { href: "/dictation", label: "Dictation", icon: Headphones },

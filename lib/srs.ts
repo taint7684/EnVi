@@ -2,13 +2,18 @@
 
 import { Card, Scheduler } from "@open-spaced-repetition/sm-2";
 
-import type {
-  CardReviewRow,
-  CardReviewRowInsert,
-  ReviewGrade,
-} from "@/lib/types";
+import type { CardReviewRowInsert, ReviewGrade } from "@/lib/types";
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+// Minimal shape shared by card_reviews and phrase_reviews rows.
+// Both tables store the same SM-2 fields, so one converter serves both.
+type ReviewRowLike = {
+  reps: number;
+  ease: number;
+  interval: number;
+  due_at: string;
+};
 
 export const GRADE_TO_SM2: Record<ReviewGrade, number> = {
   again: 1,
@@ -21,7 +26,7 @@ export function createNewCard(now = new Date()): Card {
   return new Card(Date.now(), 0, 2.5, 0, now, false);
 }
 
-export function rowToCard(row: CardReviewRow): Card {
+export function rowToCard(row: ReviewRowLike): Card {
   return new Card(
     Date.now(),
     row.reps,
