@@ -1,302 +1,2002 @@
 [
   {
     "id": "dict-1",
-    "title": "At the Coffee Shop",
-    "titleVi": "Tại Quán Cà Phê",
+    "title": "A2 Listening Practice 1",
+    "titleVi": "Luyện nghe A2 số 1",
     "level": "A2",
-    "duration": "25s",
+    "duration": "19s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "I would like a cup of coffee with milk, please. Could I also have a slice of chocolate cake? The total comes to eight dollars."
+    "transcript": "I would like a coffee and a sandwich, please. The total comes to 3 dollars. Thank you very much."
   },
   {
     "id": "dict-2",
-    "title": "Directions to the Station",
-    "titleVi": "Chỉ Đường Đến Ga",
-    "level": "A2-B1",
-    "duration": "27s",
+    "title": "A2 Listening Practice 2",
+    "titleVi": "Luyện nghe A2 số 2",
+    "level": "A2",
+    "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Excuse me, how do I get to the train station? Go straight and turn left at the second traffic light. It is about two hundred meters away."
+    "transcript": "Excuse me, how do I get to the Paris station? Go straight and turn left at the traffic light. It is about 10 minutes away."
   },
   {
     "id": "dict-3",
-    "title": "Job Interview",
-    "titleVi": "Phỏng Vấn Xin Việc",
-    "level": "B1-B2",
-    "duration": "22s",
+    "title": "A2 Listening Practice 3",
+    "titleVi": "Luyện nghe A2 số 3",
+    "level": "A2",
+    "duration": "20s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Tell me about yourself. I have five years of experience in software development and I am passionate about building user friendly applications."
+    "transcript": "I am looking for a black shirt in medium size. How much does it cost? Is there a discount today?"
   },
   {
     "id": "dict-4",
-    "title": "Hotel Check-in",
-    "titleVi": "Nhận Phòng Khách Sạn",
-    "level": "A2-B1",
-    "duration": "24s",
+    "title": "A2 Listening Practice 4",
+    "titleVi": "Luyện nghe A2 số 4",
+    "level": "A2",
+    "duration": "18s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Good evening. I have a reservation under the name Johnson for two nights. Does the room rate include breakfast? What time is check out?"
+    "transcript": "Good evening. I have a reservation for two nights under the name John. Does the room include breakfast?"
   },
   {
     "id": "dict-5",
-    "title": "Weather Forecast",
-    "titleVi": "Dự Báo Thời Tiết",
+    "title": "A2 Listening Practice 5",
+    "titleVi": "Luyện nghe A2 số 5",
     "level": "A2",
-    "duration": "25s",
+    "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Tomorrow will be sunny with a high of twenty five degrees. In the evening there is a chance of light rain, so carry an umbrella."
+    "transcript": "I have a headache and a sore throat since yesterday. The doctor says I should rest and drink plenty of water for 20 days."
   },
   {
     "id": "dict-6",
-    "title": "Shopping for Clothes",
-    "titleVi": "Mua Sắm Quần Áo",
+    "title": "A2 Listening Practice 6",
+    "titleVi": "Luyện nghe A2 số 6",
     "level": "A2",
-    "duration": "25s",
+    "duration": "21s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Do you have this shirt in a medium size? I am looking for something in blue. Is there a discount if I buy two items?"
+    "transcript": "Hello, may I speak to Tom, please? I am sorry, he is not here right now. Could I leave a message?"
   },
   {
     "id": "dict-7",
-    "title": "At the Doctor",
-    "titleVi": "Tại Phòng Khám",
-    "level": "A2-B1",
-    "duration": "26s",
+    "title": "A2 Listening Practice 7",
+    "titleVi": "Luyện nghe A2 số 7",
+    "level": "A2",
+    "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "What seems to be the problem today? I have had a headache and a sore throat since yesterday. Take this medicine twice a day and rest."
+    "transcript": "Tomorrow will be sunny with a high of 26 degrees. In the evening there is a chance of rain, so take an umbrella with you."
   },
   {
     "id": "dict-8",
-    "title": "Making a Phone Call",
-    "titleVi": "Gọi Điện Thoại",
-    "level": "A2-B1",
-    "duration": "24s",
+    "title": "A2 Listening Practice 8",
+    "titleVi": "Luyện nghe A2 số 8",
+    "level": "A2",
+    "duration": "17s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Hello, may I speak to Mr. Smith, please? I am sorry, he is not available right now. Could I leave a message for him?"
+    "transcript": "Your flight to Seoul has been delayed by one hour. Please go to gate 15 for boarding."
   },
   {
     "id": "dict-9",
-    "title": "At the Airport",
-    "titleVi": "Tại Sân Bay",
-    "level": "A2-B1",
-    "duration": "21s",
+    "title": "A2 Listening Practice 9",
+    "titleVi": "Luyện nghe A2 số 9",
+    "level": "A2",
+    "duration": "20s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Your flight to London has been delayed by one hour. Please proceed to gate twelve for boarding. Keep your passport ready."
+    "transcript": "I would like to book a table for 3 people at seven o'clock. Could we sit near the window, please?"
   },
   {
     "id": "dict-10",
-    "title": "A Birthday Party",
-    "titleVi": "Tiệc Sinh Nhật",
+    "title": "A2 Listening Practice 10",
+    "titleVi": "Luyện nghe A2 số 10",
     "level": "A2",
-    "duration": "24s",
+    "duration": "14s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "We are having a birthday party on Saturday at six. The party is at my house on Maple Street. Please bring your favorite drink."
+    "transcript": "I need some fish, water, and bread. The bill comes to 10 dollars, please."
   },
   {
     "id": "dict-11",
-    "title": "Healthy Eating",
-    "titleVi": "Ăn Uống Lành Mạnh",
-    "level": "A2-B1",
-    "duration": "23s",
+    "title": "A2 Listening Practice 11",
+    "titleVi": "Luyện nghe A2 số 11",
+    "level": "A2",
+    "duration": "18s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Eating vegetables and fruit every day keeps you healthy. Try to drink more water and less soda. Small changes make a big difference."
+    "transcript": "Take me to Tokyo airport, please. How long does it take? It is about 30 minutes from here."
   },
   {
     "id": "dict-12",
-    "title": "Booking a Flight",
-    "titleVi": "Đặt Vé Máy Bay",
-    "level": "A2-B1",
-    "duration": "26s",
+    "title": "A2 Listening Practice 12",
+    "titleVi": "Luyện nghe A2 số 12",
+    "level": "A2",
+    "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "I would like to book a round trip flight to Paris in July. A window seat would be great, please. The total is four hundred dollars."
+    "transcript": "I want to borrow these two books. When are they due back? They are due in two weeks, and you can renew them online."
   },
   {
     "id": "dict-13",
-    "title": "Asking for Help",
-    "titleVi": "Nhờ Giúp Đỡ",
+    "title": "A2 Listening Practice 13",
+    "titleVi": "Luyện nghe A2 số 13",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to send this letter to Toronto. How much is the stamp? It costs 8 dollars."
+  },
+  {
+    "id": "dict-14",
+    "title": "A2 Listening Practice 14",
+    "titleVi": "Luyện nghe A2 số 14",
     "level": "A2",
     "duration": "21s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Could you help me carry these boxes, please? They are quite heavy. Thank you so much, I really appreciate your help."
-  },
-  {
-    "id": "dict-14",
-    "title": "At the Library",
-    "titleVi": "Ở Thư Viện",
-    "level": "A2-B1",
-    "duration": "25s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "I would like to borrow these two books. They are due back in two weeks. You can renew them online if you need more time."
+    "transcript": "My name is Ben and I live on Green Street. My phone number is five five five, one two three four."
   },
   {
     "id": "dict-15",
-    "title": "A Busy Monday",
-    "titleVi": "Một Thứ Hai Bận Rộn",
-    "level": "A2-B1",
-    "duration": "24s",
+    "title": "A2 Listening Practice 15",
+    "titleVi": "Luyện nghe A2 số 15",
+    "level": "A2",
+    "duration": "19s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Monday is always busy at our office. We have three meetings and a report to finish. I hope we can leave on time today."
+    "transcript": "I would like a juice and a sandwich, please. The total comes to 3 dollars. Thank you very much."
   },
   {
     "id": "dict-16",
-    "title": "Learning a New Skill",
-    "titleVi": "Học Một Kỹ Năng Mới",
-    "level": "B1",
-    "duration": "22s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Learning a new skill takes time and patience. Practice for twenty minutes every day. You will be surprised how fast you improve."
-  },
-  {
-    "id": "dict-17",
-    "title": "Saving the Planet",
-    "titleVi": "Cứu Lấy Hành Tinh",
-    "level": "B1",
-    "duration": "21s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "We can all help protect the environment. Recycle paper and plastic, save water, and use less electricity. Together our actions matter."
-  },
-  {
-    "id": "dict-18",
-    "title": "City Life",
-    "titleVi": "Cuộc Sống Thành Phố",
-    "level": "B1",
-    "duration": "23s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Living in a big city is exciting but expensive. There is always something to do. However, the traffic and noise can be stressful."
-  },
-  {
-    "id": "dict-19",
-    "title": "A Movie Review",
-    "titleVi": "Đánh Giá Phim",
-    "level": "B1",
-    "duration": "22s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "The new science fiction movie is amazing. The special effects are realistic and the story is touching. I highly recommend watching it."
-  },
-  {
-    "id": "dict-20",
-    "title": "Working from Home",
-    "titleVi": "Làm Việc Tại Nhà",
-    "level": "B1",
-    "duration": "22s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Working from home saves time on commuting. However, it is important to keep a clear schedule. Take short breaks to stay focused."
-  },
-  {
-    "id": "dict-21",
-    "title": "Travel Tips",
-    "titleVi": "Mẹo Du Lịch",
-    "level": "B1",
-    "duration": "23s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "When you travel, keep copies of your documents. Learn a few local phrases. And always stay aware of your surroundings in new places."
-  },
-  {
-    "id": "dict-22",
-    "title": "The Power of Reading",
-    "titleVi": "Sức Mạnh Của Việc Đọc",
-    "level": "B1-B2",
-    "duration": "24s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Reading every day improves your vocabulary and focus. It also reduces stress and helps you sleep better. Start with just ten pages a day."
-  },
-  {
-    "id": "dict-23",
-    "title": "Dealing with Stress",
-    "titleVi": "Đối Phó Với Căng Thẳng",
-    "level": "B1-B2",
-    "duration": "24s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Stress is a normal part of life, but too much can harm your health. Exercise, deep breathing, and talking to friends can really help."
-  },
-  {
-    "id": "dict-24",
-    "title": "A Better Morning",
-    "titleVi": "Một Buổi Sáng Tốt Hơn",
-    "level": "B1-B2",
-    "duration": "23s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "A good morning starts the night before. Prepare your clothes and pack your bag early. A calm morning makes the whole day better."
-  },
-  {
-    "id": "dict-25",
-    "title": "Customer Support",
-    "titleVi": "Hỗ Trợ Khách Hàng",
-    "level": "B1-B2",
-    "duration": "24s",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Thank you for calling customer support. I understand your internet has been slow. Let me run a quick test on your connection right now."
-  },
-  {
-    "id": "dict-26",
-    "title": "The Sharing Economy",
-    "titleVi": "Nền Kinh Tế Chia Sẽ",
-    "level": "B2",
+    "title": "A2 Listening Practice 16",
+    "titleVi": "Luyện nghe A2 số 16",
+    "level": "A2",
     "duration": "25s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Apps like ride sharing and home rentals have changed how we travel. They offer convenience, but they also raise questions about safety and fair pay."
+    "transcript": "Excuse me, how do I get to the Seoul station? Go straight and turn left at the traffic light. It is about 10 minutes away."
   },
   {
-    "id": "dict-27",
-    "title": "Artificial Intelligence",
-    "titleVi": "Trí Tuệ Nhân Tạo",
-    "level": "B2",
-    "duration": "27s",
+    "id": "dict-17",
+    "title": "A2 Listening Practice 17",
+    "titleVi": "Luyện nghe A2 số 17",
+    "level": "A2",
+    "duration": "20s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Artificial intelligence can process huge amounts of data quickly. Yet it still struggles with creativity and empathy. The best results come from human and machine working together."
+    "transcript": "I am looking for a blue shirt in medium size. How much does it cost? Is there a discount today?"
   },
   {
-    "id": "dict-28",
-    "title": "Climate Action",
-    "titleVi": "Hành Động Vì Khí Hậu",
-    "level": "B2",
+    "id": "dict-18",
+    "title": "A2 Listening Practice 18",
+    "titleVi": "Luyện nghe A2 số 18",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Good evening. I have a reservation for two nights under the name John. Does the room include breakfast?"
+  },
+  {
+    "id": "dict-19",
+    "title": "A2 Listening Practice 19",
+    "titleVi": "Luyện nghe A2 số 19",
+    "level": "A2",
     "duration": "24s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Governments must invest in renewable energy and public transport. Individuals can reduce waste and consume less. Meaningful change requires both policy and personal action."
+    "transcript": "I have a headache and a sore throat since yesterday. The doctor says I should rest and drink plenty of water for 20 days."
+  },
+  {
+    "id": "dict-20",
+    "title": "A2 Listening Practice 20",
+    "titleVi": "Luyện nghe A2 số 20",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Hello, may I speak to Tom, please? I am sorry, he is not here right now. Could I leave a message?"
+  },
+  {
+    "id": "dict-21",
+    "title": "A2 Listening Practice 21",
+    "titleVi": "Luyện nghe A2 số 21",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tomorrow will be sunny with a high of 40 degrees. In the evening there is a chance of rain, so take an umbrella with you."
+  },
+  {
+    "id": "dict-22",
+    "title": "A2 Listening Practice 22",
+    "titleVi": "Luyện nghe A2 số 22",
+    "level": "A2",
+    "duration": "17s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Your flight to Berlin has been delayed by one hour. Please go to gate 15 for boarding."
+  },
+  {
+    "id": "dict-23",
+    "title": "A2 Listening Practice 23",
+    "titleVi": "Luyện nghe A2 số 23",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to book a table for 3 people at seven o'clock. Could we sit near the window, please?"
+  },
+  {
+    "id": "dict-24",
+    "title": "A2 Listening Practice 24",
+    "titleVi": "Luyện nghe A2 số 24",
+    "level": "A2",
+    "duration": "15s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I need some salad, hot chocolate, and bread. The bill comes to 10 dollars, please."
+  },
+  {
+    "id": "dict-25",
+    "title": "A2 Listening Practice 25",
+    "titleVi": "Luyện nghe A2 số 25",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Take me to London airport, please. How long does it take? It is about 30 minutes from here."
+  },
+  {
+    "id": "dict-26",
+    "title": "A2 Listening Practice 26",
+    "titleVi": "Luyện nghe A2 số 26",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I want to borrow these two books. When are they due back? They are due in two weeks, and you can renew them online."
+  },
+  {
+    "id": "dict-27",
+    "title": "A2 Listening Practice 27",
+    "titleVi": "Luyện nghe A2 số 27",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to send this letter to Tokyo. How much is the stamp? It costs 8 dollars."
+  },
+  {
+    "id": "dict-28",
+    "title": "A2 Listening Practice 28",
+    "titleVi": "Luyện nghe A2 số 28",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My name is Ben and I live on River Street. My phone number is five five five, one two three four."
   },
   {
     "id": "dict-29",
-    "title": "The Value of Failure",
-    "titleVi": "Giá Trị Của Thất Bại",
-    "level": "B2",
-    "duration": "27s",
+    "title": "A2 Listening Practice 29",
+    "titleVi": "Luyện nghe A2 số 29",
+    "level": "A2",
+    "duration": "19s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "Failure is not the opposite of success; it is part of it. Every mistake teaches us something. People who learn from failure tend to grow the most."
+    "transcript": "I would like a lemonade and a sandwich, please. The total comes to 3 dollars. Thank you very much."
   },
   {
     "id": "dict-30",
-    "title": "A Meaningful Life",
-    "titleVi": "Một Cuộc Sống Ý Nghĩa",
+    "title": "A2 Listening Practice 30",
+    "titleVi": "Luyện nghe A2 số 30",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Excuse me, how do I get to the Berlin station? Go straight and turn left at the traffic light. It is about 10 minutes away."
+  },
+  {
+    "id": "dict-31",
+    "title": "A2 Listening Practice 31",
+    "titleVi": "Luyện nghe A2 số 31",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am looking for a black shirt in medium size. How much does it cost? Is there a discount today?"
+  },
+  {
+    "id": "dict-32",
+    "title": "A2 Listening Practice 32",
+    "titleVi": "Luyện nghe A2 số 32",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Good evening. I have a reservation for two nights under the name John. Does the room include breakfast?"
+  },
+  {
+    "id": "dict-33",
+    "title": "A2 Listening Practice 33",
+    "titleVi": "Luyện nghe A2 số 33",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have a headache and a sore throat since yesterday. The doctor says I should rest and drink plenty of water for 20 days."
+  },
+  {
+    "id": "dict-34",
+    "title": "A2 Listening Practice 34",
+    "titleVi": "Luyện nghe A2 số 34",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Hello, may I speak to Tom, please? I am sorry, he is not here right now. Could I leave a message?"
+  },
+  {
+    "id": "dict-35",
+    "title": "A2 Listening Practice 35",
+    "titleVi": "Luyện nghe A2 số 35",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tomorrow will be sunny with a high of 54 degrees. In the evening there is a chance of rain, so take an umbrella with you."
+  },
+  {
+    "id": "dict-36",
+    "title": "A2 Listening Practice 36",
+    "titleVi": "Luyện nghe A2 số 36",
+    "level": "A2",
+    "duration": "17s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Your flight to Sydney has been delayed by one hour. Please go to gate 15 for boarding."
+  },
+  {
+    "id": "dict-37",
+    "title": "A2 Listening Practice 37",
+    "titleVi": "Luyện nghe A2 số 37",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to book a table for 3 people at seven o'clock. Could we sit near the window, please?"
+  },
+  {
+    "id": "dict-38",
+    "title": "A2 Listening Practice 38",
+    "titleVi": "Luyện nghe A2 số 38",
+    "level": "A2",
+    "duration": "14s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I need some pasta, tea, and bread. The bill comes to 10 dollars, please."
+  },
+  {
+    "id": "dict-39",
+    "title": "A2 Listening Practice 39",
+    "titleVi": "Luyện nghe A2 số 39",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Take me to Rome airport, please. How long does it take? It is about 30 minutes from here."
+  },
+  {
+    "id": "dict-40",
+    "title": "A2 Listening Practice 40",
+    "titleVi": "Luyện nghe A2 số 40",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I want to borrow these two books. When are they due back? They are due in two weeks, and you can renew them online."
+  },
+  {
+    "id": "dict-41",
+    "title": "A2 Listening Practice 41",
+    "titleVi": "Luyện nghe A2 số 41",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to send this letter to London. How much is the stamp? It costs 8 dollars."
+  },
+  {
+    "id": "dict-42",
+    "title": "A2 Listening Practice 42",
+    "titleVi": "Luyện nghe A2 số 42",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My name is Ben and I live on Green Street. My phone number is five five five, one two three four."
+  },
+  {
+    "id": "dict-43",
+    "title": "A2 Listening Practice 43",
+    "titleVi": "Luyện nghe A2 số 43",
+    "level": "A2",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like a coffee and a sandwich, please. The total comes to 3 dollars. Thank you very much."
+  },
+  {
+    "id": "dict-44",
+    "title": "A2 Listening Practice 44",
+    "titleVi": "Luyện nghe A2 số 44",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Excuse me, how do I get to the Sydney station? Go straight and turn left at the traffic light. It is about 10 minutes away."
+  },
+  {
+    "id": "dict-45",
+    "title": "A2 Listening Practice 45",
+    "titleVi": "Luyện nghe A2 số 45",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am looking for a blue shirt in medium size. How much does it cost? Is there a discount today?"
+  },
+  {
+    "id": "dict-46",
+    "title": "A2 Listening Practice 46",
+    "titleVi": "Luyện nghe A2 số 46",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Good evening. I have a reservation for two nights under the name John. Does the room include breakfast?"
+  },
+  {
+    "id": "dict-47",
+    "title": "A2 Listening Practice 47",
+    "titleVi": "Luyện nghe A2 số 47",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have a headache and a sore throat since yesterday. The doctor says I should rest and drink plenty of water for 20 days."
+  },
+  {
+    "id": "dict-48",
+    "title": "A2 Listening Practice 48",
+    "titleVi": "Luyện nghe A2 số 48",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Hello, may I speak to Tom, please? I am sorry, he is not here right now. Could I leave a message?"
+  },
+  {
+    "id": "dict-49",
+    "title": "A2 Listening Practice 49",
+    "titleVi": "Luyện nghe A2 số 49",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tomorrow will be sunny with a high of 68 degrees. In the evening there is a chance of rain, so take an umbrella with you."
+  },
+  {
+    "id": "dict-50",
+    "title": "A2 Listening Practice 50",
+    "titleVi": "Luyện nghe A2 số 50",
+    "level": "A2",
+    "duration": "17s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Your flight to Paris has been delayed by one hour. Please go to gate 15 for boarding."
+  },
+  {
+    "id": "dict-51",
+    "title": "A2 Listening Practice 51",
+    "titleVi": "Luyện nghe A2 số 51",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to book a table for 3 people at seven o'clock. Could we sit near the window, please?"
+  },
+  {
+    "id": "dict-52",
+    "title": "A2 Listening Practice 52",
+    "titleVi": "Luyện nghe A2 số 52",
+    "level": "A2",
+    "duration": "14s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I need some pork, water, and bread. The bill comes to 10 dollars, please."
+  },
+  {
+    "id": "dict-53",
+    "title": "A2 Listening Practice 53",
+    "titleVi": "Luyện nghe A2 số 53",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Take me to Toronto airport, please. How long does it take? It is about 30 minutes from here."
+  },
+  {
+    "id": "dict-54",
+    "title": "A2 Listening Practice 54",
+    "titleVi": "Luyện nghe A2 số 54",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I want to borrow these two books. When are they due back? They are due in two weeks, and you can renew them online."
+  },
+  {
+    "id": "dict-55",
+    "title": "A2 Listening Practice 55",
+    "titleVi": "Luyện nghe A2 số 55",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to send this letter to Rome. How much is the stamp? It costs 8 dollars."
+  },
+  {
+    "id": "dict-56",
+    "title": "A2 Listening Practice 56",
+    "titleVi": "Luyện nghe A2 số 56",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My name is Ben and I live on River Street. My phone number is five five five, one two three four."
+  },
+  {
+    "id": "dict-57",
+    "title": "A2 Listening Practice 57",
+    "titleVi": "Luyện nghe A2 số 57",
+    "level": "A2",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like a juice and a sandwich, please. The total comes to 3 dollars. Thank you very much."
+  },
+  {
+    "id": "dict-58",
+    "title": "A2 Listening Practice 58",
+    "titleVi": "Luyện nghe A2 số 58",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Excuse me, how do I get to the Paris station? Go straight and turn left at the traffic light. It is about 10 minutes away."
+  },
+  {
+    "id": "dict-59",
+    "title": "A2 Listening Practice 59",
+    "titleVi": "Luyện nghe A2 số 59",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am looking for a black shirt in medium size. How much does it cost? Is there a discount today?"
+  },
+  {
+    "id": "dict-60",
+    "title": "A2 Listening Practice 60",
+    "titleVi": "Luyện nghe A2 số 60",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Good evening. I have a reservation for two nights under the name John. Does the room include breakfast?"
+  },
+  {
+    "id": "dict-61",
+    "title": "A2 Listening Practice 61",
+    "titleVi": "Luyện nghe A2 số 61",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have a headache and a sore throat since yesterday. The doctor says I should rest and drink plenty of water for 20 days."
+  },
+  {
+    "id": "dict-62",
+    "title": "A2 Listening Practice 62",
+    "titleVi": "Luyện nghe A2 số 62",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Hello, may I speak to Tom, please? I am sorry, he is not here right now. Could I leave a message?"
+  },
+  {
+    "id": "dict-63",
+    "title": "A2 Listening Practice 63",
+    "titleVi": "Luyện nghe A2 số 63",
+    "level": "A2",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Tomorrow will be sunny with a high of 82 degrees. In the evening there is a chance of rain, so take an umbrella with you."
+  },
+  {
+    "id": "dict-64",
+    "title": "A2 Listening Practice 64",
+    "titleVi": "Luyện nghe A2 số 64",
+    "level": "A2",
+    "duration": "17s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Your flight to Seoul has been delayed by one hour. Please go to gate 15 for boarding."
+  },
+  {
+    "id": "dict-65",
+    "title": "A2 Listening Practice 65",
+    "titleVi": "Luyện nghe A2 số 65",
+    "level": "A2",
+    "duration": "20s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to book a table for 3 people at seven o'clock. Could we sit near the window, please?"
+  },
+  {
+    "id": "dict-66",
+    "title": "A2 Listening Practice 66",
+    "titleVi": "Luyện nghe A2 số 66",
+    "level": "A2",
+    "duration": "15s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I need some fish, hot chocolate, and bread. The bill comes to 10 dollars, please."
+  },
+  {
+    "id": "dict-67",
+    "title": "A2 Listening Practice 67",
+    "titleVi": "Luyện nghe A2 số 67",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Take me to Tokyo airport, please. How long does it take? It is about 30 minutes from here."
+  },
+  {
+    "id": "dict-68",
+    "title": "A2 Listening Practice 68",
+    "titleVi": "Luyện nghe A2 số 68",
+    "level": "A2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I want to borrow these two books. When are they due back? They are due in two weeks, and you can renew them online."
+  },
+  {
+    "id": "dict-69",
+    "title": "A2 Listening Practice 69",
+    "titleVi": "Luyện nghe A2 số 69",
+    "level": "A2",
+    "duration": "18s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I would like to send this letter to Toronto. How much is the stamp? It costs 8 dollars."
+  },
+  {
+    "id": "dict-70",
+    "title": "A2 Listening Practice 70",
+    "titleVi": "Luyện nghe A2 số 70",
+    "level": "A2",
+    "duration": "21s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My name is Ben and I live on Green Street. My phone number is five five five, one two three four."
+  },
+  {
+    "id": "dict-71",
+    "title": "B1 Listening Practice 71",
+    "titleVi": "Luyện nghe B1 số 71",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been learning English for 5 months now. I practice every day, and I hope to visit London next year to improve my speaking."
+  },
+  {
+    "id": "dict-72",
+    "title": "B1 Listening Practice 72",
+    "titleVi": "Luyện nghe B1 số 72",
+    "level": "B1",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The meeting with David has been moved to Tuesday at ten o'clock. Please prepare the report before you come."
+  },
+  {
+    "id": "dict-73",
+    "title": "B1 Listening Practice 73",
+    "titleVi": "Luyện nghe B1 số 73",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I decided to finish my old routine. I wake up early, exercise for 12 minutes, and eat a healthy breakfast every morning."
+  },
+  {
+    "id": "dict-74",
+    "title": "B1 Listening Practice 74",
+    "titleVi": "Luyện nghe B1 số 74",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When I was younger, I used to live in a small village near Sydney. Life was quiet, and everyone knew each other very well."
+  },
+  {
+    "id": "dict-75",
+    "title": "B1 Listening Practice 75",
+    "titleVi": "Luyện nghe B1 số 75",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new laptop I bought last week is much better than my old one. The battery lasts for 20 hours on a single charge."
+  },
+  {
+    "id": "dict-76",
+    "title": "B1 Listening Practice 76",
+    "titleVi": "Luyện nghe B1 số 76",
+    "level": "B1",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "If I had more free time, I would learn how to play the guitar. I have always loved music, but work keeps me very busy these days."
+  },
+  {
+    "id": "dict-77",
+    "title": "B1 Listening Practice 77",
+    "titleVi": "Luyện nghe B1 số 77",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you tell me a little about your experience? I have worked in marketing for 30 years, and I am now looking for a new challenge."
+  },
+  {
+    "id": "dict-78",
+    "title": "B1 Listening Practice 78",
+    "titleVi": "Luyện nghe B1 số 78",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The weather has been terrible all week. It rained every day, and the temperature dropped to 17 degrees last night. I hope it gets better soon."
+  },
+  {
+    "id": "dict-79",
+    "title": "B1 Listening Practice 79",
+    "titleVi": "Luyện nghe B1 số 79",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am writing to complain about the product I received last week. It arrived late and it was damaged, so I would like a refund."
+  },
+  {
+    "id": "dict-80",
+    "title": "B1 Listening Practice 80",
+    "titleVi": "Luyện nghe B1 số 80",
+    "level": "B1",
+    "duration": "31s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My favorite way to relax after work is to go for a long walk in the park. It helps me clear my mind and forget about the stress of the day."
+  },
+  {
+    "id": "dict-81",
+    "title": "B1 Listening Practice 81",
+    "titleVi": "Luyện nghe B1 số 81",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. I have been practicing for 15 minutes every day, and I can already see real progress."
+  },
+  {
+    "id": "dict-82",
+    "title": "B1 Listening Practice 82",
+    "titleVi": "Luyện nghe B1 số 82",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The hotel we stayed at in Sydney was wonderful. The staff were friendly, the room was clean, and the breakfast was excellent."
+  },
+  {
+    "id": "dict-83",
+    "title": "B1 Listening Practice 83",
+    "titleVi": "Luyện nghe B1 số 83",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I usually take the bus to work because it is cheaper than driving. However, during rush hour it can take almost 25 minutes longer."
+  },
+  {
+    "id": "dict-84",
+    "title": "B1 Listening Practice 84",
+    "titleVi": "Luyện nghe B1 số 84",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Have you finished the project yet? We need to submit it by Sunday. If we work together, I am sure we can finish on time."
+  },
+  {
+    "id": "dict-85",
+    "title": "B1 Listening Practice 85",
+    "titleVi": "Luyện nghe B1 số 85",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been learning English for 5 months now. I practice every day, and I hope to visit Rome next year to improve my speaking."
+  },
+  {
+    "id": "dict-86",
+    "title": "B1 Listening Practice 86",
+    "titleVi": "Luyện nghe B1 số 86",
+    "level": "B1",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The meeting with David has been moved to Tuesday at ten o'clock. Please prepare the report before you come."
+  },
+  {
+    "id": "dict-87",
+    "title": "B1 Listening Practice 87",
+    "titleVi": "Luyện nghe B1 số 87",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I decided to start my old routine. I wake up early, exercise for 12 minutes, and eat a healthy breakfast every morning."
+  },
+  {
+    "id": "dict-88",
+    "title": "B1 Listening Practice 88",
+    "titleVi": "Luyện nghe B1 số 88",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When I was younger, I used to live in a small village near Paris. Life was quiet, and everyone knew each other very well."
+  },
+  {
+    "id": "dict-89",
+    "title": "B1 Listening Practice 89",
+    "titleVi": "Luyện nghe B1 số 89",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new phone I bought last week is much better than my old one. The battery lasts for 20 hours on a single charge."
+  },
+  {
+    "id": "dict-90",
+    "title": "B1 Listening Practice 90",
+    "titleVi": "Luyện nghe B1 số 90",
+    "level": "B1",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "If I had more free time, I would learn how to play the guitar. I have always loved music, but work keeps me very busy these days."
+  },
+  {
+    "id": "dict-91",
+    "title": "B1 Listening Practice 91",
+    "titleVi": "Luyện nghe B1 số 91",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you tell me a little about your experience? I have worked in marketing for 30 years, and I am now looking for a new challenge."
+  },
+  {
+    "id": "dict-92",
+    "title": "B1 Listening Practice 92",
+    "titleVi": "Luyện nghe B1 số 92",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The weather has been terrible all week. It rained every day, and the temperature dropped to 31 degrees last night. I hope it gets better soon."
+  },
+  {
+    "id": "dict-93",
+    "title": "B1 Listening Practice 93",
+    "titleVi": "Luyện nghe B1 số 93",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am writing to complain about the delivery I received last week. It arrived late and it was damaged, so I would like a refund."
+  },
+  {
+    "id": "dict-94",
+    "title": "B1 Listening Practice 94",
+    "titleVi": "Luyện nghe B1 số 94",
+    "level": "B1",
+    "duration": "31s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My favorite way to relax after work is to go for a long walk in the park. It helps me clear my mind and forget about the stress of the day."
+  },
+  {
+    "id": "dict-95",
+    "title": "B1 Listening Practice 95",
+    "titleVi": "Luyện nghe B1 số 95",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. I have been practicing for 15 minutes every day, and I can already see real progress."
+  },
+  {
+    "id": "dict-96",
+    "title": "B1 Listening Practice 96",
+    "titleVi": "Luyện nghe B1 số 96",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The hotel we stayed at in Paris was wonderful. The staff were friendly, the room was clean, and the breakfast was excellent."
+  },
+  {
+    "id": "dict-97",
+    "title": "B1 Listening Practice 97",
+    "titleVi": "Luyện nghe B1 số 97",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I usually take the bus to work because it is cheaper than driving. However, during rush hour it can take almost 25 minutes longer."
+  },
+  {
+    "id": "dict-98",
+    "title": "B1 Listening Practice 98",
+    "titleVi": "Luyện nghe B1 số 98",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Have you finished the project yet? We need to submit it by Sunday. If we work together, I am sure we can finish on time."
+  },
+  {
+    "id": "dict-99",
+    "title": "B1 Listening Practice 99",
+    "titleVi": "Luyện nghe B1 số 99",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been learning English for 5 months now. I practice every day, and I hope to visit Toronto next year to improve my speaking."
+  },
+  {
+    "id": "dict-100",
+    "title": "B1 Listening Practice 100",
+    "titleVi": "Luyện nghe B1 số 100",
+    "level": "B1",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The meeting with David has been moved to Tuesday at ten o'clock. Please prepare the report before you come."
+  },
+  {
+    "id": "dict-101",
+    "title": "B1 Listening Practice 101",
+    "titleVi": "Luyện nghe B1 số 101",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I decided to change my old routine. I wake up early, exercise for 12 minutes, and eat a healthy breakfast every morning."
+  },
+  {
+    "id": "dict-102",
+    "title": "B1 Listening Practice 102",
+    "titleVi": "Luyện nghe B1 số 102",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When I was younger, I used to live in a small village near Seoul. Life was quiet, and everyone knew each other very well."
+  },
+  {
+    "id": "dict-103",
+    "title": "B1 Listening Practice 103",
+    "titleVi": "Luyện nghe B1 số 103",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new camera I bought last week is much better than my old one. The battery lasts for 20 hours on a single charge."
+  },
+  {
+    "id": "dict-104",
+    "title": "B1 Listening Practice 104",
+    "titleVi": "Luyện nghe B1 số 104",
+    "level": "B1",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "If I had more free time, I would learn how to play the guitar. I have always loved music, but work keeps me very busy these days."
+  },
+  {
+    "id": "dict-105",
+    "title": "B1 Listening Practice 105",
+    "titleVi": "Luyện nghe B1 số 105",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you tell me a little about your experience? I have worked in marketing for 30 years, and I am now looking for a new challenge."
+  },
+  {
+    "id": "dict-106",
+    "title": "B1 Listening Practice 106",
+    "titleVi": "Luyện nghe B1 số 106",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The weather has been terrible all week. It rained every day, and the temperature dropped to 45 degrees last night. I hope it gets better soon."
+  },
+  {
+    "id": "dict-107",
+    "title": "B1 Listening Practice 107",
+    "titleVi": "Luyện nghe B1 số 107",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am writing to complain about the service I received last week. It arrived late and it was damaged, so I would like a refund."
+  },
+  {
+    "id": "dict-108",
+    "title": "B1 Listening Practice 108",
+    "titleVi": "Luyện nghe B1 số 108",
+    "level": "B1",
+    "duration": "31s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My favorite way to relax after work is to go for a long walk in the park. It helps me clear my mind and forget about the stress of the day."
+  },
+  {
+    "id": "dict-109",
+    "title": "B1 Listening Practice 109",
+    "titleVi": "Luyện nghe B1 số 109",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. I have been practicing for 15 minutes every day, and I can already see real progress."
+  },
+  {
+    "id": "dict-110",
+    "title": "B1 Listening Practice 110",
+    "titleVi": "Luyện nghe B1 số 110",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The hotel we stayed at in Seoul was wonderful. The staff were friendly, the room was clean, and the breakfast was excellent."
+  },
+  {
+    "id": "dict-111",
+    "title": "B1 Listening Practice 111",
+    "titleVi": "Luyện nghe B1 số 111",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I usually take the bus to work because it is cheaper than driving. However, during rush hour it can take almost 25 minutes longer."
+  },
+  {
+    "id": "dict-112",
+    "title": "B1 Listening Practice 112",
+    "titleVi": "Luyện nghe B1 số 112",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Have you finished the project yet? We need to submit it by Sunday. If we work together, I am sure we can finish on time."
+  },
+  {
+    "id": "dict-113",
+    "title": "B1 Listening Practice 113",
+    "titleVi": "Luyện nghe B1 số 113",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been learning English for 5 months now. I practice every day, and I hope to visit Tokyo next year to improve my speaking."
+  },
+  {
+    "id": "dict-114",
+    "title": "B1 Listening Practice 114",
+    "titleVi": "Luyện nghe B1 số 114",
+    "level": "B1",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The meeting with David has been moved to Tuesday at ten o'clock. Please prepare the report before you come."
+  },
+  {
+    "id": "dict-115",
+    "title": "B1 Listening Practice 115",
+    "titleVi": "Luyện nghe B1 số 115",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I decided to finish my old routine. I wake up early, exercise for 12 minutes, and eat a healthy breakfast every morning."
+  },
+  {
+    "id": "dict-116",
+    "title": "B1 Listening Practice 116",
+    "titleVi": "Luyện nghe B1 số 116",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When I was younger, I used to live in a small village near Berlin. Life was quiet, and everyone knew each other very well."
+  },
+  {
+    "id": "dict-117",
+    "title": "B1 Listening Practice 117",
+    "titleVi": "Luyện nghe B1 số 117",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new laptop I bought last week is much better than my old one. The battery lasts for 20 hours on a single charge."
+  },
+  {
+    "id": "dict-118",
+    "title": "B1 Listening Practice 118",
+    "titleVi": "Luyện nghe B1 số 118",
+    "level": "B1",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "If I had more free time, I would learn how to play the guitar. I have always loved music, but work keeps me very busy these days."
+  },
+  {
+    "id": "dict-119",
+    "title": "B1 Listening Practice 119",
+    "titleVi": "Luyện nghe B1 số 119",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you tell me a little about your experience? I have worked in marketing for 30 years, and I am now looking for a new challenge."
+  },
+  {
+    "id": "dict-120",
+    "title": "B1 Listening Practice 120",
+    "titleVi": "Luyện nghe B1 số 120",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The weather has been terrible all week. It rained every day, and the temperature dropped to 59 degrees last night. I hope it gets better soon."
+  },
+  {
+    "id": "dict-121",
+    "title": "B1 Listening Practice 121",
+    "titleVi": "Luyện nghe B1 số 121",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am writing to complain about the product I received last week. It arrived late and it was damaged, so I would like a refund."
+  },
+  {
+    "id": "dict-122",
+    "title": "B1 Listening Practice 122",
+    "titleVi": "Luyện nghe B1 số 122",
+    "level": "B1",
+    "duration": "31s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My favorite way to relax after work is to go for a long walk in the park. It helps me clear my mind and forget about the stress of the day."
+  },
+  {
+    "id": "dict-123",
+    "title": "B1 Listening Practice 123",
+    "titleVi": "Luyện nghe B1 số 123",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. I have been practicing for 15 minutes every day, and I can already see real progress."
+  },
+  {
+    "id": "dict-124",
+    "title": "B1 Listening Practice 124",
+    "titleVi": "Luyện nghe B1 số 124",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The hotel we stayed at in Berlin was wonderful. The staff were friendly, the room was clean, and the breakfast was excellent."
+  },
+  {
+    "id": "dict-125",
+    "title": "B1 Listening Practice 125",
+    "titleVi": "Luyện nghe B1 số 125",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I usually take the bus to work because it is cheaper than driving. However, during rush hour it can take almost 25 minutes longer."
+  },
+  {
+    "id": "dict-126",
+    "title": "B1 Listening Practice 126",
+    "titleVi": "Luyện nghe B1 số 126",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Have you finished the project yet? We need to submit it by Sunday. If we work together, I am sure we can finish on time."
+  },
+  {
+    "id": "dict-127",
+    "title": "B1 Listening Practice 127",
+    "titleVi": "Luyện nghe B1 số 127",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I have been learning English for 5 months now. I practice every day, and I hope to visit London next year to improve my speaking."
+  },
+  {
+    "id": "dict-128",
+    "title": "B1 Listening Practice 128",
+    "titleVi": "Luyện nghe B1 số 128",
+    "level": "B1",
+    "duration": "19s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The meeting with David has been moved to Tuesday at ten o'clock. Please prepare the report before you come."
+  },
+  {
+    "id": "dict-129",
+    "title": "B1 Listening Practice 129",
+    "titleVi": "Luyện nghe B1 số 129",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I decided to start my old routine. I wake up early, exercise for 12 minutes, and eat a healthy breakfast every morning."
+  },
+  {
+    "id": "dict-130",
+    "title": "B1 Listening Practice 130",
+    "titleVi": "Luyện nghe B1 số 130",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "When I was younger, I used to live in a small village near Sydney. Life was quiet, and everyone knew each other very well."
+  },
+  {
+    "id": "dict-131",
+    "title": "B1 Listening Practice 131",
+    "titleVi": "Luyện nghe B1 số 131",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new phone I bought last week is much better than my old one. The battery lasts for 20 hours on a single charge."
+  },
+  {
+    "id": "dict-132",
+    "title": "B1 Listening Practice 132",
+    "titleVi": "Luyện nghe B1 số 132",
+    "level": "B1",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "If I had more free time, I would learn how to play the guitar. I have always loved music, but work keeps me very busy these days."
+  },
+  {
+    "id": "dict-133",
+    "title": "B1 Listening Practice 133",
+    "titleVi": "Luyện nghe B1 số 133",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Could you tell me a little about your experience? I have worked in marketing for 30 years, and I am now looking for a new challenge."
+  },
+  {
+    "id": "dict-134",
+    "title": "B1 Listening Practice 134",
+    "titleVi": "Luyện nghe B1 số 134",
+    "level": "B1",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The weather has been terrible all week. It rained every day, and the temperature dropped to 73 degrees last night. I hope it gets better soon."
+  },
+  {
+    "id": "dict-135",
+    "title": "B1 Listening Practice 135",
+    "titleVi": "Luyện nghe B1 số 135",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I am writing to complain about the delivery I received last week. It arrived late and it was damaged, so I would like a refund."
+  },
+  {
+    "id": "dict-136",
+    "title": "B1 Listening Practice 136",
+    "titleVi": "Luyện nghe B1 số 136",
+    "level": "B1",
+    "duration": "31s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "My favorite way to relax after work is to go for a long walk in the park. It helps me clear my mind and forget about the stress of the day."
+  },
+  {
+    "id": "dict-137",
+    "title": "B1 Listening Practice 137",
+    "titleVi": "Luyện nghe B1 số 137",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Learning a new skill takes time and patience. I have been practicing for 15 minutes every day, and I can already see real progress."
+  },
+  {
+    "id": "dict-138",
+    "title": "B1 Listening Practice 138",
+    "titleVi": "Luyện nghe B1 số 138",
+    "level": "B1",
+    "duration": "22s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The hotel we stayed at in Sydney was wonderful. The staff were friendly, the room was clean, and the breakfast was excellent."
+  },
+  {
+    "id": "dict-139",
+    "title": "B1 Listening Practice 139",
+    "titleVi": "Luyện nghe B1 số 139",
+    "level": "B1",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "I usually take the bus to work because it is cheaper than driving. However, during rush hour it can take almost 25 minutes longer."
+  },
+  {
+    "id": "dict-140",
+    "title": "B1 Listening Practice 140",
+    "titleVi": "Luyện nghe B1 số 140",
+    "level": "B1",
+    "duration": "25s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Have you finished the project yet? We need to submit it by Sunday. If we work together, I am sure we can finish on time."
+  },
+  {
+    "id": "dict-141",
+    "title": "B2 Listening Practice 141",
+    "titleVi": "Luyện nghe B2 số 141",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Although I have been working in this field for over 5 years, I still find new challenges every day. Technology evolves so quickly that continuous learning has become essential."
+  },
+  {
+    "id": "dict-142",
+    "title": "B2 Listening Practice 142",
+    "titleVi": "Luyện nghe B2 số 142",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Had I known about the traffic, I would have left home much earlier. Unfortunately, I missed the train and had to wait for the next one."
+  },
+  {
+    "id": "dict-143",
+    "title": "B2 Listening Practice 143",
+    "titleVi": "Luyện nghe B2 số 143",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The report suggests that companies investing in employee training tend to perform stronger than their competitors. It seems clear that people are the most valuable asset."
+  },
+  {
+    "id": "dict-144",
+    "title": "B2 Listening Practice 144",
+    "titleVi": "Luyện nghe B2 số 144",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Not only did she finish the project ahead of schedule, but she also improved the entire process. Her dedication and creativity impressed everyone in the department."
+  },
+  {
+    "id": "dict-145",
+    "title": "B2 Listening Practice 145",
+    "titleVi": "Luyện nghe B2 số 145",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "By the time we arrived at the conference, the main speaker had already finished his presentation. We were disappointed, but we still learned a great deal from the workshops."
+  },
+  {
+    "id": "dict-146",
+    "title": "B2 Listening Practice 146",
+    "titleVi": "Luyện nghe B2 số 146",
+    "level": "B2",
+    "duration": "28s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "It is high time we took action on climate change. If governments continue to delay, future generations will face consequences far more serious than we can imagine today."
+  },
+  {
+    "id": "dict-147",
+    "title": "B2 Listening Practice 147",
+    "titleVi": "Luyện nghe B2 số 147",
     "level": "B2",
     "duration": "23s",
     "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
     "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-    "transcript": "A meaningful life is not about money or fame. It is about relationships, growth, and contribution. Focus on what truly matters to you."
+    "transcript": "Rather than focusing solely on profit, many successful businesses today prioritize sustainability and social responsibility. Customers increasingly reward companies that share their values."
+  },
+  {
+    "id": "dict-148",
+    "title": "B2 Listening Practice 148",
+    "titleVi": "Luyện nghe B2 số 148",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new policy, which was introduced last month, has sparked considerable debate. Supporters argue it will boost the economy, while critics fear it may widen inequality."
+  },
+  {
+    "id": "dict-149",
+    "title": "B2 Listening Practice 149",
+    "titleVi": "Luyện nghe B2 số 149",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "What surprised me most about living in London was how different daily life felt. The pace was faster, and people seemed to be constantly on the move."
+  },
+  {
+    "id": "dict-150",
+    "title": "B2 Listening Practice 150",
+    "titleVi": "Luyện nghe B2 số 150",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Should you require any further assistance, please do not hesitate to contact our support team. We are available twenty four hours a day, seven days a week."
+  },
+  {
+    "id": "dict-151",
+    "title": "B2 Listening Practice 151",
+    "titleVi": "Luyện nghe B2 số 151",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The scientist explained that the experiment, had it been conducted under different conditions, might have produced completely different results. Such is the unpredictable nature of research."
+  },
+  {
+    "id": "dict-152",
+    "title": "B2 Listening Practice 152",
+    "titleVi": "Luyện nghe B2 số 152",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "No sooner had the meeting ended than the news spread across the company. Everyone was eager to share their opinions on the proposed changes."
+  },
+  {
+    "id": "dict-153",
+    "title": "B2 Listening Practice 153",
+    "titleVi": "Luyện nghe B2 số 153",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Although I have been working in this field for over 25 years, I still find new challenges every day. Technology evolves so quickly that continuous learning has become essential."
+  },
+  {
+    "id": "dict-154",
+    "title": "B2 Listening Practice 154",
+    "titleVi": "Luyện nghe B2 số 154",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Had I known about the traffic, I would have left home much earlier. Unfortunately, I missed the train and had to wait for the next one."
+  },
+  {
+    "id": "dict-155",
+    "title": "B2 Listening Practice 155",
+    "titleVi": "Luyện nghe B2 số 155",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The report suggests that companies investing in employee training tend to perform stronger than their competitors. It seems clear that people are the most valuable asset."
+  },
+  {
+    "id": "dict-156",
+    "title": "B2 Listening Practice 156",
+    "titleVi": "Luyện nghe B2 số 156",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Not only did she finish the project ahead of schedule, but she also improved the entire process. Her dedication and creativity impressed everyone in the department."
+  },
+  {
+    "id": "dict-157",
+    "title": "B2 Listening Practice 157",
+    "titleVi": "Luyện nghe B2 số 157",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "By the time we arrived at the conference, the main speaker had already finished his presentation. We were disappointed, but we still learned a great deal from the workshops."
+  },
+  {
+    "id": "dict-158",
+    "title": "B2 Listening Practice 158",
+    "titleVi": "Luyện nghe B2 số 158",
+    "level": "B2",
+    "duration": "28s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "It is high time we took action on climate change. If governments continue to delay, future generations will face consequences far more serious than we can imagine today."
+  },
+  {
+    "id": "dict-159",
+    "title": "B2 Listening Practice 159",
+    "titleVi": "Luyện nghe B2 số 159",
+    "level": "B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Rather than focusing solely on profit, many successful businesses today prioritize sustainability and social responsibility. Customers increasingly reward companies that share their values."
+  },
+  {
+    "id": "dict-160",
+    "title": "B2 Listening Practice 160",
+    "titleVi": "Luyện nghe B2 số 160",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new policy, which was introduced last month, has sparked considerable debate. Supporters argue it will boost the economy, while critics fear it may widen inequality."
+  },
+  {
+    "id": "dict-161",
+    "title": "B2 Listening Practice 161",
+    "titleVi": "Luyện nghe B2 số 161",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "What surprised me most about living in Toronto was how different daily life felt. The pace was faster, and people seemed to be constantly on the move."
+  },
+  {
+    "id": "dict-162",
+    "title": "B2 Listening Practice 162",
+    "titleVi": "Luyện nghe B2 số 162",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Should you require any further assistance, please do not hesitate to contact our support team. We are available twenty four hours a day, seven days a week."
+  },
+  {
+    "id": "dict-163",
+    "title": "B2 Listening Practice 163",
+    "titleVi": "Luyện nghe B2 số 163",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The scientist explained that the experiment, had it been conducted under different conditions, might have produced completely different results. Such is the unpredictable nature of research."
+  },
+  {
+    "id": "dict-164",
+    "title": "B2 Listening Practice 164",
+    "titleVi": "Luyện nghe B2 số 164",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "No sooner had the meeting ended than the news spread across the company. Everyone was eager to share their opinions on the proposed changes."
+  },
+  {
+    "id": "dict-165",
+    "title": "B2 Listening Practice 165",
+    "titleVi": "Luyện nghe B2 số 165",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Although I have been working in this field for over 15 years, I still find new challenges every day. Technology evolves so quickly that continuous learning has become essential."
+  },
+  {
+    "id": "dict-166",
+    "title": "B2 Listening Practice 166",
+    "titleVi": "Luyện nghe B2 số 166",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Had I known about the traffic, I would have left home much earlier. Unfortunately, I missed the train and had to wait for the next one."
+  },
+  {
+    "id": "dict-167",
+    "title": "B2 Listening Practice 167",
+    "titleVi": "Luyện nghe B2 số 167",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The report suggests that companies investing in employee training tend to perform stronger than their competitors. It seems clear that people are the most valuable asset."
+  },
+  {
+    "id": "dict-168",
+    "title": "B2 Listening Practice 168",
+    "titleVi": "Luyện nghe B2 số 168",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Not only did she finish the project ahead of schedule, but she also improved the entire process. Her dedication and creativity impressed everyone in the department."
+  },
+  {
+    "id": "dict-169",
+    "title": "B2 Listening Practice 169",
+    "titleVi": "Luyện nghe B2 số 169",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "By the time we arrived at the conference, the main speaker had already finished his presentation. We were disappointed, but we still learned a great deal from the workshops."
+  },
+  {
+    "id": "dict-170",
+    "title": "B2 Listening Practice 170",
+    "titleVi": "Luyện nghe B2 số 170",
+    "level": "B2",
+    "duration": "28s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "It is high time we took action on climate change. If governments continue to delay, future generations will face consequences far more serious than we can imagine today."
+  },
+  {
+    "id": "dict-171",
+    "title": "B2 Listening Practice 171",
+    "titleVi": "Luyện nghe B2 số 171",
+    "level": "B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Rather than focusing solely on profit, many successful businesses today prioritize sustainability and social responsibility. Customers increasingly reward companies that share their values."
+  },
+  {
+    "id": "dict-172",
+    "title": "B2 Listening Practice 172",
+    "titleVi": "Luyện nghe B2 số 172",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new policy, which was introduced last month, has sparked considerable debate. Supporters argue it will boost the economy, while critics fear it may widen inequality."
+  },
+  {
+    "id": "dict-173",
+    "title": "B2 Listening Practice 173",
+    "titleVi": "Luyện nghe B2 số 173",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "What surprised me most about living in London was how different daily life felt. The pace was faster, and people seemed to be constantly on the move."
+  },
+  {
+    "id": "dict-174",
+    "title": "B2 Listening Practice 174",
+    "titleVi": "Luyện nghe B2 số 174",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Should you require any further assistance, please do not hesitate to contact our support team. We are available twenty four hours a day, seven days a week."
+  },
+  {
+    "id": "dict-175",
+    "title": "B2 Listening Practice 175",
+    "titleVi": "Luyện nghe B2 số 175",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The scientist explained that the experiment, had it been conducted under different conditions, might have produced completely different results. Such is the unpredictable nature of research."
+  },
+  {
+    "id": "dict-176",
+    "title": "B2 Listening Practice 176",
+    "titleVi": "Luyện nghe B2 số 176",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "No sooner had the meeting ended than the news spread across the company. Everyone was eager to share their opinions on the proposed changes."
+  },
+  {
+    "id": "dict-177",
+    "title": "B2 Listening Practice 177",
+    "titleVi": "Luyện nghe B2 số 177",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Although I have been working in this field for over 10 years, I still find new challenges every day. Technology evolves so quickly that continuous learning has become essential."
+  },
+  {
+    "id": "dict-178",
+    "title": "B2 Listening Practice 178",
+    "titleVi": "Luyện nghe B2 số 178",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Had I known about the traffic, I would have left home much earlier. Unfortunately, I missed the train and had to wait for the next one."
+  },
+  {
+    "id": "dict-179",
+    "title": "B2 Listening Practice 179",
+    "titleVi": "Luyện nghe B2 số 179",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The report suggests that companies investing in employee training tend to perform stronger than their competitors. It seems clear that people are the most valuable asset."
+  },
+  {
+    "id": "dict-180",
+    "title": "B2 Listening Practice 180",
+    "titleVi": "Luyện nghe B2 số 180",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Not only did she finish the project ahead of schedule, but she also improved the entire process. Her dedication and creativity impressed everyone in the department."
+  },
+  {
+    "id": "dict-181",
+    "title": "B2 Listening Practice 181",
+    "titleVi": "Luyện nghe B2 số 181",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "By the time we arrived at the conference, the main speaker had already finished his presentation. We were disappointed, but we still learned a great deal from the workshops."
+  },
+  {
+    "id": "dict-182",
+    "title": "B2 Listening Practice 182",
+    "titleVi": "Luyện nghe B2 số 182",
+    "level": "B2",
+    "duration": "28s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "It is high time we took action on climate change. If governments continue to delay, future generations will face consequences far more serious than we can imagine today."
+  },
+  {
+    "id": "dict-183",
+    "title": "B2 Listening Practice 183",
+    "titleVi": "Luyện nghe B2 số 183",
+    "level": "B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Rather than focusing solely on profit, many successful businesses today prioritize sustainability and social responsibility. Customers increasingly reward companies that share their values."
+  },
+  {
+    "id": "dict-184",
+    "title": "B2 Listening Practice 184",
+    "titleVi": "Luyện nghe B2 số 184",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new policy, which was introduced last month, has sparked considerable debate. Supporters argue it will boost the economy, while critics fear it may widen inequality."
+  },
+  {
+    "id": "dict-185",
+    "title": "B2 Listening Practice 185",
+    "titleVi": "Luyện nghe B2 số 185",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "What surprised me most about living in Toronto was how different daily life felt. The pace was faster, and people seemed to be constantly on the move."
+  },
+  {
+    "id": "dict-186",
+    "title": "B2 Listening Practice 186",
+    "titleVi": "Luyện nghe B2 số 186",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Should you require any further assistance, please do not hesitate to contact our support team. We are available twenty four hours a day, seven days a week."
+  },
+  {
+    "id": "dict-187",
+    "title": "B2 Listening Practice 187",
+    "titleVi": "Luyện nghe B2 số 187",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The scientist explained that the experiment, had it been conducted under different conditions, might have produced completely different results. Such is the unpredictable nature of research."
+  },
+  {
+    "id": "dict-188",
+    "title": "B2 Listening Practice 188",
+    "titleVi": "Luyện nghe B2 số 188",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "No sooner had the meeting ended than the news spread across the company. Everyone was eager to share their opinions on the proposed changes."
+  },
+  {
+    "id": "dict-189",
+    "title": "B2 Listening Practice 189",
+    "titleVi": "Luyện nghe B2 số 189",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Although I have been working in this field for over 30 years, I still find new challenges every day. Technology evolves so quickly that continuous learning has become essential."
+  },
+  {
+    "id": "dict-190",
+    "title": "B2 Listening Practice 190",
+    "titleVi": "Luyện nghe B2 số 190",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Had I known about the traffic, I would have left home much earlier. Unfortunately, I missed the train and had to wait for the next one."
+  },
+  {
+    "id": "dict-191",
+    "title": "B2 Listening Practice 191",
+    "titleVi": "Luyện nghe B2 số 191",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The report suggests that companies investing in employee training tend to perform stronger than their competitors. It seems clear that people are the most valuable asset."
+  },
+  {
+    "id": "dict-192",
+    "title": "B2 Listening Practice 192",
+    "titleVi": "Luyện nghe B2 số 192",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Not only did she finish the project ahead of schedule, but she also improved the entire process. Her dedication and creativity impressed everyone in the department."
+  },
+  {
+    "id": "dict-193",
+    "title": "B2 Listening Practice 193",
+    "titleVi": "Luyện nghe B2 số 193",
+    "level": "B2",
+    "duration": "29s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "By the time we arrived at the conference, the main speaker had already finished his presentation. We were disappointed, but we still learned a great deal from the workshops."
+  },
+  {
+    "id": "dict-194",
+    "title": "B2 Listening Practice 194",
+    "titleVi": "Luyện nghe B2 số 194",
+    "level": "B2",
+    "duration": "28s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "It is high time we took action on climate change. If governments continue to delay, future generations will face consequences far more serious than we can imagine today."
+  },
+  {
+    "id": "dict-195",
+    "title": "B2 Listening Practice 195",
+    "titleVi": "Luyện nghe B2 số 195",
+    "level": "B2",
+    "duration": "23s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Rather than focusing solely on profit, many successful businesses today prioritize sustainability and social responsibility. Customers increasingly reward companies that share their values."
+  },
+  {
+    "id": "dict-196",
+    "title": "B2 Listening Practice 196",
+    "titleVi": "Luyện nghe B2 số 196",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The new policy, which was introduced last month, has sparked considerable debate. Supporters argue it will boost the economy, while critics fear it may widen inequality."
+  },
+  {
+    "id": "dict-197",
+    "title": "B2 Listening Practice 197",
+    "titleVi": "Luyện nghe B2 số 197",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "What surprised me most about living in London was how different daily life felt. The pace was faster, and people seemed to be constantly on the move."
+  },
+  {
+    "id": "dict-198",
+    "title": "B2 Listening Practice 198",
+    "titleVi": "Luyện nghe B2 số 198",
+    "level": "B2",
+    "duration": "27s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "Should you require any further assistance, please do not hesitate to contact our support team. We are available twenty four hours a day, seven days a week."
+  },
+  {
+    "id": "dict-199",
+    "title": "B2 Listening Practice 199",
+    "titleVi": "Luyện nghe B2 số 199",
+    "level": "B2",
+    "duration": "26s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "The scientist explained that the experiment, had it been conducted under different conditions, might have produced completely different results. Such is the unpredictable nature of research."
+  },
+  {
+    "id": "dict-200",
+    "title": "B2 Listening Practice 200",
+    "titleVi": "Luyện nghe B2 số 200",
+    "level": "B2",
+    "duration": "24s",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    "transcript": "No sooner had the meeting ended than the news spread across the company. Everyone was eager to share their opinions on the proposed changes."
   }
 ]

@@ -1198,5 +1198,805 @@
         "text": "A good book stays with you long after the last page."
       }
     ]
+  },
+  {
+    "id": "sh-time",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Telling the Time",
+    "titleVi": "Nói Về Thời Gian",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Excuse me, do you have the time, please?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Yes, it is half past three."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Thank you, I am late for my class."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "You should hurry, the bus leaves at four."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I will take a taxi instead."
+      }
+    ]
+  },
+  {
+    "id": "sh-family",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "My Family",
+    "titleVi": "Gia Đình Tôi",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I have a small family with four people."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "My father is a doctor and my mother is a teacher."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "I have one younger sister who is still at school."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "We often have dinner together on Sundays."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I love spending time with my family."
+      }
+    ]
+  },
+  {
+    "id": "sh-colours",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Talking About Colours",
+    "titleVi": "Nói Về Màu Sắc",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "What is your favorite colour?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "My favorite colour is blue."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "I like the sea and the sky, so blue makes me happy."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "My sister prefers red and orange."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "We painted her room yellow last weekend."
+      }
+    ]
+  },
+  {
+    "id": "sh-animals",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "My Pet",
+    "titleVi": "Thú Cưng Của Tôi",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I have a small dog called Max."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "He is brown and very friendly."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Every morning I take him for a walk."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "He likes to play with a ball in the park."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I love my dog very much."
+      }
+    ]
+  },
+  {
+    "id": "sh-food2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "At a Restaurant",
+    "titleVi": "Ở Nhà Hàng",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Good evening, a table for two, please."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Here is the menu, take your time."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "I would like the grilled chicken and a salad."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Would you like anything to drink?"
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Just some water, thank you."
+      }
+    ]
+  },
+  {
+    "id": "sh-bus",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Taking the Bus",
+    "titleVi": "Đi Xe Buýt",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Does this bus go to the city center?"
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Yes, it does, but you need to change at the next stop."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "How much is the ticket?"
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "It is two dollars for a single ride."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Thank you for your help."
+      }
+    ]
+  },
+  {
+    "id": "sh-music",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "My Favorite Music",
+    "titleVi": "Âm Nhạc Yêu Thích",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "I love listening to pop music in the morning."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It helps me feel happy and full of energy."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "My favorite singer is Adele."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Her songs are emotional and beautiful."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "I often sing along when I am alone."
+      }
+    ]
+  },
+  {
+    "id": "sh-weekend",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Weekend Plans",
+    "titleVi": "Kế Hoạch Cuối Tuần",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "What are you doing this weekend?"
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "I am planning to visit my grandparents."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "We will cook a big lunch together."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Maybe we will go for a walk in the countryside."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "It should be very relaxing."
+      }
+    ]
+  },
+  {
+    "id": "sh-exercise",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Staying Healthy",
+    "titleVi": "Giữ Gìn Sức Khỏe",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Staying healthy is not very difficult."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "You just need to eat well and move more."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "I try to walk at least thirty minutes a day."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "I also drink plenty of water."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Small habits make a big difference over time."
+      }
+    ]
+  },
+  {
+    "id": "sh-city",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Life in the City",
+    "titleVi": "Cuộc Sống Ở Thành Phố",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Living in a big city has many advantages."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "There are shops, cinemas, and restaurants everywhere."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Public transport is usually convenient."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "However, the cost of living is quite high."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "For me, the energy of the city is worth it."
+      }
+    ]
+  },
+  {
+    "id": "sh-plan",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Making Plans",
+    "titleVi": "Lập Kế Hoạch",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Let us make a plan for the project."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "First, we should set a clear goal."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Then we can divide the work equally."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "We should also decide on a deadline."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Good planning saves a lot of time later."
+      }
+    ]
+  },
+  {
+    "id": "sh-travel2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "At the Airport",
+    "titleVi": "Tại Sân Bay",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Welcome to the international airport."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Please have your passport and ticket ready."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Your flight boards at gate number twelve."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Do you have any luggage to check in?"
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Have a pleasant flight."
+      }
+    ]
+  },
+  {
+    "id": "sh-money2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Saving Money",
+    "titleVi": "Tiết Kiệm Tiền",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Saving money is a habit that everyone should build."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Start by writing down what you spend each day."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "You will be surprised where your money goes."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Try to save a small amount every week."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Over time, it will grow into something meaningful."
+      }
+    ]
+  },
+  {
+    "id": "sh-interview2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "A Phone Interview",
+    "titleVi": "Phỏng Vấn Qua Điện Thoại",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Thank you for taking my call."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "I am calling about the position you applied for."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Could you tell me about your experience?"
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "I have worked in sales for four years."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "We would like to invite you for a second interview."
+      }
+    ]
+  },
+  {
+    "id": "sh-science2",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "How Memory Works",
+    "titleVi": "Cơ Chế Của Trí Nhớ",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Memory is not a single thing in the brain."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It is a network of connections that grow stronger with use."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Sleep plays a key role in storing new information."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Testing yourself is more effective than rereading."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The more you recall, the longer you remember."
+      }
+    ]
+  },
+  {
+    "id": "sh-art",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The World of Art",
+    "titleVi": "Thế Giới Nghệ Thuật",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Art has always been a way for humans to express themselves."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It allows us to communicate feelings that words cannot capture."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "A painting can tell a story without a single sentence."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Great art challenges us to see the world differently."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Everyone has the ability to create something meaningful."
+      }
+    ]
+  },
+  {
+    "id": "sh-tech3",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Living With Technology",
+    "titleVi": "Sống Cùng Công Nghệ",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Technology has transformed the way we live and work."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We can now connect with anyone in seconds."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "However, we must be careful not to lose real human contact."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Balance is the key to using technology wisely."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "It should serve us, not control us."
+      }
+    ]
+  },
+  {
+    "id": "sh-success",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Road to Success",
+    "titleVi": "Con Đường Đến Thành Công",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Success is rarely a straight line."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It is built from failures, lessons, and small wins."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "The most successful people are not the most talented."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "They are the ones who keep going when others quit."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Persistence is more powerful than talent alone."
+      }
+    ]
+  },
+  {
+    "id": "sh-balance",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Work and Life Balance",
+    "titleVi": "Cân Bằng Công Việc Và Cuộc Sống",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Finding balance between work and life is a challenge for many."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We often feel guilty when we rest."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "But rest is not a waste of time; it is necessary."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "A rested mind is more creative and productive."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Balance allows us to enjoy the journey, not just the destination."
+      }
+    ]
+  },
+  {
+    "id": "sh-kindness",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "The Power of Kindness",
+    "titleVi": "Sức Mạnh Của Lòng Tử Tế",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "A small act of kindness can change someone's entire day."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It costs nothing, yet it means everything to the receiver."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Kindness creates a chain reaction."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "When we are kind, others are inspired to be kind too."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The world becomes better one small action at a time."
+      }
+    ]
   }
 ]

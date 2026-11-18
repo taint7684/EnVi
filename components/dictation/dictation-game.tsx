@@ -1,21 +1,59 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { Volume2, RotateCcw, Check, Play, Film } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowRight, Check, RotateCcw, Shuffle, Volume2 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { diffWords } from "diff";
-import { DICTATION_LESSONS } from "@/lib/dictation-data";
-import { awardDictationXp } from "@/app/actions/dictation";
+import { DICTATION_LESSONS, type DictationLesson } from "@/lib/dictation-data";
+import { speakEnglish, stopSpeaking } from "@/lib/speech";
+
+const LEVELS = ["A2", "B1", "B2"] as const;
+type Level = (typeof LEVELS)[number];
+
+const SEEN_KEY = "envi:dictation:seen";
+
+function loadSeen(): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(SEEN_KEY);
+    return new Set<string>(raw ? JSON.parse(raw) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveSeen(seen: Set<string>) {
+  try {
+    localStorage.setItem(SEEN_KEY, JSON.stringify([...seen]));
+  } catch {
+    // ignore
+  }
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildQueue(level: Level, seen: Set<string>): DictationLesson[] {
+  const pool = DICTATION_LESSONS.filter((l) => l.level === level);
+  const unseen = shuffle(pool.filter((l) => !seen.has(l.id)));
+  const done = shuffle(pool.filter((l) => seen.has(l.id)));
+  return [...unseen, ...done];
+}
 
 function DiffResult({ userText, expected }: { userText: string; expected: string }) {
   const diff = diffWords(userText.toLowerCase(), expected.toLowerCase());
-
   return (
     <div className="rounded-lg border border-border bg-muted/50 p-3">
       <p className="mb-2 text-sm font-medium">Kết quả:</p>
-      <div className="text-sm">
+      <div className="text-sm leading-relaxed">
         {diff.map((part, i) => (
           <span
             key={i}
@@ -36,197 +74,190 @@ function DiffResult({ userText, expected }: { userText: string; expected: string
   );
 }
 
-function speak(text: string) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 0.9;
-  window.speechSynthesis.speak(utterance);
-}
-
 export function DictationGame() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [userText, setUserText] = useState("");
+  const [level, setLevel] = useState<Level>("A2");
+  const [queue, setQueue] = useState<DictationLesson[]>([]);
+  const [index, setIndex] = useState(0);
+  const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
-  const [showVideo, setShowVideo] = useState(false);
+  const [seenCount, setSeenCount] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const currentLesson = DICTATION_LESSONS[currentIndex];
-  const isCorrect = userText.trim().toLowerCase() === currentLesson.transcript.toLowerCase();
+  const current = queue[index];
 
-  useEffect(() => {
-    return () => {
-      window.speechSynthesis.cancel();
-    };
+  const rebuild = useCallback((lv: Level) => {
+    const seen = loadSeen();
+    setQueue(buildQueue(lv, seen));
+    setIndex(0);
+    setInput("");
+    setShowResult(false);
+    setSeenCount(seen.size);
   }, []);
 
-  const handlePlayTTS = () => {
-    window.speechSynthesis.cancel();
-    speak(currentLesson.transcript);
-  };
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    rebuild(level);
+  }, [level, rebuild]);
 
-  const handlePlayVideo = () => {
-    setShowVideo(true);
-  };
+  useEffect(() => {
+    if (current) speakEnglish(current.transcript);
+    return () => stopSpeaking();
+  }, [current]);
 
-  const handleVideoEnd = () => {
-    setShowVideo(false);
-  };
+  const isCorrect = current
+    ? input.trim().toLowerCase() === current.transcript.trim().toLowerCase()
+    : false;
 
-  const handleSubmit = () => {
+  function markSeen(id: string) {
+    const seen = loadSeen();
+    if (!seen.has(id)) {
+      seen.add(id);
+      saveSeen(seen);
+      setSeenCount(seen.size);
+    }
+  }
+
+  function handleSubmit() {
     setShowResult(true);
     setTotal((t) => t + 1);
     if (isCorrect) {
       setScore((s) => s + 1);
-      // Award 20 XP for correct answer
-      void awardDictationXp();
+      if (current) markSeen(current.id);
     }
-  };
+  }
 
-  const handleNext = () => {
-    setCurrentIndex((i) => (i + 1) % DICTATION_LESSONS.length);
-    setUserText("");
+  function handleNext() {
+    const nextIndex = index + 1;
+    if (nextIndex >= queue.length) {
+      // Hết lượt hiện tại -> trộn lại, ưu tiên bài chưa làm
+      rebuild(level);
+    } else {
+      setIndex(nextIndex);
+    }
+    setInput("");
     setShowResult(false);
-    setShowVideo(false);
-    inputRef.current?.focus();
-  };
+    window.setTimeout(() => inputRef.current?.focus(), 0);
+  }
 
-  const handleReset = () => {
-    setCurrentIndex(0);
-    setUserText("");
-    setShowResult(false);
-    setScore(0);
-    setTotal(0);
-  };
+  function handleSkip() {
+    setTotal((t) => t + 1);
+    handleNext();
+  }
+
+  const poolSize = DICTATION_LESSONS.filter((l) => l.level === level).length;
 
   return (
     <div className="mx-auto max-w-3xl space-y-4">
-      <div className="flex items-center justify-between">
-        <span className="text-sm text-muted-foreground">
-          Bài {currentIndex + 1}/{DICTATION_LESSONS.length}
-        </span>
-        <span className="text-sm text-muted-foreground">
-          Điểm: {score}/{total}
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex gap-1 rounded-xl bg-muted p-1">
+          {LEVELS.map((lv) => (
+            <button
+              key={lv}
+              type="button"
+              onClick={() => setLevel(lv)}
+              className={cn(
+                "rounded-lg px-4 py-1.5 text-sm font-medium transition-colors",
+                level === lv
+                  ? "bg-card text-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground",
+              )}
+            >
+              {lv}
+            </button>
+          ))}
+        </div>
+        <span className="flex items-center gap-1 text-xs text-muted-foreground">
+          <Shuffle className="size-3.5" />
+          Ưu tiên bài chưa làm · {seenCount}/{poolSize} đã luyện
         </span>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
-          <h4 className="mb-3 font-medium">Video / Audio</h4>
-
-          {showVideo ? (
-            <div className="overflow-hidden rounded-xl bg-black">
-              <iframe
-                ref={iframeRef}
-                src={`${currentLesson.videoUrl}?autoplay=1&enablejsapi=1`}
-                title={currentLesson.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="aspect-video w-full"
-                onLoad={() => {
-                  // Video ended detection via postMessage
-                  const handleMessage = (event: MessageEvent) => {
-                    if (event.origin !== "https://www.youtube.com") return;
-                    try {
-                      const data = JSON.parse(event.data);
-                      if (data.event === "onStateChange" && data.info === 0) {
-                        handleVideoEnd();
-                      }
-                    } catch {
-                      // ignore
-                    }
-                  };
-                  window.addEventListener("message", handleMessage);
-                }}
-              />
-            </div>
-          ) : (
-            <div className="flex flex-col items-center gap-3 rounded-xl bg-muted p-8">
-              <div
-                className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted"
-                style={{
-                  backgroundImage: `url(${currentLesson.thumbnail})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <button
-                    onClick={handlePlayVideo}
-                    className="flex size-16 items-center justify-center rounded-full bg-white/90 text-black shadow-lg transition-transform hover:scale-105"
-                  >
-                    <Film className="size-6" />
-                  </button>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <Button onClick={handlePlayVideo} size="sm">
-                  <Film className="mr-1 h-4 w-4" />
-                  Xem video
-                </Button>
-                <Button onClick={handlePlayTTS} variant="outline" size="sm">
-                  <Volume2 className="mr-1 h-4 w-4" />
-                  Nghe TTS
-                </Button>
-              </div>
-            </div>
-          )}
-
-          <p className="mt-2 text-xs text-muted-foreground">
-            {currentLesson.title} · {currentLesson.titleVi} · {currentLesson.level}
-          </p>
+      {!current ? (
+        <div className="rounded-2xl border border-border bg-card p-10 text-center shadow-sm">
+          <p className="text-muted-foreground">Đang chuẩn bị bài nghe...</p>
         </div>
+      ) : (
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <div className="mb-4 flex items-center justify-between">
+            <span className="text-sm text-muted-foreground">
+              Bài {index + 1} · {current.level}
+            </span>
+            <span className="text-sm text-muted-foreground">
+              Điểm: {score}/{total}
+            </span>
+          </div>
 
-        <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
-          <h4 className="mb-3 font-medium">Gõ lại lời thoại</h4>
+          <div className="mb-4 flex flex-wrap items-center gap-2">
+            <Button
+              variant="outline"
+              onClick={() => speakEnglish(current.transcript)}
+            >
+              <Volume2 className="size-4" />
+              Nghe
+            </Button>
+            <span className="text-xs text-muted-foreground">
+              Nghe kỹ rồi gõ lại toàn bộ câu.
+            </span>
+          </div>
 
-          <Input
+          <input
             ref={inputRef}
-            placeholder="Gõ lại những gì bạn nghe được..."
-            value={userText}
-            onChange={(e) => setUserText(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" && !showResult) handleSubmit();
-              if (e.key === "Enter" && showResult) handleNext();
+              if (e.key !== "Enter") return;
+              if (showResult) handleNext();
+              else if (input.trim()) handleSubmit();
             }}
             disabled={showResult}
-            className="mb-3"
+            placeholder="Gõ lại những gì bạn nghe được..."
+            className="mb-3 w-full rounded-xl border border-border bg-background px-4 py-3 text-base outline-none focus-visible:border-primary disabled:opacity-60"
           />
 
-          {showResult && (
-            <DiffResult userText={userText} expected={currentLesson.transcript} />
-          )}
+          {showResult ? (
+            <DiffResult userText={input} expected={current.transcript} />
+          ) : null}
 
-          <div className="mt-3 flex items-center justify-center gap-2">
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
             {!showResult ? (
-              <Button onClick={handleSubmit} disabled={!userText.trim()}>
-                <Check className="mr-1 h-4 w-4" />
-                Kiểm tra
-              </Button>
+              <>
+                <Button onClick={handleSubmit} disabled={!input.trim()}>
+                  <Check className="size-4" />
+                  Kiểm tra
+                </Button>
+                <Button variant="ghost" onClick={handleSkip}>
+                  Bỏ qua
+                </Button>
+              </>
             ) : (
               <Button onClick={handleNext}>
                 Bài tiếp theo
-                <RotateCcw className="ml-1 h-4 w-4" />
+                <ArrowRight className="size-4" />
               </Button>
             )}
-
-            <Button variant="outline" onClick={handleReset}>
-              Làm lại
+            <Button
+              variant="outline"
+              onClick={() => speakEnglish(current.transcript)}
+            >
+              <RotateCcw className="size-4" />
+              Nghe lại
             </Button>
           </div>
-        </div>
-      </div>
 
-      {showResult && (
-        <div
-          className={cn(
-            "rounded-lg p-4 text-center",
-            isCorrect ? "bg-green-500/10 text-green-700" : "bg-destructive/10 text-destructive",
-          )}
-        >
-          {isCorrect ? "Chính xác! 🎉" : "Chưa chính xác, hãy thử lại!"}
+          {showResult ? (
+            <p
+              className={cn(
+                "mt-3 rounded-lg p-3 text-center text-sm font-medium",
+                isCorrect
+                  ? "bg-green-500/10 text-green-700"
+                  : "bg-destructive/10 text-destructive",
+              )}
+            >
+              {isCorrect ? "Chính xác! 🎉" : "Chưa chính xác, nghe lại và thử tiếp nhé."}
+            </p>
+          ) : null}
         </div>
       )}
     </div>
