@@ -119,3 +119,19 @@ export type DailyStudyPlan = {
   completedTaskIds: string[];
   bonusAwarded: boolean;
 };
+
+export type LearningSnapshot = {
+  wordsLearned: number;
+  totalWords: number;
+  wordsCompletion: number;
+  reflexLearned: number;
+  totalPhrases: number;
+  reflexAccuracy: number;
+  lastTestPercent: number | null;
+  testTrend: "up" | "down" | "same" | "none";
+  streak: number;
+  xp: number;
+  level: number;
+  weakAreas: string[];
+  summaryText: string;
+};

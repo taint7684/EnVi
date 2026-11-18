@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { getUserLearningSnapshot } from "@/app/actions/learning-snapshot";
 import { callGemini } from "@/lib/ai/gemini";
 import { callGroqChat } from "@/lib/ai/groq";
 
@@ -23,12 +24,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const systemPrompt = `Bạn là một trợ lý AI học tiếng Anh. Trả lời ngắn gọn, rõ ràng.
+    const snapshot = await getUserLearningSnapshot();
+
+    const systemPrompt = `Bạn là mộtgia sư tiếng Anh của user. Trả lời ngắn gọn, rõ ràng.
 - Ưu tiên giải thích bằng tiếng Việt khi người dùng hỏi về ngữ pháp hoặc từ vựng.
 - Khi người dùng muốn luyện nói, hãy đặt câu hỏi bằng tiếng Anh.
 - Luôn chính xác và thân thiện.
 - Nếu người dùng hỏi về cách phát âm, hãy dùng IPA.
-- Giới hạn câu trả lời trong 100 từ.`;
+- Giới hạn câu trả lời trong 120 từ.
+
+Dữ liệu học tập thực tế của user:
+${snapshot.summaryText}
+
+Khi user hỏi "Tôi nên học gì tiếp?", hãy phân tích dữ liệu trên và đưa ra lời khuyên CỤ THỂ:
+- Nếu còn thẻ từ đến hạn hoặc chưa học hết từ -> ưu tiên ôn flashcard.
+- Nếu độ chính xác reflex thấp (<70%) -> gợi ý luyện reflex, đặc biệt câu B1/B2.
+- Nếu đã >= 14 ngày chưa làm Progress Test -> đề xuất làm bài test 20 câu.
+- Gợi ý chủ đề Speaking tiếp theo phù hợp trình độ.
+- Nếu streak <= 1 -> nhắc giữ đà, đề xuất 1 hoạt động ngắn.
+Đưa lời khuyên dạng gạch đầu dòng ngắn gọn, ưu tiên hành động ngay hôm nay.`;
 
     const lastMessage = messages[messages.length - 1];
 

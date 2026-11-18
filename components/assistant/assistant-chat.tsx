@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Send, Bot, User, Loader2 } from "lucide-react";
+import { Send, Bot, User, Loader2, Sparkles, Flame, Layers, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import type { LearningSnapshot } from "@/lib/types";
 import { toast } from "sonner";
 
 type Message = {
@@ -11,11 +12,18 @@ type Message = {
   content: string;
 };
 
-export function AssistantChat() {
+const QUICK_ACTIONS = [
+  "Hôm nay tôi nên học gì?",
+  "Tôi đang yếu phần nào?",
+  "Gợi ý chủ đề Speaking cho tôi",
+];
+
+export function AssistantChat({ snapshot }: { snapshot: LearningSnapshot }) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Xin chào! Tôi là trợ lý AI của EnVi. Tôi có thể giúp bạn học tiếng Anh, giải thích ngữ pháp, từ vựng, hoặc luyện nói. Bạn muốn hỏi gì?",
+      content:
+        "Xin chào! Tôi là gia sư AI của EnVi. Tôi đã xem dữ liệu học tập của bạn và sẵn sàng đưa ra lời khuyên. Bạn muốn hỏi gì?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -30,13 +38,11 @@ export function AssistantChat() {
     scrollToBottom();
   }, [messages]);
 
-  async function handleSend() {
-    if (!input.trim() || loading) return;
+  async function sendMessage(text: string) {
+    const content = text.trim();
+    if (!content || loading) return;
 
-    const userMessage: Message = {
-      role: "user",
-      content: input.trim(),
-    };
+    const userMessage: Message = { role: "user", content };
 
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
@@ -82,8 +88,65 @@ export function AssistantChat() {
     }
   }
 
+  function handleSend() {
+    void sendMessage(input);
+  }
+
+  function handleQuickAction(text: string) {
+    void sendMessage(text);
+  }
+
   return (
     <div className="flex h-[600px] flex-col">
+      <div className="mb-3 rounded-2xl border border-border bg-card p-4 shadow-sm">
+        <p className="flex items-center gap-2 text-sm font-medium text-foreground">
+          <Sparkles className="size-4 text-primary" />
+          Dữ liệu học tập của bạn
+        </p>
+        <div className="mt-2 grid grid-cols-2 gap-2 text-xs text-muted-foreground sm:grid-cols-4">
+          <span className="flex items-center gap-1">
+            <Layers className="size-3.5" /> {snapshot.wordsLearned}/
+            {snapshot.totalWords} từ
+          </span>
+          <span className="flex items-center gap-1">
+            <Target className="size-3.5" /> Reflex {snapshot.reflexAccuracy}%
+          </span>
+          <span className="flex items-center gap-1">
+            <Flame className="size-3.5" /> Streak {snapshot.streak}
+          </span>
+          <span className="flex items-center gap-1">
+            <Sparkles className="size-3.5" /> Level {snapshot.level} ·{" "}
+            {snapshot.xp} XP
+          </span>
+        </div>
+        {snapshot.lastTestPercent !== null ? (
+          <p className="mt-2 text-xs text-muted-foreground">
+            Bài test gần nhất: {snapshot.lastTestPercent}% (xu hướng{" "}
+            {snapshot.testTrend === "up"
+              ? "tăng"
+              : snapshot.testTrend === "down"
+                ? "giảm"
+                : snapshot.testTrend === "same"
+                  ? "đi ngang"
+                  : "chưa rõ"}
+            )
+          </p>
+        ) : null}
+        <div className="mt-3 flex flex-wrap gap-2">
+          {QUICK_ACTIONS.map((q) => (
+            <button
+              key={q}
+              type="button"
+              onClick={() => handleQuickAction(q)}
+              disabled={loading}
+              className="rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-accent/40 disabled:opacity-50"
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="flex-1 space-y-4 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
         {messages.map((msg, i) => (
           <div
@@ -104,7 +167,7 @@ export function AssistantChat() {
                   : "bg-muted text-foreground"
               }`}
             >
-              <p className="text-sm">{msg.content}</p>
+              <p className="whitespace-pre-wrap text-sm">{msg.content}</p>
             </div>
             {msg.role === "user" && (
               <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-muted">
