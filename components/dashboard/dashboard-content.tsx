@@ -4,16 +4,18 @@ import { Flame, Clock, Layers, Mic, ArrowRight, TrendingUp } from "lucide-react"
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DailyStudyPlan } from "@/components/dashboard/daily-study-plan";
-import type { DashboardStats, DayData } from "@/lib/dashboard";
+import { WeeklyReport } from "@/components/dashboard/weekly-report";
+import type { DashboardStats, DayData, WeeklyReport as Report } from "@/lib/dashboard";
 import type { DailyStudyPlan as Plan } from "@/lib/types";
 
 type Props = {
   stats: DashboardStats;
   weekData: DayData[];
   plan: Plan;
+  report: Report;
 };
 
-export function DashboardContent({ stats, weekData, plan }: Props) {
+export function DashboardContent({ stats, weekData, plan, report }: Props) {
   const maxMinutes = Math.max(...weekData.map((d) => d.minutes), 60);
 
   return (
@@ -71,9 +73,9 @@ export function DashboardContent({ stats, weekData, plan }: Props) {
             <Mic className="size-4" />
           </div>
           <p className="mt-3 text-2xl font-semibold text-foreground">
-            0
+            {report.speakingSessions}
           </p>
-          <p className="text-sm text-muted-foreground">Phiên speaking</p>
+          <p className="text-sm text-muted-foreground">Phiên speaking (7N)</p>
         </div>
       </div>
 
@@ -127,6 +129,8 @@ export function DashboardContent({ stats, weekData, plan }: Props) {
           </Button>
         </div>
       </div>
+
+      <WeeklyReport report={report} />
 
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
         <h2 className="font-serif text-lg font-semibold">Bắt đầu nhanh</h2>
