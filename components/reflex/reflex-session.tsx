@@ -295,7 +295,7 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
           </div>
         ) : null}
 
-        <div className="mt-6 flex items-center justify-center gap-3">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           {correct ? (
             <Button onClick={handleNext} size="lg">
               Tiếp theo
@@ -307,7 +307,7 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
               <ArrowRight className="size-4" />
             </Button>
           ) : result && !correct ? (
-            <div className="flex gap-3">
+            <>
               <Button
                 onClick={() => {
                   setResult(null);
@@ -318,12 +318,17 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
                 <RotateCcw className="size-4" />
                 Nói lại
               </Button>
-              <Button onClick={handleSkip} variant="ghost">
-                Bỏ qua
+              <Button onClick={handleSkip}>
+                Bỏ qua, xem câu tiếp
                 <ArrowRight className="size-4" />
               </Button>
-            </div>
-          ) : null}
+            </>
+          ) : (
+            <Button onClick={handleSkip} variant="outline">
+              Bỏ qua câu này
+              <ArrowRight className="size-4" />
+            </Button>
+          )}
 
           {mode === "reflex" && !result ? (
             <Button
