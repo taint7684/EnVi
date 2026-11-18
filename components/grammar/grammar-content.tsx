@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle, Circle, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { CollocationsView } from "@/components/grammar/collocations-view";
+import { GrammarPractice } from "@/components/grammar/grammar-practice";
+import { CollocationsPractice } from "@/components/grammar/collocations-practice";
 
 type GrammarTopic = {
   id: string;
@@ -152,32 +154,113 @@ const B1_B2_TOPICS: GrammarTopic[] = [
       { id: 3, question: "I didn't _____ like coffee, but now I do.", options: ["used to", "use to", "would", "am used to"], correct: 1, explanation: "Didn't use to: phủ định của used to." },
     ],
   },
+  {
+    id: "articles",
+    name: "Articles",
+    nameVi: "Mạo Từ",
+    formula: "a/an + N số ít / the + N xác định",
+    example: "I saw an elephant. / The sun rises in the east.",
+    explanation: "a: trước phụ âm. an: trước nguyên âm. the: danh từ xác định.",
+    quizzes: [],
+  },
+  {
+    id: "prepositions",
+    name: "Prepositions",
+    nameVi: "Giới Từ",
+    formula: "in / on / at + thời gian, địa điểm",
+    example: "at 5 o'clock / on Monday / in July",
+    explanation: "at: giờ, địa điểm cụ thể. on: ngày, bề mặt. in: tháng, năm, không gian kín.",
+    quizzes: [],
+  },
+  {
+    id: "quantifiers",
+    name: "Quantifiers",
+    nameVi: "Lượng Từ",
+    formula: "many + đếm được / much + không đếm được",
+    example: "many books / much water",
+    explanation: "many/few: danh từ đếm được. much/little: danh từ không đếm được.",
+    quizzes: [],
+  },
+  {
+    id: "question-forms",
+    name: "Question Forms",
+    nameVi: "Dạng Câu Hỏi",
+    formula: "(Wh-) + trợ động từ + S + V?",
+    example: "Where does he work? / Do you like coffee?",
+    explanation: "Trợ động từ (do/does/did/be/have) đứng trước chủ ngữ.",
+    quizzes: [],
+  },
+  {
+    id: "conjunctions",
+    name: "Conjunctions",
+    nameVi: "Liên Từ",
+    formula: "and / but / or / because / so",
+    example: "I was tired, so I went to bed.",
+    explanation: "and: thêm. but: đối lập. because: nguyên nhân. so: kết quả.",
+    quizzes: [],
+  },
+  {
+    id: "word-order",
+    name: "Word Order",
+    nameVi: "Trật Tự Từ",
+    formula: "S + V + O + Manner + Place + Time",
+    example: "She reads books every day.",
+    explanation: "Trật tự: Chủ ngữ - Động từ - Tân ngữ - cách thức - nơi chốn - thời gian.",
+    quizzes: [],
+  },
 ];
 
 export function GrammarContent() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
-  const [showAnswers, setShowAnswers] = useState<Record<number, boolean>>({});
+  const [view, setView] = useState<
+    "grammar" | "collocations" | "phrasal" | "practice"
+  >("grammar");
 
   const toggleExpand = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
-  const handleSelectAnswer = (quizId: number, optionIndex: number) => {
-    setSelectedAnswers((prev) => ({ ...prev, [quizId]: optionIndex }));
-  };
-
-  const handleShowAnswer = (quizId: number) => {
-    setShowAnswers((prev) => ({ ...prev, [quizId]: true }));
-  };
+  const TABS = [
+    { id: "grammar", label: "Ngữ pháp" },
+    { id: "collocations", label: "Collocations" },
+    { id: "phrasal", label: "Phrasal Verbs" },
+    { id: "practice", label: "Practice" },
+  ] as const;
 
   return (
     <div className="mx-auto max-w-3xl space-y-4">
-      <p className="text-sm text-muted-foreground">
-        Học 10 chủ điểm ngữ pháp B1-B2 và làm bài tập trắc nghiệm.
-      </p>
+      <div className="flex gap-1 rounded-xl bg-muted p-1">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setView(tab.id)}
+            className={cn(
+              "flex-1 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              view === tab.id
+                ? "bg-card text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      {B1_B2_TOPICS.map((topic) => (
+      {view === "practice" ? <CollocationsPractice /> : null}
+
+      {view === "grammar" ? (
+        <p className="text-sm text-muted-foreground">
+          Học 16 chủ điểm ngữ pháp và luyện tập với Practice Hub (10 câu ngẫu nhiên mỗi lần).
+        </p>
+      ) : null}
+
+      {view === "collocations" || view === "phrasal" ? (
+        <CollocationsView type={view === "phrasal" ? "phrasal" : "collocation"} />
+      ) : null}
+
+      {view === "grammar" ? (
+        B1_B2_TOPICS.map((topic) => (
         <div
           key={topic.id}
           className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
@@ -210,77 +293,12 @@ export function GrammarContent() {
                 </p>
               </div>
 
-              <h4 className="mb-3 font-medium">Bài tập trắc nghiệm</h4>
-              <div className="space-y-4">
-                {topic.quizzes.map((quiz) => {
-                  const selected = selectedAnswers[quiz.id];
-                  const showAnswer = showAnswers[quiz.id];
-
-                  return (
-                    <div
-                      key={quiz.id}
-                      className="rounded-lg border border-border p-3"
-                    >
-                      <p className="mb-2 font-medium">
-                        {quiz.id}. {quiz.question}
-                      </p>
-                      <div className="grid grid-cols-2 gap-2">
-                        {quiz.options.map((opt, i) => (
-                          <button
-                            key={i}
-                            onClick={() => handleSelectAnswer(quiz.id, i)}
-                            disabled={showAnswer}
-                            className={cn(
-                              "rounded-lg px-3 py-2 text-left text-sm transition-colors",
-                              selected === i
-                                ? showAnswer
-                                  ? i === quiz.correct
-                                    ? "bg-green-100 text-green-800"
-                                    : "bg-red-100 text-red-800"
-                                  : "bg-primary text-primary-foreground"
-                                : "bg-muted hover:bg-muted/80",
-                            )}
-                          >
-                            {String.fromCharCode(65 + i)}. {opt}
-                          </button>
-                        ))}
-                      </div>
-
-                      {!showAnswer && selected !== undefined && (
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleShowAnswer(quiz.id)}
-                          className="mt-2"
-                        >
-                          <CheckCircle className="mr-1 h-4 w-4" />
-                          Kiểm tra
-                        </Button>
-                      )}
-
-                      {showAnswer && (
-                        <div
-                          className={cn(
-                            "mt-2 rounded-lg p-2 text-sm",
-                            selected === quiz.correct
-                              ? "bg-green-50 text-green-700"
-                              : "bg-red-50 text-red-700",
-                          )}
-                        >
-                          <p className="font-medium">
-                            Đáp án: {String.fromCharCode(65 + quiz.correct)}. {quiz.options[quiz.correct]}
-                          </p>
-                          <p className="text-xs">{quiz.explanation}</p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+              <GrammarPractice topicId={topic.id} />
             </div>
           )}
         </div>
-      ))}
+      ))
+      ) : null}
     </div>
   );
 }

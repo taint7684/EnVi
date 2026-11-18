@@ -1,0 +1,3032 @@
+[
+  {
+    "en": "make a decision",
+    "vi": "đưa ra quyết định",
+    "example": "She had to make a difficult decision.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a break",
+    "vi": "nghỉ ngơi một chút",
+    "example": "Let's take a break after an hour.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay attention",
+    "vi": "chú ý",
+    "example": "Please pay attention to the teacher.",
+    "type": "collocation"
+  },
+  {
+    "en": "make progress",
+    "vi": "tiến bộ",
+    "example": "You are making good progress in English.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a risk",
+    "vi": "chấp nhận rủi ro",
+    "example": "Sometimes you have to take a risk.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a promise",
+    "vi": "giữ lời hứa",
+    "example": "He always keeps his promises.",
+    "type": "collocation"
+  },
+  {
+    "en": "break a promise",
+    "vi": "phá vỡ lời hứa",
+    "example": "Don't break a promise you made.",
+    "type": "collocation"
+  },
+  {
+    "en": "save money",
+    "vi": "tiết kiệm tiền",
+    "example": "I am saving money for a trip.",
+    "type": "collocation"
+  },
+  {
+    "en": "spend money",
+    "vi": "tiêu tiền",
+    "example": "She spends money on books.",
+    "type": "collocation"
+  },
+  {
+    "en": "waste time",
+    "vi": "lãng phí thời gian",
+    "example": "Don't waste time on games.",
+    "type": "collocation"
+  },
+  {
+    "en": "make an effort",
+    "vi": "nỗ lực",
+    "example": "He made an effort to arrive early.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a photo",
+    "vi": "chụp ảnh",
+    "example": "Can I take a photo of you?",
+    "type": "collocation"
+  },
+  {
+    "en": "tell the truth",
+    "vi": "nói sự thật",
+    "example": "You should tell the truth.",
+    "type": "collocation"
+  },
+  {
+    "en": "tell a lie",
+    "vi": "nói dối",
+    "example": "Nobody likes a person who tells lies.",
+    "type": "collocation"
+  },
+  {
+    "en": "tell a story",
+    "vi": "kể chuyện",
+    "example": "Grandma told us a story.",
+    "type": "collocation"
+  },
+  {
+    "en": "tell a joke",
+    "vi": "kể một câu chuyện cười",
+    "example": "He loves to tell a joke.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a mistake",
+    "vi": "mắc lỗi",
+    "example": "Everyone makes a mistake sometimes.",
+    "type": "collocation"
+  },
+  {
+    "en": "do homework",
+    "vi": "làm bài tập về nhà",
+    "example": "I have to do homework tonight.",
+    "type": "collocation"
+  },
+  {
+    "en": "do housework",
+    "vi": "làm việc nhà",
+    "example": "We share the housework.",
+    "type": "collocation"
+  },
+  {
+    "en": "do research",
+    "vi": "thực hiện nghiên cứu",
+    "example": "They do research on climate.",
+    "type": "collocation"
+  },
+  {
+    "en": "make friends",
+    "vi": "kết bạn",
+    "example": "It is easy to make friends here.",
+    "type": "collocation"
+  },
+  {
+    "en": "have a party",
+    "vi": "tổ chức tiệc",
+    "example": "We are having a party on Saturday.",
+    "type": "collocation"
+  },
+  {
+    "en": "have a rest",
+    "vi": "nghỉ ngơi",
+    "example": "Let's have a rest for a while.",
+    "type": "collocation"
+  },
+  {
+    "en": "have a shower",
+    "vi": "tắm",
+    "example": "I have a shower every morning.",
+    "type": "collocation"
+  },
+  {
+    "en": "have breakfast",
+    "vi": "ăn sáng",
+    "example": "I have breakfast at seven.",
+    "type": "collocation"
+  },
+  {
+    "en": "have dinner",
+    "vi": "ăn tối",
+    "example": "We have dinner together.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a shower",
+    "vi": "tắm",
+    "example": "Take a shower before bed.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a seat",
+    "vi": "ngồi xuống",
+    "example": "Please take a seat.",
+    "type": "collocation"
+  },
+  {
+    "en": "take notes",
+    "vi": "ghi chú",
+    "example": "Take notes during the lecture.",
+    "type": "collocation"
+  },
+  {
+    "en": "take an exam",
+    "vi": "thi",
+    "example": "I will take an exam next week.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a test",
+    "vi": "làm bài kiểm tra",
+    "example": "Students take a test every month.",
+    "type": "collocation"
+  },
+  {
+    "en": "take medicine",
+    "vi": "uống thuốc",
+    "example": "Take medicine twice a day.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch a cold",
+    "vi": "bị cảm lạnh",
+    "example": "I caught a cold last week.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a job",
+    "vi": "tìm được việc làm",
+    "example": "She got a job at a bank.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose a job",
+    "vi": "mất việc",
+    "example": "He lost his job last year.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a secret",
+    "vi": "giữ bí mật",
+    "example": "Can you keep a secret?",
+    "type": "collocation"
+  },
+  {
+    "en": "make a noise",
+    "vi": "tạo tiếng ồn",
+    "example": "Don't make a noise in class.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a phone call",
+    "vi": "gọi điện thoại",
+    "example": "I need to make a phone call.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a list",
+    "vi": "lập danh sách",
+    "example": "Make a list before shopping.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a plan",
+    "vi": "lập kế hoạch",
+    "example": "We should make a plan first.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a suggestion",
+    "vi": "đưa ra gợi ý",
+    "example": "Can I make a suggestion?",
+    "type": "collocation"
+  },
+  {
+    "en": "make a complaint",
+    "vi": "khiếu nại",
+    "example": "He made a complaint about the service.",
+    "type": "collocation"
+  },
+  {
+    "en": "make an appointment",
+    "vi": "đặt lịch hẹn",
+    "example": "I made an appointment with the doctor.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a reservation",
+    "vi": "đặt chỗ",
+    "example": "I made a reservation for two.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a booking",
+    "vi": "đặt chỗ",
+    "example": "She made a booking online.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay attention to",
+    "vi": "chú ý vào",
+    "example": "Pay attention to the details.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay a visit",
+    "vi": "thăm viếng",
+    "example": "We paid a visit to our teacher.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay the bill",
+    "vi": "trả hóa đơn",
+    "example": "Could we have the bill, please?",
+    "type": "collocation"
+  },
+  {
+    "en": "break the ice",
+    "vi": "phá tan bầu không khí ngại ngùng",
+    "example": "He told a joke to break the ice.",
+    "type": "collocation"
+  },
+  {
+    "en": "break the news",
+    "vi": "thông báo tin",
+    "example": "She broke the news gently.",
+    "type": "collocation"
+  },
+  {
+    "en": "break the rules",
+    "vi": "phá vỡ quy tắc",
+    "example": "Don't break the rules.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch someone's eye",
+    "vi": "thu hút ánh nhìn của ai",
+    "example": "A red car caught my eye.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep in touch",
+    "vi": "giữ liên lạc",
+    "example": "Let's keep in touch.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep calm",
+    "vi": "giữ bình tĩnh",
+    "example": "Keep calm and carry on.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep quiet",
+    "vi": "giữ im lặng",
+    "example": "Please keep quiet.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose weight",
+    "vi": "giảm cân",
+    "example": "She is trying to lose weight.",
+    "type": "collocation"
+  },
+  {
+    "en": "gain weight",
+    "vi": "tăng cân",
+    "example": "He gained weight over the holidays.",
+    "type": "collocation"
+  },
+  {
+    "en": "put on weight",
+    "vi": "tăng cân",
+    "example": "I put on weight last winter.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a business",
+    "vi": "điều hành kinh doanh",
+    "example": "They run a small business.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a company",
+    "vi": "điều hành công ty",
+    "example": "He runs a tech company.",
+    "type": "collocation"
+  },
+  {
+    "en": "open a business",
+    "vi": "mở doanh nghiệp",
+    "example": "She wants to open a business.",
+    "type": "collocation"
+  },
+  {
+    "en": "start a business",
+    "vi": "khởi nghiệp",
+    "example": "They started a business together.",
+    "type": "collocation"
+  },
+  {
+    "en": "save time",
+    "vi": "tiết kiệm thời gian",
+    "example": "This app saves time.",
+    "type": "collocation"
+  },
+  {
+    "en": "save energy",
+    "vi": "tiết kiệm năng lượng",
+    "example": "We should save energy at home.",
+    "type": "collocation"
+  },
+  {
+    "en": "save the planet",
+    "vi": "cứu hành tinh",
+    "example": "Small actions can save the planet.",
+    "type": "collocation"
+  },
+  {
+    "en": "spend time",
+    "vi": "dành thời gian",
+    "example": "I spend time with my family.",
+    "type": "collocation"
+  },
+  {
+    "en": "pass time",
+    "vi": "giết thời gian",
+    "example": "I read to pass time.",
+    "type": "collocation"
+  },
+  {
+    "en": "kill time",
+    "vi": "giết thời gian",
+    "example": "We killed time at the airport.",
+    "type": "collocation"
+  },
+  {
+    "en": "take time",
+    "vi": "cần thời gian",
+    "example": "It takes time to learn.",
+    "type": "collocation"
+  },
+  {
+    "en": "take place",
+    "vi": "diễn ra",
+    "example": "The meeting takes place at noon.",
+    "type": "collocation"
+  },
+  {
+    "en": "take part",
+    "vi": "tham gia",
+    "example": "She took part in the contest.",
+    "type": "collocation"
+  },
+  {
+    "en": "take care",
+    "vi": "chăm sóc / giữ gìn",
+    "example": "Take care of yourself.",
+    "type": "collocation"
+  },
+  {
+    "en": "take advice",
+    "vi": "lắng nghe lời khuyên",
+    "example": "He never takes advice.",
+    "type": "collocation"
+  },
+  {
+    "en": "take action",
+    "vi": "hành động",
+    "example": "We must take action now.",
+    "type": "collocation"
+  },
+  {
+    "en": "take control",
+    "vi": "kiểm soát",
+    "example": "She took control of the project.",
+    "type": "collocation"
+  },
+  {
+    "en": "take responsibility",
+    "vi": "nhận trách nhiệm",
+    "example": "He took responsibility for the error.",
+    "type": "collocation"
+  },
+  {
+    "en": "take advantage",
+    "vi": "tận dụng / lợi dụng",
+    "example": "Take advantage of this offer.",
+    "type": "collocation"
+  },
+  {
+    "en": "give advice",
+    "vi": "đưa ra lời khuyên",
+    "example": "Can you give me some advice?",
+    "type": "collocation"
+  },
+  {
+    "en": "give a hand",
+    "vi": "giúp một tay",
+    "example": "Can you give me a hand?",
+    "type": "collocation"
+  },
+  {
+    "en": "give a speech",
+    "vi": "phát biểu",
+    "example": "She gave a speech at the event.",
+    "type": "collocation"
+  },
+  {
+    "en": "give permission",
+    "vi": "cho phép",
+    "example": "He gave permission to leave.",
+    "type": "collocation"
+  },
+  {
+    "en": "give birth",
+    "vi": "sinh con",
+    "example": "Her sister gave birth last night.",
+    "type": "collocation"
+  },
+  {
+    "en": "give an example",
+    "vi": "đưa ra ví dụ",
+    "example": "Let me give an example.",
+    "type": "collocation"
+  },
+  {
+    "en": "get attention",
+    "vi": "thu hút sự chú ý",
+    "example": "The ad got our attention.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a degree",
+    "vi": "có bằng cấp",
+    "example": "She got a degree in law.",
+    "type": "collocation"
+  },
+  {
+    "en": "get married",
+    "vi": "kết hôn",
+    "example": "They got married last year.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a divorce",
+    "vi": "ly hôn",
+    "example": "They got a divorce after ten years.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a promotion",
+    "vi": "được thăng chức",
+    "example": "He got a promotion last month.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a raise",
+    "vi": "được tăng lương",
+    "example": "She asked for a raise.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a refund",
+    "vi": "được hoàn tiền",
+    "example": "I got a refund for the shoes.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a discount",
+    "vi": "được giảm giá",
+    "example": "We got a discount on the hotel.",
+    "type": "collocation"
+  },
+  {
+    "en": "get a ticket",
+    "vi": "mua vé",
+    "example": "I got a ticket for the concert.",
+    "type": "collocation"
+  },
+  {
+    "en": "get lost",
+    "vi": "bị lạc",
+    "example": "We got lost in the city.",
+    "type": "collocation"
+  },
+  {
+    "en": "get ready",
+    "vi": "chuẩn bị",
+    "example": "Get ready for school.",
+    "type": "collocation"
+  },
+  {
+    "en": "get dressed",
+    "vi": "mặc quần áo",
+    "example": "He got dressed quickly.",
+    "type": "collocation"
+  },
+  {
+    "en": "get better",
+    "vi": "khỏe hơn",
+    "example": "She is getting better now.",
+    "type": "collocation"
+  },
+  {
+    "en": "get worse",
+    "vi": "tệ hơn",
+    "example": "The weather got worse.",
+    "type": "collocation"
+  },
+  {
+    "en": "get in touch",
+    "vi": "liên lạc",
+    "example": "I'll get in touch soon.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come to an end",
+    "vi": "đi đến kết thúc",
+    "example": "The party came to an end.",
+    "type": "collocation"
+  },
+  {
+    "en": "come up with",
+    "vi": "nghĩ ra",
+    "example": "She came up with a great idea.",
+    "type": "collocation"
+  },
+  {
+    "en": "come across",
+    "vi": "tình cờ gặp",
+    "example": "I came across an old friend.",
+    "type": "collocation"
+  },
+  {
+    "en": "go on a trip",
+    "vi": "đi du lịch",
+    "example": "We went on a trip to Da Nang.",
+    "type": "collocation"
+  },
+  {
+    "en": "go on a diet",
+    "vi": "ăn kiêng",
+    "example": "She went on a diet.",
+    "type": "collocation"
+  },
+  {
+    "en": "go shopping",
+    "vi": "đi mua sắm",
+    "example": "Let's go shopping this weekend.",
+    "type": "collocation"
+  },
+  {
+    "en": "go sightseeing",
+    "vi": "đi tham quan",
+    "example": "We went sightseeing in Paris.",
+    "type": "collocation"
+  },
+  {
+    "en": "go abroad",
+    "vi": "đi nước ngoài",
+    "example": "He wants to go abroad.",
+    "type": "collocation"
+  },
+  {
+    "en": "go home",
+    "vi": "về nhà",
+    "example": "I go home at five.",
+    "type": "collocation"
+  },
+  {
+    "en": "go to bed",
+    "vi": "đi ngủ",
+    "example": "I go to bed at eleven.",
+    "type": "collocation"
+  },
+  {
+    "en": "go to sleep",
+    "vi": "chìm vào giấc ngủ",
+    "example": "He went to sleep quickly.",
+    "type": "collocation"
+  },
+  {
+    "en": "go wrong",
+    "vi": "xảy ra sai sót",
+    "example": "Something went wrong.",
+    "type": "collocation"
+  },
+  {
+    "en": "see a doctor",
+    "vi": "đi khám bác sĩ",
+    "example": "You should see a doctor.",
+    "type": "collocation"
+  },
+  {
+    "en": "see a movie",
+    "vi": "xem phim",
+    "example": "Let's see a movie tonight.",
+    "type": "collocation"
+  },
+  {
+    "en": "see the point",
+    "vi": "hiểu ý",
+    "example": "I see the point now.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet a friend",
+    "vi": "gặp bạn",
+    "example": "I met a friend at the mall.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet a deadline",
+    "vi": "kịp hạn chót",
+    "example": "We met the deadline.",
+    "type": "collocation"
+  },
+  {
+    "en": "miss a chance",
+    "vi": "bỏ lỡ cơ hội",
+    "example": "Don't miss a chance to learn.",
+    "type": "collocation"
+  },
+  {
+    "en": "miss the bus",
+    "vi": "lỡ xe buýt",
+    "example": "I missed the bus this morning.",
+    "type": "collocation"
+  },
+  {
+    "en": "miss a class",
+    "vi": "nghỉ học",
+    "example": "He missed a class yesterday.",
+    "type": "collocation"
+  },
+  {
+    "en": "win a prize",
+    "vi": "giành giải thưởng",
+    "example": "She won a prize.",
+    "type": "collocation"
+  },
+  {
+    "en": "win a game",
+    "vi": "thắng trận",
+    "example": "Our team won a game.",
+    "type": "collocation"
+  },
+  {
+    "en": "win an award",
+    "vi": "giành giải thưởng",
+    "example": "He won an award for his film.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose a game",
+    "vi": "thua trận",
+    "example": "We lost a game last night.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose hope",
+    "vi": "mất hy vọng",
+    "example": "Don't lose hope.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose interest",
+    "vi": "mất hứng thú",
+    "example": "He lost interest in the game.",
+    "type": "collocation"
+  },
+  {
+    "en": "play a role",
+    "vi": "đóng vai trò",
+    "example": "She plays a key role.",
+    "type": "collocation"
+  },
+  {
+    "en": "play a part",
+    "vi": "đóng một vai trò",
+    "example": "He played a part in the plan.",
+    "type": "collocation"
+  },
+  {
+    "en": "play a game",
+    "vi": "chơi một trò chơi",
+    "example": "Let's play a game.",
+    "type": "collocation"
+  },
+  {
+    "en": "play the piano",
+    "vi": "chơi piano",
+    "example": "She plays the piano well.",
+    "type": "collocation"
+  },
+  {
+    "en": "play football",
+    "vi": "chơi bóng đá",
+    "example": "They play football on Sundays.",
+    "type": "collocation"
+  },
+  {
+    "en": "play music",
+    "vi": "phát nhạc",
+    "example": "He plays music while cooking.",
+    "type": "collocation"
+  },
+  {
+    "en": "read a book",
+    "vi": "đọc sách",
+    "example": "I read a book every night.",
+    "type": "collocation"
+  },
+  {
+    "en": "read the news",
+    "vi": "đọc tin tức",
+    "example": "She reads the news daily.",
+    "type": "collocation"
+  },
+  {
+    "en": "read a message",
+    "vi": "đọc tin nhắn",
+    "example": "I read a message from him.",
+    "type": "collocation"
+  },
+  {
+    "en": "write a letter",
+    "vi": "viết thư",
+    "example": "He wrote a letter to his friend.",
+    "type": "collocation"
+  },
+  {
+    "en": "write an essay",
+    "vi": "viết luận",
+    "example": "We write an essay every month.",
+    "type": "collocation"
+  },
+  {
+    "en": "write a report",
+    "vi": "viết báo cáo",
+    "example": "She wrote a report on sales.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a picture",
+    "vi": "vẽ tranh",
+    "example": "The child drew a picture.",
+    "type": "collocation"
+  },
+  {
+    "en": "sing a song",
+    "vi": "hát một bài",
+    "example": "She sang a song at the party.",
+    "type": "collocation"
+  },
+  {
+    "en": "dance a lot",
+    "vi": "nhảy nhiều",
+    "example": "They dance a lot at parties.",
+    "type": "collocation"
+  },
+  {
+    "en": "watch a movie",
+    "vi": "xem phim",
+    "example": "We watched a movie at home.",
+    "type": "collocation"
+  },
+  {
+    "en": "watch TV",
+    "vi": "xem TV",
+    "example": "I watch TV after dinner.",
+    "type": "collocation"
+  },
+  {
+    "en": "listen to music",
+    "vi": "nghe nhạc",
+    "example": "I listen to music while studying.",
+    "type": "collocation"
+  },
+  {
+    "en": "listen carefully",
+    "vi": "lắng nghe cẩn thận",
+    "example": "Listen carefully to the instructions.",
+    "type": "collocation"
+  },
+  {
+    "en": "speak English",
+    "vi": "nói tiếng Anh",
+    "example": "She speaks English fluently.",
+    "type": "collocation"
+  },
+  {
+    "en": "speak slowly",
+    "vi": "nói chậm",
+    "example": "Could you speak slowly, please?",
+    "type": "collocation"
+  },
+  {
+    "en": "speak up",
+    "vi": "nói to hơn",
+    "example": "Please speak up, I can't hear you.",
+    "type": "collocation"
+  },
+  {
+    "en": "learn a language",
+    "vi": "học một ngôn ngữ",
+    "example": "He is learning a language.",
+    "type": "collocation"
+  },
+  {
+    "en": "learn by heart",
+    "vi": "học thuộc lòng",
+    "example": "Learn the poem by heart.",
+    "type": "collocation"
+  },
+  {
+    "en": "study hard",
+    "vi": "học chăm chỉ",
+    "example": "You must study hard to pass.",
+    "type": "collocation"
+  },
+  {
+    "en": "work hard",
+    "vi": "làm việc chăm chỉ",
+    "example": "She works hard every day.",
+    "type": "collocation"
+  },
+  {
+    "en": "work part-time",
+    "vi": "làm việc bán thời gian",
+    "example": "He works part-time on weekends.",
+    "type": "collocation"
+  },
+  {
+    "en": "work full-time",
+    "vi": "làm việc toàn thời gian",
+    "example": "She works full-time at a bank.",
+    "type": "collocation"
+  },
+  {
+    "en": "work overtime",
+    "vi": "làm thêm giờ",
+    "example": "I worked overtime last night.",
+    "type": "collocation"
+  },
+  {
+    "en": "work together",
+    "vi": "cùng làm việc",
+    "example": "We work together well.",
+    "type": "collocation"
+  },
+  {
+    "en": "travel abroad",
+    "vi": "đi du lịch nước ngoài",
+    "example": "They travel abroad every summer.",
+    "type": "collocation"
+  },
+  {
+    "en": "travel light",
+    "vi": "đi du lịch gọn nhẹ",
+    "example": "I like to travel light.",
+    "type": "collocation"
+  },
+  {
+    "en": "drive carefully",
+    "vi": "lái xe cẩn thận",
+    "example": "Drive carefully in the rain.",
+    "type": "collocation"
+  },
+  {
+    "en": "drive fast",
+    "vi": "lái xe nhanh",
+    "example": "Don't drive fast here.",
+    "type": "collocation"
+  },
+  {
+    "en": "eat healthy",
+    "vi": "ăn uống lành mạnh",
+    "example": "Try to eat healthy food.",
+    "type": "collocation"
+  },
+  {
+    "en": "eat out",
+    "vi": "ăn ngoài",
+    "example": "We eat out twice a week.",
+    "type": "collocation"
+  },
+  {
+    "en": "drink water",
+    "vi": "uống nước",
+    "example": "Drink water regularly.",
+    "type": "collocation"
+  },
+  {
+    "en": "smoke a lot",
+    "vi": "hút thuốc nhiều",
+    "example": "He used to smoke a lot.",
+    "type": "collocation"
+  },
+  {
+    "en": "sleep well",
+    "vi": "ngủ ngon",
+    "example": "I slept well last night.",
+    "type": "collocation"
+  },
+  {
+    "en": "wake up early",
+    "vi": "thức dậy sớm",
+    "example": "I wake up early every day.",
+    "type": "collocation"
+  },
+  {
+    "en": "stay up late",
+    "vi": "thức khuya",
+    "example": "Don't stay up late.",
+    "type": "collocation"
+  },
+  {
+    "en": "fall asleep",
+    "vi": "chìm vào giấc ngủ",
+    "example": "I fell asleep on the bus.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep fit",
+    "vi": "giữ vóc dáng",
+    "example": "She exercises to keep fit.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep healthy",
+    "vi": "giữ sức khỏe",
+    "example": "Eat well to keep healthy.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep busy",
+    "vi": "giữ bản thân bận rộn",
+    "example": "He kept busy during the trip.",
+    "type": "collocation"
+  },
+  {
+    "en": "save the day",
+    "vi": "cứu nguy",
+    "example": "The doctor saved the day.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay a price",
+    "vi": "trả giá",
+    "example": "He paid a high price for his choice.",
+    "type": "collocation"
+  },
+  {
+    "en": "face a challenge",
+    "vi": "đối mặt với thử thách",
+    "example": "We face a big challenge.",
+    "type": "collocation"
+  },
+  {
+    "en": "face a problem",
+    "vi": "đối mặt với vấn đề",
+    "example": "She faced a problem at work.",
+    "type": "collocation"
+  },
+  {
+    "en": "solve a problem",
+    "vi": "giải quyết vấn đề",
+    "example": "We solved the problem together.",
+    "type": "collocation"
+  },
+  {
+    "en": "find a solution",
+    "vi": "tìm giải pháp",
+    "example": "We need to find a solution.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise a question",
+    "vi": "đặt câu hỏi",
+    "example": "May I raise a question?",
+    "type": "collocation"
+  },
+  {
+    "en": "answer a question",
+    "vi": "trả lời câu hỏi",
+    "example": "She answered a question.",
+    "type": "collocation"
+  },
+  {
+    "en": "ask a question",
+    "vi": "hỏi một câu",
+    "example": "Can I ask a question?",
+    "type": "collocation"
+  },
+  {
+    "en": "ask for help",
+    "vi": "nhờ giúp đỡ",
+    "example": "Don't be afraid to ask for help.",
+    "type": "collocation"
+  },
+  {
+    "en": "ask for advice",
+    "vi": "xin lời khuyên",
+    "example": "She asked for advice.",
+    "type": "collocation"
+  },
+  {
+    "en": "ask for permission",
+    "vi": "xin phép",
+    "example": "He asked for permission to leave.",
+    "type": "collocation"
+  },
+  {
+    "en": "need help",
+    "vi": "cần giúp đỡ",
+    "example": "Do you need help?",
+    "type": "collocation"
+  },
+  {
+    "en": "need a break",
+    "vi": "cần nghỉ ngơi",
+    "example": "I need a break.",
+    "type": "collocation"
+  },
+  {
+    "en": "need a rest",
+    "vi": "cần nghỉ ngơi",
+    "example": "You need a rest.",
+    "type": "collocation"
+  },
+  {
+    "en": "need a change",
+    "vi": "cần sự thay đổi",
+    "example": "She needs a change of scene.",
+    "type": "collocation"
+  },
+  {
+    "en": "want a change",
+    "vi": "muốn thay đổi",
+    "example": "I want a change in my routine.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a difference",
+    "vi": "tạo sự khác biệt",
+    "example": "You can make a difference.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a change",
+    "vi": "thực hiện thay đổi",
+    "example": "We made a change to the plan.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a choice",
+    "vi": "đưa ra lựa chọn",
+    "example": "You must make a choice.",
+    "type": "collocation"
+  },
+  {
+    "en": "make an impression",
+    "vi": "tạo ấn tượng",
+    "example": "She made a good impression.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a living",
+    "vi": "kiếm sống",
+    "example": "He makes a living as a writer.",
+    "type": "collocation"
+  },
+  {
+    "en": "make money",
+    "vi": "kiếm tiền",
+    "example": "They make money online.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a fortune",
+    "vi": "giàu có",
+    "example": "He made a fortune in tech.",
+    "type": "collocation"
+  },
+  {
+    "en": "make ends meet",
+    "vi": "đủ sống qua ngày",
+    "example": "It is hard to make ends meet.",
+    "type": "collocation"
+  },
+  {
+    "en": "make sense",
+    "vi": "có ý nghĩa",
+    "example": "That makes sense to me.",
+    "type": "collocation"
+  },
+  {
+    "en": "make sure",
+    "vi": "chắc chắn",
+    "example": "Make sure you lock the door.",
+    "type": "collocation"
+  },
+  {
+    "en": "make room",
+    "vi": "dọn chỗ",
+    "example": "Can you make room for me?",
+    "type": "collocation"
+  },
+  {
+    "en": "make way",
+    "vi": "nhường đường",
+    "example": "Please make way for the guests.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a break from",
+    "vi": "tạm dừng việc gì",
+    "example": "Take a break from work.",
+    "type": "phrasal"
+  },
+  {
+    "en": "give up on",
+    "vi": "từ bỏ",
+    "example": "Don't give up on your dreams.",
+    "type": "phrasal"
+  },
+  {
+    "en": "show off",
+    "vi": "khoe khoang",
+    "example": "He likes to show off his car.",
+    "type": "phrasal"
+  },
+  {
+    "en": "show up",
+    "vi": "xuất hiện",
+    "example": "He didn't show up at the party.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look forward to",
+    "vi": "mong đợi",
+    "example": "I look forward to the weekend.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look after",
+    "vi": "chăm sóc",
+    "example": "She looks after her little brother.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look for",
+    "vi": "tìm kiếm",
+    "example": "I am looking for my keys.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look into",
+    "vi": "điều tra",
+    "example": "The police will look into the case.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look up",
+    "vi": "tra cứu",
+    "example": "Look up the word in the dictionary.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look out",
+    "vi": "coi chừng",
+    "example": "Look out! There's a car.",
+    "type": "phrasal"
+  },
+  {
+    "en": "find out",
+    "vi": "phát hiện ra",
+    "example": "I found out the truth.",
+    "type": "phrasal"
+  },
+  {
+    "en": "figure out",
+    "vi": "tìm ra cách",
+    "example": "I can't figure out this problem.",
+    "type": "phrasal"
+  },
+  {
+    "en": "point out",
+    "vi": "chỉ ra",
+    "example": "She pointed out my mistake.",
+    "type": "phrasal"
+  },
+  {
+    "en": "carry out",
+    "vi": "thực hiện",
+    "example": "They carried out the plan.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn down",
+    "vi": "từ chối",
+    "example": "He turned down the offer.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn up",
+    "vi": "tăng âm lượng / xuất hiện",
+    "example": "Turn up the music.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn on",
+    "vi": "bật",
+    "example": "Turn on the light, please.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn off",
+    "vi": "tắt",
+    "example": "Turn off the TV.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn into",
+    "vi": "biến thành",
+    "example": "The caterpillar turned into a butterfly.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put on",
+    "vi": "mặc vào",
+    "example": "Put on your coat.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put off",
+    "vi": "hoãn lại",
+    "example": "Don't put off your homework.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put up with",
+    "vi": "chịu đựng",
+    "example": "I can't put up with the noise.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put out",
+    "vi": "dập tắt",
+    "example": "Firefighters put out the fire.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take off",
+    "vi": "cất cánh / cởi ra",
+    "example": "The plane took off on time.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take over",
+    "vi": "tiếp quản",
+    "example": "She took over the company.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take up",
+    "vi": "bắt đầu một sở thích",
+    "example": "He took up painting.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take back",
+    "vi": "lấy lại",
+    "example": "I take back what I said.",
+    "type": "phrasal"
+  },
+  {
+    "en": "give up",
+    "vi": "từ bỏ",
+    "example": "Never give up on yourself.",
+    "type": "phrasal"
+  },
+  {
+    "en": "give in",
+    "vi": "nhượng bộ",
+    "example": "He finally gave in.",
+    "type": "phrasal"
+  },
+  {
+    "en": "give away",
+    "vi": "cho đi",
+    "example": "She gave away her old clothes.",
+    "type": "phrasal"
+  },
+  {
+    "en": "give back",
+    "vi": "trả lại",
+    "example": "Please give back my book.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get up",
+    "vi": "thức dậy",
+    "example": "I get up at six.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get on",
+    "vi": "lên xe / tiến triển",
+    "example": "Get on the bus quickly.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get off",
+    "vi": "xuống xe",
+    "example": "We get off at the next stop.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get over",
+    "vi": "vượt qua",
+    "example": "She got over the flu.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get along",
+    "vi": "hòa thuận",
+    "example": "They get along well.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get away",
+    "vi": "đi trốn / thoát",
+    "example": "We need to get away for a while.",
+    "type": "phrasal"
+  },
+  {
+    "en": "get by",
+    "vi": "sống tạm qua ngày",
+    "example": "They get by on a small income.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go on",
+    "vi": "tiếp tục",
+    "example": "Please go on with your story.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go out",
+    "vi": "ra ngoài",
+    "example": "Let's go out tonight.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go back",
+    "vi": "quay lại",
+    "example": "I want to go back home.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go through",
+    "vi": "xem qua / trải qua",
+    "example": "She went through a hard time.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go over",
+    "vi": "xem lại",
+    "example": "Let's go over the plan again.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go ahead",
+    "vi": "tiến lên / cứ làm đi",
+    "example": "Go ahead and start.",
+    "type": "phrasal"
+  },
+  {
+    "en": "go off",
+    "vi": "phát nổ / reo",
+    "example": "The alarm went off at six.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come back",
+    "vi": "quay lại",
+    "example": "Come back soon.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come in",
+    "vi": "vào trong",
+    "example": "Please come in.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come out",
+    "vi": "đi ra / xuất bản",
+    "example": "The book comes out next month.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come over",
+    "vi": "ghé qua",
+    "example": "Come over for dinner.",
+    "type": "phrasal"
+  },
+  {
+    "en": "come true",
+    "vi": "trở thành sự thật",
+    "example": "Her dream came true.",
+    "type": "phrasal"
+  },
+  {
+    "en": "run out of",
+    "vi": "hết",
+    "example": "We ran out of milk.",
+    "type": "phrasal"
+  },
+  {
+    "en": "run into",
+    "vi": "tình cờ gặp",
+    "example": "I ran into an old friend.",
+    "type": "phrasal"
+  },
+  {
+    "en": "run away",
+    "vi": "chạy trốn",
+    "example": "The dog ran away.",
+    "type": "phrasal"
+  },
+  {
+    "en": "run over",
+    "vi": "cán qua",
+    "example": "Be careful not to run over the cat.",
+    "type": "phrasal"
+  },
+  {
+    "en": "break down",
+    "vi": "hỏng / suy sụp",
+    "example": "My car broke down.",
+    "type": "phrasal"
+  },
+  {
+    "en": "break up",
+    "vi": "chia tay",
+    "example": "They broke up last week.",
+    "type": "phrasal"
+  },
+  {
+    "en": "break into",
+    "vi": "đột nhập",
+    "example": "Someone broke into the house.",
+    "type": "phrasal"
+  },
+  {
+    "en": "break out",
+    "vi": "bùng phát",
+    "example": "A fire broke out.",
+    "type": "phrasal"
+  },
+  {
+    "en": "bring up",
+    "vi": "nuôi dạy / nêu ra",
+    "example": "She brought up a good point.",
+    "type": "phrasal"
+  },
+  {
+    "en": "bring back",
+    "vi": "mang lại",
+    "example": "This song brings back memories.",
+    "type": "phrasal"
+  },
+  {
+    "en": "bring in",
+    "vi": "đưa vào",
+    "example": "They brought in a new rule.",
+    "type": "phrasal"
+  },
+  {
+    "en": "call off",
+    "vi": "hủy bỏ",
+    "example": "They called off the meeting.",
+    "type": "phrasal"
+  },
+  {
+    "en": "call back",
+    "vi": "gọi lại",
+    "example": "I'll call you back later.",
+    "type": "phrasal"
+  },
+  {
+    "en": "call on",
+    "vi": "thăm / kêu gọi",
+    "example": "They called on the community to help.",
+    "type": "phrasal"
+  },
+  {
+    "en": "carry on",
+    "vi": "tiếp tục",
+    "example": "Carry on with your work.",
+    "type": "phrasal"
+  },
+  {
+    "en": "check in",
+    "vi": "nhận phòng / làm thủ tục",
+    "example": "We checked in at the hotel.",
+    "type": "phrasal"
+  },
+  {
+    "en": "check out",
+    "vi": "trả phòng",
+    "example": "We checked out at noon.",
+    "type": "phrasal"
+  },
+  {
+    "en": "check up on",
+    "vi": "kiểm tra",
+    "example": "The doctor checked up on me.",
+    "type": "phrasal"
+  },
+  {
+    "en": "cut down on",
+    "vi": "giảm bớt",
+    "example": "Cut down on sugar.",
+    "type": "phrasal"
+  },
+  {
+    "en": "cut off",
+    "vi": "cắt đứt",
+    "example": "The phone was cut off.",
+    "type": "phrasal"
+  },
+  {
+    "en": "cut up",
+    "vi": "cắt nhỏ",
+    "example": "Cut up the vegetables.",
+    "type": "phrasal"
+  },
+  {
+    "en": "deal with",
+    "vi": "giải quyết",
+    "example": "I have to deal with this problem.",
+    "type": "phrasal"
+  },
+  {
+    "en": "depend on",
+    "vi": "phụ thuộc vào",
+    "example": "It depends on the weather.",
+    "type": "phrasal"
+  },
+  {
+    "en": "die out",
+    "vi": "tuyệt chủng",
+    "example": "Some animals died out.",
+    "type": "phrasal"
+  },
+  {
+    "en": "do away with",
+    "vi": "loại bỏ",
+    "example": "We should do away with old rules.",
+    "type": "phrasal"
+  },
+  {
+    "en": "do over",
+    "vi": "làm lại",
+    "example": "I need to do over the essay.",
+    "type": "phrasal"
+  },
+  {
+    "en": "dress up",
+    "vi": "ăn diện",
+    "example": "She dressed up for the party.",
+    "type": "phrasal"
+  },
+  {
+    "en": "drop by",
+    "vi": "ghé qua",
+    "example": "Drop by my office tomorrow.",
+    "type": "phrasal"
+  },
+  {
+    "en": "drop out",
+    "vi": "bỏ học",
+    "example": "He dropped out of college.",
+    "type": "phrasal"
+  },
+  {
+    "en": "end up",
+    "vi": "cuối cùng thì",
+    "example": "We ended up at home.",
+    "type": "phrasal"
+  },
+  {
+    "en": "fall down",
+    "vi": "ngã xuống",
+    "example": "Be careful not to fall down.",
+    "type": "phrasal"
+  },
+  {
+    "en": "fall apart",
+    "vi": "rã rời / tan vỡ",
+    "example": "The plan fell apart.",
+    "type": "phrasal"
+  },
+  {
+    "en": "fall behind",
+    "vi": "tụt lại phía sau",
+    "example": "Don't fall behind in class.",
+    "type": "phrasal"
+  },
+  {
+    "en": "fill in",
+    "vi": "điền vào",
+    "example": "Fill in the form, please.",
+    "type": "phrasal"
+  },
+  {
+    "en": "fill up",
+    "vi": "đổ đầy",
+    "example": "Fill up the tank.",
+    "type": "phrasal"
+  },
+  {
+    "en": "find out about",
+    "vi": "tìm hiểu về",
+    "example": "I found out about the news.",
+    "type": "phrasal"
+  },
+  {
+    "en": "focus on",
+    "vi": "tập trung vào",
+    "example": "Focus on your goals.",
+    "type": "phrasal"
+  },
+  {
+    "en": "grow up",
+    "vi": "lớn lên",
+    "example": "She grew up in the countryside.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hand in",
+    "vi": "nộp bài",
+    "example": "Hand in your homework on time.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hand out",
+    "vi": "phát ra",
+    "example": "The teacher handed out the papers.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hang out",
+    "vi": "đi chơi",
+    "example": "We hang out on weekends.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hang up",
+    "vi": "cúp máy",
+    "example": "She hung up the phone.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hold on",
+    "vi": "chờ một chút",
+    "example": "Hold on a second.",
+    "type": "phrasal"
+  },
+  {
+    "en": "hold up",
+    "vi": "làm chậm / cản trở",
+    "example": "The traffic held us up.",
+    "type": "phrasal"
+  },
+  {
+    "en": "keep on",
+    "vi": "tiếp tục",
+    "example": "Keep on trying.",
+    "type": "phrasal"
+  },
+  {
+    "en": "keep up",
+    "vi": "theo kịp",
+    "example": "Keep up the good work.",
+    "type": "phrasal"
+  },
+  {
+    "en": "keep up with",
+    "vi": "theo kịp",
+    "example": "It's hard to keep up with him.",
+    "type": "phrasal"
+  },
+  {
+    "en": "let down",
+    "vi": "làm thất vọng",
+    "example": "Don't let me down.",
+    "type": "phrasal"
+  },
+  {
+    "en": "let in",
+    "vi": "cho vào",
+    "example": "Let me in, please.",
+    "type": "phrasal"
+  },
+  {
+    "en": "let out",
+    "vi": "cho ra",
+    "example": "Let the dog out.",
+    "type": "phrasal"
+  },
+  {
+    "en": "live on",
+    "vi": "sống bằng",
+    "example": "They live on a small salary.",
+    "type": "phrasal"
+  },
+  {
+    "en": "live up to",
+    "vi": "đáp ứng kỳ vọng",
+    "example": "He lived up to his promise.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look down on",
+    "vi": "xem thường",
+    "example": "Don't look down on others.",
+    "type": "phrasal"
+  },
+  {
+    "en": "look up to",
+    "vi": "ngưỡng mộ",
+    "example": "She looks up to her mother.",
+    "type": "phrasal"
+  },
+  {
+    "en": "make up",
+    "vi": "bịa ra / trang điểm",
+    "example": "He made up a story.",
+    "type": "phrasal"
+  },
+  {
+    "en": "make up for",
+    "vi": "bù đắp cho",
+    "example": "I'll make up for being late.",
+    "type": "phrasal"
+  },
+  {
+    "en": "mix up",
+    "vi": "nhầm lẫn",
+    "example": "I mixed up the two names.",
+    "type": "phrasal"
+  },
+  {
+    "en": "move on",
+    "vi": "tiến lên phía trước",
+    "example": "It's time to move on.",
+    "type": "phrasal"
+  },
+  {
+    "en": "move in",
+    "vi": "dọn vào",
+    "example": "They moved in last week.",
+    "type": "phrasal"
+  },
+  {
+    "en": "move out",
+    "vi": "dọn ra",
+    "example": "She moved out of the house.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pass away",
+    "vi": "qua đời",
+    "example": "His grandfather passed away.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pass out",
+    "vi": "ngất xỉu",
+    "example": "He passed out from the heat.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pay back",
+    "vi": "trả lại tiền",
+    "example": "I'll pay you back tomorrow.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pick up",
+    "vi": "nhặt lên / đón",
+    "example": "Pick up the phone.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pick out",
+    "vi": "chọn ra",
+    "example": "She picked out a dress.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pull down",
+    "vi": "phá dỡ",
+    "example": "They pulled down the old building.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pull over",
+    "vi": "dừng xe bên đường",
+    "example": "The police pulled us over.",
+    "type": "phrasal"
+  },
+  {
+    "en": "pull up",
+    "vi": "dừng lại",
+    "example": "The car pulled up outside.",
+    "type": "phrasal"
+  },
+  {
+    "en": "push for",
+    "vi": "đòi hỏi",
+    "example": "They pushed for a change.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put away",
+    "vi": "cất đi",
+    "example": "Put away your toys.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put down",
+    "vi": "đặt xuống",
+    "example": "Put down the bag.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put forward",
+    "vi": "đề xuất",
+    "example": "She put forward a new idea.",
+    "type": "phrasal"
+  },
+  {
+    "en": "put together",
+    "vi": "ghép lại",
+    "example": "We put together a team.",
+    "type": "phrasal"
+  },
+  {
+    "en": "rule out",
+    "vi": "loại trừ",
+    "example": "We ruled out that option.",
+    "type": "phrasal"
+  },
+  {
+    "en": "run after",
+    "vi": "chạy theo",
+    "example": "The dog ran after the ball.",
+    "type": "phrasal"
+  },
+  {
+    "en": "set up",
+    "vi": "thiết lập",
+    "example": "They set up a new company.",
+    "type": "phrasal"
+  },
+  {
+    "en": "set off",
+    "vi": "khởi hành",
+    "example": "We set off at dawn.",
+    "type": "phrasal"
+  },
+  {
+    "en": "set out",
+    "vi": "bắt đầu",
+    "example": "She set out to become a doctor.",
+    "type": "phrasal"
+  },
+  {
+    "en": "show around",
+    "vi": "dẫn đi tham quan",
+    "example": "He showed us around the city.",
+    "type": "phrasal"
+  },
+  {
+    "en": "shut down",
+    "vi": "đóng cửa",
+    "example": "The factory shut down.",
+    "type": "phrasal"
+  },
+  {
+    "en": "shut up",
+    "vi": "im đi",
+    "example": "Please shut up.",
+    "type": "phrasal"
+  },
+  {
+    "en": "sit down",
+    "vi": "ngồi xuống",
+    "example": "Please sit down.",
+    "type": "phrasal"
+  },
+  {
+    "en": "stand up",
+    "vi": "đứng lên",
+    "example": "Please stand up.",
+    "type": "phrasal"
+  },
+  {
+    "en": "stand for",
+    "vi": "đại diện cho",
+    "example": "What does this stand for?",
+    "type": "phrasal"
+  },
+  {
+    "en": "stand out",
+    "vi": "nổi bật",
+    "example": "She stands out in a crowd.",
+    "type": "phrasal"
+  },
+  {
+    "en": "stand by",
+    "vi": "ủng hộ / chờ",
+    "example": "I'll stand by you.",
+    "type": "phrasal"
+  },
+  {
+    "en": "stay on",
+    "vi": "ở lại",
+    "example": "Stay on the line, please.",
+    "type": "phrasal"
+  },
+  {
+    "en": "stay up",
+    "vi": "thức khuya",
+    "example": "I stayed up late.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take after",
+    "vi": "giống (người thân)",
+    "example": "She takes after her father.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take apart",
+    "vi": "tháo rời",
+    "example": "He took apart the machine.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take down",
+    "vi": "tháo dỡ",
+    "example": "They took down the poster.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take in",
+    "vi": "hấp thụ / đón nhận",
+    "example": "Take in the view.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take on",
+    "vi": "nhận việc",
+    "example": "She took on a new project.",
+    "type": "phrasal"
+  },
+  {
+    "en": "take out",
+    "vi": "đưa ra ngoài",
+    "example": "Take out the trash.",
+    "type": "phrasal"
+  },
+  {
+    "en": "talk back",
+    "vi": "nói lại",
+    "example": "Don't talk back to your teacher.",
+    "type": "phrasal"
+  },
+  {
+    "en": "talk over",
+    "vi": "bàn bạc",
+    "example": "Let's talk over the plan.",
+    "type": "phrasal"
+  },
+  {
+    "en": "throw away",
+    "vi": "vứt đi",
+    "example": "Throw away the old papers.",
+    "type": "phrasal"
+  },
+  {
+    "en": "throw up",
+    "vi": "nôn",
+    "example": "He threw up after the ride.",
+    "type": "phrasal"
+  },
+  {
+    "en": "try on",
+    "vi": "thử quần áo",
+    "example": "Try on the shoes.",
+    "type": "phrasal"
+  },
+  {
+    "en": "try out",
+    "vi": "thử nghiệm",
+    "example": "Try out this new app.",
+    "type": "phrasal"
+  },
+  {
+    "en": "turn around",
+    "vi": "xoay lại",
+    "example": "Turn around slowly.",
+    "type": "phrasal"
+  },
+  {
+    "en": "use up",
+    "vi": "dùng hết",
+    "example": "We used up all the milk.",
+    "type": "phrasal"
+  },
+  {
+    "en": "wake up",
+    "vi": "thức giấc",
+    "example": "I wake up at six.",
+    "type": "phrasal"
+  },
+  {
+    "en": "walk out",
+    "vi": "bỏ đi",
+    "example": "He walked out of the room.",
+    "type": "phrasal"
+  },
+  {
+    "en": "wash up",
+    "vi": "rửa bát",
+    "example": "I'll wash up after dinner.",
+    "type": "phrasal"
+  },
+  {
+    "en": "wear out",
+    "vi": "mòn / kiệt sức",
+    "example": "The shoes wore out.",
+    "type": "phrasal"
+  },
+  {
+    "en": "work out",
+    "vi": "tập thể dục / giải ra",
+    "example": "I work out every morning.",
+    "type": "phrasal"
+  },
+  {
+    "en": "wrap up",
+    "vi": "hoàn thành",
+    "example": "Let's wrap up the meeting.",
+    "type": "phrasal"
+  },
+  {
+    "en": "write down",
+    "vi": "ghi lại",
+    "example": "Write down the number.",
+    "type": "phrasal"
+  },
+  {
+    "en": "zoom in",
+    "vi": "phóng to",
+    "example": "Zoom in on the photo.",
+    "type": "phrasal"
+  },
+  {
+    "en": "make an attempt",
+    "vi": "thử làm",
+    "example": "He made an attempt to fix it.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a comment",
+    "vi": "đưa ra bình luận",
+    "example": "She made a comment about the design.",
+    "type": "collocation"
+  },
+  {
+    "en": "make an enquiry",
+    "vi": "yêu cầu thông tin",
+    "example": "I made an enquiry about the price.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a fuss",
+    "vi": "làm ầm ĩ",
+    "example": "Don't make a fuss about it.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a mess",
+    "vi": "làm bừa",
+    "example": "The kids made a mess in the kitchen.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a note",
+    "vi": "ghi chú",
+    "example": "Make a note of the date.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a point",
+    "vi": "nêu quan điểm",
+    "example": "That's a good point to make.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a profit",
+    "vi": "có lãi",
+    "example": "The shop made a profit this year.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a promise",
+    "vi": "hứa",
+    "example": "He made a promise to help.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a remark",
+    "vi": "nhận xét",
+    "example": "She made a remark about the weather.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a speech",
+    "vi": "phát biểu",
+    "example": "He made a speech at the wedding.",
+    "type": "collocation"
+  },
+  {
+    "en": "make a wish",
+    "vi": "ước",
+    "example": "Make a wish before blowing the candle.",
+    "type": "collocation"
+  },
+  {
+    "en": "make an offer",
+    "vi": "đưa ra lời đề nghị",
+    "example": "They made an offer on the house.",
+    "type": "collocation"
+  },
+  {
+    "en": "make arrangements",
+    "vi": "sắp xếp",
+    "example": "I made arrangements for the trip.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a bow",
+    "vi": "cúi chào khán giả",
+    "example": "The actor took a bow.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a breath",
+    "vi": "hít một hơi",
+    "example": "Take a breath and relax.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a chance",
+    "vi": "chấp nhận cơ hội",
+    "example": "Take a chance on me.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a guess",
+    "vi": "đoán",
+    "example": "Take a guess at the answer.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a look",
+    "vi": "nhìn qua",
+    "example": "Take a look at this.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a nap",
+    "vi": "chợp mắt",
+    "example": "I take a nap after lunch.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a walk",
+    "vi": "đi bộ",
+    "example": "Let's take a walk in the park.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a message",
+    "vi": "nhận lời nhắn",
+    "example": "Can I take a message?",
+    "type": "collocation"
+  },
+  {
+    "en": "take a number",
+    "vi": "lấy số thứ tự",
+    "example": "Take a number and wait.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a sip",
+    "vi": "nhấp một ngụm",
+    "example": "She took a sip of tea.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a bite",
+    "vi": "cắn một miếng",
+    "example": "Take a bite of the cake.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a turn",
+    "vi": "đến lượt",
+    "example": "It's your turn to take a turn.",
+    "type": "collocation"
+  },
+  {
+    "en": "take a vote",
+    "vi": "bỏ phiếu",
+    "example": "Let's take a vote.",
+    "type": "collocation"
+  },
+  {
+    "en": "take the blame",
+    "vi": "nhận lỗi",
+    "example": "He took the blame for the mistake.",
+    "type": "collocation"
+  },
+  {
+    "en": "take the lead",
+    "vi": "dẫn đầu",
+    "example": "She took the lead in the race.",
+    "type": "collocation"
+  },
+  {
+    "en": "take the risk",
+    "vi": "chấp nhận rủi ro",
+    "example": "They took the risk and won.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay a compliment",
+    "vi": "khen ngợi",
+    "example": "He paid her a compliment.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay a fine",
+    "vi": "nộp phạt",
+    "example": "I had to pay a fine.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay respect",
+    "vi": "bày tỏ sự tôn trọng",
+    "example": "We pay respect to the elders.",
+    "type": "collocation"
+  },
+  {
+    "en": "pay tribute",
+    "vi": "tưởng nhớ",
+    "example": "They paid tribute to the hero.",
+    "type": "collocation"
+  },
+  {
+    "en": "break a habit",
+    "vi": "từ bỏ thói quen",
+    "example": "He broke a bad habit.",
+    "type": "collocation"
+  },
+  {
+    "en": "break a record",
+    "vi": "phá kỷ lục",
+    "example": "She broke a world record.",
+    "type": "collocation"
+  },
+  {
+    "en": "break a leg",
+    "vi": "chúc may mắn",
+    "example": "Break a leg in your show!",
+    "type": "collocation"
+  },
+  {
+    "en": "break the silence",
+    "vi": "phá vỡ im lặng",
+    "example": "He broke the silence with a joke.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch a bus",
+    "vi": "bắt xe buýt",
+    "example": "I catch a bus to work.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch a train",
+    "vi": "bắt tàu",
+    "example": "We caught a train to the city.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch a glimpse",
+    "vi": "nhìn thoáng qua",
+    "example": "I caught a glimpse of the sea.",
+    "type": "collocation"
+  },
+  {
+    "en": "catch fire",
+    "vi": "bắt lửa",
+    "example": "The house caught fire.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a diary",
+    "vi": "viết nhật ký",
+    "example": "She keeps a diary.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a record",
+    "vi": "lưu hồ sơ",
+    "example": "Keep a record of all payments.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep an eye",
+    "vi": "để mắt",
+    "example": "Keep an eye on the baby.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose a chance",
+    "vi": "mất cơ hội",
+    "example": "Don't lose a chance to shine.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose a friend",
+    "vi": "mất bạn",
+    "example": "He lost a friend in the accident.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose a point",
+    "vi": "mất điểm",
+    "example": "She lost a point in the debate.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose control",
+    "vi": "mất kiểm soát",
+    "example": "He lost control of the car.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose face",
+    "vi": "mất mặt",
+    "example": "He didn't want to lose face.",
+    "type": "collocation"
+  },
+  {
+    "en": "lose temper",
+    "vi": "mất bình tĩnh",
+    "example": "She lost her temper.",
+    "type": "collocation"
+  },
+  {
+    "en": "win a race",
+    "vi": "thắng cuộc đua",
+    "example": "He won a race last week.",
+    "type": "collocation"
+  },
+  {
+    "en": "win a contract",
+    "vi": "giành hợp đồng",
+    "example": "They won a big contract.",
+    "type": "collocation"
+  },
+  {
+    "en": "win a heart",
+    "vi": "giành được trái tim",
+    "example": "She won his heart.",
+    "type": "collocation"
+  },
+  {
+    "en": "win an election",
+    "vi": "thắng cử",
+    "example": "He won an election.",
+    "type": "collocation"
+  },
+  {
+    "en": "win support",
+    "vi": "giành ủng hộ",
+    "example": "She won support from voters.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a call",
+    "vi": "gọi điện",
+    "example": "Give me a call later.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a hug",
+    "vi": "ôm",
+    "example": "She gave me a hug.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a kiss",
+    "vi": "hôn",
+    "example": "He gave her a kiss.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a lift",
+    "vi": "cho đi nhờ",
+    "example": "Can you give me a lift?",
+    "type": "collocation"
+  },
+  {
+    "en": "give a warning",
+    "vi": "cảnh báo",
+    "example": "The teacher gave a warning.",
+    "type": "collocation"
+  },
+  {
+    "en": "give an order",
+    "vi": "ra lệnh",
+    "example": "The boss gave an order.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a reason",
+    "vi": "nêu lý do",
+    "example": "Give me a reason to trust you.",
+    "type": "collocation"
+  },
+  {
+    "en": "give a thought",
+    "vi": "suy nghĩ",
+    "example": "I gave it some thought.",
+    "type": "collocation"
+  },
+  {
+    "en": "give attention",
+    "vi": "chú ý",
+    "example": "Pay attention and give attention.",
+    "type": "collocation"
+  },
+  {
+    "en": "give credit",
+    "vi": "ghi công",
+    "example": "Give credit to the team.",
+    "type": "collocation"
+  },
+  {
+    "en": "give support",
+    "vi": "ủng hộ",
+    "example": "They gave support to the plan.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a meeting",
+    "vi": "tổ chức họp",
+    "example": "We hold a meeting every Monday.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a party",
+    "vi": "tổ chức tiệc",
+    "example": "They held a party last night.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a record",
+    "vi": "giữ kỷ lục",
+    "example": "She holds a record.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a position",
+    "vi": "giữ vị trí",
+    "example": "He holds a senior position.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a conversation",
+    "vi": "cuộc trò chuyện",
+    "example": "We held a long conversation.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a grudge",
+    "vi": "giữ mối hận",
+    "example": "Don't hold a grudge.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold hands",
+    "vi": "nắm tay",
+    "example": "They held hands.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold breath",
+    "vi": "nín thở",
+    "example": "Hold your breath.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a goal",
+    "vi": "đặt mục tiêu",
+    "example": "Set a clear goal.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a date",
+    "vi": "chọn ngày",
+    "example": "We set a date for the wedding.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a limit",
+    "vi": "đặt giới hạn",
+    "example": "Set a limit on spending.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a record",
+    "vi": "đặt kỷ lục",
+    "example": "He set a new record.",
+    "type": "collocation"
+  },
+  {
+    "en": "set an example",
+    "vi": "làm gương",
+    "example": "She sets a good example.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a trap",
+    "vi": "dựng bẫy",
+    "example": "They set a trap.",
+    "type": "collocation"
+  },
+  {
+    "en": "set a trend",
+    "vi": "tạo xu hướng",
+    "example": "She set a new trend.",
+    "type": "collocation"
+  },
+  {
+    "en": "set the table",
+    "vi": "dọn bàn ăn",
+    "example": "Set the table for dinner.",
+    "type": "collocation"
+  },
+  {
+    "en": "set the scene",
+    "vi": "thiết lập bối cảnh",
+    "example": "The music set the scene.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a race",
+    "vi": "chạy đua",
+    "example": "He runs a race every Sunday.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a test",
+    "vi": "chạy thử nghiệm",
+    "example": "We run a test first.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a campaign",
+    "vi": "chạy chiến dịch",
+    "example": "They ran a campaign.",
+    "type": "collocation"
+  },
+  {
+    "en": "run an errand",
+    "vi": "chạy việc vặt",
+    "example": "I have to run an errand.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a risk",
+    "vi": "chấp nhận rủi ro",
+    "example": "Don't run a risk.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a temperature",
+    "vi": "sốt",
+    "example": "He is running a temperature.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a mile",
+    "vi": "chạy một dặm",
+    "example": "She can run a mile.",
+    "type": "collocation"
+  },
+  {
+    "en": "run a marathon",
+    "vi": "chạy marathon",
+    "example": "He ran a marathon.",
+    "type": "collocation"
+  },
+  {
+    "en": "face the facts",
+    "vi": "đối mặt sự thật",
+    "example": "Face the facts.",
+    "type": "collocation"
+  },
+  {
+    "en": "face the music",
+    "vi": "đối mặt hậu quả",
+    "example": "He had to face the music.",
+    "type": "collocation"
+  },
+  {
+    "en": "face the truth",
+    "vi": "đối mặt sự thật",
+    "example": "Face the truth bravely.",
+    "type": "collocation"
+  },
+  {
+    "en": "face a crowd",
+    "vi": "đối mặt đám đông",
+    "example": "She faced a crowd.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet the needs",
+    "vi": "đáp ứng nhu cầu",
+    "example": "The product meets the needs.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet the demand",
+    "vi": "đáp ứng cầu",
+    "example": "We can't meet the demand.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet the criteria",
+    "vi": "đáp ứng tiêu chí",
+    "example": "He met the criteria.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet the challenge",
+    "vi": "đối mặt thử thách",
+    "example": "She met the challenge.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet expectations",
+    "vi": "đáp ứng kỳ vọng",
+    "example": "The result met expectations.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet halfway",
+    "vi": "gặp nhau ở giữa",
+    "example": "Let's meet halfway.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet by chance",
+    "vi": "gặp tình cờ",
+    "example": "We met by chance.",
+    "type": "collocation"
+  },
+  {
+    "en": "meet in person",
+    "vi": "gặp trực tiếp",
+    "example": "Let's meet in person.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise a family",
+    "vi": "nuôi con",
+    "example": "They raised a family.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise a hand",
+    "vi": "giơ tay",
+    "example": "Raise your hand.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise a concern",
+    "vi": "nêu mối lo",
+    "example": "She raised a concern.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise awareness",
+    "vi": "nâng cao nhận thức",
+    "example": "They raised awareness.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise a smile",
+    "vi": "gây nụ cười",
+    "example": "The joke raised a smile.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise standards",
+    "vi": "nâng tiêu chuẩn",
+    "example": "We must raise standards.",
+    "type": "collocation"
+  },
+  {
+    "en": "raise the bar",
+    "vi": "nâng cao kỳ vọng",
+    "example": "She raised the bar.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a line",
+    "vi": "vạch ranh giới",
+    "example": "Draw a line here.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a conclusion",
+    "vi": "rút ra kết luận",
+    "example": "We drew a conclusion.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a map",
+    "vi": "vẽ bản đồ",
+    "example": "He drew a map.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a breath",
+    "vi": "hít thở",
+    "example": "Draw a deep breath.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw attention",
+    "vi": "thu hút chú ý",
+    "example": "The sign drew attention.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a crowd",
+    "vi": "thu hút đám đông",
+    "example": "The show drew a crowd.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw a comparison",
+    "vi": "so sánh",
+    "example": "Let's draw a comparison.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a balance",
+    "vi": "giữ cân bằng",
+    "example": "Keep a balance between work and life.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a distance",
+    "vi": "giữ khoảng cách",
+    "example": "Keep a safe distance.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a low profile",
+    "vi": "giữ kín đáo",
+    "example": "He keeps a low profile.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a routine",
+    "vi": "giữ nếp",
+    "example": "She keeps a routine.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a smile",
+    "vi": "giữ nụ cười",
+    "example": "Keep a smile on your face.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep a secret safe",
+    "vi": "giữ bí mật an toàn",
+    "example": "Your secret is safe with me.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep in mind",
+    "vi": "ghi nhớ",
+    "example": "Keep in mind the deadline.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep to yourself",
+    "vi": "giữ cho riêng mình",
+    "example": "Keep it to yourself.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep away",
+    "vi": "tránh xa",
+    "example": "Keep away from the fire.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep back",
+    "vi": "giữ lại",
+    "example": "She kept back some money.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep off",
+    "vi": "tránh xa",
+    "example": "Keep off the grass.",
+    "type": "collocation"
+  },
+  {
+    "en": "keep out",
+    "vi": "không cho vào",
+    "example": "Keep out of my room.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a door",
+    "vi": "giữ cửa",
+    "example": "Please hold the door.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a line",
+    "vi": "giữ đường dây",
+    "example": "Please hold the line.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a title",
+    "vi": "giữ danh hiệu",
+    "example": "She holds the title.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a seat",
+    "vi": "giữ chỗ",
+    "example": "I'll hold a seat for you.",
+    "type": "collocation"
+  },
+  {
+    "en": "hold a view",
+    "vi": "giữ quan điểm",
+    "example": "He holds a strong view.",
+    "type": "collocation"
+  },
+  {
+    "en": "draw up",
+    "vi": "soạn thảo",
+    "example": "They drew up a contract.",
+    "type": "collocation"
+  },
+  {
+    "en": "carry weight",
+    "vi": "có trọng lượng",
+    "example": "His opinion carries weight.",
+    "type": "collocation"
+  },
+  {
+    "en": "break new ground",
+    "vi": "mở đường mới",
+    "example": "The study broke new ground.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to terms",
+    "vi": "chấp nhận",
+    "example": "She came to terms with it.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to light",
+    "vi": "phơi bày",
+    "example": "The truth came to light.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to mind",
+    "vi": "đến trong đầu",
+    "example": "A name came to mind.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to an agreement",
+    "vi": "đạt thỏa thuận",
+    "example": "They came to an agreement.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to a decision",
+    "vi": "đi đến quyết định",
+    "example": "We came to a decision.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to life",
+    "vi": "hồi sinh",
+    "example": "The city comes to life at night.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to power",
+    "vi": "lên nắm quyền",
+    "example": "The party came to power.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to rest",
+    "vi": "nghỉ ngơi",
+    "example": "He came to rest at last.",
+    "type": "collocation"
+  },
+  {
+    "en": "come to harm",
+    "vi": "bị hại",
+    "example": "No one came to harm.",
+    "type": "collocation"
+  }
+]
