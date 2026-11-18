@@ -1948,5 +1948,1305 @@
         "answer": 0
       }
     ]
+  },
+  {
+    "id": "read-a2-11",
+    "level": "A2",
+    "title": "At the Train Station",
+    "titleVi": "Tại Ga Tàu",
+    "wordCount": 76,
+    "text": "Every morning I take the train to work. The station is always busy at eight o'clock. I buy a ticket from the machine and wait on platform number three. The train is usually on time, but sometimes it is late. Yesterday I waited for twenty minutes because of the rain. I like reading a book while I travel. It makes the journey feel shorter. When I arrive at my office, I feel ready for the day.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How does the writer go to work?",
+        "options": [
+          "By train",
+          "By car",
+          "By bus",
+          "By bike"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Where does the writer buy a ticket?",
+        "options": [
+          "From a machine",
+          "From a shop",
+          "From a friend",
+          "Online only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Which platform does the writer wait on?",
+        "options": [
+          "Number three",
+          "Number one",
+          "Number five",
+          "Number two"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "Why was the train late yesterday?",
+        "options": [
+          "Because of the rain",
+          "Because of snow",
+          "Because of a strike",
+          "Because it broke"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does the writer do on the train?",
+        "options": [
+          "Reads a book",
+          "Sleeps",
+          "Eats",
+          "Calls friends"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-12",
+    "level": "A2",
+    "title": "My Weekend",
+    "titleVi": "Cuối Tuần Của Tôi",
+    "wordCount": 78,
+    "text": "On Saturday morning, I clean my house and do the laundry. In the afternoon, I meet my friends at a café in the city center. We talk, laugh, and share photos from our week. On Sunday, I visit my grandparents who live near the river. My grandmother cooks a big lunch for the whole family. After lunch, my grandfather and I play chess in the garden. I always feel relaxed and happy after a weekend with my family.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does the writer do on Saturday morning?",
+        "options": [
+          "Cleans the house",
+          "Goes to work",
+          "Travels",
+          "Studies"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Where does the writer meet friends?",
+        "options": [
+          "At a café",
+          "At school",
+          "At the office",
+          "At a stadium"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Who does the writer visit on Sunday?",
+        "options": [
+          "Grandparents",
+          "Teachers",
+          "Bosses",
+          "Neighbors"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "Who cooks lunch?",
+        "options": [
+          "The grandmother",
+          "The writer",
+          "The grandfather",
+          "A friend"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do the writer and grandfather play?",
+        "options": [
+          "Chess",
+          "Football",
+          "Cards",
+          "Video games"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-13",
+    "level": "A2",
+    "title": "The New Library",
+    "titleVi": "Thư Viện Mới",
+    "wordCount": 79,
+    "text": "A new library opened in our town last month. It is a large, modern building with three floors. The ground floor has newspapers and magazines, while the upper floors have books for study. There is also a quiet room with computers and free Wi-Fi. My favorite place is the children's section, where I read stories to my little brother. The library is open every day except Monday. I go there twice a week because it is quiet and peaceful.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "When did the library open?",
+        "options": [
+          "Last month",
+          "Last year",
+          "Yesterday",
+          "Next week"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How many floors does it have?",
+        "options": [
+          "Three",
+          "Two",
+          "Four",
+          "Five"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is on the ground floor?",
+        "options": [
+          "Newspapers and magazines",
+          "Children's books",
+          "Computers",
+          "Study rooms"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What free service does it offer?",
+        "options": [
+          "Wi-Fi",
+          "Food",
+          "Parking",
+          "Gym"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "When is the library closed?",
+        "options": [
+          "On Monday",
+          "On Sunday",
+          "On Saturday",
+          "Every day"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-14",
+    "level": "A2",
+    "title": "A Healthy Breakfast",
+    "titleVi": "Bữa Sáng Lành Mạnh",
+    "wordCount": 76,
+    "text": "Breakfast is the most important meal of the day. A good breakfast gives you energy for the morning. I usually eat oatmeal with fruit and a glass of milk. Sometimes I have eggs and toast instead. I try to avoid sweet cereals because they contain too much sugar. Drinking water in the morning is also important. When I eat a healthy breakfast, I can concentrate better at work and I do not feel hungry before lunch.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Why is breakfast important?",
+        "options": [
+          "It gives energy",
+          "It is expensive",
+          "It takes long",
+          "It is sweet"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What does the writer usually eat?",
+        "options": [
+          "Oatmeal with fruit",
+          "Pizza",
+          "Rice",
+          "Noodles"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What does the writer avoid?",
+        "options": [
+          "Sweet cereals",
+          "Eggs",
+          "Milk",
+          "Toast"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What drink is important in the morning?",
+        "options": [
+          "Water",
+          "Soda",
+          "Beer",
+          "Wine"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How does a good breakfast help?",
+        "options": [
+          "Better concentration",
+          "More sleep",
+          "Less money",
+          "Faster walking"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-15",
+    "level": "A2",
+    "title": "The Birthday Surprise",
+    "titleVi": "Bất Ngờ Sinh Nhật",
+    "wordCount": 77,
+    "text": "Last Saturday was my sister's birthday. We planned a surprise party for her. My parents decorated the living room with balloons and lights. I baked a chocolate cake and wrote her name on it. When she came home from work, we all shouted surprise. She was so happy that she started to cry. We ate cake, played music, and danced until midnight. It was the best birthday she had ever had, and she thanked everyone many times.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Whose birthday was it?",
+        "options": [
+          "The sister's",
+          "The writer's",
+          "The mother's",
+          "A friend's"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What did they organize?",
+        "options": [
+          "A surprise party",
+          "A trip",
+          "A meeting",
+          "A concert"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Who baked the cake?",
+        "options": [
+          "The writer",
+          "The father",
+          "The sister",
+          "A neighbor"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How did the sister feel?",
+        "options": [
+          "Very happy",
+          "Angry",
+          "Bored",
+          "Tired"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "Until when did they dance?",
+        "options": [
+          "Midnight",
+          "Noon",
+          "Six",
+          "Ten"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-16",
+    "level": "A2",
+    "title": "My Favorite Season",
+    "titleVi": "Mùa Yêu Thích",
+    "wordCount": 77,
+    "text": "My favorite season is autumn. The weather is cool and comfortable, not too hot or too cold. The trees turn red, orange, and yellow, which looks beautiful. I love walking in the park and hearing the leaves under my feet. Autumn is also the season of new school years and fresh starts. I like drinking hot tea while reading a book on the balcony. For me, autumn is the most peaceful and pleasant time of the year.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the favorite season?",
+        "options": [
+          "Autumn",
+          "Summer",
+          "Winter",
+          "Spring"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How is the weather in autumn?",
+        "options": [
+          "Cool and comfortable",
+          "Very hot",
+          "Very cold",
+          "Rainy"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What colors do the trees turn?",
+        "options": [
+          "Red, orange, yellow",
+          "Blue and green",
+          "Black",
+          "White"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What does the writer like drinking?",
+        "options": [
+          "Hot tea",
+          "Cold beer",
+          "Juice",
+          "Milk"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "Why does the writer like autumn?",
+        "options": [
+          "Peaceful and pleasant",
+          "Noisy",
+          "Expensive",
+          "Dangerous"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-17",
+    "level": "A2",
+    "title": "At the Doctor's Office",
+    "titleVi": "Tại Phòng Khám",
+    "wordCount": 77,
+    "text": "I went to the doctor yesterday because I had a bad cough. The waiting room was full of people. After thirty minutes, the nurse called my name. The doctor checked my temperature and listened to my heart. He said I had a common cold and gave me some medicine. He told me to rest at home for two days and drink plenty of water. I followed his advice, and today I already feel much better than yesterday.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Why did the writer go to the doctor?",
+        "options": [
+          "A bad cough",
+          "A broken leg",
+          "A toothache",
+          "A headache only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How was the waiting room?",
+        "options": [
+          "Full of people",
+          "Empty",
+          "Closed",
+          "Very small"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What did the doctor check?",
+        "options": [
+          "Temperature and heart",
+          "Eyes only",
+          "Blood only",
+          "Bones"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did the doctor say?",
+        "options": [
+          "A common cold",
+          "A serious disease",
+          "Nothing wrong",
+          "A broken bone"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How long should the writer rest?",
+        "options": [
+          "Two days",
+          "One week",
+          "One month",
+          "One hour"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-11",
+    "level": "B1",
+    "title": "The Gig Economy",
+    "titleVi": "Kinh Tế Tự Do",
+    "wordCount": 92,
+    "text": "The gig economy has changed how millions of people work. Instead of a permanent job, workers take short term tasks through apps and websites. Drivers, designers, and writers can choose when and where they work. This flexibility is attractive, especially for students and parents. However, gig work also has serious drawbacks. Most workers do not receive health insurance, paid leave, or a stable income. Governments are now debating whether new laws should protect these workers. The future of the gig economy will depend on finding a fair balance between freedom and security.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the gig economy?",
+        "options": [
+          "Short term tasks via apps",
+          "Permanent office jobs",
+          "Factory work only",
+          "Government jobs"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Who finds the model attractive?",
+        "options": [
+          "Students and parents",
+          "Only retirees",
+          "Only managers",
+          "Nobody"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is a drawback of gig work?",
+        "options": [
+          "No insurance or stable income",
+          "Too much free time",
+          "Too high salary",
+          "Too many holidays"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What are governments debating?",
+        "options": [
+          "New laws to protect workers",
+          "Higher taxes only",
+          "Fewer apps",
+          "Less flexibility"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What will the future depend on?",
+        "options": [
+          "A balance of freedom and security",
+          "Only profit",
+          "Only technology",
+          "Only speed"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-12",
+    "level": "B1",
+    "title": "Urban Gardening",
+    "titleVi": "Làm Vườn Ở Thành Phố",
+    "wordCount": 87,
+    "text": "Urban gardening is becoming popular in crowded cities. People grow vegetables and herbs on rooftops, balconies, and empty lots. This activity provides fresh food and helps reduce stress. It also cools buildings and improves air quality. Community gardens bring neighbors together, creating a stronger sense of belonging. Some cities even offer free classes to teach residents how to start. While space is limited, creative gardeners show that you do not need a big yard to grow your own food. Even a few pots can make a difference.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Where do urban gardeners grow plants?",
+        "options": [
+          "Rooftops and balconies",
+          "Only forests",
+          "Only farms",
+          "Only indoors"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What is a benefit of gardening?",
+        "options": [
+          "Reduces stress",
+          "Increases pollution",
+          "Wastes food",
+          "Causes noise"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do community gardens create?",
+        "options": [
+          "A sense of belonging",
+          "More traffic",
+          "Higher prices",
+          "Less food"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do some cities offer?",
+        "options": [
+          "Free classes",
+          "Free cars",
+          "Free houses",
+          "Free flights"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does the text suggest about space?",
+        "options": [
+          "A few pots can help",
+          "Space is always enough",
+          "Space does not matter",
+          "Gardening is impossible"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-13",
+    "level": "B1",
+    "title": "The Value of Volunteering",
+    "titleVi": "Giá Trị Của Tình Nguyện",
+    "wordCount": 91,
+    "text": "Volunteering is a powerful way to help others and grow as a person. Many people volunteer at shelters, hospitals, or environmental organizations. Although the work is unpaid, the rewards are significant. Volunteers develop new skills, meet interesting people, and gain a sense of purpose. Studies show that helping others can reduce stress and increase happiness. For students, volunteering also looks good on applications and teaches responsibility. You do not need special skills to start; most organizations provide training. A few hours a month can truly change someone's life, including your own.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is volunteering?",
+        "options": [
+          "Unpaid work to help others",
+          "A paid full time job",
+          "A hobby only",
+          "A type of study"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Where might volunteers work?",
+        "options": [
+          "Shelters and hospitals",
+          "Only offices",
+          "Only banks",
+          "Only shops"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do volunteers develop?",
+        "options": [
+          "New skills and purpose",
+          "Only wealth",
+          "Only fame",
+          "Nothing"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How can helping others affect you?",
+        "options": [
+          "Reduces stress, increases happiness",
+          "Increases stress",
+          "Causes illness",
+          "Wastes time"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How much time is needed to start?",
+        "options": [
+          "A few hours a month",
+          "Ten hours a day",
+          "No time ever",
+          "A full year"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-14",
+    "level": "B1",
+    "title": "Food Waste",
+    "titleVi": "Lãng Phí Thức Ăn",
+    "wordCount": 91,
+    "text": "Food waste is a serious global problem. Every year, about one third of all food produced is thrown away. This wastes not only food but also water, energy, and money. In rich countries, much waste happens in supermarkets and homes. In poorer countries, food is often lost before it reaches the market. There are simple solutions: plan meals, buy only what you need, and use leftovers. Some restaurants now donate extra food to charities. Reducing food waste is good for the environment and can save families a surprising amount of money.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How much food is wasted yearly?",
+        "options": [
+          "About one third",
+          "About half",
+          "All of it",
+          "None"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What else is wasted with food?",
+        "options": [
+          "Water, energy, money",
+          "Only time",
+          "Only land",
+          "Nothing else"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Where does waste happen in rich countries?",
+        "options": [
+          "Supermarkets and homes",
+          "Only farms",
+          "Only schools",
+          "Only factories"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is a simple solution?",
+        "options": [
+          "Plan meals and use leftovers",
+          "Eat out every day",
+          "Buy more than needed",
+          "Throw away more"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do some restaurants do?",
+        "options": [
+          "Donate extra food",
+          "Burn extra food",
+          "Sell only fresh food",
+          "Close early"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-15",
+    "level": "B1",
+    "title": "Learning Online",
+    "titleVi": "Học Trực Tuyến",
+    "wordCount": 92,
+    "text": "Online learning has become a common way to gain new skills. Platforms offer courses on almost every topic, from coding to cooking. Students can learn at their own pace and often for free. However, online learning requires strong self discipline. Without a teacher watching, it is easy to lose motivation. Successful learners set clear goals, follow a schedule, and join online communities for support. Another challenge is the lack of hands on practice in some fields. Despite these difficulties, online education opens doors for millions of people who cannot attend traditional schools.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does online learning offer?",
+        "options": [
+          "Courses on many topics",
+          "Only one subject",
+          "No courses",
+          "Only exams"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What does it require?",
+        "options": [
+          "Self discipline",
+          "A lot of money",
+          "A teacher always",
+          "A classroom"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Why do some learners lose motivation?",
+        "options": [
+          "No one is watching",
+          "Courses are too easy",
+          "Courses are too short",
+          "It is too social"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do successful learners do?",
+        "options": [
+          "Set goals and schedules",
+          "Never study",
+          "Avoid communities",
+          "Skip practice"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is a challenge mentioned?",
+        "options": [
+          "Lack of hands-on practice",
+          "Too much practice",
+          "Too many teachers",
+          "No topics"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-16",
+    "level": "B1",
+    "title": "The Sharing of Knowledge",
+    "titleVi": "Chia Sẻ Kiến Thức",
+    "wordCount": 93,
+    "text": "Sharing knowledge is one of the most valuable things we can do. When we teach others, we also understand the subject better ourselves. Explaining an idea forces us to organize our thoughts clearly. In the past, knowledge was passed down through stories and apprenticeships. Today, the internet allows anyone to share what they know with the world. Blogs, videos, and forums have made learning faster and more accessible. However, not all information online is accurate, so it is important to think critically. Sharing knowledge generously helps both the giver and the receiver grow.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is a benefit of teaching others?",
+        "options": [
+          "We understand better",
+          "We earn more money",
+          "We sleep more",
+          "We travel more"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How was knowledge shared in the past?",
+        "options": [
+          "Through stories and apprenticeships",
+          "Only through books",
+          "Only online",
+          "Only in schools"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What allows easy sharing today?",
+        "options": [
+          "The internet",
+          "Television only",
+          "Radio only",
+          "Newspapers only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What should we be careful about online?",
+        "options": [
+          "Not all information is accurate",
+          "Everything is perfect",
+          "It is always free",
+          "It is always fast"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does generous sharing help?",
+        "options": [
+          "Both giver and receiver",
+          "Only the giver",
+          "Only the receiver",
+          "Nobody"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-17",
+    "level": "B1",
+    "title": "Public Transport",
+    "titleVi": "Giao Thông Công Cộng",
+    "wordCount": 87,
+    "text": "Public transport plays a key role in modern cities. Buses, trains, and subways move millions of people every day. Compared with private cars, public transport is cheaper and produces less pollution. It also reduces traffic jams and accidents. However, many systems are old and overcrowded, especially during rush hour. To improve, cities need to invest in new vehicles, better routes, and reliable schedules. Some places have made transport free to encourage its use. A good public transport system makes a city more livable and fair for everyone.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is a benefit of public transport?",
+        "options": [
+          "Cheaper and less pollution",
+          "More expensive",
+          "More pollution",
+          "More traffic"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What problem is mentioned?",
+        "options": [
+          "Old and overcrowded systems",
+          "Too few passengers",
+          "Too clean",
+          "Too quiet"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do cities need to invest in?",
+        "options": [
+          "New vehicles and routes",
+          "More cars",
+          "Fewer buses",
+          "Less service"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What have some places done?",
+        "options": [
+          "Made transport free",
+          "Closed stations",
+          "Raised all prices",
+          "Removed routes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does good transport make a city?",
+        "options": [
+          "More livable and fair",
+          "More crowded",
+          "More expensive",
+          "Less safe"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-11",
+    "level": "B2",
+    "title": "The Attention Economy",
+    "titleVi": "Nền Kinh Tế Sự Chú Ý",
+    "wordCount": 96,
+    "text": "In the digital age, human attention has become a scarce and valuable resource. Companies compete fiercely to capture it, because advertising revenue depends on how long users stay engaged. Platforms are designed to be addictive, using notifications, endless scrolling, and autoplay to keep people hooked. This can harm mental health, reduce productivity, and weaken real relationships. Some experts argue that users should take control by setting limits and turning off non essential alerts. Others believe that governments should regulate how platforms are designed. Understanding the attention economy is the first step toward using technology more intentionally.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What has become a valuable resource?",
+        "options": [
+          "Human attention",
+          "Clean water",
+          "Old newspapers",
+          "Empty land"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Why do companies compete for attention?",
+        "options": [
+          "Advertising revenue",
+          "To help users sleep",
+          "To reduce screen time",
+          "To protect privacy"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How are platforms designed?",
+        "options": [
+          "To be addictive",
+          "To be boring",
+          "To be simple only",
+          "To be offline"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What can excessive use harm?",
+        "options": [
+          "Mental health",
+          "Physical height",
+          "Weather",
+          "Traffic"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do some experts suggest?",
+        "options": [
+          "Setting limits on use",
+          "Using all day",
+          "Ignoring alerts",
+          "Deleting accounts only"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-12",
+    "level": "B2",
+    "title": "The Future of Food",
+    "titleVi": "Tương Lai Của Thực Phẩm",
+    "wordCount": 94,
+    "text": "The way we produce food is changing rapidly. With a growing global population and limited farmland, scientists are exploring new solutions. Lab grown meat, vertical farming, and plant based proteins could reduce the environmental impact of traditional agriculture. These innovations promise to use less water and land while producing more food. However, they also raise questions about cost, taste, and public acceptance. Critics worry that such products may be expensive or heavily processed. Supporters argue that innovation is necessary to feed the planet sustainably. The future of food will likely combine tradition with technology.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Why is food production changing?",
+        "options": [
+          "Population growth and limited land",
+          "Too much land",
+          "Too few people",
+          "Only fashion"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What is an innovation mentioned?",
+        "options": [
+          "Lab grown meat",
+          "More pesticides",
+          "Less research",
+          "No farming"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do innovations promise to reduce?",
+        "options": [
+          "Water and land use",
+          "Food supply",
+          "Taste",
+          "Nutrition"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What concerns critics?",
+        "options": [
+          "Cost and processing",
+          "Too much taste",
+          "Too little food",
+          "Too much land"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What will the future of food combine?",
+        "options": [
+          "Tradition and technology",
+          "Only technology",
+          "Only tradition",
+          "Neither"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-13",
+    "level": "B2",
+    "title": "The Power of Networks",
+    "titleVi": "Sức Mạnh Của Mạng Lưới",
+    "wordCount": 99,
+    "text": "Networks shape our lives in ways we often overlook. From friendships to professional contacts, the people we know influence our opportunities and ideas. Research shows that weak ties, or acquaintances, are often more valuable than close friends for finding new jobs. This is because they connect us to different circles of information. Online networks have expanded these circles dramatically, allowing people to reach across the globe. However, digital connections can lack the depth of face to face relationships. Building a diverse network requires genuine effort: attending events, staying in touch, and offering help to others without expecting immediate returns.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What influences our opportunities, according to the text?",
+        "options": [
+          "The people we know",
+          "Our height",
+          "The weather",
+          "Our luck only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Which ties are valuable for jobs?",
+        "options": [
+          "Weak ties (acquaintances)",
+          "Only family",
+          "Only strangers",
+          "No ties"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Why are weak ties valuable?",
+        "options": [
+          "They connect different circles",
+          "They are closer",
+          "They are older",
+          "They are richer"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What can digital connections lack?",
+        "options": [
+          "Depth of face to face bonds",
+          "Speed",
+          "Reach",
+          "Information"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does building a diverse network require?",
+        "options": [
+          "Genuine effort",
+          "Money only",
+          "Luck only",
+          "Nothing"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-14",
+    "level": "B2",
+    "title": "Sustainable Travel",
+    "titleVi": "Du Lịch Bền Vững",
+    "wordCount": 93,
+    "text": "Sustainable travel aims to minimize the negative impact of tourism on the environment and local communities. Mass tourism can damage ecosystems, increase pollution, and push up prices for residents. Travelers can help by choosing eco friendly accommodations, using public transport, and respecting local cultures. Some destinations now limit the number of visitors to protect fragile sites. Others encourage tourists to visit during off peak seasons. While sustainable travel may sometimes cost more, many believe it is worth the investment. Traveling thoughtfully allows us to enjoy the world while preserving it for future generations.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does sustainable travel aim to do?",
+        "options": [
+          "Minimize negative impact",
+          "Maximize pollution",
+          "Increase prices",
+          "Damage ecosystems"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What can mass tourism cause?",
+        "options": [
+          "Damage and higher prices",
+          "Cleaner air",
+          "Lower prices",
+          "Fewer tourists"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How can travelers help?",
+        "options": [
+          "Choose eco friendly options",
+          "Waste more",
+          "Ignore cultures",
+          "Drive everywhere"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do some destinations do?",
+        "options": [
+          "Limit visitor numbers",
+          "Invite everyone",
+          "Remove rules",
+          "Close forever"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "Why is thoughtful travel worth it?",
+        "options": [
+          "Preserves the world for the future",
+          "It is always cheaper",
+          "It requires no effort",
+          "It harms everyone"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-15",
+    "level": "B2",
+    "title": "The Science of Motivation",
+    "titleVi": "Khoa Học Về Động Lực",
+    "wordCount": 95,
+    "text": "Motivation is often misunderstood as a constant feeling of excitement. In reality, it fluctuates, and relying on it alone is unreliable. Psychologists distinguish between intrinsic motivation, which comes from genuine interest, and extrinsic motivation, which comes from external rewards. Studies suggest that intrinsic motivation leads to deeper learning and greater persistence. One effective strategy is to break large goals into small, manageable steps, because each completed step provides a sense of progress. Another is to connect tasks to personal values. Understanding what truly drives you can help you stay consistent even when motivation is low.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How is motivation often misunderstood?",
+        "options": [
+          "As constant excitement",
+          "As laziness",
+          "As luck",
+          "As talent only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What is intrinsic motivation?",
+        "options": [
+          "Comes from genuine interest",
+          "Comes from rewards",
+          "Comes from pressure",
+          "Comes from money"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Which motivation leads to deeper learning?",
+        "options": [
+          "Intrinsic",
+          "Extrinsic",
+          "Neither",
+          "Only rewards"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is an effective strategy?",
+        "options": [
+          "Break goals into small steps",
+          "Avoid all goals",
+          "Wait for luck",
+          "Never rest"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What can help when motivation is low?",
+        "options": [
+          "Connecting tasks to values",
+          "Giving up",
+          "Sleeping more only",
+          "Eating more"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-16",
+    "level": "B2",
+    "title": "The Ethics of AI",
+    "titleVi": "Đạo Đức Của AI",
+    "wordCount": 103,
+    "text": "As artificial intelligence becomes more powerful, ethical questions have become urgent. AI systems can make decisions about jobs, loans, and even justice, often without transparency. One major concern is bias: if the data used to train a system is unfair, the system may reproduce and amplify that unfairness. Another concern is accountability, since it is often unclear who is responsible when an AI makes a mistake. Many experts call for clear regulations, transparent algorithms, and human oversight. The goal is not to slow innovation, but to ensure that AI serves humanity fairly and safely. Responsible development requires cooperation between governments, companies, and citizens.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Why are AI ethics urgent?",
+        "options": [
+          "AI makes important decisions",
+          "AI is slow",
+          "AI is cheap",
+          "AI is invisible"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What is a major concern?",
+        "options": [
+          "Bias in training data",
+          "Too much transparency",
+          "Perfect fairness",
+          "No decisions"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is another concern?",
+        "options": [
+          "Accountability",
+          "Speed",
+          "Cost",
+          "Design"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do experts call for?",
+        "options": [
+          "Regulation and oversight",
+          "Less oversight",
+          "No rules",
+          "Faster only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the goal of responsible AI?",
+        "options": [
+          "Serve humanity fairly",
+          "Slow all innovation",
+          "Maximize profit only",
+          "Remove humans"
+        ],
+        "answer": 0
+      }
+    ]
   }
 ]
