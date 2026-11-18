@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/app-nav";
 import { XpBar } from "@/components/gamification/xp-bar";
 import { GlobalSearch } from "@/components/ui/global-search";
+import { FloatingChat } from "@/components/assistant/floating-chat";
 import { SignOutButton } from "@/components/sign-out-button";
 
 export default async function MainLayout({
@@ -48,6 +49,8 @@ export default async function MainLayout({
 
         <main className="flex-1 px-4 py-6 md:px-8">{children}</main>
       </div>
+
+      <FloatingChat />
     </div>
   );
 }
