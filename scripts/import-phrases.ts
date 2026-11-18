@@ -11,6 +11,7 @@ type PhraseRow = {
 };
 
 const PHRASES_FILE = "data/phrases.txt";
+const PHRASES_ADVANCED_FILE = "data/phrases-advanced.txt";
 
 const SAMPLE_PHRASES: PhraseRow[] = [
   { vi: "Lái xe cẩn thận.", en: "Be careful driving.", topic: "general", difficulty: "A2" },
@@ -71,6 +72,41 @@ function parsePhrases(raw: string): PhraseRow[] {
   return phrases.length > 0 ? phrases : SAMPLE_PHRASES;
 }
 
+const DIFFICULTY_MARKER = /^\[(A1|A2|B1|B2|C1)\]$/i;
+
+function parseAdvancedPhrases(raw: string): PhraseRow[] {
+  const lines = raw
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+
+  const phrases: PhraseRow[] = [];
+  let difficulty = "A2";
+  let pending: string[] = [];
+
+  const flush = () => {
+    if (pending.length === 2) {
+      const [vi, en] = pending;
+      phrases.push({ vi, en, topic: "advanced", difficulty });
+    }
+    pending = [];
+  };
+
+  for (const line of lines) {
+    const marker = line.match(DIFFICULTY_MARKER);
+    if (marker) {
+      flush();
+      difficulty = marker[1].toUpperCase();
+      continue;
+    }
+    pending.push(line);
+    if (pending.length === 2) flush();
+  }
+  flush();
+
+  return phrases;
+}
+
 function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
@@ -98,6 +134,20 @@ async function main(): Promise<void> {
       }
     } catch {
       console.log(`Không tìm thấy ${PHRASES_FILE}, dùng dữ liệu mẫu.`);
+    }
+
+    try {
+      const advRaw = readFileSync(
+        resolve(process.cwd(), PHRASES_ADVANCED_FILE),
+        "utf8",
+      );
+      const advanced = parseAdvancedPhrases(advRaw);
+      if (advanced.length > 0) {
+        phrases = [...phrases, ...advanced];
+        sourceNote += ` + ${PHRASES_ADVANCED_FILE} (${advanced.length} câu B1/B2)`;
+      }
+    } catch {
+      console.log(`Không tìm thấy ${PHRASES_ADVANCED_FILE}, bỏ qua.`);
     }
   }
 

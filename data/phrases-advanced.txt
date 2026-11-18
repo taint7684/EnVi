@@ -1,0 +1,1500 @@
+[B1]
+Các học sinh cần ôn tập dự án một cách cẩn thận.
+The students need to review the project carefully.
+[B1]
+Các học sinh cần ôn tập báo cáo một cách cẩn thận.
+The students need to review the report carefully.
+[B1]
+Các học sinh cần ôn tập lịch trình một cách cẩn thận.
+The students need to review the schedule carefully.
+[B1]
+Các học sinh cần ôn tập bài thuyết trình một cách cẩn thận.
+The students need to review the presentation carefully.
+[B1]
+Các học sinh cần ôn tập các chi tiết một cách cẩn thận.
+The students need to review the details carefully.
+[B1]
+Các học sinh cần ôn tập kế hoạch một cách cẩn thận.
+The students need to review the plan carefully.
+[B1]
+Các học sinh cần ôn tập bài học một cách cẩn thận.
+The students need to review the lesson carefully.
+[B1]
+Các học sinh cần thảo luận dự án một cách cẩn thận.
+The students need to discuss the project carefully.
+[B1]
+Các học sinh cần thảo luận báo cáo một cách cẩn thận.
+The students need to discuss the report carefully.
+[B1]
+Các học sinh cần thảo luận lịch trình một cách cẩn thận.
+The students need to discuss the schedule carefully.
+[B1]
+Các học sinh cần thảo luận bài thuyết trình một cách cẩn thận.
+The students need to discuss the presentation carefully.
+[B1]
+Các học sinh cần thảo luận các chi tiết một cách cẩn thận.
+The students need to discuss the details carefully.
+[B1]
+Các học sinh cần thảo luận kế hoạch một cách cẩn thận.
+The students need to discuss the plan carefully.
+[B1]
+Các học sinh cần thảo luận bài học một cách cẩn thận.
+The students need to discuss the lesson carefully.
+[B1]
+Các học sinh cần hoàn thành dự án một cách cẩn thận.
+The students need to finish the project carefully.
+[B1]
+Các học sinh cần hoàn thành báo cáo một cách cẩn thận.
+The students need to finish the report carefully.
+[B1]
+Các học sinh cần hoàn thành lịch trình một cách cẩn thận.
+The students need to finish the schedule carefully.
+[B1]
+Các học sinh cần hoàn thành bài thuyết trình một cách cẩn thận.
+The students need to finish the presentation carefully.
+[B1]
+Các học sinh cần hoàn thành các chi tiết một cách cẩn thận.
+The students need to finish the details carefully.
+[B1]
+Các học sinh cần hoàn thành kế hoạch một cách cẩn thận.
+The students need to finish the plan carefully.
+[B1]
+Các học sinh cần hoàn thành bài học một cách cẩn thận.
+The students need to finish the lesson carefully.
+[B1]
+Các học sinh cần chia sẻ dự án một cách cẩn thận.
+The students need to share the project carefully.
+[B1]
+Các học sinh cần chia sẻ báo cáo một cách cẩn thận.
+The students need to share the report carefully.
+[B1]
+Các học sinh cần chia sẻ lịch trình một cách cẩn thận.
+The students need to share the schedule carefully.
+[B1]
+Các học sinh cần chia sẻ bài thuyết trình một cách cẩn thận.
+The students need to share the presentation carefully.
+[B1]
+Các học sinh cần chia sẻ các chi tiết một cách cẩn thận.
+The students need to share the details carefully.
+[B1]
+Các học sinh cần chia sẻ kế hoạch một cách cẩn thận.
+The students need to share the plan carefully.
+[B1]
+Các học sinh cần chia sẻ bài học một cách cẩn thận.
+The students need to share the lesson carefully.
+[B1]
+Các học sinh cần chuẩn bị dự án một cách cẩn thận.
+The students need to prepare the project carefully.
+[B1]
+Các học sinh cần chuẩn bị báo cáo một cách cẩn thận.
+The students need to prepare the report carefully.
+[B1]
+Các học sinh cần chuẩn bị lịch trình một cách cẩn thận.
+The students need to prepare the schedule carefully.
+[B1]
+Các học sinh cần chuẩn bị bài thuyết trình một cách cẩn thận.
+The students need to prepare the presentation carefully.
+[B1]
+Các học sinh cần chuẩn bị các chi tiết một cách cẩn thận.
+The students need to prepare the details carefully.
+[B1]
+Các học sinh cần chuẩn bị kế hoạch một cách cẩn thận.
+The students need to prepare the plan carefully.
+[B1]
+Các học sinh cần chuẩn bị bài học một cách cẩn thận.
+The students need to prepare the lesson carefully.
+[B1]
+Các học sinh cần tổ chức dự án một cách cẩn thận.
+The students need to organize the project carefully.
+[B1]
+Các học sinh cần tổ chức báo cáo một cách cẩn thận.
+The students need to organize the report carefully.
+[B1]
+Các học sinh cần tổ chức lịch trình một cách cẩn thận.
+The students need to organize the schedule carefully.
+[B1]
+Các học sinh cần tổ chức bài thuyết trình một cách cẩn thận.
+The students need to organize the presentation carefully.
+[B1]
+Các học sinh cần tổ chức các chi tiết một cách cẩn thận.
+The students need to organize the details carefully.
+[B1]
+Các học sinh cần tổ chức kế hoạch một cách cẩn thận.
+The students need to organize the plan carefully.
+[B1]
+Các học sinh cần tổ chức bài học một cách cẩn thận.
+The students need to organize the lesson carefully.
+[B1]
+Các học sinh cần luyện tập dự án một cách cẩn thận.
+The students need to practice the project carefully.
+[B1]
+Các học sinh cần luyện tập báo cáo một cách cẩn thận.
+The students need to practice the report carefully.
+[B1]
+Các học sinh cần luyện tập lịch trình một cách cẩn thận.
+The students need to practice the schedule carefully.
+[B1]
+Các học sinh cần luyện tập bài thuyết trình một cách cẩn thận.
+The students need to practice the presentation carefully.
+[B1]
+Các học sinh cần luyện tập các chi tiết một cách cẩn thận.
+The students need to practice the details carefully.
+[B1]
+Các học sinh cần luyện tập kế hoạch một cách cẩn thận.
+The students need to practice the plan carefully.
+[B1]
+Các học sinh cần luyện tập bài học một cách cẩn thận.
+The students need to practice the lesson carefully.
+[B1]
+Các học sinh cần cải thiện dự án một cách cẩn thận.
+The students need to improve the project carefully.
+[B1]
+Các học sinh cần cải thiện báo cáo một cách cẩn thận.
+The students need to improve the report carefully.
+[B1]
+Các học sinh cần cải thiện lịch trình một cách cẩn thận.
+The students need to improve the schedule carefully.
+[B1]
+Các học sinh cần cải thiện bài thuyết trình một cách cẩn thận.
+The students need to improve the presentation carefully.
+[B1]
+Các học sinh cần cải thiện các chi tiết một cách cẩn thận.
+The students need to improve the details carefully.
+[B1]
+Các học sinh cần cải thiện kế hoạch một cách cẩn thận.
+The students need to improve the plan carefully.
+[B1]
+Các học sinh cần cải thiện bài học một cách cẩn thận.
+The students need to improve the lesson carefully.
+[B1]
+Các học sinh cần hoàn tất dự án một cách cẩn thận.
+The students need to complete the project carefully.
+[B1]
+Các học sinh cần hoàn tất báo cáo một cách cẩn thận.
+The students need to complete the report carefully.
+[B1]
+Các học sinh cần hoàn tất lịch trình một cách cẩn thận.
+The students need to complete the schedule carefully.
+[B1]
+Các học sinh cần hoàn tất bài thuyết trình một cách cẩn thận.
+The students need to complete the presentation carefully.
+[B1]
+Các học sinh cần hoàn tất các chi tiết một cách cẩn thận.
+The students need to complete the details carefully.
+[B1]
+Các học sinh cần hoàn tất kế hoạch một cách cẩn thận.
+The students need to complete the plan carefully.
+[B1]
+Các học sinh cần hoàn tất bài học một cách cẩn thận.
+The students need to complete the lesson carefully.
+[B1]
+Họ cần ôn tập dự án một cách cẩn thận.
+They need to review the project carefully.
+[B1]
+Họ cần ôn tập báo cáo một cách cẩn thận.
+They need to review the report carefully.
+[B1]
+Họ cần ôn tập lịch trình một cách cẩn thận.
+They need to review the schedule carefully.
+[B1]
+Họ cần ôn tập bài thuyết trình một cách cẩn thận.
+They need to review the presentation carefully.
+[B1]
+Họ cần ôn tập các chi tiết một cách cẩn thận.
+They need to review the details carefully.
+[B1]
+Họ cần ôn tập kế hoạch một cách cẩn thận.
+They need to review the plan carefully.
+[B1]
+Họ cần ôn tập bài học một cách cẩn thận.
+They need to review the lesson carefully.
+[B1]
+Họ cần thảo luận dự án một cách cẩn thận.
+They need to discuss the project carefully.
+[B1]
+Họ cần thảo luận báo cáo một cách cẩn thận.
+They need to discuss the report carefully.
+[B1]
+Họ cần thảo luận lịch trình một cách cẩn thận.
+They need to discuss the schedule carefully.
+[B1]
+Họ cần thảo luận bài thuyết trình một cách cẩn thận.
+They need to discuss the presentation carefully.
+[B1]
+Họ cần thảo luận các chi tiết một cách cẩn thận.
+They need to discuss the details carefully.
+[B1]
+Họ cần thảo luận kế hoạch một cách cẩn thận.
+They need to discuss the plan carefully.
+[B1]
+Họ cần thảo luận bài học một cách cẩn thận.
+They need to discuss the lesson carefully.
+[B1]
+Họ cần hoàn thành dự án một cách cẩn thận.
+They need to finish the project carefully.
+[B1]
+Họ cần hoàn thành báo cáo một cách cẩn thận.
+They need to finish the report carefully.
+[B1]
+Họ cần hoàn thành lịch trình một cách cẩn thận.
+They need to finish the schedule carefully.
+[B1]
+Họ cần hoàn thành bài thuyết trình một cách cẩn thận.
+They need to finish the presentation carefully.
+[B1]
+Họ cần hoàn thành các chi tiết một cách cẩn thận.
+They need to finish the details carefully.
+[B1]
+Họ cần hoàn thành kế hoạch một cách cẩn thận.
+They need to finish the plan carefully.
+[B1]
+Họ cần hoàn thành bài học một cách cẩn thận.
+They need to finish the lesson carefully.
+[B1]
+Họ cần chia sẻ dự án một cách cẩn thận.
+They need to share the project carefully.
+[B1]
+Họ cần chia sẻ báo cáo một cách cẩn thận.
+They need to share the report carefully.
+[B1]
+Họ cần chia sẻ lịch trình một cách cẩn thận.
+They need to share the schedule carefully.
+[B1]
+Họ cần chia sẻ bài thuyết trình một cách cẩn thận.
+They need to share the presentation carefully.
+[B1]
+Họ cần chia sẻ các chi tiết một cách cẩn thận.
+They need to share the details carefully.
+[B1]
+Họ cần chia sẻ kế hoạch một cách cẩn thận.
+They need to share the plan carefully.
+[B1]
+Họ cần chia sẻ bài học một cách cẩn thận.
+They need to share the lesson carefully.
+[B1]
+Họ cần chuẩn bị dự án một cách cẩn thận.
+They need to prepare the project carefully.
+[B1]
+Họ cần chuẩn bị báo cáo một cách cẩn thận.
+They need to prepare the report carefully.
+[B1]
+Họ cần chuẩn bị lịch trình một cách cẩn thận.
+They need to prepare the schedule carefully.
+[B1]
+Họ cần chuẩn bị bài thuyết trình một cách cẩn thận.
+They need to prepare the presentation carefully.
+[B1]
+Họ cần chuẩn bị các chi tiết một cách cẩn thận.
+They need to prepare the details carefully.
+[B1]
+Họ cần chuẩn bị kế hoạch một cách cẩn thận.
+They need to prepare the plan carefully.
+[B1]
+Họ cần chuẩn bị bài học một cách cẩn thận.
+They need to prepare the lesson carefully.
+[B1]
+Họ cần tổ chức dự án một cách cẩn thận.
+They need to organize the project carefully.
+[B1]
+Họ cần tổ chức báo cáo một cách cẩn thận.
+They need to organize the report carefully.
+[B1]
+Họ cần tổ chức lịch trình một cách cẩn thận.
+They need to organize the schedule carefully.
+[B1]
+Họ cần tổ chức bài thuyết trình một cách cẩn thận.
+They need to organize the presentation carefully.
+[B1]
+Họ cần tổ chức các chi tiết một cách cẩn thận.
+They need to organize the details carefully.
+[B1]
+Họ cần tổ chức kế hoạch một cách cẩn thận.
+They need to organize the plan carefully.
+[B1]
+Họ cần tổ chức bài học một cách cẩn thận.
+They need to organize the lesson carefully.
+[B1]
+Họ cần luyện tập dự án một cách cẩn thận.
+They need to practice the project carefully.
+[B1]
+Họ cần luyện tập báo cáo một cách cẩn thận.
+They need to practice the report carefully.
+[B1]
+Họ cần luyện tập lịch trình một cách cẩn thận.
+They need to practice the schedule carefully.
+[B1]
+Họ cần luyện tập bài thuyết trình một cách cẩn thận.
+They need to practice the presentation carefully.
+[B1]
+Họ cần luyện tập các chi tiết một cách cẩn thận.
+They need to practice the details carefully.
+[B1]
+Họ cần luyện tập kế hoạch một cách cẩn thận.
+They need to practice the plan carefully.
+[B1]
+Họ cần luyện tập bài học một cách cẩn thận.
+They need to practice the lesson carefully.
+[B1]
+Họ cần cải thiện dự án một cách cẩn thận.
+They need to improve the project carefully.
+[B1]
+Họ cần cải thiện báo cáo một cách cẩn thận.
+They need to improve the report carefully.
+[B1]
+Họ cần cải thiện lịch trình một cách cẩn thận.
+They need to improve the schedule carefully.
+[B1]
+Họ cần cải thiện bài thuyết trình một cách cẩn thận.
+They need to improve the presentation carefully.
+[B1]
+Họ cần cải thiện các chi tiết một cách cẩn thận.
+They need to improve the details carefully.
+[B1]
+Họ cần cải thiện kế hoạch một cách cẩn thận.
+They need to improve the plan carefully.
+[B1]
+Họ cần cải thiện bài học một cách cẩn thận.
+They need to improve the lesson carefully.
+[B1]
+Họ cần hoàn tất dự án một cách cẩn thận.
+They need to complete the project carefully.
+[B1]
+Họ cần hoàn tất báo cáo một cách cẩn thận.
+They need to complete the report carefully.
+[B1]
+Họ cần hoàn tất lịch trình một cách cẩn thận.
+They need to complete the schedule carefully.
+[B1]
+Họ cần hoàn tất bài thuyết trình một cách cẩn thận.
+They need to complete the presentation carefully.
+[B1]
+Họ cần hoàn tất các chi tiết một cách cẩn thận.
+They need to complete the details carefully.
+[B1]
+Họ cần hoàn tất kế hoạch một cách cẩn thận.
+They need to complete the plan carefully.
+[B1]
+Họ cần hoàn tất bài học một cách cẩn thận.
+They need to complete the lesson carefully.
+[B1]
+Nhiều người cần ôn tập dự án một cách cẩn thận.
+Many people need to review the project carefully.
+[B1]
+Nhiều người cần ôn tập báo cáo một cách cẩn thận.
+Many people need to review the report carefully.
+[B1]
+Nhiều người cần ôn tập lịch trình một cách cẩn thận.
+Many people need to review the schedule carefully.
+[B1]
+Nhiều người cần ôn tập bài thuyết trình một cách cẩn thận.
+Many people need to review the presentation carefully.
+[B1]
+Nhiều người cần ôn tập các chi tiết một cách cẩn thận.
+Many people need to review the details carefully.
+[B1]
+Nhiều người cần ôn tập kế hoạch một cách cẩn thận.
+Many people need to review the plan carefully.
+[B1]
+Nhiều người cần ôn tập bài học một cách cẩn thận.
+Many people need to review the lesson carefully.
+[B1]
+Nhiều người cần thảo luận dự án một cách cẩn thận.
+Many people need to discuss the project carefully.
+[B1]
+Nhiều người cần thảo luận báo cáo một cách cẩn thận.
+Many people need to discuss the report carefully.
+[B1]
+Nhiều người cần thảo luận lịch trình một cách cẩn thận.
+Many people need to discuss the schedule carefully.
+[B1]
+Nhiều người cần thảo luận bài thuyết trình một cách cẩn thận.
+Many people need to discuss the presentation carefully.
+[B1]
+Nhiều người cần thảo luận các chi tiết một cách cẩn thận.
+Many people need to discuss the details carefully.
+[B1]
+Nhiều người cần thảo luận kế hoạch một cách cẩn thận.
+Many people need to discuss the plan carefully.
+[B1]
+Nhiều người cần thảo luận bài học một cách cẩn thận.
+Many people need to discuss the lesson carefully.
+[B1]
+Nhiều người cần hoàn thành dự án một cách cẩn thận.
+Many people need to finish the project carefully.
+[B1]
+Nhiều người cần hoàn thành báo cáo một cách cẩn thận.
+Many people need to finish the report carefully.
+[B1]
+Nhiều người cần hoàn thành lịch trình một cách cẩn thận.
+Many people need to finish the schedule carefully.
+[B1]
+Nhiều người cần hoàn thành bài thuyết trình một cách cẩn thận.
+Many people need to finish the presentation carefully.
+[B1]
+Nhiều người cần hoàn thành các chi tiết một cách cẩn thận.
+Many people need to finish the details carefully.
+[B1]
+Nhiều người cần hoàn thành kế hoạch một cách cẩn thận.
+Many people need to finish the plan carefully.
+[B1]
+Nhiều người cần hoàn thành bài học một cách cẩn thận.
+Many people need to finish the lesson carefully.
+[B1]
+Nhiều người cần chia sẻ dự án một cách cẩn thận.
+Many people need to share the project carefully.
+[B1]
+Nhiều người cần chia sẻ báo cáo một cách cẩn thận.
+Many people need to share the report carefully.
+[B1]
+Nhiều người cần chia sẻ lịch trình một cách cẩn thận.
+Many people need to share the schedule carefully.
+[B1]
+Nhiều người cần chia sẻ bài thuyết trình một cách cẩn thận.
+Many people need to share the presentation carefully.
+[B1]
+Nhiều người cần chia sẻ các chi tiết một cách cẩn thận.
+Many people need to share the details carefully.
+[B1]
+Nhiều người cần chia sẻ kế hoạch một cách cẩn thận.
+Many people need to share the plan carefully.
+[B1]
+Nhiều người cần chia sẻ bài học một cách cẩn thận.
+Many people need to share the lesson carefully.
+[B1]
+Nhiều người cần chuẩn bị dự án một cách cẩn thận.
+Many people need to prepare the project carefully.
+[B1]
+Nhiều người cần chuẩn bị báo cáo một cách cẩn thận.
+Many people need to prepare the report carefully.
+[B1]
+Nhiều người cần chuẩn bị lịch trình một cách cẩn thận.
+Many people need to prepare the schedule carefully.
+[B1]
+Nhiều người cần chuẩn bị bài thuyết trình một cách cẩn thận.
+Many people need to prepare the presentation carefully.
+[B1]
+Nhiều người cần chuẩn bị các chi tiết một cách cẩn thận.
+Many people need to prepare the details carefully.
+[B1]
+Nhiều người cần chuẩn bị kế hoạch một cách cẩn thận.
+Many people need to prepare the plan carefully.
+[B1]
+Nhiều người cần chuẩn bị bài học một cách cẩn thận.
+Many people need to prepare the lesson carefully.
+[B1]
+Nhiều người cần tổ chức dự án một cách cẩn thận.
+Many people need to organize the project carefully.
+[B1]
+Nhiều người cần tổ chức báo cáo một cách cẩn thận.
+Many people need to organize the report carefully.
+[B1]
+Nhiều người cần tổ chức lịch trình một cách cẩn thận.
+Many people need to organize the schedule carefully.
+[B1]
+Nhiều người cần tổ chức bài thuyết trình một cách cẩn thận.
+Many people need to organize the presentation carefully.
+[B1]
+Nhiều người cần tổ chức các chi tiết một cách cẩn thận.
+Many people need to organize the details carefully.
+[B1]
+Nhiều người cần tổ chức kế hoạch một cách cẩn thận.
+Many people need to organize the plan carefully.
+[B1]
+Nhiều người cần tổ chức bài học một cách cẩn thận.
+Many people need to organize the lesson carefully.
+[B1]
+Nhiều người cần luyện tập dự án một cách cẩn thận.
+Many people need to practice the project carefully.
+[B1]
+Nhiều người cần luyện tập báo cáo một cách cẩn thận.
+Many people need to practice the report carefully.
+[B1]
+Nhiều người cần luyện tập lịch trình một cách cẩn thận.
+Many people need to practice the schedule carefully.
+[B1]
+Nhiều người cần luyện tập bài thuyết trình một cách cẩn thận.
+Many people need to practice the presentation carefully.
+[B1]
+Nhiều người cần luyện tập các chi tiết một cách cẩn thận.
+Many people need to practice the details carefully.
+[B1]
+Nhiều người cần luyện tập kế hoạch một cách cẩn thận.
+Many people need to practice the plan carefully.
+[B1]
+Nhiều người cần luyện tập bài học một cách cẩn thận.
+Many people need to practice the lesson carefully.
+[B1]
+Nhiều người cần cải thiện dự án một cách cẩn thận.
+Many people need to improve the project carefully.
+[B1]
+Nhiều người cần cải thiện báo cáo một cách cẩn thận.
+Many people need to improve the report carefully.
+[B1]
+Nhiều người cần cải thiện lịch trình một cách cẩn thận.
+Many people need to improve the schedule carefully.
+[B1]
+Nhiều người cần cải thiện bài thuyết trình một cách cẩn thận.
+Many people need to improve the presentation carefully.
+[B1]
+Nhiều người cần cải thiện các chi tiết một cách cẩn thận.
+Many people need to improve the details carefully.
+[B1]
+Nhiều người cần cải thiện kế hoạch một cách cẩn thận.
+Many people need to improve the plan carefully.
+[B1]
+Nhiều người cần cải thiện bài học một cách cẩn thận.
+Many people need to improve the lesson carefully.
+[B1]
+Nhiều người cần hoàn tất dự án một cách cẩn thận.
+Many people need to complete the project carefully.
+[B1]
+Nhiều người cần hoàn tất báo cáo một cách cẩn thận.
+Many people need to complete the report carefully.
+[B1]
+Nhiều người cần hoàn tất lịch trình một cách cẩn thận.
+Many people need to complete the schedule carefully.
+[B1]
+Nhiều người cần hoàn tất bài thuyết trình một cách cẩn thận.
+Many people need to complete the presentation carefully.
+[B1]
+Nhiều người cần hoàn tất các chi tiết một cách cẩn thận.
+Many people need to complete the details carefully.
+[B1]
+Nhiều người cần hoàn tất kế hoạch một cách cẩn thận.
+Many people need to complete the plan carefully.
+[B1]
+Nhiều người cần hoàn tất bài học một cách cẩn thận.
+Many people need to complete the lesson carefully.
+[B1]
+Chúng tôi cần ôn tập dự án một cách cẩn thận.
+We need to review the project carefully.
+[B1]
+Chúng tôi cần ôn tập báo cáo một cách cẩn thận.
+We need to review the report carefully.
+[B1]
+Chúng tôi cần ôn tập lịch trình một cách cẩn thận.
+We need to review the schedule carefully.
+[B1]
+Chúng tôi cần ôn tập bài thuyết trình một cách cẩn thận.
+We need to review the presentation carefully.
+[B1]
+Chúng tôi cần ôn tập các chi tiết một cách cẩn thận.
+We need to review the details carefully.
+[B1]
+Chúng tôi cần ôn tập kế hoạch một cách cẩn thận.
+We need to review the plan carefully.
+[B1]
+Chúng tôi cần ôn tập bài học một cách cẩn thận.
+We need to review the lesson carefully.
+[B1]
+Chúng tôi cần thảo luận dự án một cách cẩn thận.
+We need to discuss the project carefully.
+[B1]
+Chúng tôi cần thảo luận báo cáo một cách cẩn thận.
+We need to discuss the report carefully.
+[B1]
+Chúng tôi cần thảo luận lịch trình một cách cẩn thận.
+We need to discuss the schedule carefully.
+[B1]
+Chúng tôi cần thảo luận bài thuyết trình một cách cẩn thận.
+We need to discuss the presentation carefully.
+[B1]
+Chúng tôi cần thảo luận các chi tiết một cách cẩn thận.
+We need to discuss the details carefully.
+[B1]
+Chúng tôi cần thảo luận kế hoạch một cách cẩn thận.
+We need to discuss the plan carefully.
+[B1]
+Chúng tôi cần thảo luận bài học một cách cẩn thận.
+We need to discuss the lesson carefully.
+[B1]
+Chúng tôi cần hoàn thành dự án một cách cẩn thận.
+We need to finish the project carefully.
+[B1]
+Chúng tôi cần hoàn thành báo cáo một cách cẩn thận.
+We need to finish the report carefully.
+[B1]
+Chúng tôi cần hoàn thành lịch trình một cách cẩn thận.
+We need to finish the schedule carefully.
+[B1]
+Chúng tôi cần hoàn thành bài thuyết trình một cách cẩn thận.
+We need to finish the presentation carefully.
+[B1]
+Chúng tôi cần hoàn thành các chi tiết một cách cẩn thận.
+We need to finish the details carefully.
+[B1]
+Chúng tôi cần hoàn thành kế hoạch một cách cẩn thận.
+We need to finish the plan carefully.
+[B1]
+Chúng tôi cần hoàn thành bài học một cách cẩn thận.
+We need to finish the lesson carefully.
+[B1]
+Chúng tôi cần chia sẻ dự án một cách cẩn thận.
+We need to share the project carefully.
+[B1]
+Chúng tôi cần chia sẻ báo cáo một cách cẩn thận.
+We need to share the report carefully.
+[B1]
+Chúng tôi cần chia sẻ lịch trình một cách cẩn thận.
+We need to share the schedule carefully.
+[B1]
+Chúng tôi cần chia sẻ bài thuyết trình một cách cẩn thận.
+We need to share the presentation carefully.
+[B1]
+Chúng tôi cần chia sẻ các chi tiết một cách cẩn thận.
+We need to share the details carefully.
+[B1]
+Chúng tôi cần chia sẻ kế hoạch một cách cẩn thận.
+We need to share the plan carefully.
+[B1]
+Chúng tôi cần chia sẻ bài học một cách cẩn thận.
+We need to share the lesson carefully.
+[B1]
+Chúng tôi cần chuẩn bị dự án một cách cẩn thận.
+We need to prepare the project carefully.
+[B1]
+Chúng tôi cần chuẩn bị báo cáo một cách cẩn thận.
+We need to prepare the report carefully.
+[B1]
+Chúng tôi cần chuẩn bị lịch trình một cách cẩn thận.
+We need to prepare the schedule carefully.
+[B1]
+Chúng tôi cần chuẩn bị bài thuyết trình một cách cẩn thận.
+We need to prepare the presentation carefully.
+[B1]
+Chúng tôi cần chuẩn bị các chi tiết một cách cẩn thận.
+We need to prepare the details carefully.
+[B1]
+Chúng tôi cần chuẩn bị kế hoạch một cách cẩn thận.
+We need to prepare the plan carefully.
+[B1]
+Chúng tôi cần chuẩn bị bài học một cách cẩn thận.
+We need to prepare the lesson carefully.
+[B1]
+Chúng tôi cần tổ chức dự án một cách cẩn thận.
+We need to organize the project carefully.
+[B1]
+Chúng tôi cần tổ chức báo cáo một cách cẩn thận.
+We need to organize the report carefully.
+[B1]
+Chúng tôi cần tổ chức lịch trình một cách cẩn thận.
+We need to organize the schedule carefully.
+[B1]
+Chúng tôi cần tổ chức bài thuyết trình một cách cẩn thận.
+We need to organize the presentation carefully.
+[B1]
+Chúng tôi cần tổ chức các chi tiết một cách cẩn thận.
+We need to organize the details carefully.
+[B1]
+Chúng tôi cần tổ chức kế hoạch một cách cẩn thận.
+We need to organize the plan carefully.
+[B1]
+Chúng tôi cần tổ chức bài học một cách cẩn thận.
+We need to organize the lesson carefully.
+[B1]
+Chúng tôi cần luyện tập dự án một cách cẩn thận.
+We need to practice the project carefully.
+[B1]
+Chúng tôi cần luyện tập báo cáo một cách cẩn thận.
+We need to practice the report carefully.
+[B1]
+Chúng tôi cần luyện tập lịch trình một cách cẩn thận.
+We need to practice the schedule carefully.
+[B1]
+Chúng tôi cần luyện tập bài thuyết trình một cách cẩn thận.
+We need to practice the presentation carefully.
+[B1]
+Chúng tôi cần luyện tập các chi tiết một cách cẩn thận.
+We need to practice the details carefully.
+[B1]
+Chúng tôi cần luyện tập kế hoạch một cách cẩn thận.
+We need to practice the plan carefully.
+[B1]
+Chúng tôi cần luyện tập bài học một cách cẩn thận.
+We need to practice the lesson carefully.
+[B1]
+Chúng tôi cần cải thiện dự án một cách cẩn thận.
+We need to improve the project carefully.
+[B1]
+Chúng tôi cần cải thiện báo cáo một cách cẩn thận.
+We need to improve the report carefully.
+[B1]
+Chúng tôi cần cải thiện lịch trình một cách cẩn thận.
+We need to improve the schedule carefully.
+[B1]
+Chúng tôi cần cải thiện bài thuyết trình một cách cẩn thận.
+We need to improve the presentation carefully.
+[B1]
+Chúng tôi cần cải thiện các chi tiết một cách cẩn thận.
+We need to improve the details carefully.
+[B1]
+Chúng tôi cần cải thiện kế hoạch một cách cẩn thận.
+We need to improve the plan carefully.
+[B1]
+Chúng tôi cần cải thiện bài học một cách cẩn thận.
+We need to improve the lesson carefully.
+[B1]
+Chúng tôi cần hoàn tất dự án một cách cẩn thận.
+We need to complete the project carefully.
+[B1]
+Chúng tôi cần hoàn tất báo cáo một cách cẩn thận.
+We need to complete the report carefully.
+[B1]
+Chúng tôi cần hoàn tất lịch trình một cách cẩn thận.
+We need to complete the schedule carefully.
+[B1]
+Chúng tôi cần hoàn tất bài thuyết trình một cách cẩn thận.
+We need to complete the presentation carefully.
+[B1]
+Chúng tôi cần hoàn tất các chi tiết một cách cẩn thận.
+We need to complete the details carefully.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành bài thuyết trình.
+If they had more time, they would finish the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành các chi tiết.
+If they had more time, they would finish the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành bài học.
+If they had more time, they would finish the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành kế hoạch.
+If they had more time, they would finish the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành dự án.
+If they had more time, they would finish the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành lịch trình.
+If they had more time, they would finish the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn thành báo cáo.
+If they had more time, they would finish the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện bài thuyết trình.
+If they had more time, they would improve the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện các chi tiết.
+If they had more time, they would improve the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện bài học.
+If they had more time, they would improve the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện kế hoạch.
+If they had more time, they would improve the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện dự án.
+If they had more time, they would improve the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện lịch trình.
+If they had more time, they would improve the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ cải thiện báo cáo.
+If they had more time, they would improve the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ bài thuyết trình.
+If they had more time, they would share the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ các chi tiết.
+If they had more time, they would share the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ bài học.
+If they had more time, they would share the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ kế hoạch.
+If they had more time, they would share the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ dự án.
+If they had more time, they would share the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ lịch trình.
+If they had more time, they would share the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chia sẻ báo cáo.
+If they had more time, they would share the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập bài thuyết trình.
+If they had more time, they would review the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập các chi tiết.
+If they had more time, they would review the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập bài học.
+If they had more time, they would review the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập kế hoạch.
+If they had more time, they would review the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập dự án.
+If they had more time, they would review the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập lịch trình.
+If they had more time, they would review the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ ôn tập báo cáo.
+If they had more time, they would review the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận bài thuyết trình.
+If they had more time, they would discuss the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận các chi tiết.
+If they had more time, they would discuss the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận bài học.
+If they had more time, they would discuss the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận kế hoạch.
+If they had more time, they would discuss the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận dự án.
+If they had more time, they would discuss the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận lịch trình.
+If they had more time, they would discuss the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ thảo luận báo cáo.
+If they had more time, they would discuss the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức bài thuyết trình.
+If they had more time, they would organize the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức các chi tiết.
+If they had more time, they would organize the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức bài học.
+If they had more time, they would organize the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức kế hoạch.
+If they had more time, they would organize the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức dự án.
+If they had more time, they would organize the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức lịch trình.
+If they had more time, they would organize the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ tổ chức báo cáo.
+If they had more time, they would organize the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất bài thuyết trình.
+If they had more time, they would complete the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất các chi tiết.
+If they had more time, they would complete the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất bài học.
+If they had more time, they would complete the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất kế hoạch.
+If they had more time, they would complete the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất dự án.
+If they had more time, they would complete the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất lịch trình.
+If they had more time, they would complete the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ hoàn tất báo cáo.
+If they had more time, they would complete the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị bài thuyết trình.
+If they had more time, they would prepare the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị các chi tiết.
+If they had more time, they would prepare the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị bài học.
+If they had more time, they would prepare the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị kế hoạch.
+If they had more time, they would prepare the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị dự án.
+If they had more time, they would prepare the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị lịch trình.
+If they had more time, they would prepare the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ chuẩn bị báo cáo.
+If they had more time, they would prepare the report.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập bài thuyết trình.
+If they had more time, they would practice the presentation.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập các chi tiết.
+If they had more time, they would practice the details.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập bài học.
+If they had more time, they would practice the lesson.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập kế hoạch.
+If they had more time, they would practice the plan.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập dự án.
+If they had more time, they would practice the project.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập lịch trình.
+If they had more time, they would practice the schedule.
+[B2]
+Nếu họ có thêm thời gian, họ sẽ luyện tập báo cáo.
+If they had more time, they would practice the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành bài thuyết trình.
+If we had more time, we would finish the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành các chi tiết.
+If we had more time, we would finish the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành bài học.
+If we had more time, we would finish the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành kế hoạch.
+If we had more time, we would finish the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành dự án.
+If we had more time, we would finish the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành lịch trình.
+If we had more time, we would finish the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn thành báo cáo.
+If we had more time, we would finish the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện bài thuyết trình.
+If we had more time, we would improve the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện các chi tiết.
+If we had more time, we would improve the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện bài học.
+If we had more time, we would improve the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện kế hoạch.
+If we had more time, we would improve the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện dự án.
+If we had more time, we would improve the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện lịch trình.
+If we had more time, we would improve the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ cải thiện báo cáo.
+If we had more time, we would improve the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ bài thuyết trình.
+If we had more time, we would share the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ các chi tiết.
+If we had more time, we would share the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ bài học.
+If we had more time, we would share the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ kế hoạch.
+If we had more time, we would share the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ dự án.
+If we had more time, we would share the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ lịch trình.
+If we had more time, we would share the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chia sẻ báo cáo.
+If we had more time, we would share the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập bài thuyết trình.
+If we had more time, we would review the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập các chi tiết.
+If we had more time, we would review the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập bài học.
+If we had more time, we would review the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập kế hoạch.
+If we had more time, we would review the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập dự án.
+If we had more time, we would review the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập lịch trình.
+If we had more time, we would review the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ ôn tập báo cáo.
+If we had more time, we would review the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận bài thuyết trình.
+If we had more time, we would discuss the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận các chi tiết.
+If we had more time, we would discuss the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận bài học.
+If we had more time, we would discuss the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận kế hoạch.
+If we had more time, we would discuss the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận dự án.
+If we had more time, we would discuss the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận lịch trình.
+If we had more time, we would discuss the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ thảo luận báo cáo.
+If we had more time, we would discuss the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức bài thuyết trình.
+If we had more time, we would organize the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức các chi tiết.
+If we had more time, we would organize the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức bài học.
+If we had more time, we would organize the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức kế hoạch.
+If we had more time, we would organize the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức dự án.
+If we had more time, we would organize the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức lịch trình.
+If we had more time, we would organize the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ tổ chức báo cáo.
+If we had more time, we would organize the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất bài thuyết trình.
+If we had more time, we would complete the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất các chi tiết.
+If we had more time, we would complete the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất bài học.
+If we had more time, we would complete the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất kế hoạch.
+If we had more time, we would complete the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất dự án.
+If we had more time, we would complete the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất lịch trình.
+If we had more time, we would complete the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ hoàn tất báo cáo.
+If we had more time, we would complete the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị bài thuyết trình.
+If we had more time, we would prepare the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị các chi tiết.
+If we had more time, we would prepare the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị bài học.
+If we had more time, we would prepare the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị kế hoạch.
+If we had more time, we would prepare the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị dự án.
+If we had more time, we would prepare the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị lịch trình.
+If we had more time, we would prepare the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ chuẩn bị báo cáo.
+If we had more time, we would prepare the report.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập bài thuyết trình.
+If we had more time, we would practice the presentation.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập các chi tiết.
+If we had more time, we would practice the details.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập bài học.
+If we had more time, we would practice the lesson.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập kế hoạch.
+If we had more time, we would practice the plan.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập dự án.
+If we had more time, we would practice the project.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập lịch trình.
+If we had more time, we would practice the schedule.
+[B2]
+Nếu chúng tôi có thêm thời gian, chúng tôi sẽ luyện tập báo cáo.
+If we had more time, we would practice the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành bài thuyết trình.
+If my friends had more time, my friends would finish the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành các chi tiết.
+If my friends had more time, my friends would finish the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành bài học.
+If my friends had more time, my friends would finish the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành kế hoạch.
+If my friends had more time, my friends would finish the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành dự án.
+If my friends had more time, my friends would finish the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành lịch trình.
+If my friends had more time, my friends would finish the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn thành báo cáo.
+If my friends had more time, my friends would finish the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện bài thuyết trình.
+If my friends had more time, my friends would improve the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện các chi tiết.
+If my friends had more time, my friends would improve the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện bài học.
+If my friends had more time, my friends would improve the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện kế hoạch.
+If my friends had more time, my friends would improve the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện dự án.
+If my friends had more time, my friends would improve the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện lịch trình.
+If my friends had more time, my friends would improve the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ cải thiện báo cáo.
+If my friends had more time, my friends would improve the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ bài thuyết trình.
+If my friends had more time, my friends would share the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ các chi tiết.
+If my friends had more time, my friends would share the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ bài học.
+If my friends had more time, my friends would share the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ kế hoạch.
+If my friends had more time, my friends would share the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ dự án.
+If my friends had more time, my friends would share the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ lịch trình.
+If my friends had more time, my friends would share the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chia sẻ báo cáo.
+If my friends had more time, my friends would share the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập bài thuyết trình.
+If my friends had more time, my friends would review the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập các chi tiết.
+If my friends had more time, my friends would review the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập bài học.
+If my friends had more time, my friends would review the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập kế hoạch.
+If my friends had more time, my friends would review the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập dự án.
+If my friends had more time, my friends would review the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập lịch trình.
+If my friends had more time, my friends would review the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ ôn tập báo cáo.
+If my friends had more time, my friends would review the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận bài thuyết trình.
+If my friends had more time, my friends would discuss the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận các chi tiết.
+If my friends had more time, my friends would discuss the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận bài học.
+If my friends had more time, my friends would discuss the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận kế hoạch.
+If my friends had more time, my friends would discuss the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận dự án.
+If my friends had more time, my friends would discuss the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận lịch trình.
+If my friends had more time, my friends would discuss the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ thảo luận báo cáo.
+If my friends had more time, my friends would discuss the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức bài thuyết trình.
+If my friends had more time, my friends would organize the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức các chi tiết.
+If my friends had more time, my friends would organize the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức bài học.
+If my friends had more time, my friends would organize the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức kế hoạch.
+If my friends had more time, my friends would organize the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức dự án.
+If my friends had more time, my friends would organize the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức lịch trình.
+If my friends had more time, my friends would organize the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ tổ chức báo cáo.
+If my friends had more time, my friends would organize the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất bài thuyết trình.
+If my friends had more time, my friends would complete the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất các chi tiết.
+If my friends had more time, my friends would complete the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất bài học.
+If my friends had more time, my friends would complete the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất kế hoạch.
+If my friends had more time, my friends would complete the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất dự án.
+If my friends had more time, my friends would complete the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất lịch trình.
+If my friends had more time, my friends would complete the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ hoàn tất báo cáo.
+If my friends had more time, my friends would complete the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị bài thuyết trình.
+If my friends had more time, my friends would prepare the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị các chi tiết.
+If my friends had more time, my friends would prepare the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị bài học.
+If my friends had more time, my friends would prepare the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị kế hoạch.
+If my friends had more time, my friends would prepare the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị dự án.
+If my friends had more time, my friends would prepare the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị lịch trình.
+If my friends had more time, my friends would prepare the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ chuẩn bị báo cáo.
+If my friends had more time, my friends would prepare the report.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập bài thuyết trình.
+If my friends had more time, my friends would practice the presentation.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập các chi tiết.
+If my friends had more time, my friends would practice the details.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập bài học.
+If my friends had more time, my friends would practice the lesson.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập kế hoạch.
+If my friends had more time, my friends would practice the plan.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập dự án.
+If my friends had more time, my friends would practice the project.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập lịch trình.
+If my friends had more time, my friends would practice the schedule.
+[B2]
+Nếu các bạn của tôi có thêm thời gian, các bạn của tôi sẽ luyện tập báo cáo.
+If my friends had more time, my friends would practice the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành bài thuyết trình.
+If many people had more time, many people would finish the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành các chi tiết.
+If many people had more time, many people would finish the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành bài học.
+If many people had more time, many people would finish the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành kế hoạch.
+If many people had more time, many people would finish the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành dự án.
+If many people had more time, many people would finish the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành lịch trình.
+If many people had more time, many people would finish the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn thành báo cáo.
+If many people had more time, many people would finish the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện bài thuyết trình.
+If many people had more time, many people would improve the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện các chi tiết.
+If many people had more time, many people would improve the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện bài học.
+If many people had more time, many people would improve the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện kế hoạch.
+If many people had more time, many people would improve the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện dự án.
+If many people had more time, many people would improve the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện lịch trình.
+If many people had more time, many people would improve the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ cải thiện báo cáo.
+If many people had more time, many people would improve the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ bài thuyết trình.
+If many people had more time, many people would share the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ các chi tiết.
+If many people had more time, many people would share the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ bài học.
+If many people had more time, many people would share the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ kế hoạch.
+If many people had more time, many people would share the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ dự án.
+If many people had more time, many people would share the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ lịch trình.
+If many people had more time, many people would share the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chia sẻ báo cáo.
+If many people had more time, many people would share the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập bài thuyết trình.
+If many people had more time, many people would review the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập các chi tiết.
+If many people had more time, many people would review the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập bài học.
+If many people had more time, many people would review the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập kế hoạch.
+If many people had more time, many people would review the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập dự án.
+If many people had more time, many people would review the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập lịch trình.
+If many people had more time, many people would review the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ ôn tập báo cáo.
+If many people had more time, many people would review the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận bài thuyết trình.
+If many people had more time, many people would discuss the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận các chi tiết.
+If many people had more time, many people would discuss the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận bài học.
+If many people had more time, many people would discuss the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận kế hoạch.
+If many people had more time, many people would discuss the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận dự án.
+If many people had more time, many people would discuss the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận lịch trình.
+If many people had more time, many people would discuss the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ thảo luận báo cáo.
+If many people had more time, many people would discuss the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức bài thuyết trình.
+If many people had more time, many people would organize the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức các chi tiết.
+If many people had more time, many people would organize the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức bài học.
+If many people had more time, many people would organize the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức kế hoạch.
+If many people had more time, many people would organize the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức dự án.
+If many people had more time, many people would organize the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức lịch trình.
+If many people had more time, many people would organize the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ tổ chức báo cáo.
+If many people had more time, many people would organize the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất bài thuyết trình.
+If many people had more time, many people would complete the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất các chi tiết.
+If many people had more time, many people would complete the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất bài học.
+If many people had more time, many people would complete the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất kế hoạch.
+If many people had more time, many people would complete the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất dự án.
+If many people had more time, many people would complete the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất lịch trình.
+If many people had more time, many people would complete the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ hoàn tất báo cáo.
+If many people had more time, many people would complete the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị bài thuyết trình.
+If many people had more time, many people would prepare the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị các chi tiết.
+If many people had more time, many people would prepare the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị bài học.
+If many people had more time, many people would prepare the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị kế hoạch.
+If many people had more time, many people would prepare the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị dự án.
+If many people had more time, many people would prepare the project.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị lịch trình.
+If many people had more time, many people would prepare the schedule.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ chuẩn bị báo cáo.
+If many people had more time, many people would prepare the report.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập bài thuyết trình.
+If many people had more time, many people would practice the presentation.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập các chi tiết.
+If many people had more time, many people would practice the details.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập bài học.
+If many people had more time, many people would practice the lesson.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập kế hoạch.
+If many people had more time, many people would practice the plan.
+[B2]
+Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập dự án.
+If many people had more time, many people would practice the project.

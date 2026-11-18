@@ -7,7 +7,10 @@ export const SESSION_SIZE = 20;
 export const DAILY_NEW_LIMIT = 20;
 const NEW_PHRASES_PAGE_SIZE = 100;
 
-export async function getDuePhrases(limit = SESSION_SIZE): Promise<DuePhrase[]> {
+export async function getDuePhrases(
+  limit = SESSION_SIZE,
+  difficulty?: string,
+): Promise<DuePhrase[]> {
   const supabase = await createClient();
   const now = new Date();
 
@@ -40,6 +43,11 @@ export async function getDuePhrases(limit = SESSION_SIZE): Promise<DuePhrase[]> 
     duePhrases = (data ?? []) as PhraseRow[];
   }
 
+  const matchesDifficulty = (phrase: PhraseRow) =>
+    !difficulty || phrase.difficulty === difficulty;
+
+  duePhrases = duePhrases.filter(matchesDifficulty);
+
   const startOfToday = new Date(now);
   startOfToday.setHours(0, 0, 0, 0);
   const newIntroducedToday = allReviews.filter(
@@ -69,7 +77,7 @@ export async function getDuePhrases(limit = SESSION_SIZE): Promise<DuePhrase[]> 
       if (page.length === 0) break;
 
       for (const phrase of page) {
-        if (!reviewedIds.has(phrase.id)) {
+        if (!reviewedIds.has(phrase.id) && matchesDifficulty(phrase)) {
           newPhrases.push(phrase);
           if (newPhrases.length >= newLimit) break;
         }
