@@ -111,7 +111,35 @@ function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-async function main(): Promise<void> {
+// So cau moi batch (giam so request, tranh spam API).
+const BATCH_SIZE = 50;
+// Thoi gian cho toi da cho moi lan goi Supabase (ms).
+const REQUEST_TIMEOUT_MS = 10_000;
+
+// Boc mot promise voi timeout: neu qua han thi reject de khong treo mai.
+function withTimeout<T>(
+  promise: PromiseLike<T>,
+  ms: number,
+  label: string,
+): Promise<T> {
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error(`Qua ${ms / 1000}s ma ${label} khong phan hoi`));
+    }, ms);
+    Promise.resolve(promise).then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      },
+    );
+  });
+}
+
+async function main(): Promise<number> {
   const opts = {
     dryRun: process.argv.includes("--dry-run"),
     limit: Number(process.argv[process.argv.indexOf("--limit") + 1]) || null,
@@ -165,47 +193,91 @@ async function main(): Promise<void> {
 
   if (opts.dryRun) {
     console.log("DRY-RUN xong. Không ghi DB.");
-    return;
+    return 0;
   }
 
-  const supabase = makeAdminClient();
-
-  const preflight = await supabase.from("phrases").select("id").limit(1);
-  if (preflight.error) {
-    console.error(`Không truy cập được bảng phrases: ${preflight.error.message}`);
-    console.error("Chạy db/migrations/0005_phrases.sql trước nhé.");
-    process.exit(1);
+  // Tao client (co the nem loi ro rang neu thieu env/URL sai).
+  let supabase: ReturnType<typeof makeAdminClient>;
+  try {
+    supabase = makeAdminClient();
+  } catch (error) {
+    console.error("Lỗi khi khởi tạo Supabase client:", error);
+    return 1;
   }
+
+  // Preflight: kiem tra ket noi + bang ton tai (co timeout).
+  console.log("--- Kiểm tra kết nối tới bảng phrases ---");
+  let preflightError: string | null = null;
+  try {
+    const preflight = await withTimeout(
+      supabase.from("phrases").select("id").limit(1),
+      REQUEST_TIMEOUT_MS,
+      "preflight",
+    );
+    if (preflight.error) preflightError = preflight.error.message;
+  } catch (error) {
+    console.error(
+      "Lỗi khi kiểm tra kết nối:",
+      error instanceof Error ? error.message : error,
+    );
+    return 1;
+  }
+  if (preflightError) {
+    console.error(`Không truy cập được bảng phrases: ${preflightError}`);
+    console.error("Kiểm tra: (1) project Supabase có đang chạy? (2) đã chạy db/migrations/0005_phrases.sql? (3) service_role key đúng?");
+    return 1;
+  }
+  console.log("✓ Kết nối OK, bảng phrases truy cập được.\n");
 
   let success = 0;
   let failed = 0;
+  const totalBatches = Math.ceil(limited.length / BATCH_SIZE);
 
-  for (const phrase of limited) {
-    const { error } = await supabase.from("phrases").upsert(
-      {
-        vi_text: phrase.vi,
-        en_text: phrase.en,
-        topic: phrase.topic,
-        difficulty: phrase.difficulty,
-      },
-      { onConflict: "vi_text,en_text" },
-    );
+  for (let b = 0; b < totalBatches; b++) {
+    const chunk = limited.slice(b * BATCH_SIZE, (b + 1) * BATCH_SIZE);
+    const batchNo = b + 1;
+    console.log(`--- Bắt đầu up batch ${batchNo}/${totalBatches} (${chunk.length} câu) ---`);
 
-    if (error) {
-      failed++;
-      console.error(`Lỗi DB: ${error.message} (${phrase.vi})`);
-    } else {
-      success++;
+    const rows = chunk.map((p) => ({
+      vi_text: p.vi,
+      en_text: p.en,
+      topic: p.topic,
+      difficulty: p.difficulty,
+    }));
+
+    try {
+      const res = await withTimeout(
+        supabase
+          .from("phrases")
+          .upsert(rows, { onConflict: "vi_text,en_text" }),
+        REQUEST_TIMEOUT_MS,
+        `batch ${batchNo}`,
+      );
+
+      if (res.error) {
+        failed += chunk.length;
+        console.error(`Lỗi khi up batch ${batchNo}:`, res.error.message);
+      } else {
+        success += chunk.length;
+        console.log(`✓ batch ${batchNo}/${totalBatches} xong (${chunk.length} câu)`);
+      }
+    } catch (error) {
+      failed += chunk.length;
+      console.error(`Lỗi khi up batch ${batchNo}:`, error);
     }
+
     await sleep(50);
   }
 
   console.log(`\n===== KẾT QUẢ =====`);
   console.log(`Thành công: ${success}`);
   console.log(`Thất bại: ${failed}`);
+  return failed > 0 ? 1 : 0;
 }
 
-main().catch((error) => {
-  console.error("LỖI CHẶN:", error instanceof Error ? error.message : error);
-  process.exit(1);
-});
+main()
+  .then((code) => process.exit(code))
+  .catch((error) => {
+    console.error("LỖI CHẶN:", error instanceof Error ? error.message : error);
+    process.exit(1);
+  });
