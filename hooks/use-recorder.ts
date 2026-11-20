@@ -87,7 +87,7 @@ export function useRecorder() {
       cleanup();
       const message =
         cause instanceof DOMException && cause.name === "NotAllowedError"
-          ? "Bạn đã từ chối quyền micro. Hãy cấp quyền trong trìnhzyệt hoặc nhập bằng bàn phím."
+          ? "Bạn đã từ chối quyền micro. Hãy cấp quyền trong trình duyệt hoặc nhập bằng bàn phím."
           : "Không thể mở micro. Hãy kiểm tra thiết bị hoặc nhập bằng bàn phím.";
       setError(message);
       setState("idle");

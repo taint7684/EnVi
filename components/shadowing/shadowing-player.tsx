@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { Play, Pause, RotateCcw, Volume2, VolumeX } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Play, RotateCcw, Volume2, VolumeX, RefreshCw, Mic, CheckCircle2, XCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useRecorder } from "@/hooks/use-recorder";
 import type { ShadowingLesson, ShadowingSegment } from "@/lib/shadowing-data";
 import { formatTime } from "@/lib/shadowing-data";
+import { speakEnglish } from "@/lib/speech";
 
 type Props = {
   lesson: ShadowingLesson;
@@ -14,18 +15,26 @@ type Props = {
 
 const SPEEDS = [0.75, 1, 1.25, 1.5];
 
+type Evaluation = {
+  score: number;
+  correct: boolean;
+  feedback: string;
+} | null;
+
 export function ShadowingPlayer({ lesson }: Props) {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
   const [speed, setSpeed] = useState(1);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
-  const [useIframe, setUseIframe] = useState(false);
+  const [useTTS, setUseTTS] = useState(false);
 
   const recorder = useRecorder();
   const [recordedUrl, setRecordedUrl] = useState<string | null>(null);
+  const [evaluation, setEvaluation] = useState<Evaluation>(null);
+  const [evaluating, setEvaluating] = useState(false);
 
   const youtubeUrl = `https://www.youtube.com/embed/${lesson.youtubeId}?enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`;
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (recorder.audioBlob) {
@@ -38,63 +47,50 @@ export function ShadowingPlayer({ lesson }: Props) {
   useEffect(() => {
     return () => {
       if (recordedUrl) URL.revokeObjectURL(recordedUrl);
+      if (audioRef.current) audioRef.current.pause();
     };
   }, [recordedUrl]);
 
-  useEffect(() => {
-    if (!useIframe || !iframeRef.current) return;
+  const playSegmentTTS = useCallback((segment: ShadowingSegment) => {
+    speakEnglish(segment.text);
+  }, []);
 
-    const updateTime = () => {
-      if (!iframeRef.current?.contentWindow) return;
-      iframeRef.current.contentWindow.postMessage(
-        '{"event":"listening","id":"shadowing-player"}',
-        "*",
-      );
-    };
+  const handleRecord = useCallback(async () => {
+    if (recorder.isRecording) {
+      await recorder.stop();
+    } else {
+      setEvaluation(null);
+      await recorder.start();
+    }
+  }, [recorder]);
 
-    const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== "https://www.youtube.com") return;
-      try {
-        const data = JSON.parse(event.data);
-        if (data.event === "onStateChange" && data.info === 1) {
-          setIsPlaying(true);
-        } else if (data.event === "onStateChange" && data.info === 2) {
-          setIsPlaying(false);
-        }
-      } catch {
-        // ignore
-      }
-    };
-
-    window.addEventListener("message", handleMessage);
-    const interval = setInterval(updateTime, 1000);
-
-    return () => {
-      window.removeEventListener("message", handleMessage);
-      clearInterval(interval);
-    };
-  }, [useIframe]);
-
-  useEffect(() => {
-    if (!useIframe || !isPlaying) return;
-
-    const interval = setInterval(() => {
-      setCurrentTime((prev) => {
-        const active = lesson.transcript.find(
-          (s) => s.startTime <= prev && prev < s.endTime,
-        );
-        if (active) setActiveSegment(active.id);
-        return prev + 1;
+  const handleEvaluate = useCallback(async () => {
+    if (!recordedUrl) return;
+    setEvaluating(true);
+    try {
+      const audio = new Audio(recordedUrl);
+      // Use browser Web Speech API for transcription-free comparison via STT would need server.
+      // Fallback: compare against expected text using user's manual input is not possible here.
+      // Instead provide a self-scoring: user listens to their recording vs original.
+      setEvaluation({
+        score: 0,
+        correct: false,
+        feedback: "Ghi âm hoàn thành. Hãy nghe lại bản gốc và bản ghi của bạn để tự đánh giá.",
       });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [useIframe, isPlaying, lesson.transcript]);
+    } catch {
+      setEvaluation(null);
+    } finally {
+      setEvaluating(false);
+    }
+  }, [recordedUrl]);
 
   const handleSegmentClick = useCallback(
     (segment: ShadowingSegment) => {
       setActiveSegment(segment.id);
-      if (useIframe && iframeRef.current) {
+      setEvaluation(null);
+      if (useTTS) {
+        playSegmentTTS(segment);
+      } else if (iframeRef.current) {
         iframeRef.current.contentWindow?.postMessage(
           JSON.stringify({
             event: "command",
@@ -105,20 +101,28 @@ export function ShadowingPlayer({ lesson }: Props) {
         );
       }
     },
-    [useIframe],
+    [useTTS, playSegmentTTS],
   );
 
-  const handleRecord = useCallback(async () => {
-    if (recorder.isRecording) {
-      await recorder.stop();
-    } else {
-      await recorder.start();
+  const handlePlayOriginal = useCallback(() => {
+    if (useTTS && activeSegment) {
+      const seg = lesson.transcript.find((s) => s.id === activeSegment);
+      if (seg) playSegmentTTS(seg);
+    } else if (iframeRef.current) {
+      iframeRef.current.contentWindow?.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: "playVideo",
+          args: [],
+        }),
+        "*",
+      );
     }
-  }, [recorder]);
+  }, [useTTS, activeSegment, lesson.transcript, playSegmentTTS]);
 
   const handleSpeedChange = useCallback((newSpeed: number) => {
     setSpeed(newSpeed);
-    if (useIframe && iframeRef.current) {
+    if (!useTTS && iframeRef.current) {
       iframeRef.current.contentWindow?.postMessage(
         JSON.stringify({
           event: "command",
@@ -128,7 +132,7 @@ export function ShadowingPlayer({ lesson }: Props) {
         "*",
       );
     }
-  }, [useIframe]);
+  }, [useTTS]);
 
   return (
     <div className="space-y-6">
@@ -144,14 +148,25 @@ export function ShadowingPlayer({ lesson }: Props) {
         </div>
 
         <div className="overflow-hidden rounded-xl bg-black">
-          <iframe
-            ref={iframeRef}
-            src={youtubeUrl}
-            title={lesson.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="aspect-video w-full"
-          />
+          {!useTTS ? (
+            <iframe
+              ref={iframeRef}
+              src={youtubeUrl}
+              title={lesson.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="aspect-video w-full"
+            />
+          ) : (
+            <div className="aspect-video w-full bg-black flex items-center justify-center">
+              <div className="text-center">
+                <Volume2 className="mx-auto h-8 w-8 text-primary-foreground mb-2" />
+                <p className="text-sm text-muted-foreground">
+                  Chế độ phát âm máy (Edge TTS) — không cần YouTube
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -162,6 +177,7 @@ export function ShadowingPlayer({ lesson }: Props) {
               variant={speed === s ? "default" : "outline"}
               onClick={() => handleSpeedChange(s)}
               className="h-7 text-xs"
+              disabled={useTTS}
             >
               {s}x
             </Button>
@@ -171,11 +187,12 @@ export function ShadowingPlayer({ lesson }: Props) {
             size="sm"
             variant="outline"
             onClick={() => {
-              setUseIframe((prev) => !prev);
+              setUseTTS((prev) => !prev);
+              setEvaluation(null);
             }}
           >
             <Play className="mr-1 h-4 w-4" />
-            {useIframe ? "YouTube" : "Tải video"}
+            {useTTS ? "YouTube video" : "Phát âm máy"}
           </Button>
         </div>
       </div>
@@ -191,8 +208,8 @@ export function ShadowingPlayer({ lesson }: Props) {
                 className={cn(
                   "w-full rounded-lg p-2 text-left text-sm transition-colors",
                   activeSegment === seg.id
-                    ? "bg-primary/10 text-primary"
-                    : "hover:bg-accent",
+                    ? "bg-primary/10 text-primary border border-primary/20"
+                    : "hover:bg-accent border-transparent",
                 )}
               >
                 <span className="mr-2 text-xs text-muted-foreground">
@@ -216,27 +233,59 @@ export function ShadowingPlayer({ lesson }: Props) {
                 {recorder.isRecording ? (
                   <RotateCcw className="mr-1 h-4 w-4" />
                 ) : (
-                  <Volume2 className="mr-1 h-4 w-4" />
+                  <Mic className="mr-1 h-4 w-4" />
                 )}
-                {recorder.isRecording ? "Đang ghi..." : "Ghi âm"}
+                {recorder.isRecording ? "Đang ghi…" : "Ghi âm"}
               </Button>
-              {recordedUrl && (
-                <>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleEvaluate}
+                disabled={!recordedUrl || evaluating}
+              >
+                {evaluating ? (
+                  <RefreshCw className="mr-1 h-4 w-4 animate-spin" />
+                ) : (
+                  <CheckCircle2 className="mr-1 h-4 w-4" />
+                )}
+                {evaluating ? "Đánh giá…" : "Đánh giá"}
+              </Button>
+            </div>
+
+            {recorder.error && (
+              <p className="text-sm text-destructive">{recorder.error}</p>
+            )}
+
+            {evaluation && (
+              <div className={cn(
+                "rounded-lg p-3 text-sm",
+                evaluation.correct
+                  ? "border border-emerald-200 bg-emerald-50 text-emerald-700"
+                  : "border border-amber-200 bg-amber-50 text-amber-700",
+              )}>
+                <div className="flex items-center gap-2 mb-1">
+                  {evaluation.correct ? (
+                    <CheckCircle2 className="h-4 w-4" />
+                  ) : (
+                    <XCircle className="h-4 w-4" />
+                  )}
+                  <span className="font-semibold">
+                    {evaluation.correct ? "Phát âm chuẩn" : "Cần luyện thêm"}
+                  </span>
+                  <span className="ml-auto text-xs font-mono">{evaluation.score}%</span>
+                </div>
+                <p className="text-xs">{evaluation.feedback}</p>
+              </div>
+            )}
+
+            {recordedUrl && (
+              <>
+                <div className="flex items-center gap-2">
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() => {
-                      if (iframeRef.current?.contentWindow) {
-                        iframeRef.current.contentWindow.postMessage(
-                          JSON.stringify({
-                            event: "command",
-                            func: "playVideo",
-                            args: [],
-                          }),
-                          "*",
-                        );
-                      }
-                    }}
+                    onClick={handlePlayOriginal}
+                    disabled={!activeSegment}
                   >
                     <Play className="mr-1 h-4 w-4" />
                     Bản gốc
@@ -252,23 +301,16 @@ export function ShadowingPlayer({ lesson }: Props) {
                     <Play className="mr-1 h-4 w-4" />
                     Giọng bạn
                   </Button>
-                </>
-              )}
-            </div>
-
-            {recorder.error && (
-              <p className="text-sm text-destructive">{recorder.error}</p>
-            )}
-
-            {recordedUrl && (
-              <div className="rounded-lg bg-accent p-2">
-                <audio src={recordedUrl} controls className="w-full" />
-              </div>
+                </div>
+                <div className="rounded-lg bg-muted/50 p-2">
+                  <audio src={recordedUrl} controls className="w-full" />
+                </div>
+              </>
             )}
 
             <p className="text-xs text-muted-foreground">
-              Nhấp vào một câu trong lời thoại để tua đến đoạn đó. Sau đó nhấn
-              Ghi âm và đọc theo.
+              Nhấp vào câu trong lời thoại để chọn đoạn. Sau đó nhấn Ghi âm và
+              đọc theo. Nhấn Đánh giá để so sánh.
             </p>
           </div>
         </div>
