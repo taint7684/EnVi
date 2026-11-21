@@ -54,6 +54,11 @@ export type DueCount = {
   total: number;
 };
 
+export type DueSessionState =
+  | { status: "has_due"; dueCount: number; newCount: number }
+  | { status: "has_new_only"; newCount: number }
+  | { status: "exhausted"; newCount: number };
+
 export type PhraseRow = {
   id: string;
   vi_text: string;
@@ -156,3 +161,52 @@ export type WritingDraftRow = {
   created_at: string;
   updated_at: string;
 };
+
+export type ActivityEvent = {
+  id: string;
+  user_id: string;
+  type: string;
+  block_type?: string;
+  ref_id?: string;
+  duration_sec: number;
+  speech_sec: number;
+  meta: Json;
+  study_date: string;
+  created_at: string;
+};
+
+export type XpLedgerRow = {
+  id: string;
+  user_id: string;
+  amount: number;
+  reason: string;
+  ref_id: string;
+  created_at: string;
+};
+
+export type StreakRow = {
+  user_id: string;
+  current: number;
+  longest: number;
+  last_study_date: string | null;
+  freezes_used_month: number;
+  updated_at: string;
+};
+
+export type DailyPlanRow = {
+  user_id: string;
+  study_date: string;
+  budget: number;
+  blocks: Json;
+  completed_at: string | null;
+};
+
+export type DailySummaryRow = {
+  user_id: string;
+  study_date: string;
+  minutes: number;
+  speech_minutes: number;
+  xp: number;
+};
+
+export type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
