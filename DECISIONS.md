@@ -21,6 +21,11 @@ Nguyên tắc: mọi quyết định khi phân vân chọn phương án làm ng�
 - S0: Múi giờ Asia/Ho_Chi_Minh; "ngày học" bắt đầu 03:00. XP qua `award_xp(reason, ref_id, amount)` idempotent; hoạt động qua `log_activity(...)`.
 - Tài liệu chỉ ghi TÊN biến env, không ghi giá trị secret.
 
+- S1: Migration `0010_activity_events.sql`: bảng `activity_events`, `xp_ledger`, `streaks`, `daily_plans`, `daily_summary` (RLS `user_id = auth.uid()`), hàm `log_activity(...)` (study_date theo quy tắc 03:00 VN) và `award_xp(reason, ref_id, amount)` (idempotent qua xp_ledger).
+- S1: `lib/activity.ts`: `logActivity()`, `awardXp()` gọi RPC.
+- S1: Middleware redirect `/login` (đã login) → `/today`, `/dashboard` → `/today`.
+- S1: Trang `/today` + `loading.tsx` + `error.tsx`, component `TodayPlan`, Session Runner `/today/session`.
+
 ## Kiến trúc & sản phẩm (theo MASTER_SPEC v2.0)
 - North Star: Speaking Minutes/tuần; đo latency, WPM, MLR, pause ratio, comprehensibility, courage.
 - 5 tab: Hôm nay / Nói / Luyện / Sổ lỗi / Tiến bộ.

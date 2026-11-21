@@ -1,5 +1,12 @@
 # CHANGELOG.md — EnVi
 
+## [S1] — Sự kiện, XP, Streak, Hôm nay (22/11/2026)
+- Migration `0010_activity_events.sql`: `activity_events`, `xp_ledger`, `streaks`, `daily_plans`, `daily_summary` + RPC `log_activity` (study_date theo 03:00 VN), `award_xp` (idempotent).
+- `lib/activity.ts`: `logActivity`, `awardXp`.
+- Middleware: `/login` (đã login) → `/today`; `/dashboard` → `/today`.
+- Trang `/today` + `TodayPlan` + Session Runner `/today/session`.
+- Kiểm kho: tsc sạch, eslint 0 lỗi, build pass, vitest 11/11. Commit `7a671dc`.
+
 ## [S0] — An toàn & nền móng (22/11/2026)
 - `lib/ai/router.ts`: AI Router (provider chain, circuit breaker, health-cache Ollama, budget, `AI_FORCE_FAIL`, zod + repair, `AiUnavailableError`).
 - `lib/result.ts`: `Result<T>`, `ok/err`, `asArray`, `safeJson`, `safeJsonResult`.
