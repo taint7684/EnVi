@@ -12,6 +12,16 @@ Nguyên tắc: mọi quyết định khi phân vân chọn phương án làm ng�
 - Tài liệu chỉ ghi TÊN biến env, không ghi giá trị secret.
 
 ## Đã quyết định (chi tiết trong MASTER_SPEC mục 8)
+- S0: AI Router (`lib/ai/router.ts`): provider chain (env `AI_PROVIDER_CHAIN`), circuit breaker (5 lỗi → bỏ 2p), health-cache Ollama 60s, budget `AI_DAILY_LIMITS`, `AI_FORCE_FAIL=1` test, zod parse + repair 1 lần, `AiUnavailableError` → Offline Fallback.
+- S0: `lib/result.ts`: `Result<T>`, `ok/err`, `asArray`, `safeJson`, `safeJsonResult`.
+- S0: Mọi route con `(main)` có `loading.tsx` (Skeleton) + `error.tsx` (`RouteError`: tiếng Việt, Thử lại + Về Hôm nay, `"use client"`).
+- S0: API `/api/client-errors` (POST lưu, GET danh sách) + migration `0009_client_errors.sql` (RLS `user_id = auth.uid()`).
+- S0: pre-commit hook `scripts/pre-commit-secret.mjs` chặn commit có secret thật; `package.json` script `precommit`.
+- S0: Xoá `components/gamification/rate-limit-check.tsx` + import trong `app/layout.tsx`; archive/xoá scripts rác (`add-phrases3.js`, `gen-phase10-*`, `gen-phase10b-*`).
+- S0: Múi giờ Asia/Ho_Chi_Minh; "ngày học" bắt đầu 03:00. XP qua `award_xp(reason, ref_id, amount)` idempotent; hoạt động qua `log_activity(...)`.
+- Tài liệu chỉ ghi TÊN biến env, không ghi giá trị secret.
+
+## Kiến trúc & sản phẩm (theo MASTER_SPEC v2.0)
 - North Star: Speaking Minutes/tuần; đo latency, WPM, MLR, pause ratio, comprehensibility, courage.
 - 5 tab: Hôm nay / Nói / Luyện / Sổ lỗi / Tiến bộ.
 - Speaking Coach 6 bước: ASK → ANSWER → FEEDBACK → RETRY-BLIND → NEXT → SUMMARY.
