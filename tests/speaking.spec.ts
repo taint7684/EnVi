@@ -12,9 +12,9 @@ async function login(page: Page) {
   await expect(emailInput).toBeVisible({ timeout: 10000 });
   await emailInput.fill(QA_EMAIL);
   await page.locator('input[type="password"]').fill(QA_PASSWORD);
-  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await page.locator('button[type="submit"]').click();
   try {
-    await page.waitForURL("**/dashboard", { timeout: 15000 });
+    await page.waitForURL("**/today", { timeout: 15000 });
   } catch {
     const url = page.url();
     if (!url.includes("/dashboard") && !url.includes("/login")) {

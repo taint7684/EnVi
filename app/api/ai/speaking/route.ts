@@ -1,14 +1,11 @@
 import { NextResponse } from "next/server";
 
-import { callGemini } from "@/lib/ai/gemini";
-import { callGroqChat } from "@/lib/ai/groq";
-import { callOllamaChat } from "@/lib/ai/ollama";
+import { aiRouter } from "@/lib/ai/router";
 import {
   buildFreeSpeakSystemPrompt,
   buildSpeakingSystemPrompt,
   buildSpeakingUserPrompt,
-  parseSpeakingResult,
-  SPEAKING_RESPONSE_SCHEMA,
+  speakingResultSchema,
 } from "@/lib/speaking-prompt";
 import { createClient } from "@/lib/supabase/server";
 import type { Level } from "@/data/speaking-questions-by-level";
@@ -21,40 +18,6 @@ import type {
 export const runtime = "nodejs";
 
 const TOTAL_QUESTIONS = 5;
-
-const VALID_NEXT_ACTIONS = [
-  "ask_question",
-  "request_retry",
-  "wrap_up",
-  "done",
-];
-
-function normalizeOllamaResult(
-  result: SpeakingTurnResult,
-): SpeakingTurnResult {
-  const normalized = { ...result };
-
-  if (
-    !VALID_NEXT_ACTIONS.includes(normalized.next_action)
-  ) {
-    normalized.next_action = "ask_question";
-  }
-
-  if (!Array.isArray(normalized.top_errors)) {
-    normalized.top_errors = [];
-  }
-  if (!Array.isArray(normalized.key_phrases)) {
-    normalized.key_phrases = [];
-  }
-  if (!Array.isArray(normalized.reflex_questions)) {
-    normalized.reflex_questions = [];
-  }
-  if (!Array.isArray(normalized.errors)) {
-    normalized.errors = [];
-  }
-
-  return normalized as SpeakingTurnResult;
-}
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -133,8 +96,6 @@ export async function POST(request: Request) {
     .order("created_at", { ascending: true })
     .limit(20);
 
-  const aiStart = Date.now();
-
   const systemPrompt =
     speakingMode === "freespeak"
       ? buildFreeSpeakSystemPrompt(speakingLevel)
@@ -152,75 +113,37 @@ export async function POST(request: Request) {
     TOTAL_QUESTIONS,
   );
 
-  let result: SpeakingTurnResult | null = null;
-  let ollamaSchemaError: string | null = null;
+  const aiStart = Date.now();
 
-  // Ollama local chạy đầu tiên (miễn phí, không cần API key)
-  if (!result) {
-    try {
-      const ollamaText = await callOllamaChat({
-        systemPrompt,
-        userPrompt,
-        responseSchema: SPEAKING_RESPONSE_SCHEMA,
-      });
-      const parsed = parseSpeakingResult(ollamaText);
-      result = normalizeOllamaResult(parsed);
-    } catch (cause) {
-      const msg = cause instanceof Error ? cause.message : String(cause);
-      ollamaSchemaError = msg;
-      // Ollama lỗi hoặc sai schema → tiếp tục Groq
-    }
-  }
-
-  if (!result) {
-    try {
-      const groqText = await callGroqChat({ systemPrompt, userPrompt });
-      result = parseSpeakingResult(groqText);
-    } catch {
-      // Groq lỗi → tiếp tục Gemini
-    }
-  }
-
-  if (!result) {
-    try {
-      const geminiText = await callGemini({
-        systemPrompt,
-        userPrompt,
-        responseSchema: SPEAKING_RESPONSE_SCHEMA,
-      });
-      result = parseSpeakingResult(geminiText);
-    } catch {
-      const lastErr = ollamaSchemaError
-        ? `Ollama sai schema: ${ollamaSchemaError}. `
-        : "";
-      return NextResponse.json(
-        { error: `${lastErr}AI đang bận, thử lại` },
-        { status: 502 },
-      );
-    }
-  }
+  const result = await aiRouter.generate<SpeakingTurnResult>({
+    task: "speaking_turn",
+    schema: speakingResultSchema,
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userPrompt },
+    ],
+    userId: user.id,
+  });
 
   const aiMs = Date.now() - aiStart;
 
-  if (!result.mode) {
-    result.mode = speakingMode;
-  }
+  const turnResult = { ...result.data, mode: speakingMode } as SpeakingTurnResult;
 
   const { error: insertError } = await supabase.from("speaking_turns").insert({
     session_id: sessionId,
     user_id: user.id,
-    step: result.step,
-    question: result.ai_response_en,
+    step: turnResult.step,
+    question: turnResult.ai_response_en,
     user_answer_text: userMessage || null,
-    feedback_json: result,
-    improved_answer: result.improved_answer || null,
+    feedback_json: turnResult,
+    improved_answer: turnResult.corrected_sentence || null,
   });
 
   if (insertError) {
     return NextResponse.json({ error: insertError.message }, { status: 500 });
   }
 
-  if (result.next_action === "done") {
+  if (turnResult.next_action === "done") {
     await supabase
       .from("speaking_sessions")
       .update({ ended_at: new Date().toISOString() })
@@ -228,5 +151,11 @@ export async function POST(request: Request) {
       .eq("user_id", user.id);
   }
 
-  return NextResponse.json({ result, sessionId, aiMs });
+  return NextResponse.json({
+    result: turnResult,
+    sessionId,
+    aiMs,
+    provider: result.provider,
+    model: result.model,
+  });
 }

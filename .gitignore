@@ -44,3 +44,5 @@ next-env.d.ts
 # data files (khong commit CSV/Excel nguon tu vung)
 data/*.csv
 data/*.xlsx
+
+.vercel

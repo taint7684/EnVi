@@ -1,4 +1,4 @@
-export type SpeakingStep = 1 | 2 | 3 | 4 | 5;
+export type SpeakingStep = number;
 
 export type SpeakingNextAction =
   | "ask_question"
@@ -20,12 +20,17 @@ export type SpeakingTurnResult = {
   feedback_vi: string;
   understood: boolean;
   errors: SpeakingError[];
-  improved_answer: string;
+  corrected_sentence: string;
   next_action: SpeakingNextAction;
   top_errors: string[];
   key_phrases: string[];
   reflex_questions: string[];
   mode?: SpeakingMode;
+  praise?: string;
+  retry_score?: number | null;
+  retry_passed?: boolean;
+  sample_answer?: string;
+  keywords?: string[];
 };
 
 export type SpeakingHistoryTurn = {

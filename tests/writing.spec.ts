@@ -12,10 +12,10 @@ async function login(page: Page) {
   await expect(emailInput).toBeVisible({ timeout: 10000 });
   await emailInput.fill(QA_EMAIL);
   await page.locator('input[type="password"]').fill(QA_PASSWORD);
-  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await page.locator('button[type="submit"]').click();
   // Chờ redirect đến dashboard (có thể đã đăng nhập rồi)
   try {
-    await page.waitForURL("**/dashboard", { timeout: 15000 });
+    await page.waitForURL("**/today", { timeout: 15000 });
   } catch {
     // Nếu chưa redirect, kiểm tra URL hiện tại
     const url = page.url();

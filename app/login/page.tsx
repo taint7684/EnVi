@@ -39,17 +39,43 @@ export default function LoginPage() {
   async function handleGoogleLogin() {
     setError(null);
     setLoading(true);
-    const supabase = createClient();
+    let supabase;
+    try {
+      supabase = createClient();
+    } catch (err) {
+      setError("Không khởi tạo được Supabase: thiếu biến môi trường trên máy chủ.");
+      setLoading(false);
+      return;
+    }
     const params = new URLSearchParams(window.location.search);
     const next = params.get("next") ?? "/dashboard";
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
-      },
-    });
-    if (error) {
-      setError(error.message);
+    let data;
+    let oauthError;
+    try {
+      const result = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+        },
+      });
+      data = result.data;
+      oauthError = result.error;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Lỗi không xác định.";
+      setError("Đăng nhập Google thất bại: " + message);
+      setLoading(false);
+      return;
+    }
+    if (oauthError) {
+      setError("Đăng nhập Google thất bại: " + oauthError.message);
+      setLoading(false);
+      return;
+    }
+    // signInWithOAuth khong tu dong chuyen huong -> chuyen den URL cung cap
+    if (data?.url) {
+      window.location.href = data.url;
+    } else {
+      setError("Khong nhan duoc duong chuyen huong OAuth.");
       setLoading(false);
     }
   }

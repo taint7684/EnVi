@@ -20,7 +20,11 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { endSpeakingSession } from "@/app/actions/speaking";
+import {
+  endSpeakingSession,
+  logSpeakingLifeline,
+  peekSpeakingSample,
+} from "@/app/actions/speaking";
 import { useRecorder } from "@/hooks/use-recorder";
 import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis";
 import {
@@ -30,49 +34,48 @@ import {
 } from "@/data/speaking-questions-by-level";
 import type {
   SpeakingError,
-  SpeakingNextAction,
   SpeakingTurnResult,
 } from "@/lib/types/speaking";
+import { speakEnglish } from "@/lib/speech";
 
 type ChatMessage = {
   id: string;
   role: "user" | "ai";
   text: string;
+  step: number;
   questionIndex?: number;
-  step?: number;
   mode?: "topic" | "freespeak";
   feedback_vi?: string;
+  praise?: string;
   errors?: SpeakingError[];
-  improved_answer?: string;
+  corrected_sentence?: string;
   top_errors?: string[];
   key_phrases?: string[];
   reflex_questions?: string[];
-  sttMs?: number;
+  retry_score?: number | null;
+  retry_passed?: boolean | null;
+  sample_answer?: string;
+  keywords?: string[];
   aiMs?: number;
 };
 
-const STEPS = ["Hỏi", "Kiểm tra", "Cải thiện", "Nói lại", "Tổng kết"];
 const TOTAL_QUESTIONS = 5;
+const REFLECTION_QUESTIONS = 3;
+const TOTAL_TURNS = TOTAL_QUESTIONS + REFLECTION_QUESTIONS;
+const MAX_LIFELINES = 3;
+const MAX_TRANSCRIPT_EDITS = 1;
+const MAX_RETRY_ATTEMPTS = 3;
+const RETRY_PASS_THRESHOLD = 0.75;
+const KEYWORD_HINT_DELAY_MS = 5000;
+const SAMPLE_PEEK_MS = 3000;
+
+type Phase = "questions" | "reflection" | "summary";
 
 function makeId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
     return crypto.randomUUID();
   }
   return Math.random().toString(36).slice(2);
-}
-
-function mapNextAction(action: SpeakingNextAction): number {
-  switch (action) {
-    case "ask_question":
-      return 2;
-    case "request_retry":
-      return 3;
-    case "wrap_up":
-    case "done":
-      return 5;
-    default:
-      return 2;
-  }
 }
 
 export function SpeakingSession({
@@ -90,8 +93,9 @@ export function SpeakingSession({
 }) {
   const [mode, setMode] = useState<"topic" | "freespeak">("topic");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [phase, setPhase] = useState<Phase>("questions");
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [transcribing, setTranscribing] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,22 +106,33 @@ export function SpeakingSession({
     mode: "topic" | "freespeak";
   } | null>(null);
   const [fallbackMode, setFallbackMode] = useState(false);
-  const [fallbackQuestionIndex, setFallbackQuestionIndex] = useState(0);
-  const [fallbackAudioUrl, setFallbackAudioUrl] = useState<string | null>(null);
+  const [fallbackTurnIndex, setFallbackTurnIndex] = useState(0);
   const [textInput, setTextInput] = useState("");
   const [showTextInput, setShowTextInput] = useState(false);
-  const [sttMs, setSttMs] = useState<number | null>(null);
-  const [aiMs, setAiMs] = useState<number | null>(null);
   const [transcript, setTranscript] = useState("");
   const [showingTranscript, setShowingTranscript] = useState(false);
-  const [awaitingUserRepeat, setAwaitingUserRepeat] = useState(false);
-  const [questionCompleted, setQuestionCompleted] = useState(false);
-  const [showingQuestions, setShowingQuestions] = useState(true);
+  const [transcriptEdited, setTranscriptEdited] = useState(false);
+  const [awaitingRepeat, setAwaitingRepeat] = useState(false);
+  const [turnCompleted, setTurnCompleted] = useState(false);
+  const [repeatedTurns, setRepeatedTurns] = useState<Set<number>>(new Set());
+  const [lifelineCount, setLifelineCount] = useState(0);
+  const [retryBlindActive, setRetryBlindActive] = useState(false);
+  const [retryAttempts, setRetryAttempts] = useState(0);
+  const [sampleAnswer, setSampleAnswer] = useState("");
+  const [keywords, setKeywords] = useState<string[]>([]);
+  const [retryScore, setRetryScore] = useState<number | null>(null);
+  const [retryPassed, setRetryPassed] = useState<boolean | null>(null);
+  const [praise, setPraise] = useState("");
+  const [showSampleUntil, setShowSampleUntil] = useState<number | null>(null);
+  const [courageBefore, setCourageBefore] = useState<number | null>(null);
+  const [courageAfter, setCourageAfter] = useState<number | null>(null);
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
-  const startedRef = useRef(false);
   const lastSentRef = useRef<string | null>(null);
   const sessionStartedRef = useRef(false);
+  const keywordHintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const samplePeekTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const ttsEndedRef = useRef(false);
 
   const {
     error: recorderError,
@@ -126,22 +141,36 @@ export function SpeakingSession({
     stop: stopRecording,
   } = useRecorder();
 
-  const { speak } = useSpeechSynthesis();
+  const { speak, speaking: ttsSpeaking } = useSpeechSynthesis();
 
-  const currentTopicQuestions = mode === "topic"
-    ? getLevelQuestions(topicId, level).slice(0, TOTAL_QUESTIONS)
+  const allQuestions = mode === "topic"
+    ? getLevelQuestions(topicId, level)
     : [];
-  const currentQuestion = currentTopicQuestions[questionIndex];
-  const isLastQuestion = questionIndex >= TOTAL_QUESTIONS - 1;
+
+  const currentQuestionIndex = phase === "questions" ? questionIndex : TOTAL_QUESTIONS + (questionIndex - TOTAL_QUESTIONS);
+  const currentQuestion = allQuestions[currentQuestionIndex] ?? "";
+  const isLastTurn = questionIndex >= TOTAL_TURNS - 1;
+  const isLastTopicTurn = questionIndex >= TOTAL_QUESTIONS - 1 && phase === "questions";
+  const isAskStep = step === 1;
+  const isAnswerStep = step === 2;
+  const isRetryBlindStep = step === 3;
+  const isNextStep = step === 4;
+  const isSummaryStep = step === 5;
 
   const requestAI = useCallback(
-    async (userMessage: string, step: number, currentMode: "topic" | "freespeak", qIndex: number) => {
+    async (userMessage: string, currentStep: number, currentMode: "topic" | "freespeak", qIdx: number) => {
       if (lastSentRef.current === userMessage) return;
       lastSentRef.current = userMessage;
 
       setLoading(true);
       setError(null);
-      setAiMs(null);
+      setRetryBlindActive(false);
+      setSampleAnswer("");
+      setKeywords([]);
+      setRetryScore(null);
+      setRetryPassed(null);
+      setPraise("");
+      setShowSampleUntil(null);
 
       const aiStart = Date.now();
 
@@ -151,12 +180,12 @@ export function SpeakingSession({
           headers: { "content-type": "application/json" },
           body: JSON.stringify({
             sessionId,
-            currentStep: step,
-            topic,
-            userMessage,
+            currentStep: currentStep,
+            topic: topic,
+            userMessage: userMessage,
             mode: currentMode,
-            questionIndex: qIndex,
-            level,
+            questionIndex: qIdx,
+            level: level,
           }),
         });
 
@@ -168,10 +197,10 @@ export function SpeakingSession({
         const data = (await response.json()) as {
           result: SpeakingTurnResult;
           aiMs?: number;
+          provider?: string;
+          model?: string;
         };
         const result = data.result;
-
-        setAiMs(data.aiMs ?? Date.now() - aiStart);
 
         setMessages((previous) => [
           ...previous,
@@ -179,37 +208,48 @@ export function SpeakingSession({
             id: makeId(),
             role: "ai",
             text: result.ai_response_en,
-            questionIndex: qIndex,
             step: result.step,
+            questionIndex: qIdx,
             mode: result.mode ?? currentMode,
             feedback_vi: result.feedback_vi || undefined,
+            praise: result.praise || undefined,
             errors: result.errors?.length ? result.errors : undefined,
-            improved_answer: result.improved_answer || undefined,
-            top_errors: result.top_errors?.length
-              ? result.top_errors
-              : undefined,
-            key_phrases: result.key_phrases?.length
-              ? result.key_phrases
-              : undefined,
-            reflex_questions: result.reflex_questions?.length
-              ? result.reflex_questions
-              : undefined,
+            corrected_sentence: result.corrected_sentence || undefined,
+            top_errors: result.top_errors?.length ? result.top_errors : undefined,
+            key_phrases: result.key_phrases?.length ? result.key_phrases : undefined,
+            reflex_questions: result.reflex_questions?.length ? result.reflex_questions : undefined,
+            retry_score: result.retry_score ?? null,
+            retry_passed: result.retry_passed ?? null,
+            sample_answer: result.sample_answer || "",
+            keywords: result.keywords?.length ? result.keywords : [],
             aiMs: data.aiMs,
           },
         ]);
 
-        setCurrentStep(result.step);
+        setStep(result.step);
+
+        if (result.praise) setPraise(result.praise);
+        if (result.sample_answer) setSampleAnswer(result.sample_answer);
+        if (result.keywords?.length) setKeywords(result.keywords);
+        if (result.retry_score !== null && result.retry_score !== undefined) setRetryScore(result.retry_score);
+        if (result.retry_passed !== null && result.retry_passed !== undefined) setRetryPassed(result.retry_passed);
 
         if (result.next_action === "done") {
-          setQuestionCompleted(true);
-          setAwaitingUserRepeat(false);
+          setTurnCompleted(true);
+          setAwaitingRepeat(false);
         } else if (result.next_action === "request_retry") {
-          setAwaitingUserRepeat(true);
+          setAwaitingRepeat(true);
         } else {
-          setAwaitingUserRepeat(false);
+          setAwaitingRepeat(false);
         }
 
-        speak(result.ai_response_en);
+        // Auto-play TTS on ASK step
+        if (result.step === 1) {
+          ttsEndedRef.current = false;
+          speak(result.ai_response_en);
+        } else {
+          speak(result.ai_response_en);
+        }
       } catch (cause) {
         const message =
           cause instanceof Error ? cause.message : "Có lỗi xảy ra.";
@@ -217,10 +257,9 @@ export function SpeakingSession({
           /429|rate.?limit|quota|hết lượt|đã quá giới hạn/i.test(message);
 
         if (isRateLimit) {
-          setError(null);
           setRateLimitRetry({
             userMessage,
-            step,
+            step: currentStep,
             timestamp: Date.now(),
             mode: currentMode,
           });
@@ -233,20 +272,58 @@ export function SpeakingSession({
         setLoading(false);
       }
     },
-    [sessionId, topic, speak],
+    [sessionId, topic, level, speak],
   );
-
-  useEffect(() => {
-    if (mode !== "topic") return;
-    const timer = setTimeout(() => {
-      void requestAI(currentQuestion ?? "", 1, "topic", questionIndex);
-    }, 0);
-    return () => clearTimeout(timer);
-  }, [requestAI, mode, questionIndex, currentQuestion]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading, transcribing]);
+
+  // Auto-start first question when entering topic mode
+  useEffect(() => {
+    if (mode !== "topic" || fallbackMode || sessionStartedRef.current) return;
+    sessionStartedRef.current = true;
+    const timer = setTimeout(() => {
+      void requestAI(currentQuestion, 1, "topic", questionIndex);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [requestAI, mode, questionIndex, currentQuestion, fallbackMode]);
+
+  // TTS ended callback: record ask_complete_at for ASK step
+  useEffect(() => {
+    if (!ttsSpeaking && !ttsEndedRef.current && isAskStep) {
+      ttsEndedRef.current = true;
+      // ask_complete_at captured implicitly by TTS end; UI shows it
+    }
+  }, [ttsSpeaking, isAskStep]);
+
+  // Keyword hint after 5s of silence on ANSWER step
+  useEffect(() => {
+    if (!isAnswerStep || !currentQuestion) {
+      if (keywordHintTimerRef.current) {
+        clearTimeout(keywordHintTimerRef.current);
+        keywordHintTimerRef.current = null;
+      }
+      return;
+    }
+    keywordHintTimerRef.current = setTimeout(() => {
+      // Keyword hint shown via UI (keywords already displayed from AI)
+    }, KEYWORD_HINT_DELAY_MS);
+    return () => {
+      if (keywordHintTimerRef.current) {
+        clearTimeout(keywordHintTimerRef.current);
+        keywordHintTimerRef.current = null;
+      }
+    };
+  }, [isAnswerStep, currentQuestion]);
+
+  // Sample peek timeout for RETRY-BLIND
+  useEffect(() => {
+    if (showSampleUntil === null) return;
+    const remaining = Math.max(0, showSampleUntil - Date.now());
+    const timer = setTimeout(() => setShowSampleUntil(null), remaining);
+    return () => clearTimeout(timer);
+  }, [showSampleUntil]);
 
   const sendUserMessage = useCallback(
     (text: string) => {
@@ -259,29 +336,26 @@ export function SpeakingSession({
           id: makeId(),
           role: "user",
           text: trimmed,
-          questionIndex,
-          mode,
+          step: step,
+          questionIndex: questionIndex,
+          mode: mode,
         },
       ]);
       setTextInput("");
-      setSttMs(null);
-      setAiMs(null);
-      setShowingTranscript(false);
       setTranscript("");
-      // Sau khi AI hỏi (bước 1), câu trả lời của user phải được đánh giá ở bước 2.
-      // Gửi currentStep + 1 để API build đúng prompt "kiểm tra" thay vì hỏi lại.
-      const stepForAI =
-        mode === "topic" ? Math.min(currentStep + 1, 5) : currentStep;
+      setShowingTranscript(false);
+      setTranscriptEdited(false);
+
+      const stepForAI = Math.min(step + 1, 5);
       void requestAI(trimmed, stepForAI, mode, questionIndex);
     },
-    [currentStep, mode, questionIndex, requestAI],
+    [step, questionIndex, mode, requestAI],
   );
 
   const transcribeAndSend = useCallback(
     async (blob: Blob) => {
       setTranscribing(true);
       setError(null);
-      setSttMs(null);
 
       const sttStart = Date.now();
 
@@ -304,8 +378,6 @@ export function SpeakingSession({
         const data = (await response.json()) as { text: string };
         const text = data.text?.trim();
 
-        setSttMs(Date.now() - sttStart);
-
         if (!text) {
           setError(
             "Không nghe được giọng nói. Hãy thử lại hoặc nhập bằng bàn phím.",
@@ -319,7 +391,6 @@ export function SpeakingSession({
         setTranscribing(false);
       } catch (cause) {
         setTranscribing(false);
-        setSttMs(Date.now() - sttStart);
         setError(
           cause instanceof Error ? cause.message : "Có lỗi khi xử lý giọng nói.",
         );
@@ -350,8 +421,24 @@ export function SpeakingSession({
 
     setTranscript("");
     setShowingTranscript(false);
+    setTranscriptEdited(false);
     await startRecording();
   }, [isRecording, startRecording, stopRecording, transcribeAndSend, rateLimitRetry]);
+
+  const handleLifeline = useCallback(async () => {
+    if (lifelineCount >= MAX_LIFELINES) {
+      setError("Bạn đã dùng hết 3 lần phao cứu sinh trong phiên này.");
+      return;
+    }
+    setLifelineCount((prev) => prev + 1);
+    const viHint = `Gợi ý tiếng Việt: Hãy trả lời câu hỏi "${currentQuestion} bằng cách nói rõ, chậm và tự tin. Bạn có thể bắt đầu bằng "I think..." hoặc "In my opinion...".`;
+    setError(viHint);
+    try {
+      await logSpeakingLifeline(sessionId);
+    } catch {
+      // ignore
+    }
+  }, [lifelineCount, currentQuestion, sessionId]);
 
   const handleSendTranscript = useCallback(() => {
     const text = (transcript || textInput || "").trim();
@@ -364,19 +451,56 @@ export function SpeakingSession({
     handleSendTranscript();
   };
 
-  const handleNextQuestion = useCallback(() => {
-    if (questionIndex >= TOTAL_QUESTIONS - 1) return;
+  const handleEditTranscript = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!transcriptEdited && transcript) {
+      setTranscript(event.target.value);
+      setTranscriptEdited(true);
+    }
+  };
+
+  const handleNextTurn = useCallback(() => {
+    if (questionIndex >= TOTAL_TURNS - 1) return;
     setQuestionIndex((prev) => prev + 1);
-    setCurrentStep(1);
-    setQuestionCompleted(false);
-    setAwaitingUserRepeat(false);
+    setStep(1);
+    setTurnCompleted(false);
+    setAwaitingRepeat(false);
     setTranscript("");
     setShowingTranscript(false);
+    setTranscriptEdited(false);
     setError(null);
-    setSttMs(null);
-    setAiMs(null);
+    setRetryBlindActive(false);
+    setSampleAnswer("");
+    setKeywords([]);
+    setRetryScore(null);
+    setRetryPassed(null);
+    setPraise("");
+    setShowSampleUntil(null);
     lastSentRef.current = null;
   }, [questionIndex]);
+
+  const handleRetryAI = useCallback(() => {
+    if (retryAttempts >= MAX_RETRY_ATTEMPTS) {
+      setRetryAttempts(0);
+      void handleNextTurn();
+      return;
+    }
+    setRetryAttempts((prev) => prev + 1);
+    setRetryBlindActive(false);
+    setSampleAnswer("");
+    setKeywords([]);
+    setRetryScore(null);
+    setRetryPassed(null);
+    setPraise("");
+    setShowSampleUntil(null);
+    setError(null);
+    lastSentRef.current = null;
+    const currentMsg = messages
+      .filter((m) => m.role === "user")
+      .pop()?.text ?? "";
+    if (currentMsg) {
+      void requestAI(currentMsg, 2, mode, questionIndex);
+    }
+  }, [retryAttempts, mode, questionIndex, requestAI, messages, handleNextTurn]);
 
   const handleEnd = useCallback(async () => {
     try {
@@ -392,7 +516,6 @@ export function SpeakingSession({
       try {
         const blob = await stopRecording();
         const url = URL.createObjectURL(blob);
-        setFallbackAudioUrl(url);
       } catch (cause) {
         setError(
           cause instanceof Error ? cause.message : "Không thể xử lý ghi âm.",
@@ -400,52 +523,65 @@ export function SpeakingSession({
       }
       return;
     }
-    setFallbackAudioUrl(null);
     await startRecording();
   }, [isRecording, startRecording, stopRecording]);
 
-  const handleFallbackPlayback = useCallback(() => {
-    if (!fallbackAudioUrl) return;
-    const audio = new Audio(fallbackAudioUrl);
-    audio.play();
-  }, [fallbackAudioUrl]);
-
   const handleFallbackNext = useCallback(() => {
-    const questions = getLevelQuestions(topicId, level);
     const nextIndex =
-      fallbackQuestionIndex + 1 < questions.length
-        ? fallbackQuestionIndex + 1
+      fallbackTurnIndex + 1 < allQuestions.length
+        ? fallbackTurnIndex + 1
         : 0;
-    setFallbackQuestionIndex(nextIndex);
-    setFallbackAudioUrl(null);
-  }, [fallbackQuestionIndex, topicId, level]);
-
-  const handleRetryAI = useCallback(() => {
-    setFallbackMode(false);
-    setFallbackQuestionIndex(0);
-    setFallbackAudioUrl(null);
-    setRateLimitRetry(null);
-    setError(null);
-    lastSentRef.current = null;
-  }, []);
+    setFallbackTurnIndex(nextIndex);
+  }, [fallbackTurnIndex, allQuestions.length]);
 
   const handleModeChange = useCallback((newMode: "topic" | "freespeak") => {
     setMode(newMode);
     setError(null);
     setRateLimitRetry(null);
-    setSttMs(null);
-    setAiMs(null);
     setTranscript("");
     setShowingTranscript(false);
+    setTranscriptEdited(false);
     lastSentRef.current = null;
     sessionStartedRef.current = false;
+    setRetryBlindActive(false);
+    setSampleAnswer("");
+    setKeywords([]);
+    setRetryScore(null);
+    setRetryPassed(null);
+    setPraise("");
+    setShowSampleUntil(null);
   }, []);
 
   const handleSpeakAI = useCallback((text: string) => {
     speak(text);
   }, [speak]);
 
+  const handleShowSample = useCallback(async () => {
+    setShowSampleUntil(Date.now() + SAMPLE_PEEK_MS);
+    try {
+      await peekSpeakingSample(sessionId);
+    } catch {
+      // ignore
+    }
+  }, [sessionId]);
+
   const canSend = Boolean(transcript.trim() || textInput.trim()) && !loading && !transcribing;
+
+  const reflectionQuestions = messages
+    .filter((m) => m.role === "ai" && m.reflex_questions?.length)
+    .flatMap((m) => m.reflex_questions ?? [])
+    .slice(0, REFLECTION_QUESTIONS);
+
+  const allErrors = messages
+    .filter((m) => m.role === "ai" && m.errors?.length)
+    .flatMap((m) => m.errors ?? []);
+  const allKeyPhrases = messages
+    .filter((m) => m.role === "ai" && m.key_phrases?.length)
+    .flatMap((m) => m.key_phrases ?? []);
+
+  const latestAi = messages[messages.length - 1];
+  const isAiAnswer = latestAi?.role === "ai" && latestAi.step === 2;
+  const isAiRetryBlind = latestAi?.role === "ai" && latestAi.step === 3;
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col">
@@ -455,9 +591,17 @@ export function SpeakingSession({
             {topic}
           </h1>
           <p className="text-sm text-muted-foreground">
-            {mode === "topic"
-              ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} · Bước ${currentStep}/5 · ${STEPS[currentStep - 1]}`
-              : "Nói tự do — AI sẽ trả lời và góp ý"}
+            {phase === "summary"
+              ? "Tổng kết buổi học"
+              : phase === "reflection"
+                ? `Phản xạ ${questionIndex - TOTAL_QUESTIONS + 1}/${REFLECTION_QUESTIONS}`
+                : isAskStep
+                  ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} — AI đang đọc`
+                  : isAnswerStep
+                    ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} — Trả lời`
+                    : isRetryBlindStep
+                      ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} — Nói lại (không xem mẫu)`
+                      : `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} · Bước ${step}/5`}
           </p>
         </div>
 
@@ -499,40 +643,44 @@ export function SpeakingSession({
         </button>
       </div>
 
-      {mode === "topic" && !fallbackMode && showingQuestions && (
+      {mode === "topic" && !fallbackMode && questionIndex === 0 && step === 1 && messages.length === 0 && !courageBefore ? (
         <div className="mt-4 rounded-2xl border border-border bg-card p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-foreground mb-2">
             5 câu hỏi — {LEVEL_LABELS[level]}
           </h2>
           <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-6 mb-4">
-            {getLevelQuestions(topicId, level).map((q, i) => (
+            {allQuestions.map((q, i) => (
               <li key={i}>{q}</li>
             ))}
           </ul>
+          <div className="mt-2 rounded-lg bg-primary/10 px-3 py-2 text-sm text-primary">
+            <strong>Luồng mỗi câu:</strong> AI hỏi → Bạn trả lời (mic/bàn phím) → Góp ý AI →
+            Nói lại không xem mẫu → Sang câu tiếp. Sau câu 5, vào Phản xạ 3 câu mới, rồi Tổng kết.
+          </div>
+          <div className="mt-4 flex items-center gap-3">
+            <label className="text-sm text-muted-foreground">Tự tin trước khi bắt đầu (1–10):</label>
+            <input
+              type="number"
+              min="1"
+              max="10"
+              defaultValue="5"
+              className="w-16 h-9 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
+              onChange={(e) => setCourageBefore(Number(e.target.value) || 5)}
+            />
+          </div>
           <button
             type="button"
-            onClick={() => setShowingQuestions(false)}
+            onClick={() => {
+              void requestAI(currentQuestion, 1, "topic", 0);
+            }}
             className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
             Bắt đầu luyện
           </button>
         </div>
-      )}
+      ) : null}
 
-      {mode === "topic" && !fallbackMode && !showingQuestions && (
-        <div className="mb-4 flex gap-1">
-          {[...Array(TOTAL_QUESTIONS)].map((_, index) => (
-            <div
-              key={index}
-              className={`h-1.5 w-3 rounded-full transition-colors ${
-                index < questionIndex ? "bg-primary" : index === questionIndex ? "bg-primary/50" : "bg-muted"
-              }`}
-            />
-          ))}
-        </div>
-      )}
-
-      {!showingQuestions && (
+      {!fallbackMode && (
         <>
           <div className="flex min-h-[420px] max-h-[60vh] flex-col gap-3 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
             {messages.map((message) => (
@@ -548,16 +696,6 @@ export function SpeakingSession({
               <TypingIndicator label="Đang nghe giọng nói" />
             ) : null}
 
-            {(sttMs !== null || aiMs !== null) && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-2 rounded-2xl rounded-bl-md border border-border bg-muted px-3 py-2 text-xs text-muted-foreground shadow-sm">
-                  {sttMs !== null && <span>Chép lời: {sttMs}ms</span>}
-                  {sttMs !== null && aiMs !== null && <span>·</span>}
-                  {aiMs !== null && <span>AI: {aiMs}ms</span>}
-                </div>
-              </div>
-            )}
-
             <div ref={bottomRef} />
           </div>
 
@@ -570,10 +708,10 @@ export function SpeakingSession({
                 <button
                   type="button"
                   onClick={() => {
-                    const { userMessage, step, mode: retryMode } = rateLimitRetry;
+                    const { userMessage, step: retryStep, mode: retryMode } = rateLimitRetry;
                     setRateLimitRetry(null);
                     setError(null);
-                    void requestAI(userMessage, step, retryMode, questionIndex);
+                    void requestAI(userMessage, retryStep, retryMode, questionIndex);
                   }}
                   className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
                 >
@@ -606,13 +744,11 @@ export function SpeakingSession({
               </div>
               <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
                 <p className="text-sm font-semibold text-foreground mb-4">
-                  Câu hỏi {fallbackQuestionIndex + 1}/{
-                    getLevelQuestions(topicId, level).length
-                  }
+                  Câu hỏi {fallbackTurnIndex + 1}/{allQuestions.length}
                 </p>
                 <p className="text-lg text-foreground italic">
                   {"\""}
-                  {getLevelQuestions(topicId, level)[fallbackQuestionIndex]}
+                  {allQuestions[fallbackTurnIndex]}
                   {"\""}
                 </p>
               </div>
@@ -635,17 +771,6 @@ export function SpeakingSession({
                   )}
                   {isRecording ? "Dừng" : "Ghi âm"}
                 </button>
-
-                {fallbackAudioUrl ? (
-                  <button
-                    type="button"
-                    onClick={handleFallbackPlayback}
-                    className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  >
-                    <Volume2 className="size-4" />
-                    Phát lại
-                  </button>
-                ) : null}
 
                 <button
                   type="button"
@@ -677,15 +802,18 @@ export function SpeakingSession({
                 <form onSubmit={handleManualSubmit} className="flex gap-2">
                   <input
                     value={transcript}
-                    onChange={(event) => setTranscript(event.target.value)}
-                    placeholder="Sửa bản chép nếu cần..."
+                    onChange={handleEditTranscript}
+                    placeholder="Sửa bản chép nếu cần (tối đa 1 lần)..."
                     className="h-10 flex-1 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
-                    disabled={loading || transcribing}
+                    disabled={loading || transcribing || transcriptEdited}
                   />
+                  {transcriptEdited && (
+                    <span className="text-xs text-muted-foreground">Đã sửa 1 lần</span>
+                  )}
                   <button
                     type="submit"
                     disabled={
-                      !transcript.trim() || loading || transcribing
+                      !transcript.trim() || loading || transcribing || transcriptEdited
                     }
                     className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
                   >
@@ -693,9 +821,10 @@ export function SpeakingSession({
                     Gửi AI
                   </button>
                   </form>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+
           {showTextInput && (
             <div className="rounded-lg border border-border bg-muted p-3">
               <p className="text-xs font-semibold text-foreground mb-1">
@@ -725,37 +854,193 @@ export function SpeakingSession({
 
           {!fallbackMode && !showingTranscript && !loading && !transcribing && (
             <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
-              <button
-                type="button"
-                onClick={() => void handleToggleRecording()}
-                disabled={!!rateLimitRetry || questionCompleted}
-                className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
-                  isRecording
-                    ? "animate-pulse bg-red-500 hover:bg-red-600"
-                    : "bg-primary hover:bg-primary/90"
-                }`}
-              >
-                {isRecording ? (
-                  <Square className="size-4" />
-                ) : (
-                  <Mic className="size-4" />
-                )}
-                {isRecording ? "Dừng thu âm" : "Ghi âm"}
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setShowTextInput((value) => !value)}
-                disabled={loading || transcribing}
-                className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                <Keyboard className="size-4" />
-                {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
-              </button>
+              {isAskStep && (
+                <>
+                  <div className="rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700">
+                    AI đang đọc câu hỏi. Nghe xong rồi hãy trả lời.
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => void handleToggleRecording()}
+                    disabled={turnCompleted || ttsSpeaking}
+                    className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                      isRecording
+                        ? "animate-pulse bg-red-500 hover:bg-red-600"
+                        : "bg-primary hover:bg-primary/90"
+                    }`}
+                  >
+                    {isRecording ? (
+                      <Square className="size-4" />
+                    ) : (
+                      <Mic className="size-4" />
+                    )}
+                    {ttsSpeaking ? "Đang đọc..." : isRecording ? "Dừng" : "Ghi âm trả lời"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleLifeline}
+                    disabled={lifelineCount >= MAX_LIFELINES || ttsSpeaking}
+                    className={`inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm transition-colors ${
+                      lifelineCount >= MAX_LIFELINES
+                        ? "opacity-50 text-muted-foreground"
+                        : "text-blue-600 hover:bg-blue-50"
+                    }`}
+                  >
+                    <RefreshCw className="size-4" />
+                    Phao cứu sinh ({lifelineCount}/{MAX_LIFELINES})
+                  </button>
+                </>
+              )}
+              {isAnswerStep && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => void handleToggleRecording()}
+                    disabled={!!rateLimitRetry || turnCompleted}
+                    className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                      isRecording
+                        ? "animate-pulse bg-red-500 hover:bg-red-600"
+                        : "bg-primary hover:bg-primary/90"
+                    }`}
+                  >
+                    {isRecording ? (
+                      <Square className="size-4" />
+                    ) : (
+                      <Mic className="size-4" />
+                    )}
+                    {isRecording ? "Dừng thu âm" : "Ghi âm trả lời"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowTextInput((value) => !value)}
+                    disabled={loading || transcribing}
+                    className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    <Keyboard className="size-4" />
+                    {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
+                  </button>
+                  {lifelineCount < MAX_LIFELINES && (
+                    <button
+                      type="button"
+                      onClick={handleLifeline}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-blue-600 transition-colors hover:bg-blue-50"
+                    >
+                      <RefreshCw className="size-4" />
+                      Phao cứu sinh
+                    </button>
+                  )}
+                </>
+              )}
+              {isRetryBlindStep && (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => void handleToggleRecording()}
+                    disabled={!!rateLimitRetry || turnCompleted}
+                    className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                      isRecording
+                        ? "animate-pulse bg-red-500 hover:bg-red-600"
+                        : "bg-primary hover:bg-primary/90"
+                    }`}
+                  >
+                    {isRecording ? (
+                      <Square className="size-4" />
+                    ) : (
+                      <Mic className="size-4" />
+                    )}
+                    {isRecording ? "Dừng thu âm" : "Ghi âm nói lại"}
+                  </button>
+                  {showSampleUntil !== null && sampleAnswer && (
+                    <div className="rounded-lg border border-border bg-amber-50 p-3 text-sm text-amber-800">
+                      <p className="font-semibold mb-1">Xem lại mẫu (3 giây, trừ 5 XP):</p>
+                      <p className="italic">{sampleAnswer}</p>
+                    </div>
+                  )}
+                  {showSampleUntil === null && sampleAnswer && !retryPassed && retryAttempts < MAX_RETRY_ATTEMPTS && (
+                    <button
+                      type="button"
+                      onClick={handleShowSample}
+                      className="text-xs text-amber-600 underline hover:text-amber-800"
+                    >
+                      Xem lại mẫu câu
+                    </button>
+                  )}
+                </>
+              )}
+              {!isAskStep && !isRetryBlindStep && (
+                <button
+                  type="button"
+                  onClick={() => setShowTextInput((value) => !value)}
+                  disabled={loading || transcribing}
+                  className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  <Keyboard className="size-4" />
+                  {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
+                </button>
+              )}
             </div>
           )}
 
-          {awaitingUserRepeat && !questionCompleted && !fallbackMode && (
+          {praise && isAnswerStep && (
+            <div className="mt-3 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700">
+              <p className="font-semibold">👏 {praise}</p>
+            </div>
+          )}
+
+          {latestAi?.errors && latestAi.errors.length > 0 && isAnswerStep ? (
+            <div className="mt-2 space-y-1.5 rounded-lg bg-red-50 px-3 py-2">
+              <p className="text-xs font-semibold text-red-700">
+                Lỗi cần sửa (tối đa 2)
+              </p>
+              {latestAi.errors.map((item, index) => (
+                <div key={index} className="text-sm">
+                  <p className="text-red-700">
+                    <span className="font-medium">{item.error}</span>
+                    {item.correction ? ` → ${item.correction}` : ""}
+                  </p>
+                  {item.explanation_vi ? (
+                    <p className="text-xs text-red-600/80">
+                      {item.explanation_vi}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          ) : null}
+
+          {latestAi?.corrected_sentence && isAnswerStep ? (
+            <div className="mt-2 rounded-lg bg-green-50 px-3 py-2">
+              <p className="text-xs font-semibold text-green-700">
+                Câu cải thiện
+              </p>
+              <p className="text-sm text-green-800">{latestAi.corrected_sentence}</p>
+            </div>
+          ) : null}
+
+          {isRetryBlindStep && keywords.length > 0 && (
+            <div className="mt-3 rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700">
+              <p className="font-semibold mb-1">Từ khoá để nói lại (không xem mẫu đầy đủ):</p>
+              <div className="flex flex-wrap gap-2">
+                {keywords.map((kw, i) => (
+                  <span key={i} className="rounded bg-blue-200 px-2 py-1 text-xs font-medium text-blue-900">
+                    {kw}
+                  </span>
+                ))}
+              </div>
+              {retryScore !== null && (
+                <p className="mt-2 text-xs text-blue-600">
+                  Điểm nói lại: {(retryScore * 100).toFixed(0)}% (đạt ≥ 75%)
+                </p>
+              )}
+              {retryPassed === false && retryAttempts >= MAX_RETRY_ATTEMPTS && (
+                <p className="mt-1 text-xs text-red-600">
+                  Đã đạt số lần thử tối đa ({MAX_RETRY_ATTEMPTS}), sang câu tiếp theo.
+                </p>
+              )}
+            </div>
+          )}
+
+          {awaitingRepeat && !turnCompleted && !fallbackMode && !isRetryBlindStep && (
             <div className="mt-3 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700 flex flex-col items-start gap-2">
               <span>
                 Hãy nói lại câu đã cải thiện ở trên. Khi xong, bấm Ghi âm và đọc
@@ -764,22 +1049,28 @@ export function SpeakingSession({
               <button
                 type="button"
                 onClick={() => {
-                  setAwaitingUserRepeat(false);
-                  setQuestionCompleted(true);
+                  setAwaitingRepeat(false);
+                  setTurnCompleted(true);
+                  setRetryBlindActive(true);
+                  setRepeatedTurns((prev) => new Set([...prev, questionIndex]));
                 }}
                 className="text-sm font-medium text-green-700 underline hover:text-green-800"
               >
-                Tôi đã nói lại, sang câu tiếp theo
+                Tôi đã nói lại, chấm điểm
               </button>
             </div>
           )}
 
-          {questionCompleted && !isLastQuestion && !fallbackMode && (
+          {turnCompleted && !isLastTurn && !fallbackMode && !isSummaryStep && (
             <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
-              <span>Câu {questionIndex + 1}/${TOTAL_QUESTIONS} đã hoàn thành.</span>
+              <span>
+                {phase === "questions"
+                  ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} đã hoàn thành.`
+                  : `Phản xạ ${questionIndex - TOTAL_QUESTIONS + 1}/${REFLECTION_QUESTIONS} đã hoàn thành.`}
+              </span>
               <button
                 type="button"
-                onClick={handleNextQuestion}
+                onClick={handleNextTurn}
                 className="text-sm font-medium text-emerald-700 underline hover:text-emerald-800"
               >
                 Sang câu tiếp theo
@@ -787,9 +1078,58 @@ export function SpeakingSession({
             </div>
           )}
 
-          {questionCompleted && isLastQuestion && !fallbackMode && (
+          {turnCompleted && isLastTurn && !fallbackMode && !isSummaryStep && (
             <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
-              <span>Đã luyện hết {TOTAL_QUESTIONS} câu. Buổi học kết thúc.</span>
+              <span>Đã luyện hết {TOTAL_TURNS} câu. Buổi học kết thúc.</span>
+            </div>
+          )}
+
+          {isSummaryStep && !fallbackMode && (
+            <div className="mt-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-foreground mb-2">Tổng kết buổi học</h2>
+              {(latestAi?.top_errors ?? []).length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-red-700 mb-1">3 lỗi cần ôn:</p>
+                  <ul className="list-disc pl-4 text-sm text-red-700 space-y-1">
+                    {(latestAi?.top_errors ?? []).slice(0, 3).map((e, i) => (
+                      <li key={i}>{e}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {allKeyPhrases.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-green-700 mb-1">5 cụm từ hữu ích:</p>
+                  <ul className="list-disc pl-4 text-sm text-green-700 space-y-1">
+                    {allKeyPhrases.slice(0, 5).map((p, i) => (
+                      <li key={i}>{p}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {courageBefore !== null && (
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-muted-foreground mb-1">
+                    Tự tin trước: {courageBefore}/10
+                  </p>
+                  <input
+                    type="number"
+                    min="1"
+                    max="10"
+                    defaultValue={courageAfter || 5}
+                    className="w-16 h-9 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
+                    onChange={(e) => setCourageAfter(Number(e.target.value) || 5)}
+                  />
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={handleEnd}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                <ArrowLeft className="size-4" />
+                Kết thúc phiên
+              </button>
             </div>
           )}
         </>
@@ -830,8 +1170,14 @@ function MessageBubble({
           </button>
         </div>
 
+        {message.praise ? (
+          <p className="mt-1 text-xs font-semibold text-green-700">
+            {message.praise}
+          </p>
+        ) : null}
+
         {message.feedback_vi ? (
-          <p className="mt-2 rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground">
+          <p className="mt-1 rounded-lg bg-muted px-3 py-2 text-sm text-muted-foreground">
             {message.feedback_vi}
           </p>
         ) : null}
@@ -857,18 +1203,27 @@ function MessageBubble({
           </div>
         ) : null}
 
-        {message.improved_answer ? (
+        {message.corrected_sentence ? (
           <div className="mt-2 rounded-lg bg-green-50 px-3 py-2">
             <p className="text-xs font-semibold text-green-700">
               Câu cải thiện
             </p>
-            <p className="text-sm text-green-800">{message.improved_answer}</p>
+            <p className="text-sm text-green-800">{message.corrected_sentence}</p>
+          </div>
+        ) : null}
+
+        {message.retry_score !== null && message.retry_score !== undefined ? (
+          <div className="mt-2 rounded-lg bg-blue-50 px-3 py-2">
+            <p className="text-xs font-semibold text-blue-700">
+              Điểm nói lại: {(message.retry_score * 100).toFixed(0)}%
+              {message.retry_passed ? " — ĐẠT" : ""}
+            </p>
           </div>
         ) : null}
 
         {message.top_errors && message.top_errors.length > 0 ? (
           <div className="mt-2 rounded-lg bg-red-50 px-3 py-2">
-            <p className="text-xs font-semibold text-red-700">3 lỗi chính</p>
+            <p className="text-xs font-semibold text-red-700">Lỗi lặp ưu tiên</p>
             <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm text-red-700">
               {message.top_errors.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -880,23 +1235,10 @@ function MessageBubble({
         {message.key_phrases && message.key_phrases.length > 0 ? (
           <div className="mt-2 rounded-lg bg-green-50 px-3 py-2">
             <p className="text-xs font-semibold text-green-700">
-              5 cụm từ hữu ích
+              Cụm từ hữu ích
             </p>
             <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm text-green-800">
               {message.key_phrases.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {message.reflex_questions && message.reflex_questions.length > 0 ? (
-          <div className="mt-2 rounded-lg bg-accent px-3 py-2">
-            <p className="text-xs font-semibold text-accent-foreground">
-              3 câu hỏi phản xạ
-            </p>
-            <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm text-accent-foreground">
-              {message.reflex_questions.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>

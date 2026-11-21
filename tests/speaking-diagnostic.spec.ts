@@ -9,8 +9,8 @@ async function login(page: Page) {
   await page.goto(`${BASE_URL}/login`);
   await page.locator('input[type="email"]').fill(QA_EMAIL);
   await page.locator('input[type="password"]').fill(QA_PASSWORD);
-  await page.getByRole("button", { name: "Đăng nhập" }).click();
-  await page.waitForURL("**/dashboard", { timeout: 20000 });
+  await page.locator('button[type="submit"]').click();
+    await page.waitForURL("**/today", { timeout: 20000 });
   await page.waitForTimeout(1500);
 }
 

@@ -9,6 +9,7 @@ import {
   RefreshCw,
   Save,
   Sparkles,
+  Volume2,
 } from "lucide-react";
 
 import {
@@ -18,6 +19,7 @@ import {
 } from "@/app/actions/writing";
 import { Button } from "@/components/ui/button";
 import { SpellCheck } from "@/components/ui/spell-check";
+import { speakEnglish } from "@/lib/speech";
 import { WRITING_CHECKLIST_ITEMS, type WritingPrompt } from "@/data/writing-prompts";
 import type { WritingDraftRow, WritingFeedback } from "@/lib/types";
 import { toast } from "sonner";
@@ -444,8 +446,18 @@ export function WritingEditor({ prompt, draft, userId, onBack }: Props) {
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground underline hover:text-foreground"
           >
             <RefreshCw className="size-3.5" />
-            {showSample ? "Ẩn câu mẫu" : "Xem câu mẫu (sau khi đã thử)"}
+            {showSample ? "Ẩn câu mẫu" : "Xem câu mẫu (sau khi đã đã thử)"}
           </button>
+          {prompt.sampleAnswer && (
+            <button
+              type="button"
+              onClick={() => speakEnglish(prompt.sampleAnswer)}
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            >
+              <Volume2 className="size-3.5" />
+              Nghe mẫu
+            </button>
+          )}
           {showSample ? (
             <div className="rounded-2xl border border-border bg-muted/40 p-4">
               <p className="mb-2 text-xs font-semibold text-muted-foreground">

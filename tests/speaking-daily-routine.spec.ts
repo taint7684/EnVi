@@ -9,8 +9,8 @@ async function loginAndStartSession(page: Page) {
   await page.waitForLoadState("networkidle");
   await page.fill('input[id="email"]', QA_EMAIL);
   await page.fill('input[id="password"]', QA_PASSWORD);
-  await page.click('button:has-text("Đăng nhập")');
-  await page.waitForURL("/dashboard", { timeout: 15000 });
+  await page.click('button[type="submit"]');
+  await page.waitForURL("/today", { timeout: 15000 });
 
   await page.click('a:has-text("Speaking")');
   await page.waitForLoadState("networkidle");

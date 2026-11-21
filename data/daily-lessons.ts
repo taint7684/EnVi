@@ -79,11 +79,22 @@ const SHADOWING_1 = () => ({
 
 // Grammar topic names from grammar-exercises.json
 const GRAMMAR_TOPICS = [
-  { id: "conditionals", name: "Câu điều kiện" },
-  { id: "passive", name: "Câu bị động" },
-  { id: "relative-clauses", name: "Mệnh đề quan hệ" },
-  { id: "modal-verbs", name: "Động từ khuyết thiếu" },
-  { id: "gerunds-infinitives", name: "Danh động từ & nguyên mẫu" },
+  { id: "conditionals", name: "Câu Điều Kiện" },
+  { id: "passive", name: "Câu Bị Động" },
+  { id: "relative-clauses", name: "Mệnh Đề Quan Hệ" },
+  { id: "modal-verbs", name: "Động Từ Khuyết Thiếu" },
+  { id: "gerunds-infinitives", name: "Danh Động Từ & Nguyên Mẫu" },
+  { id: "comparatives", name: "So Sánh Hơn & Nhất" },
+  { id: "present-perfect-vs-past", name: "Hiện Tại Hoàn Thành vs Quá Khứ Đơn" },
+  { id: "future-forms", name: "Các Dạng Tương Lai" },
+  { id: "reported-speech", name: "Câu Gián Tiếp" },
+  { id: "used-to", name: "Thói Quen Trong Quá Khứ" },
+  { id: "articles", name: "Mạo Từ" },
+  { id: "prepositions", name: "Giới Từ" },
+  { id: "quantifiers", name: "Lượng Từ" },
+  { id: "question-forms", name: "Dạng Câu Hỏi" },
+  { id: "conjunctions", name: "Liên Từ" },
+  { id: "word-order", name: "Trật Tự Từ" },
 ];
 
 // Reading passage IDs from reading-passages.json
@@ -209,6 +220,74 @@ for (let day = 61; day <= 90; day++) {
     day,
     level: "B2",
     goal: `Ngày ${day}: Từ vựng nâng cao + ${GRAMMAR_TOPICS[grammarIdx].name} + reflex B2`,
+    tasks,
+    output,
+    totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,
+  });
+}
+
+// Phase 4: Days 91-120 (B2+) - Củng cố thực chiến
+for (let day = 91; day <= 120; day++) {
+  const relDay = day - 90;
+  const unit = ((relDay - 1) % 14) + 1;
+  const grammarIdx = (relDay - 1) % GRAMMAR_TOPICS.length;
+  const readingIdx = (relDay - 1) % B2_READINGS.length;
+  const isWritingDay = relDay % 3 === 0;
+  const isDictationDay = relDay % 3 === 1;
+  const isShadowingDay = relDay % 3 === 2;
+
+  const tasks: DayTask[] = [
+    { id: `vocab-b2p-${unit}`, label: `Flashcard từ B2+ đơn vị ${unit}`, href: "/vocab", minutes: 25 },
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    REFLEX_5(),
+  ];
+
+  if (isDictationDay) tasks.push(DICTATION_1());
+  if (isShadowingDay) tasks.push(SHADOWING_1());
+  tasks.push(A2_READING(B2_READINGS[readingIdx], B2_READING_TITLES[readingIdx]));
+
+  const output = isWritingDay
+    ? { type: "writing" as const, label: `Viết phân tích IT/BA ngày ${day}`, href: "/writing", minutes: 15 }
+    : { type: "speaking" as const, label: `Nói trình bày B2+ ngày ${day}`, href: "/speaking", minutes: 15 };
+
+  DAILY_LESSONS.push({
+    day,
+    level: "B2",
+    goal: `Ngày ${day}: Từ vựng B2+ + ngữ pháp cao cấp + reflexB2 + viết/ngoại ngữ`,
+    tasks,
+    output,
+    totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,
+  });
+}
+
+// Phase 5: Days 121-180 (B2) - Ứng dụng thế giới thực
+for (let day = 121; day <= 180; day++) {
+  const relDay = day - 120;
+  const unit = ((relDay - 1) % 14) + 1;
+  const grammarIdx = (relDay - 1) % GRAMMAR_TOPICS.length;
+  const readingIdx = (relDay - 1) % B2_READINGS.length;
+  const isWritingDay = relDay % 3 === 0;
+  const isDictationDay = relDay % 3 === 1;
+  const isShadowingDay = relDay % 3 === 2;
+
+  const tasks: DayTask[] = [
+    { id: `vocab-real-${unit}`, label: `Flashcard thế giới thực đơn vị ${unit}`, href: "/vocab", minutes: 30 },
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    REFLEX_5(),
+  ];
+
+  if (isDictationDay) tasks.push(DICTATION_1());
+  if (isShadowingDay) tasks.push(SHADOWING_1());
+  tasks.push(A2_READING(B2_READINGS[readingIdx], B2_READING_TITLES[readingIdx]));
+
+  const output = isWritingDay
+    ? { type: "writing" as const, label: `Viết báo cáo chuyên ngành ngày ${day}`, href: "/writing", minutes: 20 }
+    : { type: "speaking" as const, label: `Nói thuyết trình B2 ngày ${day}`, href: "/speaking", minutes: 20 };
+
+  DAILY_LESSONS.push({
+    day,
+    level: "B2",
+    goal: `Ngày ${day}: Từ vựng thực tế + ngữ pháp ứng dụng + reflex B2 + viết/ngoại ngữ`,
     tasks,
     output,
     totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,

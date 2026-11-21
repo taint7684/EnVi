@@ -5,15 +5,18 @@ import type {
   CardReviewRow,
   DueCard,
   DueCount,
+  DueSessionState,
   WordRow,
 } from "@/lib/types";
 
-export const SESSION_SIZE = 20;
-export const DAILY_NEW_LIMIT = 20;
+export const SESSION_SIZE = 100;
+export const DAILY_NEW_LIMIT = 100;
 
 const NEW_WORDS_PAGE_SIZE = 100;
 
-export async function getDueCards(limit = SESSION_SIZE): Promise<DueCard[]> {
+export async function getDueCards(
+  limit = SESSION_SIZE,
+): Promise<{ cards: DueCard[]; state: DueSessionState }> {
   const supabase = await createClient();
   const now = new Date();
 
@@ -100,7 +103,39 @@ export async function getDueCards(limit = SESSION_SIZE): Promise<DueCard[]> {
     cards.push({ word, review: reviewByWord.get(word.id) ?? null });
   }
 
-  return cards.slice(0, limit);
+  const sliced = cards.slice(0, limit);
+
+  // Determine session state for UI
+  const { count: totalWords, error: countError } = await supabase
+    .from("words")
+    .select("*", { count: "exact", head: true });
+
+  if (countError) throw new Error(countError.message);
+
+  const total = totalWords ?? 0;
+  const learnedCount = reviewedIds.size;
+  const remainingNew = Math.max(0, total - learnedCount);
+
+  let state: DueSessionState;
+  if (dueWords.length > 0) {
+    state = {
+      status: "has_due",
+      dueCount: dueWords.length,
+      newCount: remainingNew,
+    };
+  } else if (remainingNew > 0) {
+    state = {
+      status: "has_new_only",
+      newCount: remainingNew,
+    };
+  } else {
+    state = {
+      status: "exhausted",
+      newCount: 0,
+    };
+  }
+
+  return { cards: sliced, state };
 }
 
 export async function getDueCount(): Promise<DueCount> {
