@@ -19,10 +19,6 @@ export function AiUsageStats() {
   });
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    loadStats();
-  }, []);
-
   async function loadStats() {
     const supabase = createClient();
     const {
@@ -52,6 +48,13 @@ export function AiUsageStats() {
     }
     setLoading(false);
   }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      loadStats();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   if (loading) {
     return (

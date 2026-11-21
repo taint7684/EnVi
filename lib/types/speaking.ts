@@ -6,6 +6,8 @@ export type SpeakingNextAction =
   | "wrap_up"
   | "done";
 
+export type SpeakingMode = "topic" | "freespeak";
+
 export type SpeakingError = {
   error: string;
   correction: string;
@@ -23,6 +25,7 @@ export type SpeakingTurnResult = {
   top_errors: string[];
   key_phrases: string[];
   reflex_questions: string[];
+  mode?: SpeakingMode;
 };
 
 export type SpeakingHistoryTurn = {

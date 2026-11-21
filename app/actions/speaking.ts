@@ -3,9 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import type { SpeakingTurnRow } from "@/lib/types/speaking";
 
-export async function startSpeakingSession(
-  topicId?: string,
-): Promise<{ sessionId: string }> {
+export async function startSpeakingSession(): Promise<{ sessionId: string }> {
   const supabase = await createClient();
   const {
     data: { user },
@@ -15,7 +13,7 @@ export async function startSpeakingSession(
 
   const { data, error } = await supabase
     .from("speaking_sessions")
-    .insert({ user_id: user.id, topic_id: topicId ?? null })
+    .insert({ user_id: user.id })
     .select("id")
     .single();
 

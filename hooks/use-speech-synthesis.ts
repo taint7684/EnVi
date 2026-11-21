@@ -3,14 +3,12 @@
 import { useCallback, useEffect, useState } from "react";
 
 export function useSpeechSynthesis() {
-  const [supported, setSupported] = useState(false);
+  const [supported, setSupported] = useState<boolean>(() =>
+    typeof window !== "undefined" && "speechSynthesis" in window,
+  );
   const [speaking, setSpeaking] = useState(false);
 
   useEffect(() => {
-    setSupported(
-      typeof window !== "undefined" && "speechSynthesis" in window,
-    );
-
     return () => {
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();

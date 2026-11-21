@@ -31,12 +31,18 @@ const DEFAULTS: Profile = {
 
 const EXPORT_TABLES = [
   "profiles",
+  "decks",
+  "deck_words",
   "card_reviews",
+  "phrase_reviews",
   "speaking_sessions",
   "speaking_turns",
   "recordings",
   "dictation_attempts",
   "daily_progress",
+  "progress_tests",
+  "study_plan_progress",
+  "writing_drafts",
 ];
 
 export function SettingsForm() {

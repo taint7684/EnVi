@@ -5,12 +5,10 @@ import { Send, Bot, User, Loader2, Sparkles, Flame, Layers, Target } from "lucid
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { LearningSnapshot } from "@/lib/types";
+import { loadChatHistory, saveChatHistory, type ChatMessage } from "@/lib/chat-history";
 import { toast } from "sonner";
 
-type Message = {
-  role: "user" | "assistant";
-  content: string;
-};
+type Message = ChatMessage;
 
 const QUICK_ACTIONS = [
   "Hôm nay tôi nên học gì?",
@@ -18,14 +16,16 @@ const QUICK_ACTIONS = [
   "Gợi ý chủ đề Speaking cho tôi",
 ];
 
+const GREETING: Message = {
+  role: "assistant",
+  content:
+    "Xin chào! Tôi là gia sư AI của EnVi. Tôi đã xem dữ liệu học tập của bạn và sẵn sàng đưa ra lời khuyên. Bạn muốn hỏi gì?",
+};
+
 export function AssistantChat({ snapshot }: { snapshot: LearningSnapshot }) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content:
-        "Xin chào! Tôi là gia sư AI của EnVi. Tôi đã xem dữ liệu học tập của bạn và sẵn sàng đưa ra lời khuyên. Bạn muốn hỏi gì?",
-    },
-  ]);
+  // Initialize with GREETING on both server and client to avoid hydration mismatch.
+  // Load persisted history in useEffect after mount.
+  const [messages, setMessages] = useState<Message[]>([GREETING]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -35,7 +35,21 @@ export function AssistantChat({ snapshot }: { snapshot: LearningSnapshot }) {
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    const saved = loadChatHistory([GREETING]);
+    // Chỉ ghép lịch sử đã lưu khi có nhiều hơn tin nhắn chào.
+    if (saved.length > 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMessages(saved);
+    }
+  }, []);
+
+  useEffect(() => {
     scrollToBottom();
+  }, [messages]);
+
+  useEffect(() => {
+    saveChatHistory(messages);
   }, [messages]);
 
   async function sendMessage(text: string) {

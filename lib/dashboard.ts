@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { todayStrVN, dateOnlyVN } from "@/lib/date-vn";
 
 export type DashboardStats = {
   streak: number;
@@ -32,10 +33,7 @@ const DAY_MS = 86_400_000;
 const WEEKDAY_LABELS = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
 function dateOnly(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  return dateOnlyVN(d);
 }
 
 export async function getWeeklyReport(): Promise<WeeklyReport> {
@@ -166,15 +164,14 @@ export async function getDashboardData(): Promise<{
     };
   }
 
-  const today = new Date();
-  const sevenDaysAgo = new Date(today);
-  sevenDaysAgo.setDate(today.getDate() - 7);
+  const todayVn = todayStrVN();
+  const sevenDaysAgoVn = dateOnlyVN(new Date(Date.now() - 7 * DAY_MS));
 
   const { data: progress } = await supabase
     .from("daily_progress")
     .select("date, minutes, words_reviewed")
     .eq("user_id", user.id)
-    .gte("date", sevenDaysAgo.toISOString().split("T")[0])
+    .gte("date", sevenDaysAgoVn)
     .order("date", { ascending: true });
 
   const { data: streakData } = await supabase
@@ -196,9 +193,7 @@ export async function getDashboardData(): Promise<{
     // ignore
   }
 
-  const todayData = progress?.find(
-    (d) => d.date === today.toISOString().split("T")[0],
-  );
+  const todayData = progress?.find((d) => d.date === todayVn);
 
   return {
     stats: {

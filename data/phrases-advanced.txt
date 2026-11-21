@@ -1498,3 +1498,3444 @@ If many people had more time, many people would practice the plan.
 [B2]
 Nếu nhiều người có thêm thời gian, nhiều người sẽ luyện tập dự án.
 If many people had more time, many people would practice the project.
+[B1]
+Tôi cần xem lại tiêu chí chấp nhận trước khi phát hành.
+I need to review the acceptance criteria before release.
+[B1]
+Tiêu chí chấp nhận rõ ràng giúp team biết khi nào功 năng hoàn thành.
+Clear acceptance criteria help the team know when a feature is done.
+[B1]
+Báo lỗi cần mô tả bước tái hiện và kết quả mong đợi.
+A bug report needs to describe reproduction steps and expected results.
+[B1]
+Tôi sẽ cập nhật tiến độ dự án vào cuối tuần.
+I will update the project progress at the end of the week.
+[B1]
+Cuộc họp sprint planning sẽ diễn ra vào thứ Hai sáng.
+The sprint planning meeting will take place on Monday morning.
+[B1]
+Chúng ta cần align yêu cầu với stakeholder trước khi thiết kế.
+We need to align requirements with stakeholders before design.
+[B1]
+Tóm tắt cuộc họp bao gồm quyết định và công việc cần làm.
+The meeting summary includes decisions and action items.
+[B1]
+Tôi không đồng ý với phương án này vì rủi ro quá cao.
+I do not agree with this approach because the risk is too high.
+[B1]
+Giải thích đánh đổi giữa tốc độ và chất lượng cho khách hàng.
+Explain the trade-off between speed and quality to the client.
+[B1]
+Dự án sẽ hoãn hai tuần do vấn đề tích hợp hệ thống cũ.
+The project will be delayed two weeks due to legacy system integration issues.
+[B1]
+Tôi cần hỏi rõ yêu cầu này trước khi ước tính thời gian.
+I need to clarify this requirement before estimating time.
+[B1]
+Email đặt lịch họp nên nêu rõ ngày giờ và mục đích.
+A meeting scheduling email should state the date, time, and purpose.
+[B1]
+Báo cáo sự cố cần nêu thời gian, ảnh hưởng và nguyên nhân gốc rễ.
+An incident report needs to state time, impact, and root cause.
+[B1]
+Agenda họp nên có ít nhất ba chủ đề và phân bổ thời gian.
+A meeting agenda should have at least three topics and time allocations.
+[B1]
+Tôi sẽ làm việc từ xa vào thứ Ba và thứ Sáu tuần sau.
+I will work remotely on Tuesday and Friday next week.
+[B1]
+Phản hồi về code review cần xây dựng và cụ thể.
+Code review feedback should be constructive and specific.
+[B1]
+Kỹ năng giao tiếp tiếng Anh quan trọng cho làm việc trong team quốc tế.
+English communication skills are important for working in international teams.
+[B1]
+Tôi cần tìm người hướng dẫn để phát triển sự nghiệp của mình.
+I need to find a mentor to develop my career.
+[B1]
+Phân biệt giữa công việc và sự nghiệp giúp lập kế hoạch dài hạn.
+Understanding the difference between a job and a career helps long-term planning.
+[B1]
+Cách đặt mục tiêu sự nghiệp SMART giúp đạt được kết quả tốt hơn.
+Setting SMART career goals helps achieve better results.
+[B1]
+Tôi muốn thay đổi công việc để tìm thách thức mới.
+I want to change jobs to find new challenges.
+[B1]
+Kỹ năng nào bạn muốn cải thiện trong năm nay?
+Which skills do you want to improve this year?
+[B1]
+Làm việc nhóm giúp hoàn thành dự án nhanh hơn và tốt hơn.
+Teamwork helps complete projects faster and better.
+[B1]
+Tôi thích làm việc độc lập hơn là làm việc theo nhóm.
+I prefer working independently rather than in a team.
+[B1]
+Quản lý thời gian giúp giảm stress và tăng hiệu suất làm việc.
+Time management helps reduce stress and increase work productivity.
+[B1]
+Ưu tiên công việc quan trọng và khẩn cấp trước.
+Prioritize important and urgent tasks first.
+[B1]
+Cuộc họp không có agenda thường lãng phí thời gian.
+Meetings without agendas usually waste time.
+[B1]
+Tôi cần đóng góp ý kiến vào bản thiết kế tính năng mới.
+I need to contribute feedback on the new feature design.
+[B1]
+Phát hành phần mềm cần kiểm tra kỹ lưỡng trước khi đưa ra khách hàng.
+Software release needs thorough testing before delivery to customers.
+[B1]
+Tài liệu kỹ thuật cần cập nhật khi có thay đổi code.
+Technical documentation needs to be updated when code changes.
+[B1]
+Kiểm tra chất lượng đảm bảo sản phẩm lỗi ít nhất có thể.
+Quality assurance ensures the product has as few bugs as possible.
+[B1]
+Tôi cần học thêm về phân tích dữ liệu để làm BA tốt hơn.
+I need to learn more about data analysis to be a better BA.
+[B1]
+Phỏng vấn việc làm cần chuẩn bị câu trả lời cho các câu hỏi phổ biến.
+Job interviews require preparing answers for common questions.
+[B1]
+Sức mạnh và điểm yếu là câu hỏi phổ biến trong phỏng vấn.
+Strengths and weaknesses are common interview questions.
+[B1]
+Tôi muốn biết thêm về văn hóa công ty trước khi chấp nhận việc làm.
+I want to know more about company culture before accepting the job.
+[B1]
+Lương và phúc lợi là yếu tố quan trọng khi chọn việc làm.
+Salary and benefits are important factors when choosing a job.
+[B1]
+Tôi sẽ nghỉ việc sau khi tìm được công việc mới.
+I will resign after finding a new job.
+[B1]
+Thông báo nghỉ việc cần gửi trước ít nhất hai tuần.
+Resignation notice should be sent at least two weeks in advance.
+[B1]
+Handover công việc cần tài liệu rõ ràng và giao 직접 cho người thay thế.
+Job handover needs clear documentation and direct transfer to the replacement.
+[B1]
+Tôi muốn thăng tiến vào vị trí quản lý trong năm tới.
+I want to be promoted to a management position next year.
+[B1]
+Kỹ năng lãnh đạo cần được phát triển thông qua thực tế và đào tạo.
+Leadership skills need to be developed through practice and training.
+[B1]
+Giám đốc dự án phụ trách theo dõi tiến độ và ngân sách.
+The project manager is responsible for tracking progress and budget.
+[B1]
+Rủi ro dự án cần được xác định và lập kế hoạch giảm thiểu sớm.
+Project risks need to be identified and mitigation plans made early.
+[B1]
+Ngân sách dự án bị vượt quá do yêu cầu thay đổi từ khách hàng.
+The project budget is exceeded due to client change requests.
+[B1]
+Thay đổi phạm vi công việc cần được phê duyệt từ stakeholder.
+Scope changes need stakeholder approval.
+[B1]
+Tôi cần viết email đàm phán gia hạn hạn nộp với khách hàng.
+I need to write an email to negotiate a deadline extension with the client.
+[B1]
+Khách hàng đồng ý gia hạn hạn nộp hai tuần mà không phạt tiền.
+The client agreed to extend the deadline by two weeks without penalty.
+[B1]
+Tôi sẽ phân phối công việc cho thành viên team dựa trên khả năng.
+I will distribute work to team members based on ability.
+[B1]
+Thành viên team nào đang quá tải công việc?
+Which team member is overloaded with work?
+[B1]
+Cân bằng carga công việc giúp team làm việc bền vững hơn.
+Balancing workload helps the team work more sustainably.
+[B1]
+Tôi cần tổ chức buổi họp thảo luận ý tưởng cho tính năng mới.
+I need to organize a brainstorming meeting for the new feature.
+[B1]
+Buổi thảo luận ý tưởng nên cómoderator để giữ đúng chủ đề.
+Brainstorming sessions should have a moderator to stay on topic.
+[B1]
+Tôi thích làm việc từ xa vì tiết kiệm thời gian di chuyển.
+I like working remotely because it saves commuting time.
+[B1]
+Làm việc từ xa có thể gây cô lập và giảm sự tương tác trực tiếp.
+Remote work can cause isolation and reduce face-to-face interaction.
+[B1]
+Công cụ họp online giúp team làm việc từ xa hiệu quả hơn.
+Online meeting tools help remote teams work more effectively.
+[B1]
+Tôi cần tắt thông báo để tập trung vào công việc quan trọng.
+I need to turn off notifications to focus on important work.
+[B1]
+Kỹ năng tập trung giúp hoàn thành công việc nhanh hơn và chính xác hơn.
+Focus skills help complete work faster and more accurately.
+[B1]
+Tôi thường viết danh sách việc cần làm mỗi sáng.
+I usually write a to-do list every morning.
+[B1]
+Danh sách ưu tiên giúp tôi không quên việc quan trọng.
+A priority list helps me not forget important tasks.
+[B1]
+Tôi sẽ hoàn thành báo cáo trước ngày thứ Sáu chiều.
+I will finish the report before Friday afternoon.
+[B1]
+Hạn nộp báo cáo là ngày thứ Ba tuần sau.
+The report deadline is next Tuesday.
+[B1]
+Tôi cần xin gia hạn hạn nộp vì đang chờ dữ liệu từ khách hàng.
+I need to request a deadline extension because I am waiting for client data.
+[B1]
+Khách hàng chưa cung cấp thông tin cần thiết để bắt đầu thiết kế.
+The client has not provided the necessary information to start design.
+[B1]
+Tôi sẽ làm theo時 đi làm dự kiến để không làm ảnh hưởng đến team.
+I will follow the expected work schedule so as not to affect the team.
+[B1]
+Làm việc linh hoạt giúp cân bằng giữa cuộc sống và công việc.
+Flexible work helps balance life and work.
+[B1]
+Tôi cần thiết lập ranh giới giữa công việc và cuộc sống cá nhân.
+I need to set boundaries between work and personal life.
+[B1]
+Không nên xem email làm việc sau giờ tan.
+Do not check work emails after office hours.
+[B1]
+Tôi sẽ tham gia khóa đào tạo kỹ năng mềm vào tuần tới.
+I will attend a soft skills training course next week.
+[B1]
+Kỹ năng thuyết trình quan trọng để truyền đạt ý tưởng rõ ràng.
+Presentation skills are important to convey ideas clearly.
+[B1]
+Tôi cần luyện nói tiếng Anh trước buổi thuyết trình quan trọng.
+I need to practice speaking English before an important presentation.
+[B1]
+Buổi thuyết trình nên có slide ngắn gọn và nội dung dễ hiểu.
+Presentations should have concise slides and easy-to-understand content.
+[B1]
+Tôi sẽ trả lời câu hỏi từ khán giả sau khi kết thúc buổi thuyết trình.
+I will answer audience questions after finishing the presentation.
+[B1]
+Kỹ năng lắng nghe chủ động giúp hiểu rõ hơn về nhu cầu khách hàng.
+Active listening skills help understand customer needs better.
+[B1]
+Tôi không thích khi người khác giật lời trong cuộc họp.
+I do not like it when others interrupt in meetings.
+[B1]
+Nên để người nói hoàn thành ý kiến trước khi đưa phản hồi.
+Should let the speaker finish their opinion before giving feedback.
+[B1]
+Tôi cần viết emailathanh lịch sự để từ chối đề xuất của khách hàng.
+I need to write a polite email to decline the client's proposal.
+[B1]
+Từ chối đề xuất cần giải thích lý do và đề xuất phương án thay thế.
+Declining a proposal needs to explain the reason and suggest an alternative.
+[B1]
+Tôi sẽ gọi điện thoại để thảo luận vấn đề khẩn cấp với khách hàng.
+I will call to discuss urgent matters with the client.
+[B1]
+Vấn đề khẩn cấp cần được xử lý ngay lập tức.
+Urgent issues need to be handled immediately.
+[B1]
+Tôi sẽ viết báo cáo tiến độ hàng tuần cho quản lý.
+I will write a weekly progress report for the manager.
+[B1]
+Báo cáo tiến độ nên nêu thành công, rủi ro và kế hoạch tuần tới.
+Progress reports should state achievements, risks, and next week's plan.
+[B1]
+Tôi cần cập nhật Jira ticket sau khi hoàn thành mỗi task.
+I need to update Jira tickets after completing each task.
+[B1]
+Trạng thái task trên Jira giúp team theo dõi tiến độ dự án.
+Task status on Jira helps the team track project progress.
+[B1]
+Tôi sẽ tham gia buổi retrospective để thảo luận cải tiến quy trình.
+I will attend the retrospective to discuss process improvements.
+[B1]
+Retrospective giúp team học hỏi từ sprint trước và làm tốt hơn.
+Retrospective helps the team learn from the previous sprint and do better.
+[B1]
+Tôi cần viết user story rõ ràng với acceptance criteria.
+I need to write clear user stories with acceptance criteria.
+[B1]
+User story nên tuân theo định dạng: Là một..., Tôi muốn..., Để...
+User stories should follow the format: As a..., I want to..., So that...
+[B1]
+Tôi sẽ ước tính thời gian cho từng task trong sprint planning.
+I will estimate time for each task in sprint planning.
+[B1]
+Ước tính thời gian không chính xác có thể gây khó khăn cho dự án.
+Inaccurate time estimation can cause difficulties for the project.
+[B1]
+Tôi cần thêm reserve thời gian để xử lý vấn đề bất ngờ.
+I need to add buffer time to handle unexpected issues.
+[B1]
+Vấn đề bất ngờ trong phát triển phần mềm là điều tất yếu.
+Unexpected issues in software development are inevitable.
+[B1]
+Tôi sẽ làm việc thêm giờ để hoàn thành deadline hôm nay.
+I will work overtime to complete today's deadline.
+[B1]
+Làm thêm giờ thường xuyên có thể gây mệt mỏi và giảm hiệu suất.
+Frequent overtime can cause fatigue and reduce productivity.
+[B1]
+Tôi cần nghỉ ngơi đủ giấc để làm việc hiệu quả vào ngày hôm sau.
+I need to rest enough to work effectively the next day.
+[B1]
+Sức khỏe quan trọng hơn là hoàn thành công việc nhanh hơn.
+Health is more important than finishing work faster.
+[B1]
+Tôi sẽ tập thể dục vào buổi sáng để bắt đầu ngày mới đầy năng lượng.
+I will exercise in the morning to start a new day full of energy.
+[B1]
+Thói quen tập thể dục giúp cải thiện sức khỏe và tâm trạng.
+Exercise habits help improve health and mood.
+[B1]
+Tôi cần ăn thức ăn lành mạnh thay vì thức ăn nhanh mỗi ngày.
+I need to eat healthy food instead of fast food every day.
+[B1]
+Thức ăn nhanh ngon nhưng không tốt cho sức khỏe dài hạn.
+Fast food is tasty but not good for long-term health.
+[B1]
+Tôi sẽ uống đủ nước mỗi ngày để giữ cơ thể hoạt động tốt.
+I will drink enough water every day to keep the body functioning well.
+[B1]
+Nước giúp cơ thể loại bỏ độc tố và duy trì nhiệt độ ổn định.
+Water helps the body remove toxins and maintain stable temperature.
+[B1]
+Tôi cần ngủ đủ 7-8 tiếng mỗi đêm để phục hồi sức lực.
+I need to sleep 7-8 hours every night to recover energy.
+[B1]
+Thiếu ngủ gây giảm concentrasi và tăng nguy cơ mắc bệnh.
+Lack of sleep causes reduced concentration and increases disease risk.
+[B1]
+Tôi sẽ lên lịch khám sức khỏe định kỳ mỗi năm.
+I will schedule regular health checkups every year.
+[B1]
+Khám sức khỏe định kỳ giúp phát hiện bệnh sớm và điều trị kịp thời.
+Regular health checkups help detect diseases early and treat in time.
+[B1]
+Tôi cần giảm căng thẳng bằng cách thiền hay tập thở đúng cách.
+I need to reduce stress through meditation or proper breathing.
+[B1]
+Căng thẳng làm việc quá nhiều có thể dẫn đến burnout.
+Too much work stress can lead to burnout.
+[B1]
+Tôi cần nghỉ ngơi trong ngày để tránh mệt mỏi óc não.
+I need to take breaks during the day to avoid mental fatigue.
+[B1]
+Nghỉ ngơi ngắn giữa các giờ làm việc giúp tăng tập trung.
+Short breaks between work hours help increase focus.
+[B1]
+Tôi sẽ đọc sách về phát triển bản thân vào giờ ăn trông.
+I will read self-development books during lunch break.
+[B1]
+Đọc sách giúp mở rộng tri thức và cải thiện kỹ năng giao tiếp.
+Reading books helps expand knowledge and improve communication skills.
+[B1]
+Tôi cần học ngôn ngữ mới để mở rộng cơ hội việc làm.
+I need to learn a new language to expand job opportunities.
+[B1]
+Tiếng Anh là ngôn ngữ quan trọng nhất trong doanh nghiệp quốc tế.
+English is the most important language in international business.
+[B1]
+Tôi sẽ thực hành nói tiếng Anh mỗi ngày để cải thiện trình độ.
+I will practice speaking English every day to improve proficiency.
+[B1]
+Thực hành hàng ngày hiệu quả hơn là học tập ngập ng كبيراً một lần.
+Daily practice is more effective than cramming once in a while.
+[B1]
+Tôi cần xem phim tiếng Anh để luyện nghe và học từ vựng mới.
+I need to watch English movies to practice listening and learn new vocabulary.
+[B1]
+Nghe podcast tiếng Anh giúp quen với giọng nói người bản xứ.
+Listening to English podcasts helps get used to native speaker accents.
+[B1]
+Tôi sẽ du lịch đến nước ngoài để thực hành tiếng Anh trong thực tế.
+I will travel abroad to practice English in real situations.
+[B1]
+Du lịch giúp mở mang tri thức và hiểu biết về các nền văn hóa khác.
+Travel helps expand knowledge and understanding of other cultures.
+[B1]
+Tôi cần đặt phòng khách sạn trước khi đến nơi nghỉ dưỡng.
+I need to book a hotel room before arriving at the vacation destination.
+[B1]
+Đặt phòng khách sạn trực tuyến giúp tiết kiệm thời gian và so sánh giá.
+Online hotel booking helps save time and compare prices.
+[B1]
+Tôi sẽ hỏi đường khi đến thành phố mới mà không biết con đường.
+I will ask for directions when arriving in a new city without knowing the way.
+[B1]
+Hỏi đường từ người địa phương giúp tìm đường nhanh và chính xác.
+Asking locals for directions helps find the way quickly and accurately.
+[B1]
+Tôi cần mua vé máy bay trước khi lên lịch du lịch.
+I need to buy plane tickets before planning the trip.
+[B1]
+Vé máy bay giá rẻ thường có điều kiện đổi trả khắt khe.
+Cheap plane tickets usually have strict change conditions.
+[B1]
+Tôi sẽ đóng vali hành lý cẩn thận để không quên vật dụng quan trọng.
+I will pack luggage carefully to not forget important items.
+[B1]
+Hành lý xách tay nên chứa giấy tờ cần thiết và đồ giá trị.
+Carry-on luggage should contain necessary documents and valuables.
+[B1]
+Tôi cần mua bảo hiểm du lịch trước khi đi nước ngoài.
+I need to buy travel insurance before going abroad.
+[B1]
+Bảo hiểm du lịch bảo vệ khỏi rủi ro y tế và mất 하 thal lý.
+Travel insurance protects against medical risks and lost luggage.
+[B1]
+Tôi sẽ tìm quán ăn địa phương để trải nghiệm ẩm thực nơi đó.
+I will find local restaurants to experience the local cuisine.
+[B1]
+Ẩm thực địa phương là cách tốt nhất để hiểu về văn hóa nơi đó.
+Local cuisine is the best way to understand the culture there.
+[B1]
+Tôi cần học cách chào hỏi đúng văn hóa mỗi quốc gia đến thăm.
+I need to learn how to greet properly according to each country's culture.
+[B1]
+Chào hỏi đúng văn hóa thể hiện sự tôn trọng đối với người địa phương.
+Greeting according to culture shows respect for locals.
+[B1]
+Tôi sẽ mua quà lưu niệm cho gia đình và bạn bè sau chuyến đi.
+I will buy souvenirs for family and friends after the trip.
+[B1]
+Quà lưu niệm nên chọn sản phẩm đặc sản characteristic của vùng đất.
+Souvenirs should choose characteristic specialty products of the region.
+[B1]
+Tôi cần viết دفتر nhật ký du lịch để ghi nhớ những khoảnh khắc đẹp.
+I need to write a travel journal to remember beautiful moments.
+[B1]
+Viết nhật ký du lịch giúp giữ lại ký ức và chia sẻ với người khác.
+Writing a travel journal helps keep memories and share with others.
+[B1]
+Tôi sẽ chụp ảnh cảnh đẹp để đăng lên mạng xã hội.
+I will take photos of beautiful scenery to post on social media.
+[B1]
+Mạng xã hội giúp chia sẻ trải nghiệm du lịch với bạn bè và gia đình.
+Social media helps share travel experiences with friends and family.
+[B1]
+Tôi cần hạn chế thời gian dùng điện thoại để tập trung hơn vào cuộc sống thực.
+I need to limit phone usage time to focus more on real life.
+[B1]
+Sử dụng mạng xã hội quá nhiều có thể gây ảnh hưởng tiêu cực đến tâm lý.
+Using social media too much can have negative effects on psychology.
+[B1]
+Tôi sẽ đặt mục tiêu sử dụng điện thoại không quá hai tiếng mỗi ngày.
+I will set a goal to use the phone no more than two hours per day.
+[B1]
+Hạn chế thời gian màn hình giúp ngủ ngon và giảm stress hơn.
+Limiting screen time helps sleep better and reduce stress more.
+[B1]
+Tôi cần đọc sách thay vì cuộn điện thoại trước khi ngủ.
+I need to read books instead of scrolling the phone before sleeping.
+[B1]
+Đọc sách trước khi ngủ giúp giấc ngủ ngon và dễ hơn.
+Reading books before sleeping helps better and easier sleep.
+[B1]
+Tôi sẽ pratica mindfulness mỗi ngày để giảm căng thẳng.
+I will practice mindfulness every day to reduce stress.
+[B1]
+Mindfulness giúp ý thức hiện tại và giảm lo âu về tương lai.
+Mindfulness helps present awareness and reduces anxiety about the future.
+[B1]
+Tôi cần viết الأهداف hàng tháng để theo dõi tiến bộ cá nhân.
+I need to write monthly goals to track personal progress.
+[B1]
+Theo dõi tiến bộ giúp biết mình đã đạt được gì và cần cải thiện gì.
+Tracking progress helps know what has been achieved and what needs improvement.
+[B1]
+Tôi sẽ evaluating bản thân ở cuối tháng để lập kế hoạch tháng sau.
+I will evaluate myself at the end of the month to plan for next month.
+[B1]
+Auto-evaluation giúp nhận diện điểm mạnh và điểm yếu của bản thân.
+Self-evaluation helps identify personal strengths and weaknesses.
+[B1]
+Tôi cần tìm người bạn đồng hành để cùng chia sẻ kinh nghiệm học tập.
+I need to find a study partner to share learning experiences together.
+[B1]
+Học tập cùng bạn bè tạo động lực và trách nhiệm hơn học một mình.
+Studying with friends creates more motivation and responsibility than studying alone.
+[B1]
+Tôi sẽ tham gia nhóm học tập trực tuyến để giao lưu với những người cùng mục tiêu.
+I will join online study groups to exchange with people with the same goals.
+[B1]
+Giao lưu trong nhóm học tập giúp học được nhiều điều mới từ người khác.
+Exchanging in study groups helps learn many new things from others.
+[B1]
+Tôi cần chia sẻ kiến thức của mình với đồng nghiệp để cùng phát triển.
+I need to share my knowledge with colleagues to develop together.
+[B1]
+Chia sẻ kiến thức trong team giúp mọi người nâng cao kỹ năng nhanh hơn.
+Knowledge sharing in the team helps everyone improve skills faster.
+[B1]
+Tôi sẽ ghi chú ý tưởng đáp ứng trong notebook điện tử để không quên.
+I will write down ideas in a digital notebook to not forget them.
+[B1]
+Ghi chú ý tưởng giúp phát triển sáng tạo và giải quyết vấn đề hiệu quả hơn.
+Writing down ideas helps develop creativity and solve problems more effectively.
+[B1]
+Tôi cần tìm thời gian yên tĩnh để suy nghĩ và lập kế hoạch.
+I need to find quiet time to think and plan.
+[B1]
+Suy nghĩ sâu giúp ra quyết định thông minh và không bao giờ 후悔.
+Deep thinking helps make wise decisions and never regret.
+[B1]
+Tôi sẽ viết kế hoạch 90 ngày để đạt được mục tiêu học tiếng Anh.
+I will write a 90-day plan to achieve the English learning goal.
+[B1]
+Kế hoạch 90 ngày chia thành ba giai đoạn: nền tảng, bứt phá, thực chiến.
+The 90-day plan divides into three phases: foundation, breakthrough, real-world.
+[B1]
+Tôi sẽ kiểm tra tiến độ mỗi tuần và điều chỉnh kế hoạch nếu cần.
+I will check progress every week and adjust the plan if needed.
+[B1]
+Điều chỉnh kế hoạch linh hoạt giúp đạt được mục tiêu hiệu quả hơn.
+Flexible plan adjustment helps achieve goals more effectively.
+[B2]
+Chúng ta cần đánh giá lại accepted criteria sau khi thay đổi yêu cầu từ khách hàng.
+We need to re-evaluate acceptance criteria after client requirement changes.
+[B2]
+Accepted criteria không rõ ràng dẫn đến việc phát triển sai hướng và lãng phí tài nguyên.
+Unclear acceptance criteria lead to wrong development direction and resource waste.
+[B2]
+Tôi sẽ viết báo cáo lỗi chi tiết bao gồm bước tái hiện, kết quả thực tế và kết quả mong đợi.
+I will write a detailed bug report including reproduction steps, actual results, and expected results.
+[B2]
+Báo cáo lỗi cần được phân loại theo mức độ nghiêm trọng và ưu tiên xử lý.
+Bug reports need to be classified by severity and priority.
+[B2]
+Tôi sẽ cập nhật tiến độ dự án cho stakeholder qua email hàng tuần.
+I will update project progress to stakeholders via weekly email.
+[B2]
+Email cập nhật tiến độ cần nêu tỷ lệ hoàn thành, rủi ro và bước kế tiếp.
+Progress update emails need to state completion rate, risks, and next steps.
+[B2]
+Cuộc họp sprint review dùng để demo tính năng mới và nhận phản hồi từ product owner.
+Sprint review meetings are used to demo new features and get product owner feedback.
+[B2]
+Sprint retrospective tập trung vào cải thiện quy trình làm việc của team.
+Sprint retrospectives focus on improving team working processes.
+[B2]
+Tôi cần làm rõ phạm vi công việc với khách hàng trước khi ký kết hợp đồng.
+I need to clarify the scope of work with the client before signing the contract.
+[B2]
+Phạm vi công việc không rõ ràng gây ra nhiều yêu cầu thay đổi trong suốt dự án.
+Unclear scope of work causes many change requests throughout the project.
+[B2]
+Yêu cầu thay đổi cần được đánh giá tác động đến thời gian và ngân sách trước khi phê duyệt.
+Change requests need impact assessment on time and budget before approval.
+[B2]
+Tôi sẽ viết email đàm phán gia hạn hạn nộp với lý do kỹ thuật và phương án giảm thiểu.
+I will write an email to negotiate deadline extension with technical reasons and mitigation plan.
+[B2]
+Đàm phán hạn nộp cần cân bằng giữa nhu cầu của khách hàng và khả năng thực hiện của team.
+Deadline negotiation needs to balance client needs and team capability.
+[B2]
+Tôi sẽ tạo meeting agenda chi tiết với thời gian cho từng mục và người phụ trách.
+I will create a detailed meeting agenda with time for each item and owners.
+[B2]
+Meeting agenda cần được gửi cho thành viên trước ít nhất 24 giờ để chuẩn bị.
+Meeting agendas need to be sent to members at least 24 hours in advance for preparation.
+[B2]
+Tôi sẽ tóm tắt cuộc họp bao gồm quyết định, action item và deadline cho từng người.
+I will summarize meetings including decisions, action items, and deadlines for each person.
+[B2]
+Tóm tắt cuộc họp cần được gửi ngay sau khi họp kết thúc để tất cả thành viên nắm rõ.
+Meeting summaries need to be sent immediately after meetings end so all members are clear.
+[B2]
+Tôi cần giải thích đánh đổi giữa phát triển nhanh và chất lượng code cho quản lý.
+I need to explain trade-offs between fast development and code quality to the manager.
+[B2]
+Đánh đổi giữa tốc độ và chất lượng là quyết định kinh doanh quan trọng cần sự đồng ý từ cả hai bên.
+Trade-offs between speed and quality are important business decisions needing agreement from both sides.
+[B2]
+Tôi sẽ làm việc từ xa vào ba ngày mỗi tuần và đến văn phòng hai ngày cho họp trực tiếp.
+I will work remotely three days a week and come to the office two days for in-person meetings.
+[B2]
+Mô hình làm việc lai tạo kết hợp lợi ích của làm việc từ xa và làm việc tại văn phòng.
+Hybrid work models combine benefits of remote work and office work.
+[B2]
+Tôi cần thiết lập ranh giới rõ ràng giữa giờ làm việc và giờ nghỉ khi làm việc từ xa.
+I need to set clear boundaries between work hours and rest hours when working remotely.
+[B2]
+Làm việc từ xa không phải nghĩa là luôn sẵn sàng trả lời tin nhắn ngay lập tức.
+Remote work does not mean always being available to reply to messages immediately.
+[B2]
+Tôi sẽ tham gia buổi coffee chat không chính thức để xây dựng mối quan hệ với đồng nghiệp.
+I will attend informal coffee chats to build relationships with colleagues.
+[B2]
+Mối quan hệ tốt trong team giúp làm việc hiệu quả hơn và giải quyết xung đột dễ dàng hơn.
+Good team relationships help work more effectively and resolve conflicts more easily.
+[B2]
+Tôi cần viết mã chuyên nghiệp và dễ bảo trì để đồng nghiệp khác có thể hiểu và phát triển.
+I need to write professional and maintainable code so other colleagues can understand and extend.
+[B2]
+Code dễ bảo trì giúp giảm thời gian sửa lỗi và thêm tính năng mới trong tương lai.
+Maintainable code helps reduce time for fixing bugs and adding new features in the future.
+[B2]
+Tôi sẽ tham gia code review để học hỏi từ đồng nghiệp và cải thiện chất lượng code.
+I will participate in code reviews to learn from colleagues and improve code quality.
+[B2]
+Phản hồi trong code review cần được đưa ra một cách xây dựng và không cá nhân hóa.
+Feedback in code reviews needs to be given constructively and without personalization.
+[B2]
+Tôi cần viết tài liệu kỹ thuật chi tiết cho tính năng phức tạp để team khác có thể sử dụng.
+I need to write detailed technical documentation for complex features so other teams can use.
+[B2]
+Tài liệu kỹ thuật cần được cập nhật thường xuyên khi có thay đổi trong hệ thống.
+Technical documentation needs to be updated frequently when there are system changes.
+[B2]
+Tôi sẽ lập kế hoạch giảm thiểu rủi ro cho các vấn đề có thể xảy ra trong dự án.
+I will create risk mitigation plans for potential issues in the project.
+[B2]
+Kế hoạch giảm thiểu rủi ro giúp dự án tiếp tục tiến hành ngay cả khi có vấn đề bất ngờ.
+Risk mitigation plans help projects continue even when unexpected issues occur.
+[B2]
+Tôi cần theo dõi ngân sách dự án hàng tuần và báo cáo cho quản lý nếu có vấn đề vượt ngân sách.
+I need to track project budgets weekly and report to managers if there are budget overruns.
+[B2]
+Vượt ngân sách dự án cần được thông báo sớm cho stakeholder để tìm giải pháp kịp thời.
+Project budget overruns need to be reported early to stakeholders to find timely solutions.
+[B2]
+Tôi sẽ phỏng vấn ứng viên cho vị trí business analyst và đánh giá kỹ năng phân tích yêu cầu.
+I will interview candidates for the business analyst position and evaluate requirement analysis skills.
+[B2]
+Phỏng vấn business analyst cần kiểm tra khả năng hiểu yêu cầu kinh doanh và chuyển thành yêu cầu kỹ thuật.
+Business analyst interviews need to check the ability to understand business requirements and convert to technical requirements.
+[B2]
+Tôi cần viết mô tả công việc rõ ràng cho vị trí mới mở trong team.
+I need to write clear job descriptions for new positions in the team.
+[B2]
+Mô tả công việc tốt giúp thu hút ứng viên phù hợp và giảm thời gian tuyển dụng.
+Good job descriptions help attract suitable candidates and reduce recruitment time.
+[B2]
+Tôi sẽ onboard nhân viên mới và giới thiệu họ với quy trình làm việc của team.
+I will onboard new employees and introduce them to team working processes.
+[B2]
+Quá trình onboarding tốt giúp nhân viên mới hòa nhập nhanh và làm việc hiệu quả sớm hơn.
+Good onboarding processes help new employees integrate quickly and work effectively sooner.
+[B2]
+Tôi cần đào tạo kỹ năng mềm cho team bao gồm giao tiếp, làm việc nhóm và quản lý thời gian.
+I need to train soft skills for the team including communication, teamwork, and time management.
+[B2]
+Kỹ năng mềm quan trọng bằng kỹ năng chuyên môn trong môi trường làm việc hiện đại.
+Soft skills are as important as technical skills in modern work environments.
+[B2]
+Tôi sẽ thẩm định đề xuất dự án từ đối tác bên ngoài và đưa ra nhận xét chuyên nghiệp.
+I will review project proposals from external partners and provide professional feedback.
+[B2]
+Thẩm định đề xuất cần dựa trên tiêu chí rõ ràng và bằng chứng có sẵn.
+Proposal reviews need to be based on clear criteria and available evidence.
+[B2]
+Tôi sẽ đàm phán điều khoản hợp đồng với nhà cung cấp phần mềm để đạt giá tốt nhất.
+I will negotiate contract terms with software vendors to get the best price.
+[B2]
+Đàm phán hợp đồng cần chuẩn bị kỹ lưỡng và hiểu rõ nhu cầu của cả hai bên.
+Contract negotiation needs thorough preparation and understanding of both parties' needs.
+[B2]
+Tôi cần quản lý quan hệ với stakeholder quan trọng để đảm bảo sự hỗ trợ cho dự án.
+I need to manage relationships with key stakeholders to ensure project support.
+[B2]
+Quản lý stakeholder bao gồm hiểu nhu cầu, mong đợi và mức độ ảnh hưởng của mỗi bên.
+Stakeholder management includes understanding needs, expectations, and influence levels of each party.
+[B2]
+Tôi sẽ tạo báo cáo dashboard hiển thị tiến độ dự án theo thời gian thực.
+I will create project dashboard reports showing real-time progress.
+[B2]
+Báo cáo dashboard giúp stakeholder nắm bắt tình hình dự án nhanh chóng và dễ dàng.
+Dashboard reports help stakeholders grasp project situations quickly and easily.
+[B2]
+Tôi cần xác định chỉ số hiệu suất chính (KPI) cho team và theo dõi hàng tháng.
+I need to define key performance indicators (KPIs) for the team and track monthly.
+[B2]
+KPI giúp đo lường hiệu quả làm việc và xác định điểm cần cải thiện.
+KPIs help measure work effectiveness and identify areas for improvement.
+[B2]
+Tôi sẽ đánh giá hiệu suất nhân viên hàng năm và đưa ra đề xuất thăng tiến hoặc khen thưởng.
+I will evaluate employee performance annually and propose promotions or rewards.
+[B2]
+Đánh giá hiệu suất cần dựa trên kết quả cụ thể và bằng chứng có sẵn, không phải cảm nhận chủ quan.
+Performance evaluations need to be based on specific results and available evidence, not subjective feelings.
+[B2]
+Tôi cần xây dựng văn hóa team khuyến khích sự minh bạch, cộng tác và cải thiện liên tục.
+I need to build a team culture that encourages transparency, collaboration, and continuous improvement.
+[B2]
+Văn hóa team tốt giúp giữ nhân viên và thu hút nhân tài giỏi vào công ty.
+Good team culture helps retain employees and attract talent to the company.
+[B2]
+Tôi sẽ xử lý xung đột giữa thành viên team một cách bình tĩnh và chuyên nghiệp.
+I will handle conflicts between team members calmly and professionally.
+[B2]
+Giải quyết xung đột cần lắng nghe cả hai bên và tìm điểm chung để đạt thỏa thuận.
+Conflict resolution needs to listen to both sides and find common ground to reach agreement.
+[B2]
+Tôi cần cung cấp phản hồi định kỳ cho thành viên team về hiệu suất và phát triển sự nghiệp.
+I need to provide regular feedback to team members about performance and career development.
+[B2]
+Phản hồi định kỳ giúp thành viên biết mình đang ở đâu và cần cải thiện điều gì.
+Regular feedback helps members know where they stand and what needs improvement.
+[B2]
+Tôi sẽ tạo kế hoạch phát triển sự nghiệp cá nhân cho mỗi thành viên trong team.
+I will create personal career development plans for each team member.
+[B2]
+Kế hoạch phát triển sự nghiệp giúp nhân viên thấy con đường tăng trưởng trong công ty.
+Career development plans help employees see growth paths in the company.
+[B2]
+Tôi cần khuyến khích team chia sẻ kiến thức và kinh nghiệm trong buổi họp hàng tuần.
+I need to encourage the team to share knowledge and experience in weekly meetings.
+[B2]
+Chia sẻ kiến thức trong team giúp mọi người phát triển và giảm phụ thuộc vào cá nhân.
+Knowledge sharing in teams helps everyone develop and reduces dependence on individuals.
+[B2]
+Tôi sẽ áp dụng phương pháp làm việc linh hoạt để phù hợp với nhu cầu của từng thành viên.
+I will apply flexible working methods to suit each member's needs.
+[B2]
+Phương pháp làm việc linh hoạt giúp tăng sự hài lòng và năng suất làm việc của team.
+Flexible working methods help increase team satisfaction and productivity.
+[B2]
+Tôi cần đảm bảo an toàn thông tin khi làm việc từ xa và chia sẻ dữ liệu khách hàng.
+I need to ensure information security when working remotely and sharing customer data.
+[B2]
+An toàn thông tin là trách nhiệm của tất cả thành viên team, không chỉ bộ IT.
+Information security is the responsibility of all team members, not just the IT department.
+[B2]
+Tôi sẽ tuân thủ quy định bảo mật dữ liệu khi làm việc với thông tin nhạy cảm của khách hàng.
+I will comply with data security regulations when handling sensitive customer information.
+[B2]
+Quy định bảo mật dữ liệu giúp bảo vệ quyền riêng tư của khách hàng và uy tín của công ty.
+Data security regulations help protect customer privacy and company reputation.
+[B1]
+Quyên được quên cho phép người dùng yêu cầu xóa dữ liệu cá nhân của họ.
+Right to be forgotten lets users request deletion of their personal data.
+[B2]
+Người tạo ra dữ liệu tạo ra dữ liệu mới từ hoạt động kinh doanh hoặc hệ thống.
+Data producer creates new data from business operations or systems.
+[B1]
+Mức độ sẵn sàng của hệ thống được đo theo tỷ lệ thời gian hoạt động trong tháng.
+System availability is measured by uptime ratio per month.
+[B2]
+Kiểm thử độ bền chạy hệ thống trong thời gian dài với tải ổn định để kiểm tra độ tin cậy.
+Endurance testing runs the system with stable load for long periods to check reliability.
+[B1]
+Thử nghiệm đa biến kiểm tra nhiều thay đổi cùng lúc để tìm tổ chức tốt nhất.
+Multivariate testing tests multiple changes simultaneously to find the best combination.
+[B2]
+Mẫu trình lặp cho phép truy cập tuần tự các phần tử của tập hợp mà không hiển thị cấu trúc bên trong.
+Iterator pattern allows sequential access to collection elements without exposing internal structure.
+[B1]
+Tỷ lệ chuyển đổi là số lượt mua hàng chia số lượt truy cập trang web.
+Conversion rate is purchases divided by website visits.
+[B2]
+Mẫu người quan sát cho phép đối tượng thông báo cho nhiều đối tượng khác khi trạng thái thay đổi.
+Observer pattern lets objects notify multiple others when state changes.
+[B1]
+Khấu hao 무형 tài sản phân bổ chi phí tài sản vô hình qua thời gian sử dụng.
+Amortization allocates intangible asset cost over its useful life.
+[B2]
+SLAcam kết mức độ sẵn sàng của hệ thống là 99,9% trong tháng.
+The SLA commits to 99.9% system availability per month.
+[B1]
+Hệ số lan truyền đo số lượng người mới mỗi người hiện tại mang lại cho sản phẩm.
+Viral coefficient measures new users each current user brings to the product.
+[B2]
+Tự chủ làm việc cho phép nhóm tự quản lý tiến độ và phân chia nhiệm vụ.
+Autonomy allows the team to self-manage progress and task distribution.
+[B1]
+Độ gộp cao nghĩa là các thành phần trong cùng một mô-đun có mối liên kết chặt chẽ.
+High cohesion means components within the same module are closely related.
+[B2]
+Hành động cần theo dõi sau cuộc họp sẽ được ghi lại và chỉ định người phụ trách.
+Action items from the meeting will be recorded and assigned owners.
+[B1]
+mTLS yêu cầu cả client và server đều chứng thực bằng chứng chỉ số.
+mTLS requires both client and server to authenticate with digital certificates.
+[B2]
+Format mã tự động giúp nhóm phát triển duy trì phong cách viết mã nhất quán.
+Auto-formatting helps the development team maintain consistent code style.
+[B1]
+Thời gian ngừng hoạt động dự kiến là hai tiếng trong cửa sổ bảo trì này.
+Expected downtime is two hours during this maintenance window.
+[B2]
+Quyền hạn ủy quyền cho nhân viên lập danh sách và quyết định về công việc hàng ngày.
+Empowerment lets employees plan and decide on their daily work.
+[B1]
+Nguồn khác có ít nhất một thành phần khác nhau về giao thức, tên miền hoặc cPort, trình duyệt hạn chế tương tác.
+Cross-origin differs in at least one of protocol, domain, or port; browsers restrict interaction.
+[B2]
+Tài liệu thiết kế kỹ thuật cần được cập nhật sau mỗi lần thay đổi kiến trúc.
+Technical design documentation must be updated after every architecture change.
+[B1]
+Khả năng kiểm thử tự động giúp phát hiện lỗi sớm trong chu kỳ phát triển phần mềm.
+Testability helps detect bugs early in the software development cycle.
+[B2]
+Đảo ngược kiểm soát chuyển trách nhiệm quản lý đối tượng từ lớp sử dụng vào khối kho chứa.
+Inversion of control shifts object management responsibility from using class to a container.
+[B1]
+Người bảo quản dữ liệu thực hiện các thao tác kỹ thuật trên dữ liệu theo yêu cầu.
+Data custodian performs technical operations on data as requested.
+[B2]
+Kỹ sư vận hành hệ thống đảm bảo dịch vụ luôn hoạt động ổn định và sẵn sàng.
+SRE ensures services run stably and are always available.
+[B1]
+Giải thuyết đánh đổi giữa hiệu năng và chi phí giúp lãnh đạo quyết định kiến trúc phù hợp.
+Explaining the trade-off between performance and cost helps leadership choose the right architecture.
+[B2]
+Kiểm thử bảo mật đánh giá khả năng hệ thống chống lại các cuộc tấn công và lỗ hổng.
+Security testing evaluates system resistance to attacks and vulnerabilities.
+[B1]
+Báo lỗi này cần được phân loại mức độ nghiêm trọng.
+This bug report needs to be classified by severity.
+[B2]
+Lợi nhuận trước thuế là lợi nhuận hoạt động trừ chi phí lãi và các khoản khác trước thuế.
+Pre-tax profit is operating profit minus interest and other costs before tax.
+[B1]
+Nhân sự quản lý quy trình tuyển dụng và đào tạo nhân viên mới cho đội dự án.
+HR manages recruitment and onboarding of new staff for the project team.
+[B2]
+Tỷ suất lợi nhuận quảng cáo tính doanh thu quảng cáo chia chi phí quảng cáo.
+Return on ad spend calculates advertising revenue divided by ad cost.
+[B1]
+Thiết kế theo miền tập trung vào mô hình nghiệp vụ và ngôn ngữ chung giữa chuyên gia miền và lập trình viên.
+DDD focuses on business domain model and ubiquitous language between domain experts and developers.
+[B2]
+Kiểm thử bản địa hóa xác nhận ứng dụng hiển thị đúng ngôn ngữ và định dạng địa phương.
+Localization testing verifies the app displays correct language and local formats.
+[B1]
+Tỷ lệ giữ khách hàng là phần trăm khách hàng vẫn sử dụng sản phẩm sau một khoảng thời gian.
+Retention rate is the percentage of customers still using the product after a period.
+[B2]
+Phản hồi từ khách hàng dùng beta sẽ được thu thập để cải thiện sản phẩm trước khi ra mắt chính thức.
+Beta user feedback will be collected to improve the product before official launch.
+[B1]
+Tiêu chuẩn là yêu cầu kỹ thuật hoặc vận hành phải được đáp ứng.
+Standard is technical or operational requirement that must be met.
+[B2]
+Phân tích khách hàng rời đi tìm hiểu lý do khách hàng ngừng sử dụng sản phẩm.
+Churn analysis investigates reasons customers stop using the product.
+[B1]
+Yêu cầu nghiệp vụ này chưa được ghi chép đầy đủ.
+This business requirement is not fully documented.
+[B2]
+CSP giới hạn các nguồn nội dung có thể được tải trên trang web để ngăn chặn tấn công chèn mã.
+CSP restricts content sources loadable on a webpage to prevent code injection attacks.
+[B1]
+RCA dùng kỹ thuật 5 tại sao để tìm ra nguyên nhân thực sự của sự cố.
+RCA uses the 5 Whys technique to find the real cause of the incident.
+[B2]
+Stub cung cấp giá trị cố định cho đầu vào của hàm trong quá trình kiểm thử.
+Stub provides fixed values for function inputs during testing.
+[B1]
+Cookie phiên làm việc được lưu trữ trên trình duyệt của khách hàng.
+The session cookie is stored on the customer's browser.
+[B2]
+Mã trạng thái HTTP 404 có nghĩa là tài nguyên không tìm thấy.
+HTTP status code 404 means the resource was not found.
+[B1]
+Tóm tắt cuộc họp sẽ được gửi đến tất cả người tham dự trong vòng 24 giờ.
+The meeting summary will be sent to all attendees within 24 hours.
+[B2]
+Chi phí mỗi ngàn lần hiển thị quảng cáo là chi phí chia số ngàn lần quảng cáo hiển thị.
+Cost per mille is cost divided by thousand ad impressions.
+[B1]
+Chi phí vận hành là chi phí hàng ngày để duy trì hoạt động doanh nghiệp.
+Operating expense is daily cost to maintain business operations.
+[B2]
+Chuyên viên phân tích dữ liệu sử dụng SQL và Python để trích xuất thông tin từ dữ liệu.
+Data analyst uses SQL and Python to extract information from data.
+[B1]
+Mẫu lệnh đóng gói yêu cầu thành đối tượng để có thể lưu trữ, chuyển tiếp hoặc hoàn tác.
+Command pattern encapsulates requests as objects to store, forward, or undo them.
+[B2]
+Tôi sẽ viết user story cho sprint tới.
+I will write user stories for the next sprint.
+[B1]
+Kiểm thử ngẫu nhiên thực hiện không có kế hoạch trước để tìm lỗi bất ngờ.
+Ad-hoc testing is performed without prior planning to find unexpected bugs.
+[B2]
+Chia mã nguồn thành các bundle nhỏ giúp ứng dụng tải nhanh hơn trên mạng chậm.
+Code splitting into small bundles helps the app load faster on slow networks.
+[B1]
+Biểu mẫu là tài liệu thu thập thông tin có cấu trúc từ người dùng hoặc khách hàng.
+Form is a structured document to collect information from users or customers.
+[B2]
+Token JWT hết hạn sau 24 giờ, người dùng cần đăng nhập lại.
+The JWT token expires after 24 hours; the user must log in again.
+[B1]
+Cho phép nguồn chỉ định nguồn cụ thể được phép truy cập tài nguyên qua CORS.
+Allow origin specifies the exact origin permitted to access a resource via CORS.
+[B2]
+Thử nghiệm A/B so sánh hai phiên bản giao diện để xác định phiên bản chuyển đổi tốt hơn.
+A/B testing compares two UI versions to determine which converts better.
+[B1]
+Kiểm soát hai người yêu cầu sự tham gia của hai người trong các tác vụ nhạy cảm.
+Dual control requires two people involvement in sensitive tasks.
+[B2]
+Phân tích giữ khách hàng đo tỷ lệ khách hàng quay lại sử dụng sản phẩm sau một thời gian.
+Retention analysis measures the rate of customers returning to use the product after a period.
+[B1]
+Tài chính dự báo chi phí và doanh thu cho kế hoạch kinh doanh năm tới.
+Finance forecasts costs and revenue for next year's business plan.
+[B2]
+Mẫu ghi nhớ lưu lại trạng thái của đối tượng để có thể khôi phục sau này.
+Memento pattern saves object state for later restoration.
+[B1]
+Mã hóa khi lưu trữ bảo vệ dữ liệu khi nó được lưu trên đĩa hoặc cơ sở dữ liệu.
+Encryption at rest protects data when stored on disk or database.
+[B2]
+Dịch vụ hạ tầng cung cấp khả năng kỹ thuật như lưu trữ, gửi email và gọi API bên ngoài.
+Infrastructure service provides technical capabilities like storage, email sending, and external API calls.
+[B1]
+Kỹ sư bảo mật đánh giá rủi ro và triển khai các biện pháp bảo vệ dữ liệu tổ chức.
+Security engineer assesses risks and implements data protection measures for the organization.
+[B2]
+Mẫu là định dạng tài liệu được sử dụng lại để đảm bảo tính nhất quán.
+Template is a reusable document format to ensure consistency.
+[B1]
+Ma trận RACI làm rõ ai chịu trách nhiệm, ai được tham vấn, ai được thông báo và ai phê duyệt.
+RACI matrix clarifies who is Responsible, Accountable, Consulted, Informed, and Approves.
+[B2]
+Làm mới nội dung liên tục khi người dùng cuộn xuống cuối trang.
+Infinite scroll refreshes content as the user scrolls to the bottom.
+[B1]
+Chất lượng dữ liệu kém ảnh hưởng trực tiếp đến quyết định kinh doanh.
+Poor data quality directly affects business decisions.
+[B2]
+Tính toàn vẹn tài nguyên phụ trợ cho phép trình duyệt xác minh tệp bên thứ ba chưa bị thay đổi.
+Subresource integrity lets the browser verify third-party files have not been altered.
+[B1]
+Nguồn giống hétr có cùng giao thức, tên miền và cổng, trình duyệt cho phép tương tác tự do.
+Same-origin has same protocol, domain, and port; browsers allow free interaction.
+[B2]
+Backup dữ liệu được thực hiện hàng đêm và lưu trữ ngoại địa.
+Data backup is performed daily and stored off-site.
+[B1]
+Kiểm thử alpha được thực hiện nội bộ trước khi đưa sản phẩm ra ngoài nhóm phát triển.
+Alpha testing is done internally before releasing the product outside the development team.
+[B2]
+Cảnh báo sẽ được gửi qua Slack và email khi hệ thống ngừng hoạt động.
+Alerts will be sent via Slack and email when the system is down.
+[B1]
+Anonymization loại bỏ thông tin nhận dạng để không thể truy vết về cá nhân.
+Anonymization removes identifying information so individuals cannot be traced.
+[B2]
+Orchestration quản lý vòng đời của các container trong cụm Kubernetes.
+Orchestration manages the container lifecycle in a Kubernetes cluster.
+[B1]
+Cờ tính năng cho phép bật hoặc tắt tính năng mà không cần triển khai lại mã nguồn.
+Feature flag allows enabling/disabling a feature without redeploying code.
+[B2]
+Giá trị vòng đời khách hàng ước lượng tổng doanh thu một khách hàng mang lại trong suốt mối quan hệ.
+Customer lifetime value estimates total revenue a customer brings throughout the relationship.
+[B1]
+Hãy chạy regression test sau mỗi lần phát hành để đảm bảo không lỗi cũ lại xuất hiện.
+Run regression tests after each release to ensure old bugs do not reappear.
+[B2]
+Kiểm toán độc lập xác nhận báo cáo tài chính được trình bày công bằng và chính xác.
+Independent audit verifies financial statements are fairly and accurately presented.
+[B1]
+Kiểm thử hiệu năng đo thời gian phản hồi và tải hệ thống dưới các điều kiện khác nhau.
+Performance testing measures response time and system load under various conditions.
+[B2]
+Code review sẽ diễn ra buổi chiều qua Zoom.
+Code review will take place this afternoon over Zoom.
+[B1]
+Sự cố severity 1 ảnh hưởng đến tất cả người dùng và phải được xử lý ngay lập tức.
+Severity-1 incident affects all users and must be handled immediately.
+[B2]
+Chính sách là quy định cấp cao hướng dẫn hành vi và quyết định trong doanh nghiệp.
+Policy is high-level regulation guiding behavior and decisions in the company.
+[B1]
+Dữ liệu tham chiếu cho biết nguồn gốc và luồng di chuyển của dữ liệu qua các hệ thống.
+Data lineage shows the origin and movement of data across systems.
+[B2]
+Dashboard giám sát hiển thị các chỉ số hiệu năng của hệ thống theo thời gian thực.
+The monitoring dashboard displays real-time system performance metrics.
+[B1]
+Dogfood là việc équipe dùng sản phẩm của mình trước khi phát hành cho khách hàng ngoài.
+Dogfooding is when the team uses its own product before releasing to external customers.
+[B2]
+Mẫu trang trí thêm hành vi cho đối tượng động mà không thay đổi lớp của đối tượng đó.
+Decorator pattern adds behavior to objects dynamically without changing their class.
+[B1]
+OKR không chỉ đặt mục tiêu mà còn định nghĩa kết quả chính có thể đo lường.
+OKR not only sets objectives but also defines measurable key results.
+[B2]
+Tech lead quyết định lựa chọn công nghệ và kiểm soát chất lượng mã nguồn.
+Tech lead decides technology choices and controls code quality.
+[B1]
+Mốc này đánh dấu hoàn tất giai đoạn thiết kế và chuyển sang giai đoạn phát triển.
+This milestone marks the completion of design and transition to development.
+[B2]
+Payload của yêu cầu chứa thông tin người dùng cần cập nhật.
+The request payload contains user information to update.
+[B1]
+Mẫu bản nguyên tạo đối tượng mới bằng cách sao chép một đối tượng nguyên mẫu đã có.
+Prototype pattern creates new objects by copying an existing prototype object.
+[B2]
+Tính mô-đun chia hệ thống thành các thành phần độc lập có thể phát triển riêng biệt.
+Modularity splits the system into independent components developed separately.
+[B1]
+Dữ liệu sức khỏe là thông tin về tình trạng santé và historia bệnh của người.
+Health data is information about a person's health status and medical history.
+[B2]
+Người gửi là tiêu đề yêu cầu cho biết nguồn gốc của yêu cầu.
+Origin is the request header indicating the request source.
+[B1]
+Sự phụ thuộc thấp giữa các mô-đun giúp thay đổi một mô-đun không ảnh hưởng đến mô-đun khác.
+Low coupling between modules means changing one module does not affect others.
+[B2]
+Hệ thống heritage đang gặp vấn đề hiệu năng, chúng tôi đang lập kế hoạch di chuyển sang cloud.
+The legacy system is having performance issues; we are planning a migration to the cloud.
+[B1]
+SSL là tiền thân của TLS, hiện đã lỗi thời và không nên sử dụng.
+SSL is TLS predecessor, now deprecated and should not be used.
+[B2]
+Quyết định đủ mức xác định quốc gia ngoài khu vực có mức độ bảo vệ dữ liệu tương đương.
+Adequacy decision determines a non-EEA country has equivalent data protection.
+[B1]
+Đóng gói bảo vệ dữ liệu bên trong đối tượng và chỉ cho phép truy cập qua phương công diện.
+Encapsulation protects data inside an object and allows access only via public interface.
+[B2]
+Lợi nhuận hoạt động là lợi nhuận gộp trừ chi phí vận hành.
+Operating profit is gross profit minus operating expenses.
+[B1]
+Mẫu định vị dịch vụ cung cấp điểm truy cập tập trung để tìm các dịch vụ trong ứng dụng.
+Service locator provides a central access point to find services in the application.
+[B2]
+Phân quyền làm việc đảm bảo không một người alone thực hiện toàn bộ một quy trình quan trọng.
+Segregation of duties ensures no single person handles an entire critical process alone.
+[B1]
+Đức án Privacy Shield đã bị bỏ floà, không còn dùng để chuyển dữ liệu sang Mỹ.
+Privacy Shield was invalidated and is no longer used for US data transfer.
+[B2]
+Kiểm thử chấp nhận của người dùng xác nhận sản phẩm đáp ứng yêu cầu thực tế của khách hàng.
+UAT confirms the product meets actual customer requirements.
+[B1]
+Pull request đã được duyệt và sẵn sàng merge vào nhánh develop.
+The pull request has been approved and is ready to merge into develop.
+[B2]
+Thông báo đẩy giữ người dùng involved với ứng dụng ngay cả khi không mở ứng dụng.
+Push notifications keep users engaged with the app even when not open.
+[B1]
+Vulnerability này cần được vá ngay lập tức theo quy trình bảo mật.
+This vulnerability must be patched immediately according to security process.
+[B2]
+Bảo mật theo mặc định đảm bảo cài đặt bảo mật cao nhất được kích hoạt mặc định.
+Privacy by default ensures highest security settings are enabled by default.
+[B1]
+Lưu giữ dữ liệu giữ dữ liệu trong khoảng thời gian quy định rồi huỷ bỏ.
+Data retention keeps data for a required period then destroys it.
+[B2]
+Quản trị dữ liệu quy định ai sở hữu, qui trông và sử dụng dữ liệu trong tổ chức.
+Data governance defines who owns, stewards, and uses data in the organization.
+[B1]
+Lưu trữ bản ghi giữ các tài liệu quan trọng trong khoảng thời gian quy định theo luật.
+Record retention keeps important documents for legally required periods.
+[B2]
+Hãy cập nhật trạng thái ticket này thành đang xử lý và chỉ định cho kỹ sư soporte.
+Update this ticket status to in progress and assign it to the support engineer.
+[B1]
+Tôi sẽ triển khai API endpoint mới cho module thanh toán.
+I will implement a new API endpoint for the payment module.
+[B2]
+Quản trị thông tin đảm bảo thông tin được bảo vệ, sẵn sàng và đáng tin cậy.
+Information governance ensures information is protected, available, and trustworthy.
+[B1]
+N+1 query gây ra hiệu năng kém khi hệ thống truy vấn cơ sở dữ liệu nhiều lần không cần thiết.
+N+1 query causes poor performance due to unnecessary repeated database queries.
+[B2]
+Cho phép tiêu đề liệt kê các tiêu đề HTTP được phép gửi trong yêu cầu CORS.
+Allow headers lists HTTP headers allowed to be sent in CORS requests.
+[B1]
+Nguyên tắc bốn mắt yêu cầu hai người phê duyệt giao dịch quan trọng trước khi thực hiện.
+Four-eyes principle requires two people to approve important transactions before execution.
+[B2]
+Báo cáo cân đối kế toán hiển thị tài sản, nợ và chủ sở hữu vào một thời điểm.
+Balance sheet shows assets, liabilities, and equity at a point in time.
+[B1]
+Người dùng hoạt động mỗi ngày là số người dùng duy nhất tương tác với sản phẩm trong ngày.
+Daily active users is the number of unique users interacting with the product in a day.
+[B2]
+Dấu hoa thị trong CORS cho phép mọi nguồn truy cập nhưng kèm rủi ro bảo mật.
+Wildcard in CORS allows all origins but carries security risks.
+[B1]
+Mua hàng tích hợp liên tục trong ứng dụng giúp doanh nghiệp tăng doanh thu nhanh chóng.
+In-app purchase integration helps businesses increase revenue quickly.
+[B2]
+Kiểm thử khám phá ngẫu nhiên nhập dữ liệu ngẫu nhiên để kiểm tra sự ổn định của hệ thống.
+Monkey testing inputs random data to test system stability.
+[B1]
+Webpack đóng gói nhiều tệp mã nguồn thành một hoặc ít tệp để tối ưu tải trình duyệt.
+Webpack bundles multiple source files into one or few files to optimize browser loading.
+[B2]
+Mẫu đối tượng trang đóng gói các phần tử và hành động của một trang web cho kiểm thử tự động.
+Page object pattern encapsulates page elements and actions for automated testing.
+[B1]
+Kiểm thử chịu tải xác định số lượng người dùng tối đa hệ thống có thể xử lý.
+Load testing determines the maximum number of users the system can handle.
+[B2]
+Microservice này phụ thuộc vào hai dịch vụ khác để xử lý yêu cầu.
+This microservice depends on two other services to process requests.
+[B1]
+Kiểm thức quốc tế hóa xác định ứng dụng có thể được thích ứng cho nhiều ngôn ngữ và khu vực.
+Internationalization testing determines if the app can be adapted for multiple languages and regions.
+[B2]
+Thực thể là đối tượng có danh tính duy nhất và được theo dõi qua thời gian.
+Entity is an object with unique identity tracked over time.
+[B1]
+OAuth2 cho phép đăng nhập bằng tài khoản bên thứ ba mà không chia sẻ mật khẩu.
+OAuth2 allows login via third-party accounts without sharing passwords.
+[B2]
+Babel chuyển mã JavaScript hiện đại về phiên bản cũ hơn để chạy trên trình duyệt cũ.
+Babel transpiles modern JavaScript to older versions for old browser compatibility.
+[B1]
+Postmortem sau sự cố sẽ ghi lại nguyên nhân gốc rễ và các hành động khắc phục.
+The postmortem after the incident will record root cause and corrective actions.
+[B2]
+Kiểm thử beta được thực hiện bởi nhóm khách hàng chọn lọc trước khi ra mắt công chúng.
+Beta testing is performed by selected customers before public launch.
+[B1]
+Xác thực đa yếu tố tăng tính bảo mật cho tài khoản người dùng.
+Multi-factor authentication increases security for user accounts.
+[B2]
+Thời gian tối đa chỉ định trình duyệt nên lưu kết quả kiểm tra trước trong bao lâu.
+Max age specifies how long browsers should cache preflight results.
+[B1]
+ORM giúp thao tác cơ sở dữ liệu thông qua đối tượng thay vì viết SQL thô.
+ORM allows database operations through objects instead of raw SQL.
+[B2]
+Chủ sở hữu dữ liệu là người có quyền quyết định về cách dữ liệu được sử dụng và chia sẻ.
+Data owner has authority to decide how data is used and shared.
+[B1]
+Doanh thu mỗi lượt truy cập là tổng doanh thu chia số lượt truy cập trang web.
+Revenue per visit is total revenue divided by website visits.
+[B2]
+Cho phép thông tin xác thực cho phép trình duyệt gửi cookie và thông tin xác thực trong yêu cầu CORS.
+Allow credentials lets browsers send cookies and authentication info in CORS requests.
+[B1]
+Firewall chặn lưu lượng trái phép từ mạng bên ngoài vào hệ thống nội bộ.
+Firewall blocks unauthorized traffic from external networks into the internal system.
+[B2]
+Dark launch đưa tính năng mới vào sản xuất nhưng ẩn trước khi chính thức công bố.
+Dark launch puts a new feature into production but hidden before official announcement.
+[B1]
+Dữ liệu sinh trắc học là dữ liệu về đặc điểm thể chất hoặc hành vi dùng để xác định danh tính.
+Biometric data is data about physical or behavioral characteristics used to identify identity.
+[B2]
+SLI là chỉ số đo lường thực tế mức độ dịch vụ, ví dụ tỷ lệ yêu cầu thành công.
+SLI is the actual service level metric, e.g. successful request rate.
+[B1]
+Release notes phải liệt kê tất cả thay đổi và lỗi đã sửa trong phiên bản này.
+Release notes must list all changes and bug fixes in this version.
+[B2]
+Mock object mô phỏng hành vi của đối tượng thật trong bài kiểm thử đơn vị.
+Mock object simulates the behavior of a real object in unit tests.
+[B1]
+Mẫu khách truy cập thêm hoạt động mới vào các đối tượng mà không cần thay đổi lớp của chúng.
+Visitor pattern adds new operations to objects without changing their classes.
+[B2]
+Nguồn rỗng xuất hiện khi trang được mở từ tệp cục bộ không có nguồn rõ ràng.
+Null origin appears when a page is opened from a local file without a clear origin.
+[B1]
+Ghim chứng chỉ liên kết ứng dụng với một chứng chỉ cụ thể để ngăn chặn tấn công trung gian.
+Certificate pinning binds the app to a specific certificate to prevent man-in-the-middle attacks.
+[B2]
+Chi khoản đầu tư là chi tiền mua tài sản dài hạn như thiết bị hoặc nhà cửa.
+Capital expenditure is money spent on long-term assets like equipment or real estate.
+[B1]
+Polyfill thêm tính năng JavaScript mới vào trình duyệt không hỗ trợ bản gốc.
+Polyfill adds new JavaScript features to browsers lacking native support.
+[B2]
+Điểm nỗ lực khách hàng đo mức độ dễ dàng khi khách hàng giải quyết vấn đề với sản phẩm.
+Customer effort score measures ease for customers to solve problems with the product.
+[B1]
+Semantic versioning sử dụng định dạng major.minor.patch để quản lý phiên bản.
+Semantic versioning uses major.minor.patch format to manage versions.
+[B2]
+Mẫu trạng thái cho phép đối tượng thay đổi hành vi khi trạng thái nội bộ thay đổi.
+State pattern lets an object change behavior when internal state changes.
+[B1]
+Doanh thu là tổng tiền công ty nhận được từ bán hàng và dịch vụ trong một khoảng thời gian.
+Revenue is total money the company receives from sales and services in a period.
+[B2]
+Rủi ro chính của dự án là thiếu nhân sự có kỹ năng chuyên sâu về bảo mật.
+The main project risk is a shortage of staff with deep security skills.
+[B1]
+Khả năng triển khai liên tục giúp đưa tính năng mới đến khách hàng nhanh và thường xuyên.
+Deployability delivers new features to customers quickly and frequently.
+[B2]
+Dữ liệu di truyền là thông tin về gen và DNA của một người.
+Genetic data is information about a person's genes and DNA.
+[B1]
+Mẫu mặt phẳng cung cấp giao diện đơn giản cho một hệ thống phức tạp phía sau.
+Facade pattern provides a simple interface for a complex subsystem.
+[B2]
+SLO định nghĩa mục tiêu mức độ dịch vụ mà équipe cam kết đạt được.
+SLO defines the service level objective the team commits to achieve.
+[B1]
+Mẫu đại diện kiểm soát quyền truy cập vào đối tượng thật và có thể thêm chức năng bổ sung.
+Proxy pattern controls access to the real object and can add extra functionality.
+[B2]
+GraphQL cho phép client yêu cầu chính xác dữ liệu họ cần mà không dư thừa.
+GraphQL lets clients request exactly the data they need without over-fetching.
+[B1]
+Khả năng mở rộng giúp hệ thống xử lý số lượng người dùng lớn hơn mà không giảm hiệu năng.
+Scalability lets the system handle more users without performance degradation.
+[B2]
+Bản ghi là bằng chứng tài liệu hóa các hoạt động, quyết định hoặc giao dịch đã xảy ra.
+Record is documented evidence of activities, decisions, or transactions that occurred.
+[B1]
+Spy ghi lại các lần gọi hàm để kiểm tra xem hàm đã được gọi đúng số lần chưa.
+Spy records function calls to verify the function was called the correct number of times.
+[B2]
+Mẫu đơn vị công việc phối hợp nhiều thay đổi dữ liệu thành một giao dịch duy nhất.
+Unit of work coordinates multiple data changes into a single transaction.
+[B1]
+Bảo trì định kỳ giúp phát hiện và sửa lỗi trước khi ảnh hưởng đến khách hàng.
+Regular maintenance helps detect and fix bugs before affecting customers.
+[B2]
+Bảo lãnh dự án cung cấp nguồn lực và loại bỏ các rào cản cấp cao cho équipe.
+Project sponsor provides resources and removes high-level blockers for the team.
+[B1]
+Đánh giá tác động quyền riêng vụ dữ liệu là đánh giá rủi ro cụ thể cho hoạt động xử lý dữ liệu cao rủi ro.
+Data protection impact assessment evaluates specific risks for high-risk data processing activities.
+[B2]
+Ngân sách lỗi cho phép hệ thống có một số lượng nhỏ sự cố trước khi phải hành động khắc phục.
+Error budget allows a small number of incidents before corrective action is required.
+[B1]
+Yêu cầu truy cập đối tượng dữ liệu cho phép người xem dữ liệu cá nhân tổ chức đang lưu về họ.
+Data subject access request lets individuals view personal data the organization stores about them.
+[B2]
+Cuộc họp thị xã cho phép nhân viên đặt câu hỏi trực tiếp với ban lãnh đạo.
+Town hall meetings let employees ask questions directly to leadership.
+[B1]
+Tài khoản khách hàng này cần được kích hoạt lại sau khi bị khóa do nhập sai mật khẩu nhiều lần.
+This customer account needs reactivation after being locked due to multiple wrong password attempts.
+[B2]
+Phân khúc khách hàng này có tiềm năng cao cho việc upsell dịch vụ cao cấp.
+This customer segment has high potential for premium service upsell.
+[B1]
+Khấu hao phân bổ chi phí tài sản cố định qua thời gian sử dụng.
+Depreciation allocates fixed asset cost over its useful life.
+[B2]
+Tiến độ dự án hiện đang chậm hơn kế hoạch khoảng một tuần.
+Project progress is about one week behind schedule.
+[B1]
+Sự cố dữ liệu là việc truy cập, tru taken, hoặc mất dữ liệu trái phép.
+Data incident is unauthorized access, theft, or loss of data.
+[B2]
+Số ma thuật đo hiệu quả chi tiêu marketing và bán hàng so với doanh thu mới thu được.
+Magic number measures marketing and sales efficiency versus new revenue acquired.
+[B1]
+Cửa sổ bảo trì được đặt vào cuối tuần để giảm tác động đến người dùng.
+Maintenance window is scheduled on weekends to reduce user impact.
+[B2]
+Người tiêu thụ dữ liệu sử dụng dữ liệu để phục vụ công việc hoặc quyết định kinh doanh.
+Data consumer uses data to serve work or business decisions.
+[B1]
+Phân quyền dựa trên vai trò giúp kiểm soát ai có thể truy cập dữ liệu gì.
+Role-based access control helps manage who can access what data.
+[B2]
+Kiểm thử đồng thời chạy nhiều tác vụ cùng lúc để phát hiện vấn đề tranh chấp tài nguyên.
+Concurrency testing runs multiple tasks simultaneously to detect resource contention issues.
+[B1]
+Feature flag cho phép bật/tắt tính năng mà không cần triển khai lại mã nguồn.
+Feature flag allows enabling/disabling a feature without redeploying code.
+[B2]
+Báo cáo dòng tiền hiển thị tiền vào và ra từ hoạt động, đầu tư và tài chính.
+Cash flow statement shows cash in and out from operations, investing, and financing.
+[B1]
+Khoản phải trả được ghi nhận khi chi phí xảy ra chứ không phải khi tiền được trả.
+Accrual records expenses when incurred, not when cash is paid.
+[B2]
+Merge conflict xảy ra khi hai lập trình viên sửa cùng một đoạn mã.
+A merge conflict occurs when two developers edit the same code segment.
+[B1]
+Hệ thống heritage không còn được nhà cung cấp hỗ trợ, cần thay thế urgently.
+The legacy system is no longer vendor-supported and needs urgent replacement.
+[B2]
+Mã hóa khi truyền bảo vệ dữ liệu khi nó di chuyển qua mạng.
+Encryption in transit protects data when moving over network.
+[B1]
+Quy tắc 40 nói tổng tỷ lệ tăng trưởng và lợi nhuận nên đạt ít nhất 40 phần trăm.
+Rule of 40 states growth rate plus profit should reach at least 40 percent.
+[B2]
+Đối tượng giá trị được định nghĩa bởi thuộc tính của nó chứ không phải bởi danh tính.
+Value object is defined by its attributes rather than identity.
+[B1]
+Nhà thiết kế trải nghiệm người dùng nghiên cứu hành vi khách hàng để cải thiện giao diện.
+UX designer researches user behavior to improve the interface.
+[B2]
+Ma trận ủy thác quyền liệt kê quyền hạn결정 của mỗi vị trí trong tổ chức.
+Delegation of authority matrix lists decision powers for each position in the organization.
+[B1]
+Khớp hợp đồng là cơ sở pháp lý khi xử lý dữ liệu cần thiết để thực hiện hợp đồng.
+Contractual necessity is the legal basis when data processing is needed to fulfill a contract.
+[B2]
+Tỷ lệ giữ doanh thu là phần trăm doanh thu từ khách hàng cũ vẫn còn sau một khoảng thời gian.
+Dollar retention is the percentage of revenue from old customers still present after a period.
+[B1]
+Phân trang giúp hiển thị danh sách dài mà không làm chậm giao diện.
+Pagination displays long lists without slowing down the UI.
+[B2]
+Kế thừa cho phép lớp con sử dụng lại mã và thuộc tính từ lớp cha.
+Inheritance lets subclasses reuse code and attributes from the parent class.
+[B1]
+H동을 kết nối được tái sử dụng qua connection pool để giảm chi phí mở kết nối mới.
+Connection pool reuses database connections to reduce the cost of opening new ones.
+[B2]
+Trộm dữ liệu là sự cố dữ liệu nghiêm trọng có thể gây thiệt hại lớn cho tổ chức và khách hàng.
+Data breach is a serious data incident that may cause significant harm to organization and customers.
+[B1]
+Lộ trình sản phẩm trong sáu tháng tới tập trung vào tính năng trên thiết bị di động.
+The product roadmap for the next six months focuses on mobile features.
+[B2]
+Hồ sơ dữ liệu phân tích cấu trúc, nội dung và chất lượng của dữ liệu.
+Data profiling analyzes structure, content, and quality of data.
+[B1]
+Sự kiện miền thông báo về điều quan trọng đã xảy ra trong miền nghiệp vụ.
+Domain event notifies about something important happening in the business domain.
+[B2]
+Tỷ lệ nhấp vào quảng cáo là số lần nhấp chia số lần hiển thị quảng cáo.
+Click-through rate is ad clicks divided by ad impressions.
+[B1]
+Phân tích đường dẫn chuyển đổi theo dõi hành vi người dùng từ lần truy cập đầu đến mua hàng.
+Funnel analysis tracks user behavior from first visit to purchase.
+[B2]
+Phân tích nhóm khách hàng theo thời gian để hiểu hành vi giữ khách và churn.
+Cohort analysis groups customers over time to understand retention and churn behavior.
+[B1]
+Sự liên kết mô tả mối quan hệ giữa hai đối tượng độc lập trong mô hình định hướng đối tượng.
+Association describes the relationship between two independent objects in OOP.
+[B2]
+Kiểm thử khả năng tiếp cận đảm bảo người khiếm tật có thể sử dụng ứng dụng.
+Accessibility testing ensures disabled users can use the application.
+[B1]
+Độ tin cậy cho biết hệ thống có thể hoạt động liên tục mà không gặp sự cố trong bao lâu.
+Reliability indicates how long the system can run continuously without incidents.
+[B2]
+Khả năng vận hành cho phép hệ thống được giám sát, quản lý và khôi phục khi gặp sự cố.
+Operability allows the system to be monitored, managed, and recovered during incidents.
+[B1]
+CI/CD tự động hóa quy trình phát hành phần mềm từ code đến sản xuất.
+CI/CD automates the software release process from code to production.
+[B2]
+Kiểm thử nhiễu nhập dữ liệu cố ý sai hoặc độc hại để kiểm tra bảo mật và khả năng chịu lỗi.
+Fuzz testing intentionally inputs wrong or malicious data to test security and fault tolerance.
+[B1]
+Viên tuân thủ đảm bảo hoạt động doanh nghiệp tuân thủ các quy định pháp lý liên quan.
+Compliance officer ensures business operations comply with relevant legal regulations.
+[B2]
+Phản hồi 360 độ thu thập ý kiến từ đồng nghiệp, cấp dưới và cấp trên về nhân viên.
+360 feedback collects input from peers, subordinates, and supervisors about the employee.
+[B1]
+Khả năng linh hoạt cho phép hệ thống thích ứng với yêu cầu thay đổi của doanh nghiệp.
+Flexibility lets the system adapt to changing business requirements.
+[B2]
+Tự động hóa chạy kiểm thử mà không cần can thiệp thủ công từ con người.
+Automation runs tests without manual human intervention.
+[B1]
+Tốc độ tiêu tiền là số tiền công ty chi mỗi tháng cho hoạt động kinh doanh.
+Burn rate is the amount of money the company spends per month for operations.
+[B2]
+Hãy ưu tiên backlog dựa trên giá trị Geschäft và rủi ro.
+Prioritize the backlog based on business value and risk.
+[B1]
+Chi phí mỗi lần nhấp là chi phí quảng cáo chia số lần người dùng nhấp vào quảng cáo.
+Cost per click is ad cost divided by user clicks on the ad.
+[B2]
+Hệ thống có thể chịu tải lên đến 10.000 người dùng đồng thời.
+The system can handle up to 10,000 concurrent users.
+[B1]
+Bổ sung dữ liệu thêm thông tin từ nguồn bên ngoài vào dữ liệu hiện có.
+Data enrichment adds external information into existing data.
+[B2]
+Nhà nghiên cứu người dùng phỏng vấn khách hàng để hiểu nhu cầu và điểm đau.
+User researcher interviews customers to understand needs and pain points.
+[B1]
+X-Content-Type-Options ngăn trình duyệt đoán loại nội dung vàForce sử dụng loại đã khai báo.
+X-Content-Type-Options prevents the browser from guessing content type and forces declared type.
+[B2]
+Phát triển theo kiểm thử viết kiểm thử đơn vị trước mã sản xuất để hướng dẫn thiết kế.
+TDD writes unit tests before production code to guide design.
+[B1]
+ETL trích xuất, chuyển đổi và tải dữ liệu từ nguồn vào kho dữ liệu.
+ETL extracts, transforms, and loads data from sources into the data warehouse.
+[B2]
+Phiên bản thử nghiệm chỉ dùng trong nội bộ và không được đưa ra ngoài khách hàng.
+Beta version is for internal use only and not released to customers.
+[B1]
+Mẫu chiến lược gói gọn thuật toán và cho phép thay đổi thuật toán tại runtime.
+Strategy pattern encapsulates algorithms and allows swapping them at runtime.
+[B2]
+Kỹ sư học máy triển khai mô hình AI vào sản xuất và giám sát hiệu năng liên tục.
+ML engineer deploys AI models to production and monitors performance continuously.
+[B1]
+CORS cho phép trình duyệt yêu cầu tài nguyên từ nguồn khác trừ khi được máy chủ cho phép rõ ràng.
+CORS lets browsers request resources from other origins unless explicitly allowed by the server.
+[B2]
+Dòng tiền là khoản tiền đi vào và đi ra khỏi công ty trong một khoảng thời gian.
+Cash flow is money moving into and out of the company in a period.
+[B1]
+Khả năng bảo trì dễ dàng giúp đội kỹ thuật sửa lỗi và thêm tính năng nhanh hơn.
+Maintainability helps the engineering team fix bugs and add features faster.
+[B2]
+Phát hành隻 vành chỉ đưa phiên bản mới cho một nhóm nhỏ người dùng đầu tiên để giảm rủi ro.
+Canary release deploys the new version to a small user group first to reduce risk.
+[B1]
+Độ phủ mã cho biết phần nào của mã nguồn đã được kiểm thử bởi bài kiểm thử tự động.
+Code coverage indicates which parts of the source code are covered by automated tests.
+[B2]
+Lợi ích hợp pháp là cơ sở pháp lý khi xử lý dữ liệu phục vụ lợi ích hợp pháp của tổ chức.
+Legitimate interest is the legal basis when processing data serves the organization's legitimate interests.
+[B1]
+Cho phép nguồn gốc là tiêu đề phản hồi cho biết nguồn nào được phép truy cập tài nguyên.
+Access-Control-Allow-Origin is the response header indicating allowed origins.
+[B2]
+Quy trình phê duyệt quy định ai có quyền phê duyệt các loại giao dịch khác nhau.
+Approval workflow defines who can approve different transaction types.
+[B1]
+Đánh giá tác động quyền riêng tư xác định rủi ro quyền riêng tư trước khi triển khai dự án mới.
+Privacy impact assessment identifies privacy risks before implementing new projects.
+[B2]
+Canary release chỉ triển khai phiên bản mới cho một nhóm nhỏ người dùng đầu tiên.
+Canary release deploys the new version to a small group of users first.
+[B1]
+Thử nghiệm A/B so sánh hai phiên bản để xác định phiên bản hiệu quả hơn theo số liệu.
+A/B testing compares two versions to determine which performs better according to metrics.
+[B2]
+Lợi nhuận gộp là doanh thu trừ chi phí hàng hóa đã bán.
+Gross profit is revenue minus cost of goods sold.
+[B1]
+Mẫu bộ chuyển đổi cho phép các giao diện không tương thích làm việc cùng nhau.
+Adapter pattern lets incompatible interfaces work together.
+[B2]
+IDS phát hiện các dấu hiệu tấn công và gửi cảnh báo cho đội bảo mật.
+IDS detects signs of attack and alerts the security team.
+[B1]
+MFA yêu cầu thêm yếu tố xác thực ngoài mật khẩu, ví dụ mã OTP.
+MFA requires an additional authentication factor beyond password, e.g. OTP code.
+[B2]
+Kho dữ liệu lưu trữ dữ liệu lịch sử phục vụ phân tích và báo cáo quản trị.
+Data warehouse stores historical data for analysis and management reporting.
+[B1]
+Kiểm thử ricev acordo chi tiết bằng ví dụ cụ thể giữa các bên liên quan đến nghiệp vụ.
+ATDD details acceptance criteria with concrete examples among business stakeholders.
+[B2]
+Kiểm thử trải nghiệm người dùng đánh giá việc ứng dụng dễ dùng và thoải mái hay không.
+Usability testing evaluates whether the application is easy and comfortable to use.
+[B1]
+Data lake lưu trữ dữ liệu thô ở định dạng gốc trước khi xử lý.
+Data lake stores raw data in native format before processing.
+[B2]
+Che Falle dữ liệu thay thế dữ liệu nhạy cảm bằng giá trị giả nhưng giữ định dạng.
+Data masking replaces sensitive data with fake values while preserving format.
+[B1]
+Khoản phải thu được ghi nhận khi doanh thu được thực hiện chứ không phải khi tiền được thu.
+Accrual records revenue when earned, not when cash is received.
+[B2]
+Xóa dữ liệu xóa vĩnh viễn dữ liệu khi không còn cần thiết hoặc theo yêu cầu pháp lý.
+Data deletion permanently removes data when no longer needed or by legal request.
+[B1]
+Báo cáo kết quả kinh doanh hiển thị doanh thu, chi phí và lợi nhuận trong một khoảng thời gian.
+Income statement shows revenue, expenses, and profit over a period.
+[B2]
+Đa hình cho phép cùng một phương pháp hành xử khác nhau tùy theo loại đối tượng.
+Polymorphism lets the same method behave differently depending on object type.
+[B1]
+Bộ nhớ đệm trình duyệt giúp tải lại trang nhanh hơn khi người dùng quay lại.
+Browser cache helps pages load faster when the user returns.
+[B2]
+Thủ tục là hướng dẫn chi tiết từng bước để thực hiện một quy trình cụ thể.
+Procedure is detailed step-by-step guidance to perform a specific process.
+[B1]
+Nhiệm vụ công cộng là cơ sở pháp lý khi xử lý dữ liệu để thực hiện nhiệm vụ cộng đồng.
+Public task is the legal basis when data processing serves public interest tasks.
+[B2]
+Mẫu đơn thể đảm bảo chỉ có một thực thể của lớp và cung cấp điểm truy cập toàn cục.
+Singleton pattern ensures only one instance of a class and provides global access.
+[B1]
+Bản kiểm tra là danh sách các mục cần kiểm tra trước khi hoàn thành một công việc.
+Checklist is a list of items to verify before completing a task.
+[B2]
+Mẫu nhà sản xuất xây dựng đối tượng phức tạp từng bước qua nhiều phương pháp.
+Builder pattern constructs complex objects step by step through multiple methods.
+[B1]
+Tỷ lệ giữ doanh thu thuần là doanh thu từ khách hàng cũ chia tổng doanh thu ban đầu.
+Net revenue retention is revenue from old customers divided by initial total revenue.
+[B2]
+Container hóa giúp ứng dụng chạy đồng nhất trên nhiều môi trường.
+Containerization helps the application run consistently across environments.
+[B1]
+Dịch vụ miền chứa logic nghiệp vụ không thuộc về thực thể hay đối tượng giá trị cụ thể.
+Domain service contains business logic not belonging to a specific entity or value object.
+[B2]
+Thích hợp là cơ sở pháp lý khi người dùng đồng ý rõ ràng với việc xử lý dữ liệu của họ.
+Consent is the legal basis when users clearly agree to processing of their data.
+[B1]
+UAT sẽ bắt đầu vào tuần tới sau khi kiểm thử nội bộ hoàn tất.
+UAT will start next week after internal testing is complete.
+[B2]
+Chuyển dữ liệu sang quốc gia ngoài khu vực kinh tế châu Âu cần đảm bảo mức độ bảo vệ tương đương.
+Cross-border transfer to outside EEA needs equivalent protection levels.
+[B1]
+SSO giúp người dùng truy cập nhiều ứng dụng với một lần đăng nhập duy nhất.
+SSO lets users access multiple applications with a single sign-on.
+[B2]
+Mẫu phương thức mẫu khung xương của thuật toán và để subclass ghi đè các bước cụ thể.
+Template method defines algorithm skeleton and lets subclasses override specific steps.
+[B1]
+Cuộc hẹn cấp trên giữa quản lý và nhân viên cấp unterhalb thảo luận về vấn đề chiến lược.
+Skip-level meetings between manager and subordinate staff discuss strategic issues.
+[B2]
+Khi triển khai, hãy giữ nguyên phiên bản cũ để rollback nhanh nếu cần.
+Keep the old version during deployment for quick rollback if needed.
+[B1]
+Kiến trúc sư phần mềm thiết kế cấu trúc tổng thể của hệ thống và các thành phần chính.
+Software architect designs the overall system structure and main components.
+[B2]
+Seeding đưa dữ liệu mẫu vào cơ sở dữ liệu cho môi trường phát triển và kiểm thử.
+Seeding inserts sample data into the database for development and testing environments.
+[B1]
+Trách nhiệm sở hữu sản phẩm nằm trên vai trò product owner trong framework Scrum.
+Product ownership lies with the product owner role in the Scrum framework.
+[B2]
+Lợi nhuận sau thuế là lợi nhuận trước thuế trừ thuế thu nhập doanh nghiệp.
+Net profit is pre-tax profit minus corporate income tax.
+[B1]
+Điều phối vai trò giữa product owner và scrum master giúp dự án diễn ra suôn sẻ.
+Role coordination between product owner and scrum master helps the project run smoothly.
+[B2]
+Latency của API này thấp hơn 200 milliseconds trong điều kiện bình thường.
+Latency for this API is under 200 milliseconds under normal conditions.
+[B1]
+Mô hình dự đoán cần được đào tạo lại định kỳ để duy trì độ chính xác.
+The prediction model needs periodic retraining to maintain accuracy.
+[B2]
+Thủ dữ liệu là người chịu trách nhiệm quản lý một tập dữ liệu cụ thể trong tổ chức.
+Data steward is responsible for managing a specific dataset in the organization.
+[B1]
+EBITDA là lợi nhuận trước lãi, thuế, khấu hao và khấu cultivations.
+EBITDA is profit before interest, tax, depreciation, and amortization.
+[B2]
+Tải chậm làm trải nghiệm người dùng kém và tăng tỷ lệ thoát ứng dụng.
+Slow loading leads to poor user experience and higher app abandonment rate.
+[B1]
+Doanh thu mở rộng là doanh thu thêm từ khách hàng hiện tại qua upsell hoặc cross-sell.
+Expansion revenue is additional revenue from current customers via upsell or cross-sell.
+[B2]
+Quản trị thay đổi hướng dẫn cách đưa ra, đánh giá và phê duyệt yêu cầu thay đổi trong dự án.
+Change management guides how change requests are proposed, evaluated, and approved in the project.
+[B1]
+X-Frame-Options ngăn chặn trang web được nhúng vào khung của trang khác để chống đánh jack� mà.
+X-Frame-Options prevents the webpage from being embedded in another page's frame to counter clickjacking.
+[B2]
+Biện pháp bổ sung là các bước kỹ thuật hoặc hợp đồng thêm vào để bảo vệ dữ liệu khi chuyển quốc tế.
+Supplementary measures are additional technical or contractual steps to protect data in international transfer.
+[B1]
+Mỏ hợp đồng chuẩn là mẫu hợp đồng được Ủy ban Châu Âu chấp nhận để chuyển dữ liệu quốc tế.
+Standard contractual clauses are EU Commission-approved templates for international data transfer.
+[B2]
+Quản trị dữ liệu quy định ai sở hữu, qui trông và sử dụng dữ liệu trong tổ chức.
+Data governance defines who owns, stewards, and uses data in the organization.
+[B1]
+Mẫu chuỗi trách nhiệm truyền yêu cầu qua chuỗi các xử lý finché một xử lý tham gia.
+Chain of responsibility passes requests through a chain of handlers until one handles it.
+[B2]
+Dogfood là việc équipe nội bộ sử dụng sản phẩm trước khi phát hành cho khách hàng.
+Dogfooding is when the internal team uses the product before releasing to customers.
+[B1]
+Chi phí lấy mỗi khách hàng là chi phí marketing chia số khách hàng thu hút được.
+Cost per acquisition is marketing cost divided by acquired customers.
+[B2]
+Tập hợp là nhóm các đối tượng được coi là một đơn vị duy nhất để thay đổi dữ liệu.
+Aggregate is a group of objects treated as a single unit for data changes.
+[B1]
+Changelog ghi lại danh sách tính năng mới và lỗi đã sửa theo từng phiên bản.
+Changelog lists new features and bug fixes per version.
+[B2]
+Tỷ lệ giữ logo là phần trăm số lượng khách hàng duy nhất vẫn còn sau một khoảng thời gian.
+Logo retention is the percentage of unique customers still present after a period.
+[B1]
+Hãy ước lượng effort cho từng câu chuyện người dùng bằng story points.
+Estimate effort for each user story in story points.
+[B2]
+Kịch bản kiểm thử mô tả các bước và kết quả mong đợi cho một tính năng cụ thể.
+Test scenario describes steps and expected results for a specific feature.
+[B1]
+Yêu cầu đơn giản là yêu cầu CORS không cần kiểm tra trước do đáp ứng các điều kiện nhất định.
+Simple request is a CORS request not needing preflight because it meets certain conditions.
+[B2]
+Hotfix sẽ được triển khai ngay lập tức để khắc phục lỗi nghiêm trọng trên sản xuất.
+A hotfix will be deployed immediately to fix a critical production bug.
+[B1]
+Đánh giá tác động chuyển giao phân tích rủi ro khi chuyển dữ liệu sang quốc gia có luật khác.
+Transfer impact assessment analyzes risks when transferring data to countries with different laws.
+[B2]
+Bảo mật theo thiết kế tích hợp bảo mật vào quá trình phát triển sản phẩm từ đầu.
+Privacy by design integrates security into product development from the start.
+[B1]
+Chữ ký số đảm bảo tính toàn vẹn và nguồn gốc của tài liệu điện tử.
+Digital signature ensures integrity and origin of electronic documents.
+[B2]
+Hiển thị tiêu đề chỉ định các tiêu đề phản hồi có thể được truy cập bởi JavaScript ở phía client.
+Expose headers specifies response headers accessible by client-side JavaScript.
+[B1]
+Học máy được sử dụng để dự đoán xu hướng doanh thu trong quý tới.
+Machine learning is used to forecast revenue trends for the next quarter.
+[B2]
+Điểm hài lòng khách hàng đo mức độ hài lòng sau tương tác với sản phẩm hoặc dịch vụ.
+Customer satisfaction score measures satisfaction after interacting with product or service.
+[B1]
+Quyết toán kế toán được chuẩn bị theo các nguyên tố kế toán công nhận
+GAAP financial statements are prepared under generally accepted accounting principles.
+[B2]
+Pseudonymization thay thế thông tin nhận dạng bằng mã giả để bảo vệ quyền riêng tư.
+Pseudonymization replaces identifying information with pseudonyms to protect privacy.
+[B1]
+Tệp tính năng chứa các kịch bản kiểm thử viết bằng ngôn ngữ Gherkin cho BDD.
+Feature file contains test scenarios written in Gherkin language for BDD.
+[B2]
+SLAcam kết thời gian phản hồi trong vòng 1 giờ cho sự cố cấp độ 1.
+The SLA commits to a 1-hour response time for level-1 incidents.
+[B1]
+Kiểm thử quá tải đẩy hệ thống vượt quá giới hạn bình thường để xem điểm hỏng.
+Stress testing pushes the system beyond normal limits to find breaking points.
+[B2]
+Viên bảo vệ dữ liệu đảm bảo tổ chức tuân thủ các quy định về quyền riêng tư và bảo vệ dữ liệu.
+Data protection officer ensures the organization complies with privacy and data protection regulations.
+[B1]
+Chi phí thu hút khách hàng là tổng chi phí marketing và bán hàng chia cho số khách hàng mới.
+Customer acquisition cost is total marketing and sales cost divided by new customers.
+[B2]
+Quy trình thay đổi quản lý mọi sửa đổi đối với hệ thống sản xuất để giảm rủi ro.
+Change management manages all production system changes to reduce risk.
+[B1]
+KPI này đo lường tỷ lệ khách hàng quay lại mua hàng lần thứ hai.
+This KPI measures the repeat purchase rate.
+[B2]
+Kiểm thử khám phá được thực hiện tự do để tìm lỗi không được liệt kê trong kiểm thử geplanned.
+Exploratory testing is done freely to find bugs not listed in planned tests.
+[B1]
+Yêu cầu thay đổi phải được ghi chép và đánh giá tác động trước khi phê duyệt.
+Change requests must be documented and impact-assessed before approval.
+[B2]
+Chính sách người gửi giới hạn thông tin được gửi trong tiêu đề người gửi khi điều hướng từ trang này sang trang khác.
+Referrer policy restricts information sent in the referer header when navigating from this page to another.
+[B1]
+Nghĩa vụ pháp lý là cơ sở pháp lý khi xử lý dữ liệu cần thiết để tuân thủ luật.
+Legal obligation is the legal basis when data processing is needed to comply with law.
+[B2]
+Smoke test kiểm tra các chức năng cốt lõi trước khi kiểm thử chi tiết.
+Smoke testing checks core functions before detailed testing.
+[B1]
+Tiêu chuẩn báo cáo tài chính quốc tế được nhiều quốc gia áp dụng.
+IFRS is the international financial reporting standard adopted by many countries.
+[B2]
+Caching giúp giảm tải cho cơ sở dữ liệu và cải thiện thời gian phản hồi.
+Caching reduces database load and improves response time.
+[B1]
+Disaster recovery plan xác định RTO là 4 giờ và RPO là 1 giờ.
+The disaster recovery plan defines RTO of 4 hours and RPO of 1 hour.
+[B2]
+Mẫu trung gian tập trung giao tiếp giữa các đối tượng để giảm sự phụ thuộc trực tiếp.
+Mediator pattern centralizes communication between objects to reduce direct dependencies.
+[B1]
+Giả danh giả dữ liệu thay thế thông tin nhận dạng bằng mã giả để bảo vệ quyền riêng tư.
+Data pseudonymization replaces identifying information with pseudonyms to protect privacy.
+[B2]
+Kích hoạt đo tỷ lệ người dùng mới hoàn thành hành động quan trọng đầu tiên trong sản phẩm.
+Activation measures the rate of new users completing the first important action in the product.
+[B1]
+Phóng tốiêm đưa tính năng mới vào sản xuất nhưng ẩn trước khi công bố chính thức.
+Dark launch puts a new feature into production but hidden before official announcement.
+[B2]
+Người dùng hoạt động mỗi tháng là số người dùng duy nhất tương tác với sản phẩm trong tháng.
+Monthly active users is the number of unique users interacting with the product in a month.
+[B1]
+Endpoint RESTful này trả về danh sách sản phẩm theo định dạng JSON.
+This RESTful endpoint returns a product list in JSON format.
+[B2]
+Chỉ số giới thiệu người dùng đo khả năng khách hàng khuyên sản phẩm cho người khác.
+Net promoter score measures customer likelihood to recommend the product to others.
+[B1]
+Dữ liệu đặc biệt là dữ liệu nhạy cảm như sức khỏe, chủng tộc, tín ngưỡng.
+Special category data is sensitive data like health, ethnicity, beliefs.
+[B2]
+Mẫu đối tượng rỗng cung cấp đối tượng mặc định thay vì trả về null để tránh lỗi tham chiếu null.
+Null object pattern provides a default object instead of null to avoid null reference errors.
+[B1]
+Phải giảm phạm vi tính năng để giao đúng hạn phát hành đã cam kết.
+Feature scope must be reduced to deliver on the committed release date.
+[B2]
+SSL/TLS bảo vệ dữ liệu truyền qua mạng khỏi bị nghe lén.
+SSL/TLS protects data in transit from eavesdropping.
+[B1]
+Kiểm thử đột ngột tăng tải đột ngột để xem hệ thống phản ứng thế nào.
+Spike testing suddenly increases load to see system reaction.
+[B2]
+Kiểm thử tương thích đảm bảo ứng dụng chạy trên nhiều trình duyệt, thiết bị và hệ điều hành.
+Compatibility testing ensures the app runs on various browsers, devices, and operating systems.
+[B1]
+Linting phát hiện lỗi cú pháp và qui định phong cách viết mã trước khi chạy chương trình.
+Linting detects syntax errors and enforces code style before running the program.
+[B2]
+Kiểm thử thủ công thực hiện bởi người kiểm thử mà không sử dụng công cụ tự động hóa.
+Manual testing is performed by testers without automation tools.
+[B1]
+Tư vấn pháp lý xem xét hợp đồng trước khi ký với nhà cung cấp phần mềm bên thứ ba.
+Legal counsel reviews contracts before signing with third-party software vendors.
+[B2]
+Mã hóa dữ liệu nhạy cảm khi truyền qua mạng và khi lưu trữ.
+Encrypt sensitive data both in transit and at rest.
+[B1]
+Cuộc hẹn một対 một giữa quản lý và nhân viên thảo luận về phát triển nghề nghiệp.
+One-on-one meetings between manager and employee discuss career development.
+[B2]
+Ẩn danh hóa dữ liệu loại bỏ thông tin nhận dạng để không thể truy vết về cá nhân.
+Data anonymization removes identifying information so individuals cannot be traced.
+[B1]
+Độ dính đo tỷ lệ người dùng hoạt động hàng ngày so với mỗi tháng.
+Stickiness measures the ratio of daily active users to monthly active users.
+[B2]
+Stakeholder yêu cầu thêm tính năng vào giữa sprint, điều này ảnh hưởng đến tiến độ.
+The stakeholder requested additional features mid-sprint, affecting the timeline.
+[B1]
+Sự phụ thuộc chỉ ra một đối tượng cần đối tượng khác để thực hiện chức năng của mình.
+Dependency indicates one object needs another to perform its function.
+[B2]
+Trải nghiệm nhập môn hướng dẫn người dùng mới cách sử dụng sản phẩm hiệu quả.
+Onboarding guides new users to use the product effectively.
+[B1]
+Tỷ lệ giữ doanh thu tổng là doanh thu từ khách hàng cũ không tính upsell chia tổng ban đầu.
+Gross revenue retention is revenue from old customers excluding upsell divided by initial total.
+[B2]
+Chúng tôi cần viết tài liệu hướng dẫn sử dụng cho khách hàng cuối cùng.
+We need to write end-user documentation.
+[B1]
+Báo cáo này tóm tắt các chỉ số kinh doanh chính trong tháng qua.
+This report summarizes key business metrics for the past month.
+[B2]
+Độ chính xác của mô hình phân loại đạt 92% trên tập kiểm thử.
+The classification model accuracy reaches 92% on the test set.
+[B1]
+Tính năng này đã được đánh dấu là cũ và sẽ bị loại bỏ trong phiên bản tới.
+This feature is deprecated and will be removed in the next version.
+[B2]
+Sự trừu tượng hóa ẩn đi chi tiết triển khai và chỉ hiển thị giao diện cần thiết.
+Abstraction hides implementation details and exposes only necessary interfaces.
+[B1]
+Cuộc họp stand-up hôm nay bắt đầu lúc 9 giờ sáng.
+Today's stand-up meeting starts at 9 a.m.
+[B2]
+Yêu cầu kiểm tra trước là yêu cầu OPTIONS được trình duyệt gửi trước yêu cầu thực tế khi dùng CORS.
+Preflight request is an OPTIONS request browsers send before the actual request when using CORS.
+[B1]
+ROI của dự án này dương sau sáu tháng vận hành.
+The project ROI is positive after six months of operation.
+[B2]
+WebSocket duy trì kết nối hai chiều giữa client và server theo thời gian thực.
+WebSocket maintains a two-way connection between client and server in real time.
+[B1]
+Hội nghị khả năng đánh giá hiệu suất công việc của nhân viên hàng năm.
+Performance review evaluates employee work performance annually.
+[B2]
+Làm sạch dữ liệu sửa lỗi, loại bỏ trùng lặp và chuẩn hóa dữ liệu.
+Data cleansing fixes errors, removes duplicates, and standardizes data.
+[B1]
+Doanh thu co rút là doanh thua mất do khách hàng giảm dịch vụ hoặc hủy bỏ.
+Contraction revenue is revenue lost from customers downgrading or canceling.
+[B2]
+Query cơ sở dữ liệu này chạy chậm, cần tối ưu hóa index.
+This database query runs slowly and needs index optimization.
+[B1]
+Giới thiệu bạn bèn khuyến khích khách hàng hiện tại mời người khác dùng sản phẩm.
+Referral encourages current customers to invite others to use the product.
+[B2]
+Thời gian tồn kho là số tiền còn lại chia tốc độ tiêu tiền, cho biết công ty còn hoạt động được bao lâu.
+Runway is remaining cash divided by burn rate, indicating how long the company can operate.
+[B1]
+Phát triển theo hành vi viết kiểm thử trước mã dựa trên ví dụ thực tế bằng định dạng Given-When-Then.
+BDD writes tests before code based on real examples in Given-When-Then format.
+[B2]
+Quản trị bản ghi quy định cách tạo, lưu trữ, tìm kiếm và huỷ các bản ghi trong tổ chức.
+Records management defines how to create, store, retrieve, and destroy records in the organization.
+[B1]
+CI/CD pipeline tự động build, kiểm thử và triển khai mỗi commit.
+The CI/CD pipeline automatically builds, tests, and deploys on every commit.
+[B2]
+Dữ liệu án chính là thông tin về tiền án hoặc vụ án của người.
+Criminal conviction data is information about a person's criminal record or cases.
+[B1]
+Cho phép phương thức liệt kê các phương thức HTTP được phép trong yêu cầu CORS.
+Allow methods lists HTTP methods permitted in CORS requests.
+[B2]
+Dữ liệu thiếu hoặc sai sẽ làm sai lệch kết quả phân tích và báo cáo.
+Missing or incorrect data will skew analysis and report results.
+[B1]
+Khả năng co giãn tự động điều chỉnh tài nguyên dựa trên mức sử dụng thực tế.
+Elasticity automatically adjusts resources based on actual usage.
+[B2]
+Quyết định khẩn cấp về kiến trúc cần được thông qua bởi hội đồng kiểm soát thay đổi.
+Emergency architecture decisions must be approved by the change control board.
+[B1]
+Mẫu nhà máy tạo đối tượng mà không cần chỉ định rõ lớp cụ thể của đối tượng đó.
+Factory pattern creates objects without specifying their exact class.
+[B2]
+Kiểm thử thể tích kiểm tra hệ thống với số lượng lớn dữ liệu để đảm bảo không chậm trễ.
+Volume testing checks the system with large data volumes to ensure no delay.
+[B1]
+Người dùng hoạt động mỗi tuần là số người dùng duy nhất tương tác với sản phẩm trong tuần.
+Weekly active users is the number of unique users interacting with the product in a week.
+[B2]
+Kế hoạch truyền thông xác định ai nhận thông tin gì, khi nào và qua kênh nào trong dự án.
+Communication plan defines who receives what information, when, and via which channel in the project.
+[B1]
+Chuyên viên khoa học dữ liệu xây dựng mô hình học máy để dự đoán và phân loại.
+Data scientist builds machine learning models for prediction and classification.
+[B2]
+Lợi ích sống sót là cơ sở pháp lý khi xử lý dữ liệu cần thiết để bảo vệ mạng sống.
+Vital interest is the legal basis when data processing is needed to protect life.
+[B1]
+Khả năng quan sát giúp kỹ sư hiểu trạng thái hệ thống thông qua nhật ký, chỉ số và vết trải.
+Observability lets engineers understand system state via logs, metrics, and traces.
+[B2]
+Vite cung cấp môi trường phát triển nhanh và tích hợp hỗ trợ TypeScript out of the box.
+Vite provides a fast development environment with built-in TypeScript support.
+[B1]
+Chúng tôi cần định nghĩa acceptance criteria rõ ràng cho tính năng này.
+We need to define clear acceptance criteria for this feature.
+[B2]
+Dịch vụ ứng dụng điều phối các tác vụ và gọi dịch vụ miền để thực hiện yêu cầu người dùng.
+Application service coordinates tasks and calls domain services to fulfill user requests.
+[B1]
+Chất lượng dữ liệu đo mức độ dữ liệu chính xác, đầy đủ và nhất quán.
+Data quality measures whether data is accurate, complete, and consistent.
+[B2]
+Dữ liệu cá nhân nhận dạng được bảo mật theo quy định GDPR.
+Personally identifiable information is protected under GDPR.
+[B1]
+HSTS bảo המח trình duyệt chỉ kết nối với website qua HTTPS trong thời gian quy định.
+HSTS forces the browser to connect to the website only via HTTPS for a set period.
+[B2]
+Kỹ sư dữ liệu xây dựng pipeline đưa dữ liệu thô về kho dữ liệu để phục vụ phân tích.
+Data engineer builds pipelines to move raw data into the data warehouse for analysis.
+[B1]
+Đường liên lạc khẩn cấp được thiết lập để xử lý sự cố sản xuất ngoài giờ làm việc.
+Emergency communication path is established to handle production incidents outside working hours.
+[B2]
+Tỷ lệ khách hàng rời đi là phần trăm khách hàng ngừng sử dụng sản phẩm trong một khoảng thời gian.
+Churn rate is the percentage of customers stopping product use in a period.
+[B1]
+Lợi nhuận là doanh thu trừ tất cả chi phí trong một khoảng thời gian.
+Profit is revenue minus all costs in a period.
+[B2]
+Chứng chỉ số xác thực danh tính của trang web trước khi thiết lập kết nối bảo mật.
+The digital certificate verifies the website identity before establishing a secure connection.
+[B1]
+Kỹ sư chất lượng phần mềm viết các bài kiểm thử tự động để đảm bảo sản phẩm ổn định.
+QA engineer writes automated tests to ensure product stability.
+[B2]
+Cuộc họp tất cả nhân viên được tổ chức毎 quý để chia sẻ tiến độ và chiến lược công ty.
+All-hands meetings are held quarterly to share progress and company strategy.
+[B1]
+Hướng dẫn làm việc là tài liệu chi tiết hướng dẫn nhân viên thực hiện công việc hàng ngày.
+Work instruction is detailed document guiding employees in daily tasks.
+[B2]
+Lazy loading tải hình ảnh chỉ khi chúng xuất hiện trên màn hình, cải thiện tốc độ khởi động.
+Lazy loading loads images only when they appear on screen, improving startup speed.
+[B1]
+Danh mục dữ liệu liệt kê tất cả các tập dữ liệu có sẵn trong tổ chức.
+Data catalog lists all available datasets in the organization.
+[B2]
+Quyền hạn phê duyệt ngân sách thuộc về giám đốc tài chính theo ma trận ủy thác quyền.
+Budget approval authority rests with the finance director per the delegation matrix.
+[B1]
+Tỷ lệ mua hàng lại là phần trăm khách hàng mua nhiều hơn một lần.
+Repeat purchase rate is the percentage of customers buying more than once.
+[B2]
+Nhà thiết kế giao diện người dùng tạo ra maquettes và mô phỏng trực quan cho ứng dụng.
+UI designer creates mockups and visual prototypes for the application.
+[B1]
+Định nghĩa bước liên kết các bước trong kịch bản với mã kiểm thử thực tế.
+Step definition links scenario steps to actual test code.
+[B2]
+Thành lập kết hợp dùng đối tượng khác làm thành phần thay vì kế thừa để tái sử dụng mã.
+Composition uses another object as a component instead of inheritance for code reuse.
+[B1]
+Tỷ lệ thoát hơi khách hàng tăng nhẹ, cần có chương trình giữ khách hàng.
+Customer churn rate increased slightly; we need a retention program.
+[B2]
+Technical debt đang gia tăng, cần dành thời gian refactor trong sprint tới.
+Technical debt is increasing; we need to allocate time for refactoring in the next sprint.
+[B1]
+Mẫu kho lưu trữ trung gian hóa truy cập dữ liệu và giúp kiểm thử dễ dàng hơn.
+Repository pattern abstracts data access and makes testing easier.
+[B2]
+Kiến trúc microservices giúp hệ thống mở rộng dễ dàng hơn.
+Microservices architecture makes the system easier to scale.
+[B1]
+TLS là giao thức bảo mật truyền thông qua internet phổ biến nhất hiện nay.
+TLS is the most popular internet communication security protocol today.
+[B2]
+Hướng dẫn là tài liệu bổ sung giải thích cách áp dụng chính sách hoặc thủ tục.
+Guideline is supplementary document explaining how to apply policy or procedure.
+[B1]
+Tuân thủ pháp luật đảm bảo doanh nghiệp hoạt động theo các quy định liên quan.
+Legal compliance ensures business operations follow relevant regulations.
+[B2]
+Mẫu peso nhẹ chia sẻ trạng thái chung giữa nhiều đối tượng tương tự để tiết kiệm bộ nhớ.
+Flyweight pattern shares common state among similar objects to save memory.
+[B1]
+README phải chứa hướng dẫn cài đặt, cấu hình và chạy dự án cục bộ.
+README must contain installation, configuration, and local run instructions.
+[B2]
+Phiên bản này được đánh dấu là ổn định và có thể dùng cho môi trường sản xuất.
+This version is marked stable and usable in production.
+[B1]
+Public key dùng để mã hóa, private key dùng để giải mã thông điệp.
+Public key is used to encrypt; private key is used to decrypt messages.
+[B2]
+Dữ liệu tham chiếu cho biết nguồn gốc và luồng di chuyển của dữ liệu qua các hệ thống.
+Data lineage shows the origin and movement of data across systems.
+[B1]
+Bản đồ người quan tâm liệt kê tất cả các bên có liên quan và mức độ ảnh hưởng của họ đến dự án.
+Stakeholder map lists all parties involved and their influence level on the project.
+[B2]
+Load balancing phân phối lưu lượng giữa nhiều máy chủ để tránh quá tải.
+Load balancing distributes traffic across multiple servers to avoid overload.
+[B1]
+Tối thiểu hóa dữ liệu chỉ thu thập dữ liệu cần thiết cho mục đích cụ thể.
+Data minimization collects only data necessary for a specific purpose.
+[B2]
+Tiêm phụ thuộc cung cấp đối tượng phụ thuộc từ bên ngoài thay vì tạo bên trong lớp.
+Dependency injection provides dependent objects from outside instead of creating inside the class.
+[B1]
+Kiểm soát nội bộ là các quy trình giúp ngăn chặn lỗi và gian lận trong doanh nghiệp.
+Internal control consists of processes to prevent errors and fraud in the company.
+[B2]
+Giá trị đơn hàng trung bình là tổng doanh thu chia số đơn hàng.
+Average order value is total revenue divided by number of orders.
+[B1]
+Kiểm thử đun sreau tải hệ thống trong thời gian dài để phát hiện rò rỉ bộ nhớ hoặc tài nguyên.
+Soak testing runs the system for a long time to detect memory or resource leaks.
+[B2]
+Từ điển dữ liệu định nghĩa ý nghĩa, định dạng và quy tắc cho mỗi trường dữ liệu.
+Data dictionary defines meaning, format, and rules for each data field.
+[B1]
+Quy tắc liên doanh là quy định nội bộ cho phép tập đoàn chuyển dữ liệu giữa các chi nhánh.
+Binding corporate rules are internal rules allowing group data transfer between branches.
+[B1]
+Tôi muốn đặt một phòng cho hai đêm.
+I want to book a room for two nights.
+[B2]
+Phòng này có bao nhiêu tiền một đêm?
+How much is this room per night?
+[B1]
+Tôi đã đặt phòng qua ứng dụng trước đó.
+I booked the room via the app earlier.
+[B2]
+Bạn có thể giữ hành lý cho tôi sau khi trả phòng không?
+Can you keep my luggage after check-out?
+[B1]
+Tôi cần gọi taxi để đi sân bay.
+I need to call a taxi to the airport.
+[B2]
+Xe buýt đến sân bay chạy mỗi mười phút một lần.
+The airport bus runs every ten minutes.
+[B1]
+Tôi muốn mua một vé đi một chỗ đến Đà Nẵng.
+I want to buy a one-way ticket to Da Nang.
+[B2]
+Chuyến tàu này có dừng ở Quảng Trị không?
+Does this train stop at Quang Tri?
+[B1]
+Tôi muốn thay chỗ ngồi gần cửa sổ hơn.
+I want to change to a window seat.
+[B2]
+Bạn có thể chỉ đường đến chợ gần nhất không?
+Can you show me the way to the nearest market?
+[B1]
+Đi thẳng rồi rẽ trái sẽ thấy ngân hàng.
+Go straight then turn left to see the bank.
+[B2]
+Cửa hàng này mở cửa từ tám giờ sáng đến tám giờ tối.
+This store opens from 8 a.m. to 8 p.m.
+[B1]
+Tôi muốn trả tiền bằng thẻ tín dụng.
+I want to pay by credit card.
+[B2]
+Bạn có tiền trả lại không?
+Do you have change?
+[B1]
+Hàng này quá đắt, bạn có thể giảm giá không?
+This item is too expensive, can you give a discount?
+[B2]
+Tôi muốn mua hai chiếc áo cỡ lớn.
+I want to buy two large shirts.
+[B1]
+Phòng thay đồ nằm ở phía sau quầy thu ngân.
+The fitting room is behind the cashier counter.
+[B2]
+Hóa đơn của bạn đã được in ra.
+Your receipt has been printed.
+[B1]
+Tôi muốn đăng ký gói internet gia đình.
+I want to register for a home internet plan.
+[B2]
+Tốc độ mạng ở nhà tôi quá chậm.
+The internet speed at my house is too slow.
+[B1]
+Kỹ sư sẽ đến hôm mai để lắp đặt modem.
+The technician will come tomorrow to install the modem.
+[B2]
+Tôi muốn đóng tiền điện tháng này.
+I want to pay this month's electricity bill.
+[B1]
+Số tiền cần thanh toán là hai trăm nghìn đồng.
+The amount to pay is two hundred thousand dong.
+[B2]
+Tôi muốn đặt lịch hẹn với bác sĩ nội khoa.
+I need to make an appointment with an internal medicine doctor.
+[B1]
+Bác sĩ khuyên tôi nên uống thuốc sau bữa ăn.
+The doctor advised me to take medicine after meals.
+[B2]
+Tôi muốn kiểm tra tổng quát sức khỏe năm này.
+I want a general health checkup this year.
+[B1]
+Kết quả xét nghiệm sẽ được ra trong ba ngày.
+Test results will be available in three days.
+[B2]
+Tôi cần mua thuốc để trị ho và đau họng.
+I need to buy medicine for cough and sore throat.
+[B1]
+Nhà thuốc này mở cửa cho đến mười giờ tối.
+This pharmacy is open until 10 p.m.
+[B2]
+Tôi muốn mở tài khoản tiết kiệm tại ngân hàng này.
+I want to open a savings account at this bank.
+[B1]
+Tài khoản này có lãi suất năm bao nhiêu phần trăm?
+What is the annual interest rate for this account?
+[B2]
+Tôi muốn chuyển tiền đến đồng nghiệp tại thành phố khác.
+I want to transfer money to a colleague in another city.
+[B1]
+Bạn có thể giúp tôi rút tiền từ máy ATM không?
+Can you help me withdraw money from the ATM?
+[B2]
+Mật khẩu thẻ của tôi đã bị khóa.
+My card PIN has been locked.
+[B1]
+Tôi cần báo thẻ bị mất ngay lập tức.
+I need to report the lost card immediately.
+[B2]
+Tôi muốn mua bảo hiểm y tế cho gia đình.
+I want to buy health insurance for my family.
+[B1]
+Hồ sơ bảo hiểm này sẽ có hiệu lực từ tháng tới.
+This insurance policy takes effect next month.
+[B2]
+Tôi muốn gửi con đi mẫu giáo khu vực gần nhà.
+I want to send my child to a nearby kindergarten.
+[B1]
+Học phí học kỳ này là mười triệu đồng.
+Tuition for this semester is ten million dong.
+[B2]
+Giáo viên rất thích ý tưởng của các em học sinh.
+The teacher really likes the students' ideas.
+[B1]
+Tôi cần nộp bài tập nhóm trước thứ Sáu này.
+I need to submit the group assignment before this Friday.
+[B2]
+Thư viện công cộng mở cửa vào thứ Ba đến Chủ Nhật.
+The public library opens Tuesday to Sunday.
+[B1]
+Tôi muốn mượn cuốn sách về lịch sử Việt Nam.
+I want to borrow a book about Vietnamese history.
+[B2]
+Thẻ thư viện của tôi sẽ hết hạn sau sáu tháng.
+My library card expires in six months.
+[B1]
+Tôi muốn mua vé xem phim rạp chiều nay.
+I want to buy a movie ticket for tonight's show.
+[B2]
+Ghế này đang được đặt cho người khác.
+This seat is reserved for someone else.
+[B1]
+Tôi muốn đăng ký học khóa tiếng Anh trực tuyến.
+I want to register for an online English course.
+[B2]
+Lớp học diễn ra vào tối thứ Ba và thứ Sáu.
+The class meets on Tuesday and Thursday evenings.
+[B1]
+Giảng viên là người bản ngữ từ Anh.
+The instructor is a native speaker from England.
+[B2]
+Tôi cần học thêm từ vựng giao tiếp thường ngày.
+I need to learn more daily communication vocabulary.
+[B1]
+Chứng chỉ này được công nhận quốc tế.
+This certificate is internationally recognized.
+[B2]
+Ứng dụng này giúp tôi nhớ từ vựng tốt hơn.
+This app helps me remember vocabulary better.
+[B1]
+Tôi muốn đặt món ăn đồ uống qua ứng dụng giao hàng.
+I want to order food and drinks via the delivery app.
+[B2]
+Món ăn này có cay không?
+Is this dish spicy?
+[B1]
+Tôi muốn gọi món salad và nước ép cam.
+I want to order salad and orange juice.
+[B2]
+Tổng số tiền đơn hàng là một trăm tám nghìn đồng.
+The total order amount is one hundred eighty thousand dong.
+[B1]
+Giao hàng miễn phí cho đơn trên hai trăm nghìn đồng.
+Free delivery for orders over two hundred thousand dong.
+[B2]
+Thực đơn này có thông tin dinh dưỡng không?
+Does this menu have nutritional information?
+[B1]
+Tôi muốn mua thực phẩm tươi sống tại chợ.
+I want to buy fresh food at the market.
+[B2]
+Kilogram táo này có bao nhiêu tiền?
+How much is a kilogram of apples?
+[B1]
+Tôi muốn mua nửa kilogram thịt bò.
+I want to buy half a kilogram of beef.
+[B2]
+Hàng ở quầy này ngon và rẻ hơn siêu thị.
+Goods at this stall are tastier and cheaper than the supermarket.
+[B1]
+Giặt là hai nghìn đồng mỗi kilogram.
+Laundry is two thousand dong per kilogram.
+[B2]
+Tôi sẽ nhận lại quần áo vào ngày thứ Ba.
+I will pick up the clothes on Tuesday.
+[B1]
+Tôi muốn cắt tóc ngắn hơn lần trước.
+I want a shorter haircut than last time.
+[B2]
+Tôi muốn làm móng tay và móng chân spa.
+I want a manicure and pedicure spa.
+[B1]
+Tôi muốn mua vé xem diễn nhạc cổ điển.
+I want to buy a ticket for the classical music concert.
+[B2]
+Vị trí ngồi số năm nằm ở hàng giữa.
+Seat number five is in the middle row.
+[B1]
+Tôi muốn đặt chỗ ăn tối cho hai người lúc bảy giờ tối.
+I want to reserve dinner for two at seven p.m.
+[B2]
+Bàn này được đặt cho khách đã đặt trước.
+This table is reserved for a guest with a reservation.
+[B1]
+Tôi muốn gọi món steak độ tốt.
+I want to order a well-done steak.
+[B2]
+Nhân viên phục vụ rất thân thiện và nhanh chóng.
+The waitstaff are friendly and quick.
+[B1]
+Tôi muốn kiểm tra số dư tài khoản trên ứng dụng ngân hàng.
+I want to check my account balance on the banking app.
+[B2]
+Tôi cần cập nhật số điện thoại trong hồ sơ ngân hàng.
+I need to update my phone number in the bank profile.
+[B1]
+Tôi muốn đóng gói quà cho sinh nhật bạn tôi.
+I want to wrap a gift for my friend's birthday.
+[B2]
+Giấy bọc quà và dây xếp xinh ở quầy này.
+Wrapping paper and ribbons are pretty at this counter.
+[B1]
+Tôi muốn gửi bưu phẩm đến thành phố Hồ Chí Minh.
+I want to send a parcel to Ho Chi Minh City.
+[B2]
+Phi vụ gửi bưu phẩm này là ba mươi nghìn đồng.
+The shipping fee for this parcel is thirty thousand dong.
+[B1]
+Hàng sẽ được giao trong vòng hai đến ba ngày làm việc.
+The item will be delivered within two to three working days.
+[B2]
+Tôi muốn theo dõi đơn hàng trên ứng dụng bưu điện.
+I want to track the order on the postal app.
+[B1]
+Tôi muốn thay bóng đèn được xuống tường nhà.
+I want to replace the wall light bulb in the house.
+[B2]
+Tôi cần gọi thợ sửa ống nước trong nhà.
+I need to call a plumber to fix the house water pipe.
+[B1]
+Vòi nước bồn rửa đang chảy nhẹ và cần sửa chữa.
+The sink faucet is leaking slightly and needs repair.
+[B2]
+Tôi muốn mua bóng đèn trần màu trắng cho phòng khách.
+I want to buy a white ceiling light for the living room.
+[B1]
+Điều hòa gia đình này rất êm ái và ít tiếng ồn.
+This home air conditioner is quiet and comfortable.
+[B2]
+Tôi muốn mua lò vi sóng nấu ăn nhanh.
+I want to buy a microwave for quick cooking.
+[B1]
+Tủ lạnh hai cửa này có dung tích bốn trăm lít.
+This two-door refrigerator has a four-hundred-liter capacity.
+[B2]
+Máy giặt này có chức năng sấy áo thêm.
+This washing machine has a dryer function too.
+[B1]
+Tôi muốn mua hút bụi robot để dọn nhà tự động.
+I want to buy a robot vacuum to clean the house automatically.
+[B2]
+Tôi muốn đặt lịch cắt cỏ vườn hàng tuần.
+I want to schedule weekly lawn mowing.
+[B1]
+Tôi muốn mua cây trồng trong nhà để sưởi ấm không gian.
+I want to buy houseplants to warm up the space.
+[B2]
+Tôi muốn thêu chữ tên lên áo khoác này.
+I want to embroider the name on this jacket.
+[B1]
+Tôi muốn mua kính râm bảo vệ mắt từ nắng.
+I want to buy sunglasses to protect eyes from sun.
+[B2]
+Tôi muốn mua ô mưa nhỏ để bỏ trong balo.
+I want to buy a small umbrella to put in the backpack.
+[B1]
+Tôi muốn mua thuốc cảm cúm tại nhà thuốc.
+I want to buy cold and flu medicine at the pharmacy.
+[B2]
+Tôi muốn mua vitamin C mỗi ngày.
+I want to buy vitamin C every day.
+[B1]
+Tôi muốn mua xe đạp thể thao cho con tôi.
+I want to buy a sports bicycle for my child.
+[B2]
+Xe đạp này có bảy mức số và phanh đĩa.
+This bicycle has seven gears and disc brakes.
+[B1]
+Tôi muốn bảo dưỡng xe máy hôm nay.
+I want to service the motorbike today.
+[B2]
+Dầu động cơ cần được thay sau mỗi ba nghìn kilômét.
+Engine oil needs changing every three thousand kilometers.
+[B1]
+Tôi muốn mua lốp xe mới cho xe ô tô.
+I want to buy new tires for the car.
+[B2]
+Tôi muốn mua vé tàu cao tốc đi Huế ngày mai.
+I want to buy a high-speed train ticket to Hue tomorrow.
+[B1]
+Chuyến tàu này xuất phát từ ga Sài Gòn lúc bảy giờ sáng.
+This train departs from Saigon station at seven a.m.
+[B2]
+Tôi muốn đặt phòng khách sạn gần bến xe miền đông.
+I want to book a hotel near the eastern bus station.
+[B1]
+Khách sạn này có bể bơi trên tầng trệt.
+This hotel has a rooftop swimming pool.
+[B2]
+Tôi muốn hủy đặt phòng và nhận lại tiền đặt cọc.
+I want to cancel the room booking and get the deposit back.
+[B1]
+Quy định hủy bỏ yêu cầu thông báo trước hai mươi bốn giờ.
+Cancellation policy requires twenty-four hours notice.
+[B2]
+Tôi muốn mua vé vào cửa bảo tàng lịch sử quốc gia.
+I want to buy an entrance ticket to the national history museum.
+[B1]
+Vé miễn phí cho trẻ em dưới sáu tuổi.
+Free admission for children under six.
+[B2]
+Tôi muốn tham gia tour tham quan thành phố một ngày.
+I want to join a one-day city tour.
+[B1]
+Hướng dẫn viên du lịch nói tiếng Anh rất tốt.
+The tour guide speaks English very well.
+[B2]
+Tôi muốn mua đồ lưu niệm tại cửa hàng bảo tàng.
+I want to buy souvenirs at the museum shop.
+[B1]
+Tôi muốn đăng ký tham gia marathon thành phố năm tới.
+I want to register for the city marathon next year.
+[B2]
+Giải chạy này diễn ra vào sáng Chủ Nhật.
+The race takes place on Sunday morning.
+[B1]
+Tôi muốn học nấu ăn món Việt tại lớp học nấu.
+I want to learn Vietnamese cooking at a cooking class.
+[B2]
+Tôi muốn mua dụng cụ nấu ăn từ thép không gỉ.
+I want to buy stainless steel cookware.
+[B1]
+Chảo này không dính và dễ rửa sau khi sử dụng.
+This pan is non-stick and easy to wash after use.
+[B2]
+Tôi muốn mua bộ dao bếp bao gồm ba chiếc dao.
+I want to buy a kitchen knife set with three knives.
+[B1]
+Tôi muốn mua bình lọc nước lắp trực trên vòi.
+I want to buy a faucet-mounted water filter.
+[B2]
+Tôi muốn mua máy hút mùi bếp để giảm mùi nấu ăn.
+I want to buy a kitchen range hood to reduce cooking smell.
+[B1]
+Tôi muốn mua bếp từ điện từ thay vì bếp gas.
+I want to buy an induction cooktop instead of gas stove.
+[B2]
+Tôi muốn mua tủ đá mini để đặt ở phòng ngủ.
+I want to buy a mini fridge for the bedroom.
+[B1]
+Tôi muốn mua máy pha cà phê phin mỗi sáng.
+I want to buy a phin coffee maker every morning.
+[B2]
+Tôi muốn mua bình nước uống giữ nhiệt hai mươi bốn giờ.
+I want to buy a twenty-four-hour thermal water bottle.
+[B1]
+Tôi muốn mua vali xách tay cho chuyến đi ngắn.
+I want to buy a carry-on suitcase for a short trip.
+[B2]
+Vali này có bốn bánh xe và khóa mã an toàn.
+This suitcase has four wheels and a combination lock.
+[B1]
+Tôi muốn mua balo du lịch chống nước cho leo núi.
+I want to buy a waterproof travel backpack for hiking.
+[B2]
+Tôi muốn mua giày leo núi chống thấm và êm chân.
+I want to buy waterproof and comfortable hiking shoes.
+[B1]
+Tôi muốn mua lều camping cho hai người.
+I want to buy a two-person camping tent.
+[B2]
+Tôi muốn mua giường ngủ gấp để dạo trại.
+I want to buy a folding camp bed.
+[B1]
+Tôi muốn mua bao ngủ chống lạnh xuống đến mười độ.
+I want to buy a sleeping bag cold-resistant down to ten degrees.
+[B2]
+Tôi muốn mua nồi cơm điện cần cho gia đình nhỏ.
+I want to buy a rice cooker suitable for a small family.
+[B1]
+Tôi muốn mua sữa tươi không đường cho con tôi.
+I want to buy unsweetened fresh milk for my child.
+[B2]
+Tôi muốn mua bánh mì kẹp thịt và rau tại quán ăn này.
+I want to buy a meat and vegetable sandwich at this eatery.
+[B1]
+Tôi muốn mua trà đá không đường khi đi ăn ngoài.
+I want to buy unsweetened iced tea when eating out.
+[B2]
+Tôi muốn mua cà phê đen không đường mỗi sáng.
+I want to buy black coffee without sugar every morning.
+[B1]
+Tôi muốn mua rượu vang đỏ cho bữa tiệc cuối tuần.
+I want to buy red wine for the weekend party.
+[B2]
+Tôi muốn mua kem đánh răng có flúor.
+I want to buy fluoride toothpaste.
+[B1]
+Tôi muốn mua giấy vệ sinh mượt và dày thêm lớp.
+I want to buy soft and thick multi-layer toilet paper.
+[B2]
+Tôi muốn mua xà tichia tắm dịu nhạt cho da nhạy cảm.
+I want to buy mild body wash for sensitive skin.
+[B1]
+Tôi muốn mua dầu gội chống rụng tóc hiệu quả.
+I want to buy effective anti-hair-loss shampoo.
+[B2]
+Tôi muốn mua kem chống nắng chỉ số ba mươi.
+I want to buy SPF 30 sunscreen.
+[B1]
+Tôi muốn mua mask kháng khuẩn để đi công sở.
+I want to buy antibacterial masks to go to the office.
+[B2]
+Tôi muốn mua gel rửa tay không cần nước.
+I want to buy no-water hand sanitizer gel.
+[B1]
+Tôi muốn mua khăn giấy sưởi để lau bàn ăn.
+I want to buy absorbent paper towels to wipe the dining table.
+[B2]
+Tôi muốn mua rửa bát tẩy béo mạnh mẽ.
+I want to buy strong degreasing dishwashing liquid.
+[B1]
+Tôi muốn mua bột giặt thân thiện môi trường.
+I want to buy environmentally friendly laundry detergent.
+[B2]
+Tôi muốn mua nắp vòi nước tiết kiệm nước.
+I want to buy a water-saving faucet aerator.
+[B1]
+Tôi muốn mua bóng đèn LED tiết kiệm năng lượng.
+I want to buy energy-saving LED bulbs.
+[B2]
+Tôi muốn mua dây cút điện hai mét cho phòng làm việc.
+I want to buy a two-meter extension cord for the office.
+[B1]
+Tôi muốn mua pin sạc dự phòng cho điện thoại.
+I want to buy a power bank for the phone.
+[B2]
+Tôi muốn mua cáp sạc nhanh loại C cho máy tính bảng.
+I want to buy a fast charging type-C cable for the tablet.
+[B1]
+Tôi muốn mua tai nghe không dây nghe nhạc trên xe buýt.
+I want to buy wireless headphones to listen to music on the bus.
+[B2]
+Tôi muốn mua loa bluetooth mang theo ngoài trời.
+I want to buy a bluetooth speaker to take outdoors.
+[B1]
+Tôi muốn mua đồng hồ đếm ngược nấu ăn.
+I want to buy a cooking countdown timer.
+[B2]
+Tôi muốn mua máy đo huyết áp bám tay để kiểm tra sức khỏe.
+I want to buy a wrist blood pressure monitor to check health.
+[B1]
+Tôi muốn mua máy đo đường huyết tại nhà thuốc.
+I want to buy a blood glucose meter at the pharmacy.
+[B2]
+Tôi muốn mua thẻ nhớ chín mươi sáu gigabyte cho máy ảnh.
+I want to buy a 64 gigabyte memory card for the camera.
+[B1]
+Tôi muốn mua ổ cứng ngoài hai terabyte để sao lưu dữ liệu.
+I want to buy a two-terabyte external hard drive to back up data.
+[B2]
+Tôi muốn mua cáp chuyển đổi USB-C sang HDMI.
+I want to buy a USB-C to HDMI adapter cable.
+[B1]
+Tôi muốn mua giá đỡ điện thoại đặt trên bàn làm việc.
+I want to buy a phone stand for the desk.
+[B2]
+Tôi muốn mua màn hình máy tính hai mươi chín inch.
+I want to buy a twenty-nine inch computer monitor.
+[B1]
+Tôi muốn mua bàn làm việc gỗ tự nhiên cho phòng học.
+I want to buy a natural wood study desk for the study room.
+[B2]
+Tôi muốn mua đèn bàn led có ba mức độ sáng.
+I want to buy an LED desk lamp with three brightness levels.
+[B1]
+Tôi muốn mua chậu cây nhựa để trồng cây cảnh.
+I want to buy a plastic pot to grow ornamental plants.
+[B2]
+Tôi muốn mua túi rác phân loại tại nhà.
+I want to buy sorting trash bags for home.
+[B1]
+Tôi muốn mua bình xịt tiêu diệt khuẩn bề mặt.
+I want to buy a surface disinfectant spray bottle.
+[B2]
+Tôi muốn mua khăn lau bìa sách không làm hư bìa.
+I want to buy a book cover cleaning cloth that does not damage the cover.
+[B1]
+Tôi muốn mua hộp đựng thuốc tuần cho người già.
+I want to buy a weekly pill box for the elderly.
+[B2]
+Tôi muốn mua thanh đeo dù khi đi xe máy trong mưa.
+I want to buy an umbrella holder when riding a motorbike in the rain.
+[B1]
+Tôi muốn mua áo khoác thời tiết lạnh cho mùa đông.
+I want to buy a cold-weather jacket for winter.
+[B2]
+Tôi muốn mua giày thể thao chạy bộ êm ái.
+I want to buy comfortable running shoes.
+[B1]
+Tôi muốn mua túi xách da nam công sở thanh lịch.
+I want to buy a stylish leather men's office bag.
+[B2]
+Tôi muốn mua đồng hồ đeo tay chống nước cho nam.
+I want to buy a waterproof men's wristwatch.
+[B1]
+Tôi muốn mua ví da nữ đa ngăn để đựng thẻ và tiền.
+I want to buy a multi-compartment women's leather wallet for cards and money.
+[B2]
+Tôi muốn mua vòng cổ kim bạc đơn giản.
+I want to buy a simple silver necklace.
+[B1]
+Tôi muốn mua vé tham gia workshop tự do.
+I want to buy a ticket for the freelance workshop.
+[B2]
+Tôi muốn mua sách hướng dẫn tự học tiếng Nhật.
+I want to buy a self-study Japanese guidebook.
+[B1]
+Tôi muốn mua ebook về tâm lý học giao tiếp.
+I want to buy an ebook about communication psychology.
+[B2]
+Tôi muốn mua audiobook nghe trên đường đi làm.
+I want to buy an audiobook to listen to on the way to work.
+[B1]
+Tôi muốn mua đồng hồ thông minh đo nhịp tim.
+I want to buy a smartwatch that measures heart rate.
+[B2]
+Tôi muốn mua dụng cụ massage cơ sau tập gym.
+I want to buy a muscle massager after gym workout.
+[B1]
+Tôi muốn mua cuộn đeo tập yoga chống trượt.
+I want to buy a non-slip yoga mat.
+[B2]
+Tôi muốn mua kem dưỡng da sau khi tắm nắng.
+I want to buy after-sun skin care cream.
+[B1]
+Tôi muốn mua collagen hỗ trợ da và khớp xương.
+I want to buy collagen to support skin and joints.
+[B2]
+Tôi muốn mua biotin hỗ trợ móng và tóc khỏe mạnh.
+I want to buy biotin for strong nails and hair.
+[B1]
+Tôi muốn mua vitamin C tăng cường miễn dịch mùa đổi tiết.
+I want to buy vitamin C to boost immunity in seasonal change.
+[B2]
+Tôi muốn mua vitamin E chống oxy hóa bảo vệ da.
+I want to buy vitamin E antioxidant to protect skin.
+[B1]
+Tôi muốn mua omega-3 tốt cho tim mạch và não bộ.
+I want to buy omega-3 good for heart and brain.
+[B2]
+Tôi muốn mua kẽm hỗ trợ hệ miễn dịch cơ thể.
+I want to buy zinc to support the immune system.
+[B1]
+Tôi muốn mua canxi cốt xương cho người già.
+I want to buy calcium for bones for the elderly.
+[B2]
+Tôi muốn mua sắt bổ sung cho người thiếu máu.
+I want to buy iron supplements for anemia.
+[B1]
+Tôi muốn mua probiotic hỗ trợ đường ruột tiêu hóa.
+I want to buy probiotics to support digestive tract.
+[B2]
+Tôi muốn mua trà xanh hỗ trợ giảm cân tự nhiên.
+I want to buy green tea to support natural weight loss.
+[B1]
+Tôi muốn mua whey protein hỗ trợ tăng cơ.
+I want to buy whey protein to support muscle gain.
+[B2]
+Chúng tôi cần định nghĩa acceptance criteria rõ ràng cho tính năng này.
+We need to define clear acceptance criteria for this feature.
+[B1]
+Yêu cầu nghiệp vụ này chưa được ghi chép đầy đủ.
+This business requirement is not fully documented.
+[B2]
+Tôi sẽ viết user story cho sprint tới.
+I will write user stories for the next sprint.
+[B1]
+Hãy ưu tiên backlog dựa trên giá trị và rủi ro.
+Prioritize the backlog based on business value and risk.
+[B2]
+Cuộc họp stand-up hôm nay bắt đầu lúc 9 giờ sáng.
+Today's stand-up meeting starts at 9 a.m.
+[B1]
+Báo lỗi này cần được phân loại mức độ nghiêm trọng.
+This bug report needs to be classified by severity.
+[B2]
+Tôi sẽ triển khai API endpoint mới cho module thanh toán.
+I will implement a new API endpoint for the payment module.
+[B1]
+Query cơ sở dữ liệu này chạy chậm, cần tối ưu hóa index.
+This database query runs slowly and needs index optimization.
+[B2]
+Code review sẽ diễn ra buổi chiều qua Zoom.
+Code review will take place this afternoon over Zoom.
+[B1]
+Pull request đã được duyệt và sẵn sàng merge vào nhánh develop.
+The pull request has been approved and is ready to merge into develop.
+[B2]
+Khi triển khai, hãy giữ nguyên phiên bản cũ để rollback nhanh nếu cần.
+Keep the old version during deployment for quick rollback if needed.
+[B1]
+Kiến trúc microservices giúp hệ thống mở rộng dễ dàng hơn.
+Microservices architecture makes the system easier to scale.
+[B2]
+CI/CD pipeline tự động build, kiểm thử và triển khai mỗi commit.
+The CI/CD pipeline automatically builds, tests, and deploys on every commit.
+[B1]
+Technical debt đang gia tăng, cần dành thời gian refactor trong sprint tới.
+Technical debt is increasing; we need to allocate time for refactoring in the next sprint.
+[B2]
+Hệ thống heritage đang gặp vấn đề hiệu năng, chúng tôi đang lập kế hoạch di chuyển sang cloud.
+The legacy system is having performance issues; we are planning a migration to the cloud.
+[B1]
+Stakeholder yêu cầu thêm tính năng vào giữa sprint, điều này ảnh hưởng đến tiến độ.
+The stakeholder requested additional features mid-sprint, affecting the timeline.
+[B2]
+Hãy ước lượng effort cho từng câu chuyện người dùng bằng story points.
+Estimate effort for each user story in story points.
+[B1]
+UAT sẽ bắt đầu vào tuần tới sau khi kiểm thử nội bộ hoàn tất.
+UAT will start next week after internal testing is complete.
+[B2]
+Chúng tôi cần viết tài liệu hướng dẫn sử dụng cho khách hàng cuối cùng.
+We need to write end-user documentation.
+[B1]
+Release notes phải liệt kê tất cả thay đổi và lỗi đã sửa trong phiên bản này.
+Release notes must list all changes and bug fixes in this version.
+[B2]
+Hotfix sẽ được triển khai ngay lập tức để khắc phục lỗi nghiêm trọng trên sản xuất.
+A hotfix will be deployed immediately to fix a critical production bug.
+[B1]
+Merge conflict xảy ra khi hai lập trình viên sửa cùng một đoạn mã.
+A merge conflict occurs when two developers edit the same code segment.
+[B2]
+Hãy chạy regression test sau mỗi lần phát hành để đảm bảo không lỗi cũ lại xuất hiện.
+Run regression tests after each release to ensure old bugs do not reappear.
+[B1]
+Smoke test kiểm tra các chức năng cốt lõi trước khi kiểm thử chi tiết.
+Smoke testing checks core functions before detailed testing.
+[B2]
+Hệ thống có thể chịu tải lên đến 10.000 người dùng đồng thời.
+The system can handle up to 10,000 concurrent users.
+[B1]
+Latency của API này thấp hơn 200 milliseconds trong điều kiện bình thường.
+Latency for this API is under 200 milliseconds under normal conditions.
+[B2]
+Caching giúp giảm tải cho cơ sở dữ liệu và cải thiện thời gian phản hồi.
+Caching reduces database load and improves response time.
+[B1]
+Load balancing phân phối lưu lượng giữa nhiều máy chủ để tránh quá tải.
+Load balancing distributes traffic across multiple servers to avoid overload.
+[B2]
+Xác thực đa yếu tố tăng tính bảo mật cho tài khoản người dùng.
+Multi-factor authentication increases security for user accounts.
+[B1]
+Mã hóa dữ liệu nhạy cảm khi truyền qua mạng và khi lưu trữ.
+Encrypt sensitive data both in transit and at rest.
+[B2]
+Token JWT hết hạn sau 24 giờ, người dùng cần đăng nhập lại.
+The JWT token expires after 24 hours; the user must log in again.
+[B1]
+Vulnerability này cần được vá ngay lập tức theo quy trình bảo mật.
+This vulnerability must be patched immediately according to security process.
+[B2]
+Backup dữ liệu được thực hiện hàng đêm và lưu trữ ngoại địa.
+Data backup is performed daily and stored off-site.
+[B1]
+Disaster recovery plan xác định RTO là 4 giờ và RPO là 1 giờ.
+The disaster recovery plan defines RTO of 4 hours and RPO of 1 hour.
+[B2]
+SLAcam kết thời gian phản hồi trong vòng 1 giờ cho sự cố cấp độ 1.
+The SLA commits to a 1-hour response time for level-1 incidents.
+[B1]
+Postmortem sau sự cố sẽ ghi lại nguyên nhân gốc rễ và các hành động khắc phục.
+The postmortem after the incident will record root cause and corrective actions.
+[B2]
+RCA dùng kỹ thuật 5 tại sao để tìm ra nguyên nhân thực sự của sự cố.
+RCA uses the 5 Whys technique to find the real cause of the incident.
+[B1]
+Dashboard giám sát hiển thị các chỉ số hiệu năng của hệ thống theo thời gian thực.
+The monitoring dashboard displays real-time system performance metrics.
+[B2]
+Cảnh báo sẽ được gửi qua Slack và email khi hệ thống ngừng hoạt động.
+Alerts will be sent via Slack and email when the system is down.
+[B1]
+Tài liệu thiết kế kỹ thuật cần được cập nhật sau mỗi lần thay đổi kiến trúc.
+Technical design documentation must be updated after every architecture change.
+[B2]
+README phải chứa hướng dẫn cài đặt, cấu hình và chạy dự án cục bộ.
+README must contain installation, configuration, and local run instructions.
+[B1]
+Changelog ghi lại danh sách tính năng mới và lỗi đã sửa theo từng phiên bản.
+Changelog lists new features and bug fixes per version.
+[B2]
+Semantic versioning sử dụng định dạng major.minor.patch để quản lý phiên bản.
+Semantic versioning uses major.minor.patch format to manage versions.
+[B1]
+CI/CD tự động hóa quy trình phát hành phần mềm từ code đến sản xuất.
+CI/CD automates the software release process from code to production.
+[B2]
+Container hóa giúp ứng dụng chạy đồng nhất trên nhiều môi trường.
+Containerization helps the application run consistently across environments.
+[B1]
+Orchestration quản lý vòng đời của các container trong cụm Kubernetes.
+Orchestration manages the container lifecycle in a Kubernetes cluster.
+[B2]
+Microservice này phụ thuộc vào hai dịch vụ khác để xử lý yêu cầu.
+This microservice depends on two other services to process requests.
+[B1]
+Endpoint RESTful này trả về danh sách sản phẩm theo định dạng JSON.
+This RESTful endpoint returns a product list in JSON format.
+[B2]
+GraphQL cho phép client yêu cầu chính xác dữ liệu họ cần mà không dư thừa.
+GraphQL lets clients request exactly the data they need without over-fetching.
+[B1]
+WebSocket duy trì kết nối hai chiều giữa client và server theo thời gian thực.
+WebSocket maintains a two-way connection between client and server in real time.
+[B2]
+Mã trạng thái HTTP 404 có nghĩa là tài nguyên không tìm thấy.
+HTTP status code 404 means the resource was not found.
+[B1]
+Payload của yêu cầu chứa thông tin người dùng cần cập nhật.
+The request payload contains user information to update.
+[B2]
+Cookie phiên làm việc được lưu trữ trên trình duyệt của khách hàng.
+The session cookie is stored on the customer's browser.
+[B1]
+OAuth2 cho phép đăng nhập bằng tài khoản bên thứ ba mà không chia sẻ mật khẩu.
+OAuth2 allows login via third-party accounts without sharing passwords.
+[B2]
+SSO giúp người dùng truy cập nhiều ứng dụng với một lần đăng nhập duy nhất.
+SSO lets users access multiple applications with a single sign-on.
+[B1]
+MFA yêu cầu thêm yếu tố xác thực ngoài mật khẩu, ví dụ mã OTP.
+MFA requires an additional authentication factor beyond password, e.g. OTP code.
+[B2]
+SSL/TLS bảo vệ dữ liệu truyền qua mạng khỏi bị nghe lén.
+SSL/TLS protects data in transit from eavesdropping.
+[B1]
+Chứng chỉ số xác thực danh tính của trang web trước khi thiết lập kết nối bảo mật.
+The digital certificate verifies the website identity before establishing a secure connection.
+[B2]
+Public key dùng để mã hóa, private key dùng để giải mã thông điệp.
+Public key is used to encrypt; private key is used to decrypt messages.
+[B1]
+Chữ ký số đảm bảo tính toàn vẹn và nguồn gốc của tài liệu điện tử.
+Digital signature ensures integrity and origin of electronic documents.
+[B2]
+Firewall chặn lưu lượng trái phép từ mạng bên ngoài vào hệ thống nội bộ.
+Firewall blocks unauthorized traffic from external networks into the internal system.
+[B1]
+IDS phát hiện các dấu hiệu tấn công và gửi cảnh báo cho đội bảo mật.
+IDS detects signs of attack and alerts the security team.
+[B2]
+Phân quyền dựa trên vai trò giúp kiểm soát ai có thể truy cập dữ liệu gì.
+Role-based access control helps manage who can access what data.
+[B1]
+Dữ liệu cá nhân nhận dạng được bảo mật theo quy định GDPR.
+Personally identifiable information is protected under GDPR.
+[B2]
+Anonymization loại bỏ thông tin nhận dạng để không thể truy vết về cá nhân.
+Anonymization removes identifying information so individuals cannot be traced.
+[B1]
+Pseudonymization thay thế thông tin nhận dạng bằng mã giả để bảo vệ quyền riêng tư.
+Pseudonymization replaces identifying information with pseudonyms to protect privacy.
+[B2]
+Quản trị dữ liệu quy định ai sở hữu, qui trông và sử dụng dữ liệu trong tổ chức.
+Data governance defines who owns, stewards, and uses data in the organization.
+[B1]
+Dữ liệu tham chiếu cho biết nguồn gốc và luồng di chuyển của dữ liệu qua các hệ thống.
+Data lineage shows the origin and movement of data across systems.
+[B2]
+Chất lượng dữ liệu kém ảnh hưởng trực tiếp đến quyết định kinh doanh.
+Poor data quality directly affects business decisions.
+[B1]
+Dữ liệu thiếu hoặc sai sẽ làm sai lệch kết quả phân tích và báo cáo.
+Missing or incorrect data will skew analysis and report results.
+[B2]
+ETL trích xuất, chuyển đổi và tải dữ liệu từ nguồn vào kho dữ liệu.
+ETL extracts, transforms, and loads data from sources into the data warehouse.
+[B1]
+Kho dữ liệu lưu trữ dữ liệu lịch sử phục vụ phân tích và báo cáo quản trị.
+Data warehouse stores historical data for analysis and management reporting.
+[B2]
+Data lake lưu trữ dữ liệu thô ở định dạng gốc trước khi xử lý.
+Data lake stores raw data in native format before processing.
+[B1]
+Học máy được sử dụng để dự đoán xu hướng doanh thu trong quý tới.
+Machine learning is used to forecast revenue trends for the next quarter.
+[B2]
+Mô hình dự đoán cần được đào tạo lại định kỳ để duy trì độ chính xác.
+The prediction model needs periodic retraining to maintain accuracy.
+[B1]
+Độ chính xác của mô hình phân loại đạt 92% trên tập kiểm thử.
+The classification model accuracy reaches 92% on the test set.
+[B2]
+Báo cáo này tóm tắt các chỉ số kinh doanh chính trong tháng qua.
+This report summarizes key business metrics for the past month.
+[B1]
+KPI này đo lường tỷ lệ khách hàng quay lại mua hàng lần thứ hai.
+This KPI measures the repeat purchase rate.
+[B2]
+OKR không chỉ đặt mục tiêu mà còn định nghĩa kết quả chính có thể đo lường.
+OKR not only sets objectives but also defines measurable key results.
+[B1]
+ROI của dự án này dương sau sáu tháng vận hành.
+The project ROI is positive after six months of operation.
+[B2]
+Tỷ lệ thoát hơi khách hàng tăng nhẹ, cần có chương trình giữ khách hàng.
+Customer churn rate increased slightly; we need a retention program.
+[B1]
+Phân khúc khách hàng này có tiềm năng cao cho việc upsell dịch vụ cao cấp.
+This customer segment has high potential for premium service upsell.
+[B2]
+Thử nghiệm A/B so sánh hai phiên bản giao diện để xác định phiên bản chuyển đổi tốt hơn.
+A/B testing compares two UI versions to determine which converts better.
+[B1]
+Giải thuyết đánh đổi giữa hiệu năng và chi phí giúp lãnh đạo quyết định kiến trúc phù hợp.
+Explaining the trade-off between performance and cost helps leadership choose the right architecture.
+[B2]
+Tóm tắt cuộc họp sẽ được gửi đến tất cả người tham dự trong vòng 24 giờ.
+The meeting summary will be sent to all attendees within 24 hours.
+[B1]
+Hành động cần theo dõi sau cuộc họp sẽ được ghi lại và chỉ định người phụ trách.
+Action items from the meeting will be recorded and assigned owners.
+[B2]
+Tiến độ dự án hiện đang chậm hơn kế hoạch khoảng một tuần.
+Project progress is about one week behind schedule.
+[B1]
+Rủi ro chính của dự án là thiếu nhân sự có kỹ năng chuyên sâu về bảo mật.
+The main project risk is a shortage of staff with deep security skills.
+[B2]
+Phải giảm phạm vi tính năng để giao đúng hạn phát hành đã cam kết.
+Feature scope must be reduced to deliver on the committed release date.
+[B1]
+Tài khoản khách hàng này cần được kích hoạt lại sau khi bị khóa do nhập sai mật khẩu nhiều lần.
+This customer account needs reactivation after being locked due to multiple wrong password attempts.
+[B2]
+Hãy cập nhật trạng thái ticket này thành đang xử lý và chỉ định cho kỹ sư soporte.
+Update this ticket status to in progress and assign it to the support engineer.
+[B1]
+Mốc này đánh dấu hoàn tất giai đoạn thiết kế và chuyển sang giai đoạn phát triển.
+This milestone marks the completion of design and transition to development.
+[B2]
+Lộ trình sản phẩm trong sáu tháng tới tập trung vào tính năng trên thiết bị di động.
+The product roadmap for the next six months focuses on mobile features.
+[B1]
+Phản hồi từ khách hàng dùng beta sẽ được thu thập để cải thiện sản phẩm trước khi ra mắt chính thức.
+Beta user feedback will be collected to improve the product before official launch.
+[B2]
+Dogfood là việc équipe nội bộ sử dụng sản phẩm trước khi phát hành cho khách hàng.
+Dogfooding is when the internal team uses the product before releasing to customers.
+[B1]
+Canary release chỉ triển khai phiên bản mới cho một nhóm nhỏ người dùng đầu tiên.
+Canary release deploys the new version to a small group of users first.
+[B2]
+Feature flag cho phép bật/tắt tính năng mà không cần triển khai lại mã nguồn.
+Feature flag allows enabling/disabling a feature without redeploying code.
+[B1]
+Dark launch đưa tính năng mới vào sản xuất nhưng ẩn trước khi chính thức công bố.
+Dark launch puts a new feature into production but hidden before official announcement.
+[B2]
+Tôi muốn tóm tắt cuộc họp thành bullet points ngắn gọn.
+I want to summarize the meeting into concise bullet points.
+[B1]
+Tôi cần viết email thông báo deadline nộp yêu cầu cho đội.
+I need to write an email announcing the requirement submission deadline to the team.
+[B2]
+Tôi sẽ trình bày demo sản phẩm cho khách hàng vào tuần tới.
+I will present the product demo to the customer next week.
+[B1]
+Hãy ghi lại minutes của cuộc họp và phân phối cho tất cả thành viên.
+Please record the meeting minutes and distribute them to all members.
+[B2]
+Tôi cần cập nhật Jira ticket với trạng thái mới nhất hôm nay.
+I need to update the Jira ticket with the latest status today.
+[B1]
+Chúng tôi sẽ tổ chức retrospective sau sprint để rút kinh nghiệm.
+We will hold a retrospective after the sprint to draw lessons learned.
+[B2]
+Tôi cần xem lại pull request của đồng nghiệp trước khi merge.
+I need to review my colleague's pull request before merging.
+[B1]
+Hãy viết test case cho tính năng mới này trước khi phát triển.
+Please write test cases for this new feature before development.
+[B2]
+Tôi cần chuẩn bị slide trình bày cho cuộc họp khách hàng ngày mai.
+I need to prepare presentation slides for the customer meeting tomorrow.
+[B1]
+Chúng tôi đang thu thập yêu cầu từ stakeholder cho giai đoạn sau.
+We are gathering requirements from stakeholders for the next phase.
+[B2]
+Tôi cần ước lượng thời gian hoàn thành cho từng task trong sprint này.
+I need to estimate the completion time for each task in this sprint.
+[B1]
+Hãy viết user story theo định dạng As a, I want, So that.
+Please write user stories in the As a, I want, So that format.
+[B2]
+Tôi cần giao phân công việc cho các thành viên trong nhóm phát triển.
+I need to assign work to the members in the development team.
+[B1]
+Chúng tôi sẽ triển khai bản beta cho nhóm khách hàng chọn lọc.
+We will deploy the beta version to a selected group of customers.
+[B2]
+Tôi cần viết tài liệu hướng dẫn API cho đội phát triển phía trước.
+I need to write API documentation for the front-end development team.
+[B1]
+Hãy theo dõi progress của dự án và báo cáo hàng tuần.
+Please track the project progress and report weekly.
+[B2]
+Tôi cần xử lý các lỗi severity cao trong bản phát hành này.
+I need to handle high-severity bugs in this release.
+[B1]
+Chúng tôi sẽ tổ chức code review định kỳ mỗi thứ Ba tuần.
+We will organize code reviews every Tuesday week.
+[B2]
+Tôi cần chuẩn bị báo cáo tiến độ cho ban lãnh đạo vào cuối tháng.
+I need to prepare the progress report for leadership at the end of the month.
+[B1]
+Hãy viết acceptance criteria chi tiết cho từng user story.
+Please write detailed acceptance criteria for each user story.
+[B2]
+Tôi cần truyền đạt thay đổi về yêu cầu cho tất cả các bên liên quan.
+I need to communicate requirement changes to all relevant parties.
+[B1]
+Chúng tôi sẽ thực hiện kiểm thử UAT với khách hàng chủ nhật tuần sau.
+We will perform UAT testing with the customer next Sunday.
+[B2]
+Tôi cần viết câu hỏi phỏng vấn cho ứng viên vị trí business analyst.
+I need to write interview questions for the business analyst position.
+[B1]
+Hãy phân tích tác động của yêu cầu mới lên kế hoạch hiện tại.
+Please analyze the impact of the new requirement on the current plan.
+[B2]
+Tôi cần tạo wireframe cho trang đăng nhập của ứng dụng.
+I need to create a wireframe for the application login page.
+[B1]
+Chúng tôi sẽ thảo luận về lựa chọn công nghệ trong họp kiến trúc.
+We will discuss technology selection in the architecture meeting.
+[B2]
+Tôi cần viết bản tóm tắt yêu cầu nghiệp vụ cho đội kỹ thuật.
+I need to write a business requirement summary for the engineering team.
+[B1]
+Hãy cập nhật backlog sản phẩm sau khi nhận phản hồi từ khách hàng.
+Please update the product backlog after receiving customer feedback.
+[B2]
+Tôi cần chuẩn bị danh sách câu hỏi cho cuộc họp clarification với khách hàng.
+I need to prepare a list of questions for the clarification meeting with the customer.
+[B1]
+Chúng tôi sẽ lên kế hoạch phát hành phiên bản mới vào quý tới.
+We will plan the new version release for next quarter.
+[B2]
+Tôi cần viết bản mô tả công việc cho vị trí developer mới tuyển.
+I need to write a job description for the newly hired developer position.
+[B1]
+Hãy đánh giá rủi ro của dự án và lập kế hoạch phản hồi.
+Please assess project risks and create a response plan.
+[B2]
+Tôi cần gửi email nhắc nhở deadline nộp bài cho các thành viên đội.
+I need to send reminder emails about the submission deadline to team members.
+[B1]
+Chúng tôi sẽ chạy thử nghiệm tải trước khi triển khai sản xuất.
+We will run load testing before deploying to production.
+[B2]
+Tôi cần viết bản tóm tắt cuộc họp bằng tiếng Anh cho đối tác nước ngoài.
+I need to write a meeting summary in English for foreign partners.
+[B1]
+Hãy xác nhận điểm mốc dự án đã hoàn thành theo đúng lịch trình.
+Please confirm the project milestones completed according to schedule.
+[B2]
+Tôi cần chuyển giao tài liệu dự án cho đội được hỗ trợ sau khi tôi nghỉ việc.
+I need to hand over project documents to the support team after I resign.
+[B1]
+Tôi muốn đặt lịch hẹn tắm cắt tại salon tóc.
+I want to book a haircut appointment at the salon.
+[B2]
+Tôi cần mua thuốc men định kỳ cho bệnh mãn tính.
+I need to buy regular prescription medicine for chronic disease.
+[B1]
+Tôi muốn thanh toán hóa đơn điện thoại qua ứng dụng.
+I want to pay the phone bill via the app.
+[B2]
+Tôi muốn đổi số điện thoại mới trên sim cũ.
+I want to change to a new phone number on the old SIM.
+[B1]
+Tôi cần mua thẻ cước dữ liệu cho chuyến du lịch.
+I need to buy a data top-up card for the trip.
+[B2]
+Tôi muốn đăng ký gói điện thoại di động hàng tháng.
+I want to register for a monthly mobile phone plan.
+[B1]
+Tôi muốn mua bìa bảo vệ cho điện thoại thông minh.
+I want to buy a protective case for the smartphone.
+[B2]
+Tôi muốn mua kẻo màn hình chống trầy xước.
+I want to buy a scratch-resistant screen protector.
+[B1]
+Tôi cần sạc đầy pin trước khi đi làm mỗi sáng.
+I need to fully charge the battery before going to work every morning.
+[B2]
+Tôi muốn tắt thông báo không cần thiết trên điện thoại.
+I want to turn off unnecessary notifications on the phone.
+[B1]
+Tôi muốn sao lưu ảnh lên đám mây hàng tuần.
+I want to back up photos to the cloud weekly.
+[B2]
+Tôi cần dọn bẩn bộ nhớ điện thoại vì không đủ dung lượng.
+I need to clean phone storage because there is not enough space.
+[B1]
+Tôi muốn cập nhật hệ điều hành điện thoại lên phiên bản mới.
+I want to update the phone operating system to the new version.
+[B2]
+Tôi muốn cài đặt ứng dụng ngân hàng từ cửa hàng ứng dụng.
+I want to install the banking app from the app store.
+[B1]
+Tôi cần đăng nhập bằng vân tay thay vì mật khẩu.
+I need to log in by fingerprint instead of password.
+[B2]
+Tôi muốn đặt lịch giao hàng vào thứ Ba chiều.
+I want to schedule delivery for Tuesday afternoon.
+[B1]
+Tôi cần kiểm tra trạng thái đơn hàng trên website.
+I need to check the order status on the website.
+[B2]
+Tôi muốn đổi trả hàng hóa vì kích thước không vừa.
+I want to exchange the item because the size does not fit.
+[B1]
+Tôi cần yêu cầu hoàn tiền cho đơn hàng bị hủy.
+I need to request a refund for the canceled order.
+[B2]
+Tôi muốn đánh giá sản phẩm sau khi sử dụng một tuần.
+I want to rate the product after using it for a week.
+[B1]
+Tôi cần liên hệ bộ phận chăm sóc khách hàng về vấn đề giao hàng.
+I need to contact customer service about the delivery issue.
+[B2]
+Tôi muốn mua vé xem thể thao tại sân vận động.
+I want to buy a sports ticket at the stadium.
+[B1]
+Tôi cần đăng ký tham gia lớp yoga buổi sáng thứ Ba.
+I need to register for the Tuesday morning yoga class.
+[B2]
+Tôi muốn mua thẻ thành viên của phòng tập thể dục.
+I want to buy a gym membership card.
+[B1]
+Tôi muốn mua áo bóng đá đội tuyển quốc gia.
+I want to buy the national football team jersey.
+[B2]
+Tôi cần mua vé xem phim rạp cuối tuần này.
+I need to buy a cinema ticket for this weekend.
+[B1]
+Tôi muốn mua palan nước uống cho gia đình.
+I want to buy a water dispenser for the family.
+[B2]
+Tôi cần mua lít nước đóng chai cho gia đình mỗi tuần.
+I need to buy liters of bottled water for the family every week.
+[B1]
+Tôi muốn mua bình lọc nước ngửa đầu vòi.
+I want to buy a faucet-mount water filter.
+[B2]
+Tôi muốn mua máy hút bụi ręt nhỏ cho phòng ngủ.
+I want to buy a small handheld vacuum for the bedroom.
+[B1]
+Tôi cần mua sách giáo khoa cho học kỳ mới.
+I need to buy textbooks for the new semester.
+[B2]
+Tôi muốn mua bút viết và vở ghi chép cho học tập.
+I want to buy pens and notebooks for studying.
+[B1]
+Tôi cần mua balo học sinh cho con tôi.
+I need to buy a school backpack for my child.
+[B2]
+Tôi muốn mua bút chì và cạo bút cho lớp học.
+I want to buy pencils and sharpeners for the class.
+[B1]
+Tôi muốn mua tua sách tiểu thuyết tiếng Anh gốc.
+I want to buy original English novels.
+[B2]
+Tôi cần mua từ điển Anh Việt cho học tập.
+I need to buy an English-Vietnamese dictionary for studying.
+[B1]
+Tôi muốn mua bìa mỏng bọc sách giáo khoa.
+I want to buy thin covers for textbooks.
+[B2]
+Tôi cần mua dowel keo dán giấy cho công việc.
+I need to buy paper glue for work.
+[B1]
+Tôi muốn mua kim cương dán notes trên bàn làm việc.
+I want to buy sticky notes on the desk.
+[B2]
+Tôi cần mua bìa hồ sơ để giấy tờ văn phòng.
+I need to buy file folders for office documents.
+[B1]
+Tôi muốn mua máy in màu cho văn phòng nhà.
+I want to buy a color printer for the home office.
+[B2]
+Tôi cần mua mực in cartridge cho máy in.
+I need to buy ink cartridges for the printer.
+[B1]
+Tôi muốn mua giấy in A4 cho văn phòng.
+I want to buy A4 printing paper for the office.
+[B2]
+Tôi cần mua bìa đựng CD và DVD lưu trữ dữ liệu.
+I need to buy CD and DVD cases for data storage.
+[B1]
+Tôi muốn mua cáp kết nối điện thoại với máy tính.
+I want to buy a cable connecting phone to computer.
+[B2]
+Tôi cần mua adaptor đa cổng cho máy tính xách tay.
+I need to buy a multiport adapter for the laptop.
+[B1]
+Tôi muốn mua túi đựng laptop chống sốc.
+I want to buy a shock-proof laptop bag.
+[B2]
+Tôi cần mua băng keo dính 사무 처리 công việc.
+undefined
+[B1]
+Tôi muốn mua kéo văn phòng trên bàn làm việc.
+I want to buy office scissors on the desk.
+[B2]
+Tôi cần mua bút đánh dấu màu cho tài liệu quan trọng.
+I need to buy highlighter pens for important documents.
+[B1]
+Tôi cần mua máy tính xách tay cho công việc từ xa.
+I need to buy a laptop for remote work.
+[B2]
+Tôi muốn mua bàn phím ngoài cho máy tính xách tay.
+I want to buy an external keyboard for the laptop.
+[B1]
+Tôi cần mua chuột không dây cho laptop.
+I need to buy a wireless mouse for the laptop.
+[B2]
+Tôi muốn mua đệm chuột lớn cho bàn làm việc.
+I want to buy a large mousepad for the desk.
+[B1]
+Tôi cần mua quai đeo tai nghe cho làm việc.
+I need to buy a headset for work.
+[B2]
+Tôi muốn mua webcam cho cuộc họp trực tuyến.
+I want to buy a webcam for online meetings.
+[B1]
+Tôi muốn mua áo vest công sở nam thanh lịch.
+I want to buy a stylish men's office suit jacket.
+[B2]
+Tôi cần mua áo sơ mi trắng đi làm mỗi ngày.
+I need to buy white shirts to wear to work every day.
+[B1]
+Tôi muốn mua quần kaki màu xám cho văn phòng.
+I want to buy gray khaki pants for the office.
+[B2]
+Tôi cần mua giày da nam đi công sở thời tiết lạnh.
+I need to buy men's leather shoes for the cold-weather office.
+[B1]
+Tôi muốn mua quần áo thể thao để đi tập gym.
+I want to buy sportswear to go to the gym.
+[B2]
+Tôi cần mua áo mưa chống nước cho mùa mưa.
+I need to buy a waterproof raincoat for the rainy season.
+[B1]
+Tôi muốn mua áo khoác len cho mùa đông lạnh.
+I want to buy a sweater for the cold winter.
+[B2]
+Tôi cần mua khăn tắm mềm cho gia đình.
+I need to buy soft towels for the family.
+[B1]
+Tôi muốn mua chăn nệm mát cho mùa hè nóng.
+I want to buy cool bedding for hot summer.
+[B2]
+Tôi muốn mua chăn bông dịu nhạt cho trẻ em.
+I want to buy a gentle cotton blanket for children.
+[B1]
+Tôi cần mua chậu hoa nhựa để trồng cây trong nhà.
+I need to buy plastic pots to grow plants indoors.
+[B2]
+Tôi muốn mua hạt giống rau ăn rau sạch tại nhà.
+I want to buy vegetable seeds to grow clean vegetables at home.
+[B1]
+Tôi cần mua phân bón hữu cơ cho cây trồng.
+I need to buy organic fertilizer for plants.
+[B2]
+Tôi muốn mua vòi tưới cây vườn nhỏ.
+I want to buy a small garden hose.
+[B1]
+Tôi muốn mua dao cắt cỏ vườn nhỏ.
+I want to buy a small grass cutter for the garden.
+[B2]
+Tôi cần mua bình xịt thuốc trừ sâu cho cây.
+I need to buy a pesticide spray bottle for plants.
+[B1]
+Tôi muốn mua ghế ngồi vườn ngoài trời.
+I want to buy outdoor garden chairs.
+[B2]
+Tôi cần mua bàn ăn ngoài trời cho sân nhà.
+I need to buy an outdoor dining table for the yard.
+[B1]
+Tôi muốn mua rèm cửa che nắng cho phòng ngủ.
+I want to buy blackout curtains for the bedroom.
+[B2]
+Tôi muốn mua đèn ngủ bedside cho phòng ngủ.
+I want to buy a bedside lamp for the bedroom.
+[B1]
+Tôi cần mua đồng hồ báo thức thức dậy sáng sớm.
+I need to buy an alarm clock to wake up early.
+[B2]
+Tôi muốn mua gương soi trang điểm cho nhà vệ sinh.
+I want to buy a makeup mirror for the bathroom.
+[B1]
+Tôi cần mua kệ tắm đặt đồ toilet trong nhà vệ sinh.
+I need to buy a bathroom shelf for toilet items.
+[B2]
+Tôi muốn mua khay đựng xà tichia và kem đánh răng.
+I want to buy a tray for soap and toothpaste.
+[B1]
+Tôi cần mua chậu nước rửa tay trong nhà vệ sinh khách.
+I need to buy a hand-wash basin in the guest bathroom.
+[B2]
+Tôi muốn mua vòi sen tắm đảo mặt trời.
+I want to buy a solar shower head.
+[B1]
+Tôi cần mua bình nóng lạnh cho nhà vệ sinh.
+I need to buy a water heater for the bathroom.
+[B2]
+Tôi cần mua bát ăn và đũa cho gia đình.
+I need to buy bowls and chopsticks for the family.
+[B1]
+Tôi muốn mua đĩa đĩa trang trí cho bữa tiệc.
+I want to buy decorative plates for the party.
+[B2]
+Tôi cần mua nồi nấu Inox cho nhà bếp.
+I need to buy stainless steel cookware for the kitchen.
+[B1]
+Tôi cần mua thìa nấu và cho muối để nấu ăn.
+I need to buy cooking spoons and salt shakers for cooking.
+[B2]
+Tôi cần mua tuồng nêm gia vị trong nhà bếp.
+I need to buy seasoning containers in the kitchen.
+[B1]
+Tôi muốn mua tủ lạnh nhỏ cho phòng ngủ con.
+I want to buy a small fridge for the child's bedroom.
+[B2]
+Tôi cần mua lò nướng nhỏ cho bếp gia đình.
+I need to buy a small oven for the family kitchen.
+[B1]
+Tôi muốn mua máy xay sinh tố cho sinh thức sáng.
+I want to buy a blender for morning smoothies.
+[B2]
+Tôi cần mua máy ép trái cây cho nước ép tươi.
+I need to buy a juicer for fresh juice.
+[B1]
+Tôi muốn mua nồi cơm điện lớn cho gia đình đông người.
+I want to buy a large rice cooker for a big family.
+[B2]
+Tôi cần mua chảo vapor hấp dim sum cho bữa sáng.
+I need to buy a steamer pan for dim sum breakfast.
+[B1]
+Tôi cần mua bộ dao cắt thực phẩm cho nhà bếp.
+I need to buy kitchen food cutting knives.
+[B2]
+Tôi muốn mua tảng cắt thực phẩm nhựa an toàn.
+I want to buy a safe plastic cutting board.
+[B1]
+Tôi cần mua hộp đựng thức ăn để bảo quản tủ lạnh.
+I need to buy food storage containers for the fridge.
+[B2]
+Tôi muốn mua túi nilon đựng thực phẩm đựng lạnh.
+I want to buy plastic bags for frozen food.
+[B1]
+Tôi cần mua nhựa bọc thực phẩm bảo quản tươi.
+I need to buy food wrap to keep fresh.
+[B2]
+Tôi muốn mua lá chum lý đá نگ.
+undefined
+[B1]
+Tôi muốn mua nắp nồi thay thế cho nồi cũ.
+I want to buy replacement lids for old pots.
+[B2]
+Tôi cần mua tay cầm nồi chịu nhiệt để bám nồi nóng.
+I need heat-resistant pot holders to hold hot pots.
+[B1]
+Tôi muốn mua g valeurs múa bếp.
+undefined
+[B1]
+Tôi muốn mua bông tẩy trang cho da mặt.
+I want to buy cotton pads for the face.
+[B2]
+Tôi muốn mua kem dưỡng dem cho ban đêm.
+I want to buy night moisturizing cream.
+[B1]
+Tôi cần mua serum vitamin C cho da sáng hơn.
+I need to buy vitamin C serum for brighter skin.
+[B2]
+Tôi muốn mua nước hoa hương thơm nhẹ.
+I want to buy a lightly scented perfume.
+[B1]
+Tôi cần mua máy xông mặt hơi nước cho da.
+I need to buy a facial steamer for the skin.
+[B2]
+Tôi muốn mua mascara cho mi lông dài hơn.
+I want to buy mascara for longer eyelashes.
+[B1]
+Tôi cần mua son dưỡng môi chống khô.
+I need to buy moisturizing lipstick against dryness.
+[B2]
+Tôi muốn mua máy cắt tóc cho gia đình sử dụng.
+I want to buy a hair clipper for family use.
+[B1]
+Tôi muốn mua tỉa móng chân chuyên nghiệp.
+I want to buy a professional toenail clipper.
+[B2]
+Tôi cần mua bọc đựng thuốc tuần cho người già.
+I need to buy a weekly medicine box for the elderly.
+[B1]
+Tôi muốn mua máy đo nhịp tim trên cổ tay.
+I want to buy a wrist heart rate monitor.
+[B2]
+Tôi cần mua bao cao su an toàn cho người lớn.
+I need to buy safe condoms for adults.
+[B1]
+Tôi muốn mua khăn tắm biển khô nhanh.
+I want to buy a quick-dry beach towel.
+[B2]
+Tôi cần mua kính bơi khi đi hồ bơi.
+I need to buy swimming goggles for the pool.
+[B1]
+Tôi muốn mua áo bơi chống nắng cho biển.
+I want to buy sun-protective swimwear for the beach.
+[B2]
+Tôi cần mua máy hút mùi phòng tắm nhỏ.
+I need to buy a small bathroom exhaust fan.
+[B1]
+Tôi muốn mua bồn tắm nhỏ cho nhà vệ sinh.
+I want to buy a small bathtub for the bathroom.
+[B2]
+Tôi cần mua kệ đựng xà phòng tắm nhỏ.
+I need to buy a small soap shelf for bathing.
+[B1]
+Tôi muốn mua khay đựng đồ dùng toilet nhỏ.
+I want to buy a small tray for toilet items.
+[B2]
+Tôi muốn mua cây số phòng khách lớn.
+I want to buy a large living room wall clock.
+[B1]
+Tôi cần mua rèm cửa voan cho phòng ngủ.
+I need to buy voile curtains for the bedroom.
+[B2]
+Tôi muốn mua trần quạt phòng ngủ siêu êm.
+I want to buy a super quiet bedroom ceiling fan.
+[B1]
+Tôi cần mua điều hòa sưởi lạnh hai chiều.
+I need to buy a two-way heating and cooling air conditioner.
+[B2]
+Tôi muốn mua máy lọc không khí cho phòng ngủ.
+I want to buy an air purifier for the bedroom.
+[B1]
+Tôi muốn mua máy bơm hơi xe đạp và xe máy.
+I want to buy an air pump for bicycles and motorbikes.
+[B2]
+Tôi cần mua bỉm rửa xe máy tại nhà.
+I need to buy a motorbike washing brush at home.
+[B1]
+Tôi muốn mua bo góc bàn để trẻ em an toàn.
+I want to buy table corner guards for child safety.
+[B2]
+Tôi cần mua khóa cửa an toàn cho cửa chính.
+I need to buy a security lock for the main door.
+[B1]
+Tôi muốn mua chuông cửa không dây hiện đại.
+I want to buy a modern wireless doorbell.
+[B2]
+Tôi cần mua camera bảo vệ nội bộ nhà ở.
+I need to buy an indoor home security camera.
+[B1]
+Tôi muốn mua báo cháy cảm biến khói.
+I want to buy a smoke sensor fire alarm.
+[B2]
+Tôi cần mua bình chữa cháy khô cho nhà.
+I need to buy a dry fire extinguisher for the house.
+[B1]
+Tôi muốn mua cửa sổ ngăn âm cho phòng ngủ.
+I want to buy soundproof windows for the bedroom.
+[B2]
+Tôi cần mua kín khe cửa sổ để giữ nhiệt.
+I need to buy window seals to keep heat.
+[B1]
+Tôi cần viết email thông báo deadline nộp yêu cầu cho đội.
+I need to write an email announcing the requirement submission deadline to the team.
+[B2]
+Tôi sẽ trình bày demo sản phẩm cho khách hàng vào tuần tới.
+I will present the product demo to the customer next week.
+[B1]
+Hãy ghi lại minutes của cuộc họp và phân phối cho tất cả thành viên.
+Please record the meeting minutes and distribute them to all members.
+[B2]
+Tôi cần cập nhật Jira ticket với trạng thái mới nhất hôm nay.
+I need to update the Jira ticket with the latest status today.
+[B1]
+Chúng tôi sẽ tổ chức retrospective sau sprint để rút kinh nghiệm.
+We will hold a retrospective after the sprint to draw lessons learned.
+[B2]
+Tôi cần xem lại pull request của đồng nghiệp trước khi merge.
+I need to review my colleague's pull request before merging.
+[B1]
+Hãy viết test case cho tính năng mới này trước khi phát triển.
+Please write test cases for this new feature before development.
+[B2]
+Tôi cần chuẩn bị slide trình bày cho cuộc họp khách hàng ngày mai.
+I need to prepare presentation slides for the customer meeting tomorrow.
+[B1]
+Chúng tôi đang thu thập yêu cầu từ stakeholder cho giai đoạn sau.
+We are gathering requirements from stakeholders for the next phase.
+[B2]
+Tôi cần ước lượng thời gian hoàn thành cho từng task trong sprint này.
+I need to estimate the completion time for each task in this sprint.
+[B1]
+Hãy viết user story theo định dạng As a, I want, So that.
+Please write user stories in the As a, I want, So that format.
+[B2]
+Tôi cần giao phân công việc cho các thành viên trong nhóm phát triển.
+I need to assign work to the members in the development team.
+[B1]
+Chúng tôi sẽ triển khai bản beta cho nhóm khách hàng chọn lọc.
+We will deploy the beta version to a selected group of customers.
+[B2]
+Tôi cần viết tài liệu hướng dẫn API cho đội phát triển phía trước.
+I need to write API documentation for the front-end development team.
+[B1]
+Hãy theo dõi progress của dự án và báo cáo hàng tuần.
+Please track the project progress and report weekly.
+[B2]
+Tôi cần xử lý các lỗi severity cao trong bản phát hành này.
+I need to handle high-severity bugs in this release.
+[B1]
+Chúng tôi sẽ tổ chức code review định kỳ mỗi thứ Ba tuần.
+We will organize code reviews every Tuesday week.
+[B2]
+Tôi cần chuẩn bị báo cáo tiến độ cho ban lãnh đạo vào cuối tháng.
+I need to prepare the progress report for leadership at the end of the month.
+[B1]
+Hãy viết acceptance criteria chi tiết cho từng user story.
+Please write detailed acceptance criteria for each user story.
+[B2]
+Tôi cần truyền đạt thay đổi về yêu cầu cho tất cả các bên liên quan.
+I need to communicate requirement changes to all relevant parties.
+[B1]
+Chúng tôi sẽ thực hiện kiểm thử UAT với khách hàng chủ nhật tuần sau.
+We will perform UAT testing with the customer next Sunday.
+[B2]
+Tôi cần viết câu hỏi phỏng vấn cho ứng viên vị trí business analyst.
+I need to write interview questions for the business analyst position.
+[B1]
+Hãy phân tích tác động của yêu cầu mới lên kế hoạch hiện tại.
+Please analyze the impact of the new requirement on the current plan.
+[B2]
+Tôi cần tạo wireframe cho trang đăng nhập của ứng dụng.
+I need to create a wireframe for the application login page.
+[B1]
+Chúng tôi sẽ thảo luận về lựa chọn công nghệ trong họp kiến trúc.
+We will discuss technology selection in the architecture meeting.
+[B2]
+Tôi cần viết bản tóm tắt yêu cầu nghiệp vụ cho đội kỹ thuật.
+I need to write a business requirement summary for the engineering team.
+[B1]
+Hãy cập nhật backlog sản phẩm sau khi nhận phản hồi từ khách hàng.
+Please update the product backlog after receiving customer feedback.
+[B2]
+Tôi cần chuẩn bị danh sách câu hỏi cho cuộc họp clarification với khách hàng.
+I need to prepare a list of questions for the clarification meeting with the customer.
+[B1]
+Chúng tôi sẽ lên kế hoạch phát hành phiên bản mới vào quý tới.
+We will plan the new version release for next quarter.
+[B2]
+Tôi cần viết bản mô tả công việc cho vị trí developer mới tuyển.
+I need to write a job description for the newly hired developer position.
+[B1]
+Hãy đánh giá rủi ro của dự án và lập kế hoạch phản hồi.
+Please assess project risks and create a response plan.
+[B2]
+Tôi cần gửi email nhắc nhở deadline nộp bài cho các thành viên đội.
+I need to send reminder emails about the submission deadline to team members.
+[B1]
+Chúng tôi sẽ chạy thử nghiệm tải trước khi triển khai sản xuất.
+We will run load testing before deploying to production.
+[B2]
+Tôi cần viết bản tóm tắt cuộc họp bằng tiếng Anh cho đối tác nước ngoài.
+I need to write a meeting summary in English for foreign partners.
+[B1]
+Hãy xác nhận điểm mốc dự án đã hoàn thành theo đúng lịch trình.
+Please confirm the project milestones completed according to schedule.
+[B2]
+Tôi cần chuyển giao tài liệu dự án cho đội được hỗ trợ sau khi tôi nghỉ việc.
+I need to hand over project documents to the support team after I resign.
+[B1]
+Tôi muốn tóm tắt cuộc họp thành bullet points ngắn gọn.
+I want to summarize the meeting into concise bullet points.

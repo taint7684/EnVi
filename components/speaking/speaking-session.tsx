@@ -10,17 +10,24 @@ import {
 import {
   ArrowLeft,
   ArrowRight,
+  CheckCircle2,
   Keyboard,
   Mic,
+  RefreshCw,
   Send,
   Square,
   Volume2,
+  XCircle,
 } from "lucide-react";
 
 import { endSpeakingSession } from "@/app/actions/speaking";
 import { useRecorder } from "@/hooks/use-recorder";
 import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis";
-import { getFallbackTopic } from "@/data/fallback-questions";
+import {
+  getLevelQuestions,
+  LEVEL_LABELS,
+  type Level,
+} from "@/data/speaking-questions-by-level";
 import type {
   SpeakingError,
   SpeakingNextAction,
@@ -31,16 +38,21 @@ type ChatMessage = {
   id: string;
   role: "user" | "ai";
   text: string;
+  questionIndex?: number;
   step?: number;
+  mode?: "topic" | "freespeak";
   feedback_vi?: string;
   errors?: SpeakingError[];
   improved_answer?: string;
   top_errors?: string[];
   key_phrases?: string[];
   reflex_questions?: string[];
+  sttMs?: number;
+  aiMs?: number;
 };
 
 const STEPS = ["Hỏi", "Kiểm tra", "Cải thiện", "Nói lại", "Tổng kết"];
+const TOTAL_QUESTIONS = 5;
 
 function makeId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -66,30 +78,46 @@ function mapNextAction(action: SpeakingNextAction): number {
 export function SpeakingSession({
   sessionId,
   topic,
+  topicId,
+  level,
   onEnd,
 }: {
   sessionId: string;
   topic: string;
+  topicId: string;
+  level: Level;
   onEnd: () => void;
 }) {
+  const [mode, setMode] = useState<"topic" | "freespeak">("topic");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [currentStep, setCurrentStep] = useState(1);
-  const [displayStep, setDisplayStep] = useState(1);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [loading, setLoading] = useState(false);
   const [transcribing, setTranscribing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [rateLimitRetry, setRateLimitRetry] = useState<{
     userMessage: string;
     step: number;
+    timestamp: number;
+    mode: "topic" | "freespeak";
   } | null>(null);
   const [fallbackMode, setFallbackMode] = useState(false);
   const [fallbackQuestionIndex, setFallbackQuestionIndex] = useState(0);
   const [fallbackAudioUrl, setFallbackAudioUrl] = useState<string | null>(null);
   const [textInput, setTextInput] = useState("");
   const [showTextInput, setShowTextInput] = useState(false);
+  const [sttMs, setSttMs] = useState<number | null>(null);
+  const [aiMs, setAiMs] = useState<number | null>(null);
+  const [transcript, setTranscript] = useState("");
+  const [showingTranscript, setShowingTranscript] = useState(false);
+  const [awaitingUserRepeat, setAwaitingUserRepeat] = useState(false);
+  const [questionCompleted, setQuestionCompleted] = useState(false);
+  const [showingQuestions, setShowingQuestions] = useState(true);
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const startedRef = useRef(false);
+  const lastSentRef = useRef<string | null>(null);
+  const sessionStartedRef = useRef(false);
 
   const {
     error: recorderError,
@@ -100,10 +128,22 @@ export function SpeakingSession({
 
   const { speak } = useSpeechSynthesis();
 
+  const currentTopicQuestions = mode === "topic"
+    ? getLevelQuestions(topicId, level).slice(0, TOTAL_QUESTIONS)
+    : [];
+  const currentQuestion = currentTopicQuestions[questionIndex];
+  const isLastQuestion = questionIndex >= TOTAL_QUESTIONS - 1;
+
   const requestAI = useCallback(
-    async (userMessage: string, step: number) => {
+    async (userMessage: string, step: number, currentMode: "topic" | "freespeak", qIndex: number) => {
+      if (lastSentRef.current === userMessage) return;
+      lastSentRef.current = userMessage;
+
       setLoading(true);
       setError(null);
+      setAiMs(null);
+
+      const aiStart = Date.now();
 
       try {
         const response = await fetch("/api/ai/speaking", {
@@ -114,6 +154,9 @@ export function SpeakingSession({
             currentStep: step,
             topic,
             userMessage,
+            mode: currentMode,
+            questionIndex: qIndex,
+            level,
           }),
         });
 
@@ -124,8 +167,11 @@ export function SpeakingSession({
 
         const data = (await response.json()) as {
           result: SpeakingTurnResult;
+          aiMs?: number;
         };
         const result = data.result;
+
+        setAiMs(data.aiMs ?? Date.now() - aiStart);
 
         setMessages((previous) => [
           ...previous,
@@ -133,7 +179,9 @@ export function SpeakingSession({
             id: makeId(),
             role: "ai",
             text: result.ai_response_en,
+            questionIndex: qIndex,
             step: result.step,
+            mode: result.mode ?? currentMode,
             feedback_vi: result.feedback_vi || undefined,
             errors: result.errors?.length ? result.errors : undefined,
             improved_answer: result.improved_answer || undefined,
@@ -146,11 +194,21 @@ export function SpeakingSession({
             reflex_questions: result.reflex_questions?.length
               ? result.reflex_questions
               : undefined,
+            aiMs: data.aiMs,
           },
         ]);
 
-        setDisplayStep(result.step);
-        setCurrentStep(mapNextAction(result.next_action));
+        setCurrentStep(result.step);
+
+        if (result.next_action === "done") {
+          setQuestionCompleted(true);
+          setAwaitingUserRepeat(false);
+        } else if (result.next_action === "request_retry") {
+          setAwaitingUserRepeat(true);
+        } else {
+          setAwaitingUserRepeat(false);
+        }
+
         speak(result.ai_response_en);
       } catch (cause) {
         const message =
@@ -160,7 +218,12 @@ export function SpeakingSession({
 
         if (isRateLimit) {
           setError(null);
-          setRateLimitRetry({ userMessage, step });
+          setRateLimitRetry({
+            userMessage,
+            step,
+            timestamp: Date.now(),
+            mode: currentMode,
+          });
         } else {
           setRateLimitRetry(null);
           setFallbackMode(false);
@@ -174,10 +237,12 @@ export function SpeakingSession({
   );
 
   useEffect(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
-    void requestAI("", 1);
-  }, [requestAI]);
+    if (mode !== "topic") return;
+    const timer = setTimeout(() => {
+      void requestAI(currentQuestion ?? "", 1, "topic", questionIndex);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [requestAI, mode, questionIndex, currentQuestion]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -190,18 +255,35 @@ export function SpeakingSession({
 
       setMessages((previous) => [
         ...previous,
-        { id: makeId(), role: "user", text: trimmed },
+        {
+          id: makeId(),
+          role: "user",
+          text: trimmed,
+          questionIndex,
+          mode,
+        },
       ]);
       setTextInput("");
-      void requestAI(trimmed, currentStep);
+      setSttMs(null);
+      setAiMs(null);
+      setShowingTranscript(false);
+      setTranscript("");
+      // Sau khi AI hỏi (bước 1), câu trả lời của user phải được đánh giá ở bước 2.
+      // Gửi currentStep + 1 để API build đúng prompt "kiểm tra" thay vì hỏi lại.
+      const stepForAI =
+        mode === "topic" ? Math.min(currentStep + 1, 5) : currentStep;
+      void requestAI(trimmed, stepForAI, mode, questionIndex);
     },
-    [currentStep, requestAI],
+    [currentStep, mode, questionIndex, requestAI],
   );
 
   const transcribeAndSend = useCallback(
     async (blob: Blob) => {
       setTranscribing(true);
       setError(null);
+      setSttMs(null);
+
+      const sttStart = Date.now();
 
       try {
         const formData = new FormData();
@@ -222,25 +304,38 @@ export function SpeakingSession({
         const data = (await response.json()) as { text: string };
         const text = data.text?.trim();
 
+        setSttMs(Date.now() - sttStart);
+
         if (!text) {
-          throw new Error(
+          setError(
             "Không nghe được giọng nói. Hãy thử lại hoặc nhập bằng bàn phím.",
           );
+          setTranscribing(false);
+          return;
         }
 
+        setTranscript(text);
+        setShowingTranscript(true);
         setTranscribing(false);
-        sendUserMessage(text);
       } catch (cause) {
         setTranscribing(false);
+        setSttMs(Date.now() - sttStart);
         setError(
           cause instanceof Error ? cause.message : "Có lỗi khi xử lý giọng nói.",
         );
       }
     },
-    [sendUserMessage],
+    [],
   );
 
   const handleToggleRecording = useCallback(async () => {
+    if (rateLimitRetry) {
+      const remaining = Math.max(0, 30000 - (Date.now() - rateLimitRetry.timestamp));
+      setError(
+        `AI đang bận. Vui lòng đợi ${Math.ceil(remaining / 1000)} giây nữa hoặc chọn “Chuyển sang chế độ Tự luyện tập”.`,
+      );
+      return;
+    }
     if (isRecording) {
       try {
         const blob = await stopRecording();
@@ -253,8 +348,35 @@ export function SpeakingSession({
       return;
     }
 
+    setTranscript("");
+    setShowingTranscript(false);
     await startRecording();
-  }, [isRecording, startRecording, stopRecording, transcribeAndSend]);
+  }, [isRecording, startRecording, stopRecording, transcribeAndSend, rateLimitRetry]);
+
+  const handleSendTranscript = useCallback(() => {
+    const text = (transcript || textInput || "").trim();
+    if (!text) return;
+    sendUserMessage(text);
+  }, [transcript, textInput, sendUserMessage]);
+
+  const handleManualSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    handleSendTranscript();
+  };
+
+  const handleNextQuestion = useCallback(() => {
+    if (questionIndex >= TOTAL_QUESTIONS - 1) return;
+    setQuestionIndex((prev) => prev + 1);
+    setCurrentStep(1);
+    setQuestionCompleted(false);
+    setAwaitingUserRepeat(false);
+    setTranscript("");
+    setShowingTranscript(false);
+    setError(null);
+    setSttMs(null);
+    setAiMs(null);
+    lastSentRef.current = null;
+  }, [questionIndex]);
 
   const handleEnd = useCallback(async () => {
     try {
@@ -264,11 +386,6 @@ export function SpeakingSession({
     }
     onEnd();
   }, [sessionId, onEnd]);
-
-  const handleManualSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    sendUserMessage(textInput);
-  };
 
   const handleFallbackToggleRecording = useCallback(async () => {
     if (isRecording) {
@@ -294,21 +411,41 @@ export function SpeakingSession({
   }, [fallbackAudioUrl]);
 
   const handleFallbackNext = useCallback(() => {
-    const topicInfo = getFallbackTopic(topic);
+    const questions = getLevelQuestions(topicId, level);
     const nextIndex =
-      fallbackQuestionIndex + 1 < topicInfo.questions.length
+      fallbackQuestionIndex + 1 < questions.length
         ? fallbackQuestionIndex + 1
         : 0;
     setFallbackQuestionIndex(nextIndex);
     setFallbackAudioUrl(null);
-  }, [fallbackQuestionIndex, topic]);
+  }, [fallbackQuestionIndex, topicId, level]);
 
   const handleRetryAI = useCallback(() => {
     setFallbackMode(false);
     setFallbackQuestionIndex(0);
     setFallbackAudioUrl(null);
     setRateLimitRetry(null);
+    setError(null);
+    lastSentRef.current = null;
   }, []);
+
+  const handleModeChange = useCallback((newMode: "topic" | "freespeak") => {
+    setMode(newMode);
+    setError(null);
+    setRateLimitRetry(null);
+    setSttMs(null);
+    setAiMs(null);
+    setTranscript("");
+    setShowingTranscript(false);
+    lastSentRef.current = null;
+    sessionStartedRef.current = false;
+  }, []);
+
+  const handleSpeakAI = useCallback((text: string) => {
+    speak(text);
+  }, [speak]);
+
+  const canSend = Boolean(transcript.trim() || textInput.trim()) && !loading && !transcribing;
 
   return (
     <div className="mx-auto flex max-w-2xl flex-col">
@@ -318,8 +455,38 @@ export function SpeakingSession({
             {topic}
           </h1>
           <p className="text-sm text-muted-foreground">
-            Bước {displayStep}/5 · {STEPS[displayStep - 1]}
+            {mode === "topic"
+              ? `Câu ${questionIndex + 1}/${TOTAL_QUESTIONS} · Bước ${currentStep}/5 · ${STEPS[currentStep - 1]}`
+              : "Nói tự do — AI sẽ trả lời và góp ý"}
           </p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">Chế độ:</span>
+          <div className="flex rounded-lg border border-border">
+            <button
+              type="button"
+              onClick={() => handleModeChange("topic")}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${
+                mode === "topic"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+            >
+              Theo chủ đề
+            </button>
+            <button
+              type="button"
+              onClick={() => handleModeChange("freespeak")}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${
+                mode === "freespeak"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+            >
+              Nói tự do
+            </button>
+          </div>
         </div>
 
         <button
@@ -332,25 +499,47 @@ export function SpeakingSession({
         </button>
       </div>
 
-      {!fallbackMode && (
-        <>
-          <div className="mb-4 flex gap-1">
-            {STEPS.map((label, index) => (
-              <div
-                key={label}
-                className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  index < displayStep ? "bg-primary" : "bg-muted"
-                }`}
-              />
+      {mode === "topic" && !fallbackMode && showingQuestions && (
+        <div className="mt-4 rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <h2 className="text-lg font-semibold text-foreground mb-2">
+            5 câu hỏi — {LEVEL_LABELS[level]}
+          </h2>
+          <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-6 mb-4">
+            {getLevelQuestions(topicId, level).map((q, i) => (
+              <li key={i}>{q}</li>
             ))}
-          </div>
+          </ul>
+          <button
+            type="button"
+            onClick={() => setShowingQuestions(false)}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Bắt đầu luyện
+          </button>
+        </div>
+      )}
 
+      {mode === "topic" && !fallbackMode && !showingQuestions && (
+        <div className="mb-4 flex gap-1">
+          {[...Array(TOTAL_QUESTIONS)].map((_, index) => (
+            <div
+              key={index}
+              className={`h-1.5 w-3 rounded-full transition-colors ${
+                index < questionIndex ? "bg-primary" : index === questionIndex ? "bg-primary/50" : "bg-muted"
+              }`}
+            />
+          ))}
+        </div>
+      )}
+
+      {!showingQuestions && (
+        <>
           <div className="flex min-h-[420px] max-h-[60vh] flex-col gap-3 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
             {messages.map((message) => (
               <MessageBubble
                 key={message.id}
                 message={message}
-                onSpeak={() => speak(message.text)}
+                onSpeak={() => handleSpeakAI(message.text)}
               />
             ))}
 
@@ -359,160 +548,251 @@ export function SpeakingSession({
               <TypingIndicator label="Đang nghe giọng nói" />
             ) : null}
 
+            {(sttMs !== null || aiMs !== null) && (
+              <div className="flex justify-start">
+                <div className="flex items-center gap-2 rounded-2xl rounded-bl-md border border-border bg-muted px-3 py-2 text-xs text-muted-foreground shadow-sm">
+                  {sttMs !== null && <span>Chép lời: {sttMs}ms</span>}
+                  {sttMs !== null && aiMs !== null && <span>·</span>}
+                  {aiMs !== null && <span>AI: {aiMs}ms</span>}
+                </div>
+              </div>
+            )}
+
             <div ref={bottomRef} />
           </div>
-        </>
-      )}
 
-      {rateLimitRetry ? (
-        <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex flex-col items-start gap-2">
-          <span>
-            AI đang bận một chút, bạn vui lòng đợi trong giây lát nhé!
-          </span>
-          <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                const { userMessage, step } = rateLimitRetry;
-                setRateLimitRetry(null);
-                void requestAI(userMessage, step);
-              }}
-              className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
-            >
-              Thử lại
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setRateLimitRetry(null);
-                setFallbackMode(true);
-              }}
-              className="text-sm font-medium text-blue-600 underline hover:text-blue-700"
-            >
-              Chuyển sang chế độ Tự luyện tập
-            </button>
-          </div>
-        </div>
-      ) : recorderError || error ? (
-        <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-          {recorderError ?? error}
-        </div>
-      ) : null}
+          {rateLimitRetry ? (
+            <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex flex-col items-start gap-2">
+              <span>
+                AI đang bận một chút. Vui lòng đợi trong giây lát nhé!
+              </span>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const { userMessage, step, mode: retryMode } = rateLimitRetry;
+                    setRateLimitRetry(null);
+                    setError(null);
+                    void requestAI(userMessage, step, retryMode, questionIndex);
+                  }}
+                  className="text-sm font-medium text-amber-700 underline hover:text-amber-800"
+                >
+                  Thử lại
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setRateLimitRetry(null);
+                    setError(null);
+                    setFallbackMode(true);
+                  }}
+                  className="text-sm font-medium text-blue-600 underline hover:text-blue-700"
+                >
+                  Tiếp tục tự luyện
+                </button>
+              </div>
+            </div>
+          ) : recorderError || error ? (
+            <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+              {recorderError ?? error}
+            </div>
+          ) : null}
 
-      {fallbackMode ? (
-        <div className="mt-3 flex flex-col items-center gap-4">
-          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
-            <p className="text-sm font-semibold text-foreground mb-4">
-              Câu hỏi {fallbackQuestionIndex + 1}/{
-              getFallbackTopic(topic).questions.length
-            }
-            </p>
-            <p className="text-lg text-foreground italic">
-              {"\""}
-              {getFallbackTopic(topic).questions[fallbackQuestionIndex]}
-              {"\""}
-            </p>
-          </div>
+          {fallbackMode ? (
+            <div className="mt-3 flex flex-col items-center gap-4">
+              <div className="rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-700 mb-2">
+                Chế độ tự luyện tập (AI tạm thời không khả năng). Bạn tự nghe câu
+                hỏi, ghi âm và phát lại để so sánh. Không có đánh giá AI.
+              </div>
+              <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
+                <p className="text-sm font-semibold text-foreground mb-4">
+                  Câu hỏi {fallbackQuestionIndex + 1}/{
+                    getLevelQuestions(topicId, level).length
+                  }
+                </p>
+                <p className="text-lg text-foreground italic">
+                  {"\""}
+                  {getLevelQuestions(topicId, level)[fallbackQuestionIndex]}
+                  {"\""}
+                </p>
+              </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={handleFallbackToggleRecording}
-              disabled={isRecording}
-              className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
-                isRecording
-                  ? "animate-pulse bg-red-500 hover:bg-red-600"
-                  : "bg-primary hover:bg-primary/90"
-              }`}
-            >
-              {isRecording ? (
-                <Square className="size-4" />
-              ) : (
-                <Mic className="size-4" />
-              )}
-              {isRecording ? "Dừng" : "Ghi âm"}
-            </button>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={handleFallbackToggleRecording}
+                  disabled={isRecording}
+                  className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                    isRecording
+                      ? "animate-pulse bg-red-500 hover:bg-red-600"
+                      : "bg-primary hover:bg-primary/90"
+                  }`}
+                >
+                  {isRecording ? (
+                    <Square className="size-4" />
+                  ) : (
+                    <Mic className="size-4" />
+                  )}
+                  {isRecording ? "Dừng" : "Ghi âm"}
+                </button>
 
-            {fallbackAudioUrl ? (
+                {fallbackAudioUrl ? (
+                  <button
+                    type="button"
+                    onClick={handleFallbackPlayback}
+                    className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    <Volume2 className="size-4" />
+                    Phát lại
+                  </button>
+                ) : null}
+
+                <button
+                  type="button"
+                  onClick={handleFallbackNext}
+                  disabled={isRecording}
+                  className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
+                >
+                  <ArrowRight className="size-4" />
+                  Tiếp theo
+                </button>
+              </div>
+
               <button
                 type="button"
-                onClick={handleFallbackPlayback}
+                onClick={handleRetryAI}
+                className="text-sm text-muted-foreground underline hover:text-foreground"
+              >
+                ← Thử kết nối lại AI
+              </button>
+            </div>
+          ) : null}
+
+          {!fallbackMode && showingTranscript && (
+            <div className="mt-3 flex flex-col gap-2">
+              <div className="rounded-lg border border-border bg-muted p-3">
+                <p className="text-xs font-semibold text-foreground mb-1">
+                  Bản chép lời nói của bạn
+                </p>
+                <form onSubmit={handleManualSubmit} className="flex gap-2">
+                  <input
+                    value={transcript}
+                    onChange={(event) => setTranscript(event.target.value)}
+                    placeholder="Sửa bản chép nếu cần..."
+                    className="h-10 flex-1 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
+                    disabled={loading || transcribing}
+                  />
+                  <button
+                    type="submit"
+                    disabled={
+                      !transcript.trim() || loading || transcribing
+                    }
+                    className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+                  >
+                    <Send className="size-4" />
+                    Gửi AI
+                  </button>
+                  </form>
+              </div>
+            </div>
+          )}
+          {showTextInput && (
+            <div className="rounded-lg border border-border bg-muted p-3">
+              <p className="text-xs font-semibold text-foreground mb-1">
+                Hoặc nhập bằng bàn phím
+              </p>
+              <form onSubmit={handleManualSubmit} className="flex gap-2">
+                <input
+                  value={textInput}
+                  onChange={(event) => setTextInput(event.target.value)}
+                  placeholder="Nhập câu trả lời bằng tiếng Anh..."
+                  className="h-10 flex-1 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
+                  disabled={loading || transcribing}
+                />
+                <button
+                  type="submit"
+                  disabled={
+                    !textInput.trim() || loading || transcribing
+                  }
+                  className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+                >
+                  <Send className="size-4" />
+                  Gửi AI
+                </button>
+              </form>
+            </div>
+          )}
+
+          {!fallbackMode && !showingTranscript && !loading && !transcribing && (
+            <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => void handleToggleRecording()}
+                disabled={!!rateLimitRetry || questionCompleted}
+                className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                  isRecording
+                    ? "animate-pulse bg-red-500 hover:bg-red-600"
+                    : "bg-primary hover:bg-primary/90"
+                }`}
+              >
+                {isRecording ? (
+                  <Square className="size-4" />
+                ) : (
+                  <Mic className="size-4" />
+                )}
+                {isRecording ? "Dừng thu âm" : "Ghi âm"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setShowTextInput((value) => !value)}
+                disabled={loading || transcribing}
                 className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
-                <Volume2 className="size-4" />
-                Phát lại
+                <Keyboard className="size-4" />
+                {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
               </button>
-            ) : null}
+            </div>
+          )}
 
-            <button
-              type="button"
-              onClick={handleFallbackNext}
-              disabled={isRecording}
-              className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
-            >
-              <ArrowRight className="size-4" />
-              Tiếp theo
-            </button>
-          </div>
+          {awaitingUserRepeat && !questionCompleted && !fallbackMode && (
+            <div className="mt-3 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700 flex flex-col items-start gap-2">
+              <span>
+                Hãy nói lại câu đã cải thiện ở trên. Khi xong, bấm Ghi âm và đọc
+                lại.
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  setAwaitingUserRepeat(false);
+                  setQuestionCompleted(true);
+                }}
+                className="text-sm font-medium text-green-700 underline hover:text-green-800"
+              >
+                Tôi đã nói lại, sang câu tiếp theo
+              </button>
+            </div>
+          )}
 
-          <button
-            type="button"
-            onClick={handleRetryAI}
-            className="text-sm text-muted-foreground underline hover:text-foreground"
-          >
-            ← Thử kết nối lại AI
-          </button>
-        </div>
-      ) : null}
+          {questionCompleted && !isLastQuestion && !fallbackMode && (
+            <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
+              <span>Câu {questionIndex + 1}/${TOTAL_QUESTIONS} đã hoàn thành.</span>
+              <button
+                type="button"
+                onClick={handleNextQuestion}
+                className="text-sm font-medium text-emerald-700 underline hover:text-emerald-800"
+              >
+                Sang câu tiếp theo
+              </button>
+            </div>
+          )}
 
-      {!fallbackMode && (showTextInput || recorderError) ? (
-        <form onSubmit={handleManualSubmit} className="mt-3 flex gap-2">
-          <input
-            value={textInput}
-            onChange={(event) => setTextInput(event.target.value)}
-            placeholder="Nhập câu trả lời bằng tiếng Anh..."
-            className="h-10 flex-1 rounded-xl border border-border bg-background px-3 text-sm outline-none focus:border-primary"
-          />
-          <button
-            type="submit"
-            disabled={!textInput.trim() || loading || transcribing}
-            className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
-          >
-            <Send className="size-4" />
-            Gửi
-          </button>
-        </form>
-      ) : null}
-
-      {!fallbackMode && (
-        <div className="mt-3 flex flex-wrap items-center justify-center gap-3">
-          <button
-            type="button"
-            onClick={() => void handleToggleRecording()}
-            disabled={loading || transcribing}
-            className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
-              isRecording
-                ? "animate-pulse bg-red-500 hover:bg-red-600"
-                : "bg-primary hover:bg-primary/90"
-            }`}
-          >
-            {isRecording ? (
-              <Square className="size-4" />
-            ) : (
-              <Mic className="size-4" />
-            )}
-            {isRecording ? "Dừng thu âm" : "Ghi âm"}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setShowTextInput((value) => !value)}
-            className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            <Keyboard className="size-4" />
-            {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
-          </button>
-        </div>
+          {questionCompleted && isLastQuestion && !fallbackMode && (
+            <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
+              <span>Đã luyện hết {TOTAL_QUESTIONS} câu. Buổi học kết thúc.</span>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
@@ -558,7 +838,9 @@ function MessageBubble({
 
         {message.errors && message.errors.length > 0 ? (
           <div className="mt-2 space-y-1.5 rounded-lg bg-red-50 px-3 py-2">
-            <p className="text-xs font-semibold text-red-700">Lỗi cần sửa</p>
+            <p className="text-xs font-semibold text-red-700">
+              Lỗi cần sửa (tối đa 2)
+            </p>
             {message.errors.map((item, index) => (
               <div key={index} className="text-sm">
                 <p className="text-red-700">

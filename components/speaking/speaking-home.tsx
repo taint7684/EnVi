@@ -1,9 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { startSpeakingSession } from "@/app/actions/speaking";
 import { SpeakingSession } from "./speaking-session";
 import topicsData from "@/data/speaking-topics.json";
+import {
+  SPEAKING_QUESTIONS_BY_LEVEL,
+  LEVEL_LABELS,
+  type Level,
+} from "@/data/speaking-questions-by-level";
 
 const GROUPS = topicsData.groups;
 
@@ -11,18 +16,26 @@ export function SpeakingHome() {
   const [session, setSession] = useState<{
     sessionId: string;
     topic: string;
+    topicId: string;
+    level: Level;
   } | null>(null);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [activeGroup, setActiveGroup] = useState(GROUPS[0].id);
+  const [activeLevel, setActiveLevel] = useState<Level>("A2");
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
 
-  async function start(topic: string) {
+  async function start(topicId: string, topicLabel: string, level: Level) {
     setStarting(true);
     setError(null);
 
     try {
       const { sessionId } = await startSpeakingSession();
-      setSession({ sessionId, topic });
+      if (!sessionId) {
+        setError("Server không trả về sessionId.");
+        return;
+      }
+      setSession({ sessionId, topic: topicLabel, topicId, level });
     } catch (cause) {
       setError(
         cause instanceof Error ? cause.message : "Không thể bắt đầu phiên.",
@@ -37,6 +50,8 @@ export function SpeakingHome() {
       <SpeakingSession
         sessionId={session.sessionId}
         topic={session.topic}
+        topicId={session.topicId}
+        level={session.level}
         onEnd={() => setSession(null)}
       />
     );
@@ -51,7 +66,7 @@ export function SpeakingHome() {
           AI Speaking Coach
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Chọn chủ đề để luyện nói 5 bước với AI
+          Chọn chủ đề, cấp độ và luyện nói 5 bước với AI
         </p>
       </div>
 
@@ -62,11 +77,14 @@ export function SpeakingHome() {
       ) : null}
 
       <div className="mb-6 flex gap-1 overflow-x-auto rounded-xl bg-muted p-1">
-        {GROUPS.map((group) => (
+        {GROUPS.map((group: (typeof topicsData.groups)[number]) => (
           <button
             key={group.id}
             type="button"
-            onClick={() => setActiveGroup(group.id)}
+            onClick={() => {
+              setActiveGroup(group.id);
+              setSelectedTopicId(null);
+            }}
             className={`flex-shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
               activeGroup === group.id
                 ? "bg-background text-foreground shadow-sm"
@@ -78,30 +96,86 @@ export function SpeakingHome() {
         ))}
       </div>
 
+      <div className="mb-6 flex items-center gap-4">
+        <span className="text-xs uppercase tracking-wide text-muted-foreground">
+          Cấp độ
+        </span>
+        <div className="flex rounded-lg border border-border">
+          {["A2", "B1", "B2"].map((level) => (
+            <button
+              key={level}
+              type="button"
+              onClick={() => setActiveLevel(level as Level)}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${
+                activeLevel === level
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+            >
+              {LEVEL_LABELS[level as Level]}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <p className="mb-3 text-xs uppercase tracking-wide text-muted-foreground">
         {currentGroup.nameEn} — {currentGroup.topics.length} chủ đề
       </p>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {currentGroup.topics.map((topic) => (
-          <button
-            key={topic.id}
-            type="button"
-            disabled={starting}
-            onClick={() => void start(topic.label)}
-            className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-4 text-left shadow-sm transition-colors hover:border-primary/40 hover:bg-accent/40 disabled:opacity-50"
-          >
-            <span className="text-2xl">{topic.emoji}</span>
-            <span className="flex-1">
-              <span className="block font-medium text-foreground">
-                {topic.label}
-              </span>
-              <span className="mt-0.5 block text-xs text-muted-foreground">
-                {topic.desc}
-              </span>
-            </span>
-          </button>
-        ))}
+        {currentGroup.topics.map((topic: (typeof currentGroup.topics)[number]) => {
+          const topicInfo = SPEAKING_QUESTIONS_BY_LEVEL.find(
+            (t) => t.id === topic.id,
+          );
+          const fiveQuestions =
+            topicInfo?.levels[activeLevel].slice(0, 5) ?? [];
+          const isSelected = selectedTopicId === topic.id;
+          return (
+            <div
+              key={topic.id}
+              className={`group flex flex-col items-start gap-3 rounded-2xl border p-4 text-left shadow-sm transition-colors ${
+                isSelected
+                  ? "border-primary bg-primary/5"
+                  : "border-border bg-card hover:border-primary/40 hover:bg-accent/40"
+              }`}
+              onClick={() => setSelectedTopicId(topic.id)}
+            >
+              <div className="flex items-start gap-3 w-full cursor-pointer">
+                <span className="text-2xl shrink-0">{topic.emoji}</span>
+                <span className="flex-1 min-w-0">
+                  <span className="block font-medium text-foreground">
+                    {topic.label}
+                  </span>
+                  <span className="mt-0.5 block text-xs text-muted-foreground truncate">
+                    {topic.desc}
+                  </span>
+                </span>
+              </div>
+
+              {isSelected && (
+                <div className="mt-3 w-full rounded-lg border border-border bg-muted p-3">
+                  <p className="text-xs font-semibold text-foreground mb-2">
+                    5 câu hỏi phổ biến — {LEVEL_LABELS[activeLevel]}
+                  </p>
+                  <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-4">
+                    {fiveQuestions.map((q, i) => (
+                      <li key={i}>{q}</li>
+                    ))}
+                  </ul>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      void start(topic.id, topic.label, activeLevel)
+                    }
+                    className="mt-2 inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                  >
+                    Bắt đầu luyện
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {starting ? (

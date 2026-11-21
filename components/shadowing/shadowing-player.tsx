@@ -14,6 +14,7 @@ type Props = {
 };
 
 const SPEEDS = [0.75, 1, 1.25, 1.5];
+const DEFAULT_YOUTUBE_ID = "dQw4w9WgXcQ";
 
 type Evaluation = {
   score: number;
@@ -27,6 +28,9 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
   const [useTTS, setUseTTS] = useState(false);
 
+  const isDefaultVideo = lesson.youtubeId === DEFAULT_YOUTUBE_ID;
+  const ttsMode = useTTS || isDefaultVideo;
+
   const recorder = useRecorder();
   const [recordedUrl, setRecordedUrl] = useState<string | null>(null);
   const [evaluation, setEvaluation] = useState<Evaluation>(null);
@@ -37,11 +41,10 @@ export function ShadowingPlayer({ lesson }: Props) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (recorder.audioBlob) {
-      const url = URL.createObjectURL(recorder.audioBlob);
-      setRecordedUrl(url);
-      return () => URL.revokeObjectURL(url);
-    }
+    if (!recorder.audioBlob) return undefined;
+    const url = URL.createObjectURL(recorder.audioBlob);
+    const timer = setTimeout(() => setRecordedUrl(url), 0);
+    return () => clearTimeout(timer);
   }, [recorder.audioBlob]);
 
   useEffect(() => {
@@ -88,7 +91,7 @@ export function ShadowingPlayer({ lesson }: Props) {
     (segment: ShadowingSegment) => {
       setActiveSegment(segment.id);
       setEvaluation(null);
-      if (useTTS) {
+      if (ttsMode) {
         playSegmentTTS(segment);
       } else if (iframeRef.current) {
         iframeRef.current.contentWindow?.postMessage(
@@ -101,11 +104,11 @@ export function ShadowingPlayer({ lesson }: Props) {
         );
       }
     },
-    [useTTS, playSegmentTTS],
+    [ttsMode, playSegmentTTS],
   );
 
   const handlePlayOriginal = useCallback(() => {
-    if (useTTS && activeSegment) {
+    if (ttsMode && activeSegment) {
       const seg = lesson.transcript.find((s) => s.id === activeSegment);
       if (seg) playSegmentTTS(seg);
     } else if (iframeRef.current) {
@@ -118,11 +121,11 @@ export function ShadowingPlayer({ lesson }: Props) {
         "*",
       );
     }
-  }, [useTTS, activeSegment, lesson.transcript, playSegmentTTS]);
+  }, [ttsMode, activeSegment, lesson.transcript, playSegmentTTS]);
 
   const handleSpeedChange = useCallback((newSpeed: number) => {
     setSpeed(newSpeed);
-    if (!useTTS && iframeRef.current) {
+    if (!ttsMode && iframeRef.current) {
       iframeRef.current.contentWindow?.postMessage(
         JSON.stringify({
           event: "command",
@@ -132,7 +135,7 @@ export function ShadowingPlayer({ lesson }: Props) {
         "*",
       );
     }
-  }, [useTTS]);
+  }, [ttsMode]);
 
   return (
     <div className="space-y-6">
@@ -148,7 +151,7 @@ export function ShadowingPlayer({ lesson }: Props) {
         </div>
 
         <div className="overflow-hidden rounded-xl bg-black">
-          {!useTTS ? (
+          {!ttsMode ? (
             <iframe
               ref={iframeRef}
               src={youtubeUrl}
@@ -162,7 +165,9 @@ export function ShadowingPlayer({ lesson }: Props) {
               <div className="text-center">
                 <Volume2 className="mx-auto h-8 w-8 text-primary-foreground mb-2" />
                 <p className="text-sm text-muted-foreground">
-                  Chế độ phát âm máy (Edge TTS) — không cần YouTube
+                  {isDefaultVideo
+                    ? "Video mặc định không phù hợp — dùng phát âm máy (Edge TTS)"
+                    : "Chế độ phát âm máy (Edge TTS) — không cần YouTube"}
                 </p>
               </div>
             </div>
@@ -177,7 +182,7 @@ export function ShadowingPlayer({ lesson }: Props) {
               variant={speed === s ? "default" : "outline"}
               onClick={() => handleSpeedChange(s)}
               className="h-7 text-xs"
-              disabled={useTTS}
+              disabled={ttsMode}
             >
               {s}x
             </Button>
@@ -192,7 +197,7 @@ export function ShadowingPlayer({ lesson }: Props) {
             }}
           >
             <Play className="mr-1 h-4 w-4" />
-            {useTTS ? "YouTube video" : "Phát âm máy"}
+            {ttsMode ? "YouTube video" : "Phát âm máy"}
           </Button>
         </div>
       </div>

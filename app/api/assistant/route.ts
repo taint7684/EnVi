@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getUserLearningSnapshot } from "@/app/actions/learning-snapshot";
 import { callGemini } from "@/lib/ai/gemini";
 import { callGroqChat } from "@/lib/ai/groq";
+import { callOllamaChat } from "@/lib/ai/ollama";
 
 export async function POST(request: Request) {
   try {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
 
     const snapshot = await getUserLearningSnapshot();
 
-    const systemPrompt = `Bạn là mộtgia sư tiếng Anh của user. Trả lời ngắn gọn, rõ ràng.
+    const systemPrompt = `Bạn là một gia sư tiếng Anh của user. Trả lời ngắn gọn, rõ ràng.
 - Ưu tiên giải thích bằng tiếng Việt khi người dùng hỏi về ngữ pháp hoặc từ vựng.
 - Khi người dùng muốn luyện nói, hãy đặt câu hỏi bằng tiếng Anh.
 - Luôn chính xác và thân thiện.
@@ -42,27 +43,22 @@ Khi user hỏi "Tôi nên học gì tiếp?", hãy phân tích dữ liệu trên
 - Nếu đã >= 14 ngày chưa làm Progress Test -> đề xuất làm bài test 20 câu.
 - Gợi ý chủ đề Speaking tiếp theo phù hợp trình độ.
 - Nếu streak <= 1 -> nhắc giữ đà, đề xuất 1 hoạt động ngắn.
-Đưa lời khuyên dạng gạch đầu dòng ngắn gọn, ưu tiên hành động ngay hôm nay.`;
+Đưa lời khuyên dạng gạch đầu dòng ngắn gọn, ưu tiên hành động ngay hôm nay.
+
+Khi user hỏi "Gợi ý chủ đề Speaking cho tôi", hãy đề xuất 2-3 chủ đề Speaking phù hợp trình độ A2-B1, ví dụ: Daily Routine, Hobbies, Food & Cooking, Work & Office. Nêu lý do ngắn gọn bằng tiếng Việt.
+
+Khi user hỏi "Tôi đang yếu phần nào?", hãy phân tích dữ liệu học tập thực tế trên và trả lời chính xác về điểm yếu (từ vựng, reflex, streak, test). Nếu dữ liệu quá ít để đánh giá, hãy nói rõ và đề xuất làm bài kiểm tra hoặc học thêm từ vựng.`;
 
     const lastMessage = messages[messages.length - 1];
 
     let response: string;
 
+    // Ollama local chạy đầu tiên (miễn phí, không cần API key)
     try {
-      response = await callGemini({
+      response = await callOllamaChat({
         systemPrompt,
         userPrompt: lastMessage.content,
-        responseSchema: {
-          type: "object",
-          properties: {
-            reply: { type: "string" },
-          },
-          required: ["reply"],
-        },
       });
-
-      const parsed = JSON.parse(response);
-      response = parsed.reply || response;
     } catch {
       try {
         response = await callGroqChat({
@@ -70,8 +66,24 @@ Khi user hỏi "Tôi nên học gì tiếp?", hãy phân tích dữ liệu trên
           userPrompt: lastMessage.content,
         });
       } catch {
-        response =
-          "Xin lỗi, AI hiện đang bận. Hãy thử lại sau hoặc đặt câu hỏi khác.";
+        try {
+          response = await callGemini({
+            systemPrompt,
+            userPrompt: lastMessage.content,
+            responseSchema: {
+              type: "object",
+              properties: {
+                reply: { type: "string" },
+              },
+              required: ["reply"],
+            },
+          });
+          const parsed = JSON.parse(response);
+          response = parsed.reply || response;
+        } catch {
+          response =
+            "Xin lỗi, AI hiện đang bận. Hãy thử lại sau hoặc đặt câu hỏi khác.";
+        }
       }
     }
 

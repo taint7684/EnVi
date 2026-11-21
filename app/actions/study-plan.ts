@@ -3,13 +3,14 @@
 import { createClient } from "@/lib/supabase/server";
 import { getDueCount } from "@/lib/vocab";
 import { getDuePhraseCount } from "@/lib/phrases";
+import { todayStrVN } from "@/lib/date-vn";
 import type { DailyStudyPlan, StudyTask } from "@/lib/types";
 
 const TEST_REMIND_DAYS = 14;
 const DAILY_BONUS_XP = 100;
 
 function todayString(): string {
-  return new Date().toISOString().split("T")[0];
+  return todayStrVN();
 }
 
 function daysSince(iso: string | null): number {
@@ -112,7 +113,17 @@ async function computePlan(): Promise<{
     isUrgent: false,
   });
 
-  // 6) Dictation 1 bài
+  // 6) Writing 1 bài
+  tasks.push({
+    id: "writing",
+    type: "writing",
+    title: "Viết 1 bài (email / báo cáo / tóm tắt) với AI",
+    url: "/writing",
+    estimatedMinutes: 10,
+    isUrgent: false,
+  });
+
+  // 7) Dictation 1 bài
   tasks.push({
     id: "dictation",
     type: "dictation",

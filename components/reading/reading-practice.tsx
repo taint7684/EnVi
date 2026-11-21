@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { SpellCheck } from "@/components/ui/spell-check";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
 import {
   READING_LEVELS,
@@ -178,6 +179,26 @@ function PassageDetail({
 
         <p className="rounded-xl bg-accent/40 p-4 text-[15px] leading-relaxed text-foreground">
           {passage.text}
+        </p>
+        <SpellCheck text={passage.text} disabled={false} />
+      </div>
+
+      <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+        <div className="mb-3 flex items-center justify-between gap-2">
+          <h3 className="font-serif text-lg font-semibold text-foreground">
+            Tóm tắt / Nói lại bằng tiếng Anh
+          </h3>
+          <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+            Tùy chọn
+          </span>
+        </div>
+        <textarea
+          rows={5}
+          placeholder="Viết tóm tắt ngắn gọn bằng tiếng Anh về đoạn văn trên..."
+          className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm outline-none focus:border-primary"
+        />
+        <p className="mt-2 text-xs text-muted-foreground">
+          Hãy dùng từ vựng đã học trong đoạn văn để tóm tắt ý chính.
         </p>
       </div>
 

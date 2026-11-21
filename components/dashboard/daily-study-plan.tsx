@@ -9,6 +9,7 @@ import {
   Flame,
   Loader2,
   PartyPopper,
+  PenLine,
   Target,
 } from "lucide-react";
 
@@ -154,6 +155,9 @@ export function DailyStudyPlan({ plan }: { plan: Plan }) {
                     ) : null}
                     {task.type === "streak" ? (
                       <Flame className="size-3.5 text-orange-500" />
+                    ) : null}
+                    {task.type === "writing" ? (
+                      <PenLine className="size-3.5 text-indigo-500" />
                     ) : null}
                   </div>
                   <p className="mt-0.5 text-xs text-muted-foreground">

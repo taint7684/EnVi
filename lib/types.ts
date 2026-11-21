@@ -98,6 +98,7 @@ export type StudyTaskType =
   | "vocab"
   | "reflex"
   | "speaking"
+  | "writing"
   | "dictation"
   | "grammar"
   | "progress-test"
@@ -134,4 +135,24 @@ export type LearningSnapshot = {
   level: number;
   weakAreas: string[];
   summaryText: string;
+};
+
+export type WritingFeedback = {
+  overall_vi: string;
+  errors: { error: string; correction: string; explanation_vi: string }[];
+  improved_version: string;
+  key_phrases: string[];
+};
+
+export type WritingDraftRow = {
+  id: string;
+  user_id: string;
+  prompt_id: string;
+  level: string;
+  draft_text: string;
+  revised_text: string | null;
+  feedback_json: WritingFeedback | null;
+  completed: boolean;
+  created_at: string;
+  updated_at: string;
 };

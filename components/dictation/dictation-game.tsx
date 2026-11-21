@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, RotateCcw, Shuffle, Volume2 } from "lucide-react";
 
+import { saveDictationAttempt } from "@/app/actions/dictation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { diffWords } from "diff";
@@ -83,6 +84,7 @@ export function DictationGame() {
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
   const [seenCount, setSeenCount] = useState(0);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const current = queue[index];
@@ -121,11 +123,18 @@ export function DictationGame() {
 
   function handleSubmit() {
     setShowResult(true);
+    setSaveError(null);
     setTotal((t) => t + 1);
-    if (isCorrect) {
+    const correct = isCorrect;
+    if (correct) {
       setScore((s) => s + 1);
       if (current) markSeen(current.id);
     }
+    void saveDictationAttempt({ userText: input, correct }).catch((cause) => {
+      setSaveError(
+        cause instanceof Error ? cause.message : "Có lỗi khi lưu kết quả.",
+      );
+    });
   }
 
   function handleNext() {
@@ -218,6 +227,12 @@ export function DictationGame() {
 
           {showResult ? (
             <DiffResult userText={input} expected={current.transcript} />
+          ) : null}
+
+          {saveError ? (
+            <p className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
+              {saveError}
+            </p>
           ) : null}
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2">

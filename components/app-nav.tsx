@@ -19,16 +19,17 @@ import { cn } from "@/lib/utils";
 
 const items = [
   { href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard },
-  { href: "/vocab", label: "Học từ", icon: Layers },
-  { href: "/reflex", label: "Phản xạ", icon: Zap },
+  { href: "/vocab", label: "Học từ", icon: BookOpen },
+  { href: "/reflex", label: "Phản xạ", icon: Layers },
   { href: "/speaking", label: "Speaking", icon: Mic },
   { href: "/shadowing", label: "Shadowing", icon: Headphones },
-  { href: "/dictation", label: "Dictation", icon: Headphones },
+  { href: "/dictation", label: "Dictation", icon: PenLine },
   { href: "/reading", label: "Đọc to", icon: BookOpen },
-  { href: "/grammar", label: "Ngữ pháp", icon: PenLine },
+  { href: "/writing", label: "Viết", icon: PenLine },
+  { href: "/grammar", label: "Ngữ pháp", icon: Sparkles },
   { href: "/progress-test", label: "Kiểm tra", icon: ClipboardCheck },
   { href: "/roadmap", label: "Lộ trình", icon: CalendarCheck },
-  { href: "/assistant", label: "Trợ lý AI", icon: Sparkles },
+  { href: "/assistant", label: "Trợ lý AI", icon: Zap },
   { href: "/settings", label: "Cài đặt", icon: Settings },
 ];
 

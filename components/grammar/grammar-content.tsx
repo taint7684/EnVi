@@ -299,6 +299,44 @@ export function GrammarContent() {
         </div>
       ))
       ) : null}
+
+      <div className="rounded-2xl border border-border bg-amber-50 p-6 shadow-sm mt-8">
+        <h3 className="mb-3 font-serif text-lg font-semibold text-amber-800">
+          ⚠️ Lỗi thường gặp & cách sửa
+        </h3>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">I good at English.</p>
+            <p className="text-xs text-green-600">→ I am good at English.</p>
+            <p className="mt-1 text-xs text-amber-600">Thiếu động từ &quot;to be&quot; sau tính từ.</p>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">She go to school every day.</p>
+            <p className="text-xs text-green-600">→ She goes to school every day.</p>
+            <p className="mt-1 text-xs text-amber-600">Chia động từ số ít thứ ba (-s) với He/She/It.</p>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">I have went there.</p>
+            <p className="text-xs text-green-600">→ I have gone there.</p>
+            <p className="mt-1 text-xs text-amber-600">Dùng V3 (gone) sau have/has/had, không phải V2.</p>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">I am agree with you.</p>
+            <p className="text-xs text-green-600">→ I agree with you.</p>
+            <p className="mt-1 text-xs text-amber-600">Agree là động từ, không cần &quot;am/is/are&quot;.</p>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">I very like it.</p>
+            <p className="text-xs text-green-600">→ I like it very much.</p>
+            <p className="mt-1 text-xs text-amber-600">Very không dùng trước động từ; dùng very much sau câu.</p>
+          </div>
+          <div className="rounded-lg border border-amber-200 bg-white p-4 shadow-sm">
+            <p className="mb-1 text-sm font-medium text-amber-900">Can you speaks English?</p>
+            <p className="text-xs text-green-600">→ Can you speak English?</p>
+            <p className="mt-1 text-xs text-amber-600">Sau modal verb (can) dùng động từ nguyên thể.</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

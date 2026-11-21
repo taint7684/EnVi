@@ -18,6 +18,8 @@ export type ProgressTestQuestion = {
   prompt: string;
   options?: string[];
   answer: number | string;
+  audioUrl?: string;
+  transcript?: string;
 };
 
 function norm(s: string): string {
@@ -172,6 +174,29 @@ export function ProgressTest({ questions }: { questions: ProgressTestQuestion[] 
               <p className="mb-2 text-xs text-muted-foreground">
                 {q.topicName}
               </p>
+
+              {q.audioUrl && q.transcript ? (
+                <div className="mb-3 rounded-xl border border-border bg-muted/30 p-3">
+                  <p className="text-xs font-semibold uppercase text-muted-foreground mb-2">
+                    Nghe đoạn âm thanh
+                  </p>
+                  {q.audioUrl.includes("youtube.com/embed") || q.audioUrl.includes("youtu.be") ? (
+                    <div className="aspect-video w-full mb-2">
+                      <iframe
+                        className="w-full h-48"
+                        src={q.audioUrl}
+                        title="Nghe đoạn âm thanh"
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : (
+                    <audio controls className="w-full" src={q.audioUrl} />
+                  )}
+                  <p className="mt-2 text-xs text-muted-foreground italic">
+                    &quot;{q.transcript}&quot;
+                  </p>
+                </div>
+              ) : null}
 
               {q.kind === "mcq" ? (
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">

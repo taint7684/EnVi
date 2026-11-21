@@ -19,9 +19,10 @@ import { getUserLearningSnapshot } from "@/app/actions/learning-snapshot";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { LearningSnapshot } from "@/lib/types";
+import { loadChatHistory, saveChatHistory, type ChatMessage } from "@/lib/chat-history";
 import { toast } from "sonner";
 
-type Message = { role: "user" | "assistant"; content: string };
+type Message = ChatMessage;
 
 const QUICK_ACTIONS = [
   "Hôm nay tôi nên học gì?",
@@ -29,16 +30,18 @@ const QUICK_ACTIONS = [
   "Gợi ý chủ đề Speaking cho tôi",
 ];
 
+const GREETING: Message = {
+  role: "assistant",
+  content:
+    "Xin chào! Tôi là gia sư AI của EnVi. Hỏi tôi bất cứ điều gì về lộ trình học của bạn nhé.",
+};
+
 export function FloatingChat() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content:
-        "Xin chào! Tôi là gia sư AI của EnVi. Hỏi tôi bất cứ điều gì về lộ trình học của bạn nhé.",
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>(() =>
+    loadChatHistory([GREETING]),
+  );
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [snapshot, setSnapshot] = useState<LearningSnapshot | null>(null);
@@ -47,6 +50,10 @@ export function FloatingChat() {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
+
+  useEffect(() => {
+    saveChatHistory(messages);
+  }, [messages]);
 
   useEffect(() => {
     if (!open || snapshot) return;

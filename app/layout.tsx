@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import { Toaster } from "sonner";
 import { RateLimitCheck } from "@/components/gamification/rate-limit-check";
+import { SearchShortcut } from "@/components/ui/search-shortcut";
+import { SWRegistration } from "@/components/ui/sw-registration";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -43,6 +45,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <RateLimitCheck />
+        <SearchShortcut />
+        <SWRegistration />
         {children}
         <Toaster position="bottom-right" richColors closeButton />
       </body>

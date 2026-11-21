@@ -7,6 +7,7 @@ import {
   BookOpen,
   CalendarDays,
   Check,
+  Clock,
   Flame,
   Headphones,
   Layers,
@@ -20,6 +21,8 @@ import {
 
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
+import { todayStrVN } from "@/lib/date-vn";
+import { getDailyLesson } from "@/data/daily-lessons";
 
 /* ------------------------------------------------------------------ */
 /* Cấu hình bài học theo ngày                                          */
@@ -31,6 +34,7 @@ type TaskId =
   | "grammar"
   | "reflex"
   | "speaking"
+  | "writing"
   | "shadowing"
   | "weekendReview"
   | "weekendReading";
@@ -94,8 +98,17 @@ const TASKS: TaskDef[] = [
     icon: Mic,
   },
   {
-    id: "shadowing",
+    id: "writing",
     bit: 1 << 5,
+    label: "Writing với AI",
+    desc: "Viết email / báo cáo / tóm tắt",
+    href: "/writing",
+    minutes: 15,
+    icon: PenLine,
+  },
+  {
+    id: "shadowing",
+    bit: 1 << 6,
     label: "Shadowing",
     desc: "Nghe & nói đuổi theo audio",
     href: "/shadowing",
@@ -105,7 +118,7 @@ const TASKS: TaskDef[] = [
   // Cuối tuần — Ôn tập & thực chiến
   {
     id: "weekendReview",
-    bit: 1 << 6,
+    bit: 1 << 7,
     label: "Ôn tập tổng hợp",
     desc: "Từ vựng + Dictation + Reflex",
     href: "/vocab",
@@ -114,7 +127,7 @@ const TASKS: TaskDef[] = [
   },
   {
     id: "weekendReading",
-    bit: 1 << 7,
+    bit: 1 << 8,
     label: "Đọc hiểu dài",
     desc: "Đọc to + đọc hiểu đoạn dài",
     href: "/reading",
@@ -124,8 +137,8 @@ const TASKS: TaskDef[] = [
 ];
 
 const MORNING = TASKS.filter((t) => t.bit <= 1 << 2);
-const EVENING = TASKS.filter((t) => t.bit >= 1 << 3 && t.bit <= 1 << 5);
-const WEEKEND = TASKS.filter((t) => t.bit >= 1 << 6);
+const EVENING = TASKS.filter((t) => t.bit >= 1 << 3 && t.bit <= 1 << 6);
+const WEEKEND = TASKS.filter((t) => t.bit >= 1 << 7);
 
 const WEEKDAY_MASK = MORNING.reduce((m, t) => m | t.bit, 0) |
   EVENING.reduce((m, t) => m | t.bit, 0);
@@ -135,7 +148,7 @@ const BONUS_BIT = 1 << 14; // đánh dấu đã cộng 100 XP hôm nay
 const BONUS_XP = 100;
 
 function todayStr(): string {
-  return new Date().toISOString().split("T")[0];
+  return todayStrVN();
 }
 
 function applicableMaskForDate(dateStr: string): number {
@@ -332,6 +345,9 @@ export function RoadmapContent() {
   const [loading, setLoading] = useState(true);
   const [celebrate, setCelebrate] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [dailyMinutes, setDailyMinutes] = useState(180);
+  const [editingMinutes, setEditingMinutes] = useState(false);
+  const [minutesInput, setMinutesInput] = useState("180");
 
   const today = todayStr();
   const todayApplicable = applicableMaskForDate(today);
@@ -352,14 +368,21 @@ export function RoadmapContent() {
     since.setDate(since.getDate() - 120);
     const sinceStr = since.toISOString().split("T")[0];
 
-    const { data } = await supabase
-      .from("daily_progress")
-      .select("date, speaking_minutes")
-      .eq("user_id", user.id)
-      .gte("date", sinceStr)
-      .order("date", { ascending: false });
+    const [{ data: progress }, { data: profile }] = await Promise.all([
+      supabase
+        .from("daily_progress")
+        .select("date, speaking_minutes")
+        .eq("user_id", user.id)
+        .gte("date", sinceStr)
+        .order("date", { ascending: false }),
+      supabase
+        .from("profiles")
+        .select("minutes_per_day")
+        .eq("id", user.id)
+        .maybeSingle(),
+    ]);
 
-    const rows: DayRow[] = (data ?? []).map(
+    const rows: DayRow[] = (progress ?? []).map(
       (d) =>
         ({
           date: (d as { date: string }).date,
@@ -369,6 +392,13 @@ export function RoadmapContent() {
 
     setHistory(rows);
     setTodayMask(rows.find((r) => r.date === today)?.mask ?? 0);
+
+    const profileMinutes = (profile as { minutes_per_day: number } | null)
+      ?.minutes_per_day;
+    if (typeof profileMinutes === "number" && profileMinutes > 0) {
+      setDailyMinutes(profileMinutes);
+      setMinutesInput(String(profileMinutes));
+    }
     setLoading(false);
   }, [today]);
 
@@ -391,6 +421,7 @@ export function RoadmapContent() {
   const currentDay = Math.min(90, completedCount + (dayComplete ? 0 : 1));
   const activePhase = currentDay <= 30 ? 0 : currentDay <= 60 ? 1 : 2;
   const progressPct = Math.min(100, (completedCount / 90) * 100);
+  const todayLesson = getDailyLesson(currentDay);
 
   async function toggleTask(task: TaskDef) {
     if (saving || (task.bit >= 1 << 6 && !isWeekendToday)) return;
@@ -453,6 +484,25 @@ export function RoadmapContent() {
     setSaving(false);
   }
 
+  async function saveDailyMinutes() {
+    const value = parseInt(minutesInput, 10);
+    if (!Number.isFinite(value) || value < 30 || value > 480) {
+      return;
+    }
+    setDailyMinutes(value);
+    setEditingMinutes(false);
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    if (user) {
+      await supabase
+        .from("profiles")
+        .update({ minutes_per_day: value })
+        .eq("id", user.id);
+    }
+  }
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12 text-muted-foreground">
@@ -476,6 +526,50 @@ export function RoadmapContent() {
               Ngày {currentDay}/90 · Giai đoạn {activePhase + 1}:{" "}
               {PHASES[activePhase].title}
             </p>
+            <div className="mt-2 flex items-center gap-2 text-sm">
+              {editingMinutes ? (
+                <>
+                  <input
+                    type="number"
+                    min={30}
+                    max={480}
+                    value={minutesInput}
+                    onChange={(e) => setMinutesInput(e.target.value)}
+                    className="w-20 rounded-lg border border-border bg-background px-2 py-1 text-sm outline-none focus:border-primary"
+                  />
+                  <span className="text-muted-foreground">phút/ngày</span>
+                  <button
+                    type="button"
+                    onClick={() => void saveDailyMinutes()}
+                    className="rounded-lg bg-primary px-2 py-1 text-xs font-medium text-primary-foreground hover:bg-primary/90"
+                  >
+                    Lưu
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setEditingMinutes(false);
+                      setMinutesInput(String(dailyMinutes));
+                    }}
+                    className="text-xs text-muted-foreground hover:text-foreground"
+                  >
+                    Hủy
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMinutesInput(String(dailyMinutes));
+                    setEditingMinutes(true);
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border px-2 py-1 text-xs text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                >
+                  <Clock className="size-3.5" />
+                  {dailyMinutes} phút/ngày (chỉnh)
+                </button>
+              )}
+            </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5">
@@ -497,6 +591,67 @@ export function RoadmapContent() {
           />
         </div>
       </div>
+
+      {/* Bài học hôm nay */}
+      {todayLesson && (
+        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <h3 className="flex items-center gap-2 font-medium">
+                <CalendarDays className="size-5 text-primary" />
+                Bài học Ngày {todayLesson.day}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Trình độ {todayLesson.level} · {todayLesson.totalMinutes} phút
+              </p>
+            </div>
+            <span className="text-xs font-medium px-2 py-1 rounded-full border border-border">
+              Mục tiêu: {todayLesson.goal}
+            </span>
+          </div>
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {todayLesson.tasks.map((task) => (
+              <div
+                key={task.id}
+                className="rounded-xl border border-border p-3 flex items-start gap-3"
+              >
+                <div className="shrink-0 rounded-lg p-2 text-muted-foreground transition-colors hover:bg-accent">
+                  <ArrowRight className="size-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <Link
+                    href={task.href}
+                    className="text-sm font-medium text-foreground hover:text-primary"
+                  >
+                    {task.label}
+                  </Link>
+                  <p className="mt-0.5 text-xs text-muted-foreground">
+                    ~{task.minutes} phút
+                  </p>
+                </div>
+              </div>
+            ))}
+            <div
+              className="rounded-xl border border-primary bg-primary/5 p-3 flex items-start gap-3 col-span-1 sm:col-span-2 lg:col-span-1"
+            >
+              <div className="shrink-0 rounded-lg p-2 text-primary">
+                <Mic className="size-4" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <Link
+                  href={todayLesson.output.href}
+                  className="text-sm font-medium text-primary hover:text-primary/90"
+                >
+                  {todayLesson.output.label}
+                </Link>
+                <p className="mt-0.5 text-xs text-muted-foreground">
+                  Xuất bản tiếng Anh · ~{todayLesson.output.minutes} phút
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Timeline 3 giai đoạn */}
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">

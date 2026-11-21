@@ -62,7 +62,10 @@ export function XpBar() {
   }, []);
 
   useEffect(() => {
-    loadProfile();
+    const init = async () => {
+      await loadProfile();
+    };
+    init();
 
     function handleRefresh() {
       loadProfile();

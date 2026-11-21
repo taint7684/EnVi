@@ -134,9 +134,10 @@ export function DashboardContent({ stats, weekData, plan, report }: Props) {
 
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
         <h2 className="font-serif text-lg font-semibold">Bắt đầu nhanh</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { href: "/speaking", label: "Luyện nói với AI", desc: "Speaking coach 5 bước" },
+            { href: "/writing", label: "Viết với AI", desc: "Email, báo cáo, tóm tắt" },
             { href: "/vocab", label: "Học từ hôm nay", desc: "Flashcard + SRS" },
             { href: "/roadmap", label: "Lộ trình 90 ngày", desc: "Check-in hôm nay" },
           ].map((q) => (
