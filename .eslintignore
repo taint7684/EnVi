@@ -1,0 +1,6 @@
+scripts/_archive/
+.next/
+node_modules/
+out/
+dist/
+build/

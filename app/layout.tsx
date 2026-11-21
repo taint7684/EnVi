@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import { Toaster } from "sonner";
-import { RateLimitCheck } from "@/components/gamification/rate-limit-check";
 import { SearchShortcut } from "@/components/ui/search-shortcut";
 import { SWRegistration } from "@/components/ui/sw-registration";
 import "./globals.css";
@@ -44,7 +43,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <RateLimitCheck />
         <SearchShortcut />
         <SWRegistration />
         {children}
