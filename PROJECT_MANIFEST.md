@@ -34,6 +34,13 @@ Cập nhật sau khi hoàn tất S0 → S10 (S11 = regression + Definition of Do
 ## Chức năng đã có (S0 → S10)
 - Auth + RLS, onboarding, checkpoint (đánh giá nói), progress dashboard, speaking coach 6 bước, error log + makeup lesson, reflex (L1/L2/L3 + đo latency), vocab (triage/chunk SRS), writing, dictation word-level, shadowing (chấm STT), pronunciation (12 trọng tâm), reading + grammar, missions/drills/strategy cards, roadmap 90 ngày + gamification streak (VN 03:00, streak freeze), real-world bridge, settings (60 phút mặc định, new words/day, feedback mode), PWA.
 
+## Setup môi trường (BẮT BUỘC trước khi chạy E2E/Playwright)
+Kiểm tra bằng REST (anon key) cho thấy DB live hiện chỉ có bảng tới ~0009: `profiles`/`words` = 200, nhưng `daily_plans`, `mission_attempts`, `grammar_attempts`, `real_world_logs` = **404**. Nghĩa là migration 0010–0020 CHƯA được áp dụng.
+- Áp dụng: mở Supabase → SQL Editor, chạy lần lượt `db/migrations/0001_init.sql` … `0020_s10_real_world.sql` (theo thứ tự), HOẶC `supabase link` + `supabase db push`.
+- `.env.local` hiện chỉ có anon + service-role key (JWT), KHÔNG có Postgres connection string / Supabase access token → không thể tự `db push` từ môi trường này.
+- Tài khoản QA cho E2E: `qa.test.a@gmail.com` / `TestPass123!` (phải tồn tại trong Auth). Khóa AI: `GEMINI_API_KEY`, `GROQ_API_KEY` đã có.
+- Sau khi migrate: `npx playwright test` (tự bật `npm run dev`).
+
 ## Còn GAP / nợ kỹ thuật so với MASTER_SPEC v2.0
 1. Playwright chưa có spec (E2E) — cần viết flow chính (onboarding → speaking → progress).
 2. Nội dung grammar: 800 câu + `vn_trap` đầy đủ là việc nội dung còn lại (explanation_vi đã inline).
