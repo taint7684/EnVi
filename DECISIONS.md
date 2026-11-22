@@ -16,3 +16,6 @@
 - [S6] Mission/Drill dùng server actions (startMission/submitMissionTurn/finishMission, saveDrill) thay vì API route riêng — cùng contract, ít bề mặt hơn. Objective judge qua `aiRouter task=objective_judge`, lỗi → [] (không chặn).
 - [S6] Nội dung mission/strategy/drill để ở `data/*.json` + validate zod khi load (server-only); đọc DB trước (`missions`...), trống thì fallback JSON → chạy được trước khi seed. Persona turn dùng `offline_script` (pre-written) + STT từ `/api/stt` cho câu trả lời; WPM drill đo bằng thời gian ghi thực tế + word count transcript.
 - [S6] `fluency_drills`/`mission_attempts` xóa theo `delete_my_account` (migration 0016).
+- [S7] Chấm điểm dùng chung `lib/speech/scoring.ts` (thuần, có test): Dictation/Shadowing/Pronunciation. Dictation BR-9.3: xem đáp án trước khi nộp → score 0, 0 XP (`revealed_before_submit`).
+- [S7] Shadowing: bỏ mock `score:0`, chấm bằng STT (`/api/stt`) + `scoreShadowing` (accuracy 0.7 + timing 0.3), lưu `shadowing_attempts`. IFrame API seek bằng postMessage (đã có) — highlight getCurrentTime để lại sau.
+- [S7] Pronunciation Lab: 12 trọng tâm (data/pronunciation.json) validate zod, chấm intelligibility = % từ Whisper nhận đúng (adapter `whisper`; Azure tùy chọn sau). Lưu `pronunciation_attempts` + `pronunciation_progress.mastery` (trung bình 10 lượt gần nhất).

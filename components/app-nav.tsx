@@ -43,6 +43,7 @@ const items: NavItem[] = [
       { href: "/vocab", label: "Từ vựng" },
       { href: "/shadowing", label: "Nghe & Shadowing" },
       { href: "/dictation", label: "Dictation" },
+      { href: "/pronunciation", label: "Phát âm & Đọc to" },
       { href: "/reading", label: "Đọc hiểu" },
       { href: "/grammar", label: "Ngữ pháp" },
       { href: "/writing", label: "Viết" },

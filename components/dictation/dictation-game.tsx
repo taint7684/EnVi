@@ -6,9 +6,9 @@ import { ArrowRight, Check, RotateCcw, Shuffle, Volume2 } from "lucide-react";
 import { saveDictationAttempt } from "@/app/actions/dictation";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { diffWords } from "diff";
 import { DICTATION_LESSONS, type DictationLesson } from "@/lib/dictation-data";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
+import { scoreDictation, type WordResult } from "@/lib/speech/scoring";
 
 const LEVELS = ["A2", "B1", "B2"] as const;
 type Level = (typeof LEVELS)[number];
@@ -49,25 +49,24 @@ function buildQueue(level: Level, seen: Set<string>): DictationLesson[] {
   return [...unseen, ...done];
 }
 
-function DiffResult({ userText, expected }: { userText: string; expected: string }) {
-  const diff = diffWords(userText.toLowerCase(), expected.toLowerCase());
+function DiffResult({ results }: { results: WordResult[] }) {
+  const correct = results.filter((r) => r.ok).length;
+  const total = results.length;
   return (
     <div className="rounded-lg border border-border bg-muted/50 p-3">
-      <p className="mb-2 text-sm font-medium">Kết quả:</p>
+      <p className="mb-2 text-sm font-medium">
+        Kết quả: {correct}/{total} từ đúng ({total > 0 ? Math.round((correct / total) * 100) : 0}%)
+      </p>
       <div className="text-sm leading-relaxed">
-        {diff.map((part, i) => (
+        {results.map((r, i) => (
           <span
             key={i}
             className={cn(
               "rounded px-1",
-              part.added
-                ? "bg-destructive/10 text-destructive"
-                : part.removed
-                  ? "bg-green-500/10 text-green-700"
-                  : "text-foreground",
+              r.ok ? "text-foreground" : "bg-destructive/10 text-destructive line-through",
             )}
           >
-            {part.value}
+            {r.word}{" "}
           </span>
         ))}
       </div>
@@ -81,6 +80,8 @@ export function DictationGame() {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState("");
   const [showResult, setShowResult] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const [results, setResults] = useState<WordResult[]>([]);
   const [score, setScore] = useState(0);
   const [total, setTotal] = useState(0);
   const [seenCount, setSeenCount] = useState(0);
@@ -95,6 +96,8 @@ export function DictationGame() {
     setIndex(0);
     setInput("");
     setShowResult(false);
+    setRevealed(false);
+    setResults([]);
     setSeenCount(seen.size);
   }, []);
 
@@ -108,9 +111,8 @@ export function DictationGame() {
     return () => stopSpeaking();
   }, [current]);
 
-  const isCorrect = current
-    ? input.trim().toLowerCase() === current.transcript.trim().toLowerCase()
-    : false;
+  const scored = current ? scoreDictation(input, current.transcript) : null;
+  const isCorrect = scored ? scored.percent >= 0.999 : false;
 
   function markSeen(id: string) {
     const seen = loadSeen();
@@ -122,15 +124,24 @@ export function DictationGame() {
   }
 
   function handleSubmit() {
+    if (!current) return;
     setShowResult(true);
     setSaveError(null);
     setTotal((t) => t + 1);
-    const correct = isCorrect;
-    if (correct) {
-      setScore((s) => s + 1);
-      if (current) markSeen(current.id);
+    const s = scoreDictation(input, current.transcript);
+    setResults(s.results);
+    const correct = s.percent >= 0.999;
+    if (correct && !revealed) {
+      setScore((sc) => sc + 1);
+      markSeen(current.id);
     }
-    void saveDictationAttempt({ userText: input, correct }).catch((cause) => {
+    void saveDictationAttempt({
+      userText: input,
+      score: s.score,
+      correct,
+      revealedBeforeSubmit: revealed,
+      itemId: null,
+    }).catch((cause) => {
       setSaveError(
         cause instanceof Error ? cause.message : "Có lỗi khi lưu kết quả.",
       );
@@ -140,13 +151,14 @@ export function DictationGame() {
   function handleNext() {
     const nextIndex = index + 1;
     if (nextIndex >= queue.length) {
-      // Hết lượt hiện tại -> trộn lại, ưu tiên bài chưa làm
       rebuild(level);
     } else {
       setIndex(nextIndex);
     }
     setInput("");
     setShowResult(false);
+    setRevealed(false);
+    setResults([]);
     window.setTimeout(() => inputRef.current?.focus(), 0);
   }
 
@@ -226,7 +238,13 @@ export function DictationGame() {
           />
 
           {showResult ? (
-            <DiffResult userText={input} expected={current.transcript} />
+            <DiffResult results={results} />
+          ) : null}
+
+          {!showResult && revealed ? (
+            <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+              Đáp án: <strong>{current.transcript}</strong> — bạn đã xem trước khi nộp nên lượt này 0 điểm.
+            </div>
           ) : null}
 
           {saveError ? (
@@ -241,6 +259,13 @@ export function DictationGame() {
                 <Button onClick={handleSubmit} disabled={!input.trim()}>
                   <Check className="size-4" />
                   Kiểm tra
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => setRevealed(true)}
+                  disabled={revealed}
+                >
+                  👁 Xem đáp án
                 </Button>
                 <Button variant="ghost" onClick={handleSkip}>
                   Bỏ qua

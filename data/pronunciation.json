@@ -1,0 +1,110 @@
+[
+  {
+    "id": "final-consonants",
+    "num": 1,
+    "title_vi": "Âm cuối (final consonants)",
+    "description_vi": "Người Việt hay bỏ âm cuối /t/, /d/, /k/, /s/, /z/. Giữ âm cuối để người nghe hiểu đúng.",
+    "tip_vi": "Đưa lưỡi lên chạm vòm miệng cho /t/, /d/; giữ hơi cho /k/. Đừng nuốt âm cuối.",
+    "words": ["best", "good", "back", "nice", "please", "worked", "need", "stop"],
+    "sentences": ["I need the best price, please.", "She worked hard and did a good job."]
+  },
+  {
+    "id": "ending-s",
+    "num": 2,
+    "title_vi": "Đuôi -s / -es",
+    "description_vi": "Chia động từ ngôi thứ 3 số ít và danh từ số nhiều: /s/, /z/, /ɪz/.",
+    "tip_vi": "Sau âm vô thanh → /s/ (works); sau âm hữu thanh → /z/ (plays); sau /s,z,ʃ,ʧ/ → /ɪz/ (watches).",
+    "words": ["works", "plays", "watches", "makes", "needs", "boxes", "teaches", "goes"],
+    "sentences": ["She works with our team every day.", "He watches two meetings in the morning."]
+  },
+  {
+    "id": "ending-ed",
+    "num": 3,
+    "title_vi": "Đuôi -ed",
+    "description_vi": "Thì quá khứ: /t/, /d/, /ɪd/.",
+    "tip_vi": "Sau âm vô thanh → /t/ (worked); sau âm hữu thanh → /d/ (played); sau /t,d/ → /ɪd/ (wanted).",
+    "words": ["worked", "played", "wanted", "needed", "asked", "called", "decided", "moved"],
+    "sentences": ["I worked late and then I played a game.", "He wanted to join but he needed help."]
+  },
+  {
+    "id": "th",
+    "num": 4,
+    "title_vi": "/θ/ và /ð/ (think / this)",
+    "description_vi": "Đặt đầu lưỡi giữa hai răng, thổi hơi cho /θ/ (think); rung giọng cho /ð/ (this).",
+    "tip_vi": "Nhìn vào gương để chắc lưỡi nằm giữa hai răng. Đừng nói thành /t/ hay /d/.",
+    "words": ["think", "this", "three", "that", "thank", "they", "through", "other"],
+    "sentences": ["I think this is the right thing to do.", "Thank you for the other three files."]
+  },
+  {
+    "id": "sh-vs-s",
+    "num": 5,
+    "title_vi": "/ʃ/ vs /s/ (she / see)",
+    "description_vi": "Phân biệt /ʃ/ (she, ship) và /s/ (see, sip).",
+    "tip_vi": "/ʃ/ bĩu môi nhẹ, lưỡi lùi; /s/ môi ngang, lưỡi gần lợi.",
+    "words": ["she", "see", "ship", "sip", "share", "sare", "shoe", "sue"],
+    "sentences": ["She can see the ship from here.", "Please share the file, not the password."]
+  },
+  {
+    "id": "r-l-n",
+    "num": 6,
+    "title_vi": "/r/, /l/, /n/",
+    "description_vi": "Phân biệt /r/ (right), /l/ (light), /n/ (night) — hay lẫn ở cuối và giữa từ.",
+    "tip_vi": "/r/ lưỡi cong không chạm; /l/ đầu lưỡi chạm lợi; /n/ hơi qua mũi.",
+    "words": ["right", "light", "night", "correct", "collect", "connect", "road", "load"],
+    "sentences": ["Turn right at the next light.", "I need to collect the report tonight."]
+  },
+  {
+    "id": "long-short-vowels",
+    "num": 7,
+    "title_vi": "Nguyên âm dài / ngắn (ship / sheep)",
+    "description_vi": "Phân biệt /ɪ/ (ship) và /iː/ (sheep), /ʊ/ (full) và /uː/ (fool).",
+    "tip_vi": "Nguyên âm dài kéo dài hơn và căng môi hơn.",
+    "words": ["ship", "sheep", "full", "fool", "live", "leave", "sit", "seat"],
+    "sentences": ["The sheep is on the ship.", "Please leave the full report, not the fool one."]
+  },
+  {
+    "id": "consonant-clusters",
+    "num": 8,
+    "title_vi": "Cụm phụ âm (street, desks)",
+    "description_vi": "Đọc trơn cụm phụ âm đầu/cuối, không thêm nguyên âm giữa.",
+    "tip_vi": "Đọc nhanh cả cụm: /str/ trong street, /ks/ trong desks. Đừng thêm /ə/.",
+    "words": ["street", "desks", "projects", "texts", "spring", "script", "tasks", "risks"],
+    "sentences": ["We finished the projects on schedule.", "There are three desks in the meeting room."]
+  },
+  {
+    "id": "word-stress",
+    "num": 9,
+    "title_vi": "Trọng âm từ",
+    "description_vi": "Nhấn đúng âm tiết: deVELop (không phải DEvelop), comPUter, reQUire.",
+    "tip_vi": "Âm tiết nhấn đọc to hơn, dài hơn, cao hơn.",
+    "words": ["develop", "computer", "require", "important", "understand", "begin", "report", "design"],
+    "sentences": ["We need to develop a new design for the computer app.", "It is important to understand the requirement."]
+  },
+  {
+    "id": "weak-forms",
+    "num": 10,
+    "title_vi": "Trọng âm câu & từ chức năng (weak forms)",
+    "description_vi": "Từ nhỏ (a, to, of, and, can) đọc nhẹ, lướt; từ mang nghĩa đọc rõ.",
+    "tip_vi": "Đọc 'a lot of' thành /ə lɒt əv/. Từ khóa nhấn mạnh.",
+    "words": ["a lot of", "kind of", "to be", "and then", "as soon as", "for example", "in order to", "because of"],
+    "sentences": ["I have a lot of work to do because of the deadline.", "We will start as soon as the client confirms."]
+  },
+  {
+    "id": "linking",
+    "num": 11,
+    "title_vi": "Nối âm (linking)",
+    "description_vi": "Nối phụ âm cuối với nguyên âm đầu từ sau: 'check it out' → /ʧɛ kɪ t aʊt/.",
+    "tip_vi": "Đọc liền từ cuối sang từ đầu, không ngắt quãng.",
+    "words": ["check it out", "pick it up", "turn it off", "an hour", "far away", "come in", "log in", "figure it out"],
+    "sentences": ["Let's check it out and pick it up later.", "Please turn it off and log in again."]
+  },
+  {
+    "id": "intonation",
+    "num": 12,
+    "title_vi": "Ngữ điệu câu hỏi / câu kể",
+    "description_vi": "Câu hỏi Yes/No lên giọng cuối; câu hỏi Wh và câu kể xuống giọng.",
+    "tip_vi": "Lên giọng ở từ cuối cho 'Are you ready?'; xuống giọng cho 'What do you do?'",
+    "words": ["Are you ready?", "Do you agree?", "What do you mean?", "Where is the file?", "I'll handle it.", "That makes sense."],
+    "sentences": ["Are you coming to the meeting?", "What time does the call start?"]
+  }
+]

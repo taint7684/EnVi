@@ -8,6 +8,8 @@ import { useRecorder } from "@/hooks/use-recorder";
 import type { ShadowingLesson, ShadowingSegment } from "@/lib/shadowing-data";
 import { formatTime } from "@/lib/shadowing-data";
 import { speakEnglish } from "@/lib/speech";
+import { scoreShadowing } from "@/lib/speech/scoring";
+import { saveShadowingAttempt } from "@/lib/shadowing/server";
 
 type Props = {
   lesson: ShadowingLesson;
@@ -39,6 +41,16 @@ export function ShadowingPlayer({ lesson }: Props) {
   const youtubeUrl = `https://www.youtube.com/embed/${lesson.youtubeId}?enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`;
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const startRef = useRef<number>(0);
+
+  async function transcribe(blob: Blob): Promise<string> {
+    const form = new FormData();
+    form.append("audio", blob, "shadow.webm");
+    const res = await fetch("/api/stt", { method: "POST", body: form });
+    if (!res.ok) return "";
+    const data = (await res.json()) as { text?: string };
+    return data.text ?? "";
+  }
 
   useEffect(() => {
     if (!recorder.audioBlob) return undefined;
@@ -63,29 +75,43 @@ export function ShadowingPlayer({ lesson }: Props) {
       await recorder.stop();
     } else {
       setEvaluation(null);
+      startRef.current = Date.now();
       await recorder.start();
     }
   }, [recorder]);
 
   const handleEvaluate = useCallback(async () => {
-    if (!recordedUrl) return;
+    const seg = activeSegment != null
+      ? lesson.transcript.find((s) => s.id === activeSegment) ?? lesson.transcript[0]
+      : lesson.transcript[0];
+    const blob = recorder.audioBlob;
+    if (!seg || !blob) return;
     setEvaluating(true);
     try {
-      const audio = new Audio(recordedUrl);
-      // Use browser Web Speech API for transcription-free comparison via STT would need server.
-      // Fallback: compare against expected text using user's manual input is not possible here.
-      // Instead provide a self-scoring: user listens to their recording vs original.
+      const transcript = await transcribe(blob);
+      const userDur = (Date.now() - startRef.current) / 1000;
+      const refDur = Math.max(0.1, seg.endTime - seg.startTime);
+      const scored = scoreShadowing(transcript, seg.text, userDur, refDur);
+      const pct = Math.round(scored.score * 100);
       setEvaluation({
-        score: 0,
-        correct: false,
-        feedback: "Ghi âm hoàn thành. Hãy nghe lại bản gốc và bản ghi của bạn để tự đánh giá.",
+        score: pct,
+        correct: scored.score >= 0.8,
+        feedback: `Chính xác ${Math.round(scored.accuracy * 100)}% · nhịp ${Math.round(scored.timing * 100)}%.`,
       });
+      void saveShadowingAttempt({
+        itemId: lesson.id,
+        segmentIdx: seg.id,
+        transcript,
+        accuracy: scored.accuracy,
+        timing: scored.timing,
+        score: scored.score,
+      }).catch(() => {});
     } catch {
       setEvaluation(null);
     } finally {
       setEvaluating(false);
     }
-  }, [recordedUrl]);
+  }, [recorder.audioBlob, activeSegment, lesson.id, lesson.transcript]);
 
   const handleSegmentClick = useCallback(
     (segment: ShadowingSegment) => {
