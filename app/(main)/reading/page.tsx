@@ -13,6 +13,8 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { SpellCheck } from "@/components/ui/spell-check";
+import { LookupText } from "@/components/reading/lookup-text";
+import { saveReadingAttempt } from "@/lib/reading/server";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
 import {
   READING_LEVELS,
@@ -233,20 +235,13 @@ function PassageDetail({
       setErrorMessage("Viết ít nhất một câu tóm tắt trước khi lưu.");
       return;
     }
-    // Persist summary to localStorage
-    try {
-      const key = `envi:reading:summary:${passage.id}`;
-      const existing = localStorage.getItem(key);
-      const summaries = existing ? JSON.parse(existing) : [];
-      summaries.push({
-        text: summary,
-        savedAt: new Date().toISOString(),
-      });
-      localStorage.setItem(key, JSON.stringify(summaries));
-      setSummarySaved(true);
-    } catch {
-      setErrorMessage("Không thể lưu tóm tắt trên thiết bị.");
-    }
+    void saveReadingAttempt({
+      passageId: passage.id,
+      quizScore: correctCount,
+      summaryText: summary,
+    })
+      .then(() => setSummarySaved(true))
+      .catch(() => setErrorMessage("Không thể lưu tóm tắt. Vui lòng thử lại."));
   }
 
   let errorMessage: string | null = null;
@@ -287,9 +282,7 @@ function PassageDetail({
           </Button>
         </div>
 
-        <p className="rounded-xl bg-accent/40 p-4 text-[15px] leading-relaxed text-foreground">
-          {passage.text || "(Không có nội dung bài đọc.)"}
-        </p>
+        <LookupText text={passage.text || "(Không có nội dung bài đọc.)"} />
         {passage.text ? (
           <SpellCheck text={passage.text} disabled={false} />
         ) : null}

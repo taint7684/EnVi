@@ -19,3 +19,6 @@
 - [S7] Chấm điểm dùng chung `lib/speech/scoring.ts` (thuần, có test): Dictation/Shadowing/Pronunciation. Dictation BR-9.3: xem đáp án trước khi nộp → score 0, 0 XP (`revealed_before_submit`).
 - [S7] Shadowing: bỏ mock `score:0`, chấm bằng STT (`/api/stt`) + `scoreShadowing` (accuracy 0.7 + timing 0.3), lưu `shadowing_attempts`. IFrame API seek bằng postMessage (đã có) — highlight getCurrentTime để lại sau.
 - [S7] Pronunciation Lab: 12 trọng tâm (data/pronunciation.json) validate zod, chấm intelligibility = % từ Whisper nhận đúng (adapter `whisper`; Azure tùy chọn sau). Lưu `pronunciation_attempts` + `pronunciation_progress.mastery` (trung bình 10 lượt gần nhất).
+- [S8] Reading: bỏ localStorage, lưu `reading_attempts` qua `saveReadingAttempt`; click-to-lookup dùng `lookupWord` (thử từ gốc + lemma trong bảng `words`); AI `define_in_context` fallback + cache để sau.
+- [S8] Grammar: attempt lưu qua effect (theo dõi `checked`), `grammar_mastery` = % đúng 20 lượt gần nhất theo topic. Nội dung `explanation_vi` đã có inline; mở rộng 800 câu + `vn_trap` + ≥20% câu speak là công việc nội dung còn lại.
+- [S8] Work Writing (P2): đã lưu DB (`writing_drafts`); thêm cột `kind`. Feedback schema khen→≤2 lỗi→natural + đọc to bản sửa để làm sau.

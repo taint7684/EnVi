@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, RotateCcw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { getGrammarExercises } from "@/lib/grammar-exercises-data";
+import { saveGrammarAttempt } from "@/lib/grammar/server";
 
 function seededShuffle<T>(arr: T[], seed: number): T[] {
   const a = [...arr];
@@ -30,6 +31,7 @@ export function GrammarPractice({ topicId }: { topicId: string }) {
   const [seed, setSeed] = useState(1);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [checked, setChecked] = useState<Record<number, boolean>>({});
+  const savedRef = useRef<Set<string>>(new Set());
 
   const mcqSet = useMemo(
     () => (exercise ? seededShuffle(exercise.mcq, seed).slice(0, 10) : []),
@@ -39,6 +41,28 @@ export function GrammarPractice({ topicId }: { topicId: string }) {
     () => (exercise ? seededShuffle(exercise.fill, seed).slice(0, 10) : []),
     [exercise, seed],
   );
+
+  useEffect(() => {
+    const list = mode === "mcq" ? mcqSet : fillSet;
+    for (const q of list) {
+      if (!checked[q.id]) continue;
+      const key = `${topicId}:${mode}:${q.id}`;
+      if (savedRef.current.has(key)) continue;
+      const a = answers[q.id];
+      if (a === undefined || a === "") continue;
+      const isCorrect =
+        mode === "mcq"
+          ? Number(a) === (q as { answer: number }).answer
+          : norm(a) === norm((q as { answer: string }).answer);
+      savedRef.current.add(key);
+      void saveGrammarAttempt({
+        topicId,
+        questionId: String(q.id),
+        correct: isCorrect,
+        answer: a,
+      }).catch(() => {});
+    }
+  }, [checked, answers, mode, mcqSet, fillSet, topicId]);
 
   if (!exercise) return null;
 
