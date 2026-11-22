@@ -27,8 +27,6 @@ export type SpeakingTurnResult = {
   reflex_questions: string[];
   mode?: SpeakingMode;
   praise?: string | null;
-  retry_score?: number | null;
-  retry_passed?: boolean | null;
   sample_answer?: string | null;
   keywords?: string[] | null;
 };

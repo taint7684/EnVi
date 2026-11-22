@@ -32,8 +32,6 @@ export const SPEAKING_RESPONSE_SCHEMA = {
     top_errors: { type: "ARRAY", items: { type: "STRING" } },
     key_phrases: { type: "ARRAY", items: { type: "STRING" } },
     reflex_questions: { type: "ARRAY", items: { type: "STRING" } },
-    retry_score: { type: ["NUMBER", "NULL"] },
-    retry_passed: { type: "BOOLEAN" },
     sample_answer: { type: "STRING" },
     keywords: { type: "ARRAY", items: { type: "STRING" } },
     praise: { type: "STRING" },
@@ -71,8 +69,6 @@ export const speakingResultSchema = z.object({
   top_errors: z.array(z.string()).default([]),
   key_phrases: z.array(z.string()).default([]),
   reflex_questions: z.array(z.string()).default([]),
-  retry_score: z.number().min(0).max(1).optional().nullable(),
-  retry_passed: z.boolean().optional().nullable(),
   sample_answer: z.string().optional().nullable(),
   keywords: z.array(z.string()).optional().nullable(),
   praise: z.string().optional().nullable(),
@@ -108,14 +104,14 @@ ${qInfo}BƯỚC HIỆN TẠI: ${currentStep} — ${stepLabel}
 QUY TRÌNH 6 BÚT (bắt buộc):
 1. ASK: Đặt DUY NHẤT 1 câu hỏi về chủ đề. Không đưa đáp án, không gợi ý, không ví dụ.
 2. ANSWER + FEEDBACK: Đánh giá câu trả lời (understood), khen cụ thể (praise), tối đa 2 lỗi thật (errors), viết câu cải thiện tự nhiên (corrected_sentence), lấy 5 cụm từ hữu ích (key_phrases).
-3. RETRY-BLIND: Người học nói lại câu cải thiện KHÔNG xem mẫu đầy đủ. Chỉ cho thấy 2-4 từ khoá (keywords). Chấm điểm retry_score (0-1) = 0.6 × ngữ nghĩa + 0.4 × từ khoá. retry_passed = true nếu >= 0.75.
+3. RETRY-BLIND: Người học nói lại câu cải thiện KHÔNG xem mẫu đầy đủ. Chỉ cho thấy 2-4 từ khoá (keywords). KHÔNG chấm điểm, KHÔNG đánh giá đúng/sai. Chỉ ghi nhận nỗ lực và chuyển sang bước tiếp theo.
 4. NEXT: Chuyển sang câu hỏi tiếp theo.
 5. SUMMARY: Sau câu cuối, tổng kết tối đa 3 lỗi (top_errors), 5 cụm từ (key_phrases).
 
 HÀNH VI THEO BƯỚC HIỆN TẠI:
-- currentStep = 1 (ASK): chỉ hỏi 1 câu (câu ${questionIndex !== undefined ? questionIndex + 1 : 1}/${totalQuestions !== undefined ? totalQuestions : 5}). step=1, next_action="ask_question". praise="", errors=[], corrected_sentence="", retry_score=null, retry_passed=null, sample_answer="", keywords=[].
+- currentStep = 1 (ASK): chỉ hỏi 1 câu (câu ${questionIndex !== undefined ? questionIndex + 1 : 1}/${totalQuestions !== undefined ? totalQuestions : 5}). step=1, next_action="ask_question". praise="", errors=[], corrected_sentence="", sample_answer="", keywords=[].
 - currentStep = 2 (ANSWER + FEEDBACK): giá trị câu trả lời của người học. Khen cụ thể (praise, tiếng Việt, 1-2 câu). Lỗi tối đa 2 (errors, format "Bạn nói → Nên nói → Vì sao"). Câu cải thiện (corrected_sentence, giữ ý người học, từ mức ${level}). step=2, next_action="request_retry". top_errors=[], key_phrases=[], reflex_questions=[].
-- currentStep = 3 (RETRY-BLIND): người học đã nói lại câu cải thiện. Chấm retry_score (0-1), retry_passed (true nếu >= 0.75). Nếu pass → next_action="ask_question" (câu tiếp theo) hoặc "done" (nếu là câu cuối). Nếu fail và chưa quá 3 lần → next_action="request_retry" (thử lại). sample_answer = câu mẫu hoàn chỉnh (sẽ ẩn trong DOM, chỉ hiển thị khi bấm "Xem lại mẫu"). keywords = 2-4 từ khoá quan trọng của câu mẫu. step=3.
+- currentStep = 3 (RETRY-BLIND): người học đã nói lại câu cải thiện. KHÔNG chấm điểm, KHÔNG đánh giá. Ghi nhận nỗ lực (praise ngắn). next_action="ask_question" (câu tiếp theo) hoặc "done" (nếu là câu cuối). sample_answer = câu mẫu hoàn chỉnh. keywords = 2-4 từ khoá quan trọng. step=3.
 - currentStep = 4 (NEXT): chuyển câu tiếp theo. step=4, next_action="ask_question".
 - currentStep = 5 (SUMMARY): tổng kết phiên. step=5, next_action="done". top_errors = tối đa 3 lỗi cần ôn. key_phrases = 5 cụm từ hữu ích. reflex_questions = 3 câu hỏi phản xạ mới.
 
@@ -126,7 +122,6 @@ RÀNG BUỘC:
 - errors: tối đa 2 lỗi thật theo format "Bạn nói → Nên nói → Vì sao"; không có lỗi → [].
 - praise: tiếng Việt, khen cụ thể 1-2 câu, không général hóa.
 - corrected_sentence: chỉ điền ở bước 2; bước khác để "".
-- retry_score/retry_passed: chỉ điền ở bước 3; bước khác để null/false.
 - sample_answer: chỉ điền ở bước 3; bước khác để "".
 - keywords: chỉ điền ở bước 3 (2-4 từ khoá); bước khác để [].
 - top_errors/key_phrases/reflex_questions: chỉ điền ở bước 5 (tổng kết); bước khác để [].
@@ -158,8 +153,6 @@ FORMAT TRẢ VỀ (DUY NHẤT JSON, không markdown):
   "top_errors": [],
   "key_phrases": [],
   "reflex_questions": [],
-  "retry_score": null,
-  "retry_passed": null,
   "sample_answer": "",
   "keywords": [],
   "mode": "freespeak"

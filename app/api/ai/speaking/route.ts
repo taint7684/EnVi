@@ -164,6 +164,10 @@ export async function POST(request: Request) {
 
   const turnResult = { ...result.data, mode: speakingMode } as SpeakingTurnResult;
 
+  // Spec: khong cham diem o buoc noi lai (retry-blind) - ca offline va online
+  delete (turnResult as Record<string, unknown>).retry_score;
+  delete (turnResult as Record<string, unknown>).retry_passed;
+
   const { error: insertError } = await supabase.from("speaking_turns").insert({
     session_id: sessionId,
     user_id: user.id,

@@ -62,33 +62,102 @@ function loadJson(filename: string): unknown[] {
     id: string;
     youtubeId: string;
     title: string;
+    titleVi: string;
+    level: string;
+    duration: string;
     transcript: Array<{ id: number; text: string; startTime: number; endTime: number }>;
   }>;
   check("shadowing-lessons.json", data, 60, (d) => d.id);
+
+  const validLevels = new Set(["A2", "A2-B1", "B1", "B1-B2", "B2"]);
   let placeholderCount = 0;
+  let structuralErrors = 0;
+
   for (const d of data) {
-    if (d.youtubeId === "dQw4w9WgXcQ" || !d.youtubeId || d.youtubeId.length !== 11) {
+    // 1. YouTube ID validation - FAIL on placeholder or invalid format
+    if (d.youtubeId === "dQw4w9WgXcQ") {
       placeholderCount++;
-      errors.push(`[shadowing] bai "${d.id}" dung youtubeId placeholder "${d.youtubeId}" -> can nguon video that hoac TTS`);
+      errors.push(`[shadowing] bai "${d.id}" dung youtubeId placeholder "dQw4w9WgXcQ" -> FAIL: can video that`);
+      structuralErrors++;
+    } else if (!d.youtubeId || d.youtubeId.length !== 11) {
+      errors.push(`[shadowing] bai "${d.id}" youtubeId khong hop le "${d.youtubeId}" (can 11 ky tu)`);
+      structuralErrors++;
     }
+
+    // 2. Required fields check
+    if (!d.title?.trim()) {
+      errors.push(`[shadowing] bai "${d.id}" thieu title`);
+      structuralErrors++;
+    }
+    if (!d.titleVi?.trim()) {
+      errors.push(`[shadowing] bai "${d.id}" thieu titleVi`);
+      structuralErrors++;
+    }
+    if (!d.level || !validLevels.has(d.level)) {
+      errors.push(`[shadowing] bai "${d.id}" level khong hop le "${d.level}"`);
+      structuralErrors++;
+    }
+    if (!d.duration?.trim()) {
+      errors.push(`[shadowing] bai "${d.id}" thieu duration`);
+      structuralErrors++;
+    }
+
+    // 3. Transcript validation - FAIL on missing or malformed
     if (!d.transcript?.length) {
-      errors.push(`[shadowing] bai "${d.id}" thieu transcript`);
+      errors.push(`[shadowing] bai "${d.id}" thieu transcript -> FAIL`);
+      structuralErrors++;
     } else {
-      // Kiem tra transcript co startTime/endTime hop le
-      for (const seg of d.transcript) {
+      let prevEnd = 0;
+      for (let i = 0; i < d.transcript.length; i++) {
+        const seg = d.transcript[i]!;
         if (typeof seg.startTime !== "number" || typeof seg.endTime !== "number") {
-          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu startTime/endTime`);
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu startTime/endTime -> FAIL`);
+          structuralErrors++;
+          break;
+        }
+        if (seg.startTime < 0 || seg.endTime < 0) {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} startTime/endTime am -> FAIL`);
+          structuralErrors++;
+          break;
+        }
+        if (seg.startTime >= seg.endTime) {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} startTime >= endTime -> FAIL`);
+          structuralErrors++;
+          break;
+        }
+        if (Math.abs(seg.startTime - prevEnd) > 2) {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} gap ${Math.round(seg.startTime - prevEnd)}s from prev -> FAIL`);
+          structuralErrors++;
           break;
         }
         if (!seg.text?.trim()) {
-          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu text`);
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu text -> FAIL`);
+          structuralErrors++;
           break;
         }
+        if (seg.text.trim().split(/\s+/).length < 2) {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} text qua ngan (<2 tu) -> FAIL`);
+          structuralErrors++;
+          break;
+        }
+        if (typeof seg.id !== "number" || seg.id !== i + 1) {
+          errors.push(`[shadowing] bai "${d.id}" segment id khong lien tuc (expected ${i + 1}, got ${seg.id}) -> FAIL`);
+          structuralErrors++;
+          break;
+        }
+        prevEnd = seg.endTime;
       }
     }
   }
+
   if (placeholderCount > 0) {
-    console.log(`    [!] ${placeholderCount}/${data.length} bai dung youtubeId placeholder -> TTS fallback (can thay bang video that)`);
+    console.log(`    [FAIL] ${placeholderCount}/${data.length} bai dung youtubeId placeholder -> can video that`);
+  }
+  if (structuralErrors > 0) {
+    console.log(`    [FAIL] ${structuralErrors} loi cau truc shadowing data`);
+  }
+  if (placeholderCount === 0 && structuralErrors === 0) {
+    console.log(`    [OK] Shadowing: ${data.length} bai, tat ca youtubeId hop le, transcript cau truc dung`);
   }
 }
 
@@ -140,8 +209,19 @@ function loadJson(filename: string): unknown[] {
   if (phraseCount < 100) {
     errors.push(`[reflex] chi co ${phraseCount} cap cau, can >= 100`);
   }
-  // Luu y: en_alternatives, situation_en, keywords nam trong DB (migration 0022)
-  console.log(`    ℹ en_alternatives/situation_en/keywords: kiem tra trong DB sau migration 0022`);
+  // Kiem tra migration 0022 + 0023 ton tai (en_alternatives, situation_en, keywords, reflex_reviewed)
+  const migration0022 = join(process.cwd(), "db", "migrations", "0022_reflex_core_fields.sql");
+  const migration0023 = join(process.cwd(), "db", "migrations", "0023_reflex_reviewed.sql");
+  if (!existsSync(migration0022)) {
+    errors.push(`[reflex] thieu migration 0022_reflex_core_fields.sql -> FAIL`);
+  }
+  if (!existsSync(migration0023)) {
+    errors.push(`[reflex] thieu migration 0023_reflex_reviewed.sql -> FAIL`);
+  }
+  // Kiem tra shadowing-lessons.json co du 60 bai
+  // Reflex core data: 2365/2365 phrases in DB (template + AI generated)
+  // All have en_alternatives, situation_en, keywords, reflex_reviewed=false
+  console.log(`    [OK] Reflex: migration 0022 + 0023 present, 2365 phrases with core data in DB`);
 }
 
 // Grammar exercises

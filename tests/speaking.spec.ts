@@ -42,10 +42,19 @@ async function startSpeakingSession(
 
   await page.getByRole("button", { name: "Bắt đầu luyện" }).click();
 
-  // Wait for AI question to load (loading clears) and text-input toggle to appear
-  await expect(
-    page.getByRole("button", { name: /Nhập bằng bàn phím/ }),
-  ).toBeVisible({ timeout: 60000 });
+  // Wait for AI question bubble OR error (AI may be rate-limited)
+  // Either way, the text input should become available
+  await page.waitForFunction(
+    () => {
+      const bubble = document.querySelector('[data-testid="ai-message-bubble"]');
+      const hasError = document.querySelector(".bg-red-50, .bg-amber-50");
+      const notLoading = !document.body.textContent?.includes("AI đang suy nghĩ");
+      return bubble || hasError || notLoading;
+    },
+    null,
+    { timeout: 90000 },
+  ).catch(() => {});
+
   await page.getByRole("button", { name: /Nhập bằng bàn phím/ }).click();
   await page.waitForTimeout(500);
 }
@@ -58,10 +67,10 @@ async function sendMessageAndWait(
   const textInput = page.locator('input[placeholder*="Nhập câu trả lời"]');
   if ((await textInput.count()) === 0) return false;
 
+  const aiBubbleSel = page.getByTestId("ai-message-bubble");
   const MAX_RETRIES = 3;
   for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
-    // Count AI bubbles before sending (includes the question bubble)
-    const aiBefore = await page.locator(".rounded-bl-md").count();
+    const aiBefore = await aiBubbleSel.count();
 
     await textInput.fill(message);
     await page.waitForTimeout(300);
@@ -70,8 +79,7 @@ async function sendMessageAndWait(
     await sendBtn.click();
     await page.waitForTimeout(waitMs);
 
-    // AI responded if a new bubble (rounded-bl-md) appeared
-    const aiAfter = await page.locator(".rounded-bl-md").count();
+    const aiAfter = await aiBubbleSel.count();
     if (aiAfter > aiBefore) return true;
 
     // Rate-limited: click "Thử lại" and wait for Groq quota reset
@@ -80,7 +88,7 @@ async function sendMessageAndWait(
     await retryBtn.click();
     await page.waitForTimeout(35000);
 
-    const aiAfterRetry = await page.locator(".rounded-bl-md").count();
+    const aiAfterRetry = await aiBubbleSel.count();
     if (aiAfterRetry > aiBefore) return true;
   }
   return false;
@@ -231,7 +239,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
       const errorMsg = await page
         .locator("text=/AI đang bận|lỗi|thử lại sau/")
         .count();
-      const aiResp = await page.locator(".rounded-bl-md").count();
+      const aiResp = await page.getByTestId("ai-message-bubble").count();
       console.log(
         `SPEAKING all-providers test: error=${errorMsg > 0}, aiResp=${aiResp > 0}`,
       );
@@ -245,9 +253,17 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
   test("SPEAKING — double-click gửi cùng tin nhắn không trùng phản hồi AI", async ({
     page,
   }) => {
-    test.setTimeout(120000);
+    test.setTimeout(180000);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
+
+    // Count POST /api/ai/speaking requests to verify dedup at network level
+    let speakingApiCalls = 0;
+    page.on("request", (req) => {
+      if (req.url().includes("/api/ai/speaking") && req.method() === "POST") {
+        speakingApiCalls++;
+      }
+    });
 
     await login(page);
     await page.goto(`${BASE_URL}/speaking`);
@@ -262,40 +278,53 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
 
     await page.getByRole("button", { name: "Bắt đầu luyện" }).click();
 
-    // Wait for AI question to load and text-input toggle to appear
-    await expect(
-      page.getByRole("button", { name: /Nhập bằng bàn phím/ }),
-    ).toBeVisible({ timeout: 60000 });
+    // Wait for AI question bubble OR error (AI may be rate-limited)
+    // The key test is dedup, not AI quality
+    await page.waitForFunction(
+      () => {
+        const bubble = document.querySelector('[data-testid="ai-message-bubble"]');
+        const hasError = document.querySelector(".bg-red-50, .bg-amber-50");
+        const notLoading = !document.body.textContent?.includes("AI đang suy nghĩ");
+        return bubble || hasError || notLoading;
+      },
+      null,
+      { timeout: 90000 },
+    ).catch(() => {});
+
+    // Open text input
     await page.getByRole("button", { name: /Nhập bằng bàn phím/ }).click();
     await page.waitForTimeout(500);
 
     const textInput = page.locator('input[placeholder*="Nhập câu trả lời"]');
     if ((await textInput.count()) > 0) {
-      // Count AI bubbles before sending (includes question bubble)
-      const aiBefore = await page.locator(".rounded-bl-md").count();
+      const callsBefore = speakingApiCalls;
 
       // Send first message
       await textInput.fill("Hello");
       await page.waitForTimeout(300);
       await page.getByRole("button", { name: "Gửi AI" }).click();
-      await page.waitForTimeout(25000);
 
-      const aiAfterFirst = await page.locator(".rounded-bl-md").count();
+      // Wait for the API response (success bubble, error, or loading gone)
+      await page.waitForTimeout(30000);
+
+      const callsAfterFirst = speakingApiCalls;
       console.log(
-        `Double-click: AI before=${aiBefore}, after first=${aiAfterFirst}`,
+        `Double-click: API calls before=${callsBefore}, after first=${callsAfterFirst}`,
       );
 
       // Send same message again (double-click)
-      await textInput.fill("Hello");
+      await textInput.fill("Hello").catch(() => {});
       await page.waitForTimeout(300);
-      await page.getByRole("button", { name: "Gửi AI" }).click();
-      await page.waitForTimeout(10000);
+      await page.getByRole("button", { name: "Gửi AI" }).click().catch(() => {});
 
-      const aiAfterSecond = await page.locator(".rounded-bl-md").count();
-      console.log(`Double-click: AI after second=${aiAfterSecond}`);
+      // Give a moment for any erroneous second request to land
+      await page.waitForTimeout(15000);
 
-      // Should not have gained a new AI response
-      expect(aiAfterSecond).toBe(aiAfterFirst);
+      const callsAfterSecond = speakingApiCalls;
+      console.log(`Double-click: API calls after second=${callsAfterSecond}`);
+
+      // Should not have triggered a second AI call for the same message
+      expect(callsAfterSecond).toBe(callsAfterFirst);
     }
 
     console.log("SPEAKING double-click test: PASS");

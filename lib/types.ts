@@ -72,6 +72,7 @@ export type PhraseRow = {
   en_alternatives: string[] | null;
   situation_en: string | null;
   keywords: string[] | null;
+  reflex_reviewed: boolean;
   created_at: string;
 };
 

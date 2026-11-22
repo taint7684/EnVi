@@ -4,9 +4,9 @@ import { existsSync } from "node:fs";
 /** Nạp .env.local (ưu tiên) rồi tới .env. Chỉ dùng ở script Node, không bundle client. */
 export function loadEnv(): void {
   if (existsSync(".env.local")) {
-    dotenv.config({ path: ".env.local" });
+    dotenv.config({ path: ".env.local", override: false });
   } else {
-    dotenv.config();
+    dotenv.config({ override: false });
   }
 }
 

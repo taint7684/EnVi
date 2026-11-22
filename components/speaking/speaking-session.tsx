@@ -36,8 +36,6 @@ import type {
   SpeakingError,
   SpeakingTurnResult,
 } from "@/lib/types/speaking";
-import { speakEnglish } from "@/lib/speech";
-import { evaluateSpeech } from "@/lib/speech-eval";
 
 type ChatMessage = {
   id: string;
@@ -53,8 +51,6 @@ type ChatMessage = {
   top_errors?: string[];
   key_phrases?: string[];
   reflex_questions?: string[];
-  retry_score?: number | null;
-  retry_passed?: boolean | null;
   sample_answer?: string;
   keywords?: string[];
   aiMs?: number;
@@ -66,7 +62,6 @@ const TOTAL_TURNS = TOTAL_QUESTIONS + REFLECTION_QUESTIONS;
 const MAX_LIFELINES = 3;
 const MAX_TRANSCRIPT_EDITS = 1;
 const MAX_RETRY_ATTEMPTS = 3;
-const RETRY_PASS_THRESHOLD = 0.75;
 const KEYWORD_HINT_DELAY_MS = 5000;
 const SAMPLE_PEEK_MS = 3000;
 
@@ -121,8 +116,6 @@ export function SpeakingSession({
   const [retryAttempts, setRetryAttempts] = useState(0);
   const [sampleAnswer, setSampleAnswer] = useState("");
   const [keywords, setKeywords] = useState<string[]>([]);
-  const [retryScore, setRetryScore] = useState<number | null>(null);
-  const [retryPassed, setRetryPassed] = useState<boolean | null>(null);
   const [praise, setPraise] = useState("");
   const [showSampleUntil, setShowSampleUntil] = useState<number | null>(null);
   const [courageBefore, setCourageBefore] = useState<number | null>(null);
@@ -130,10 +123,6 @@ export function SpeakingSession({
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const lastSentRef = useRef<string | null>(null);
-  const messagesRef = useRef<ChatMessage[]>([]);
-  useEffect(() => {
-    messagesRef.current = messages;
-  }, [messages]);
   const sessionStartedRef = useRef(false);
   const keywordHintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const samplePeekTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -172,49 +161,7 @@ export function SpeakingSession({
       setRetryBlindActive(false);
       setSampleAnswer("");
       setKeywords([]);
-      setRetryScore(null);
-      setRetryPassed(null);
-      setPraise("");
       setShowSampleUntil(null);
-
-      // RETRY-BLIND (step 3): cham offline, khong goi LLM
-      if (currentStep === 3) {
-        const prevMessages = messagesRef.current;
-        const lastAiMsg = prevMessages.filter((m) => m.role === "ai").pop();
-        const correctedSentence = lastAiMsg?.corrected_sentence ?? "";
-        const keywords = lastAiMsg?.keywords ?? [];
-        const semanticEval = correctedSentence
-          ? evaluateSpeech(correctedSentence, userMessage)
-          : { ratio: 0, correct: false };
-        const semanticScore = semanticEval.ratio;
-        const spokenLower = userMessage.toLowerCase();
-        const matchedKeywords = keywords.filter((kw) =>
-          spokenLower.includes(kw.toLowerCase()),
-        );
-        const keywordScore =
-          keywords.length > 0 ? matchedKeywords.length / keywords.length : 1;
-        const retryScore = 0.6 * semanticScore + 0.4 * keywordScore;
-        const retryPassed = retryScore >= RETRY_PASS_THRESHOLD;
-        setRetryScore(retryScore);
-        setRetryPassed(retryPassed);
-        setMessages((previous) => [
-          ...previous,
-          {
-            id: makeId(),
-            role: "ai",
-            text: retryPassed
-              ? "Nói lại đạt! Tiếp tục nhé."
-              : "Chưa đạt, thử lại lần nữa.",
-            step: 3,
-            questionIndex: qIdx,
-            mode: currentMode,
-            retry_score: retryScore,
-            retry_passed: retryPassed,
-          },
-        ]);
-        setLoading(false);
-        return;
-      }
 
       const aiStart = Date.now();
 
@@ -262,8 +209,6 @@ export function SpeakingSession({
             top_errors: result.top_errors?.length ? result.top_errors : undefined,
             key_phrases: result.key_phrases?.length ? result.key_phrases : undefined,
             reflex_questions: result.reflex_questions?.length ? result.reflex_questions : undefined,
-            retry_score: result.retry_score ?? null,
-            retry_passed: result.retry_passed ?? null,
             sample_answer: result.sample_answer || "",
             keywords: result.keywords?.length ? result.keywords : [],
             aiMs: data.aiMs,
@@ -275,8 +220,6 @@ export function SpeakingSession({
         if (result.praise) setPraise(result.praise);
         if (result.sample_answer) setSampleAnswer(result.sample_answer);
         if (result.keywords?.length) setKeywords(result.keywords);
-        if (result.retry_score !== null && result.retry_score !== undefined) setRetryScore(result.retry_score);
-        if (result.retry_passed !== null && result.retry_passed !== undefined) setRetryPassed(result.retry_passed);
 
         if (result.next_action === "done") {
           setTurnCompleted(true);
@@ -326,8 +269,9 @@ export function SpeakingSession({
   // Auto-start first question when entering topic mode
   useEffect(() => {
     if (mode !== "topic" || fallbackMode || sessionStartedRef.current) return;
-    sessionStartedRef.current = true;
+    if (!currentQuestion) return;
     const timer = setTimeout(() => {
+      sessionStartedRef.current = true;
       void requestAI(currentQuestion, 1, "topic", questionIndex);
     }, 0);
     return () => clearTimeout(timer);
@@ -521,11 +465,7 @@ export function SpeakingSession({
     setRetryBlindActive(false);
     setSampleAnswer("");
     setKeywords([]);
-    setRetryScore(null);
-    setRetryPassed(null);
-    setPraise("");
     setShowSampleUntil(null);
-    lastSentRef.current = null;
   }, [questionIndex, phase]);
 
   const handleRetryAI = useCallback(() => {
@@ -538,9 +478,6 @@ export function SpeakingSession({
     setRetryBlindActive(false);
     setSampleAnswer("");
     setKeywords([]);
-    setRetryScore(null);
-    setRetryPassed(null);
-    setPraise("");
     setShowSampleUntil(null);
     setError(null);
     lastSentRef.current = null;
@@ -596,8 +533,6 @@ export function SpeakingSession({
     setRetryBlindActive(false);
     setSampleAnswer("");
     setKeywords([]);
-    setRetryScore(null);
-    setRetryPassed(null);
     setPraise("");
     setShowSampleUntil(null);
   }, []);
@@ -1015,7 +950,7 @@ export function SpeakingSession({
                       <p className="italic">{sampleAnswer}</p>
                     </div>
                   )}
-                  {showSampleUntil === null && sampleAnswer && !retryPassed && retryAttempts < MAX_RETRY_ATTEMPTS && (
+                  {showSampleUntil === null && sampleAnswer && retryAttempts < MAX_RETRY_ATTEMPTS && (
                     <button
                       type="button"
                       onClick={handleShowSample}
@@ -1086,12 +1021,7 @@ export function SpeakingSession({
                   </span>
                 ))}
               </div>
-              {retryScore !== null && (
-                <p className="mt-2 text-xs text-blue-600">
-                  Điểm nói lại: {(retryScore * 100).toFixed(0)}% (đạt ≥ 75%)
-                </p>
-              )}
-              {retryPassed === false && retryAttempts >= MAX_RETRY_ATTEMPTS && (
+              {retryAttempts >= MAX_RETRY_ATTEMPTS && (
                 <p className="mt-1 text-xs text-red-600">
                   Đã đạt số lần thử tối đa ({MAX_RETRY_ATTEMPTS}), sang câu tiếp theo.
                 </p>
@@ -1216,7 +1146,10 @@ function MessageBubble({
 
   return (
     <div className="flex justify-start">
-      <div className="max-w-[90%] rounded-2xl rounded-bl-md border border-border bg-background px-4 py-3 shadow-sm">
+      <div
+        data-testid="ai-message-bubble"
+        className="max-w-[90%] rounded-2xl rounded-bl-md border border-border bg-background px-4 py-3 shadow-sm"
+      >
         <div className="flex items-start gap-2">
           <p className="flex-1 text-sm text-foreground">{message.text}</p>
           <button
@@ -1268,15 +1201,6 @@ function MessageBubble({
               Câu cải thiện
             </p>
             <p className="text-sm text-green-800">{message.corrected_sentence}</p>
-          </div>
-        ) : null}
-
-        {message.retry_score !== null && message.retry_score !== undefined ? (
-          <div className="mt-2 rounded-lg bg-blue-50 px-3 py-2">
-            <p className="text-xs font-semibold text-blue-700">
-              Điểm nói lại: {(message.retry_score * 100).toFixed(0)}%
-              {message.retry_passed ? " — ĐẠT" : ""}
-            </p>
           </div>
         ) : null}
 
