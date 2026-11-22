@@ -10,11 +10,23 @@ export class WhisperError extends Error {
   }
 }
 
+export type WhisperWord = {
+  word: string;
+  start: number;
+  end: number;
+};
+
+export type WhisperResult = {
+  text: string;
+  words: WhisperWord[];
+  duration: number;
+};
+
 const GROQ_URL = "https://api.groq.com/openai/v1/audio/transcriptions";
 const MODEL = process.env.WHISPER_MODEL ?? "whisper-large-v3-turbo";
 const MAX_ATTEMPTS = 2;
 
-export async function transcribeAudio(file: File): Promise<string> {
+export async function transcribeAudio(file: File): Promise<WhisperResult> {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) throw new WhisperError("Thiếu GROQ_API_KEY");
 
@@ -25,7 +37,8 @@ export async function transcribeAudio(file: File): Promise<string> {
       const form = new FormData();
       form.append("file", file);
       form.append("model", MODEL);
-      form.append("response_format", "json");
+      form.append("response_format", "verbose_json");
+      form.append("timestamp_granularities[]", "word");
       form.append("language", "en");
 
       const res = await fetch(GROQ_URL, {
@@ -43,12 +56,20 @@ export async function transcribeAudio(file: File): Promise<string> {
         );
       }
 
-      const data = (await res.json()) as { text?: string };
+      const data = (await res.json()) as {
+        text?: string;
+        words?: Array<{ word: string; start: number; end: number }>;
+        duration?: number;
+      };
       if (!data.text || !data.text.trim()) {
         throw new WhisperError("Whisper trả về rỗng", 0);
       }
 
-      return data.text.trim();
+      return {
+        text: data.text.trim(),
+        words: (data.words ?? []).map((w) => ({ word: w.word, start: w.start, end: w.end })),
+        duration: Number(data.duration ?? 0),
+      };
     } catch (error) {
       lastError = error;
       const status = error instanceof WhisperError ? error.status : undefined;
