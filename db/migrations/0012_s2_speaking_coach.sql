@@ -42,7 +42,7 @@ create table if not exists public.speaking_topics (
   title_vi text not null,
   title_en text not null,
   emoji text,
-  desc text,
+  "desc" text,
   theme_week int,
   created_at timestamptz not null default now()
 );

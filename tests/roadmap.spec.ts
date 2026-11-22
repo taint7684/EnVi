@@ -154,8 +154,8 @@ test.describe("EnVi Roadmap 90 ngày", () => {
 
     await login(page);
 
-    // Dashboard hiển thị
-    await expect(page.locator("text=Chào mừng trở lại")).toBeVisible();
+    // Dashboard hiển thị (landing = /today sau khi login)
+    await expect(page).toHaveURL(/\/today/);
 
     // Kế hoạch hôm nay có task
     await expect(page.locator("text=Kế hoạch học hôm nay")).toBeVisible();

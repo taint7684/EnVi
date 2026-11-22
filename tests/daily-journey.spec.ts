@@ -65,8 +65,8 @@ test.describe("EnVi Daily Journey — Smoke Test", () => {
     test.setTimeout(60000);
     await login(page);
 
-    // Dashboard
-    await expect(page.locator("text=Chào mừng trở lại")).toBeVisible();
+    // Dashboard (landing = /today sau khi login)
+    await expect(page).toHaveURL(/\/today/);
     await expect(page.locator("text=Kế hoạch học hôm nay")).toBeVisible();
 
     // Navigation có đủ các mục

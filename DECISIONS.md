@@ -6,6 +6,9 @@
 - Chỉ thêm migration mới (`db/migrations/0011_*` trở đi), không xoá dữ liệu cũ.
 
 ## Quyết định (điền khi thực thi S0→S11)
+- [BƯỚC 0 - 22/11/2026] Kiểm kê xác nhận: tsc EXIT 0, eslint 0 error/54 warning, vitest 82/82, build EXIT 0, playwright 4/5 (roadmap fail `/dashboard` ERR_FAILED). Không còn mock/VOCAB_WORDS/Maria/score:0 trong app/lib. 3 file uncommitted (migration 0012 `"desc"`, 2 spec bỏ assert greeting cũ).
+- [BƯỚC 0 - 22/11/2026] Top GAP xác định: (1) Shadowing chưa dùng YouTube IFrame API thật (getCurrentTime/seekTo, còn DEFAULT_YOUTUBE_ID placeholder); (2) Route chưa theo kiến trúc 5 tab spec 7.1 (`/speaking` vs `/speak/coach`...); (3) Grammar chưa đủ 800 câu + vn_trap; (4) Fluency MLR threshold 0.7s vs spec 0.4s; (5) thiếu audit-content.ts; (6) roadmap.spec dùng `/dashboard`; (7) rotate key thật; (8) DB live thiếu migration 0010-0020; (9) nội dung sample_answer/en_alternatives cần audit.
+- [BƯỚC 0 - 22/11/2026] Quyết định thực thi: S0→S11 đã hoàn thành (theo CHANGELOG). S11 = regression + DoD. Việc còn lại chủ yếu là: fix roadmap.spec `/dashboard`→`/today`, commit 3 file uncommitted, chạy lại playwright xanh, audit nội dung, và các việc cần người dùng (rotate key, migrate DB live). KHÔNG có S-phase mới cần viết code trừ khi audit phát hiện thiếu.
 - [S0] `.env.example`: giữ chỉ tên biến, xoá giá trị thật (rotate key do người dùng thực hiện bên ngoài repo).
 - [S0] `docs/MASTER_SPEC.md`: tạo từ spec v2.0 đã được duyệt.
 - [S0] `PROJECT_MANIFEST.md`, `DECISIONS.md`, `CHANGELOG.md`: tạo khởi tạo.
