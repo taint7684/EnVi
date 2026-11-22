@@ -889,6 +889,17 @@ export function SpeakingSession({
                     <RefreshCw className="size-4" />
                     Phao cứu sinh ({lifelineCount}/{MAX_LIFELINES})
                   </button>
+                  {mode === "freespeak" && (
+                    <button
+                      type="button"
+                      onClick={() => setShowTextInput((value) => !value)}
+                      disabled={loading || transcribing}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                    >
+                      <Keyboard className="size-4" />
+                      {showTextInput ? "Ẩn bàn phím" : "Nhập bằng bàn phím"}
+                    </button>
+                  )}
                 </>
               )}
               {isAnswerStep && (
