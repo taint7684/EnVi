@@ -54,31 +54,28 @@ export const SPEAKING_RESPONSE_SCHEMA = {
 
 export const speakingResultSchema = z.object({
   step: z.number().int().min(1).max(5),
-  ai_response_en: z.string(),
-  feedback_vi: z.string(),
-  understood: z.boolean(),
-  errors: z.array(
-    z.object({
-      error: z.string(),
-      correction: z.string(),
-      explanation_vi: z.string(),
-    }),
-  ),
-  corrected_sentence: z.string(),
-  next_action: z.enum([
-    "ask_question",
-    "request_retry",
-    "wrap_up",
-    "done",
-  ]),
-  top_errors: z.array(z.string()),
-  key_phrases: z.array(z.string()),
-  reflex_questions: z.array(z.string()),
+  ai_response_en: z.string().default(""),
+  feedback_vi: z.string().default(""),
+  understood: z.boolean().optional().default(false),
+  errors: z
+    .array(
+      z.object({
+        error: z.string().default(""),
+        correction: z.string().default(""),
+        explanation_vi: z.string().default(""),
+      }),
+    )
+    .default([]),
+  corrected_sentence: z.string().default(""),
+  next_action: z.enum(["ask_question", "request_retry", "wrap_up", "done"]),
+  top_errors: z.array(z.string()).default([]),
+  key_phrases: z.array(z.string()).default([]),
+  reflex_questions: z.array(z.string()).default([]),
   retry_score: z.number().min(0).max(1).optional().nullable(),
-  retry_passed: z.boolean().optional(),
-  sample_answer: z.string().optional(),
-  keywords: z.array(z.string()).optional(),
-  praise: z.string().optional(),
+  retry_passed: z.boolean().optional().nullable(),
+  sample_answer: z.string().optional().nullable(),
+  keywords: z.array(z.string()).optional().nullable(),
+  praise: z.string().optional().nullable(),
 });
 
 export function buildSpeakingSystemPrompt(

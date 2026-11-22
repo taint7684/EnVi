@@ -26,11 +26,11 @@ export type SpeakingTurnResult = {
   key_phrases: string[];
   reflex_questions: string[];
   mode?: SpeakingMode;
-  praise?: string;
+  praise?: string | null;
   retry_score?: number | null;
-  retry_passed?: boolean;
-  sample_answer?: string;
-  keywords?: string[];
+  retry_passed?: boolean | null;
+  sample_answer?: string | null;
+  keywords?: string[] | null;
 };
 
 export type SpeakingHistoryTurn = {

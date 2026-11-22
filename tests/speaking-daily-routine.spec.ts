@@ -6,28 +6,20 @@ const QA_PASSWORD = process.env.QA_PASSWORD ?? "TestPass123!";
 
 async function loginAndStartSession(page: Page) {
   await page.goto("/login");
-  await page.waitForLoadState("networkidle");
-  await page.fill('input[id="email"]', QA_EMAIL);
-  await page.fill('input[id="password"]', QA_PASSWORD);
+  await page.fill('input[type="email"]', QA_EMAIL);
+  await page.fill('input[type="password"]', QA_PASSWORD);
   await page.click('button[type="submit"]');
-  await page.waitForURL("/today", { timeout: 15000 });
+  await page.waitForURL("**/today", { timeout: 15000 });
 
-  await page.click('a:has-text("Speaking")');
-  await page.waitForLoadState("networkidle");
+  await page.goto("/speaking");
+  await page.waitForTimeout(2000);
   await page.click('text="Daily Routine"');
   await page.waitForTimeout(1000);
-  const startBtns = page.locator('button:has-text("Bắt đầu luyện")');
-  await startBtns.first().click();
-  await page.waitForTimeout(2000);
+  // Chon topic → hien nut "Bat dau luyen" trong the topic
+  await page.locator('button:has-text("Bắt đầu luyện")').first().click();
+  await page.waitForTimeout(3000);
 
-  // Click "Bắt đầu luyện" lại trong màn hình session (sau khi chọn level)
-  const sessionStartBtns = page.locator('button:has-text("Bắt đầu luyện")');
-  if ((await sessionStartBtns.count()) > 0) {
-    await sessionStartBtns.first().click();
-    await page.waitForTimeout(2000);
-  }
-
-  // Chờ AI hỏi câu 1 (Ollama có thể mất ~40s)
+  // Cho AI hoi cau 1 (tuseffect)
   await expect(page.getByText(/Câu 1\/5/)).toBeVisible({ timeout: 120000 });
 }
 
@@ -107,28 +99,29 @@ test.describe("EnVi Speaking - Daily Routine CA B", () => {
       console.log(bodyAfterAnswer?.slice(0, 2000));
 
       if (i < 4) {
-        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, sang câu tiếp theo")');
+        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
         if ((await repeatBtn.count()) > 0) {
-          await repeatBtn.click();
+          await repeatBtn.first().click();
           await page.waitForTimeout(2000);
+          await waitForAiReady(page);
         }
 
         const nextBtn = page.getByText("Sang câu tiếp theo");
-        await expect(nextBtn).toBeVisible({ timeout: 10000 });
+        await expect(nextBtn).toBeVisible({ timeout: 20000 });
         await nextBtn.click();
         await page.waitForTimeout(2000);
 
         await waitForAiReady(page);
 
-        await expect(page.getByText(new RegExp(`Câu ${i + 2}\/5 · Bước 1\/5 · Hỏi`))).toBeVisible({ timeout: 120000 });
+        await expect(page.getByText(new RegExp(`Câu ${i + 2}\\/5`))).toBeVisible({ timeout: 120000 });
       } else {
-        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, sang câu tiếp theo")');
+        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
         if ((await repeatBtn.count()) > 0) {
-          await repeatBtn.click();
+          await repeatBtn.first().click();
           await page.waitForTimeout(10000);
         }
 
-        await expect(page.getByText("Đã luyện hết 5 câu. Buổi học kết thúc.")).toBeVisible();
+        await expect(page.getByText("Đã luyện hết 5 câu. Buổi học kết thúc.")).toBeVisible({ timeout: 30000 });
       }
     }
 

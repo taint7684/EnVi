@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { aiRouter } from "@/lib/ai/router";
+import { aiRouter, AiUnavailableError } from "@/lib/ai/router";
 import {
   buildFreeSpeakSystemPrompt,
   buildSpeakingSystemPrompt,
@@ -115,15 +115,48 @@ export async function POST(request: Request) {
 
   const aiStart = Date.now();
 
-  const result = await aiRouter.generate<SpeakingTurnResult>({
-    task: "speaking_turn",
-    schema: speakingResultSchema,
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt },
-    ],
-    userId: user.id,
-  });
+  let result: Awaited<ReturnType<typeof aiRouter.generate<SpeakingTurnResult>>>;
+  try {
+    result = await aiRouter.generate<SpeakingTurnResult>({
+      task: "speaking_turn",
+      schema: speakingResultSchema,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt },
+      ],
+      userId: user.id,
+    });
+  } catch (cause) {
+    if (cause instanceof AiUnavailableError) {
+      const chain: string[] = [];
+      let node: unknown = cause;
+      for (let i = 0; i < 6 && node; i++) {
+        if (node instanceof Error) {
+          chain.push(node.message);
+          node = (node as { cause?: unknown }).cause;
+        } else {
+          chain.push(String(node));
+          break;
+        }
+      }
+      const blob = chain.join(" | ");
+      const isRateLimit = /429|rate.?limit|quota|OTPM|tokens per minute|too many requests/i.test(
+        blob,
+      );
+      const isBudget = /Quyen su dung AI hom nay da het/i.test(blob);
+      return NextResponse.json(
+        {
+          error: isRateLimit
+            ? "AI đang bận (rate limit)"
+            : isBudget
+              ? "Bạn đã dùng hết lượt AI hôm nay."
+              : "Không thể lấy phản hồi AI.",
+        },
+        { status: isRateLimit ? 429 : isBudget ? 429 : 503 },
+      );
+    }
+    throw cause;
+  }
 
   const aiMs = Date.now() - aiStart;
 

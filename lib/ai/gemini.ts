@@ -24,11 +24,10 @@ const JITTER_MAX_MS = 500;
 export async function callGemini({
   systemPrompt,
   userPrompt,
-  responseSchema,
 }: {
   systemPrompt: string;
   userPrompt: string;
-  responseSchema: unknown;
+  responseSchema?: unknown;
 }): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new GeminiError("Thiếu GEMINI_API_KEY");
@@ -39,7 +38,6 @@ export async function callGemini({
     generationConfig: {
       temperature: 0.4,
       responseMimeType: "application/json",
-      responseSchema,
     },
   };
 

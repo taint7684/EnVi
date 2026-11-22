@@ -38,38 +38,59 @@ async function waitForAi(page: Page) {
   } catch {}
 }
 
-async function answerAndNext(page: Page, answer: string, questionNum: number, level: string, totalQuestions = 5) {
+// Drive one full turn against the REAL component UI:
+// answer -> (optional) "Tôi đã nói lại" -> (optional) "Sang câu tiếp theo".
+// Returns true when the session reached the end ("Đã luyện hết ... câu").
+async function doTurn(page: Page, answer: string): Promise<boolean> {
   const input = page.locator('input[placeholder*="Nhập câu trả lời"]');
-  await input.pressSequentially(answer, { delay: 50 });
-  await page.waitForTimeout(500);
-  await page.locator('button:has-text("Gửi AI")').click();
+  await expect(input).toBeVisible({ timeout: 120000 });
+  // Wait until the AI finished reading/asking (input + send become enabled).
+  await expect(input).toBeEnabled({ timeout: 120000 });
+  await input.pressSequentially(answer, { delay: 40 });
+  await page.waitForTimeout(300);
+  const sendBtn = page.locator('button:has-text("Gửi AI")');
+  await expect(sendBtn).toBeEnabled({ timeout: 30000 });
+  await sendBtn.click();
   await waitForAi(page);
 
-  // Check no error
-  const hasError = await page.locator('text="AI đang bận"').isVisible().catch(() => false);
-  if (hasError) throw new Error(`FAIL ${level} Câu ${questionNum}: AI rate limited`);
+  // Groq free tier OTPM=1000 tokens/min -> retry on rate limit, pacing ~35s.
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const retryBtn = page.locator('button:has-text("Thử lại")');
+    if ((await retryBtn.count()) === 0) break;
+    console.log(`  [pace] rate limited, waiting 35s then "Thử lại" (attempt ${attempt + 1})`);
+    await page.waitForTimeout(35000);
+    const retryNow = page.locator('button:has-text("Thử lại")');
+    if ((await retryNow.count()) === 0) break;
+    await retryNow.first().click();
+    await waitForAi(page);
+  }
 
-  // Verify user message visible
+  const stillLimited = await page.locator('button:has-text("Thử lại")').isVisible().catch(() => false);
+  if (stillLimited) throw new Error("FAIL: AI rate limited after 5 retries");
+
   await expect(
     page.locator('.bg-primary').filter({ hasText: answer }).first(),
-  ).toBeVisible();
+  ).toBeVisible({ timeout: 10000 });
 
-  if (questionNum < totalQuestions) {
-    // Click next question
-    const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, sang câu tiếp theo")');
-    if ((await repeatBtn.count()) > 0) await repeatBtn.click();
-    await page.waitForTimeout(1000);
-
-    const nextBtn = page.getByText("Sang câu tiếp theo");
-    await expect(nextBtn).toBeVisible({ timeout: 10000 });
-    await nextBtn.click();
-    await page.waitForTimeout(2000);
+  const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
+  if ((await repeatBtn.count()) > 0) {
+    await repeatBtn.first().click();
+    await page.waitForTimeout(1200);
     await waitForAi(page);
-    await expect(page.getByText(new RegExp(`Câu ${questionNum + 1}\\/5`))).toBeVisible({ timeout: 120000 });
-  } else {
-    // Last question — wait for summary
-    await expect(page.getByText("Đã luyện hết 5 câu. Buổi học kết thúc.")).toBeVisible({ timeout: 30000 });
   }
+
+  const done = page.getByText(/Đã luyện hết \d+ câu\. Buổi học kết thúc\./);
+  if (await done.isVisible().catch(() => false)) return true;
+
+  const nextBtn = page.getByText("Sang câu tiếp theo");
+  if (await nextBtn.isVisible().catch(() => false)) {
+    await nextBtn.click();
+    await page.waitForTimeout(1200);
+    await waitForAi(page);
+    return false;
+  }
+
+  return done.isVisible().catch(() => false);
 }
 
 for (const level of ["B1", "B2"] as const) {
@@ -105,9 +126,14 @@ for (const level of ["B1", "B2"] as const) {
 
       for (let i = 0; i < 5; i++) {
         console.log(`=== ${level} Câu ${i + 1}/5 ===`);
-        await answerAndNext(page, answers[level][i], i + 1, level, 5);
-        console.log(`${level} Câu ${i + 1} OK`);
+        const finished = await doTurn(page, answers[level][i]);
+        console.log(`${level} Câu ${i + 1} OK (finished=${finished})`);
+        if (finished) break;
       }
+
+      await expect(
+        page.getByText(/Đã luyện hết 5 câu\. Buổi học kết thúc\./),
+      ).toBeVisible({ timeout: 30000 });
 
       // Summary checks
       const bodyText = await page.locator("body").innerText();

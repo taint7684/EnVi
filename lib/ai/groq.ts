@@ -2,17 +2,20 @@ import "server-only";
 
 export class GroqError extends Error {
   status?: number;
+  retryAfter?: string | null;
 
-  constructor(message: string, status?: number) {
+  constructor(message: string, status?: number, retryAfter?: string | null) {
     super(message);
     this.name = "GroqError";
     this.status = status;
+    this.retryAfter = retryAfter;
   }
 }
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_MODEL = process.env.GROQ_MODEL ?? "qwen/qwen3.8-27b";
-const MAX_ATTEMPTS = 3;
+const MAX_ATTEMPTS = 4;
+const MAX_TOKENS = Number(process.env.GROQ_MAX_TOKENS ?? 500);
 
 export async function callGroqChat({
   systemPrompt,
@@ -42,15 +45,18 @@ export async function callGroqChat({
           ],
           response_format: { type: "json_object" },
           temperature: 0.4,
+          max_tokens: MAX_TOKENS,
         }),
         signal: AbortSignal.timeout(60000),
       });
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
+        const retryAfter = res.headers.get("retry-after");
         throw new GroqError(
           `Groq ${res.status}: ${text.slice(0, 300)}`,
           res.status,
+          retryAfter,
         );
       }
 
@@ -70,7 +76,15 @@ export async function callGroqChat({
         (status !== undefined && status >= 500);
 
       if (attempt === MAX_ATTEMPTS - 1 || !retryable) break;
-      await sleep(backoff(attempt));
+
+      const retryAfterSec =
+        error instanceof GroqError && error.retryAfter
+          ? Number(error.retryAfter)
+          : undefined;
+      const waitMs = Number.isFinite(retryAfterSec)
+        ? (retryAfterSec as number) * 1000 + 500
+        : backoff(attempt);
+      await sleep(Math.min(waitMs, 30000));
     }
   }
 
