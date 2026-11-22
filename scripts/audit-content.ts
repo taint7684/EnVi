@@ -78,8 +78,8 @@ function loadJson(filename: string): unknown[] {
 {
   const data = loadJson("grammar-exercises.json") as Array<{
     topicId: string;
-    mcq?: Array<{ id: number; explanation?: string }>;
-    fill?: Array<{ id: number; explanation?: string }>;
+    mcq?: Array<{ id: number; explanation_vi?: string; vn_trap?: string; speak?: string }>;
+    fill?: Array<{ id: number; explanation_vi?: string; vn_trap?: string; speak?: string }>;
   }>;
   const totalMcq = data.reduce((s, d) => s + (d.mcq?.length ?? 0), 0);
   const totalFill = data.reduce((s, d) => s + (d.fill?.length ?? 0), 0);
@@ -93,12 +93,27 @@ function loadJson(filename: string): unknown[] {
     errors.push(`[grammar] chỉ có ${data.length} chủ điểm, cần ≥ 16`);
   }
   let withExplanation = 0;
+  let withTrap = 0;
+  let withSpeak = 0;
   for (const d of data) {
     for (const q of [...(d.mcq ?? []), ...(d.fill ?? [])]) {
-      if (q.explanation) withExplanation++;
+      if (q.explanation_vi) withExplanation++;
+      if (q.vn_trap) withTrap++;
+      if (q.speak) withSpeak++;
     }
   }
   console.log(`    Có explanation_vi: ${withExplanation}/${total}`);
+  console.log(`    Có vn_trap: ${withTrap}/${total}`);
+  console.log(`    Có speak: ${withSpeak}/160`);
+  if (withExplanation < total) {
+    errors.push(`[grammar] chỉ ${withExplanation}/${total} câu có explanation_vi`);
+  }
+  if (withSpeak < 160) {
+    errors.push(`[grammar] chỉ ${withSpeak}/160 câu có speak`);
+  }
+  if (withTrap < total) {
+    errors.push(`[grammar] chỉ ${withTrap}/${total} câu có vn_trap`);
+  }
 }
 
 // Pronunciation

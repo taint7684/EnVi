@@ -174,20 +174,40 @@ export function GrammarPractice({ topicId }: { topicId: string }) {
               )}
 
               {isChecked ? (
-                <p
-                  className={cn(
-                    "mt-2 text-xs font-medium",
-                    correct ? "text-green-600" : "text-red-600",
-                  )}
-                >
-                  {correct
-                    ? "Chính xác!"
-                    : `Chưa đúng. Đáp án: ${
-                        mode === "mcq"
-                          ? (q as { options: string[] }).options[(q as { answer: number }).answer]
-                          : (q as { answer: string }).answer
-                      }`}
-                </p>
+                <div className="mt-2 space-y-1">
+                  <p
+                    className={cn(
+                      "text-xs font-medium",
+                      correct ? "text-green-600" : "text-red-600",
+                    )}
+                  >
+                    {correct
+                      ? "Chính xác!"
+                      : `Chưa đúng. Đáp án: ${
+                          mode === "mcq"
+                            ? (q as { options: string[] }).options[(q as { answer: number }).answer]
+                            : (q as { answer: string }).answer
+                        }`}
+                  </p>
+                  {q.explanation_vi ? (
+                    <p className="text-xs text-muted-foreground">
+                      <span className="font-semibold text-foreground">Giải thích: </span>
+                      {q.explanation_vi}
+                    </p>
+                  ) : null}
+                  {q.vn_trap ? (
+                    <p className="text-xs text-amber-700">
+                      <span className="font-semibold">Lỗi thường gặp: </span>
+                      {q.vn_trap}
+                    </p>
+                  ) : null}
+                  {q.speak ? (
+                    <p className="text-xs text-blue-700">
+                      <span className="font-semibold">Luyện nói: </span>
+                      {q.speak}
+                    </p>
+                  ) : null}
+                </div>
               ) : null}
             </div>
           );

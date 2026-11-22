@@ -5,12 +5,18 @@ export type GrammarMcq = {
   question: string;
   options: string[];
   answer: number;
+  explanation_vi?: string;
+  vn_trap?: string;
+  speak?: string;
 };
 
 export type GrammarFill = {
   id: number;
   question: string;
   answer: string;
+  explanation_vi?: string;
+  vn_trap?: string;
+  speak?: string;
 };
 
 export type GrammarTopicExercise = {
