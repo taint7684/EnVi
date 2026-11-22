@@ -26,7 +26,7 @@ type Profile = {
 
 const DEFAULTS: Profile = {
   goal: "Giao tiếp trong công việc và đời sống",
-  minutes_per_day: 60,
+  minutes_per_day: 180,
   voice: "en-US-JennyNeural",
   tts_rate: "1.0",
   new_words_per_day: 20,

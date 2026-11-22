@@ -12,12 +12,12 @@ const GOALS = [
   "Giao tiếp tự tin với người bản ngữ",
 ] as const;
 
-const MINUTES = [15, 30, 60, 90, 120] as const;
+const MINUTES = [15, 30, 60, 90, 120, 180] as const;
 
 export default function OnboardingPage() {
   const router = useRouter();
   const [goal, setGoal] = useState<string>(GOALS[0]);
-  const [minutesPerDay, setMinutesPerDay] = useState<number>(60);
+  const [minutesPerDay, setMinutesPerDay] = useState<number>(180);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

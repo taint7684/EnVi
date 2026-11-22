@@ -9,8 +9,8 @@ import type {
   WordRow,
 } from "@/lib/types";
 
-export const SESSION_SIZE = 100;
-export const DAILY_NEW_LIMIT = 100;
+export const SESSION_SIZE = 101;
+export const DAILY_NEW_LIMIT = 21;
 
 const NEW_WORDS_PAGE_SIZE = 100;
 
