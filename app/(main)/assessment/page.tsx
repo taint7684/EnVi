@@ -20,7 +20,7 @@ export default function AssessmentPage() {
       </h1>
       <p className="text-muted-foreground">
         Dùng đề tương đương và cùng rubric cho Đầu kỳ / Ngày 30 / Ngày 60 / Ngày 90.
-        Kết quả lưu trên trình duyệt của bạn, không gửi lên server.
+        Kết quả được lưu vào tài khoản của bạn để so sánh Trước – Sau ở trang Tiến bộ.
       </p>
       <div className="flex items-center gap-3 w-64">
         <label className="text-sm font-medium text-foreground">Chọn mốc</label>

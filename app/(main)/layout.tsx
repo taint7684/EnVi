@@ -22,7 +22,7 @@ export default async function MainLayout({
   return (
     <div className="flex min-h-screen bg-background">
       <aside className="hidden w-60 shrink-0 border-r border-border bg-sidebar p-4 md:block">
-        <Link href="/dashboard" className="flex items-center gap-2 px-2">
+        <Link href="/today" className="flex items-center gap-2 px-2">
           <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
             <span className="font-serif text-base font-semibold">E</span>
           </div>

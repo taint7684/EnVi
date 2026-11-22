@@ -19,9 +19,9 @@ import {
   WRITING_CRITERIA,
   ratingStars,
   levelLabel,
-  saveAssessment,
   type Milestone,
 } from "@/lib/assessment";
+import { saveAssessmentResult } from "@/lib/assessment-db";
 
 type Step = "listening" | "reading" | "speaking" | "writing" | "result";
 
@@ -92,7 +92,7 @@ export function AssessmentForm({
     }
   };
 
-  function handleSubmit() {
+  async function handleSubmit() {
     const input: AssessmentInput = {
       listeningAnswers,
       readingAnswers,
@@ -104,7 +104,7 @@ export function AssessmentForm({
     };
     const res = scoreAssessment(milestone, input, listening, reading);
     setResult(res);
-    saveAssessment(res);
+    await saveAssessmentResult(res);
     setStep("result");
   }
 
