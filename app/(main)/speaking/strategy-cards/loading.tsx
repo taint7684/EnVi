@@ -1,0 +1,5 @@
+import { SkeletonCard } from "@/components/ui/skeleton";
+
+export default function Loading() {
+  return <div className="mx-auto max-w-4xl py-6"><SkeletonCard /></div>;
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "fillers",
+    "title_vi": "Kéo thời gian (Fillers)",
+    "explanation_vi": "Khi cần vài giây để suy nghĩ, dùng cụm này để không im lặng.",
+    "phrases": ["Good question. Let me think…", "How can I put this…", "That's a good point.", "Let me see…"],
+    "drill": "Đọc to 4 cụm, sau đó tự đặt 1 câu dùng 'Let me think…'."
+  },
+  {
+    "id": "repair",
+    "title_vi": "Xin nhắc lại",
+    "explanation_vi": "Khi không nghe rõ, hỏi lại lịch sự thay vì đoán bừa.",
+    "phrases": ["Sorry, could you say that again?", "Could you speak a bit more slowly?", "Sorry, I didn't catch that."],
+    "drill": "Tưởng tượng đồng nghiệp nói nhanh, dùng 1 câu để xin nhắc lại."
+  },
+  {
+    "id": "clarify",
+    "title_vi": "Kiểm tra hiểu",
+    "explanation_vi": "Xác nhận lại điều vừa nghe để chắc chắn hiểu đúng.",
+    "phrases": ["Do you mean…?", "So what you're saying is…", "Let me make sure I understand."],
+    "drill": "Nghe một yêu cầu, rồi nói lại 'So what you're saying is…'."
+  },
+  {
+    "id": "paraphrase",
+    "title_vi": "Nói vòng khi quên từ",
+    "explanation_vi": "Khi quên một từ, mô tả nó thay vì đứng im.",
+    "phrases": ["It's a kind of…", "It's the thing you use to…", "What I mean is…"],
+    "drill": "Mô tả 'database' cho người không biết kỹ thuật bằng 1 câu."
+  },
+  {
+    "id": "bluf",
+    "title_vi": "BLUF – Ý chính trước",
+    "explanation_vi": "Nói kết luận trước, rồi mới giải thích. Người nghe bận.",
+    "phrases": ["The short answer is…", "The main point is…", "In short, …"],
+    "drill": "Trả lời 'Dự án có kịp deadline không?' theo kiểu BLUF."
+  },
+  {
+    "id": "prep",
+    "title_vi": "PREP",
+    "explanation_vi": "Point – Reason – Example – Point: nêu ý, lý do, ví dụ, chốt lại.",
+    "phrases": ["My point is… because… For example…", "To sum up, …"],
+    "drill": "Dùng PREP để trả lời 'Vì sao bạn thích làm BA?'."
+  },
+  {
+    "id": "disagree",
+    "title_vi": "Phản đối lịch sự",
+    "explanation_vi": "Không đồng ý nhưng vẫn giữ quan hệ tốt.",
+    "phrases": ["I see your point, but…", "I'm not sure that's the best option because…", "I understand, however…"],
+    "drill": "Phản đối việc thêm tính năng gấp trước deadline."
+  },
+  {
+    "id": "bad-news",
+    "title_vi": "Báo tin xấu",
+    "explanation_vi": "Nói tin không vui một cách nhẹ nhàng, rõ ràng.",
+    "phrases": ["Unfortunately…", "I'm afraid we…", "I have some bad news."],
+    "drill": "Báo khách: bản demo phải lùi 2 ngày."
+  },
+  {
+    "id": "follow-up",
+    "title_vi": "Hứa quay lại",
+    "explanation_vi": "Khi chưa có câu trả lời, hẹn thời gian phản hồi.",
+    "phrases": ["Let me check and get back to you by…", "I'll confirm and update you."],
+    "drill": "Hứa PM sẽ trả lời câu hỏi kỹ thuật trước 5 giờ chiều."
+  },
+  {
+    "id": "hand-off",
+    "title_vi": "Kết thúc lượt nói",
+    "explanation_vi": "Chuyển quyền nói cho người khác một cách trơn tru.",
+    "phrases": ["That's it from my side.", "Does that make sense?", "What do you think?"],
+    "drill": "Sau khi báo cáo tiến độ, mời đồng nghiệp góp ý."
+  },
+  {
+    "id": "summarize",
+    "title_vi": "Tóm tắt",
+    "explanation_vi": "Chốt lại nội dung chính và bước tiếp theo.",
+    "phrases": ["To sum up…", "So the next steps are…", "In summary, …"],
+    "drill": "Tóm tắt một cuộc họp 5 phút trong 2 câu."
+  },
+  {
+    "id": "self-correct",
+    "title_vi": "Tự sửa khi nói sai",
+    "explanation_vi": "Sửa lại ngay khi lỡ nói sai, không cần chờ.",
+    "phrases": ["Sorry, I mean…", "Let me rephrase that."],
+    "drill": "Cố tình nói 'discuss about', rồi tự sửa thành 'discuss'."
+  }
+]

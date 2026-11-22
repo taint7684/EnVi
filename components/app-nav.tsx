@@ -28,6 +28,9 @@ const items: NavItem[] = [
     icon: Mic,
     children: [
       { href: "/speaking", label: "Speaking Coach" },
+      { href: "/speaking/missions", label: "Roleplay Missions" },
+      { href: "/speaking/drills", label: "Fluency Drills" },
+      { href: "/speaking/strategy-cards", label: "Thẻ chiến lược" },
       { href: "/assessment", label: "Đánh giá nói" },
     ],
   },

@@ -1,0 +1,264 @@
+[
+  {
+    "id": "daily-standup",
+    "title_vi": "Daily standup",
+    "title_en": "Daily standup",
+    "category": "work",
+    "level": "A2",
+    "role_relevance": ["BA", "Dev", "Tester", "PM", "All"],
+    "scenario_vi": "Bạn là thành viên team, họp daily 5 phút với PM người Úc. Trình bày: hôm qua làm gì, hôm nay làm gì, vướng mắc (nếu có).",
+    "ai_persona": { "name": "David", "role": "Project Manager", "personality": "Thân thiện, đi thẳng vào việc", "accent_hint": "Australian", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Nói được việc đã làm hôm qua", "check": "Did the learner describe what they did yesterday?" },
+      { "id": "o2", "text_vi": "Nói được việc sẽ làm hôm nay", "check": "Did the learner describe today's plan?" },
+      { "id": "o3", "text_vi": "Nêu vướng mắc hoặc nói 'no blockers'", "check": "Did the learner mention a blocker or say there are none?" }
+    ],
+    "prep_chunks": ["Yesterday I worked on…", "Today I'm going to…", "I'm blocked by…", "No blockers so far.", "It's on track for…", "I'll need help with…"],
+    "strategy_card_id": "bluf",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Morning! What did you work on yesterday?", "sample": "Yesterday I worked on the login page and fixed two bugs." },
+      { "persona": "Great. And what's the plan for today?", "sample": "Today I'm going to finish the API integration." },
+      { "persona": "Any blockers?", "sample": "No blockers so far, but I need the staging server." }
+    ]
+  },
+  {
+    "id": "clarify-requirement",
+    "title_vi": "Làm rõ yêu cầu mơ hồ",
+    "title_en": "Clarify a vague requirement",
+    "category": "work",
+    "level": "B1",
+    "role_relevance": ["BA", "PM", "All"],
+    "scenario_vi": "Khách hàng nói 'Hãy làm cho nó thân thiện với người dùng'. Bạn cần đặt câu hỏi để làm rõ yêu cầu.",
+    "ai_persona": { "name": "Sarah", "role": "Client", "personality": "Bận rộn, trả lời ngắn", "accent_hint": "American", "speaking_speed": "fast" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Đặt ít nhất 1 câu hỏi làm rõ", "check": "Did the learner ask a clarifying question?" },
+      { "id": "o2", "text_vi": "Dùng câu xác nhận lại (paraphrase)", "check": "Did the learner paraphrase to confirm understanding?" },
+      { "id": "o3", "text_vi": "Chốt được 1 yêu cầu cụ thể, đo được", "check": "Did the learner agree on a concrete, measurable requirement?" }
+    ],
+    "prep_chunks": ["Could you clarify what you mean by…?", "Do you mean…?", "So what you're saying is…", "What does success look like?", "Could you give an example?", "How will we measure that?"],
+    "strategy_card_id": "clarify",
+    "max_turns": 10,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Just make it more user-friendly, you know?", "sample": "Could you clarify what you mean by user-friendly?" },
+      { "persona": "Like, easier to use.", "sample": "Do you mean fewer steps to complete a task? Could you give an example?" },
+      { "persona": "Yeah, the checkout should be faster.", "sample": "So what you're saying is we should reduce checkout to three steps. Is that right?" }
+    ]
+  },
+  {
+    "id": "explain-bug",
+    "title_vi": "Giải thích một bug cho khách",
+    "title_en": "Explain a bug to a non-tech client",
+    "category": "work",
+    "level": "B1",
+    "role_relevance": ["Dev", "Tester", "BA", "All"],
+    "scenario_vi": "Một tính năng bị lỗi. Giải thích cho khách hàng không rành kỹ thuật: chuyện gì xảy ra, ảnh hưởng gì, khi nào sửa xong.",
+    "ai_persona": { "name": "Mrs. Chen", "role": "Client (non-technical)", "personality": "Hơi lo lắng, cần trấn an", "accent_hint": "Singapore", "speaking_speed": "slow" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Giải thích lỗi bằng ngôn ngữ đơn giản", "check": "Did the learner explain the issue simply, avoiding jargon?" },
+      { "id": "o2", "text_vi": "Nói rõ ảnh hưởng tới khách", "check": "Did the learner explain the impact on the client?" },
+      { "id": "o3", "text_vi": "Cho biết thời gian khắc phục", "check": "Did the learner give an ETA or next step?" }
+    ],
+    "prep_chunks": ["What happened is…", "This means that…", "It doesn't affect…", "We'll have it fixed by…", "I'll keep you updated.", "Sorry for the trouble."],
+    "strategy_card_id": "bad-news",
+    "max_turns": 9,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Why can't I see my reports?", "sample": "What happened is the report service was down for an hour. It doesn't affect your data." },
+      { "persona": "Is my data safe?", "sample": "Yes, your data is safe. Only the display was affected." },
+      { "persona": "When will it be back?", "sample": "We'll have it fixed by 3 PM and I'll keep you updated." }
+    ]
+  },
+  {
+    "id": "demo-feature",
+    "title_vi": "Demo một tính năng",
+    "title_en": "Demo a feature",
+    "category": "work",
+    "level": "B1",
+    "role_relevance": ["BA", "Dev", "PM", "All"],
+    "scenario_vi": "Demo tính năng mới cho khách trong 3 phút. Giới thiệu, chỉ cách dùng, nêu lợi ích.",
+    "ai_persona": { "name": "Tom", "role": "Client stakeholder", "personality": "Tò mò, hay hỏi", "accent_hint": "British", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Giới thiệu tính năng trong 1 câu", "check": "Did the learner introduce the feature clearly?" },
+      { "id": "o2", "text_vi": "Chỉ cho khách cách dùng", "check": "Did the learner walk through how to use it?" },
+      { "id": "o3", "text_vi": "Nêu lợi ích cho khách", "check": "Did the learner state the benefit for the client?" }
+    ],
+    "prep_chunks": ["Let me show you…", "First, you click…", "The benefit is…", "This saves you time because…", "As you can see…", "Any questions so far?"],
+    "strategy_card_id": "hand-off",
+    "max_turns": 9,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "So what are you showing me today?", "sample": "Let me show you the new dashboard. It gives you a quick view of all projects." },
+      { "persona": "How do I use it?", "sample": "First, you click on the project. Then you can filter by status." },
+      { "persona": "Why is this useful?", "sample": "The benefit is you save time and see problems early." }
+    ]
+  },
+  {
+    "id": "polite-disagree",
+    "title_vi": "Phản đối lịch sự",
+    "title_en": "Politely disagree on scope",
+    "category": "work",
+    "level": "B2",
+    "role_relevance": ["BA", "PM", "All"],
+    "scenario_vi": "Khách muốn thêm tính năng gấp trước deadline. Bạn cần phản đối lịch sự và đề xuất giải pháp thay thế.",
+    "ai_persona": { "name": "Mr. Brown", "role": "Client", "personality": "Quyết đoán, hơi áp lực", "accent_hint": "American", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Ghi nhận ý kiến khách trước", "check": "Did the learner acknowledge the client's point first?" },
+      { "id": "o2", "text_vi": "Phản đối kèm lý do", "check": "Did the learner disagree with a reason?" },
+      { "id": "o3", "text_vi": "Đề xuất giải pháp thay thế", "check": "Did the learner propose an alternative?" }
+    ],
+    "prep_chunks": ["I see your point, but…", "I'm not sure that's the best option because…", "How about we… instead?", "That would affect the timeline.", "Could we phase it?", "Let's find a middle ground."],
+    "strategy_card_id": "disagree",
+    "max_turns": 10,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "I want the chat feature added before Friday.", "sample": "I see your point, but adding chat now would affect the timeline." },
+      { "persona": "The client really wants it.", "sample": "I understand, however it needs at least a week. Could we phase it after launch?" },
+      { "persona": "Okay, what do you suggest?", "sample": "How about we deliver the core first and add chat next sprint?" }
+    ]
+  },
+  {
+    "id": "small-talk",
+    "title_vi": "Small talk đầu cuộc họp",
+    "title_en": "Small talk before a meeting",
+    "category": "social",
+    "level": "A2",
+    "role_relevance": ["All"],
+    "scenario_vi": "Trò chuyện nhẹ nhàng 2 phút trước khi vào họp: thời tiết, cuối tuần, cà phê.",
+    "ai_persona": { "name": "Emma", "role": "Colleague", "personality": "Vui vẻ, thích trò chuyện", "accent_hint": "Canadian", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Hỏi thăm 1 câu", "check": "Did the learner ask a friendly question?" },
+      { "id": "o2", "text_vi": "Chia sẻ 1 điều về mình", "check": "Did the learner share something about themselves?" },
+      { "id": "o3", "text_vi": "Duy trì hội thoại ít nhất 3 lượt", "check": "Did the conversation last at least three learner turns?" }
+    ],
+    "prep_chunks": ["How's it going?", "How was your weekend?", "Lovely weather today, isn't it?", "Did you do anything fun?", "Same here!", "That sounds great."],
+    "strategy_card_id": "fillers",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Hey! How's it going?", "sample": "Pretty good, thanks! How was your weekend?" },
+      { "persona": "It was nice, I went hiking. You?", "sample": "Lovely! I just relaxed at home and watched a movie." },
+      { "persona": "Sounds fun. Ready for the meeting?", "sample": "Almost! Let me grab a coffee first." }
+    ]
+  },
+  {
+    "id": "interview-intro",
+    "title_vi": "Phỏng vấn: tự giới thiệu",
+    "title_en": "Job interview: introduce yourself",
+    "category": "work",
+    "level": "B1",
+    "role_relevance": ["All"],
+    "scenario_vi": "Trong buổi phỏng vấn, giới thiệu bản thân trong 1 phút: kinh nghiệm, kỹ năng, mong muốn.",
+    "ai_persona": { "name": "Interviewer", "role": "Hiring Manager", "personality": "Chuyên nghiệp, lịch sự", "accent_hint": "American", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Nêu kinh nghiệm chính", "check": "Did the learner state their main experience?" },
+      { "id": "o2", "text_vi": "Nêu 1-2 kỹ năng nổi bật", "check": "Did the learner highlight key skills?" },
+      { "id": "o3", "text_vi": "Nói lý do quan tâm vị trí", "check": "Did the learner explain why they want the role?" }
+    ],
+    "prep_chunks": ["I have experience in…", "My strengths are…", "I'm particularly good at…", "I'm excited about this role because…", "In my last job, I…", "I'd love to contribute to…"],
+    "strategy_card_id": "prep",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Tell me a little about yourself.", "sample": "I have three years of experience as a BA in fintech. My strengths are requirements analysis and stakeholder communication." },
+      { "persona": "Why this role?", "sample": "I'm excited about this role because I'd love to work on larger products." }
+    ]
+  },
+  {
+    "id": "restaurant-order",
+    "title_vi": "Gọi món ở nhà hàng",
+    "title_en": "Order food at a restaurant",
+    "category": "life",
+    "level": "A2",
+    "role_relevance": ["All"],
+    "scenario_vi": "Bạn vào nhà hàng, gọi món và đồ uống, hỏi giá.",
+    "ai_persona": { "name": "Waiter", "role": "Server", "personality": "Lịch sự, nhanh nhẹn", "accent_hint": "British", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Gọi được 1 món chính", "check": "Did the learner order a main dish?" },
+      { "id": "o2", "text_vi": "Gọi được đồ uống", "check": "Did the learner order a drink?" },
+      { "id": "o3", "text_vi": "Hỏi giá hoặc xin bill", "check": "Did the learner ask for the price or the bill?" }
+    ],
+    "prep_chunks": ["I'd like…", "Could I have…?", "What do you recommend?", "How much is it?", "Could we have the bill, please?", "No, thank you."],
+    "strategy_card_id": "clarify",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Good evening! Are you ready to order?", "sample": "Yes, I'd like the grilled chicken, please." },
+      { "persona": "Anything to drink?", "sample": "Could I have an iced tea?" },
+      { "persona": "Sure. Anything else?", "sample": "No, thank you. Could we have the bill after?" }
+    ]
+  },
+  {
+    "id": "travel-airport",
+    "title_vi": "Sân bay & hải quan",
+    "title_en": "At the airport & immigration",
+    "category": "travel",
+    "level": "A2",
+    "role_relevance": ["All"],
+    "scenario_vi": "Bạn làm thủ tục nhập cảnh, trả lời câu hỏi của nhân viên hải quan.",
+    "ai_persona": { "name": "Officer", "role": "Immigration Officer", "personality": "Trang trọng, hỏi ngắn", "accent_hint": "American", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Trả lời mục đích chuyến đi", "check": "Did the learner state the purpose of the trip?" },
+      { "id": "o2", "text_vi": "Trả lời thời gian lưu trú", "check": "Did the learner say how long they will stay?" },
+      { "id": "o3", "text_vi": "Trả lời nơi ở", "check": "Did the learner say where they are staying?" }
+    ],
+    "prep_chunks": ["I'm here for tourism.", "I'm here on business.", "I'll stay for…", "I'm staying at…", "Here's my passport.", "Thank you."],
+    "strategy_card_id": "bluf",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "What's the purpose of your visit?", "sample": "I'm here for tourism." },
+      { "persona": "How long will you stay?", "sample": "I'll stay for two weeks." },
+      { "persona": "Where are you staying?", "sample": "I'm staying at the Grand Hotel downtown." }
+    ]
+  },
+  {
+    "id": "ask-directions",
+    "title_vi": "Hỏi đường",
+    "title_en": "Ask for directions",
+    "category": "travel",
+    "level": "A2",
+    "role_relevance": ["All"],
+    "scenario_vi": "Bạn bị lạc và cần hỏi đường tới một địa điểm.",
+    "ai_persona": { "name": "Local", "role": "Passerby", "personality": "Thân thiện, sẵn lòng giúp", "accent_hint": "Irish", "speaking_speed": "normal" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Hỏi đường tới địa điểm", "check": "Did the learner ask how to get somewhere?" },
+      { "id": "o2", "text_vi": "Xác nhận lại chỉ dẫn", "check": "Did the learner confirm the directions?" },
+      { "id": "o3", "text_vi": "Cảm ơn", "check": "Did the learner thank the person?" }
+    ],
+    "prep_chunks": ["Excuse me, how do I get to…?", "Is it far?", "Should I turn left or right?", "So I go straight then…", "Thank you so much!", "Have a good day."],
+    "strategy_card_id": "repair",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "Sure, where do you want to go?", "sample": "Excuse me, how do I get to the train station?" },
+      { "persona": "Go straight, then turn left at the bank.", "sample": "So I go straight and turn left at the bank. Is it far?" }
+    ]
+  },
+  {
+    "id": "doctor-visit",
+    "title_vi": "Khám bệnh",
+    "title_en": "At the doctor's",
+    "category": "life",
+    "level": "A2",
+    "role_relevance": ["All"],
+    "scenario_vi": "Bạn đi khám vì đau đầu, mô tả triệu chứng cho bác sĩ.",
+    "ai_persona": { "name": "Doctor", "role": "Physician", "personality": "Điềm tĩnh, hỏi kỹ", "accent_hint": "American", "speaking_speed": "slow" },
+    "objectives": [
+      { "id": "o1", "text_vi": "Mô tả triệu chứng", "check": "Did the learner describe their symptoms?" },
+      { "id": "o2", "text_vi": "Nói triệu chứng kéo dài bao lâu", "check": "Did the learner say how long they've had it?" },
+      { "id": "o3", "text_vi": "Hỏi về cách điều trị", "check": "Did the learner ask about treatment?" }
+    ],
+    "prep_chunks": ["I have a headache.", "It started… ago.", "It hurts when…", "What should I do?", "Do I need medicine?", "Thank you, doctor."],
+    "strategy_card_id": "clarify",
+    "max_turns": 8,
+    "success_rule": ">= objectives-1 done",
+    "offline_script": [
+      { "persona": "What brings you in today?", "sample": "I have a headache and I feel tired." },
+      { "persona": "How long has this been going on?", "sample": "It started two days ago." },
+      { "persona": "Any other symptoms?", "sample": "No, just the headache. What should I do?" }
+    ]
+  }
+]

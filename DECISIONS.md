@@ -13,3 +13,6 @@
 - [S5] Onboarding: dùng state + onSubmit (không dùng form action FormData) để tương thích React 19 và đọc state đã chọn.
 - [S5] Nav: chuyển sang IA 5 tab (spec 7.1) dùng route hiện có (`/speaking` thay `/speak/coach` tới khi refactor route); sub-item chỉ mở rộng khi tab active để gọn sidebar.
 - [S5] `/progress` là server component đọc `assessment_results`, tổng hợp Trước–Sau bằng `summarizeProgress` (pure, có test). Biểu đồ fluency đầy đủ (WPM/latency) hoãn tới khi có dữ liệu `fluency_daily`.
+- [S6] Mission/Drill dùng server actions (startMission/submitMissionTurn/finishMission, saveDrill) thay vì API route riêng — cùng contract, ít bề mặt hơn. Objective judge qua `aiRouter task=objective_judge`, lỗi → [] (không chặn).
+- [S6] Nội dung mission/strategy/drill để ở `data/*.json` + validate zod khi load (server-only); đọc DB trước (`missions`...), trống thì fallback JSON → chạy được trước khi seed. Persona turn dùng `offline_script` (pre-written) + STT từ `/api/stt` cho câu trả lời; WPM drill đo bằng thời gian ghi thực tế + word count transcript.
+- [S6] `fluency_drills`/`mission_attempts` xóa theo `delete_my_account` (migration 0016).
