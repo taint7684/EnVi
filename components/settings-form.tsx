@@ -20,13 +20,17 @@ type Profile = {
   minutes_per_day: number;
   voice: string;
   tts_rate: string;
+  new_words_per_day: number | null;
+  feedback_mode: "safe" | "standard";
 };
 
 const DEFAULTS: Profile = {
   goal: "Giao tiếp trong công việc và đời sống",
-  minutes_per_day: 180,
+  minutes_per_day: 60,
   voice: "en-US-JennyNeural",
   tts_rate: "1.0",
+  new_words_per_day: 20,
+  feedback_mode: "safe",
 };
 
 const EXPORT_TABLES = [
@@ -43,6 +47,22 @@ const EXPORT_TABLES = [
   "progress_tests",
   "study_plan_progress",
   "writing_drafts",
+  "activity_events",
+  "xp_ledger",
+  "streaks",
+  "daily_plans",
+  "daily_summary",
+  "assessment_results",
+  "mission_attempts",
+  "fluency_drills",
+  "pronunciation_attempts",
+  "shadowing_attempts",
+  "reading_attempts",
+  "grammar_attempts",
+  "grammar_mastery",
+  "error_events",
+  "error_patterns",
+  "makeup_lessons",
 ];
 
 export function SettingsForm() {
@@ -65,10 +85,10 @@ export function SettingsForm() {
       setUserId(user.id);
       const { data } = await supabase
         .from("profiles")
-        .select("goal, minutes_per_day, voice, tts_rate")
+        .select("goal, minutes_per_day, voice, tts_rate, new_words_per_day, feedback_mode")
         .eq("id", user.id)
         .maybeSingle();
-      if (active && data) setProfile(data as Profile);
+      if (active && data) setProfile({ ...DEFAULTS, ...(data as Profile) });
       if (active) setLoading(false);
     })();
     return () => {
@@ -198,6 +218,43 @@ export function SettingsForm() {
               <option value="0.8">0.8x — chậm</option>
               <option value="1.0">1.0x — bình thường</option>
               <option value="1.2">1.2x — nhanh</option>
+            </select>
+          </div>
+          <div className="grid gap-2 sm:max-w-xs">
+            <Label htmlFor="newwords">Số từ mới mỗi ngày</Label>
+            <div className="flex items-center gap-2">
+              <input
+                id="newwords"
+                type="number"
+                min={0}
+                max={500}
+                disabled={profile.new_words_per_day == null}
+                value={profile.new_words_per_day ?? ""}
+                onChange={(e) =>
+                  update("new_words_per_day", e.target.value === "" ? null : Number(e.target.value) || 0)
+                }
+                className="h-8 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring disabled:opacity-50"
+              />
+            </div>
+            <label className="flex items-center gap-2 text-xs text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={profile.new_words_per_day == null}
+                onChange={(e) => update("new_words_per_day", e.target.checked ? null : 20)}
+              />
+              Không giới hạn
+            </label>
+          </div>
+          <div className="grid gap-2 sm:max-w-xs">
+            <Label htmlFor="feedback">Chế độ phản hồi Speaking</Label>
+            <select
+              id="feedback"
+              value={profile.feedback_mode}
+              onChange={(e) => update("feedback_mode", e.target.value as "safe" | "standard")}
+              className="h-8 w-full rounded-lg border border-input bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50"
+            >
+              <option value="safe">An toàn — không hiện điểm ngay</option>
+              <option value="standard">Chuẩn — hiện điểm số</option>
             </select>
           </div>
           {status ? (

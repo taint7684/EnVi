@@ -22,3 +22,5 @@
 - [S8] Reading: bỏ localStorage, lưu `reading_attempts` qua `saveReadingAttempt`; click-to-lookup dùng `lookupWord` (thử từ gốc + lemma trong bảng `words`); AI `define_in_context` fallback + cache để sau.
 - [S8] Grammar: attempt lưu qua effect (theo dõi `checked`), `grammar_mastery` = % đúng 20 lượt gần nhất theo topic. Nội dung `explanation_vi` đã có inline; mở rộng 800 câu + `vn_trap` + ≥20% câu speak là công việc nội dung còn lại.
 - [S8] Work Writing (P2): đã lưu DB (`writing_drafts`); thêm cột `kind`. Feedback schema khen→≤2 lỗi→natural + đọc to bản sửa để làm sau.
+- [S9] Roadmap/Gamification dùng logic thuần (`lib/roadmap`, `lib/gamification/streak`) + test. `roadmap_days` seed sau (đọc DB nếu có, fallback code). Streak Freeze tính 1 ngày đóng băng = 1 ngày streak ( semantics Duolingo), chỉ bắc cầu khi phía trước có ngày đã học.
+- [S9] Settings: thêm `new_words_per_day` (null = không giới hạn), `feedback_mode` (safe/standard), mặc định 60 phút. `roadmap_days` + profile fields qua migration 0019.
