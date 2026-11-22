@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Pre-commit hook: chặn commit nếu file staged chứa giá trị secret thật.
+node scripts/pre-commit-secret.mjs

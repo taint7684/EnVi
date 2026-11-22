@@ -1,251 +1,198 @@
-# EnVi MASTER_SPEC — Đặc tả chuẩn dự án EnVi
+# EnVi — MASTER SPEC v2.0 (A2 → B2, mục tiêu: NÓI TỰ TIN & TRÔI CHẢY)
 
-Phiên bản: v2  
-Ngày hiệu lực: 21/11/2026  
-Múi giờ: Asia/Ho_Chi_Minh (ngày học bắt đầu 03:00)
-
----
-
-## 1. Mục tiêu & North Star
-
-Người dùng: dân IT/BA người Việt, A2–B1, "dịch trong đầu" và "sợ nói".  
-Mục tiêu: NÓI TIẾNG ANH TỰ TIN, TRÔI CHẢY, ĐÚNG TRỌNG TÂM; khoảng 3.000 từ thông dụng; A2 → B2 trong 90 ngày + vòng duy trì.  
-North Star: số phút nói thành tiếng mỗi tuần.  
-App phải ĐO: độ trễ mở miệng (latency), WPM, độ dài chuỗi nói (MLR), số khoảng lặng dài, chứng minh tiến bộ bằng ghi âm Trước–Sau.  
-Quyết định phân vân: chọn phương án làm người dùng NÓI NHIÊN HƠN, ÍT DỊCH HƠN, ÍT SỢ HƠN.
+Tài liệu chuẩn duy nhất (Single Source of Truth) của dự án EnVi. Thay thế `HANDOFF.md`.
+`PROJECT_MANIFEST.md` chỉ còn là báo cáo hiện trạng code, mọi quyết định sản phẩm lấy theo file này.
+Phiên bản: 2.0 — 22/11/2026. Phạm vi: A2 → B2, lộ trình 90 ngày + vòng duy trì sau ngày 90.
 
 ---
 
-## 2. Thứ tự ưu tiên nguồn sự thật
+## 0. CẢNH BÁO BẢO MẬT — LÀM NGAY TRƯỚC MỌI VIỆC KHÁC
 
-1. Mục tiêu tối thượng (North Star)
-2. Yêu cầu gốc (7 tính năng bắt buộc)
-3. MASTER_SPEC (file này)
-4. PROJECT_MANIFEST.md
-5. Code hiện tại
+`PROJECT_MANIFEST.md` (Tài liệu 2) đang ghi **giá trị thật** của `SUPABASE_SERVICE_ROLE_KEY`, `GROQ_API_KEY`, `GEMINI_API_KEY`, anon key và mật khẩu tài khoản QA. Tài liệu này đã được dán vào chat/AI, nên coi như **đã lộ**.
 
----
-
-## 3. Kiến trúc 5 tab
-
-| Tab | Route | Mô tả |
-|-----|-------|-------|
-| Hôm nay | `/today` | Kế hoạch duy nhất co giãn theo phút/ngày, Session Runner chạy liền mạch |
-| Đánh giá | `/assessment` | Checkpoint Ngày 0/30/60/90 (Trước–Sau) |
-| Luyện nói | `/speaking` | Speaking Coach 6 bước + Fluency Engine + Offline Fallback |
-| Từ vựng | `/vocab` | Triage, Chunk SRS, YouGlish, Speak-it |
-| Ngữ pháp | `/grammar` | 16 chủ điểm / 800 câu, explanation_vi, câu nói ≥ 20% |
-
-Tab bổ assist: `/reflex`, `/reading`, `/shadowing`, `/dictation`, `/writing`, `/progress-test`, `/error-log`, `/settings`, `/roadmap`, `/dashboard`, `/self-talk`, `/makeup-lesson`, `/search`, `/assistant`.
+1. Supabase Dashboard → Project Settings → API: **tạo lại (rotate) service role key** (key `sb_secret_...`). Key này bỏ qua toàn bộ RLS, ai có nó là đọc/xoá được hết dữ liệu.
+2. Groq Console và Google AI Studio: **xoá key cũ, tạo key mới**.
+3. Đổi mật khẩu tài khoản QA.
+4. Cập nhật key mới vào `.env.local` và vào Vercel → Settings → Environment Variables, rồi redeploy.
+5. Từ nay **mọi tài liệu chỉ ghi TÊN biến**, không bao giờ ghi giá trị. Thêm `gitleaks` (hoặc `secretlint`) vào pre-commit để tự chặn.
 
 ---
 
-## 4. Mô hình dữ liệu (mục 9 spec)
+## 1. TÓM TẮT ĐIỀU HÀNH (đọc 2 phút)
 
-### Bảng người dùng (RLS `user_id = auth.uid()`)
-- `profiles` (id, goal, minutes_per_day, voice, tts_rate, locale, consent_at, deleted_at, ...)
-- `speaking_sessions` (id, user_id, topic_id, started_at, ended_at, created_at)
-- `speaking_turns` (id, session_id, user_id, step, question, user_answer_text, audio_url, feedback_json, improved_answer, created_at)
-- `recordings` (id, user_id, type, ref_id, audio_url, duration_seconds, created_at)
-- `activity_events` (id, user_id, type, block_type, ref_id, duration_sec, speech_sec, meta, study_date, created_at)
-- `xp_ledger` (id, user_id, amount, reason, ref_id, created_at)
-- `streaks` (user_id, current, longest, last_study_date, freezes_used_month, updated_at)
-- `daily_plans` (user_id, study_date, budget, blocks, completed_at)
-- `daily_summary` (user_id, study_date, minutes, speech_minutes, xp)
-- `error_events` (id, user_id, error_text, correction, context, severity, created_at)
-- `error_patterns` (id, user_id, pattern_id, occurrence_count, last_occurred, created_at)
-- `pattern_catalog` (id, pattern_name, error_example, correction, explanation_vi, category)
-- `daily_progress` (legacy, giữ để không xóa dữ liệu cũ)
+**Chẩn đoán:** EnVi hiện tại **rộng nhưng mỏng ở đúng chỗ quan trọng nhất**. App có hơn 20 tính năng (đọc, viết, ngữ pháp, tìm kiếm, trợ lý, self-talk…), nhưng mục tiêu tối thượng là **hết "dịch trong đầu" và hết "sợ nói"**. Đối chiếu với mục tiêu đó, có 5 vấn đề gốc:
 
-### RPC (idempotent)
-- `award_xp(p_reason, p_ref_id, p_amount)` — XP, idempotent theo (reason, ref_id)
-- `log_activity(p_type, p_block_type, p_ref_id, p_duration_sec, p_speech_sec, p_meta)`
+| # | Vấn đề gốc | Vì sao cản trở mục tiêu |
+|---|---|---|
+| 1 | **Không đo được sự trôi chảy.** App chỉ đo "đúng/sai chữ", không đo thời gian phản hồi, tốc độ nói (WPM), số lần ngập ngừng | "Dịch trong đầu" biểu hiện bằng **độ trễ trước khi mở miệng**. Không đo thì không biết có tiến bộ hay không |
+| 2 | **Reflex chấm kiểu khớp chữ ≥75% với 1 câu mẫu.** | Bắt người học nhớ đúng một câu dịch → **củng cố thói quen dịch**. Người bản xứ chấp nhận nhiều cách nói; app phải chấm theo **ý nghĩa** |
+| 3 | **Luôn mồi bằng tiếng Việt** (Reflex, TranslateSpeak) | Muốn bỏ dịch thì phải **giảm dần tiếng Việt**, chuyển sang mồi bằng tình huống, hình ảnh và câu hỏi tiếng Anh |
+| 4 | **Thời lượng nói thật quá ít so với tổng thời gian** (mặc định 180 phút/ngày, phần lớn là đọc, ngữ pháp, flashcard) | Sự tự tin đến từ **số lần nói thành công**. Mục tiêu: ≥50% thời gian học là nói thành tiếng |
+| 5 | **Vòng lặp lỗi chưa khép kín**: Error Log không lưu trạng thái, Makeup Lesson bị lỗi 404 và hardcode (vi phạm "CẤM MOCK DATA"), lỗi Reflex chưa được ghi | Lỗi không được sửa đến nơi thì lặp lại mãi, và người học càng sợ sai |
 
-### RLS
-Mọi bảng dữ liệu người dùng: `USING (user_id = auth.uid())` + `WITH CHECK (user_id = auth.uid())`.  
-Bảng nội dung chia sẻ (`words`, `topics`, `dictation_items`, `grammar_*`): select cho anon/authenticated.
+**Định hướng v2 (một câu):**
+> EnVi v2 là **"phòng tập nói an toàn"**: mỗi ngày người học **nói thành tiếng ít nhất 25 phút** với AI, theo tình huống thật của IT/BA và đời sống. Tiếng Việt được giảm dần. App **đo độ trễ và độ trôi chảy** để chứng minh tiến bộ, và **mọi lỗi tự quay lại thành bài bù** cho tới khi sửa xong.
+
+**Quyết định lớn:**
+- **Giữ và nâng cấp:** AI Speaking Coach (6 bước), Reflex (chấm theo nghĩa, 3 tầng mồi), Flashcard SM-2 (thêm bước phân loại "Đã biết/Chưa biết", không giới hạn số từ), Shadowing/Dictation, Ngữ pháp 16 chủ điểm, Error Log + Bài bù, Lộ trình 90 ngày, XP/Streak.
+- **Thêm mới:** Roleplay Missions (tình huống công việc), Fluency Drills (4/3/2, 1-minute talk, mô tả tranh, trả lời nhanh 3 giây), Pronunciation Lab (lỗi phát âm đặc thù người Việt), Checkpoint nói ngày 0/30/60/90 có ghi âm "Trước – Sau", Chunk SRS (cụm từ lấy ra từ buổi nói), Real-world Missions (cầu nối ra đời thật), "Courage Meter" (đo sự tự tin).
+- **Gộp/đổi vai trò:** Self-talk → gộp vào Fluency Drills. TranslateSpeak → đổi thành "Phao cứu sinh" (tối đa 3 lần/buổi). Assessment + Progress Test → gộp thành Checkpoint. Writing → thu gọn thành "Work Writing" (Slack/email/Jira ngắn). Dashboard Study Plan + Roadmap ticks → gộp thành **một** màn "Hôm nay" tự động đánh dấu xong.
+- **Hạ ưu tiên:** Reading dài, Assistant chat, tìm kiếm toàn cục (giữ nhưng không đầu tư thêm).
+- **Mặc định thời lượng:** 60 phút/ngày (cho phép 30–180 phút). 180 phút/ngày khó duy trì 90 ngày với người đi làm, dễ gãy streak và bỏ cuộc.
 
 ---
 
-## 5. AI Router (mục 10 spec)
+## 2. MỤC TIÊU, CHỈ SỐ ĐO (KPI) & ĐỊNH NGHĨA "THÀNH CÔNG"
 
-- Chỉ gọi qua `lib/ai/router.ts` (provider chain, model, timeout, ngân sách từ env)
-- Provider chain: `GROQ → GEMINI → OLLAMA` (tùy `AI_PROVIDER_CHAIN`)
-- Circuit breaker (ngưỡng thất bại, cooldown)
-- Zod schema + repair 1 lần
-- `AiUnavailableError` → Offline Fallback
-- `AI_FORCE_FAIL=1` để test
-- Ngân sách/ngày từ `AI_DAILY_LIMITS`
-- Cache TTL 10 phút cho task cacheable
+### 2.1 Mục tiêu tối thượng (không đổi)
+Tự tin và trôi chảy khi giao tiếp tiếng Anh trong công việc IT/BA và đời sống, nói cho người nước ngoài hiểu được ý. **Không** cần từ ngữ cao siêu, **không** cần ngữ pháp hoàn hảo, chỉ dùng khoảng 3.000 từ thông dụng.
 
----
+### 2.2 North Star Metric
+**"Số phút nói thành tiếng tiếng Anh mỗi tuần"** (Speaking Minutes / week): tổng thời lượng audio người dùng thực sự nói, tính từ các file ghi âm đã gửi lên STT.
 
-## 6. Bảng GAP (đối chiếu MASTER_SPEC vs code)
+### 2.3 Bộ chỉ số trôi chảy (Fluency Metrics) — app phải đo tự động
 
-| # | BR/AC | Nội dung | Đạt / Một phần / Chưa đạt | File liên quan |
-|---|-------|----------|---------------------------|----------------|
-| S2-1 | BR-S2.1 | Speaking Coach đúng 6 bước (ASK→ANSWER→FEEDBACK→RETRY-BLIND→NEXT→SUMMARY) | Một phần | `components/speaking/speaking-session.tsx`, `lib/speaking-prompt.ts`, `app/api/ai/speaking/route.ts` |
-| S2-2 | BR-S2.2 | ASK: TTS + ghi thời điểm đọc xong câu hỏi | Chưa đạt | `components/speaking/speaking-session.tsx` |
-| S2-3 | BR-S2.3 | ANSWER: Whisper verbose_json + timestamp từng từ, sửa transcript tối đa 1 lần | Chưa đạt | `hooks/use-recorder.ts`, `app/api/stt/route.ts` |
-| S2-4 | BR-S2.4 | Gợi ý từ khoá sau 5s; "phao cứu sinh" tiếng Việt tối đa 3 lần/phiên | Chưa đạt | `components/speaking/speaking-session.tsx` |
-| S2-5 | BR-S2.5 | FEEDBACK: khen cụ thể, tối đa 2 lỗi do server ép, lỗi dư vào Error Log, natural_version | Một phần | `app/api/ai/speaking/route.ts`, `lib/speaking-prompt.ts` |
-| S2-6 | BR-S2.6 | RETRY-BLIND: ẩn mẫu khỏi DOM, chỉ 2–4 từ khoá, "Xem lại mẫu" 3 giây trừ XP, chấm 0.6 ngữ nghĩa + 0.4 từ khoá, pass ≥ 0.75, tối đa 3 lần | Chưa đạt | `components/speaking/speaking-session.tsx` |
-| S2-7 | BR-S2.7 | SUMMARY: 3 lỗi, 5 cụm tự vào Chunk SRS, chỉ số trôi chảy so với 7 ngày trước, Courage trước/sau | Chưa đạt | `components/speaking/speaking-session.tsx` |
-| S2-8 | BR-S2.8 | Fluency Engine: latency (VAD), WPM/MLR/pause (Whisper word timestamps), có unit test | Chưa đạt | `lib/fluency.ts` (chưa có) |
-| S2-9 | BR-S2.9 | Offline Fallback: câu hỏi cache IndexedDB, TTS mẫu, ghi âm, sample_answer + key_phrases, nghe lại A/B, chấm từ khoá, hàng đợi đồng bộ, streak/XP ×0.8 | Chưa đạt | `lib/offline.ts` (chưa có) |
-| S2-10 | BR-S2.10 | AI chỉ gọi qua `lib/ai/router.ts` (không gọi trực tiếp provider) | Chưa đạt | `app/api/ai/speaking/route.ts` (gọi trực tiếp Ollama/Groq/Gemini) |
-| S3-1 | BR-S3.1 | Error Log: `error_events`, `error_patterns` (trigger), `pattern_catalog`; trạng thái lưu DB | Chưa đạt | migration mới cần tạo |
-| S3-2 | BR-S3.2 | Bài bù sinh từ câu sai của user (5 bước), idempotent, mastery 1–3–7 ngày, cron 03:00 | Chưa đạt | migration + action mới |
-| S3-3 | BR-S3.3 | Hôm nay: kế hoạch duy nhất, ≥ 50% thời gian nói, tự đánh dấu xong từ activity_events, Session Runner, Ngày bận 15', Streak Freeze | Một phần | `app/(main)/today/`, `components/today/today-plan.tsx` |
-| S4-1 | BR-S4.1 | Từ vựng: Triage "Đã biết/Chưa biết" không giới hạn (spot-check 1/5) | Một phần | `app/(main)/vocab/page.tsx` |
-| S4-2 | BR-S4.2 | Từ mới/ngày 0–500 hoặc Không giới hạn (bỏ hằng số 100) | Một phần | `app/(main)/vocab/page.tsx` |
-| S4-3 | BR-S4.3 | 4 mức Again/Hard/Good/Easy lưu DB; Chunk SRS; dự báo ôn 7 ngày | Một phần | `lib/srs.ts`, `app/actions/srs.ts` |
-| S5-1 | BR-S5.1 | Ngữ pháp: 16 chủ điểm / 800 câu, mỗi câu explanation_vi, ≥ 20% câu nói | Một phần | `data/grammar-exercises.json`, `app/(main)/grammar/` |
-| S6-1 | BR-S6.1 | Checkpoint Ngày 0/30/60/90 (cùng 3 câu hỏi), lưu DB, bỏ localStorage assessment | Một phần | `app/(main)/assessment/page.tsx`, `lib/assessment.ts` |
-| S7-1 | BR-S7.1 | Mọi route có `loading.tsx` + `error.tsx` (tiếng Việt, nút Thử lại); `global-error.tsx` | Đạt | `app/(main)/*/loading.tsx`, `error.tsx`, `app/global-error.tsx` |
-| S7-2 | BR-S7.2 | zod cho mọi dữ liệu ngoài; Server Action trả `Result<T>` | Một phần | `lib/result.ts`, `lib/ai/router.ts` |
-| S7-3 | BR-S7.3 | `strict` + `noUncheckedIndexedAccess` | Đạt | `tsconfig.json` |
-| S8-1 | BR-S8.1 | Nội dung học tĩnh ở `content/**` có schema zod, validate khi build, seed DB | Một phần | `data/*.ts`, `*.json` (chưa có `content/`) |
-| S9-1 | BR-S9.1 | Kiểm thử: unit + integration + E2E; E2E dùng fake media stream + wav fixture | Một phần | `tests/*.spec.ts`, `vitest.config.ts`, `playwright.config.ts` |
-| S10-1 | BR-S10.1 | `docs/MASTER_SPEC.md` tồn tại và đầy đủ | Chưa đạt | `docs/MASTER_SPEC.md` (vừa tạo) |
+| Chỉ số | Cách đo | Ngày 0 (A2 điển hình) | Mục tiêu ngày 90 (B2 giao tiếp) |
+|---|---|---|---|
+| **Response Latency** (độ trễ mở miệng) | Từ lúc AI đọc xong câu hỏi (sự kiện `onend` của TTS) đến khi phát hiện tiếng nói đầu tiên (VAD: năng lượng âm thanh vượt ngưỡng) | 4–8 giây | **≤ 2 giây** |
+| **Speech Rate** | Số từ (theo Whisper) ÷ thời lượng nói (phút) | 50–80 WPM | **≥ 110 WPM** |
+| **Mean Length of Run** | Số từ trung bình giữa các khoảng lặng > 400 ms (dùng timestamp từng từ của Whisper) | 2–4 từ | **≥ 7 từ** |
+| **Long-pause ratio** | Số khoảng lặng > 1 giây ÷ 100 từ | > 10 | **≤ 4** |
+| **Tỉ lệ hiểu được** (Comprehensibility) | AI chấm 1–5: "người nước ngoài có hiểu ý không" | 2–3 | **≥ 4** |
+| **Courage Score** | Tự đánh giá trước/sau mỗi buổi nói (1–5: "Tôi thấy thoải mái khi nói") | 1–2 | **≥ 4** |
+| **Câu trả lời ≥ 2 câu** | % lượt trả lời có từ 2 câu trở lên | < 30% | **≥ 80%** |
+
+> Ghi chú: các mức "Ngày 0" chỉ là giá trị tham khảo để thiết kế; giá trị thật lấy từ Checkpoint Ngày 0 của chính người dùng.
+
+### 2.4 Chỉ số thói quen
+- Streak ≥ 80% số ngày trong 90 ngày (cho phép tối đa 2 "Streak Freeze" mỗi tháng).
+- Speaking minutes ≥ 25 phút/ngày (với gói 60 phút).
+- Tỉ lệ ôn đúng hạn SRS ≥ 85%.
+- Error Log: ≥ 70% lỗi chuyển trạng thái `mastered` trong 14 ngày.
+
+### 2.5 Định nghĩa "XONG 100%"
+Xem mục 16 (Definition of Done) và mục 17 (Acceptance Test).
 
 ---
 
-## 7. Kế hoạch S0 → S11 (mục 14 spec)
+## 3. NGƯỜI DÙNG MỤC TIÊU (PERSONA)
 
-| Giai đoạn | Module | Mục tiêu chính |
-|-----------|--------|---------------|
-| S0 | Foundation | AI Router, Result pattern, error/loading routes, client-error logging |
-| S1 | Hôm nay | Activity events, XP ledger, streaks, daily plans, today page |
-| S2 | Speaking Coach | 6 bước, Fluency Engine, Offline Fallback, AI qua router |
-| S3 | Error Log + Bài bù | error_events, error_patterns, pattern_catalog, makeup lessons, cron 03:00 |
-| S4 | Từ vựng + Chunk SRS | Triage, 4 mức review, YouGlish, Speak-it, 7-day forecast |
-| S5 | Ngữ pháp | 16 chủ điểm / 800 câu, explanation_vi, câu nói ≥ 20% |
-| S6 | Checkpoint 0/30/60/90 | Trước–Sau, lưu DB |
-| S7 | Reflex | Prompt Ladder L1/L2/L3, lexical ≥ 0.75, SM-2 |
-| S8 | Reading + Shadowing | Click-tra-từ, YouTube IFrame, STT chấm |
-| S9 | Dictation + Writing | Xem đáp án = 0 điểm, AI chấm tóm tắt |
-| S10 | Phát âm | 12 trọng tâm lỗi người Việt, Whisper intelligibility |
-| S11 | Hoàn thiện + deploy | E2E full suite, DoD, handover |
-
-Ưu tiên nếu thiếu thời gian: S0 → S1 → S2 → S3 là lõi.
+**"Anh Minh — BA/Dev người Việt, 28–40 tuổi"**
+- Trình độ: hiểu khi đọc ở mức B1, nói ở mức A2. Nghe tiếng Anh tốc độ thật bị "trôi".
+- Nỗi đau: khi cần nói thì "đóng băng", soạn câu tiếng Việt trong đầu rồi dịch, mất 5–10 giây. Sợ đồng nghiệp/khách nước ngoài đánh giá. Họp daily bằng tiếng Anh chỉ nói "Same as yesterday".
+- Bối cảnh: đi làm toàn thời gian, học sáng sớm hoặc tối. Dùng laptop (Chrome/Edge/Brave) và điện thoại (PWA).
+- Tình huống cần nói nhất:
+  - **Công việc:** daily standup, làm rõ yêu cầu (requirement elicitation), giải thích bug, demo tính năng, ước lượng (estimate), phản đối lịch sự, small talk đầu cuộc họp, phỏng vấn.
+  - **Đời sống:** du lịch, nhà hàng, hỏi đường, khám bệnh, kết bạn, kể chuyện.
+- Không cần: IELTS/TOEIC, ngữ pháp hàn lâm, từ vựng C1/C2.
 
 ---
 
-## 8. Business Rules & Acceptance Criteria (tóm tắt các module cốt lõi)
+## 4. HỘI ĐỒNG CHUYÊN GIA — Ý KIẾN TỔNG HỢP
 
-### S2 — Speaking Coach (6 bước)
-
-**BR-S2.1 — 6 bước:** ASK → ANSWER → FEEDBACK → RETRY-BLIND → NEXT → SUMMARY.  
-**AC:** Mỗi bước hiển thị rõ, chuyển tiếp có nút/auto, không bỏ bước.
-
-**BR-S2.2 — ASK:** AI đọc câu hỏi qua TTS; ghi thời điểm AI finishes speaking (ask_complete_at).  
-**AC:** Có nhãn "AI đang đọc..." hoặc tương đương; ghi nhận timestamp.
-
-**BR-S2.3 — ANSWER:** Mic ghi âm; STT trả về verbose_json với timestamp từng từ; người học sửa transcript tối đa 1 lần; gợi ý từ khoá xuất hiện sau 5s im lặng; phao cứu sinh tiếng Việt tối đa 3 lần/phiên.  
-**AC:** Có nút ghi âm/dừng; hiển thị bản chép; nút sửa xuất hiện ≤ 1 lần; gợi ý từ khoá sau 5s; nút phao cứu sinh hiển thị tối đa 3 lần.
-
-**BR-S2.4 — FEEDBACK:** Khen cụ thể trước; tối đa 2 lỗi do server chọn (ép); lỗi còn lại vào Error Log; natural_version giữ ý user, dùng từ thông dụng.  
-**AC:** Hiển thị khen ngợi; ≤ 2 lỗi trên UI; lỗi dư có trong Error Log; câu cải thiện giữ nguyên ý nghĩa user.
-
-**BR-S2.5 — RETRY-BLIND:** Ẩn hoàn toàn mẫu câu khỏi DOM; chỉ hiện 2–4 từ khoá; nút "Xem lại mẫu" hiển thị 3 giây thì trừ XP, chấm 0.6; tính điểm = 0.6 × ngữ nghĩa + 0.4 × từ khoá; pass ≥ 0.75; tối đa 3 lần rồi cho qua.  
-**AC:** Mẫu câu không.render trong DOM khi retry-blind; chỉ 2–4 từ khoá hiển thị; nút Xem lại mẫu có hiệu ứng 3 giây + trừ XP; điểm tính theo công thức; pass ≥ 0.75 cho qua; sau 3 lần thất bại tự chuyển câu tiếp.
-
-**BR-S2.6 — NEXT:** Tự động chuyển câu hỏi tiếp theo sau khi hoàn thành bước hiện tại.  
-**AC:** Nút "Sang câu tiếp theo"; sau câu 5 vào Phản xạ 3 câu mới.
-
-**BR-S2.7 — SUMMARY:** Tối đa 3 lỗi, 5 cụm tự vào Chunk SRS, chỉ số trôi chảy so với 7 ngày trước, Chỉ số Can Antes/Courage trước và sau phiên.  
-**AC:** Màn hình tổng kết hiển thị 3 lỗi, 5 cụm tự, so sánh fluency 7 ngày, hiển thị Courage trước/sau.
-
-### S3 — Error Log + Bài bù
-
-**BR-S3.1:** Bảng `error_events`, `error_patterns` (trigger), `pattern_catalog`; trạng thái lưu DB.  
-**AC:** Lỗi từ Speaking/Reflex/Dictation/Grammar lưu vào error_events; pattern trigger tạo/cập nhật error_patterns; pattern_catalog có thể quản lý.
-
-**BR-S3.2:** Bài bù sinh từ câu sai của chính user (5 bước), hoàn thành idempotent, mastery theo mốc 1–3–7 ngày, cron chạy 03:00.  
-**AC:** Có màn hình Bài bù; mỗi bài bù liên kết với câu sai cụ thể; 5 bước hoàn thành; idempotent (không tạo trống); mastery tracking 1/3/7 ngày.
-
-### S6 — Hôm nay
-
-**BR-S6.1:** Một kế hoạch duy nhất co giãn theo phút/ngày (mặc định 60).  
-**AC:** Màn hình `/today` hiển thị kế hoạch duy nhất, co giãn theo minutes_per_day.
-
-**BR-S6.2:** ≥ 50% thời gian là nói thành tiếng.  
-**AC:** speech_minutes ≥ 0.5 × minutes trong daily_summary.
-
-**BR-S6.3:** Tự đánh dấu xong từ activity_events (không tick tay).  
-**AC:** Hoàn thành task dựa trên activity_events, không có checkbox tay.
-
-**BR-S6.4:** Session Runner chạy liền mạch.  
-**AC:** Chuyển từ task này sang task khác mà không cần reload trang.
-
-**BR-S6.5:** Ngày bận 15' + Streak Freeze.  
-**AC:** Có tùy chọn ngày bận (15 phút); có Streak Freeze (lưu streak khi nghỉ).
+*(tóm tắt các vai trò: PO, EdTech, người học, giáo viên, native, BA, designer, fullstack, QA, curriculum designer, SLA, planner — đã được thống nhất trong spec v2.0 mục 4. Quyết định cuối: 5 tab chính, P0 vòng nói + đo trôi chảy + lỗi khép kín, P1 nội dung IT/BA, P2 trang trí/gamification)*
 
 ---
 
-## 9. Nội dung (mục 12 spec)
-
-- Câu văn nói tự nhiên, ngắn: A2 ≤ 25 từ, B1 ≤ 35, B2 ≤ 45
-- Ngữ cảnh IT/BA và đời sống Việt Nam
-- Nội dung do AI sinh đánh dấu `reviewed: false`
-- Không sao chép nội dung bản quyền; YouTube chỉ nhúng; ghi `license_note`
-- Script sinh nháp vào `content/**` (JSON có schema zod), chạy `scripts/audit-content.ts` để kiểm tra
-
----
-
-## 10. Kiểm thử (mục 15 spec)
-
-- Unit test (vitest): SRS, Fluency Engine, AI router logic
-- Integration test: API routes, Server Actions, DB RPC
-- E2E (Playwright): `--use-fake-ui-for-media-stream --use-file-for-fake-audio-capture` với file wav fixture
-- Không skip/xoá test để cho xanh
+## 5. NGHIÊN CỨU THAM KHẢO — 5 NGUYÊN TẮC
+1. Nói nhiều, nói ngắn, nói lặp lại.
+2. Có mục tiêu giao tiếp rõ ràng cho mỗi hội thoại (mission).
+3. Gợi ý thay vì dịch hộ.
+4. Cho thấy tiến bộ bằng âm thanh thật (Trước–Sau) và biểu đồ trôi chảy.
+5. Cầu nối ra đời thật.
 
 ---
 
-## 11. Definition of Done (mục 16 spec)
-
-| Mục | Tiêu chí | Trạng thái |
-|-----|----------|------------|
-| tsc --noEmit | 0 lỗi | Đạt |
-| eslint | 0 lỗi | Đạt (42 warning) |
-| vitest | Tất cả xanh | Đạt (11/11) |
-| next build | PASS | Đạt |
-| playwright | Spec liên quan + smoke route xanh | Chưa chạy đầy đủ |
-| Không secret trong repo | Quét sạch | Một phần (PROJECT_MANIFEST đã redact) |
-| Không mock dữ liệu user | Tất cả lưu Supabase + RLS | Một phần |
-| Mọi route có loading + error | loading.tsx + error.tsx | Đạt cho (main) |
-| AI chỉ qua router | lib/ai/router.ts | Chưa (speaking route gọi trực tiếp) |
-| Offline Fallback | IndexedDB + đồng bộ | Chưa |
-| Error Log | error_events, error_patterns, pattern_catalog | Chưa |
-| Chunk SRS | 4 mức lưu DB | Một phần (srs.ts có) |
-| Checkpoint 0/30/60/90 | Lưu DB | Một phần |
+## 6. ĐỐI CHIẾU GAP — 11 NHÓM THIẾU SÓT (6 P0) + 13 LỖI KỸ THUẬT
+*(bảng GAP chi tiết trong spec v2.0 mục 6.1, 6.2, 6.3; được đối chiếu code tại PROJECT_MANIFEST.md)*
 
 ---
 
-## 12. Hành trình nghiệm thu (mục 17 spec)
-
-1. Đăng nhập (email/password hoặc Google OAuth)
-2. Vào `/today`, xem kế hoạch hôm nay
-3. Vào `/speaking`, chọn chủ đề + cấp độ, bắt đầu phiên 6 bước
-4. Hoàn thành 5 câu hỏi + 3 câu phản xạ + tổng kết
-5. Xem màn hình SUMMARY (3 lỗi, 5 cụm tự, fluency so với 7 ngày, Courage trước/sau)
-6. Vào `/error-log`, xem lỗi đã ghi
-7. Vào `/vocab`, xem Chunk SRS và từ mới
-8. Kiểm tra streak/XP tăng đúng
-9. Kiểm tra Offline Fallback (mất mạng, vẫn luyện được)
-10. Kiểm tra Bài bù sinh từ câu sai
+## 7. BẢN ĐỒ TÍNH NĂNG v2 — 5 TAB CHÍNH
+- `/today` Hôm nay (màn mặc định)
+- `/speak` Nói: Coach / Missions / Drills / Call
+- `/practice` Luyện: Reflex / Vocab / Listen / Dictation / Pronunciation / Reading / Grammar / Writing
+- `/errors` Sổ lỗi (+ Makeup `/errors/makeup/[id]`)
+- `/progress` Tiến bộ: biểu đồ trôi chảy, Checkpoint 0/30/60/90, Roadmap, Real-world
+- `/settings` Cài đặt, `/assistant` Trợ lý (nút nổi)
 
 ---
 
-## 13. Quy tắc cấm (Hard Rules)
+## 8. ĐẶC TẢ CHI TIẾT TỪNG TÍNH NĂNG (8.1–8.20)
+*(xem spec v2.0 mục 8 đầy đủ: BR-x business rules, AC-x acceptance criteria, schema dữ liệu, API, UI, edge cases)*
 
-- Không in/log/commit/ghi secret vào file. Tài liệu chỉ ghi TÊN biến env.
-- Không mock dữ liệu người dùng. localStorage/IndexedDB chỉ cache/nháp/hàng đợi offline.
-- Không màn trắng: mọi route có loading.tsx + error.tsx; global-error.tsx; asArray/safeJson; zod; Server Action trả Result<T>; strict + noUncheckedIndexedAccess.
-- AI chỉ qua lib/ai/router.ts; hỗ trợ AI_FORCE_FAIL=1.
-- Không xoá dữ liệu học hiện có; không reset DB; chỉ thêm migration mới (0009 trở đi).
-- Không push/deploy; không bật billing/mua dịch vụ trả phí chưa được đồng ý. Có thể commit cục bộ (feat(S<n>): ...).
-- Múi giờ Asia/Ho_Chi_Minh; ngày học bắt đầu 03:00.
-- UI tiếng Việt; nội dung tiếng Anh; mobile-first.
-- XP qua award_xp(reason, ref_id, amount) (idempotent); hoạt động qua log_activity(...).
+### 8.1 Hôm nay — Smart Daily Plan (`/today`) — P0
+### 8.2 Onboarding & Checkpoint Ngày 0 (`/onboarding`) — P0
+### 8.3 AI Speaking Coach 6 bước (`/speak/coach`) — P0
+### 8.4 Roleplay Missions (`/speak/missions`) — P0/P1
+### 8.5 Reflex Training (`/practice/reflex`) — P0
+### 8.6 Fluency Drills (`/speak/drills`) — P0
+### 8.7 Từ vựng & Chunk SRS (`/practice/vocab`) — P0
+### 8.8 Nghe & Shadowing (`/practice/listen`) — P0
+### 8.9 Dictation (`/practice/dictation`) — P1
+### 8.10 Phát âm & Đọc to (`/practice/pronunciation`) — P0
+### 8.11 Đọc hiểu (`/practice/reading`) — P1
+### 8.12 Ngữ pháp (`/practice/grammar`) — P1
+### 8.13 Sổ lỗi & Bài bù (`/errors`) — P0
+### 8.14 Work Writing (`/practice/writing`) — P2
+### 8.15 Lộ trình 90 ngày + vòng duy trì (`/progress/roadmap`) — P0
+### 8.16 Tiến bộ & Checkpoint (`/progress`) — P0
+### 8.17 Fluency Engine (dùng chung) — P0
+### 8.18 Gamification, Courage Meter — P1
+### 8.19 Real-world Bridge — P2
+### 8.20 Module hỗ trợ (Voice Call, Trợ lý, Tìm kiếm, Cài đặt, PWA, Auth) — P0/P1/P2
+
+---
+
+## 9. MÔ HÌNH DỮ LIỆU v2 (Supabase Postgres)
+*(bảng nội dung + bảng người dùng + hàm/trigger/RPC — xem spec v2.0 mục 9 đầy đủ)*
+
+---
+
+## 10. KIẾN TRÚC AI & GIỌNG NÓI
+*(AI Router `lib/ai/router.ts`, STT, TTS, mục tiêu độ trễ — xem spec v2.0 mục 10)*
+
+---
+
+## 11. YÊU CẦU PHI CHỨC NĂNG (NFR)
+*(Zero errors, hiệu năng, bảo mật, tương thích, chất lượng code — xem spec v2.0 mục 11)*
+
+---
+
+## 12. KẾ HOẠCH NỘI DUNG (CONTENT)
+*(số lượng từ, reflex, speaking, missions, listening, dictation, reading, grammar, pronunciation, pattern, roadmap — xem spec v2.0 mục 12)*
+
+---
+
+## 13. MẪU MỘT NGÀY HỌC
+*(gói 60 phút, Ngày 35 — xem spec v2.0 mục 13)*
+
+---
+
+## 14. KẾ HOẠCH TRIỂN KHAI (S0 → S11)
+*(xem spec v2.0 mục 14 đầy đủ. S0–S3 là lõi: nói 6 bước + đo trôi chảy + Offline Fallback + Error Log/Bài bù + Hôm nay)*
+
+---
+
+## 15. KẾ HOẠCH KIỂM THỬ
+*(unit Vitest, contract, integration, E2E Playwright với --use-file-for-fake-audio-capture, chaos no-white-screen, performance, content, security — xem spec v2.0 mục 15)*
+
+---
+
+## 16. DEFINITION OF DONE — "HOÀN THIỆN 100% CHO A2–B2"
+*(10 mục — xem spec v2.0 mục 16)*
+
+---
+
+## 17. HÀNH TRÌNH NGHIỆM THU (E2E)
+*(7 hành trình — xem spec v2.0 mục 17)*
+
+---
+
+## 18. RỦI RO & CÁCH GIẢM
+*(bảng rủi ro — xem spec v2.0 mục 18)*
+
+---
+
+## 19. GHI CHÚ VỀ PHẠM VI
+*(tài liệu lập từ Tài liệu 1 + Tài liệu 2, không đọc trực tiếp source code trước khi agent quét lại — xem spec v2.0 mục 19)*
