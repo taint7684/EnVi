@@ -1,29 +1,2405 @@
 [
-  { "id": "ftp-01", "kind": "one_minute", "prompt_en": "Explain your current project to a new teammate.", "prompt_vi": "Mô tả dự án hiện tại cho đồng nghiệp mới.", "level": "A2", "topic": "work" },
-  { "id": "ftp-02", "kind": "one_minute", "prompt_en": "Describe your daily routine.", "prompt_vi": "Mô tả thói quen hằng ngày của bạn.", "level": "A2", "topic": "life" },
-  { "id": "ftp-03", "kind": "one_minute", "prompt_en": "Talk about a place you would like to visit.", "prompt_vi": "Nói về một nơi bạn muốn đến.", "level": "A2", "topic": "travel" },
-  { "id": "ftp-04", "kind": "one_minute", "prompt_en": "What do you usually do at work every morning?", "prompt_vi": "Buổi sáng ở công ty bạn thường làm gì?", "level": "A2", "topic": "work" },
-  { "id": "ftp-05", "kind": "one_minute", "prompt_en": "Describe a hobby you enjoy.", "prompt_vi": "Mô tả một sở thích của bạn.", "level": "A2", "topic": "life" },
-  { "id": "ftp-06", "kind": "one_minute", "prompt_en": "Explain what a user story is.", "prompt_vi": "Giải thích user story là gì.", "level": "B1", "topic": "work" },
-  { "id": "ftp-07", "kind": "one_minute", "prompt_en": "Talk about a difficult bug you fixed.", "prompt_vi": "Kể về một bug khó bạn đã sửa.", "level": "B1", "topic": "work" },
-  { "id": "ftp-08", "kind": "one_minute", "prompt_en": "Describe your last weekend.", "prompt_vi": "Mô tả cuối tuần vừa rồi.", "level": "A2", "topic": "life" },
-  { "id": "ftp-09", "kind": "one_minute", "prompt_en": "What are the advantages and disadvantages of remote work?", "prompt_vi": "Ưu và nhược điểm của làm việc từ xa?", "level": "B2", "topic": "work" },
-  { "id": "ftp-10", "kind": "one_minute", "prompt_en": "Describe a product you love and why.", "prompt_vi": "Mô tả một sản phẩm bạn thích và lý do.", "level": "B1", "topic": "life" },
-  { "id": "pt-01", "kind": "picture", "prompt_en": "Describe this picture of a busy office.", "prompt_vi": "Mô tả bức tranh văn phòng bận rộn.", "level": "A2", "topic": "work", "image_url": null },
-  { "id": "pt-02", "kind": "picture", "prompt_en": "Describe what people are doing on this street.", "prompt_vi": "Mô tả người dân đang làm gì trên phố.", "level": "A2", "topic": "life", "image_url": null },
-  { "id": "pt-03", "kind": "picture", "prompt_en": "Describe a simple system architecture diagram.", "prompt_vi": "Mô tả sơ đồ kiến trúc hệ thống đơn giản.", "level": "B1", "topic": "work", "image_url": null },
-  { "id": "eli5-01", "kind": "eli5", "prompt_en": "Explain what an API is to a 5-year-old.", "prompt_vi": "Giải thích API cho một đứa trẻ 5 tuổi.", "level": "B1", "topic": "work" },
-  { "id": "eli5-02", "kind": "eli5", "prompt_en": "Explain what a database is, simply.", "prompt_vi": "Giải thích database một cách đơn giản.", "level": "A2", "topic": "work" },
-  { "id": "eli5-03", "kind": "eli5", "prompt_en": "Explain what a sprint is.", "prompt_vi": "Giải thích sprint là gì.", "level": "B1", "topic": "work" },
-  { "id": "eli5-04", "kind": "eli5", "prompt_en": "Explain what a bug is to a non-technical person.", "prompt_vi": "Giải thích bug cho người không kỹ thuật.", "level": "A2", "topic": "work" },
-  { "id": "sc-01", "kind": "story_chain", "prompt_en": "Tell about your day using First, Then, After that, Finally.", "prompt_vi": "Kể về ngày của bạn theo First/Then/After that/Finally.", "level": "A2", "topic": "life" },
-  { "id": "sc-02", "kind": "story_chain", "prompt_en": "Tell how you solved a problem at work using those four steps.", "prompt_vi": "Kể cách bạn giải quyết vấn đề ở công ty theo 4 bước.", "level": "B1", "topic": "work" },
-  { "id": "qf-01", "kind": "quick_fire", "prompt_en": "What did you have for breakfast?", "prompt_vi": "Bạn ăn sáng gì?", "level": "A2", "topic": "life" },
-  { "id": "qf-02", "kind": "quick_fire", "prompt_en": "What time do you start work?", "prompt_vi": "Mấy giờ bạn bắt đầu làm việc?", "level": "A2", "topic": "work" },
-  { "id": "qf-03", "kind": "quick_fire", "prompt_en": "How do you get to the office?", "prompt_vi": "Bạn đi làm bằng gì?", "level": "A2", "topic": "life" },
-  { "id": "qf-04", "kind": "quick_fire", "prompt_en": "What tool do you use the most at work?", "prompt_vi": "Công cụ nào bạn dùng nhiều nhất ở công ty?", "level": "A2", "topic": "work" },
-  { "id": "qf-05", "kind": "quick_fire", "prompt_en": "What's your favourite weekend activity?", "prompt_vi": "Hoạt động cuối tuần yêu thích?", "level": "A2", "topic": "life" },
-  { "id": "qf-06", "kind": "quick_fire", "prompt_en": "Are you a morning person or a night owl?", "prompt_vi": "Bạn là người dậy sớm hay cú đêm?", "level": "B1", "topic": "life" },
-  { "id": "qf-07", "kind": "quick_fire", "prompt_en": "What's the hardest part of your job?", "prompt_vi": "Phần khó nhất trong công việc của bạn?", "level": "B1", "topic": "work" },
-  { "id": "qf-08", "kind": "quick_fire", "prompt_en": "What would you do with a free day?", "prompt_vi": "Bạn sẽ làm gì nếu có một ngày rảnh?", "level": "B1", "topic": "life" }
+  {
+    "id": "ftp-01",
+    "kind": "one_minute",
+    "prompt_en": "Explain your current project to a new teammate.",
+    "prompt_vi": "Mô tả dự án hiện tại cho đồng nghiệp mới.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-02",
+    "kind": "one_minute",
+    "prompt_en": "Describe your daily routine.",
+    "prompt_vi": "Mô tả thói quen hằng ngày của bạn.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-03",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place you would like to visit.",
+    "prompt_vi": "Nói về một nơi bạn muốn đến.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-04",
+    "kind": "one_minute",
+    "prompt_en": "What do you usually do at work every morning?",
+    "prompt_vi": "Buổi sáng ở công ty bạn thường làm gì?",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-05",
+    "kind": "one_minute",
+    "prompt_en": "Describe a hobby you enjoy.",
+    "prompt_vi": "Mô tả một sở thích của bạn.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-06",
+    "kind": "one_minute",
+    "prompt_en": "Explain what a user story is.",
+    "prompt_vi": "Giải thích user story là gì.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-07",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a difficult bug you fixed.",
+    "prompt_vi": "Kể về một bug khó bạn đã sửa.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-08",
+    "kind": "one_minute",
+    "prompt_en": "Describe your last weekend.",
+    "prompt_vi": "Mô tả cuối tuần vừa rồi.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-09",
+    "kind": "one_minute",
+    "prompt_en": "What are the advantages and disadvantages of remote work?",
+    "prompt_vi": "Ưu và nhược điểm của làm việc từ xa?",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-10",
+    "kind": "one_minute",
+    "prompt_en": "Describe a product you love and why.",
+    "prompt_vi": "Mô tả một sản phẩm bạn thích và lý do.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "pt-01",
+    "kind": "picture",
+    "prompt_en": "Describe this picture of a busy office.",
+    "prompt_vi": "Mô tả bức tranh văn phòng bận rộn.",
+    "level": "A2",
+    "topic": "work",
+    "image_url": null
+  },
+  {
+    "id": "pt-02",
+    "kind": "picture",
+    "prompt_en": "Describe what people are doing on this street.",
+    "prompt_vi": "Mô tả người dân đang làm gì trên phố.",
+    "level": "A2",
+    "topic": "life",
+    "image_url": null
+  },
+  {
+    "id": "pt-03",
+    "kind": "picture",
+    "prompt_en": "Describe a simple system architecture diagram.",
+    "prompt_vi": "Mô tả sơ đồ kiến trúc hệ thống đơn giản.",
+    "level": "B1",
+    "topic": "work",
+    "image_url": null
+  },
+  {
+    "id": "eli5-01",
+    "kind": "eli5",
+    "prompt_en": "Explain what an API is to a 5-year-old.",
+    "prompt_vi": "Giải thích API cho một đứa trẻ 5 tuổi.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "eli5-02",
+    "kind": "eli5",
+    "prompt_en": "Explain what a database is, simply.",
+    "prompt_vi": "Giải thích database một cách đơn giản.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "eli5-03",
+    "kind": "eli5",
+    "prompt_en": "Explain what a sprint is.",
+    "prompt_vi": "Giải thích sprint là gì.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "eli5-04",
+    "kind": "eli5",
+    "prompt_en": "Explain what a bug is to a non-technical person.",
+    "prompt_vi": "Giải thích bug cho người không kỹ thuật.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "sc-01",
+    "kind": "story_chain",
+    "prompt_en": "Tell about your day using First, Then, After that, Finally.",
+    "prompt_vi": "Kể về ngày của bạn theo First/Then/After that/Finally.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "sc-02",
+    "kind": "story_chain",
+    "prompt_en": "Tell how you solved a problem at work using those four steps.",
+    "prompt_vi": "Kể cách bạn giải quyết vấn đề ở công ty theo 4 bước.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "qf-01",
+    "kind": "quick_fire",
+    "prompt_en": "What did you have for breakfast?",
+    "prompt_vi": "Bạn ăn sáng gì?",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "qf-02",
+    "kind": "quick_fire",
+    "prompt_en": "What time do you start work?",
+    "prompt_vi": "Mấy giờ bạn bắt đầu làm việc?",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "qf-03",
+    "kind": "quick_fire",
+    "prompt_en": "How do you get to the office?",
+    "prompt_vi": "Bạn đi làm bằng gì?",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "qf-04",
+    "kind": "quick_fire",
+    "prompt_en": "What tool do you use the most at work?",
+    "prompt_vi": "Công cụ nào bạn dùng nhiều nhất ở công ty?",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "qf-05",
+    "kind": "quick_fire",
+    "prompt_en": "What's your favourite weekend activity?",
+    "prompt_vi": "Hoạt động cuối tuần yêu thích?",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "qf-06",
+    "kind": "quick_fire",
+    "prompt_en": "Are you a morning person or a night owl?",
+    "prompt_vi": "Bạn là người dậy sớm hay cú đêm?",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "qf-07",
+    "kind": "quick_fire",
+    "prompt_en": "What's the hardest part of your job?",
+    "prompt_vi": "Phần khó nhất trong công việc của bạn?",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "qf-08",
+    "kind": "quick_fire",
+    "prompt_en": "What would you do with a free day?",
+    "prompt_vi": "Bạn sẽ làm gì nếu có một ngày rảnh?",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-28",
+    "kind": "one_minute",
+    "prompt_en": "Describe your typical workday from morning to evening.",
+    "prompt_vi": "Mô tả một ngày làm việc điển hình của bạn từ sáng đến tối.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-29",
+    "kind": "one_minute",
+    "prompt_en": "Describe your typical workday from morning to evening.",
+    "prompt_vi": "Mô tả một ngày làm việc điển hình của bạn từ sáng đến tối.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-30",
+    "kind": "one_minute",
+    "prompt_en": "Describe your typical workday from morning to evening.",
+    "prompt_vi": "Mô tả một ngày làm việc điển hình của bạn từ sáng đến tối.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-31",
+    "kind": "one_minute",
+    "prompt_en": "Explain a project you are proud of.",
+    "prompt_vi": "Giải thích một dự án bạn tự hào.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-32",
+    "kind": "one_minute",
+    "prompt_en": "Explain a project you are proud of.",
+    "prompt_vi": "Giải thích một dự án bạn tự hào.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-33",
+    "kind": "one_minute",
+    "prompt_en": "Explain a project you are proud of.",
+    "prompt_vi": "Giải thích một dự án bạn tự hào.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-34",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a challenge you faced and how you solved it.",
+    "prompt_vi": "Nói về một thử thách bạn đã gặp và cách giải quyết.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-35",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a challenge you faced and how you solved it.",
+    "prompt_vi": "Nói về một thử thách bạn đã gặp và cách giải quyết.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-36",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a challenge you faced and how you solved it.",
+    "prompt_vi": "Nói về một thử thách bạn đã gặp và cách giải quyết.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-37",
+    "kind": "one_minute",
+    "prompt_en": "Describe your ideal job and why.",
+    "prompt_vi": "Mô tả công việc mơ ước và lý do.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-38",
+    "kind": "one_minute",
+    "prompt_en": "Describe your ideal job and why.",
+    "prompt_vi": "Mô tả công việc mơ ước và lý do.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-39",
+    "kind": "one_minute",
+    "prompt_en": "Describe your ideal job and why.",
+    "prompt_vi": "Mô tả công việc mơ ước và lý do.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-40",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you prepare for an important meeting.",
+    "prompt_vi": "Nói về cách bạn chuẩn bị cho một cuộc họp quan trọng.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-41",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you prepare for an important meeting.",
+    "prompt_vi": "Nói về cách bạn chuẩn bị cho một cuộc họp quan trọng.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-42",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you prepare for an important meeting.",
+    "prompt_vi": "Nói về cách bạn chuẩn bị cho một cuộc họp quan trọng.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-43",
+    "kind": "one_minute",
+    "prompt_en": "Describe your morning routine in detail.",
+    "prompt_vi": "Mô tả chi tiết thói quen buổi sáng của bạn.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-44",
+    "kind": "one_minute",
+    "prompt_en": "Describe your morning routine in detail.",
+    "prompt_vi": "Mô tả chi tiết thói quen buổi sáng của bạn.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-45",
+    "kind": "one_minute",
+    "prompt_en": "Describe your morning routine in detail.",
+    "prompt_vi": "Mô tả chi tiết thói quen buổi sáng của bạn.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-46",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a hobby you enjoy and why you like it.",
+    "prompt_vi": "Nói về một sở thích và lý do bạn thích.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-47",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a hobby you enjoy and why you like it.",
+    "prompt_vi": "Nói về một sở thích và lý do bạn thích.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-48",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a hobby you enjoy and why you like it.",
+    "prompt_vi": "Nói về một sở thích và lý do bạn thích.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-49",
+    "kind": "one_minute",
+    "prompt_en": "Describe your family and what you like doing together.",
+    "prompt_vi": "Mô tả gia đình và những gì bạn thích làm cùng nhau.",
+    "level": "A2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-50",
+    "kind": "one_minute",
+    "prompt_en": "Describe your family and what you like doing together.",
+    "prompt_vi": "Mô tả gia đình và những gì bạn thích làm cùng nhau.",
+    "level": "B1",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-51",
+    "kind": "one_minute",
+    "prompt_en": "Describe your family and what you like doing together.",
+    "prompt_vi": "Mô tả gia đình và những gì bạn thích làm cùng nhau.",
+    "level": "B2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-52",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place you visited recently.",
+    "prompt_vi": "Nói về một nơi bạn vừa đến thăm.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-53",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place you visited recently.",
+    "prompt_vi": "Nói về một nơi bạn vừa đến thăm.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-54",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place you visited recently.",
+    "prompt_vi": "Nói về một nơi bạn vừa đến thăm.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-55",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you plan a trip.",
+    "prompt_vi": "Mô tả cách bạn lên kế hoạch cho một chuyến đi.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-56",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you plan a trip.",
+    "prompt_vi": "Mô tả cách bạn lên kế hoạch cho một chuyến đi.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-57",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you plan a trip.",
+    "prompt_vi": "Mô tả cách bạn lên kế hoạch cho một chuyến đi.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-58",
+    "kind": "one_minute",
+    "prompt_en": "Explain why you chose your field of study.",
+    "prompt_vi": "Giải thích lý do bạn chọn ngành học.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-59",
+    "kind": "one_minute",
+    "prompt_en": "Explain why you chose your field of study.",
+    "prompt_vi": "Giải thích lý do bạn chọn ngành học.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-60",
+    "kind": "one_minute",
+    "prompt_en": "Explain why you chose your field of study.",
+    "prompt_vi": "Giải thích lý do bạn chọn ngành học.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-61",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a book or article that influenced you.",
+    "prompt_vi": "Nói về một cuốn sách hoặc bài viết ảnh hưởng đến bạn.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-62",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a book or article that influenced you.",
+    "prompt_vi": "Nói về một cuốn sách hoặc bài viết ảnh hưởng đến bạn.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-63",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a book or article that influenced you.",
+    "prompt_vi": "Nói về một cuốn sách hoặc bài viết ảnh hưởng đến bạn.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-64",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you use technology in daily life.",
+    "prompt_vi": "Mô tả cách bạn dùng công nghệ trong đời sống.",
+    "level": "A2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-65",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you use technology in daily life.",
+    "prompt_vi": "Mô tả cách bạn dùng công nghệ trong đời sống.",
+    "level": "B1",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-66",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you use technology in daily life.",
+    "prompt_vi": "Mô tả cách bạn dùng công nghệ trong đời sống.",
+    "level": "B2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-67",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of technology you cannot live without.",
+    "prompt_vi": "Nói về một thiết bị công nghệ bạn không thể thiếu.",
+    "level": "A2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-68",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of technology you cannot live without.",
+    "prompt_vi": "Nói về một thiết bị công nghệ bạn không thể thiếu.",
+    "level": "B1",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-69",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of technology you cannot live without.",
+    "prompt_vi": "Nói về một thiết bị công nghệ bạn không thể thiếu.",
+    "level": "B2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-70",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite dish and how it is made.",
+    "prompt_vi": "Mô tả món ăn yêu thích và cách chế biến.",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-71",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite dish and how it is made.",
+    "prompt_vi": "Mô tả món ăn yêu thích và cách chế biến.",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-72",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite dish and how it is made.",
+    "prompt_vi": "Mô tả món ăn yêu thích và cách chế biến.",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-73",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a healthy habit you are trying to build.",
+    "prompt_vi": "Nói về một thói quen lành mạnh bạn đang xây dựng.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-74",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a healthy habit you are trying to build.",
+    "prompt_vi": "Nói về một thói quen lành mạnh bạn đang xây dựng.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-75",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a healthy habit you are trying to build.",
+    "prompt_vi": "Nói về một thói quen lành mạnh bạn đang xây dựng.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-76",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you manage your money each month.",
+    "prompt_vi": "Mô tả cách bạn quản lý tiền bạc hằng tháng.",
+    "level": "A2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-77",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you manage your money each month.",
+    "prompt_vi": "Mô tả cách bạn quản lý tiền bạc hằng tháng.",
+    "level": "B1",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-78",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you manage your money each month.",
+    "prompt_vi": "Mô tả cách bạn quản lý tiền bạc hằng tháng.",
+    "level": "B2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-79",
+    "kind": "one_minute",
+    "prompt_en": "Talk about something you do to protect the environment.",
+    "prompt_vi": "Nói về điều bạn làm để bảo vệ môi trường.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-80",
+    "kind": "one_minute",
+    "prompt_en": "Talk about something you do to protect the environment.",
+    "prompt_vi": "Nói về điều bạn làm để bảo vệ môi trường.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-81",
+    "kind": "one_minute",
+    "prompt_en": "Talk about something you do to protect the environment.",
+    "prompt_vi": "Nói về điều bạn làm để bảo vệ môi trường.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-82",
+    "kind": "one_minute",
+    "prompt_en": "Describe a tradition that matters to you.",
+    "prompt_vi": "Mô tả một truyền thống quan trọng với bạn.",
+    "level": "A2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-83",
+    "kind": "one_minute",
+    "prompt_en": "Describe a tradition that matters to you.",
+    "prompt_vi": "Mô tả một truyền thống quan trọng với bạn.",
+    "level": "B1",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-84",
+    "kind": "one_minute",
+    "prompt_en": "Describe a tradition that matters to you.",
+    "prompt_vi": "Mô tả một truyền thống quan trọng với bạn.",
+    "level": "B2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-85",
+    "kind": "one_minute",
+    "prompt_en": "Talk about your best friend and how you met.",
+    "prompt_vi": "Nói về người bạn thân và cách bạn gặp nhau.",
+    "level": "A2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-86",
+    "kind": "one_minute",
+    "prompt_en": "Talk about your best friend and how you met.",
+    "prompt_vi": "Nói về người bạn thân và cách bạn gặp nhau.",
+    "level": "B1",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-87",
+    "kind": "one_minute",
+    "prompt_en": "Talk about your best friend and how you met.",
+    "prompt_vi": "Nói về người bạn thân và cách bạn gặp nhau.",
+    "level": "B2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-88",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you handle stress at work.",
+    "prompt_vi": "Mô tả cách bạn xử lý căng thẳng trong công việc.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-89",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you handle stress at work.",
+    "prompt_vi": "Mô tả cách bạn xử lý căng thẳng trong công việc.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-90",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you handle stress at work.",
+    "prompt_vi": "Mô tả cách bạn xử lý căng thẳng trong công việc.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-91",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a skill you want to learn next.",
+    "prompt_vi": "Nói về một kỹ năng bạn muốn học tiếp theo.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-92",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a skill you want to learn next.",
+    "prompt_vi": "Nói về một kỹ năng bạn muốn học tiếp theo.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-93",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a skill you want to learn next.",
+    "prompt_vi": "Nói về một kỹ năng bạn muốn học tiếp theo.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-94",
+    "kind": "one_minute",
+    "prompt_en": "Describe a meal you cooked recently.",
+    "prompt_vi": "Mô tả một bữa ăn bạn vừa nấu.",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-95",
+    "kind": "one_minute",
+    "prompt_en": "Describe a meal you cooked recently.",
+    "prompt_vi": "Mô tả một bữa ăn bạn vừa nấu.",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-96",
+    "kind": "one_minute",
+    "prompt_en": "Describe a meal you cooked recently.",
+    "prompt_vi": "Mô tả một bữa ăn bạn vừa nấu.",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-97",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you stay active during the week.",
+    "prompt_vi": "Nói về cách bạn vận động trong tuần.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-98",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you stay active during the week.",
+    "prompt_vi": "Nói về cách bạn vận động trong tuần.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-99",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you stay active during the week.",
+    "prompt_vi": "Nói về cách bạn vận động trong tuần.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-100",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite place to relax.",
+    "prompt_vi": "Mô tả nơi yêu thích để thư giãn của bạn.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-101",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite place to relax.",
+    "prompt_vi": "Mô tả nơi yêu thích để thư giãn của bạn.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-102",
+    "kind": "one_minute",
+    "prompt_en": "Describe your favourite place to relax.",
+    "prompt_vi": "Mô tả nơi yêu thích để thư giãn của bạn.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-103",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a goal you set for this year.",
+    "prompt_vi": "Nói về một mục tiêu bạn đặt ra năm nay.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-104",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a goal you set for this year.",
+    "prompt_vi": "Nói về một mục tiêu bạn đặt ra năm nay.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-105",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a goal you set for this year.",
+    "prompt_vi": "Nói về một mục tiêu bạn đặt ra năm nay.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-106",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you commute to work.",
+    "prompt_vi": "Mô tả cách bạn đi làm.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-107",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you commute to work.",
+    "prompt_vi": "Mô tả cách bạn đi làm.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-108",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you commute to work.",
+    "prompt_vi": "Mô tả cách bạn đi làm.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-109",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of advice that stuck with you.",
+    "prompt_vi": "Nói về một lời khuyên bạn còn nhớ.",
+    "level": "A2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-110",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of advice that stuck with you.",
+    "prompt_vi": "Nói về một lời khuyên bạn còn nhớ.",
+    "level": "B1",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-111",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of advice that stuck with you.",
+    "prompt_vi": "Nói về một lời khuyên bạn còn nhớ.",
+    "level": "B2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-112",
+    "kind": "one_minute",
+    "prompt_en": "Describe a festival you celebrate.",
+    "prompt_vi": "Mô tả một lễ hội bạn tham gia.",
+    "level": "A2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-113",
+    "kind": "one_minute",
+    "prompt_en": "Describe a festival you celebrate.",
+    "prompt_vi": "Mô tả một lễ hội bạn tham gia.",
+    "level": "B1",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-114",
+    "kind": "one_minute",
+    "prompt_en": "Describe a festival you celebrate.",
+    "prompt_vi": "Mô tả một lễ hội bạn tham gia.",
+    "level": "B2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-115",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you save time in a busy day.",
+    "prompt_vi": "Nói về cách bạn tiết kiệm thời gian trong ngày bận.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-116",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you save time in a busy day.",
+    "prompt_vi": "Nói về cách bạn tiết kiệm thời gian trong ngày bận.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-117",
+    "kind": "one_minute",
+    "prompt_en": "Talk about how you save time in a busy day.",
+    "prompt_vi": "Nói về cách bạn tiết kiệm thời gian trong ngày bận.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-118",
+    "kind": "one_minute",
+    "prompt_en": "Describe a gadget you recently bought.",
+    "prompt_vi": "Mô tả một thiết bị bạn vừa mua.",
+    "level": "A2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-119",
+    "kind": "one_minute",
+    "prompt_en": "Describe a gadget you recently bought.",
+    "prompt_vi": "Mô tả một thiết bị bạn vừa mua.",
+    "level": "B1",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-120",
+    "kind": "one_minute",
+    "prompt_en": "Describe a gadget you recently bought.",
+    "prompt_vi": "Mô tả một thiết bị bạn vừa mua.",
+    "level": "B2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-121",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place in your city you recommend.",
+    "prompt_vi": "Nói về một địa điểm trong thành phố bạn muốn giới thiệu.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-122",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place in your city you recommend.",
+    "prompt_vi": "Nói về một địa điểm trong thành phố bạn muốn giới thiệu.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-123",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a place in your city you recommend.",
+    "prompt_vi": "Nói về một địa điểm trong thành phố bạn muốn giới thiệu.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-124",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you keep your workspace tidy.",
+    "prompt_vi": "Mô tả cách bạn giữ nơi làm việc gọn gàng.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-125",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you keep your workspace tidy.",
+    "prompt_vi": "Mô tả cách bạn giữ nơi làm việc gọn gàng.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-126",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you keep your workspace tidy.",
+    "prompt_vi": "Mô tả cách bạn giữ nơi làm việc gọn gàng.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-127",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a recent success at work or study.",
+    "prompt_vi": "Nói về một thành công gần đây trong công việc hoặc học tập.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-128",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a recent success at work or study.",
+    "prompt_vi": "Nói về một thành công gần đây trong công việc hoặc học tập.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-129",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a recent success at work or study.",
+    "prompt_vi": "Nói về một thành công gần đây trong công việc hoặc học tập.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-130",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you celebrate a personal milestone.",
+    "prompt_vi": "Mô tả cách bạn ăn mừng một cột mốc cá nhân.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-131",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you celebrate a personal milestone.",
+    "prompt_vi": "Mô tả cách bạn ăn mừng một cột mốc cá nhân.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-132",
+    "kind": "one_minute",
+    "prompt_en": "Describe how you celebrate a personal milestone.",
+    "prompt_vi": "Mô tả cách bạn ăn mừng một cột mốc cá nhân.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-133",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of news that made you think.",
+    "prompt_vi": "Nói về một tin tức khiến bạn suy nghĩ.",
+    "level": "A2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-134",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of news that made you think.",
+    "prompt_vi": "Nói về một tin tức khiến bạn suy nghĩ.",
+    "level": "B1",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-135",
+    "kind": "one_minute",
+    "prompt_en": "Talk about a piece of news that made you think.",
+    "prompt_vi": "Nói về một tin tức khiến bạn suy nghĩ.",
+    "level": "B2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-136",
+    "kind": "eli5",
+    "prompt_en": "Explain how the internet works to a child.",
+    "prompt_vi": "Giải thích internet hoạt động thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-137",
+    "kind": "eli5",
+    "prompt_en": "Explain how the internet works to a child.",
+    "prompt_vi": "Giải thích internet hoạt động thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-138",
+    "kind": "eli5",
+    "prompt_en": "Explain how the internet works to a child.",
+    "prompt_vi": "Giải thích internet hoạt động thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-139",
+    "kind": "eli5",
+    "prompt_en": "Explain what a budget is to a child.",
+    "prompt_vi": "Giải thích ngân sách là gì cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-140",
+    "kind": "eli5",
+    "prompt_en": "Explain what a budget is to a child.",
+    "prompt_vi": "Giải thích ngân sách là gì cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-141",
+    "kind": "eli5",
+    "prompt_en": "Explain what a budget is to a child.",
+    "prompt_vi": "Giải thích ngân sách là gì cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-142",
+    "kind": "eli5",
+    "prompt_en": "Explain why we need to sleep to a child.",
+    "prompt_vi": "Giải thích vì sao cần ngủ cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-143",
+    "kind": "eli5",
+    "prompt_en": "Explain why we need to sleep to a child.",
+    "prompt_vi": "Giải thích vì sao cần ngủ cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-144",
+    "kind": "eli5",
+    "prompt_en": "Explain why we need to sleep to a child.",
+    "prompt_vi": "Giải thích vì sao cần ngủ cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-145",
+    "kind": "eli5",
+    "prompt_en": "Explain how plants grow to a child.",
+    "prompt_vi": "Giải thích cây lớn lên thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-146",
+    "kind": "eli5",
+    "prompt_en": "Explain how plants grow to a child.",
+    "prompt_vi": "Giải thích cây lớn lên thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-147",
+    "kind": "eli5",
+    "prompt_en": "Explain how plants grow to a child.",
+    "prompt_vi": "Giải thích cây lớn lên thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-148",
+    "kind": "eli5",
+    "prompt_en": "Explain what a meeting is to a child.",
+    "prompt_vi": "Giải thích cuộc họp là gì cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-149",
+    "kind": "eli5",
+    "prompt_en": "Explain what a meeting is to a child.",
+    "prompt_vi": "Giải thích cuộc họp là gì cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-150",
+    "kind": "eli5",
+    "prompt_en": "Explain what a meeting is to a child.",
+    "prompt_vi": "Giải thích cuộc họp là gì cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-151",
+    "kind": "eli5",
+    "prompt_en": "Explain how a library works to a child.",
+    "prompt_vi": "Giải thích thư viện hoạt động thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-152",
+    "kind": "eli5",
+    "prompt_en": "Explain how a library works to a child.",
+    "prompt_vi": "Giải thích thư viện hoạt động thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-153",
+    "kind": "eli5",
+    "prompt_en": "Explain how a library works to a child.",
+    "prompt_vi": "Giải thích thư viện hoạt động thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-154",
+    "kind": "eli5",
+    "prompt_en": "Explain why exercise is good to a child.",
+    "prompt_vi": "Giải thích vì sao tập thể dục tốt cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-155",
+    "kind": "eli5",
+    "prompt_en": "Explain why exercise is good to a child.",
+    "prompt_vi": "Giải thích vì sao tập thể dục tốt cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-156",
+    "kind": "eli5",
+    "prompt_en": "Explain why exercise is good to a child.",
+    "prompt_vi": "Giải thích vì sao tập thể dục tốt cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-157",
+    "kind": "eli5",
+    "prompt_en": "Explain how music is made to a child.",
+    "prompt_vi": "Giải thích âm nhạc được tạo ra thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-158",
+    "kind": "eli5",
+    "prompt_en": "Explain how music is made to a child.",
+    "prompt_vi": "Giải thích âm nhạc được tạo ra thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-159",
+    "kind": "eli5",
+    "prompt_en": "Explain how music is made to a child.",
+    "prompt_vi": "Giải thích âm nhạc được tạo ra thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-160",
+    "kind": "eli5",
+    "prompt_en": "Explain what a recipe is to a child.",
+    "prompt_vi": "Giải thích công thức nấu ăn là gì cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-161",
+    "kind": "eli5",
+    "prompt_en": "Explain what a recipe is to a child.",
+    "prompt_vi": "Giải thích công thức nấu ăn là gì cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-162",
+    "kind": "eli5",
+    "prompt_en": "Explain what a recipe is to a child.",
+    "prompt_vi": "Giải thích công thức nấu ăn là gì cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-163",
+    "kind": "eli5",
+    "prompt_en": "Explain how a phone sends a message to a child.",
+    "prompt_vi": "Giải thích điện thoại gửi tin nhắn thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-164",
+    "kind": "eli5",
+    "prompt_en": "Explain how a phone sends a message to a child.",
+    "prompt_vi": "Giải thích điện thoại gửi tin nhắn thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-165",
+    "kind": "eli5",
+    "prompt_en": "Explain how a phone sends a message to a child.",
+    "prompt_vi": "Giải thích điện thoại gửi tin nhắn thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "tech"
+  },
+  {
+    "id": "ftp-166",
+    "kind": "eli5",
+    "prompt_en": "Explain why we save water to a child.",
+    "prompt_vi": "Giải thích vì sao cần tiết kiệm nước cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-167",
+    "kind": "eli5",
+    "prompt_en": "Explain why we save water to a child.",
+    "prompt_vi": "Giải thích vì sao cần tiết kiệm nước cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-168",
+    "kind": "eli5",
+    "prompt_en": "Explain why we save water to a child.",
+    "prompt_vi": "Giải thích vì sao cần tiết kiệm nước cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-169",
+    "kind": "eli5",
+    "prompt_en": "Explain what a deadline is to a child.",
+    "prompt_vi": "Giải thích deadline là gì cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-170",
+    "kind": "eli5",
+    "prompt_en": "Explain what a deadline is to a child.",
+    "prompt_vi": "Giải thích deadline là gì cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-171",
+    "kind": "eli5",
+    "prompt_en": "Explain what a deadline is to a child.",
+    "prompt_vi": "Giải thích deadline là gì cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-172",
+    "kind": "eli5",
+    "prompt_en": "Explain how a plane flies to a child.",
+    "prompt_vi": "Giải thích máy bay bay thế nào cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-173",
+    "kind": "eli5",
+    "prompt_en": "Explain how a plane flies to a child.",
+    "prompt_vi": "Giải thích máy bay bay thế nào cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-174",
+    "kind": "eli5",
+    "prompt_en": "Explain how a plane flies to a child.",
+    "prompt_vi": "Giải thích máy bay bay thế nào cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-175",
+    "kind": "eli5",
+    "prompt_en": "Explain why we brush our teeth to a child.",
+    "prompt_vi": "Giải thích vì sao cần đánh răng cho một đứa trẻ.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-176",
+    "kind": "eli5",
+    "prompt_en": "Explain why we brush our teeth to a child.",
+    "prompt_vi": "Giải thích vì sao cần đánh răng cho một đứa trẻ.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-177",
+    "kind": "eli5",
+    "prompt_en": "Explain why we brush our teeth to a child.",
+    "prompt_vi": "Giải thích vì sao cần đánh răng cho một đứa trẻ.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-178",
+    "kind": "picture",
+    "prompt_en": "Describe a crowded market you can imagine.",
+    "prompt_vi": "Mô tả một khu chợ đông đúc bạn hình dung.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-179",
+    "kind": "picture",
+    "prompt_en": "Describe a crowded market you can imagine.",
+    "prompt_vi": "Mô tả một khu chợ đông đúc bạn hình dung.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-180",
+    "kind": "picture",
+    "prompt_en": "Describe a crowded market you can imagine.",
+    "prompt_vi": "Mô tả một khu chợ đông đúc bạn hình dung.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-181",
+    "kind": "picture",
+    "prompt_en": "Describe a busy train station scene.",
+    "prompt_vi": "Mô tả cảnh một nhà ga đông đúc.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-182",
+    "kind": "picture",
+    "prompt_en": "Describe a busy train station scene.",
+    "prompt_vi": "Mô tả cảnh một nhà ga đông đúc.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-183",
+    "kind": "picture",
+    "prompt_en": "Describe a busy train station scene.",
+    "prompt_vi": "Mô tả cảnh một nhà ga đông đúc.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-184",
+    "kind": "picture",
+    "prompt_en": "Describe a family having dinner together.",
+    "prompt_vi": "Mô tả một gia đình đang ăn tối.",
+    "level": "A2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-185",
+    "kind": "picture",
+    "prompt_en": "Describe a family having dinner together.",
+    "prompt_vi": "Mô tả một gia đình đang ăn tối.",
+    "level": "B1",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-186",
+    "kind": "picture",
+    "prompt_en": "Describe a family having dinner together.",
+    "prompt_vi": "Mô tả một gia đình đang ăn tối.",
+    "level": "B2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-187",
+    "kind": "picture",
+    "prompt_en": "Describe an office in the middle of a deadline.",
+    "prompt_vi": "Mô tả một văn phòng giữa mùa deadline.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-188",
+    "kind": "picture",
+    "prompt_en": "Describe an office in the middle of a deadline.",
+    "prompt_vi": "Mô tả một văn phòng giữa mùa deadline.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-189",
+    "kind": "picture",
+    "prompt_en": "Describe an office in the middle of a deadline.",
+    "prompt_vi": "Mô tả một văn phòng giữa mùa deadline.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-190",
+    "kind": "picture",
+    "prompt_en": "Describe a quiet library in the afternoon.",
+    "prompt_vi": "Mô tả một thư viện yên tĩnh buổi chiều.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-191",
+    "kind": "picture",
+    "prompt_en": "Describe a quiet library in the afternoon.",
+    "prompt_vi": "Mô tả một thư viện yên tĩnh buổi chiều.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-192",
+    "kind": "picture",
+    "prompt_en": "Describe a quiet library in the afternoon.",
+    "prompt_vi": "Mô tả một thư viện yên tĩnh buổi chiều.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-193",
+    "kind": "picture",
+    "prompt_en": "Describe a street food stall at night.",
+    "prompt_vi": "Mô tả một xe đồ ăn đường phố ban đêm.",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-194",
+    "kind": "picture",
+    "prompt_en": "Describe a street food stall at night.",
+    "prompt_vi": "Mô tả một xe đồ ăn đường phố ban đêm.",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-195",
+    "kind": "picture",
+    "prompt_en": "Describe a street food stall at night.",
+    "prompt_vi": "Mô tả một xe đồ ăn đường phố ban đêm.",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-196",
+    "kind": "picture",
+    "prompt_en": "Describe a park in early morning.",
+    "prompt_vi": "Mô tả một công viên vào sáng sớm.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-197",
+    "kind": "picture",
+    "prompt_en": "Describe a park in early morning.",
+    "prompt_vi": "Mô tả một công viên vào sáng sớm.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-198",
+    "kind": "picture",
+    "prompt_en": "Describe a park in early morning.",
+    "prompt_vi": "Mô tả một công viên vào sáng sớm.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-199",
+    "kind": "picture",
+    "prompt_en": "Describe a hospital waiting room.",
+    "prompt_vi": "Mô tả phòng chờ bệnh viện.",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-200",
+    "kind": "picture",
+    "prompt_en": "Describe a hospital waiting room.",
+    "prompt_vi": "Mô tả phòng chờ bệnh viện.",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-201",
+    "kind": "picture",
+    "prompt_en": "Describe a hospital waiting room.",
+    "prompt_vi": "Mô tả phòng chờ bệnh viện.",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-202",
+    "kind": "picture",
+    "prompt_en": "Describe a classroom during an exam.",
+    "prompt_vi": "Mô tả một lớp học trong giờ thi.",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-203",
+    "kind": "picture",
+    "prompt_en": "Describe a classroom during an exam.",
+    "prompt_vi": "Mô tả một lớp học trong giờ thi.",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-204",
+    "kind": "picture",
+    "prompt_en": "Describe a classroom during an exam.",
+    "prompt_vi": "Mô tả một lớp học trong giờ thi.",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-205",
+    "kind": "picture",
+    "prompt_en": "Describe a beach at sunset.",
+    "prompt_vi": "Mô tả bãi biển lúc hoàng hôn.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-206",
+    "kind": "picture",
+    "prompt_en": "Describe a beach at sunset.",
+    "prompt_vi": "Mô tả bãi biển lúc hoàng hôn.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-207",
+    "kind": "picture",
+    "prompt_en": "Describe a beach at sunset.",
+    "prompt_vi": "Mô tả bãi biển lúc hoàng hôn.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-208",
+    "kind": "picture",
+    "prompt_en": "Describe a supermarket on a weekend.",
+    "prompt_vi": "Mô tả một siêu thị cuối tuần.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-209",
+    "kind": "picture",
+    "prompt_en": "Describe a supermarket on a weekend.",
+    "prompt_vi": "Mô tả một siêu thị cuối tuần.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-210",
+    "kind": "picture",
+    "prompt_en": "Describe a supermarket on a weekend.",
+    "prompt_vi": "Mô tả một siêu thị cuối tuần.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-211",
+    "kind": "picture",
+    "prompt_en": "Describe a rainy street with umbrellas.",
+    "prompt_vi": "Mô tả một con phố mưa với những chiếc ô.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-212",
+    "kind": "picture",
+    "prompt_en": "Describe a rainy street with umbrellas.",
+    "prompt_vi": "Mô tả một con phố mưa với những chiếc ô.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-213",
+    "kind": "picture",
+    "prompt_en": "Describe a rainy street with umbrellas.",
+    "prompt_vi": "Mô tả một con phố mưa với những chiếc ô.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-214",
+    "kind": "picture",
+    "prompt_en": "Describe a birthday party surprise.",
+    "prompt_vi": "Mô tả một bữa tiệc sinh nhật bất ngờ.",
+    "level": "A2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-215",
+    "kind": "picture",
+    "prompt_en": "Describe a birthday party surprise.",
+    "prompt_vi": "Mô tả một bữa tiệc sinh nhật bất ngờ.",
+    "level": "B1",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-216",
+    "kind": "picture",
+    "prompt_en": "Describe a birthday party surprise.",
+    "prompt_vi": "Mô tả một bữa tiệc sinh nhật bất ngờ.",
+    "level": "B2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-217",
+    "kind": "picture",
+    "prompt_en": "Describe a co-working space in the morning.",
+    "prompt_vi": "Mô tả một không gian làm việc chung buổi sáng.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-218",
+    "kind": "picture",
+    "prompt_en": "Describe a co-working space in the morning.",
+    "prompt_vi": "Mô tả một không gian làm việc chung buổi sáng.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-219",
+    "kind": "picture",
+    "prompt_en": "Describe a co-working space in the morning.",
+    "prompt_vi": "Mô tả một không gian làm việc chung buổi sáng.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-220",
+    "kind": "quick_fire",
+    "prompt_en": "Coffee or tea? Why?",
+    "prompt_vi": "Cà phê hay trà? Vì sao?",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-221",
+    "kind": "quick_fire",
+    "prompt_en": "Coffee or tea? Why?",
+    "prompt_vi": "Cà phê hay trà? Vì sao?",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-222",
+    "kind": "quick_fire",
+    "prompt_en": "Coffee or tea? Why?",
+    "prompt_vi": "Cà phê hay trà? Vì sao?",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-223",
+    "kind": "quick_fire",
+    "prompt_en": "Early bird or night owl? Why?",
+    "prompt_vi": "Người dậy sớm hay cú đêm? Vì sao?",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-224",
+    "kind": "quick_fire",
+    "prompt_en": "Early bird or night owl? Why?",
+    "prompt_vi": "Người dậy sớm hay cú đêm? Vì sao?",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-225",
+    "kind": "quick_fire",
+    "prompt_en": "Early bird or night owl? Why?",
+    "prompt_vi": "Người dậy sớm hay cú đêm? Vì sao?",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-226",
+    "kind": "quick_fire",
+    "prompt_en": "Work from home or office? Why?",
+    "prompt_vi": "Làm ở nhà hay ở công ty? Vì sao?",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-227",
+    "kind": "quick_fire",
+    "prompt_en": "Work from home or office? Why?",
+    "prompt_vi": "Làm ở nhà hay ở công ty? Vì sao?",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-228",
+    "kind": "quick_fire",
+    "prompt_en": "Work from home or office? Why?",
+    "prompt_vi": "Làm ở nhà hay ở công ty? Vì sao?",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-229",
+    "kind": "quick_fire",
+    "prompt_en": "Books or movies? Why?",
+    "prompt_vi": "Sách hay phim? Vì sao?",
+    "level": "A2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-230",
+    "kind": "quick_fire",
+    "prompt_en": "Books or movies? Why?",
+    "prompt_vi": "Sách hay phim? Vì sao?",
+    "level": "B1",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-231",
+    "kind": "quick_fire",
+    "prompt_en": "Books or movies? Why?",
+    "prompt_vi": "Sách hay phim? Vì sao?",
+    "level": "B2",
+    "topic": "culture"
+  },
+  {
+    "id": "ftp-232",
+    "kind": "quick_fire",
+    "prompt_en": "City or countryside? Why?",
+    "prompt_vi": "Thành phố hay nông thôn? Vì sao?",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-233",
+    "kind": "quick_fire",
+    "prompt_en": "City or countryside? Why?",
+    "prompt_vi": "Thành phố hay nông thôn? Vì sao?",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-234",
+    "kind": "quick_fire",
+    "prompt_en": "City or countryside? Why?",
+    "prompt_vi": "Thành phố hay nông thôn? Vì sao?",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-235",
+    "kind": "quick_fire",
+    "prompt_en": "Save money or spend it? Why?",
+    "prompt_vi": "Tiết kiệm hay tiêu tiền? Vì sao?",
+    "level": "A2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-236",
+    "kind": "quick_fire",
+    "prompt_en": "Save money or spend it? Why?",
+    "prompt_vi": "Tiết kiệm hay tiêu tiền? Vì sao?",
+    "level": "B1",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-237",
+    "kind": "quick_fire",
+    "prompt_en": "Save money or spend it? Why?",
+    "prompt_vi": "Tiết kiệm hay tiêu tiền? Vì sao?",
+    "level": "B2",
+    "topic": "money"
+  },
+  {
+    "id": "ftp-238",
+    "kind": "quick_fire",
+    "prompt_en": "Plan ahead or go with the flow? Why?",
+    "prompt_vi": "Lập kế hoạch hay tuỳ cơ? Vì sao?",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-239",
+    "kind": "quick_fire",
+    "prompt_en": "Plan ahead or go with the flow? Why?",
+    "prompt_vi": "Lập kế hoạch hay tuỳ cơ? Vì sao?",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-240",
+    "kind": "quick_fire",
+    "prompt_en": "Plan ahead or go with the flow? Why?",
+    "prompt_vi": "Lập kế hoạch hay tuỳ cơ? Vì sao?",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-241",
+    "kind": "quick_fire",
+    "prompt_en": "Team sports or solo exercise? Why?",
+    "prompt_vi": "Thể thao đồng đội hay tập một mình? Vì sao?",
+    "level": "A2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-242",
+    "kind": "quick_fire",
+    "prompt_en": "Team sports or solo exercise? Why?",
+    "prompt_vi": "Thể thao đồng đội hay tập một mình? Vì sao?",
+    "level": "B1",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-243",
+    "kind": "quick_fire",
+    "prompt_en": "Team sports or solo exercise? Why?",
+    "prompt_vi": "Thể thao đồng đội hay tập một mình? Vì sao?",
+    "level": "B2",
+    "topic": "health"
+  },
+  {
+    "id": "ftp-244",
+    "kind": "quick_fire",
+    "prompt_en": "Learn online or in a class? Why?",
+    "prompt_vi": "Học online hay học ở lớp? Vì sao?",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-245",
+    "kind": "quick_fire",
+    "prompt_en": "Learn online or in a class? Why?",
+    "prompt_vi": "Học online hay học ở lớp? Vì sao?",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-246",
+    "kind": "quick_fire",
+    "prompt_en": "Learn online or in a class? Why?",
+    "prompt_vi": "Học online hay học ở lớp? Vì sao?",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-247",
+    "kind": "quick_fire",
+    "prompt_en": "Call or text? Why?",
+    "prompt_vi": "Gọi điện hay nhắn tin? Vì sao?",
+    "level": "A2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-248",
+    "kind": "quick_fire",
+    "prompt_en": "Call or text? Why?",
+    "prompt_vi": "Gọi điện hay nhắn tin? Vì sao?",
+    "level": "B1",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-249",
+    "kind": "quick_fire",
+    "prompt_en": "Call or text? Why?",
+    "prompt_vi": "Gọi điện hay nhắn tin? Vì sao?",
+    "level": "B2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-250",
+    "kind": "quick_fire",
+    "prompt_en": "Cook at home or eat out? Why?",
+    "prompt_vi": "Nấu ở nhà hay ăn ngoài? Vì sao?",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-251",
+    "kind": "quick_fire",
+    "prompt_en": "Cook at home or eat out? Why?",
+    "prompt_vi": "Nấu ở nhà hay ăn ngoài? Vì sao?",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-252",
+    "kind": "quick_fire",
+    "prompt_en": "Cook at home or eat out? Why?",
+    "prompt_vi": "Nấu ở nhà hay ăn ngoài? Vì sao?",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-253",
+    "kind": "quick_fire",
+    "prompt_en": "Summer or winter? Why?",
+    "prompt_vi": "Mùa hè hay mùa đông? Vì sao?",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-254",
+    "kind": "quick_fire",
+    "prompt_en": "Summer or winter? Why?",
+    "prompt_vi": "Mùa hè hay mùa đông? Vì sao?",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-255",
+    "kind": "quick_fire",
+    "prompt_en": "Summer or winter? Why?",
+    "prompt_vi": "Mùa hè hay mùa đông? Vì sao?",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-256",
+    "kind": "quick_fire",
+    "prompt_en": "Study alone or in a group? Why?",
+    "prompt_vi": "Học một mình hay theo nhóm? Vì sao?",
+    "level": "A2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-257",
+    "kind": "quick_fire",
+    "prompt_en": "Study alone or in a group? Why?",
+    "prompt_vi": "Học một mình hay theo nhóm? Vì sao?",
+    "level": "B1",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-258",
+    "kind": "quick_fire",
+    "prompt_en": "Study alone or in a group? Why?",
+    "prompt_vi": "Học một mình hay theo nhóm? Vì sao?",
+    "level": "B2",
+    "topic": "study"
+  },
+  {
+    "id": "ftp-259",
+    "kind": "quick_fire",
+    "prompt_en": "Big city or small town? Why?",
+    "prompt_vi": "Thành phố lớn hay thị trấn nhỏ? Vì sao?",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-260",
+    "kind": "quick_fire",
+    "prompt_en": "Big city or small town? Why?",
+    "prompt_vi": "Thành phố lớn hay thị trấn nhỏ? Vì sao?",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-261",
+    "kind": "quick_fire",
+    "prompt_en": "Big city or small town? Why?",
+    "prompt_vi": "Thành phố lớn hay thị trấn nhỏ? Vì sao?",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-262",
+    "kind": "story_chain",
+    "prompt_en": "Tell a short story that starts with a lost phone.",
+    "prompt_vi": "Kể một truyện ngắn bắt đầu bằng một chiếc điện thoại bị mất.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-263",
+    "kind": "story_chain",
+    "prompt_en": "Tell a short story that starts with a lost phone.",
+    "prompt_vi": "Kể một truyện ngắn bắt đầu bằng một chiếc điện thoại bị mất.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-264",
+    "kind": "story_chain",
+    "prompt_en": "Tell a short story that starts with a lost phone.",
+    "prompt_vi": "Kể một truyện ngắn bắt đầu bằng một chiếc điện thoại bị mất.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-265",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a surprising job interview.",
+    "prompt_vi": "Kể truyện về một buổi phỏng vấn bất ngờ.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-266",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a surprising job interview.",
+    "prompt_vi": "Kể truyện về một buổi phỏng vấn bất ngờ.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-267",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a surprising job interview.",
+    "prompt_vi": "Kể truyện về một buổi phỏng vấn bất ngờ.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-268",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about missing a flight.",
+    "prompt_vi": "Kể truyện về việc lỡ chuyến bay.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-269",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about missing a flight.",
+    "prompt_vi": "Kể truyện về việc lỡ chuyến bay.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-270",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about missing a flight.",
+    "prompt_vi": "Kể truyện về việc lỡ chuyến bay.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-271",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a misunderstanding with a friend.",
+    "prompt_vi": "Kể truyện về một hiểu lầm với bạn bè.",
+    "level": "A2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-272",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a misunderstanding with a friend.",
+    "prompt_vi": "Kể truyện về một hiểu lầm với bạn bè.",
+    "level": "B1",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-273",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a misunderstanding with a friend.",
+    "prompt_vi": "Kể truyện về một hiểu lầm với bạn bè.",
+    "level": "B2",
+    "topic": "friends"
+  },
+  {
+    "id": "ftp-274",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a strange recipe.",
+    "prompt_vi": "Kể truyện về một công thức nấu ăn kỳ lạ.",
+    "level": "A2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-275",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a strange recipe.",
+    "prompt_vi": "Kể truyện về một công thức nấu ăn kỳ lạ.",
+    "level": "B1",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-276",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a strange recipe.",
+    "prompt_vi": "Kể truyện về một công thức nấu ăn kỳ lạ.",
+    "level": "B2",
+    "topic": "food"
+  },
+  {
+    "id": "ftp-277",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about getting lost in a new city.",
+    "prompt_vi": "Kể truyện về việc bị lạc ở thành phố mới.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-278",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about getting lost in a new city.",
+    "prompt_vi": "Kể truyện về việc bị lạc ở thành phố mới.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-279",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about getting lost in a new city.",
+    "prompt_vi": "Kể truyện về việc bị lạc ở thành phố mới.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-280",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a first day at a new job.",
+    "prompt_vi": "Kể truyện về ngày đầu ở công ty mới.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-281",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a first day at a new job.",
+    "prompt_vi": "Kể truyện về ngày đầu ở công ty mới.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-282",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a first day at a new job.",
+    "prompt_vi": "Kể truyện về ngày đầu ở công ty mới.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-283",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about an unexpected act of kindness.",
+    "prompt_vi": "Kể truyện về một hành động tử tế bất ngờ.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-284",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about an unexpected act of kindness.",
+    "prompt_vi": "Kể truyện về một hành động tử tế bất ngờ.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-285",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about an unexpected act of kindness.",
+    "prompt_vi": "Kể truyện về một hành động tử tế bất ngờ.",
+    "level": "B2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-286",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a power cut during a storm.",
+    "prompt_vi": "Kể truyện về mất điện giữa bão.",
+    "level": "A2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-287",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a power cut during a storm.",
+    "prompt_vi": "Kể truyện về mất điện giữa bão.",
+    "level": "B1",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-288",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a power cut during a storm.",
+    "prompt_vi": "Kể truyện về mất điện giữa bão.",
+    "level": "B2",
+    "topic": "environment"
+  },
+  {
+    "id": "ftp-289",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about learning to cook from a grandparent.",
+    "prompt_vi": "Kể truyện về việc học nấu ăn từ ông bà.",
+    "level": "A2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-290",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about learning to cook from a grandparent.",
+    "prompt_vi": "Kể truyện về việc học nấu ăn từ ông bà.",
+    "level": "B1",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-291",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about learning to cook from a grandparent.",
+    "prompt_vi": "Kể truyện về việc học nấu ăn từ ông bà.",
+    "level": "B2",
+    "topic": "family"
+  },
+  {
+    "id": "ftp-292",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a delayed train.",
+    "prompt_vi": "Kể truyện về một chuyến tàu bị trễ.",
+    "level": "A2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-293",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a delayed train.",
+    "prompt_vi": "Kể truyện về một chuyến tàu bị trễ.",
+    "level": "B1",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-294",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a delayed train.",
+    "prompt_vi": "Kể truyện về một chuyến tàu bị trễ.",
+    "level": "B2",
+    "topic": "travel"
+  },
+  {
+    "id": "ftp-295",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a funny email typo.",
+    "prompt_vi": "Kể truyện về một lỗi gõ email hài hước.",
+    "level": "A2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-296",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a funny email typo.",
+    "prompt_vi": "Kể truyện về một lỗi gõ email hài hước.",
+    "level": "B1",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-297",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about a funny email typo.",
+    "prompt_vi": "Kể truyện về một lỗi gõ email hài hước.",
+    "level": "B2",
+    "topic": "work"
+  },
+  {
+    "id": "ftp-298",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about finding an old diary.",
+    "prompt_vi": "Kể truyện về việc tìm thấy một cuốn nhật ký cũ.",
+    "level": "A2",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-299",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about finding an old diary.",
+    "prompt_vi": "Kể truyện về việc tìm thấy một cuốn nhật ký cũ.",
+    "level": "B1",
+    "topic": "life"
+  },
+  {
+    "id": "ftp-300",
+    "kind": "story_chain",
+    "prompt_en": "Tell a story about finding an old diary.",
+    "prompt_vi": "Kể truyện về việc tìm thấy một cuốn nhật ký cũ.",
+    "level": "B2",
+    "topic": "life"
+  }
 ]
