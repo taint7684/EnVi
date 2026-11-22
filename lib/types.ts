@@ -69,6 +69,9 @@ export type PhraseRow = {
   topic: string;
   difficulty: string;
   level: string | null;
+  en_alternatives: string[] | null;
+  situation_en: string | null;
+  keywords: string[] | null;
   created_at: string;
 };
 

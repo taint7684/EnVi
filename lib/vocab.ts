@@ -1,6 +1,7 @@
 import "server-only";
 
 import { createClient } from "@/lib/supabase/server";
+import { buildReviewForecast, type ForecastDay } from "@/lib/review-forecast";
 import type {
   CardReviewRow,
   DueCard,
@@ -13,6 +14,41 @@ export const SESSION_SIZE = 101;
 export const DAILY_NEW_LIMIT = 21;
 
 const NEW_WORDS_PAGE_SIZE = 100;
+
+type SupabaseServer = Awaited<ReturnType<typeof createClient>>;
+
+/**
+ * Số từ mới tối đa mỗi ngày do người dùng cấu hình (0–500) hoặc null =
+ * không giới hạn (Master Prompt mục 4). Nếu chưa cấu hình, dùng mặc định.
+ */
+async function getDailyNewLimit(
+  supabase: SupabaseServer,
+): Promise<number | null> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return DAILY_NEW_LIMIT;
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("new_words_per_day")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  const value = (profile as { new_words_per_day: number | null } | null)
+    ?.new_words_per_day;
+  return value ?? null;
+}
+
+export async function getReviewForecast(days = 7): Promise<ForecastDay[]> {
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("card_reviews").select("due_at");
+  if (error) throw new Error(error.message);
+  const dueAtList = ((data ?? []) as { due_at: string }[]).map(
+    (r) => r.due_at,
+  );
+  return buildReviewForecast(dueAtList, new Date(), days);
+}
 
 export async function getDueCards(
   limit = SESSION_SIZE,
@@ -56,10 +92,17 @@ export async function getDueCards(
       new Date(review.created_at).getTime() >= startOfToday.getTime(),
   ).length;
 
-  const newLimit = Math.max(
-    0,
-    Math.min(limit - dueWords.length, DAILY_NEW_LIMIT - newIntroducedToday),
-  );
+  const dailyNewLimit = await getDailyNewLimit(supabase);
+  const newLimit =
+    dailyNewLimit == null
+      ? Math.max(0, limit - dueWords.length)
+      : Math.max(
+          0,
+          Math.min(
+            limit - dueWords.length,
+            dailyNewLimit - newIntroducedToday,
+          ),
+        );
 
   const newWords: WordRow[] = [];
   if (newLimit > 0) {
@@ -172,10 +215,11 @@ export async function getDueCount(): Promise<DueCount> {
   if (countError) throw new Error(countError.message);
 
   const newAvailable = Math.max(0, (totalWords ?? 0) - reviewedIds.size);
-  const newCount = Math.min(
-    newAvailable,
-    Math.max(0, DAILY_NEW_LIMIT - newIntroducedToday),
-  );
+  const dailyNewLimit = await getDailyNewLimit(supabase);
+  const newCount =
+    dailyNewLimit == null
+      ? newAvailable
+      : Math.min(newAvailable, Math.max(0, dailyNewLimit - newIntroducedToday));
 
   return { due, new: newCount, total: due + newCount };
 }

@@ -215,6 +215,13 @@ const PHASES = [
     focus: "Tự do nói với AI · Đọc hiểu dài",
     color: "from-violet-500 to-purple-600",
   },
+  {
+    month: 4,
+    title: "Nâng cao",
+    range: "Ngày 91–180",
+    focus: "Vận dụng thực chiến · Thuyết trình · Mission lớn",
+    color: "from-amber-500 to-orange-600",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -418,9 +425,11 @@ export function RoadmapContent() {
     [history],
   );
 
-  const currentDay = Math.min(90, completedCount + (dayComplete ? 0 : 1));
-  const activePhase = currentDay <= 30 ? 0 : currentDay <= 60 ? 1 : 2;
-  const progressPct = Math.min(100, (completedCount / 90) * 100);
+  const TOTAL_DAYS = 180;
+  const currentDay = Math.min(TOTAL_DAYS, completedCount + (dayComplete ? 0 : 1));
+  const activePhase =
+    currentDay <= 30 ? 0 : currentDay <= 60 ? 1 : currentDay <= 90 ? 2 : 3;
+  const progressPct = Math.min(100, (completedCount / TOTAL_DAYS) * 100);
   const todayLesson = getDailyLesson(currentDay);
 
   async function toggleTask(task: TaskDef) {
@@ -520,10 +529,10 @@ export function RoadmapContent() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h2 className="font-serif text-xl font-semibold">
-              Lộ trình 90 ngày cá nhân hóa
+              Lộ trình 180 ngày cá nhân hóa
             </h2>
             <p className="text-sm text-muted-foreground">
-              Ngày {currentDay}/90 · Giai đoạn {activePhase + 1}:{" "}
+              Ngày {currentDay}/{TOTAL_DAYS} · Giai đoạn {activePhase + 1}:{" "}
               {PHASES[activePhase].title}
             </p>
             <div className="mt-2 flex items-center gap-2 text-sm">
@@ -655,7 +664,7 @@ export function RoadmapContent() {
 
       {/* Timeline 3 giai đoạn */}
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <h3 className="mb-4 font-medium">3 giai đoạn</h3>
+        <h3 className="mb-4 font-medium">4 giai đoạn</h3>
         <div className="space-y-3">
           {PHASES.map((phase, i) => {
             const active = i === activePhase;
@@ -768,11 +777,11 @@ export function RoadmapContent() {
         </div>
       </div>
 
-      {/* 90-day dots */}
+      {/* 180-day dots */}
       <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <h3 className="mb-4 font-medium">Bản đồ 90 ngày</h3>
+        <h3 className="mb-4 font-medium">Bản đồ 180 ngày</h3>
         <div className="grid grid-cols-10 gap-1.5 sm:gap-2">
-          {Array.from({ length: 90 }, (_, i) => {
+          {Array.from({ length: TOTAL_DAYS }, (_, i) => {
             const day = i + 1;
             const done = day <= completedCount;
             const isCurrent = day === currentDay && !dayComplete;

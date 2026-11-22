@@ -13,7 +13,7 @@ import { ArrowRight, Check, Lightbulb, RotateCcw, X } from "lucide-react";
 import { reviewPhrase } from "@/app/actions/phrase-review";
 import { Button } from "@/components/ui/button";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
-import { evaluateSpeech, type SpeechEval } from "@/lib/speech-eval";
+import { evaluateSpeech, evaluateReflexSpeech, getReflexLevel, type SpeechEval } from "@/lib/speech-eval";
 import { evaluateMeaning, recordReflexResult } from "@/lib/reflex/judge";
 import type { ReflexMeaning } from "@/lib/reflex/schema";
 import type { DuePhrase, ReviewGrade } from "@/lib/types";
@@ -114,36 +114,26 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
 
   async function handleSpeech(spoken: string) {
     if (!current) return;
-    const speechEval = evaluateSpeech(current.phrase.en_text, spoken);
-    setResult(speechEval);
     const latency = Math.round(performance.now() - startRef.current);
     setLatencyMs(latency);
 
-    let judgment;
-    try {
-      judgment = await evaluateMeaning({
-        phraseId: current.phrase.id,
-        viText: current.phrase.vi_text,
-        enText: current.phrase.en_text,
-        spoken,
-      });
-      setJudgment(judgment);
-    } catch (cause) {
-      setError(
-        cause instanceof Error ? cause.message : "Không thể đánh giá ý nghĩa.",
-      );
-      judgment = {
-        meaning: {
-          meaningCorrect: speechEval.correct,
-          explanationVi: null,
-          level: "L2",
-        },
-        aiUsed: false,
-      };
-    }
+    // 1. Cham lexical tren en_text + en_alternatives
+    const reflexEval = evaluateReflexSpeech({
+      enText: current.phrase.en_text,
+      alternatives: current.phrase.en_alternatives,
+      keywords: current.phrase.keywords,
+      spoken,
+    });
+    const speechEval: SpeechEval = {
+      correct: reflexEval.correct,
+      ratio: reflexEval.ratio,
+      spoken,
+      expected: current.phrase.en_text,
+    };
+    setResult(speechEval);
 
-    const correct = judgment.meaning.meaningCorrect;
-    if (correct) {
+    // 2. Neu lexical dat -> correct ngay
+    if (reflexEval.correct) {
       await recordReflexResult({
         phraseId: current.phrase.id,
         grade: attempts === 0 ? "easy" : "good",
@@ -151,9 +141,36 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
         latencyMs: latency,
       });
       window.dispatchEvent(new Event("envi:xp-refresh"));
-    } else {
-      setAttempts((a) => a + 1);
+      return;
     }
+
+    // 3. Neu chua dat nhung du keywords -> AI judge "cung nghia?"
+    if (reflexEval.needsAiJudge) {
+      try {
+        const judgment = await evaluateMeaning({
+          phraseId: current.phrase.id,
+          viText: current.phrase.vi_text,
+          enText: current.phrase.en_text,
+          spoken,
+        });
+        setJudgment(judgment);
+        if (judgment.meaning.meaningCorrect) {
+          await recordReflexResult({
+            phraseId: current.phrase.id,
+            grade: attempts === 0 ? "easy" : "good",
+            meaningScore: 1,
+            latencyMs: latency,
+          });
+          window.dispatchEvent(new Event("envi:xp-refresh"));
+          return;
+        }
+      } catch {
+        // AI unavailable, fall through to incorrect
+      }
+    }
+
+    // 4. Khong dat
+    setAttempts((a) => a + 1);
   }
 
   function handleDictationSubmit() {
@@ -202,8 +219,9 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
   const { phrase } = current;
   const correct = result?.correct ?? false;
   const meaningCorrect = judgment?.meaning.meaningCorrect ?? false;
+  const reflexLevel = getReflexLevel(phrase.difficulty);
   const levelLabel =
-    LEVEL_LABEL[judgment?.meaning.level ?? phrase.level ?? "L2"] ?? "L2";
+    LEVEL_LABEL[judgment?.meaning.level ?? phrase.level ?? reflexLevel] ?? reflexLevel;
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -256,11 +274,22 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
         {mode === "reflex" ? (
           <div className="text-center">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">
-              Dịch câu này sang tiếng Anh rồi nói · {levelLabel}
+              {reflexLevel === "L1"
+                ? `Dịch câu này sang tiếng Anh rồi nói · ${levelLabel}`
+                : reflexLevel === "L2"
+                  ? `Đọc tình huống rồi trả lời bằng tiếng Anh · ${levelLabel}`
+                  : `Trả lời câu hỏi bằng tiếng Anh · ${levelLabel}`}
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-              {phrase.vi_text}
+              {reflexLevel === "L1"
+                ? phrase.vi_text
+                : phrase.situation_en || phrase.vi_text}
             </h2>
+            {reflexLevel === "L1" && phrase.en_alternatives && phrase.en_alternatives.length > 0 ? (
+              <p className="mt-2 text-sm text-muted-foreground">
+                (Chấp nhận nhiều cách nói khác nhau)
+              </p>
+            ) : null}
           </div>
         ) : (
           <div className="text-center">

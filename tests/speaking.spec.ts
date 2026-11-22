@@ -41,14 +41,13 @@ async function startSpeakingSession(
   await page.waitForTimeout(1000);
 
   await page.getByRole("button", { name: "Bắt đầu luyện" }).click();
-  await page.waitForTimeout(25000); // Ollama timeout (5s) + Groq response
 
-  // Enable text input mode
-  const modeBtn = page.getByRole("button", { name: /Nhập bằng bàn phím/ });
-  if ((await modeBtn.count()) > 0) {
-    await modeBtn.click();
-    await page.waitForTimeout(500);
-  }
+  // Wait for AI question to load (loading clears) and text-input toggle to appear
+  await expect(
+    page.getByRole("button", { name: /Nhập bằng bàn phím/ }),
+  ).toBeVisible({ timeout: 60000 });
+  await page.getByRole("button", { name: /Nhập bằng bàn phím/ }).click();
+  await page.waitForTimeout(500);
 }
 
 async function sendMessageAndWait(
@@ -59,18 +58,37 @@ async function sendMessageAndWait(
   const textInput = page.locator('input[placeholder*="Nhập câu trả lời"]');
   if ((await textInput.count()) === 0) return false;
 
-  await textInput.fill(message);
-  await page.waitForTimeout(300);
-  await page.getByRole("button", { name: "Gửi AI" }).click();
-  await page.waitForTimeout(waitMs);
+  const MAX_RETRIES = 3;
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    // Count AI bubbles before sending (includes the question bubble)
+    const aiBefore = await page.locator(".rounded-bl-md").count();
 
-  const aiResp = await page.locator("text=/AI:/|Câu trả lời từ AI|Góp ý từ AI/").count();
-  return aiResp > 0;
+    await textInput.fill(message);
+    await page.waitForTimeout(300);
+    const sendBtn = page.getByRole("button", { name: "Gửi AI" });
+    if ((await sendBtn.count()) === 0) return false;
+    await sendBtn.click();
+    await page.waitForTimeout(waitMs);
+
+    // AI responded if a new bubble (rounded-bl-md) appeared
+    const aiAfter = await page.locator(".rounded-bl-md").count();
+    if (aiAfter > aiBefore) return true;
+
+    // Rate-limited: click "Thử lại" and wait for Groq quota reset
+    const retryBtn = page.getByRole("button", { name: /Thử lại/ });
+    if ((await retryBtn.count()) === 0) return false;
+    await retryBtn.click();
+    await page.waitForTimeout(35000);
+
+    const aiAfterRetry = await page.locator(".rounded-bl-md").count();
+    if (aiAfterRetry > aiBefore) return true;
+  }
+  return false;
 }
 
 test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
   test("SPEAKING A2 — 2 chủ đề, 2 lượt AI thật mỗi chủ đề", async ({ page }) => {
-    test.setTimeout(300000);
+    test.setTimeout(600000);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
 
@@ -88,7 +106,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
         const resp1 = await sendMessageAndWait(
           page,
           "Hello, I want to practice speaking about this topic.",
-          30000,
+          45000,
         );
         console.log(`A2/${topic} Turn 1 AI response:`, resp1);
 
@@ -96,12 +114,13 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
         const resp2 = await sendMessageAndWait(
           page,
           "That is helpful. Can you give me an example sentence?",
-          30000,
+          45000,
         );
         console.log(`A2/${topic} Turn 2 AI response:`, resp2);
 
         expect(resp1 || resp2).toBe(true);
       }
+      await page.waitForTimeout(30000);
     }
 
     console.log("SPEAKING A2: PASS — AI phản hồi ở 2 chủ đề");
@@ -109,7 +128,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
   });
 
   test("SPEAKING B1 — 2 chủ đề, 2 lượt AI thật mỗi chủ đề", async ({ page }) => {
-    test.setTimeout(300000);
+    test.setTimeout(600000);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
 
@@ -126,19 +145,20 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
         const resp1 = await sendMessageAndWait(
           page,
           "I want to talk about my work experience and challenges.",
-          30000,
+          45000,
         );
         console.log(`B1/${topic} Turn 1 AI response:`, resp1);
 
         const resp2 = await sendMessageAndWait(
           page,
           "What should I do when I'm stuck on a difficult task?",
-          30000,
+          45000,
         );
         console.log(`B1/${topic} Turn 2 AI response:`, resp2);
 
         expect(resp1 || resp2).toBe(true);
       }
+      await page.waitForTimeout(30000);
     }
 
     console.log("SPEAKING B1: PASS — AI phản hồi ở 2 chủ đề");
@@ -146,7 +166,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
   });
 
   test("SPEAKING B2 — 2 chủ đề, 2 lượt AI thật mỗi chủ đề", async ({ page }) => {
-    test.setTimeout(300000);
+    test.setTimeout(600000);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
 
@@ -163,19 +183,20 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
         const resp1 = await sendMessageAndWait(
           page,
           "I need to discuss trade-offs between project scope and deadline.",
-          30000,
+          45000,
         );
         console.log(`B2/${topic} Turn 1 AI response:`, resp1);
 
         const resp2 = await sendMessageAndWait(
           page,
           "How do you handle stakeholder conflicts in IT projects?",
-          30000,
+          45000,
         );
         console.log(`B2/${topic} Turn 2 AI response:`, resp2);
 
         expect(resp1 || resp2).toBe(true);
       }
+      await page.waitForTimeout(30000);
     }
 
     console.log("SPEAKING B2: PASS — AI phản hồi ở 2 chủ đề");
@@ -210,7 +231,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
       const errorMsg = await page
         .locator("text=/AI đang bận|lỗi|thử lại sau/")
         .count();
-      const aiResp = await page.locator("text=/AI:/").count();
+      const aiResp = await page.locator(".rounded-bl-md").count();
       console.log(
         `SPEAKING all-providers test: error=${errorMsg > 0}, aiResp=${aiResp > 0}`,
       );
@@ -240,19 +261,18 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
     await page.waitForTimeout(1000);
 
     await page.getByRole("button", { name: "Bắt đầu luyện" }).click();
-    await page.waitForTimeout(25000);
 
-    // Enable text input mode
-    const modeBtn = page.getByRole("button", { name: /Nhập bằng bàn phím/ });
-    if ((await modeBtn.count()) > 0) {
-      await modeBtn.click();
-      await page.waitForTimeout(500);
-    }
+    // Wait for AI question to load and text-input toggle to appear
+    await expect(
+      page.getByRole("button", { name: /Nhập bằng bàn phím/ }),
+    ).toBeVisible({ timeout: 60000 });
+    await page.getByRole("button", { name: /Nhập bằng bàn phím/ }).click();
+    await page.waitForTimeout(500);
 
     const textInput = page.locator('input[placeholder*="Nhập câu trả lời"]');
     if ((await textInput.count()) > 0) {
-      // Count AI messages before sending
-      const aiBefore = await page.locator("text=/AI:/").count();
+      // Count AI bubbles before sending (includes question bubble)
+      const aiBefore = await page.locator(".rounded-bl-md").count();
 
       // Send first message
       await textInput.fill("Hello");
@@ -260,7 +280,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
       await page.getByRole("button", { name: "Gửi AI" }).click();
       await page.waitForTimeout(25000);
 
-      const aiAfterFirst = await page.locator("text=/AI:/").count();
+      const aiAfterFirst = await page.locator(".rounded-bl-md").count();
       console.log(
         `Double-click: AI before=${aiBefore}, after first=${aiAfterFirst}`,
       );
@@ -271,7 +291,7 @@ test.describe("EnVi Speaking — Ollama tắt, Groq/Gemini fallback", () => {
       await page.getByRole("button", { name: "Gửi AI" }).click();
       await page.waitForTimeout(10000);
 
-      const aiAfterSecond = await page.locator("text=/AI:/").count();
+      const aiAfterSecond = await page.locator(".rounded-bl-md").count();
       console.log(`Double-click: AI after second=${aiAfterSecond}`);
 
       // Should not have gained a new AI response

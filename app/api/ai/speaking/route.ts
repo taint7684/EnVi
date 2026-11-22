@@ -18,6 +18,8 @@ import type {
 export const runtime = "nodejs";
 
 const TOTAL_QUESTIONS = 5;
+const REFLECTION_QUESTIONS = 3;
+const TOTAL_TURNS = TOTAL_QUESTIONS + REFLECTION_QUESTIONS;
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -103,14 +105,14 @@ export async function POST(request: Request) {
           topic as string,
           currentStep as number,
           qIndex,
-          TOTAL_QUESTIONS,
+          TOTAL_TURNS,
           speakingLevel,
         );
   const userPrompt = buildSpeakingUserPrompt(
     userMessage,
     (history ?? []) as SpeakingHistoryTurn[],
     qIndex,
-    TOTAL_QUESTIONS,
+    TOTAL_TURNS,
   );
 
   const aiStart = Date.now();

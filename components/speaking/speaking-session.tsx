@@ -37,6 +37,7 @@ import type {
   SpeakingTurnResult,
 } from "@/lib/types/speaking";
 import { speakEnglish } from "@/lib/speech";
+import { evaluateSpeech } from "@/lib/speech-eval";
 
 type ChatMessage = {
   id: string;
@@ -61,7 +62,7 @@ type ChatMessage = {
 
 const TOTAL_QUESTIONS = 5;
 const REFLECTION_QUESTIONS = 3;
-const TOTAL_TURNS = TOTAL_QUESTIONS;
+const TOTAL_TURNS = TOTAL_QUESTIONS + REFLECTION_QUESTIONS;
 const MAX_LIFELINES = 3;
 const MAX_TRANSCRIPT_EDITS = 1;
 const MAX_RETRY_ATTEMPTS = 3;
@@ -129,6 +130,10 @@ export function SpeakingSession({
 
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const lastSentRef = useRef<string | null>(null);
+  const messagesRef = useRef<ChatMessage[]>([]);
+  useEffect(() => {
+    messagesRef.current = messages;
+  }, [messages]);
   const sessionStartedRef = useRef(false);
   const keywordHintTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const samplePeekTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -171,6 +176,45 @@ export function SpeakingSession({
       setRetryPassed(null);
       setPraise("");
       setShowSampleUntil(null);
+
+      // RETRY-BLIND (step 3): cham offline, khong goi LLM
+      if (currentStep === 3) {
+        const prevMessages = messagesRef.current;
+        const lastAiMsg = prevMessages.filter((m) => m.role === "ai").pop();
+        const correctedSentence = lastAiMsg?.corrected_sentence ?? "";
+        const keywords = lastAiMsg?.keywords ?? [];
+        const semanticEval = correctedSentence
+          ? evaluateSpeech(correctedSentence, userMessage)
+          : { ratio: 0, correct: false };
+        const semanticScore = semanticEval.ratio;
+        const spokenLower = userMessage.toLowerCase();
+        const matchedKeywords = keywords.filter((kw) =>
+          spokenLower.includes(kw.toLowerCase()),
+        );
+        const keywordScore =
+          keywords.length > 0 ? matchedKeywords.length / keywords.length : 1;
+        const retryScore = 0.6 * semanticScore + 0.4 * keywordScore;
+        const retryPassed = retryScore >= RETRY_PASS_THRESHOLD;
+        setRetryScore(retryScore);
+        setRetryPassed(retryPassed);
+        setMessages((previous) => [
+          ...previous,
+          {
+            id: makeId(),
+            role: "ai",
+            text: retryPassed
+              ? "Nói lại đạt! Tiếp tục nhé."
+              : "Chưa đạt, thử lại lần nữa.",
+            step: 3,
+            questionIndex: qIdx,
+            mode: currentMode,
+            retry_score: retryScore,
+            retry_passed: retryPassed,
+          },
+        ]);
+        setLoading(false);
+        return;
+      }
 
       const aiStart = Date.now();
 
@@ -459,7 +503,13 @@ export function SpeakingSession({
   };
 
   const handleNextTurn = useCallback(() => {
-    if (questionIndex >= TOTAL_TURNS - 1) return;
+    if (questionIndex >= TOTAL_TURNS - 1) {
+      setPhase("summary");
+      return;
+    }
+    if (questionIndex === TOTAL_QUESTIONS - 1 && phase === "questions") {
+      setPhase("reflection");
+    }
     setQuestionIndex((prev) => prev + 1);
     setStep(1);
     setTurnCompleted(false);
@@ -476,7 +526,7 @@ export function SpeakingSession({
     setPraise("");
     setShowSampleUntil(null);
     lastSentRef.current = null;
-  }, [questionIndex]);
+  }, [questionIndex, phase]);
 
   const handleRetryAI = useCallback(() => {
     if (retryAttempts >= MAX_RETRY_ATTEMPTS) {

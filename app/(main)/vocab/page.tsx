@@ -1,9 +1,10 @@
 import { VocabSession } from "@/components/vocab/vocab-session";
 import { EmptyFlashcard } from "@/components/vocab/empty-flashcard";
-import { getDueCards } from "@/lib/vocab";
+import { getDueCards, getReviewForecast } from "@/lib/vocab";
 
 export default async function VocabPage() {
   const { cards, state } = await getDueCards();
+  const forecast = await getReviewForecast();
 
   return (
     <div className="py-4">
@@ -14,6 +15,32 @@ export default async function VocabPage() {
         <p className="mt-1 text-sm text-muted-foreground">
           Ôn tập lặp lại ngắt quãng với SM-2
         </p>
+      </div>
+
+      <div className="mb-6">
+        <p className="mb-2 text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">
+          Dự báo ôn 7 ngày
+        </p>
+        <div className="mx-auto grid max-w-2xl grid-cols-7 gap-1.5">
+          {forecast.map((day, i) => (
+            <div
+              key={day.date}
+              className={
+                "rounded-xl border px-1 py-2 text-center " +
+                (i === 0
+                  ? "border-primary bg-primary/10"
+                  : "border-border bg-card")
+              }
+            >
+              <div className="text-[10px] text-muted-foreground">
+                {day.label}
+              </div>
+              <div className="mt-0.5 text-sm font-semibold text-foreground">
+                {day.due}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {cards.length === 0 && state.status === "exhausted" ? (

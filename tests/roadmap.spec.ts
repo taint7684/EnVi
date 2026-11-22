@@ -24,8 +24,8 @@ async function login(page: Page) {
   await page.waitForTimeout(1500);
 }
 
-test.describe("EnVi Roadmap 90 ngày", () => {
-  test("Hiển thị 90 ngày, 3 giai đoạn, có thể chỉnh phút/ngày", async ({ page }) => {
+test.describe("EnVi Roadmap 180 ngày", () => {
+  test("Hiển thị 180 ngày, 4 giai đoạn, có thể chỉnh phút/ngày", async ({ page }) => {
     test.setTimeout(120000);
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
@@ -34,19 +34,19 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     await page.goto(`${BASE_URL}/roadmap`);
     await page.waitForTimeout(2500);
 
-    // Tiêu đề 90 ngày
-    await expect(page.getByRole("heading", { name: "Lộ trình 90 ngày", exact: true })).toBeVisible();
-    await expect(page.locator("text=/Ngày \\d+\\/90/")).toBeVisible();
+    // Tiêu đề 180 ngày
+    await expect(page.getByRole("heading", { name: "Lộ trình 180 ngày", exact: true })).toBeVisible();
+    await expect(page.locator("text=/Ngày \\d+\\/180/")).toBeVisible();
 
-    // 3 giai đoạn (nằm trong paragraph "Giai đoạn 1: Xây nền tảng")
-    await expect(page.locator("text=3 giai đoạn")).toBeVisible();
+    // 4 giai đoạn (nằm trong paragraph "Giai đoạn 1: Xây nền tảng")
+    await expect(page.locator("text=4 giai đoạn")).toBeVisible();
     await expect(page.locator("text=/Giai đoạn 1: Xây nền tảng/")).toBeVisible();
     await expect(page.locator("text=Bứt phá").first()).toBeVisible();
     await expect(page.locator("text=Thực chiến").first()).toBeVisible();
 
-    // 90 dots
+    // 180 dots
     const dots = page.locator("div.grid.grid-cols-10 > div");
-    console.log("ROADMAP 90 dots count:", await dots.count());
+    console.log("ROADMAP 180 dots count:", await dots.count());
 
     // Mở chỉnh phút/ngày — đọc giá trị gốc
     const editBtn = page.getByRole("button", { name: /phút/ });
@@ -99,7 +99,7 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     expect(errors).toEqual([]);
   });
 
-  test("Kiểm toàn bộ 90 ngày: mỗi ngày có ít nhất 1 bài nói/viết, task trỏ route thật", async ({
+  test("Kiểm toàn bộ 180 ngày: mỗi ngày có ít nhất 1 bài nói/viết, task trỏ route thật", async ({
     page,
   }) => {
     test.setTimeout(60000);
@@ -110,14 +110,15 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     await page.goto(`${BASE_URL}/roadmap`);
     await page.waitForTimeout(2500);
 
-    // 90 dots
+    // 180 dots
     const dots = page.locator("div.grid.grid-cols-10 > div");
-    expect(await dots.count()).toBe(90);
+    expect(await dots.count()).toBe(180);
 
-    // 3 giai đoạn
+    // 4 giai đoạn
     await expect(page.locator("text=Tháng 1: Xây nền tảng")).toBeVisible();
     await expect(page.locator("text=Tháng 2: Bứt phá")).toBeVisible();
     await expect(page.locator("text=Tháng 3: Thực chiến")).toBeVisible();
+    await expect(page.locator("text=Tháng 4: Nâng cao")).toBeVisible();
 
     // Mỗi ngày có ít nhất 1 bài output (nói hoặc viết)
     // Kiểm qua SlotBlock: Sáng (input) + Tối (output) + Cuối tuần
@@ -230,10 +231,10 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     await expect(page.locator("text=Kế hoạch học hôm nay")).toBeVisible();
     console.log("E2E dashboard plan persists after reload");
 
-    // 6. Roadmap hiển thị 90 ngày
+    // 6. Roadmap hiển thị 180 ngày
     await page.goto(`${BASE_URL}/roadmap`);
     await page.waitForTimeout(2000);
-    await expect(page.getByRole("heading", { name: "Lộ trình 90 ngày", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Lộ trình 180 ngày", exact: true })).toBeVisible();
     console.log("E2E roadmap accessible");
 
     expect(errors).toEqual([]);

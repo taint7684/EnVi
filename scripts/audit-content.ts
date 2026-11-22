@@ -4,7 +4,7 @@ import { join } from "node:path";
 const DATA_DIR = join(process.cwd(), "data");
 
 const MINIMUMS: Record<string, number> = {
-  "shadowing-lessons.json": 20,
+  "shadowing-lessons.json": 60,
   "grammar-exercises.json": 800,
   "pronunciation.json": 12,
   "missions.json": 60,
@@ -61,21 +61,87 @@ function loadJson(filename: string): unknown[] {
   const data = loadJson("shadowing-lessons.json") as Array<{
     id: string;
     youtubeId: string;
+    title: string;
     transcript: Array<{ id: number; text: string; startTime: number; endTime: number }>;
   }>;
-  check("shadowing-lessons.json", data, 20, (d) => d.id);
-  let ttsMode = 0;
+  check("shadowing-lessons.json", data, 60, (d) => d.id);
+  let placeholderCount = 0;
   for (const d of data) {
-    if (d.youtubeId === "dQw4w9WgXcQ") {
-      ttsMode++;
+    if (d.youtubeId === "dQw4w9WgXcQ" || !d.youtubeId || d.youtubeId.length !== 11) {
+      placeholderCount++;
+      errors.push(`[shadowing] bai "${d.id}" dung youtubeId placeholder "${d.youtubeId}" -> can nguon video that hoac TTS`);
     }
     if (!d.transcript?.length) {
-      errors.push(`[shadowing] bài "${d.id}" thiếu transcript`);
+      errors.push(`[shadowing] bai "${d.id}" thieu transcript`);
+    } else {
+      // Kiem tra transcript co startTime/endTime hop le
+      for (const seg of d.transcript) {
+        if (typeof seg.startTime !== "number" || typeof seg.endTime !== "number") {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu startTime/endTime`);
+          break;
+        }
+        if (!seg.text?.trim()) {
+          errors.push(`[shadowing] bai "${d.id}" segment ${seg.id} thieu text`);
+          break;
+        }
+      }
     }
   }
-  if (ttsMode > 0) {
-    console.log(`    ℹ ${ttsMode}/${data.length} bài dùng youtubeId mặc định → phát bằng TTS (Web Speech API)`);
+  if (placeholderCount > 0) {
+    console.log(`    [!] ${placeholderCount}/${data.length} bai dung youtubeId placeholder -> TTS fallback (can thay bang video that)`);
   }
+}
+
+// Speaking questions
+{
+  const path = join(DATA_DIR, "speaking-questions-by-level.ts");
+  if (existsSync(path)) {
+    const raw = readFileSync(path, "utf-8");
+    const topicMatches = [...raw.matchAll(/id:\s*"([^"]+)"/g)];
+    const topicCount = topicMatches.length;
+    // Dem so cau hoi moi level: dem string trong cac mang A2/B1/B2
+    const a2Blocks = [...raw.matchAll(/A2:\s*\[([\s\S]*?)\]/g)];
+    const b1Blocks = [...raw.matchAll(/B1:\s*\[([\s\S]*?)\]/g)];
+    const b2Blocks = [...raw.matchAll(/B2:\s*\[([\s\S]*?)\]/g)];
+    let a2Count = 0, b1Count = 0, b2Count = 0;
+    for (const b of a2Blocks) a2Count += (b[1].match(/"/g) || []).length / 2;
+    for (const b of b1Blocks) b1Count += (b[1].match(/"/g) || []).length / 2;
+    for (const b of b2Blocks) b2Count += (b[1].match(/"/g) || []).length / 2;
+    const total = a2Count + b1Count + b2Count;
+    stats["speaking-questions-by-level.ts"] = total;
+    console.log(`  speaking-questions-by-level.ts: ${topicCount} topics, A2=${a2Count} B1=${b1Count} B2=${b2Count}, tong=${total}`);
+    // Spec: moi topic 5 cau x 3 level = 15; 30 topics = 450
+    const expected = topicCount * 15;
+    if (total < expected) {
+      errors.push(`[speaking] chi co ${total} cau, can >= ${expected} (${topicCount} topics x 15)`);
+    }
+    // Kiem tra moi topic co du 5 cau moi level
+    const perLevel = Math.floor(total / 3);
+    const perTopic = Math.floor(perLevel / topicCount);
+    if (perTopic < 5) {
+      errors.push(`[speaking] moi topic chi co ~${perTopic} cau/level, can 5`);
+    }
+  }
+}
+
+// Reflex phrases (data files)
+{
+  const phrasesFile = join(DATA_DIR, "phrases.txt");
+  const advancedFile = join(DATA_DIR, "phrases-advanced.txt");
+  let phraseCount = 0;
+  for (const f of [phrasesFile, advancedFile]) {
+    if (existsSync(f)) {
+      const lines = readFileSync(f, "utf-8").split(/\r?\n/).filter((l) => l.trim());
+      phraseCount += Math.floor(lines.length / 2);
+    }
+  }
+  stats["phrases.txt + advanced"] = phraseCount;
+  console.log(`  phrases.txt + advanced: ${phraseCount} cap cau (VI/EN)`);
+  if (phraseCount < 100) {
+    errors.push(`[reflex] chi co ${phraseCount} cap cau, can >= 100`);
+  }
+  // Luu y: en_alternatives, situation_en, keywords nam trong DB (migration 0022)
+  console.log(`    ℹ en_alternatives/situation_en/keywords: kiem tra trong DB sau migration 0022`);
 }
 
 // Grammar exercises
