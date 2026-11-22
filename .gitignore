@@ -51,3 +51,4 @@ data/*.csv
 data/*.xlsx
 
 .vercel
+.env*

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, TextCursor, X } from "lucide-react";
+import { asArray } from "@/lib/result";
 
 type MisspelledWord = {
   word: string;
@@ -45,7 +46,7 @@ export function SpellCheck({
       const data = await res.json();
       if (!res.ok || data.error) throw new Error(data.error || "Không thể kiểm tra chính tả.");
       setResult(data.result);
-      setHighlighted(data.result.misspelled);
+      setHighlighted(asArray<MisspelledWord>(data.result?.misspelled));
       setShowSuggestions(true);
       if (onCorrectedText) onCorrectedText(data.result.corrected_text);
     } catch (cause) {

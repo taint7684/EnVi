@@ -17,6 +17,7 @@ type Props = {
 
 const SPEEDS = [0.75, 1, 1.25, 1.5];
 const DEFAULT_YOUTUBE_ID = "dQw4w9WgXcQ";
+const POLL_INTERVAL_MS = 200;
 
 type Evaluation = {
   score: number;
@@ -24,11 +25,32 @@ type Evaluation = {
   feedback: string;
 } | null;
 
+type YTPlayer = {
+  seekTo: (seconds: number, allowSeekAhead: boolean) => void;
+  playVideo: () => void;
+  pauseVideo: () => void;
+  getCurrentTime: () => number;
+  setPlaybackRate: (rate: number) => void;
+  destroy: () => void;
+};
+
+type YTNamespace = {
+  Player: new (el: HTMLElement, opts: Record<string, unknown>) => YTPlayer;
+};
+
+declare global {
+  interface Window {
+    YT?: YTNamespace;
+    onYouTubeIframeAPIReady?: () => void;
+  }
+}
+
 export function ShadowingPlayer({ lesson }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
   const [useTTS, setUseTTS] = useState(false);
+  const [ytReady, setYtReady] = useState(false);
 
   const isDefaultVideo = lesson.youtubeId === DEFAULT_YOUTUBE_ID;
   const ttsMode = useTTS || isDefaultVideo;
@@ -38,10 +60,11 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [evaluation, setEvaluation] = useState<Evaluation>(null);
   const [evaluating, setEvaluating] = useState(false);
 
-  const youtubeUrl = `https://www.youtube.com/embed/${lesson.youtubeId}?enablejsapi=1&origin=${typeof window !== "undefined" ? window.location.origin : ""}`;
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
+  const ytContainerRef = useRef<HTMLDivElement | null>(null);
   const startRef = useRef<number>(0);
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const stopAtRef = useRef<number | null>(null);
 
   async function transcribe(blob: Blob): Promise<string> {
     const form = new FormData();
@@ -62,9 +85,99 @@ export function ShadowingPlayer({ lesson }: Props) {
   useEffect(() => {
     return () => {
       if (recordedUrl) URL.revokeObjectURL(recordedUrl);
-      if (audioRef.current) audioRef.current.pause();
     };
   }, [recordedUrl]);
+
+  useEffect(() => {
+    if (ttsMode || isDefaultVideo) return;
+    let cancelled = false;
+
+    function initPlayer() {
+      if (cancelled || !window.YT || !ytContainerRef.current) return;
+      if (playerRef.current) return;
+
+      const target = ytContainerRef.current;
+      const el = document.createElement("div");
+      target.innerHTML = "";
+      target.appendChild(el);
+
+      playerRef.current = new window.YT.Player(el, {
+        videoId: lesson.youtubeId,
+        playerVars: {
+          autoplay: 0,
+          controls: 1,
+          modestbranding: 1,
+          rel: 0,
+          enablejsapi: 1,
+        },
+        events: {
+          onReady: () => {
+            if (cancelled) return;
+            setYtReady(true);
+            playerRef.current?.setPlaybackRate(speed);
+            startPolling();
+          },
+          onStateChange: (data: { data: number }) => {
+            setIsPlaying(data.data === 1);
+          },
+        },
+      });
+    }
+
+    function startPolling() {
+      if (pollRef.current) clearInterval(pollRef.current);
+      pollRef.current = setInterval(() => {
+        const player = playerRef.current;
+        if (!player) return;
+        try {
+          const t = player.getCurrentTime();
+          if (stopAtRef.current != null && t >= stopAtRef.current) {
+            player.pauseVideo();
+            stopAtRef.current = null;
+            return;
+          }
+          const seg = lesson.transcript.find(
+            (s) => t >= s.startTime && t < s.endTime,
+          );
+          if (seg && seg.id !== activeSegment) {
+            setActiveSegment(seg.id);
+          }
+        } catch {
+          // player not ready
+        }
+      }, POLL_INTERVAL_MS);
+    }
+
+    if (window.YT?.Player) {
+      initPlayer();
+    } else {
+      const prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = () => {
+        if (prev) prev();
+        initPlayer();
+      };
+      if (!document.querySelector('script[src*="youtube.com/iframe_api"]')) {
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+      }
+    }
+
+    return () => {
+      cancelled = true;
+      if (pollRef.current) {
+        clearInterval(pollRef.current);
+        pollRef.current = null;
+      }
+      if (playerRef.current) {
+        try { playerRef.current.destroy(); } catch { /* noop */ }
+        playerRef.current = null;
+      }
+      stopAtRef.current = null;
+      setYtReady(false);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lesson.youtubeId, ttsMode, isDefaultVideo]);
 
   const playSegmentTTS = useCallback((segment: ShadowingSegment) => {
     speakEnglish(segment.text);
@@ -119,15 +232,16 @@ export function ShadowingPlayer({ lesson }: Props) {
       setEvaluation(null);
       if (ttsMode) {
         playSegmentTTS(segment);
-      } else if (iframeRef.current) {
-        iframeRef.current.contentWindow?.postMessage(
-          JSON.stringify({
-            event: "command",
-            func: "seekTo",
-            args: [segment.startTime, true],
-          }),
-          "*",
-        );
+        return;
+      }
+      const player = playerRef.current;
+      if (!player) return;
+      try {
+        player.seekTo(segment.startTime, true);
+        player.playVideo();
+        stopAtRef.current = segment.endTime;
+      } catch {
+        // player not ready
       }
     },
     [ttsMode, playSegmentTTS],
@@ -137,29 +251,23 @@ export function ShadowingPlayer({ lesson }: Props) {
     if (ttsMode && activeSegment) {
       const seg = lesson.transcript.find((s) => s.id === activeSegment);
       if (seg) playSegmentTTS(seg);
-    } else if (iframeRef.current) {
-      iframeRef.current.contentWindow?.postMessage(
-        JSON.stringify({
-          event: "command",
-          func: "playVideo",
-          args: [],
-        }),
-        "*",
-      );
+      return;
+    }
+    const player = playerRef.current;
+    if (!player) return;
+    try {
+      player.playVideo();
+      setIsPlaying(true);
+    } catch {
+      // player not ready
     }
   }, [ttsMode, activeSegment, lesson.transcript, playSegmentTTS]);
 
   const handleSpeedChange = useCallback((newSpeed: number) => {
     setSpeed(newSpeed);
-    if (!ttsMode && iframeRef.current) {
-      iframeRef.current.contentWindow?.postMessage(
-        JSON.stringify({
-          event: "command",
-          func: "setPlaybackRate",
-          args: [newSpeed],
-        }),
-        "*",
-      );
+    const player = playerRef.current;
+    if (!ttsMode && player) {
+      try { player.setPlaybackRate(newSpeed); } catch { /* noop */ }
     }
   }, [ttsMode]);
 
@@ -178,14 +286,7 @@ export function ShadowingPlayer({ lesson }: Props) {
 
         <div className="overflow-hidden rounded-xl bg-black">
           {!ttsMode ? (
-            <iframe
-              ref={iframeRef}
-              src={youtubeUrl}
-              title={lesson.title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="aspect-video w-full"
-            />
+            <div ref={ytContainerRef} className="aspect-video w-full" />
           ) : (
             <div className="aspect-video w-full bg-black flex items-center justify-center">
               <div className="text-center">
@@ -225,6 +326,23 @@ export function ShadowingPlayer({ lesson }: Props) {
             <Play className="mr-1 h-4 w-4" />
             {ttsMode ? "YouTube video" : "Phát âm máy"}
           </Button>
+
+          {isPlaying && !ttsMode && (
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                const player = playerRef.current;
+                if (player) {
+                  try { player.pauseVideo(); } catch { /* noop */ }
+                }
+                setIsPlaying(false);
+              }}
+            >
+              <VolumeX className="mr-1 h-4 w-4" />
+              Dừng
+            </Button>
+          )}
         </div>
       </div>
 
@@ -340,8 +458,9 @@ export function ShadowingPlayer({ lesson }: Props) {
             )}
 
             <p className="text-xs text-muted-foreground">
-              Nhấp vào câu trong lời thoại để chọn đoạn. Sau đó nhấn Ghi âm và
-              đọc theo. Nhấn Đánh giá để so sánh.
+              Nhấp vào câu trong lời thoại để tua đến đoạn đó. Video sẽ phát từ
+              đầu câu và tự dừng ở cuối câu. Sau đó nhấn Ghi âm và đọc theo.
+              Nhấn Đánh giá để so sánh.
             </p>
           </div>
         </div>

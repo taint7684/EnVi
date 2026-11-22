@@ -82,8 +82,8 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
     const draftText =
       "Hi Anna, I want to have a meeting next week. I am free on Tuesday. When are you free? Thanks, Minh";
     await ta.fill("");
-    await ta.pressSequentially(draftText, { delay: 0 });
-    await page.waitForTimeout(500);
+    await ta.fill(draftText);
+    await page.waitForTimeout(1000);
 
     await page.reload();
     await page.waitForTimeout(2000);
@@ -97,7 +97,13 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
   test("Đổi bài rồi quay lại → mỗi bài có bản nháp riêng", async ({ page }) => {
     test.setTimeout(90000);
     const errors: string[] = [];
-    page.on("pageerror", (e) => errors.push(`PAGEERROR: ${e.message}`));
+    page.on("pageerror", (e) => {
+      errors.push(`PAGEERROR: ${e.message}`);
+      console.log("[PAGEERROR]", e.message);
+    });
+    page.on("console", (msg) => {
+      if (msg.type() === "error") console.log("[CONSOLE.ERROR]", msg.text());
+    });
 
     await login(page);
     await page.goto(`${BASE_URL}/writing`);
@@ -110,16 +116,16 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
 
     const taA = await openPromptAndWrite(page, "Email đặt lịch họp");
     await taA.fill("");
-    await taA.pressSequentially(textA, { delay: 0 });
-    await page.waitForTimeout(300);
-    await page.click('button:has-text("Danh sách đề")');
+    await taA.fill(textA);
+    await page.waitForTimeout(1200);
+    await page.locator('button:has-text("Danh sách đề")').first().click();
     await page.waitForTimeout(500);
 
     const taB = await openPromptAndWrite(page, "Cập nhật tiến độ ngắn");
     await taB.fill("");
-    await taB.pressSequentially(textB, { delay: 0 });
-    await page.waitForTimeout(300);
-    await page.click('button:has-text("Danh sách đề")');
+    await taB.fill(textB);
+    await page.waitForTimeout(1200);
+    await page.locator('button:has-text("Danh sách đề")').first().click();
     await page.waitForTimeout(500);
 
     const taA2 = await openPromptAndWrite(page, "Email đặt lịch họp");
@@ -157,8 +163,8 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
     const draftText =
       "Hi Anna, I want to meet next week. Tuesday is good. Thanks, Minh";
     await ta.fill("");
-    await ta.pressSequentially(draftText, { delay: 0 });
-    await page.waitForTimeout(300);
+    await ta.fill(draftText);
+    await page.waitForTimeout(1000);
 
     await page.getByRole("button", { name: /Xin góp ý AI/ }).click();
     await page.waitForTimeout(2000);
@@ -274,12 +280,10 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
     const ta = page.getByTestId("writing-draft");
     await expect(ta).toBeVisible({ timeout: 10000 });
     await ta.fill("");
-    await ta
-      .pressSequentially(
-        "Hi stakeholder, I want to update you on the project status. We finished the login page and dashboard design. Next week we will start API integration and user testing. Please let me know if you have questions. Thanks, Minh",
-        { delay: 0 },
-      );
-    await page.waitForTimeout(300);
+    await ta.fill(
+      "Hi stakeholder, I want to update you on the project status. We finished the login page and dashboard design. Next week we will start API integration and user testing. Please let me know if you have questions. Thanks, Minh",
+    );
+    await page.waitForTimeout(1000);
     console.log("WRITING submit test: draft typed");
 
     // Mock AI feedback chỉ sau khi đã vào editor
@@ -412,7 +416,7 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
 
     const crossDraft =
       "Cross-context sync test: same QA account, two browser contexts.";
-    await ta.pressSequentially(crossDraft, { delay: 0 });
+    await ta.fill(crossDraft);
     await page.waitForTimeout(1500); // chờ debounced cloud save 800ms
 
     const contextB = await browser.newContext();

@@ -22,6 +22,7 @@ import { SpellCheck } from "@/components/ui/spell-check";
 import { speakEnglish } from "@/lib/speech";
 import { WRITING_CHECKLIST_ITEMS, type WritingPrompt } from "@/data/writing-prompts";
 import type { WritingDraftRow, WritingFeedback } from "@/lib/types";
+import { asArray } from "@/lib/result";
 import { toast } from "sonner";
 
 type Props = {
@@ -481,13 +482,21 @@ export function WritingEditor({ prompt, draft, userId, onBack }: Props) {
                 <p className="text-sm text-blue-900">{feedback.overall_vi}</p>
               </div>
 
-              {feedback.errors.length > 0 ? (
+              {asArray<{ error: string; correction: string; explanation_vi: string }>(
+                feedback.errors,
+              ).length > 0 ? (
                 <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
                   <h3 className="mb-2 text-sm font-semibold">
-                    Lỗi cần sửa ({feedback.errors.length})
+                    Lỗi cần sửa (
+                    {asArray<{ error: string; correction: string; explanation_vi: string }>(
+                      feedback.errors,
+                    ).length}
+                    )
                   </h3>
                   <ul className="space-y-2">
-                    {feedback.errors.map((err, i) => (
+                    {asArray<{ error: string; correction: string; explanation_vi: string }>(
+                      feedback.errors,
+                    ).map((err, i) => (
                       <li
                         key={i}
                         className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-800"
@@ -507,11 +516,11 @@ export function WritingEditor({ prompt, draft, userId, onBack }: Props) {
                 </div>
               )}
 
-              {feedback.key_phrases.length > 0 ? (
+              {asArray<string>(feedback.key_phrases).length > 0 ? (
                 <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
                   <h3 className="mb-2 text-sm font-semibold">Cụm từ hữu ích</h3>
                   <div className="flex flex-wrap gap-2">
-                    {feedback.key_phrases.map((p, i) => (
+                    {asArray<string>(feedback.key_phrases).map((p, i) => (
                       <span
                         key={i}
                         className="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary"

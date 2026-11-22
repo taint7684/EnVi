@@ -166,14 +166,14 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     await page.goto(`${BASE_URL}/vocab`);
     await page.waitForTimeout(2000);
     console.log("E2E vocab page loaded");
-    await page.goto(`${BASE_URL}/dashboard`);
+    await page.goto(`${BASE_URL}/today`);
     await page.waitForTimeout(1500);
 
     // 2. Phản xạ — vào /reflex, quay lại
     await page.goto(`${BASE_URL}/reflex`);
     await page.waitForTimeout(2000);
     console.log("E2E reflex page loaded");
-    await page.goto(`${BASE_URL}/dashboard`);
+    await page.goto(`${BASE_URL}/today`);
     await page.waitForTimeout(1500);
 
     // 3. Viết — vào /writing, chọn đề, viết nháp
@@ -189,13 +189,13 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     }
     const ta = page.getByTestId("writing-draft");
     await expect(ta).toBeVisible({ timeout: 10000 });
+    // Dùng fill() để set giá trị atomic + trigger React onChange một lần với full text,
+    // từ đó persistLocal ghi localStorage đồng bộ trước khi reload.
     const e2eDraft =
       "Hi Anna, I want to meet next week. Tuesday is good. Thanks, Minh";
-    // Dùng pressSequentially để đảm bảo React onChange được kích hoạt,
-    // từ đó persistLocal ghi localStorage đồng bộ trước khi reload.
     await ta.fill("");
-    await ta.pressSequentially(e2eDraft, { delay: 0 });
-    await page.waitForTimeout(500);
+    await ta.fill(e2eDraft);
+    await page.waitForTimeout(1000);
 
     // Xác minh localStorage đã có bản nháp trước khi reload (tìm key tương ứng)
     const localBefore = await page.evaluate(() => {
@@ -224,8 +224,8 @@ test.describe("EnVi Roadmap 90 ngày", () => {
     await expect(ta2).toHaveValue(e2eDraft, { timeout: 5000 });
     console.log("E2E writing after reload: PASS — full text matches");
 
-    // 5. Học tiếp đúng chỗ — về dashboard, kiểm tra plan vẫn hiển thị
-    await page.goto(`${BASE_URL}/dashboard`);
+    // 5. Học tiếp đúng chỗ — về today, kiểm tra plan vẫn hiển thị
+    await page.goto(`${BASE_URL}/today`);
     await page.waitForTimeout(2000);
     await expect(page.locator("text=Kế hoạch học hôm nay")).toBeVisible();
     console.log("E2E dashboard plan persists after reload");

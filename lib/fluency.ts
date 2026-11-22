@@ -3,6 +3,7 @@ export type FluencyMetrics = {
   wpm: number | null;
   mlr: number | null;
   pauseCount: number | null;
+  pauseCountLong: number | null;
   totalPauseMs: number | null;
   speechSec: number | null;
   wordCount: number | null;
@@ -17,8 +18,8 @@ type WhisperWord = {
 /**
  * Tính các chỉ số trôi chảy từ danh sách từ có timestamp (Whisper verbose_json).
  * - WPM: số từ / số phút nói (loại bỏ khoảng lặng)
- * - MLR: độ dài trung bình của các đoạn nói liên tục (khoảng cách giữa các từ > 0.7s ngắt đoạn)
- * - Pause: số lần tách > 0.7s, tổng thời gian tách
+ * - MLR: độ dài trung bình của các đoạn nói liên tục (khoảng cách giữa các từ > 0.4s ngắt đoạn, theo MASTER_SPEC 8.17)
+ * - Pause: số lần tách > 0.4s (pauseCount) + số lần tách > 1.0s (pauseCountLong, long-pause ratio), tổng thời gian tách
  */
 export function computeFluencyFromWords(
   words: WhisperWord[],
@@ -30,27 +31,29 @@ export function computeFluencyFromWords(
       wpm: null,
       mlr: null,
       pauseCount: null,
+      pauseCountLong: null,
       totalPauseMs: null,
       speechSec: null,
       wordCount: 0,
     };
   }
 
-  const PAUSE_THRESHOLD_SEC = 0.7;
+  const MLR_PAUSE_SEC = 0.4;
+  const LONG_PAUSE_SEC = 1.0;
 
   let totalPauseMs = 0;
   let pauseCount = 0;
-  let runStart = words[0].start;
+  let pauseCountLong = 0;
   let runWordCount = 1;
   const runLengths: number[] = [];
 
   for (let i = 1; i < words.length; i++) {
     const gap = words[i].start - words[i - 1].end;
-    if (gap > PAUSE_THRESHOLD_SEC) {
+    if (gap > MLR_PAUSE_SEC) {
       pauseCount += 1;
+      if (gap > LONG_PAUSE_SEC) pauseCountLong += 1;
       totalPauseMs += gap * 1000;
       runLengths.push(runWordCount);
-      runStart = words[i].start;
       runWordCount = 1;
     } else {
       runWordCount += 1;
@@ -75,6 +78,7 @@ export function computeFluencyFromWords(
     wpm: wpm ? Math.round(wpm * 10) / 10 : null,
     mlr: mlr ? Math.round(mlr * 10) / 10 : null,
     pauseCount,
+    pauseCountLong,
     totalPauseMs: Math.round(totalPauseMs),
     speechSec: speechSec > 0 ? Math.round(speechSec * 100) / 100 : null,
     wordCount,
