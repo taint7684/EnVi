@@ -1,57 +1,43 @@
 # EnVi — PROJECT MANIFEST (báo cáo hiện trạng code)
 
 Tóm tắt cấu trúc repo, route, API, bảng DB, màn hình và GAP so với `docs/MASTER_SPEC.md`.
+Cập nhật sau khi hoàn tất S0 → S10 (S11 = regression + Definition of Done).
 
 ## Tech stack
 - Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + shadcn/ui
 - Supabase: Postgres + Auth + Storage + RLS (@supabase/ssr)
 - AI: Google Gemini (chính) + Groq (fallback) + Ollama (tùy chọn) qua `lib/ai/router.ts`
-- STT: Groq Whisper (`whisper-large-v3-turbo`, `verbose_json` chưa dùng)
-- TTS: Web Speech API (trình duyệt)
+- STT: Groq Whisper → `POST /api/stt` trả `{text, words, duration_ms}`
+- TTS: Web Speech API (trình duyệt) qua `hooks/use-speech-synthesis`
 - SRS: @open-spaced-repetition/sm-2
-- Test: Vitest (lib/*.test.ts), Playwright chưa có spec
-- Lint: ESLint 9 (0 errors, 48 warnings), tsc sạch
+- Test: Vitest (lib/*.test.ts) — 12 file, 82 test. Playwright chưa có spec.
+- Lint: ESLint 9 — 1 error có sẵn (react-hooks setState-in-effect tại `app/errors/makeup/[id]/page.tsx:64`), 54 warning. tsc sạch.
 
 ## Cấu trúc thư mục
-- `app/(main)/` — 21 segment: assessment, assistant, dashboard, dictation, error-log, grammar, layout.tsx, makeup-lesson, progress-test, reading, reflex, roadmap, search, self-talk, settings, shadowing, speaking, today, vocab, writing, error.tsx
-- `app/api/` — ai/speaking, assistant, client-errors, error-log, makeup-lesson (thiếu route.ts → 404), search, spell-check, stt, translate, writing
-- `app/actions/` — study-plan, speaking (+ các action khác)
-- `app/auth/` — callback
-- `app/login/`, `app/page.tsx` (trang root), `app/global-error.tsx`, `app/layout.tsx`
-- `components/` — assistant, dashboard, dictation, gamification, grammar, progress-test, reading, reflex, roadmap, settings, shadowing, speaking, ui, vocab, translate-speak, app-nav, sign-out-button, today, error-boundary, global-search, spell-check, empty-flashcard
-- `lib/` — ai (router, groq, gemini, ollama, whisper), activity, assessment, audio, chat-history, dashboard, date-vn, dictation-data, emoji, fluency + fluency.test, grammar-exercises-data, offline, phrases, reading-data, result, srs + srs.test, speech-eval, speech, speaking-prompt, supabase (client, server, middleware), types, types/speaking, utils, vocab
-- `db/migrations/` — 0001_init … 0010_activity_events (activity_events, xp_ledger, streaks, daily_plans, daily_summary, log_activity, award_xp)
-- `data/` — speaking-topics.json, speaking-questions-by-level, daily-lessons.ts, …
-- `scripts/` — import-words, import-phrases + các script rác (debug-*, gen-phase10-*, hsk3-*) cần dọn vào scripts/_archive/
-- `public/`, `.next/`, `node_modules/`
+- `app/(main)/` — 23 segment: assessment, assistant, dashboard, dictation, error-log, grammar, makeup-lesson, progress, progress-test, pronunciation, reading, real-world, reflex, roadmap, search, self-talk, settings, shadowing, speaking, today, vocab, writing + layout.tsx/error.tsx
+- `app/api/` — ai/speaking, assistant, client-errors, error-log, makeup-lesson, search, spell-check, stt, translate, writing
+- `app/actions/` — study-plan, speaking, dictation
+- `app/auth/callback`, `app/login/`, `app/page.tsx`, `app/global-error.tsx`, `app/layout.tsx`
+- `components/` — theo feature (assistant, dashboard, dictation, gamification, grammar, progress-test, reading, pronunciation, realworld, reflex, roadmap, settings, shadowing, speaking, vocab, translate-speak, ui, app-nav, …)
+- `lib/` — ai (router/groq/gemini/ollama/whisper), activity, assessment, audio, chat-history, dashboard, date-vn, dictation-data, emoji, fluency, grammar, gamification, missions, pronunciation, reading, realworld, roadmap, shadowing, speech (scoring), speech-eval, speaking-prompt, srs, supabase, types, vocab
+- `db/migrations/` — 0001_init … 0020_s10_real_world
+- `data/` — speaking-topics, grammar-exercises, dictation/shadowing/reading/pronunciation/missions/strategy-cards/fluency/collocations JSON, NGSL/Oxford list…
+- `public/` (manifest.json + sw.js cho PWA), `scripts/`
 
-## Bảng DB hiện có (theo migrations 0001–0010)
-- auth.users (Supabase Auth)
-- profiles, daily_progress (bitmask speaking_minutes — cần migrate sang activity_events/daily_summary)
-- words, phrase_reviews, card_reviews
-- speaking_sessions, speaking_turns (feedback_json — lỗi chưa tách ra error_events)
-- writing_drafts, progress_tests
-- activity_events, xp_ledger, streaks, daily_plans, daily_summary (từ 0010)
-- client_errors (từ 0009)
+## Bảng DB hiện có (theo migrations 0001–0020)
+- Nền: auth.users, profiles, daily_progress, words, phrase_reviews, card_reviews, writing_drafts, progress_tests, client_errors
+- Gamification/activity: activity_events, xp_ledger, streaks, daily_plans, daily_summary, ai_usage_log
+- Speaking: speaking_sessions, speaking_turns (6 bước ASK→ANSWER→FEEDBACK→RETRY-BLIND→NEXT→SUMMARY)
+- S2–S10: error_events, error_patterns, pattern_catalog, makeup_lessons, dictation_attempts (S7), shadowing_attempts, pronunciation_attempts/progress, mission_attempts, fluency_drills, reading_attempts, grammar_attempts, grammar_mastery, writing_drafts + kind (S8), roadmap_days + profiles (new_words_per_day/feedback_mode/study_time, S9), real_world_tasks/logs (S10)
+- RLS bật trên toàn bộ bảng user-data; RPC `log_activity`/`award_xp`; `delete_my_account()` dọn sạch dữ liệu (cập nhật ở 0020).
 
-## Các GAP chính so với MASTER_SPEC v2.0
-1. `.env.example` lộ giá trị thật Supabase URL/anon key → đã sửa (chỉ giữ tên biến)
-2. Chưa có `docs/MASTER_SPEC.md` → đã tạo
-3. Speaking 5 bước → cần 6 bước (ASK→ANSWER→FEEDBACK→RETRY-BLIND→NEXT→SUMMARY)
-4. Error Log đọc trực tiếp `feedback_json` → cần bảng `error_events`, `error_patterns`, `pattern_catalog`, `makeup_lessons`
-5. `makeup-lesson` API 404 → cần build thực
-6. Fluency metrics chưa lưu DB (`lib/fluency.ts` chỉ pure function)
-7. Reflex khớp chữ, chưa L1/L2/L3, chưa đo latency lưu DB
-8. Từ vựng `DAILY_NEW_LIMIT=100` cứng, chưa Triage Đã biết/Chưa biết, chưa Chunk SRS
-9. 13 tab menu → cần 5 tab + redirect route cũ
-10. Nội dung hardcode (VOCAB_WORDS, progress_tests, assessment) → CẤM MOCK, chuyển sang DB
-11. Chưa có Offline Fallback, missions, drills, pronunciation, checkpoint, roadmap DB
-12. `.env.local` có giá trị thật (cần rotate key, không commit)
+## Chức năng đã có (S0 → S10)
+- Auth + RLS, onboarding, checkpoint (đánh giá nói), progress dashboard, speaking coach 6 bước, error log + makeup lesson, reflex (L1/L2/L3 + đo latency), vocab (triage/chunk SRS), writing, dictation word-level, shadowing (chấm STT), pronunciation (12 trọng tâm), reading + grammar, missions/drills/strategy cards, roadmap 90 ngày + gamification streak (VN 03:00, streak freeze), real-world bridge, settings (60 phút mặc định, new words/day, feedback mode), PWA.
 
-## Sai khác MASTER_SPEC vs code thực tế
-- `lib/ai/router.ts` đã có provider chain, circuit breaker, cache, AiUnavailableError, AI_FORCE_FAIL (khớp spec) — nhưng model hardcode trong groq.ts (`qwen/qwen3.8-27b`) nên chuyển sang env `GROQ_MODEL`; budget hiện là in-memory Map nên chuyển sang DB/`ai_usage_log`.
-- `lib/activity.ts` đã có `logActivity`/`awardXp` gọi RPC `log_activity`/`award_xp` (khớp spec).
-- `stt/route.ts` chỉ trả `text`, chưa trả `words` có timestamp → cần `response_format=verbose_json`, `timestamp_granularities=["word"]`.
-- `app/actions/study-plan.ts` dùng `daily_progress` + `study_plan_progress` (tick tay) → cần gộp sang `daily_plans`/`daily_summary`/`activity_events`, không tick tay.
-- `error-log/route.ts` id dễ trùng (`w-${draft.id}-…`) → cần UUID + `pattern_key`.
-- `app/(main)/layout.tsx` sidebar 13 mục, link `/dashboard` → cần 5 tab + redirect.
+## Còn GAP / nợ kỹ thuật so với MASTER_SPEC v2.0
+1. Playwright chưa có spec (E2E) — cần viết flow chính (onboarding → speaking → progress).
+2. Nội dung grammar: 800 câu + `vn_trap` đầy đủ là việc nội dung còn lại (explanation_vi đã inline).
+3. `.env.local` có giá trị thật (cần rotate key nếu lộ, không commit).
+4. `makeup/[id]/page.tsx:64` react-hooks error — nên sửa (state từ server, không setState trong effect).
+5. Model AI vẫn có thể hardcode trong `groq.ts` → nên đọc env `GROQ_MODEL`; budget in-memory nên chuyển DB (`ai_usage_log` đã có).
+6. `scripts/` còn script rác (debug-*, gen-*, hsk3-*) nên dọn vào `scripts/_archive/`.
