@@ -57,6 +57,7 @@ const items: NavItem[] = [
     children: [
       { href: "/progress", label: "Tiến bộ" },
       { href: "/roadmap", label: "Lộ trình 90 ngày" },
+      { href: "/real-world", label: "Bước ra đời thật" },
       { href: "/progress-test", label: "Kiểm tra" },
     ],
   },

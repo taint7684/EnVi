@@ -24,3 +24,4 @@
 - [S8] Work Writing (P2): đã lưu DB (`writing_drafts`); thêm cột `kind`. Feedback schema khen→≤2 lỗi→natural + đọc to bản sửa để làm sau.
 - [S9] Roadmap/Gamification dùng logic thuần (`lib/roadmap`, `lib/gamification/streak`) + test. `roadmap_days` seed sau (đọc DB nếu có, fallback code). Streak Freeze tính 1 ngày đóng băng = 1 ngày streak ( semantics Duolingo), chỉ bắc cầu khi phía trước có ngày đã học.
 - [S9] Settings: thêm `new_words_per_day` (null = không giới hạn), `feedback_mode` (safe/standard), mặc định 60 phút. `roadmap_days` + profile fields qua migration 0019.
+- [S10] Real-world Bridge là thang gợi ý cố định trong code (`lib/realworld/catalog`), không cần bảng seed; chỉ log người dùng (`real_world_logs`). Ghi cảm xúc 1–5 (emoji) + điểm vướng tự do. Ưu tiên "bước kế tiếp" theo thứ tự, không ép buộc.
