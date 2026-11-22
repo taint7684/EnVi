@@ -14,6 +14,7 @@ import {
   Sparkles,
   Settings,
   ClipboardCheck,
+  AlertTriangle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,7 @@ const items = [
   { href: "/reading", label: "Đọc to", icon: BookOpen },
   { href: "/writing", label: "Viết", icon: PenLine },
   { href: "/grammar", label: "Ngữ pháp", icon: Sparkles },
+  { href: "/errors", label: "Sổ lỗi", icon: AlertTriangle },
   { href: "/progress-test", label: "Kiểm tra", icon: ClipboardCheck },
   { href: "/roadmap", label: "Lộ trình", icon: CalendarCheck },
   { href: "/assistant", label: "Trợ lý AI", icon: Zap },
