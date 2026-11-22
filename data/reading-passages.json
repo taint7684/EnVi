@@ -3248,5 +3248,1955 @@
         "answer": 0
       }
     ]
+  },
+  {
+    "id": "read-a2-18",
+    "level": "A2",
+    "title": "A Day at the Market",
+    "titleVi": "Một Ngày Ở Chợ",
+    "wordCount": 71,
+    "text": "Every Saturday, Mai goes to the market with her mother. They buy fresh vegetables, fruit, and fish. The market is small but busy. Mai likes the fruit seller because she always gives a smile. They usually spend about an hour there. After shopping, they stop for a bowl of noodles. Mai carries the lighter bags while her mother carries the heavy ones. On the way home, they talk about the week.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Who does Mai go to the market with?",
+        "options": [
+          "Her mother",
+          "Her father",
+          "Her teacher",
+          "Her friend"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "When do they go?",
+        "options": [
+          "Every Saturday",
+          "Every Monday",
+          "Every Sunday",
+          "Every Friday"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do they buy?",
+        "options": [
+          "Vegetables, fruit and fish",
+          "Books and pens",
+          "Clothes and shoes",
+          "Cars and bikes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "Why does Mai like the fruit seller?",
+        "options": [
+          "She always gives a smile",
+          "She is rich",
+          "She is young",
+          "She is loud"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do they eat after shopping?",
+        "options": [
+          "A bowl of noodles",
+          "A sandwich",
+          "A cake",
+          "Rice with chicken"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-19",
+    "level": "A2",
+    "title": "My New Neighbour",
+    "titleVi": "Hàng Xóm Mới",
+    "wordCount": 71,
+    "text": "Last month, a new family moved in next door. They have two children and a small dog. The father is a doctor and the mother is a nurse. On the first day, they brought some cookies to say hello. My little sister plays with their children in the garden. The dog is friendly but very noisy. We help them find the nearest supermarket. Now we often have dinner together on Sundays.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "When did the family move in?",
+        "options": [
+          "Last month",
+          "Last year",
+          "Last week",
+          "Yesterday"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How many children do they have?",
+        "options": [
+          "Two",
+          "One",
+          "Three",
+          "Four"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What job does the mother do?",
+        "options": [
+          "A nurse",
+          "A doctor",
+          "A teacher",
+          "A cook"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did they bring on the first day?",
+        "options": [
+          "Cookies",
+          "Flowers",
+          "Fruit",
+          "A cake"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "When do they have dinner together?",
+        "options": [
+          "On Sundays",
+          "On Mondays",
+          "On Fridays",
+          "Every day"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-20",
+    "level": "A2",
+    "title": "The School Trip",
+    "titleVi": "Chuyến Đi Của Trường",
+    "wordCount": 79,
+    "text": "Our class went on a trip to the countryside last Friday. We left school at seven in the morning by bus. The trip took two hours. First, we visited a farm and saw cows and chickens. Then we had lunch near a river. In the afternoon, we played games and took many photos. The weather was sunny and warm. We came back at five and everyone was tired but happy. Our teacher said we will go again next year.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How did they travel?",
+        "options": [
+          "By bus",
+          "By train",
+          "By car",
+          "By plane"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What did they see at the farm?",
+        "options": [
+          "Cows and chickens",
+          "Tigers and lions",
+          "Fish and sharks",
+          "Camels and goats"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Where did they have lunch?",
+        "options": [
+          "Near a river",
+          "In a restaurant",
+          "At school",
+          "On the bus"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How was the weather?",
+        "options": [
+          "Sunny and warm",
+          "Rainy and cold",
+          "Snowy",
+          "Windy"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "When will they go again?",
+        "options": [
+          "Next year",
+          "Next month",
+          "Next week",
+          "Never"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-21",
+    "level": "A2",
+    "title": "Cooking with Grandma",
+    "titleVi": "Nấu Ăn Với Bà",
+    "wordCount": 74,
+    "text": "My grandmother is the best cook in our family. On weekends, I help her make traditional food. She teaches me how to cook rice, soup, and vegetables. She never uses a recipe because she remembers everything. The kitchen always smells wonderful. Last Sunday, we made spring rolls together. I was slow, but Grandma was patient. She says cooking is a way to show love. I hope to cook as well as her one day.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Who is the best cook?",
+        "options": [
+          "Grandmother",
+          "Mother",
+          "Father",
+          "Sister"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "When does the writer help?",
+        "options": [
+          "On weekends",
+          "On weekdays",
+          "Every night",
+          "In the morning"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Why does Grandma not use a recipe?",
+        "options": [
+          "She remembers everything",
+          "She cannot read",
+          "She lost it",
+          "She hates it"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did they make last Sunday?",
+        "options": [
+          "Spring rolls",
+          "A cake",
+          "Pizza",
+          "Bread"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What does Grandma say cooking is?",
+        "options": [
+          "A way to show love",
+          "A waste of time",
+          "A job",
+          "A hobby"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-22",
+    "level": "A2",
+    "title": "A Rainy Day",
+    "titleVi": "Một Ngày Mưa",
+    "wordCount": 78,
+    "text": "Today is Monday and it is raining heavily. I forgot my umbrella, so I got wet on the way to school. The streets are flooded and the traffic is slow. Many students arrived late. Our teacher let us stay inside during break. I sat by the window and read a book. After school, the rain stopped and the sun came out. I walked home and saw a beautiful rainbow. My mother made hot tea when I got home.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What day is it?",
+        "options": [
+          "Monday",
+          "Tuesday",
+          "Sunday",
+          "Friday"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Why did the writer get wet?",
+        "options": [
+          "Forgot the umbrella",
+          "No coat",
+          "No shoes",
+          "No bag"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How was the traffic?",
+        "options": [
+          "Slow",
+          "Fast",
+          "Empty",
+          "Normal"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did the writer do during break?",
+        "options": [
+          "Read a book",
+          "Played football",
+          "Slept",
+          "Ate lunch"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What appeared after the rain?",
+        "options": [
+          "A rainbow",
+          "Snow",
+          "Wind",
+          "Fog"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-23",
+    "level": "A2",
+    "title": "My Favourite Sport",
+    "titleVi": "Môn Thể Thao Yêu Thích",
+    "wordCount": 71,
+    "text": "My favourite sport is swimming. I go to the pool twice a week with my brother. We usually swim for an hour. Swimming makes me strong and healthy. In summer, we also go to the beach. Last month, I joined a swimming club. The coach is very kind and teaches us new styles. I am not the fastest, but I am improving. My goal is to swim one kilometre without stopping.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the favourite sport?",
+        "options": [
+          "Swimming",
+          "Running",
+          "Football",
+          "Cycling"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How often does the writer go to the pool?",
+        "options": [
+          "Twice a week",
+          "Once a month",
+          "Every day",
+          "Once a year"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Who goes with the writer?",
+        "options": [
+          "Brother",
+          "Father",
+          "Friend",
+          "Mother"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did the writer join last month?",
+        "options": [
+          "A swimming club",
+          "A gym",
+          "A class",
+          "A team"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the goal?",
+        "options": [
+          "Swim one kilometre without stopping",
+          "Win a race",
+          "Swim every day",
+          "Become a coach"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-24",
+    "level": "A2",
+    "title": "The Lost Wallet",
+    "titleVi": "Chiếc Ví Bị Mất",
+    "wordCount": 76,
+    "text": "Yesterday, Mr. Nam lost his wallet on the bus. It had money and important cards inside. He was very worried. A student found the wallet and gave it to the bus driver. The driver called the number on the ID card. Mr. Nam went to the station to get it back. He was so happy that he wanted to give a reward. The student said no thanks and only asked him to be careful next time.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Where did Mr. Nam lose his wallet?",
+        "options": [
+          "On the bus",
+          "At home",
+          "In a shop",
+          "At school"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What was inside?",
+        "options": [
+          "Money and cards",
+          "Food",
+          "Books",
+          "Clothes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Who found the wallet?",
+        "options": [
+          "A student",
+          "A teacher",
+          "A doctor",
+          "A police officer"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "Who did the student give it to?",
+        "options": [
+          "The bus driver",
+          "The police",
+          "A friend",
+          "The shop owner"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What did the student ask for?",
+        "options": [
+          "Nothing, just to be careful",
+          "Money",
+          "A reward",
+          "A new wallet"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-25",
+    "level": "A2",
+    "title": "A Letter to a Friend",
+    "titleVi": "Thư Gửi Bạn",
+    "wordCount": 78,
+    "text": "Dear Lan, I am writing from Da Nang where I am on holiday with my family. The beach here is beautiful and the seafood is delicious. Yesterday we visited the Marble Mountains and took many photos. The weather is hot, so we swim every afternoon. In the evening, we walk along the beach and eat ice cream. I wish you were here with us. I will bring you a small gift. See you next week! Your friend, Hoa.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Where is Hoa on holiday?",
+        "options": [
+          "Da Nang",
+          "Hanoi",
+          "Hue",
+          "Sa Pa"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What did they visit yesterday?",
+        "options": [
+          "The Marble Mountains",
+          "A museum",
+          "A zoo",
+          "A park"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "When do they swim?",
+        "options": [
+          "Every afternoon",
+          "Every morning",
+          "At night",
+          "Never"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What will Hoa bring Lan?",
+        "options": [
+          "A small gift",
+          "A book",
+          "Fruit",
+          "A photo"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "When will Hoa see Lan?",
+        "options": [
+          "Next week",
+          "Next month",
+          "Tomorrow",
+          "Next year"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-26",
+    "level": "A2",
+    "title": "The New Library",
+    "titleVi": "Thư Viện Mới",
+    "wordCount": 81,
+    "text": "Our town opened a new library last week. It is a big, modern building with three floors. The ground floor has newspapers and magazines. The first floor has children's books and a play area. The second floor is quiet for studying. There are also computers with free internet. My favourite place is the small cafe on the top floor. I go there every Saturday to read and relax. The library is open from eight in the morning to eight at night.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "When did the library open?",
+        "options": [
+          "Last week",
+          "Last month",
+          "Last year",
+          "Yesterday"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How many floors does it have?",
+        "options": [
+          "Three",
+          "Two",
+          "Four",
+          "Five"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Where is the quiet study area?",
+        "options": [
+          "The second floor",
+          "The ground floor",
+          "The first floor",
+          "The top floor"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is the writer's favourite place?",
+        "options": [
+          "The cafe",
+          "The play area",
+          "The computer room",
+          "The ground floor"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "When is the library open until?",
+        "options": [
+          "Eight at night",
+          "Eight in the morning",
+          "Six at night",
+          "Ten at night"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-a2-27",
+    "level": "A2",
+    "title": "My Pet Dog",
+    "titleVi": "Chó Cưng",
+    "wordCount": 74,
+    "text": "I have a pet dog named Rex. He is three years old and very friendly. Every morning, I take him for a walk in the park. He loves to run and play with the ball. Rex is afraid of thunder, so he hides under the bed. He eats two meals a day and sleeps a lot. My family loves him very much. He is not just a pet; he is part of our family.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the dog's name?",
+        "options": [
+          "Rex",
+          "Max",
+          "Buddy",
+          "Tom"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How old is Rex?",
+        "options": [
+          "Three years",
+          "Two years",
+          "Five years",
+          "One year"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Where does the writer walk him?",
+        "options": [
+          "In the park",
+          "On the beach",
+          "At school",
+          "In the garden"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is Rex afraid of?",
+        "options": [
+          "Thunder",
+          "Rain",
+          "Cats",
+          "Cars"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How many meals does he eat?",
+        "options": [
+          "Two",
+          "One",
+          "Three",
+          "Four"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-18",
+    "level": "B1",
+    "title": "Working from Home",
+    "titleVi": "Làm Việc Tại Nhà",
+    "wordCount": 94,
+    "text": "Since last year, many companies have allowed their employees to work from home. There are clear advantages and disadvantages. On the positive side, people save time and money because they do not have to travel to the office every day. They can also have a more flexible schedule and spend more time with their families. However, some people find it difficult to concentrate at home because of noise or distractions. Others feel lonely without their colleagues. Experts suggest that a mix of home and office work might be the best solution for most people.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the main topic?",
+        "options": [
+          "Working from home",
+          "Office design",
+          "Family life",
+          "Travel costs"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What is one advantage mentioned?",
+        "options": [
+          "Saving time and money",
+          "More meetings",
+          "Higher rent",
+          "Longer hours"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is a disadvantage mentioned?",
+        "options": [
+          "Difficulty concentrating",
+          "No internet",
+          "No salary",
+          "No colleagues at all"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do experts suggest?",
+        "options": [
+          "A mix of home and office work",
+          "Working only at home",
+          "Working only in the office",
+          "No work at all"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How do some people feel at home?",
+        "options": [
+          "Lonely",
+          "Excited",
+          "Rich",
+          "Busy"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-19",
+    "level": "B1",
+    "title": "A Memorable Journey",
+    "titleVi": "Một Chuyến Đi Đáng Nhớ",
+    "wordCount": 96,
+    "text": "Two years ago, I travelled to the north of Vietnam with two friends. We planned the trip for weeks, but nothing went as expected. Our bus broke down in the middle of nowhere, and we had to wait for five hours. Just when we thought the trip was ruined, a local family invited us for lunch. They were incredibly kind and showed us a hidden waterfall nearby. We ended up having one of the best days of our lives. Since then, I have learned that sometimes the best moments are the ones you do not plan.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "When did the trip happen?",
+        "options": [
+          "Two years ago",
+          "Last month",
+          "Last year",
+          "Yesterday"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What went wrong first?",
+        "options": [
+          "The bus broke down",
+          "It rained",
+          "They got lost",
+          "They lost money"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "Who helped them?",
+        "options": [
+          "A local family",
+          "The police",
+          "A teacher",
+          "A hotel manager"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What did they see?",
+        "options": [
+          "A hidden waterfall",
+          "A museum",
+          "A zoo",
+          "A market"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What did the writer learn?",
+        "options": [
+          "Best moments are unplanned",
+          "Always plan carefully",
+          "Never travel",
+          "Travel is expensive"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-20",
+    "level": "B1",
+    "title": "The Value of Reading",
+    "titleVi": "Giá Trị Của Việc Đọc",
+    "wordCount": 98,
+    "text": "Reading is one of the most useful habits a person can develop. Unlike watching videos, reading requires us to use our imagination and concentrate for a long time. Studies show that people who read regularly have a larger vocabulary and better memory. Reading also reduces stress; just six minutes of reading can slow the heart rate and relax the muscles. Some people claim they do not have time to read, but in fact, most of us can find at least fifteen minutes a day, for example before bed. The key is to choose books that we genuinely enjoy.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does reading require?",
+        "options": [
+          "Imagination and concentration",
+          "Money",
+          "A computer",
+          "Fast movement"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What do readers have according to studies?",
+        "options": [
+          "Larger vocabulary",
+          "More money",
+          "Better eyesight",
+          "Faster cars"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How long does it take to reduce stress?",
+        "options": [
+          "Six minutes",
+          "Six hours",
+          "Six days",
+          "One minute"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How much time can most people find?",
+        "options": [
+          "Fifteen minutes",
+          "Three hours",
+          "One hour",
+          "No time"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the key to reading?",
+        "options": [
+          "Choosing books we enjoy",
+          "Reading fast",
+          "Reading only news",
+          "Buying many books"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-21",
+    "level": "B1",
+    "title": "A Change of Career",
+    "titleVi": "Đổi Nghề",
+    "wordCount": 90,
+    "text": "After ten years as an accountant, Linh decided to change her career. She had always loved cooking, so she enrolled in a cooking course. Her friends thought she was crazy to leave a stable job, but she was determined. The first few months were very hard because she earned much less than before. However, she slowly built a loyal customer base by selling homemade cakes online. Within a year, her small business became profitable. Linh says that although the journey was stressful, she has never felt happier or more fulfilled.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What was Linh's old job?",
+        "options": [
+          "Accountant",
+          "Teacher",
+          "Doctor",
+          "Engineer"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What did she love?",
+        "options": [
+          "Cooking",
+          "Driving",
+          "Singing",
+          "Painting"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How did her friends react?",
+        "options": [
+          "They thought she was crazy",
+          "They were happy",
+          "They helped her",
+          "They ignored her"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How did she build customers?",
+        "options": [
+          "Selling homemade cakes online",
+          "Opening a restaurant",
+          "Advertising on TV",
+          "Hiring staff"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How does she feel now?",
+        "options": [
+          "Happier and more fulfilled",
+          "Worried",
+          "Bored",
+          "Angry"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-22",
+    "level": "B1",
+    "title": "The Power of Habits",
+    "titleVi": "Sức Mạnh Của Thói Quen",
+    "wordCount": 88,
+    "text": "Habits shape our lives more than we realise. A habit is an action we repeat so often that our brain performs it automatically, without thinking. This is why it is hard to break bad habits and also why good habits are so powerful. Researchers suggest starting with small changes, such as reading one page a day or walking for ten minutes. These small actions are easy to maintain and gradually become automatic. The secret is consistency rather than intensity. Over time, small habits can lead to remarkable results.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is a habit?",
+        "options": [
+          "An action repeated automatically",
+          "A one-time event",
+          "A sudden decision",
+          "A plan"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Why is it hard to break bad habits?",
+        "options": [
+          "The brain does them automatically",
+          "They are expensive",
+          "They are new",
+          "They are fun"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do researchers suggest?",
+        "options": [
+          "Starting with small changes",
+          "Big changes immediately",
+          "No changes",
+          "Only exercise"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is the secret?",
+        "options": [
+          "Consistency rather than intensity",
+          "Intensity only",
+          "Money",
+          "Luck"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What can small habits lead to?",
+        "options": [
+          "Remarkable results",
+          "Nothing",
+          "Failure",
+          "Stress"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-23",
+    "level": "B1",
+    "title": "The City That Never Sleeps",
+    "titleVi": "Thành Phố Không Ngủ",
+    "wordCount": 93,
+    "text": "Living in a big city has both exciting and tiring sides. On one hand, there is always something to do: restaurants, cinemas, concerts, and shopping malls open late. Public transport runs throughout the night, so people can move around easily. On the other hand, the city is noisy and crowded, and the cost of living is high. Many people who move to the city for work eventually feel exhausted by the fast pace. To stay healthy, experts recommend finding quiet green spaces, such as parks, where people can relax and breathe fresh air.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is one exciting side?",
+        "options": [
+          "Always something to do",
+          "Quiet streets",
+          "Low cost",
+          "No transport"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "When does public transport run?",
+        "options": [
+          "Throughout the night",
+          "Only in the morning",
+          "Only on weekends",
+          "Never"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is a negative side?",
+        "options": [
+          "Noise and crowds",
+          "Empty streets",
+          "Cheap rent",
+          "Clean air"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "Why do some people feel exhausted?",
+        "options": [
+          "The fast pace",
+          "The low cost",
+          "The quiet",
+          "The parks"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do experts recommend?",
+        "options": [
+          "Finding quiet green spaces",
+          "Moving away",
+          "Working more",
+          "Avoiding transport"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-24",
+    "level": "B1",
+    "title": "The First Marathon",
+    "titleVi": "Chạy Marathon Lần Đầu",
+    "wordCount": 93,
+    "text": "Running a marathon was a dream that seemed impossible for Tuan. He had never been sporty and could barely run two kilometres. However, after his doctor warned him about his health, he decided to make a change. He started by running short distances three times a week and slowly increased the length. It took him eight months of hard training to be ready. On the day of the race, he was nervous but determined. Although he finished near the back, crossing the finish line was one of the proudest moments of his life.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What seemed impossible for Tuan?",
+        "options": [
+          "Running a marathon",
+          "Getting a job",
+          "Learning English",
+          "Buying a house"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Why did he decide to change?",
+        "options": [
+          "His doctor warned him",
+          "His friend asked",
+          "He won money",
+          "He was bored"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How did he start?",
+        "options": [
+          "Running short distances",
+          "Running a marathon",
+          "Lifting weights",
+          "Swimming"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How long did he train?",
+        "options": [
+          "Eight months",
+          "Two weeks",
+          "One year",
+          "One month"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "How did he feel at the finish?",
+        "options": [
+          "Proud",
+          "Angry",
+          "Sad",
+          "Bored"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-25",
+    "level": "B1",
+    "title": "A Dinner to Remember",
+    "titleVi": "Bữa Tối Đáng Nhớ",
+    "wordCount": 91,
+    "text": "The dinner was supposed to be simple, but it turned into an unforgettable evening. My parents had invited some old friends whom we had not seen for years. My mother spent the whole afternoon cooking, while my father cleaned the house. Just as the guests arrived, the electricity went out because of a storm. Instead of panicking, we lit candles and continued. The food tasted even better by candlelight, and everyone laughed and shared stories late into the night. It reminded us that the best moments often come from unexpected situations.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What was the dinner supposed to be?",
+        "options": [
+          "Simple",
+          "Expensive",
+          "A party",
+          "A wedding"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What happened when guests arrived?",
+        "options": [
+          "The electricity went out",
+          "It started snowing",
+          "The food burned",
+          "A guest left"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What did they do?",
+        "options": [
+          "Lit candles and continued",
+          "Cancelled the dinner",
+          "Went out",
+          "Slept"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How did the food taste?",
+        "options": [
+          "Even better by candlelight",
+          "Terrible",
+          "Cold",
+          "Salty"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What did they do late into the night?",
+        "options": [
+          "Laughed and shared stories",
+          "Argued",
+          "Cleaned",
+          "Went home"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-26",
+    "level": "B1",
+    "title": "The Internet and Friendship",
+    "titleVi": "Internet Và Tình Bạn",
+    "wordCount": 87,
+    "text": "The internet has completely changed the way we make and keep friends. Through social media, we can stay in touch with people across the world and find communities that share our interests. However, some psychologists warn that online friendships can be shallow compared to real ones. They argue that face-to-face communication teaches us important skills, such as reading body language and handling difficult conversations. The healthiest approach, they suggest, is to use the internet as a tool to support real relationships rather than a replacement for them.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What has changed friendships?",
+        "options": [
+          "The internet",
+          "The weather",
+          "The government",
+          "The economy"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What can we find online?",
+        "options": [
+          "Communities with shared interests",
+          "Only games",
+          "Nothing useful",
+          "Only news"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do psychologists warn about?",
+        "options": [
+          "Online friendships can be shallow",
+          "Online friends are rich",
+          "The internet is slow",
+          "There are no friends"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What do face-to-face conversations teach?",
+        "options": [
+          "Reading body language",
+          "Typing fast",
+          "Using phones",
+          "Ignoring people"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the healthiest approach?",
+        "options": [
+          "Use the internet to support real relationships",
+          "Only online friends",
+          "No internet",
+          "No real friends"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b1-27",
+    "level": "B1",
+    "title": "Learning a New Language",
+    "titleVi": "Học Một Ngôn Ngữ Mới",
+    "wordCount": 91,
+    "text": "Learning a new language as an adult is challenging but rewarding. Children seem to learn naturally, while adults often feel embarrassed about making mistakes. However, research shows that adults have advantages too: they can understand grammar rules and learn vocabulary more efficiently. The most important factor is regular practice. Experts recommend speaking as much as possible, even with mistakes, because communication matters more than perfection. Watching films, listening to songs, and reading simple books in the target language also help. With patience and daily effort, anyone can become fluent over time.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How is learning a language as an adult?",
+        "options": [
+          "Challenging but rewarding",
+          "Impossible",
+          "Easy and boring",
+          "Only for children"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How do adults often feel about mistakes?",
+        "options": [
+          "Embarrassed",
+          "Proud",
+          "Excited",
+          "Angry"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What advantage do adults have?",
+        "options": [
+          "They understand grammar rules",
+          "They have more time",
+          "They are younger",
+          "They speak faster"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is the most important factor?",
+        "options": [
+          "Regular practice",
+          "Money",
+          "Talent",
+          "Luck"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do experts recommend?",
+        "options": [
+          "Speaking as much as possible",
+          "Only reading",
+          "Only grammar",
+          "Avoiding mistakes"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-17",
+    "level": "B2",
+    "title": "The Gig Economy",
+    "titleVi": "Kinh Tế Tự Do",
+    "wordCount": 114,
+    "text": "The gig economy, characterised by short-term, flexible jobs rather than permanent contracts, has grown rapidly over the past decade. Supporters argue that it offers workers freedom and companies cost savings. Drivers, freelancers, and delivery workers can choose when and how much they work. Critics, however, point out that gig workers often lack job security, paid leave, and health insurance. Moreover, the lack of a fixed schedule can lead to unpredictable income and chronic stress. Governments around the world are now debating how to regulate this sector, balancing the flexibility that workers value with the protections that traditional employment provides. The outcome of this debate will shape the future of work for millions of people.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What characterises the gig economy?",
+        "options": [
+          "Short-term flexible jobs",
+          "Permanent contracts",
+          "High salaries",
+          "Government jobs"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What do supporters value?",
+        "options": [
+          "Freedom and cost savings",
+          "Job security",
+          "Paid leave",
+          "Fixed schedules"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do critics emphasise?",
+        "options": [
+          "Lack of job security and benefits",
+          "Too much freedom",
+          "High income",
+          "Fixed hours"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What are governments debating?",
+        "options": [
+          "How to regulate the sector",
+          "How to ban it",
+          "How to raise taxes",
+          "How to hire workers"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What will shape the future of work?",
+        "options": [
+          "The outcome of this debate",
+          "The weather",
+          "The stock market",
+          "Education only"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-18",
+    "level": "B2",
+    "title": "Rethinking Success",
+    "titleVi": "Định Nghĩa Lại Thành Công",
+    "wordCount": 107,
+    "text": "For generations, success was measured largely by wealth, status, and career advancement. Recently, however, a growing movement has begun to challenge this narrow definition. Many professionals, particularly younger ones, are prioritising well-being, meaningful work, and time with family over salary and titles. This shift is partly a response to burnout, which has reached alarming levels in many industries. Companies are adapting by offering mental health support, flexible hours, and opportunities for personal growth. While critics argue that ambition still matters, few would disagree that a definition of success which ignores health and happiness is incomplete. The challenge lies in redefining success without losing the drive to achieve.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How was success traditionally measured?",
+        "options": [
+          "Wealth, status, career",
+          "Happiness",
+          "Free time",
+          "Friendship"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What are younger professionals prioritising?",
+        "options": [
+          "Well-being and meaningful work",
+          "Money only",
+          "Titles only",
+          "Status"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is partly driving the shift?",
+        "options": [
+          "Burnout",
+          "Boredom",
+          "Cheap labour",
+          "Bad weather"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "How are companies adapting?",
+        "options": [
+          "Offering mental health support and flexibility",
+          "Cutting salaries",
+          "Removing benefits",
+          "Ignoring the issue"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do critics argue?",
+        "options": [
+          "Ambition still matters",
+          "Success is meaningless",
+          "Health is irrelevant",
+          "Nobody should work"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-19",
+    "level": "B2",
+    "title": "The Ethics of Artificial Intelligence",
+    "titleVi": "Đạo Đức Của Trí Tuệ Nhân Tạo",
+    "wordCount": 111,
+    "text": "As artificial intelligence becomes embedded in everyday life, ethical questions have moved from theory to practice. Algorithms now influence who gets a loan, which job applicants are shortlisted, and even medical diagnoses. The concern is that these systems, trained on historical data, may reproduce and amplify existing biases. A hiring algorithm, for instance, might disadvantage candidates from underrepresented groups if past hiring was skewed. Transparency is another major issue: many AI systems are 'black boxes' whose decisions cannot be easily explained. Policymakers are therefore pushing for regulations that require fairness, accountability, and human oversight. The goal is not to slow innovation, but to ensure that it benefits society as a whole.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Where have ethical questions moved?",
+        "options": [
+          "From theory to practice",
+          "From practice to theory",
+          "Nowhere",
+          "To history"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What influences everyday decisions?",
+        "options": [
+          "Algorithms",
+          "Weather",
+          "Luck",
+          "Tradition"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What may algorithms reproduce?",
+        "options": [
+          "Existing biases",
+          "New jobs",
+          "Cheap labour",
+          "Clean data"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is a 'black box' problem?",
+        "options": [
+          "Decisions cannot be explained",
+          "The box is lost",
+          "The screen is dark",
+          "The data is clean"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do policymakers push for?",
+        "options": [
+          "Fairness, accountability, oversight",
+          "Less innovation",
+          "No AI",
+          "More secrecy"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-20",
+    "level": "B2",
+    "title": "A City Without Cars",
+    "titleVi": "Thành Phố Không Xe Hơi",
+    "wordCount": 97,
+    "text": "Imagine a city centre where cars are banned and streets belong to pedestrians and cyclists. Several European cities have experimented with this idea, and the results have been surprisingly positive. Air quality improved, noise levels dropped, and local businesses reported higher footfall. Critics initially feared chaos, but well-designed public transport and cycling infrastructure addressed most concerns. Not surprisingly, residents reported feeling healthier and more connected to their community. Of course, such changes require significant investment and political will, which explains why they remain rare. Nevertheless, the experiments suggest that prioritising people over vehicles can transform urban life.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is the idea?",
+        "options": [
+          "Banning cars in the city centre",
+          "Banning bicycles",
+          "Building more roads",
+          "Closing shops"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What improved?",
+        "options": [
+          "Air quality and noise levels",
+          "Traffic jams",
+          "Car sales",
+          "Pollution"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What did critics initially fear?",
+        "options": [
+          "Chaos",
+          "Cleaner air",
+          "More parks",
+          "Higher profits"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What addressed concerns?",
+        "options": [
+          "Public transport and cycling infrastructure",
+          "More cars",
+          "Fewer buses",
+          "Higher taxes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do such changes require?",
+        "options": [
+          "Investment and political will",
+          "Nothing",
+          "Less planning",
+          "Fewer people"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-21",
+    "level": "B2",
+    "title": "The Science of Sleep",
+    "titleVi": "Khoa Học Về Giấc Ngủ",
+    "wordCount": 108,
+    "text": "Sleep is not a passive state but an active process essential for health. During deep sleep, the body repairs tissues and strengthens the immune system, while the brain consolidates memories and clears waste. Chronic sleep deprivation, by contrast, is linked to obesity, diabetes, and impaired cognitive function. Yet modern lifestyles often treat sleep as a luxury. Blue light from screens suppresses melatonin, making it harder to fall asleep, while caffeine and irregular schedules disrupt the natural rhythm. Scientists recommend a consistent sleep routine, a dark and cool bedroom, and avoiding screens an hour before bed. Prioritising sleep is one of the most effective ways to improve overall well-being.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is sleep?",
+        "options": [
+          "An active essential process",
+          "A passive state",
+          "A waste of time",
+          "A disease"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What happens during deep sleep?",
+        "options": [
+          "Tissues repair and memories consolidate",
+          "The body stops working",
+          "Nothing",
+          "Muscles grow only"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What is deprivation linked to?",
+        "options": [
+          "Obesity, diabetes, cognitive issues",
+          "Better memory",
+          "More energy",
+          "Longer life"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What does blue light do?",
+        "options": [
+          "Suppresses melatonin",
+          "Improves sleep",
+          "Reduces caffeine",
+          "Clears waste"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do scientists recommend?",
+        "options": [
+          "Consistent sleep routine",
+          "More screens",
+          "More caffeine",
+          "Irregular schedules"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-22",
+    "level": "B2",
+    "title": "The Decline of Local Shops",
+    "titleVi": "Sự Suy Giảm Của Cửa Hàng Địa Phương",
+    "wordCount": 113,
+    "text": "Over the past two decades, small local shops have been closing at an alarming rate, replaced by large chains and online retailers. While consumers enjoy lower prices and greater convenience, the loss of local businesses has subtle but serious consequences. Local shops keep money circulating within the community, create local jobs, and give neighbourhoods their unique character. They also provide a human touch that algorithms cannot replicate: a friendly conversation, personalised advice, or simply a familiar face. Some towns have responded with initiatives such as 'shop local' campaigns and reduced rents for independent businesses. Whether these efforts can reverse the trend remains uncertain, but the value of preserving local commerce is increasingly recognised.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What has happened to local shops?",
+        "options": [
+          "They have been closing",
+          "They have grown",
+          "They have moved online only",
+          "They have doubled"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What do consumers enjoy?",
+        "options": [
+          "Lower prices and convenience",
+          "Higher prices",
+          "Less choice",
+          "Fewer jobs"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What do local shops provide?",
+        "options": [
+          "Human touch and local jobs",
+          "Only cheap goods",
+          "No community value",
+          "Only parking"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What have some towns done?",
+        "options": [
+          "Shop local campaigns and reduced rents",
+          "Banned shops",
+          "Closed all shops",
+          "Raised taxes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is increasingly recognised?",
+        "options": [
+          "The value of local commerce",
+          "The end of shopping",
+          "The need for chains",
+          "The uselessness of shops"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-23",
+    "level": "B2",
+    "title": "Climate Migration",
+    "titleVi": "Di Cư Vì Khí Hậu",
+    "wordCount": 106,
+    "text": "Climate change is increasingly forcing people to leave their homes. Rising sea levels, prolonged droughts, and extreme weather events have already displaced millions worldwide. Unlike refugees fleeing war, so-called climate migrants often fall outside existing legal protections, leaving them in a precarious position. Bangladesh, for example, faces both flooding and saltwater intrusion, threatening its agriculture. Meanwhile, drought in the Sahel region is pushing farmers toward cities. Experts warn that climate migration will intensify in coming decades, potentially creating new tensions in receiving regions. They call for international frameworks that recognise climate displacement and provide support, arguing that planning ahead is far cheaper than responding to crises.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is forcing people to leave?",
+        "options": [
+          "Climate change",
+          "Better jobs",
+          "Cheaper houses",
+          "Education"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "How are climate migrants different from refugees?",
+        "options": [
+          "They often lack legal protections",
+          "They have more rights",
+          "They are always rich",
+          "They never move"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What threatens Bangladesh?",
+        "options": [
+          "Flooding and saltwater intrusion",
+          "Snow",
+          "Earthquakes only",
+          "Volcanoes"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What is happening in the Sahel?",
+        "options": [
+          "Drought pushing farmers to cities",
+          "Heavy rain",
+          "Falling sea levels",
+          "Cold weather"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What do experts call for?",
+        "options": [
+          "International frameworks and planning",
+          "Doing nothing",
+          "Closing borders",
+          "Ignoring the issue"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-24",
+    "level": "B2",
+    "title": "The Value of Failure",
+    "titleVi": "Giá Trị Của Thất Bại",
+    "wordCount": 113,
+    "text": "In many cultures, failure is seen as something to be avoided and hidden. Yet a growing body of research suggests that failure, when handled constructively, is one of the most powerful engines of learning. Thomas Edison famously said that he had not failed but had found thousands of ways that would not work. In Silicon Valley, entrepreneurs often wear their failures as badges of experience. The key is to treat failure as feedback: analysing what went wrong, adjusting the approach, and trying again. Organisations that punish mistakes tend to breed fear and stagnation, whereas those that encourage intelligent risk-taking foster innovation. Reframing failure is therefore not about lowering standards, but about building resilience.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How is failure often seen?",
+        "options": [
+          "Something to avoid and hide",
+          "A badge of honour always",
+          "A guarantee of success",
+          "A legal issue"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What does research suggest?",
+        "options": [
+          "Failure can be an engine of learning",
+          "Failure is always bad",
+          "Failure should be hidden",
+          "Failure means the end"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "How should failure be treated?",
+        "options": [
+          "As feedback",
+          "As a punishment",
+          "As luck",
+          "As fate"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What happens in organisations that punish mistakes?",
+        "options": [
+          "Fear and stagnation",
+          "Innovation",
+          "Growth",
+          "Happiness"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is reframing failure about?",
+        "options": [
+          "Building resilience",
+          "Lowering standards",
+          "Avoiding risk",
+          "Hiding mistakes"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-25",
+    "level": "B2",
+    "title": "The Future of Work",
+    "titleVi": "Tương Lai Của Công Việc",
+    "wordCount": 111,
+    "text": "The nature of work is undergoing its most significant transformation since the industrial revolution. Automation and artificial intelligence are replacing routine tasks, while remote work has blurred the boundary between office and home. Predictions vary widely: some foresee massive unemployment, while others expect new types of jobs to emerge, as has happened with every previous technological shift. What seems clear is that continuous learning will become essential, as the skills required today may be obsolete within a few years. Educational systems will need to adapt, emphasising adaptability, creativity, and collaboration over rote knowledge. Rather than fearing change, societies have an opportunity to design work that is more humane, flexible, and fulfilling.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What is transforming work?",
+        "options": [
+          "Automation and AI",
+          "The weather",
+          "Population decline",
+          "Fashion"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "What varies in predictions?",
+        "options": [
+          "Views on employment",
+          "The weather",
+          "The date",
+          "The colour"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What will become essential?",
+        "options": [
+          "Continuous learning",
+          "Physical strength",
+          "Typing speed",
+          "Luck"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What should education emphasise?",
+        "options": [
+          "Adaptability, creativity, collaboration",
+          "Rote knowledge only",
+          "Memorisation",
+          "Obedience"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What is the opportunity?",
+        "options": [
+          "Designing more humane work",
+          "Avoiding change",
+          "Reducing pay",
+          "Ending work"
+        ],
+        "answer": 0
+      }
+    ]
+  },
+  {
+    "id": "read-b2-26",
+    "level": "B2",
+    "title": "Food Waste",
+    "titleVi": "Lãng Phí Thực Phẩm",
+    "wordCount": 114,
+    "text": "Roughly one third of all food produced globally is wasted, a staggering figure given that millions go hungry. The waste occurs at every stage: crops left unharvested, produce rejected for cosmetic reasons, and consumers throwing away edible food. The environmental cost is enormous, as wasted food decomposes in landfills and releases methane, a potent greenhouse gas. Supermarkets are increasingly donating unsold food to charities, while apps now connect restaurants with customers willing to buy surplus meals at a discount. Some countries have even passed laws requiring large retailers to donate rather than discard. Reducing food waste, experts argue, is one of the simplest and most effective ways to combat both hunger and climate change.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "How much food is wasted globally?",
+        "options": [
+          "About one third",
+          "Half",
+          "None",
+          "All of it"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 2,
+        "question": "Why is produce sometimes wasted?",
+        "options": [
+          "Cosmetic reasons",
+          "It is too cheap",
+          "It is too fresh",
+          "It is frozen"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 3,
+        "question": "What gas does wasted food release?",
+        "options": [
+          "Methane",
+          "Oxygen",
+          "Helium",
+          "Nitrogen"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 4,
+        "question": "What are supermarkets doing?",
+        "options": [
+          "Donating unsold food",
+          "Throwing all away",
+          "Raising prices",
+          "Closing"
+        ],
+        "answer": 0
+      },
+      {
+        "id": 5,
+        "question": "What have some countries passed?",
+        "options": [
+          "Laws requiring donation",
+          "Bans on food",
+          "New taxes",
+          "Import limits"
+        ],
+        "answer": 0
+      }
+    ]
   }
 ]

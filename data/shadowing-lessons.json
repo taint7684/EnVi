@@ -1998,5 +1998,465 @@
         "text": "The world becomes better one small action at a time."
       }
     ]
+  },
+  {
+    "id": "sh-daily-plan",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Planning My Day",
+    "titleVi": "Lập Kế Hoạch Cho Ngày",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Good morning, everyone. Today I want to share how I plan my day."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "I always start by writing a short list of tasks the night before."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "In the morning, I check my calendar and choose the top three priorities."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I try to finish the most difficult task first, while my energy is high."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "After lunch, I handle emails and smaller jobs that take less focus."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "In the evening, I review what I completed and prepare for tomorrow."
+      }
+    ]
+  },
+  {
+    "id": "sh-email",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Writing a Professional Email",
+    "titleVi": "Viết Email Chuyên Nghiệp",
+    "level": "B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A good professional email should be clear and respectful."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start with a short greeting and state the purpose in the first line."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Use polite phrases such as 'I would like to' or 'Could you please'."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Keep paragraphs short so the reader can scan the message quickly."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Always proofread for spelling and grammar before you send it."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, close with a courteous sign-off and your contact details."
+      }
+    ]
+  },
+  {
+    "id": "sh-meeting",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Running an Effective Meeting",
+    "titleVi": "Chủ Trì Cuộc Họp Hiệu Quả",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "An effective meeting begins with a clear agenda shared in advance."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Invite only the people who need to be there, and keep the list short."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Start on time and appoint someone to take notes and track actions."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Encourage quieter members to speak, and prevent one person from dominating."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Summarise decisions and assign owners with deadlines before closing."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Send the minutes promptly so everyone knows what happens next."
+      }
+    ]
+  },
+  {
+    "id": "sh-negotiation",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Negotiating Successfully",
+    "titleVi": "Đàm Phán Thành Công",
+    "level": "B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Successful negotiation is not about winning, but about finding mutual value."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Prepare thoroughly by understanding your goals and your limits in advance."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Listen carefully to the other party and acknowledge their concerns."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Separate the people from the problem to keep the discussion constructive."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Focus on interests rather than positions, and explore creative options."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, confirm the agreement clearly to avoid misunderstandings later."
+      }
+    ]
+  },
+  {
+    "id": "sh-presentation",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Giving a Clear Presentation",
+    "titleVi": "Thuyết Trình Rõ Ràng",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A clear presentation follows a simple structure: tell them what you will say."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Open with a strong hook that connects to your audience's needs."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Present three main points, each supported by evidence or an example."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Use visuals sparingly to reinforce, not to replace, your words."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Speak slowly, pause after key ideas, and make eye contact."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Close by summarising your message and stating what you want them to do."
+      }
+    ]
+  },
+  {
+    "id": "sh-feedback",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Giving Constructive Feedback",
+    "titleVi": "Đưa Phản Hồi Xây Dựng",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Constructive feedback should be specific, timely, and focused on behaviour."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Begin by describing the situation objectively, without judgement."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Explain the impact of the behaviour on the team or the outcome."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Invite the other person's perspective and listen without interrupting."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Agree on a concrete action and a follow-up date together."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "End on a positive note, recognising their strengths and potential."
+      }
+    ]
+  },
+  {
+    "id": "sh-conflict",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Handling Conflict Calmly",
+    "titleVi": "Xử Lý Mâu Thuẫn Bình TĨnh",
+    "level": "B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Conflict is natural in any team, but how we handle it makes the difference."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Stay calm and take a moment before responding to a difficult message."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Acknowledge the other person's feelings before presenting your view."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Look for shared goals rather than focusing on who is right or wrong."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Propose a practical solution and be willing to compromise where needed."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "If emotions run high, suggest taking a short break and returning later."
+      }
+    ]
+  },
+  {
+    "id": "sh-social",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Making Small Talk",
+    "titleVi": "Trò Chuyện Xã Giao",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Small talk is a friendly way to build rapport with people you have just met."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start with a simple, open question about a shared situation."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Listen actively and respond with follow-up questions to keep the flow."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Share a little about yourself, but avoid dominating the conversation."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Use positive body language, such as smiling and nodding, to show interest."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Close gracefully by thanking the person and wishing them a good day."
+      }
+    ]
+  },
+  {
+    "id": "sh-apology",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Saying Sorry Properly",
+    "titleVi": "Xin Lỗi Đúng Cách",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A sincere apology can repair a relationship quickly when done well."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start by clearly acknowledging what you did wrong, without excuses."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Show that you understand how the other person felt."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Offer a genuine explanation only if it helps, not to defend yourself."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Propose a concrete way to make things right."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, thank the person for their patience and understanding."
+      }
+    ]
+  },
+  {
+    "id": "sh-phone",
+    "youtubeId": "dQw4w9WgXcQ",
+    "title": "Answering the Phone Professionally",
+    "titleVi": "Trả Lời Điện Thoại Chuyên Nghiệp",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Answering the phone professionally creates a strong first impression."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Greet the caller and state your name and company clearly."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Ask how you can help and listen without interrupting."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "If you need to transfer the call, explain why and where."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Take a message with the caller's name, number, and reason for calling."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "End the call politely by confirming the next step and thanking them."
+      }
+    ]
   }
 ]

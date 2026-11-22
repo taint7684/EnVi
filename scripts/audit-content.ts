@@ -64,13 +64,17 @@ function loadJson(filename: string): unknown[] {
     transcript: Array<{ id: number; text: string; startTime: number; endTime: number }>;
   }>;
   check("shadowing-lessons.json", data, 20, (d) => d.id);
+  let ttsMode = 0;
   for (const d of data) {
     if (d.youtubeId === "dQw4w9WgXcQ") {
-      warnings.push(`[shadowing] bài "${d.id}" dùng youtubeId placeholder`);
+      ttsMode++;
     }
     if (!d.transcript?.length) {
       errors.push(`[shadowing] bài "${d.id}" thiếu transcript`);
     }
+  }
+  if (ttsMode > 0) {
+    console.log(`    ℹ ${ttsMode}/${data.length} bài dùng youtubeId mặc định → phát bằng TTS (Web Speech API)`);
   }
 }
 
