@@ -11,7 +11,7 @@ export class WhisperError extends Error {
 }
 
 const GROQ_URL = "https://api.groq.com/openai/v1/audio/transcriptions";
-const MODEL = "whisper-large-v3-turbo";
+const MODEL = process.env.WHISPER_MODEL ?? "whisper-large-v3-turbo";
 const MAX_ATTEMPTS = 2;
 
 export async function transcribeAudio(file: File): Promise<string> {

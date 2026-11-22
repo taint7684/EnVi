@@ -1,254 +1,213 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { getDueCount } from "@/lib/vocab";
-import { getDuePhraseCount } from "@/lib/phrases";
 import { todayStrVN } from "@/lib/date-vn";
-import type { DailyStudyPlan, StudyTask } from "@/lib/types";
+import { asArray } from "@/lib/result";
+import { allocateBlocks, BLOCK_DEFS, blockLabel, type BlockId } from "@/lib/daily-plan";
+import type { DailyStudyPlan, StudyTask, StudyTaskType } from "@/lib/types";
 
-const TEST_REMIND_DAYS = 14;
 const DAILY_BONUS_XP = 100;
+
+export type TodayTask = StudyTask & {
+  done: boolean;
+  minutes: number;
+  speechMinutes: number;
+};
+
+export type TodayPlanResult = {
+  priority: string[];
+  targetMinutes: number;
+  tasks: TodayTask[];
+  completedTaskIds: string[];
+  bonusAwarded: boolean;
+  totalMinutes: number;
+  speakingMinutes: number;
+  allDone: boolean;
+  enoughMinutes: boolean;
+  studyDate: string;
+};
 
 function todayString(): string {
   return todayStrVN();
 }
 
-function daysSince(iso: string | null): number {
-  if (!iso) return Number.POSITIVE_INFINITY;
-  const then = new Date(iso).getTime();
-  return Math.floor((Date.now() - then) / 86_400_000);
+async function getProfileBudget(supabase: Awaited<ReturnType<typeof createClient>>): Promise<{
+  budget: number;
+  userId: string;
+}> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Bạn cần đăng nhập.");
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("minutes_per_day")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  const budget = Math.max(15, Math.min(180, (profile?.minutes_per_day ?? 60)));
+  return { budget, userId: user.id };
 }
 
-async function computePlan(): Promise<{
-  priority: string[];
-  targetMinutes: number;
-  tasks: StudyTask[];
-}> {
+async function getBlockProgress(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  userId: string,
+  studyDate: string,
+  blockId: BlockId,
+): Promise<{ done: boolean; minutes: number; speechMinutes: number }> {
+  const { data: events } = await supabase
+    .from("activity_events")
+    .select("duration_sec, speech_sec, meta")
+    .eq("user_id", userId)
+    .eq("study_date", studyDate)
+    .eq("block_type", blockId);
+
+  const evs = asArray<{ duration_sec: number; speech_sec: number; meta: unknown }>(events);
+  const minutes = Math.round(
+    evs.reduce((s, e) => s + Number(e.duration_sec ?? 0), 0) / 60,
+  );
+  const speechMinutes = Math.round(
+    evs.reduce((s, e) => s + Number(e.speech_sec ?? 0), 0) / 60,
+  );
+
+  const def = BLOCK_DEFS[blockId];
+  const targetMinutes = def ? def.ideal : 10;
+  const done = minutes >= targetMinutes;
+
+  return { done, minutes, speechMinutes };
+}
+
+export async function getTodayPlan(): Promise<TodayPlanResult> {
   const supabase = await createClient();
+  const { budget, userId } = await getProfileBudget(supabase);
+  const studyDate = todayString();
 
-  const [cardCounts, phraseCounts] = await Promise.all([
-    getDueCount().catch(() => ({ due: 0, new: 0, total: 0 })),
-    getDuePhraseCount().catch(() => ({ due: 0, new: 0, total: 0 })),
-  ]);
-
-  const { data: streakRow } = await supabase
-    .from("daily_progress")
-    .select("streak")
-    .order("date", { ascending: false })
-    .limit(1)
+  let { data: planRow } = await supabase
+    .from("daily_plans")
+    .select("blocks, completed_at")
+    .eq("user_id", userId)
+    .eq("study_date", studyDate)
     .maybeSingle();
 
-  const { data: lastTest } = await supabase
-    .from("progress_tests")
-    .select("created_at")
-    .order("created_at", { ascending: false })
-    .limit(1)
+  if (!planRow) {
+    const blocks = allocateBlocks(budget);
+    const { data: inserted, error: insertError } = await supabase
+      .from("daily_plans")
+      .insert({
+        user_id: userId,
+        study_date: studyDate,
+        budget,
+        blocks,
+      })
+      .select("blocks")
+      .single();
+    if (insertError) throw new Error(insertError.message);
+    planRow = { blocks: inserted?.blocks ?? blocks, completed_at: null };
+  }
+
+  const planBlocks = asArray<{ id: BlockId; minutes: number }>(planRow.blocks);
+
+  const tasks: TodayTask[] = [];
+  for (const b of planBlocks) {
+    const progress = await getBlockProgress(supabase, userId, studyDate, b.id);
+    tasks.push({
+      id: b.id,
+      title: blockLabel(b.id),
+      type: b.id as StudyTaskType,
+      url: `/practice/${b.id}`,
+      estimatedMinutes: b.minutes,
+      isUrgent: !progress.done && (BLOCK_DEFS[b.id]?.speaking ?? false),
+      done: progress.done,
+      minutes: progress.minutes,
+      speechMinutes: progress.speechMinutes,
+    });
+  }
+
+  const totalMinutes = tasks.reduce((s, b) => s + b.estimatedMinutes, 0);
+  const speakingMinutes = tasks
+    .filter((b) => BLOCK_DEFS[b.id as BlockId]?.speaking)
+    .reduce((s, b) => s + b.estimatedMinutes, 0);
+  const allDone = tasks.every((b) => b.done);
+  const enoughMinutes = totalMinutes > 0 && speakingMinutes >= totalMinutes * 0.5;
+
+  const { data: summary } = await supabase
+    .from("daily_summary")
+    .select("bonus_awarded")
+    .eq("user_id", userId)
+    .eq("study_date", studyDate)
     .maybeSingle();
-
-  const streak = (streakRow as { streak: number } | null)?.streak ?? 0;
-  const sinceTest = daysSince(
-    (lastTest as { created_at: string } | null)?.created_at ?? null,
-  );
-
-  const tasks: StudyTask[] = [];
-
-  // 1) Flashcard đến hạn / từ mới
-  if (cardCounts.total > 0) {
-    tasks.push({
-      id: "vocab",
-      type: "vocab",
-      title: `Ôn ${cardCounts.due} thẻ đến hạn · học ${cardCounts.new} từ mới`,
-      url: "/vocab",
-      estimatedMinutes: Math.max(1, Math.round(cardCounts.total * 0.5)),
-      isUrgent: cardCounts.due > 0,
-    });
-  }
-
-  // 2) Câu reflex đến hạn
-  if (phraseCounts.total > 0) {
-    tasks.push({
-      id: "reflex",
-      type: "reflex",
-      title: `Luyện ${phraseCounts.due} câu reflex đến hạn · ${phraseCounts.new} câu mới`,
-      url: "/reflex",
-      estimatedMinutes: Math.max(1, Math.round(phraseCounts.total * 0.75)),
-      isUrgent: phraseCounts.due > 0,
-    });
-  }
-
-  // 3) Progress Test nếu >= 14 ngày chưa làm
-  if (sinceTest >= TEST_REMIND_DAYS) {
-    tasks.push({
-      id: "progress-test",
-      type: "progress-test",
-      title:
-        sinceTest === Number.POSITIVE_INFINITY
-          ? "Làm bài kiểm tra tiến độ đầu tiên (20 câu)"
-          : `Đã ${sinceTest} ngày chưa test — làm bài kiểm tra 20 câu`,
-      url: "/progress-test",
-      estimatedMinutes: 15,
-      isUrgent: true,
-    });
-  }
-
-  // 4) Streak nhắc nhở
-  if (streak <= 1) {
-    tasks.push({
-      id: "streak",
-      type: "streak",
-      title: "Đừng để mất Streak! Học ít nhất 1 hoạt động hôm nay",
-      url: "/vocab",
-      estimatedMinutes: 5,
-      isUrgent: true,
-    });
-  }
-
-  // 5) Speaking 1 phiên
-  tasks.push({
-    id: "speaking",
-    type: "speaking",
-    title: "Luyện Speaking 1 phiên với AI",
-    url: "/speaking",
-    estimatedMinutes: 10,
-    isUrgent: false,
-  });
-
-  // 6) Writing 1 bài
-  tasks.push({
-    id: "writing",
-    type: "writing",
-    title: "Viết 1 bài (email / báo cáo / tóm tắt) với AI",
-    url: "/writing",
-    estimatedMinutes: 10,
-    isUrgent: false,
-  });
-
-  // 7) Dictation 1 bài
-  tasks.push({
-    id: "dictation",
-    type: "dictation",
-    title: "Nghe chép chính tả 1 bài",
-    url: "/dictation",
-    estimatedMinutes: 8,
-    isUrgent: false,
-  });
-
-  // 7) Grammar 1 bài
-  tasks.push({
-    id: "grammar",
-    type: "grammar",
-    title: "Học & luyện tập 1 chủ điểm ngữ pháp",
-    url: "/grammar",
-    estimatedMinutes: 10,
-    isUrgent: false,
-  });
-
-  // Ưu tiên: urgent trước, giữ nguyên thứ tự còn lại.
-  const ordered = [...tasks].sort(
-    (a, b) => Number(b.isUrgent) - Number(a.isUrgent),
-  );
-
-  const targetMinutes = Math.min(
-    240,
-    Math.max(60, ordered.reduce((sum, t) => sum + t.estimatedMinutes, 0)),
-  );
 
   return {
-    priority: ordered.map((t) => t.title),
-    targetMinutes,
-    tasks: ordered,
+    priority: tasks.map((b) => b.title),
+    targetMinutes: budget,
+    tasks,
+    completedTaskIds: tasks.filter((b) => b.done).map((b) => b.id),
+    bonusAwarded: Boolean(summary?.bonus_awarded),
+    totalMinutes,
+    speakingMinutes,
+    allDone,
+    enoughMinutes,
+    studyDate,
   };
+}
+
+export async function regenerateTodayPlan(budget: number): Promise<TodayPlanResult> {
+  const supabase = await createClient();
+  const { userId } = await getProfileBudget(supabase);
+  const studyDate = todayString();
+  const safeBudget = Math.max(15, Math.min(180, budget));
+
+  const blocks = allocateBlocks(safeBudget).map((b) => ({
+    id: b.id,
+    minutes: b.minutes,
+    min: b.min,
+    ideal: b.ideal,
+    max: b.max,
+    speaking: b.speaking,
+  }));
+
+  const { error } = await supabase
+    .from("daily_plans")
+    .upsert(
+      {
+        user_id: userId,
+        study_date: studyDate,
+        budget: safeBudget,
+        blocks,
+        completed_at: null,
+      },
+      { onConflict: "user_id,study_date" },
+    );
+  if (error) throw new Error(error.message);
+
+  return getTodayPlan();
+}
+
+export async function skipBlock(blockId: string): Promise<void> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) throw new Error("Bạn cần đăng nhập.");
+
+  await supabase.rpc("log_activity", {
+    p_type: "block_skip",
+    p_block_type: blockId,
+    p_ref_id: null,
+    p_duration_sec: 0,
+    p_speech_sec: 0,
+    p_meta: { skipped: true, study_date: todayString() },
+  });
 }
 
 export async function getDailyStudyPlan(): Promise<DailyStudyPlan> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return {
-      priority: [],
-      targetMinutes: 0,
-      tasks: [],
-      completedTaskIds: [],
-      bonusAwarded: false,
-    };
-  }
-
-  const plan = await computePlan();
-
-  const { data: row } = await supabase
-    .from("study_plan_progress")
-    .select("completed_task_ids, bonus_awarded")
-    .eq("user_id", user.id)
-    .eq("plan_date", todayString())
-    .maybeSingle();
-
-  const record = row as
-    | { completed_task_ids: string[]; bonus_awarded: boolean }
-    | null;
-
+  const today = await getTodayPlan();
   return {
-    ...plan,
-    completedTaskIds: record?.completed_task_ids ?? [],
-    bonusAwarded: record?.bonus_awarded ?? false,
-  };
-}
-
-export async function toggleStudyTask(
-  taskId: string,
-): Promise<{ completedTaskIds: string[]; bonusAwarded: boolean }> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) throw new Error("Bạn cần đăng nhập.");
-
-  const planDate = todayString();
-
-  const { data: existing } = await supabase
-    .from("study_plan_progress")
-    .select("completed_task_ids, bonus_awarded")
-    .eq("user_id", user.id)
-    .eq("plan_date", planDate)
-    .maybeSingle();
-
-  const record = existing as
-    | { completed_task_ids: string[]; bonus_awarded: boolean }
-    | null;
-
-  const current = record?.completed_task_ids ?? [];
-  const next = current.includes(taskId)
-    ? current.filter((t) => t !== taskId)
-    : [...current, taskId];
-
-  // Tính lại plan để biết tổng số task hợp lệ hôm nay.
-  const plan = await computePlan();
-  const allIds = plan.tasks.map((t) => t.id);
-  const allDone = allIds.every((id) => next.includes(id));
-
-  let bonusAwarded = record?.bonus_awarded ?? false;
-  if (allDone && !bonusAwarded) {
-    await supabase.rpc("add_xp", {
-      user_uuid: user.id,
-      xp_amount: DAILY_BONUS_XP,
-    });
-    bonusAwarded = true;
-  }
-
-  const { error } = await supabase.from("study_plan_progress").upsert(
-    {
-      user_id: user.id,
-      plan_date: planDate,
-      completed_task_ids: next,
-      bonus_awarded: bonusAwarded,
-    },
-    { onConflict: "user_id,plan_date" },
-  );
-
-  if (error) throw new Error(error.message);
-
-  return { completedTaskIds: next, bonusAwarded };
+    priority: today.priority,
+    targetMinutes: today.targetMinutes,
+    tasks: today.tasks as StudyTask[],
+    completedTaskIds: today.completedTaskIds,
+    bonusAwarded: today.bonusAwarded,
+  } as DailyStudyPlan;
 }

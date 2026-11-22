@@ -107,7 +107,15 @@ export type StudyTaskType =
   | "dictation"
   | "grammar"
   | "progress-test"
-  | "streak";
+  | "streak"
+  | "warmup"
+  | "makeup"
+  | "fluency"
+  | "srs"
+  | "listen"
+  | "vocab_new"
+  | "pronunciation"
+  | "rotate";
 
 export type StudyTask = {
   id: StudyTaskType;

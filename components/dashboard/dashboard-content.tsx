@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button";
 import { DailyStudyPlan } from "@/components/dashboard/daily-study-plan";
 import { WeeklyReport } from "@/components/dashboard/weekly-report";
 import type { DashboardStats, DayData, WeeklyReport as Report } from "@/lib/dashboard";
-import type { DailyStudyPlan as Plan } from "@/lib/types";
+import type { TodayPlanResult } from "@/app/actions/study-plan";
 
 type Props = {
   stats: DashboardStats;
   weekData: DayData[];
-  plan: Plan;
+  plan: TodayPlanResult;
   report: Report;
 };
 
