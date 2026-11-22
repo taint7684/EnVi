@@ -37,14 +37,22 @@ test.describe("EnVi Daily Journey — Smoke Test", () => {
     await login(page);
 
     for (const p of PAGES) {
-      await page.goto(`${BASE_URL}${p.path}`);
+      // domcontentloaded: khong cho tai nguyen (TTS/iframe/media) treo ca goto
+      await page.goto(`${BASE_URL}${p.path}`, {
+        waitUntil: "domcontentloaded",
+        timeout: 20000,
+      });
+      // Cho React hydrate + render noi dung, toi da 6s
       await page.waitForTimeout(2500);
 
-      // Kiểm tra URL đúng
+      // Kiem tra URL dung
       expect(page.url()).toContain(p.path);
 
-      // Kiểm tra có nội dung (không phải màn hình trắng)
-      const bodyText = await page.locator("body").innerText();
+      // Kiem tra co noi dung (khong phai man hinh trang) — bounded innerText
+      const bodyText = await page
+        .locator("body")
+        .innerText({ timeout: 8000 })
+        .catch(() => "");
       const hasContent = bodyText.trim().length > 50;
       console.log(`${p.name}: ${p.path} → content=${hasContent} chars=${bodyText.length}`);
       expect(hasContent).toBeTruthy();
@@ -69,19 +77,13 @@ test.describe("EnVi Daily Journey — Smoke Test", () => {
     await expect(page).toHaveURL(/\/today/);
     await expect(page.locator("text=Kế hoạch học hôm nay")).toBeVisible();
 
-    // Navigation có đủ các mục
+    // Navigation 5 tab chinh theo spec 7.1 (top-level luon hien)
     const navLinks = [
-      "Tổng quan",
-      "Học từ",
-      "Phản xạ",
-      "Speaking",
-      "Shadowing",
-      "Dictation",
-      "Đọc to",
-      "Viết",
-      "Ngữ pháp",
-      "Kiểm tra",
-      "Lộ trình",
+      "Hôm nay",
+      "Nói",
+      "Luyện",
+      "Sổ lỗi",
+      "Tiến bộ",
       "Trợ lý AI",
       "Cài đặt",
     ];
@@ -89,6 +91,7 @@ test.describe("EnVi Daily Journey — Smoke Test", () => {
       const link = page.locator(`a:has-text("${label}")`).first();
       const visible = await link.isVisible();
       console.log(`  nav "${label}": ${visible ? "OK" : "MISSING"}`);
+      expect(visible, `nav "${label}" phai hien`).toBeTruthy();
     }
   });
 });
