@@ -41,8 +41,12 @@ export async function POST(request: Request) {
   }
 
   try {
-    const text = await transcribeAudio(file);
-    return NextResponse.json({ text });
+    const result = await transcribeAudio(file);
+    return NextResponse.json({
+      text: result.text,
+      words: result.words,
+      duration_ms: Math.round(result.duration * 1000),
+    });
   } catch (error) {
     if (error instanceof WhisperError) {
       return NextResponse.json({ error: error.message }, { status: 502 });
