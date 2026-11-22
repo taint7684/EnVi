@@ -61,12 +61,6 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
 
   useEffect(() => {
     if (!current) return;
-    setResult(null);
-    setJudgment(null);
-    setLatencyMs(null);
-    setInput("");
-    setAttempts(0);
-    setError(null);
     startRef.current = performance.now();
     if (mode === "shadowing" || mode === "dictation") {
       speakEnglish(current.phrase.en_text, current.phrase.audio_url);
