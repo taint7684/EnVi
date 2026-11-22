@@ -16,6 +16,8 @@ export type WordRow = {
   needs_review: boolean;
   created_at: string;
   cefr_level?: string | null;
+  chunk_index: number | null;
+  triage_status: string | null;
 };
 
 export type CardReviewRow = {
@@ -66,6 +68,7 @@ export type PhraseRow = {
   audio_url: string | null;
   topic: string;
   difficulty: string;
+  level: string | null;
   created_at: string;
 };
 

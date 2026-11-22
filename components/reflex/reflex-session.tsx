@@ -2,13 +2,20 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { ArrowRight, Check, Lightbulb, RotateCcw, X } from "lucide-react";
 
 import { reviewPhrase } from "@/app/actions/phrase-review";
 import { Button } from "@/components/ui/button";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
 import { evaluateSpeech, type SpeechEval } from "@/lib/speech-eval";
+import { evaluateMeaning, recordReflexResult } from "@/lib/reflex/judge";
+import type { ReflexMeaning } from "@/lib/reflex/schema";
 import type { DuePhrase, ReviewGrade } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -27,22 +34,40 @@ const MODES: { id: Mode; label: string; short: string }[] = [
   { id: "dictation", label: "Điền từ", short: "Dictation" },
 ];
 
+const LEVEL_LABEL: Record<string, string> = {
+  L1: "L1 - Cơ bản",
+  L2: "L2 - Trung cấp",
+  L3: "L3 - Nâng cao",
+};
+
 export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
   const [queue] = useState<DuePhrase[]>(phrases);
   const [index, setIndex] = useState(0);
   const [mode, setMode] = useState<Mode>("reflex");
   const [result, setResult] = useState<SpeechEval | null>(null);
+  const [judgment, setJudgment] = useState<{
+    meaning: ReflexMeaning;
+    aiUsed: boolean;
+  } | null>(null);
   const [input, setInput] = useState("");
   const [attempts, setAttempts] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [latencyMs, setLatencyMs] = useState<number | null>(null);
   const gradedIndex = useRef<number | null>(null);
+  const startRef = useRef<number>(0);
 
   const current = queue[index];
   const done = index >= queue.length;
 
-  // Tự động phát audio khi đổi câu (chỉ Shadowing & Dictation)
   useEffect(() => {
     if (!current) return;
+    setResult(null);
+    setJudgment(null);
+    setLatencyMs(null);
+    setInput("");
+    setAttempts(0);
+    setError(null);
+    startRef.current = performance.now();
     if (mode === "shadowing" || mode === "dictation") {
       speakEnglish(current.phrase.en_text, current.phrase.audio_url);
     }
@@ -69,6 +94,8 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
 
   const advance = useCallback(() => {
     setResult(null);
+    setJudgment(null);
+    setLatencyMs(null);
     setInput("");
     setAttempts(0);
     setError(null);
@@ -84,21 +111,54 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
     if (next === mode) return;
     setMode(next);
     setResult(null);
+    setJudgment(null);
+    setLatencyMs(null);
     setInput("");
     setAttempts(0);
     setError(null);
   }
 
-  function handleSpeech(spoken: string) {
+  async function handleSpeech(spoken: string) {
     if (!current) return;
-    const evaluation = evaluateSpeech(current.phrase.en_text, spoken);
-    setResult(evaluation);
-    if (mode === "reflex") {
-      if (evaluation.correct) {
-        record(attempts === 0 ? "easy" : "good");
-      } else {
-        setAttempts((a) => a + 1);
-      }
+    const speechEval = evaluateSpeech(current.phrase.en_text, spoken);
+    setResult(speechEval);
+    const latency = Math.round(performance.now() - startRef.current);
+    setLatencyMs(latency);
+
+    let judgment;
+    try {
+      judgment = await evaluateMeaning({
+        phraseId: current.phrase.id,
+        viText: current.phrase.vi_text,
+        enText: current.phrase.en_text,
+        spoken,
+      });
+      setJudgment(judgment);
+    } catch (cause) {
+      setError(
+        cause instanceof Error ? cause.message : "Không thể đánh giá ý nghĩa.",
+      );
+      judgment = {
+        meaning: {
+          meaningCorrect: speechEval.correct,
+          explanationVi: null,
+          level: "L2",
+        },
+        aiUsed: false,
+      };
+    }
+
+    const correct = judgment.meaning.meaningCorrect;
+    if (correct) {
+      await recordReflexResult({
+        phraseId: current.phrase.id,
+        grade: attempts === 0 ? "easy" : "good",
+        meaningScore: 1,
+        latencyMs: latency,
+      });
+      window.dispatchEvent(new Event("envi:xp-refresh"));
+    } else {
+      setAttempts((a) => a + 1);
     }
   }
 
@@ -147,6 +207,9 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
 
   const { phrase } = current;
   const correct = result?.correct ?? false;
+  const meaningCorrect = judgment?.meaning.meaningCorrect ?? false;
+  const levelLabel =
+    LEVEL_LABEL[judgment?.meaning.level ?? phrase.level ?? "L2"] ?? "L2";
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -157,6 +220,11 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
         <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
           {phrase.topic}
         </span>
+        {latencyMs != null && (
+          <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
+            {latencyMs} ms
+          </span>
+        )}
       </div>
       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
         <div
@@ -194,7 +262,7 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
         {mode === "reflex" ? (
           <div className="text-center">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">
-              Dịch câu này sang tiếng Anh rồi nói
+              Dịch câu này sang tiếng Anh rồi nói · {levelLabel}
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
               {phrase.vi_text}
@@ -266,7 +334,10 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
             <p className="flex items-center justify-center gap-2 text-lg font-semibold">
               {correct ? (
                 <>
-                  <Check className="size-5" /> Chính xác! +15 XP
+                  <Check className="size-5" />
+                  {meaningCorrect
+                    ? "Ý nghĩa đúng! +15 XP"
+                    : "Câu đúng, ý nghĩa cần refine"}
                 </>
               ) : (
                 <>
@@ -274,6 +345,12 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
                 </>
               )}
             </p>
+
+            {judgment?.meaning.explanationVi && (
+              <p className="mt-2 text-sm text-muted-foreground italic">
+                {judgment.meaning.explanationVi}
+              </p>
+            )}
 
             {!correct ? (
               <div className="mt-2 text-sm">
@@ -311,6 +388,8 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
               <Button
                 onClick={() => {
                   setResult(null);
+                  setJudgment(null);
+                  setLatencyMs(null);
                   setInput("");
                 }}
                 variant="outline"

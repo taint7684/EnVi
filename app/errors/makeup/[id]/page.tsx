@@ -34,6 +34,24 @@ export default async function MakeupLessonPage({
 
   if (error || !lesson) notFound();
 
+  const contentPreview =
+    typeof lesson.content === "object" && lesson.content !== null
+      ? JSON.stringify(lesson.content, null, 2)
+      : "Chưa có nội dung.";
+
+  async function handleComplete() {
+    const s = await createClient();
+    const { error: updError } = await s
+      .from("makeup_lessons")
+      .update({
+        status: "done",
+        score: 100,
+        completed_at: new Date().toISOString(),
+      })
+      .eq("id", id);
+    if (updError) throw new Error(updError.message);
+  }
+
   return (
     <div className="mx-auto max-w-2xl px-4 py-6 space-y-6">
       <div className="flex items-center justify-between">
@@ -60,23 +78,12 @@ export default async function MakeupLessonPage({
       <div className="rounded-lg border bg-card p-6">
         <h2 className="text-lg font-semibold mb-3">Nội dung luyện tập</h2>
         <div className="text-muted-foreground text-sm max-w-prose">
-          {typeof lesson.content === "object" && lesson.content !== null
-            ? JSON.stringify(lesson.content, null, 2)
-            : "Chưa có nội dung."}
+          {contentPreview}
         </div>
       </div>
 
       {lesson.status !== "done" && (
-        <form
-          action={async () => {
-            const s = await createClient();
-            const { error: updError } = await s
-              .from("makeup_lessons")
-              .update({ status: "done", score: 100, completed_at: new Date().toISOString() })
-              .eq("id", id);
-            if (updError) throw new Error(updError.message);
-          }}
-        >
+        <form action={handleComplete}>
           <Button type="submit">Đã hoàn thành bài bù</Button>
         </form>
       )}

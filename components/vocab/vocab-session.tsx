@@ -3,10 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { reviewWord } from "@/app/actions/srs";
+import { setTriageStatus } from "@/lib/vocab/triage";
 import type { DueCard, ReviewGrade } from "@/lib/types";
 
 import { Flashcard } from "./flashcard";
 import { RatingBar } from "./rating-bar";
+import { Button } from "@/components/ui/button";
 
 const MAX_REQUEUE = 2;
 const GRADES: ReviewGrade[] = ["again", "hard", "good", "easy"];
@@ -23,6 +25,10 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [triagePending, setTriagePending] = useState<{
+    wordId: string;
+    status: string;
+  } | null>(null);
   const requeueCount = useRef<Record<string, number>>({});
   const ratedIndex = useRef<number | null>(null);
 
@@ -59,6 +65,33 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
     },
     [current, index],
   );
+
+  async function handleTriage(status: "known" | "unknown") {
+    if (!current) return;
+    setTriagePending({ wordId: current.word.id, status });
+    try {
+      await setTriageStatus({ wordId: current.word.id, status });
+      if (status === "known") {
+        advanceTriage();
+      } else {
+        rate("again");
+      }
+    } catch (cause) {
+      setError(
+        cause instanceof Error ? cause.message : "Lỗi đánh dấu từ.",
+      );
+    } finally {
+      setTriagePending(null);
+    }
+  }
+
+  function advanceTriage() {
+    setFlipped(false);
+    setIndex((i) => i + 1);
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  }
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -102,6 +135,9 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
           Thẻ {index + 1}/{queue.length}
         </span>
         <span>{current.word.pos ?? ""}</span>
+        <span className="ml-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+          Chunk {current.word.chunk_index ?? "–"}
+        </span>
       </div>
 
       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
@@ -126,6 +162,35 @@ export function VocabSession({ cards }: { cards: DueCard[] }) {
       </div>
 
       <RatingBar onRate={rate} />
+
+      <div className="mt-4 flex items-center justify-center gap-2">
+        <Button
+          onClick={() => handleTriage("known")}
+          disabled={
+            triagePending?.wordId === current.word.id &&
+            triagePending.status === "known"
+          }
+          variant="outline"
+        >
+          {triagePending?.wordId === current.word.id &&
+          triagePending.status === "known"
+            ? "…"
+            : "Đã biết"}
+        </Button>
+        <Button
+          onClick={() => handleTriage("unknown")}
+          disabled={
+            triagePending?.wordId === current.word.id &&
+            triagePending.status === "unknown"
+          }
+          variant="outline"
+        >
+          {triagePending?.wordId === current.word.id &&
+          triagePending.status === "unknown"
+            ? "…"
+            : "Chưa biết"}
+        </Button>
+      </div>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Space để lật · 1–4 để đánh giá
