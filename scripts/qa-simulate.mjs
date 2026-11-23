@@ -92,32 +92,10 @@ const beforePhrases = (await sim.query(`select count(*)::int n from public.phras
 console.log(`  Data before upgrade: words=${beforeWords}, phrases=${beforePhrases}`);
 
 // === PHASE 2: Apply missing migrations in candidate order ===
-console.log("\n=== PHASE 2: Apply missing migrations (candidate order) ===");
-const order = [
-  "0009_client_errors.sql",
-  "0010_activity_events.sql",
-  "0011_s1_daily_plan.sql",
-  "0012_s2_speaking_coach.sql",
-  "0013_s3_error_log_makeup.sql",
-  "0014_s4_reflex_vocab_v2.sql",
-  "0015_s5_onboarding_checkpoint.sql",
-  "0016_s6_missions_drills.sql",
-  "0017_s7_listen_pronunciation.sql",
-  "0018_s8_reading_grammar_writing.sql",
-  "0019_s9_roadmap_gamification.sql",
-  "0020_s10_real_world.sql",
-  "0021_default_180_minutes.sql",
-  "0022_reflex_core_fields.sql",
-  "0023_reflex_reviewed.sql",
-];
-let allOk = true;
-for (const f of order) {
-  const ok = await applyFile(f);
-  if (!ok) allOk = false;
-}
+console.log("\n=== PHASE 2: Apply missing migrations (EXACT Production order) ===");
 
-// Fix deck_words (from 0001, was missing)
-console.log("\n=== Fix: create deck_words ===");
+// Step 0: Restore deck_words FIRST (safest — before any migration that references it)
+console.log("\n--- Step 0: Restore deck_words (from 0001) ---");
 try {
   await sim.query(`
     create table if not exists public.deck_words (
@@ -138,15 +116,41 @@ try {
     create trigger deck_words_set_updated_at before update on public.deck_words
       for each row execute function public.set_updated_at();
   `);
-  console.log("  ✅ deck_words created");
+  console.log("  ✅ deck_words created (Step 0)");
 } catch (e) {
   console.log(`  ❌ deck_words: ${e.message.slice(0, 120)}`);
   allOk = false;
 }
 
-// Apply 0004 again (idempotent — indexes)
-console.log("\n=== Re-apply 0004 (indexes, idempotent) ===");
-await applyFile("0004_indexes.sql");
+const order = [
+  "0009_client_errors.sql",
+  "0010_activity_events.sql",
+  "0011_s1_daily_plan.sql",
+  "0012_s2_speaking_coach.sql",
+  "0013_s3_error_log_makeup.sql",
+  "0014_s4_reflex_vocab_v2.sql",
+  "0015_s5_onboarding_checkpoint.sql",
+  "0016_s6_missions_drills.sql",
+  "0017_s7_listen_pronunciation.sql",
+  "0018_s8_reading_grammar_writing.sql",
+  "0019_s9_roadmap_gamification.sql",
+  "0020_s10_real_world.sql",
+  "0021_default_180_minutes.sql",
+  "0022_reflex_core_fields.sql",
+  "0023_reflex_reviewed.sql",
+  "0004_indexes.sql",
+];
+let allOk = true;
+for (const f of order) {
+  const ok = await applyFile(f);
+  if (!ok) allOk = false;
+}
+
+// Verify deck_words still present (idempotent re-check)
+const dwCheck = (await sim.query(`
+  select table_name from information_schema.tables where table_schema='public' and table_name='deck_words'
+`)).rows.length;
+console.log(`\n  deck_words present after all migrations: ${dwCheck > 0 ? "✅" : "❌"}`);
 
 // === PHASE 3: Verify ===
 console.log("\n=== PHASE 3: Verify ===");
@@ -204,5 +208,68 @@ const fns = (await sim.query(`
 `)).rows.map((r) => r.routine_name);
 console.log(`RPC functions: ${fns.join(", ")}`);
 
+// FK verification: check critical foreign keys exist
+console.log(`\n=== Foreign Key verification ===`);
+const fks = (await sim.query(`
+  select
+    tc.table_name,
+    kcu.column_name,
+    ccu.table_name AS foreign_table,
+    ccu.column_name AS foreign_column
+  from information_schema.table_constraints tc
+  join information_schema.key_column_usage kcu on tc.constraint_name = kcu.constraint_name
+  join information_schema.constraint_column_usage ccu on tc.constraint_name = ccu.constraint_name
+  where tc.constraint_type = 'FOREIGN KEY' and tc.table_schema = 'public'
+  order by tc.table_name, kcu.column_name
+`)).rows;
+console.log(`Total FKs: ${fks.length}`);
+const criticalFks = [
+  ["daily_plans", "user_id", "users"],
+  ["activity_events", "user_id", "users"],
+  ["deck_words", "deck_id", "decks"],
+  ["deck_words", "word_id", "words"],
+  ["phrase_reviews", "phrase_id", "phrases"],
+  ["phrase_reviews", "user_id", "users"],
+  ["speaking_turns", "session_id", "speaking_sessions"],
+  ["speaking_sessions", "user_id", "users"],
+  ["user_word_triage", "word_id", "words"],
+];
+let fkOk = 0;
+for (const [tbl, col, ftbl] of criticalFks) {
+  const found = fks.find((f) => f.table_name === tbl && f.column_name === col && f.foreign_table === ftbl);
+  console.log(`  ${tbl}.${col} -> ${ftbl}: ${found ? "✅" : "❌"}`);
+  if (found) fkOk++;
+}
+console.log(`Critical FKs: ${fkOk}/${criticalFks.length}`);
+
+// RLS / policy verification
+console.log(`\n=== RLS / Policy verification ===`);
+const rlsTables = (await sim.query(`
+  select tablename, rowsecurity from pg_tables
+  where schemaname = 'public' order by tablename
+`)).rows;
+const rlsEnabled = rlsTables.filter((t) => t.rowsecurity).length;
+console.log(`RLS enabled on ${rlsEnabled}/${rlsTables.length} tables`);
+
+const policies = (await sim.query(`
+  select tablename, policyname, cmd from pg_policies
+  where schemaname = 'public' order by tablename, policyname
+`)).rows;
+console.log(`Total policies: ${policies.length}`);
+const criticalPolicies = [
+  ["daily_plans", "users own daily plan"],
+  ["activity_events", "users insert own activity events"],
+  ["phrases", "phrases_read"],
+  ["phrase_reviews", "phrase_reviews_own"],
+];
+let polOk = 0;
+for (const [tbl, pol] of criticalPolicies) {
+  const found = policies.find((p) => p.tablename === tbl && p.policyname === pol);
+  console.log(`  ${tbl}: "${pol}": ${found ? "✅" : "❌"}`);
+  if (found) polOk++;
+}
+console.log(`Critical policies: ${polOk}/${criticalPolicies.length}`);
+
 console.log(`\n=== RESULT: ${allOk ? "ALL MIGRATIONS APPLIED ✅" : "SOME MIGRATIONS FAILED ❌"} ===`);
+console.log(`FKs: ${fkOk}/${criticalFks.length} | Policies: ${polOk}/${criticalPolicies.length} | RLS: ${rlsEnabled}/${rlsTables.length}`);
 await sim.end();

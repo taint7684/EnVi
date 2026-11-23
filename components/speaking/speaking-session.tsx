@@ -707,17 +707,56 @@ export function SpeakingSession({
                   onClick={() => {
                     setRateLimitRetry(null);
                     setError(null);
-                    setFallbackMode(true);
+                    if (isLastTurn) {
+                      setTurnCompleted(true);
+                      setStep(5);
+                    } else {
+                      setFallbackMode(true);
+                    }
                   }}
                   className="text-sm font-medium text-blue-600 underline hover:text-blue-700"
                 >
-                  Tiếp tục tự luyện
+                  {isLastTurn ? "Tiếp tục tới Tổng kết" : "Tiếp tục tự luyện"}
                 </button>
               </div>
             </div>
           ) : recorderError || error ? (
-            <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
-              {recorderError ?? error}
+            <div className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700 flex flex-col items-start gap-2">
+              <span>{recorderError ?? error}</span>
+              {isLastTurn && !fallbackMode && !isSummaryStep && (
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setError(null);
+                      setRateLimitRetry(null);
+                      lastSentRef.current = null;
+                      const currentMsg =
+                        messages
+                          .filter((m) => m.role === "user")
+                          .pop()?.text ?? "";
+                      if (currentMsg) {
+                        void requestAI(currentMsg, 2, mode, questionIndex);
+                      }
+                    }}
+                    className="text-sm font-medium text-red-700 underline hover:text-red-800"
+                  >
+                    Thử lại
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setError(null);
+                      setRateLimitRetry(null);
+                      setTurnCompleted(true);
+                      setStep(5);
+                    }}
+                    className="text-sm font-medium text-blue-600 underline hover:text-blue-700"
+                  >
+                    Tiếp tục tới Tổng kết
+                  </button>
+                </div>
+              )}
             </div>
           ) : null}
 
@@ -1070,6 +1109,13 @@ export function SpeakingSession({
           {turnCompleted && isLastTurn && !fallbackMode && !isSummaryStep && (
             <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
               <span>Đã luyện hết {TOTAL_TURNS} câu. Buổi học kết thúc.</span>
+              <button
+                type="button"
+                onClick={() => setStep(5)}
+                className="text-sm font-medium text-emerald-700 underline hover:text-emerald-800"
+              >
+                Xem Tổng kết
+              </button>
             </div>
           )}
 
