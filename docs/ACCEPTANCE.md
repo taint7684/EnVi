@@ -42,7 +42,7 @@
 | All-providers error | speaking.spec.ts all-providers | All fail -> "AI đang bận" error shown, no crash | PASS |
 | Repeat step (nói lại) no-LLM | speaking-session.tsx:1038-1049 | "Tôi đã nói lại, tiếp tục" button only sets local state (awaitingRepeat/turnCompleted/retryBlindActive), NO requestAI call | PASS (code-verified) |
 | Repeat step no-score | api/ai/speaking/route.ts:167-169 | Server deletes `retry_score` and `retry_passed` from result before insert | PASS (code-verified) |
-| Speaking 5+3 flow (8 turns) | speaking-b1b2.spec.ts | TOTAL_QUESTIONS=5 + REFLECTION_QUESTIONS=3 = 8 turns; test fixed to 8 turns + regex `/Đã luyện hết \d+ câu/` + polling doTurn + 180s AI wait | PARTIAL — 8 turns initiated with real AI (Groq), but session sync flaky (AI rate-limit timing + prompt compliance); Câu 1-7 advanced, Câu 8 AI delayed |
+| Speaking 5+3 flow (8 turns) | speaking-b1b2.spec.ts | TOTAL_QUESTIONS=5 + REFLECTION_QUESTIONS=3 = 8 turns; test fixed to 8 turns + regex `/Đã luyện hết \d+ câu/` + polling doTurn + 180s AI wait | PARTIAL — B1 Câu 1-7 PASS (real AI feedback each turn); Câu 8 BLOCKED: `Không thể lấy phản hồi AI` (Groq free-tier rate-limit on 8th call, circuit breaker tripped). Summary not reached. Not a code bug — AI quota. |
 | A2/B1/B2 real AI | speaking.spec.ts | Groq fix applied; provider chain groq->gemini->ollama | PARTIAL — Groq 200 verified; A2/B2 same code path as B1 |
 | AI router fallback chain | lib/ai/router.ts | groq,gemini,ollama; all-fail -> AiUnavailableError | PASS (200 in dev logs) |
 | Proxy /api excluded from middleware | commit a5b2785 | /api/ai/speaking not redirected to /login | PASS |
@@ -114,6 +114,18 @@
 ```
 
 > **Scope note:** This reconciliation is for project `ricthhogtmgxoyjstfkz` (the only cloud project in `.env.local`). If the production "Learn English" project has a different project ref, this table does NOT describe production — see "How to verify production" below.
+
+### Clarification of ambiguous migrations (0001, 0004, 0021)
+
+Verified read-only via PostgREST (`scripts/check-ambiguous.mjs`) + code analysis. PostgREST cannot read `pg_indexes` or `column_default`, so index/default checks below are reasoned + need SQL-editor confirmation.
+
+| Migration | Status | Finding | Impact | Fix |
+|-----------|--------|---------|--------|-----|
+| **0001_init** | ⚠️ PARTIAL 14/15 | `deck_words` table MISSING (PostgREST 400). `decks` + `card_reviews` EXIST. `words.cefr_level` EXISTS (added by 0002). | `delete_my_account()` (defined in 0001 + re-defined in 0014) does `delete from public.deck_words` → **account deletion fails**. `deck_words` used in `components/settings-form.tsx:39`. | Re-run `create table if not exists public.deck_words (...)` (idempotent; 1 table, no data loss). |
+| **0004_indexes** | ➖ NOOP (indexes only) | 8 `CREATE INDEX IF NOT EXISTS`. `words.cefr_level` EXISTS so `words_cefr_level_idx` can be created. Other indexes reference existing cols. **Cannot verify index existence via PostgREST.** | Performance only — queries work without indexes, just slower. | Re-run (idempotent). Confirm in SQL editor: `select indexname from pg_indexes where schemaname='public'`. |
+| **0021_default_180** | ➖ NOOP (default only) | `alter column minutes_per_day set default 180`. Column EXISTS. Current default likely **120** (from 0001; 0011 sets 60 but is MISSING, 0021 sets 180 but is MISSING). **Cannot read default via PostgREST.** | New profiles via `handle_new_user` trigger get 120, but code `DEFAULTS.minutes_per_day=180`. Onboarding sets it explicitly, so minor. | Re-run (idempotent). Confirm in SQL editor: `select column_default from information_schema.columns where table_name='profiles' and column_name='minutes_per_day'`. |
+
+**Key dependency finding:** The app calls `log_activity` / `award_xp` RPCs (`app/actions/study-plan.ts:194`, `speaking.ts:75,98`, `dictation.ts:42`, `lib/activity.ts:14,31`) — these functions are created by **0010** (MISSING). This is the root cause of the Today/daily_plans failure: `getTodayPlan` (`study-plan.ts:105`) fails because `daily_plans` table doesn't exist, and activity logging fails because the RPC functions don't exist.
 
 ### How to verify the production project (no secrets needed)
 
