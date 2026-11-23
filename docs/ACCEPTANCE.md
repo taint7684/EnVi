@@ -1,6 +1,6 @@
 # EnVi - Acceptance Matrix & Manual Deploy Guide
 
-> Updated: 2026-11-23 (commit f1f5611 + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score. Shadowing 60 lessons PASS (60/60 valid structure + transcript, 5/5 YouTube playable, levels A2→B2). Reflex core: 1354 phrases confirmed in DB (content-range 0-0/1354) but `en_alternatives/situation_en/keywords` columns DO NOT EXIST — `PostgREST 400: column phrases.en_alternatives does not exist`. Migrations 0022/0023 NOT applied (BLOCKED on user approval).
+> Updated: 2026-11-23 (commit 6efaeba + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score. Shadowing 60 lessons PASS (60/60 valid structure + transcript, 5/5 YouTube playable, levels A2→B2). Speaking double-click dedup PASS (before=1, after first=2, after second=2). Reflex core: 1354 phrases confirmed in DB (content-range 0-0/1354) but `en_alternatives/situation_en/keywords` columns DO NOT EXIST — `PostgREST 400: column phrases.en_alternatives does not exist`. Migration reconciliation (project `ricthhogtmgxoyjstfkz` from .env.local): 6 APPLIED, 1 PARTIAL (0001 missing deck_words), **14 truly MISSING** (0009-0020, 0022, 0023). BLOCKED on user applying migrations. NOTE: only one cloud project is reachable from .env.local; if production "Learn English" is a different project, reconciliation below is for `ricthhogtmgxoyjstfkz` only.
 
 ## 1. Verification Gates (all PASS)
 
@@ -83,6 +83,53 @@
 | Groq free tier 429 after ~5-7 AI calls | Speaking tests slow/flaky | Retry logic (3x35s) + 30s inter-topic delay; Groq API verified working (986/1000 req remaining) | Mitigated |
 | Gemini free quota (429 at test time) | Gemini fallback unavailable at peak | Router falls to Groq (primary); Gemini key valid, models available | Mitigated |
 | Ollama disabled | No local AI fallback | Router tries Groq->Gemini first | Expected |
+
+## 3.5 Migration Reconciliation (project `ricthhogtmgxoyjstfkz` from `.env.local`)
+
+`scripts/reconcile-migrations.mjs` parses each `db/migrations/*.sql` for `CREATE TABLE` + `ALTER TABLE ... ADD COLUMN`, checks each against the live DB via PostgREST, and classifies APPLIED / PARTIAL / MISSING.
+
+| Status | Migrations | Count |
+|--------|-----------|-------|
+| ✅ APPLIED | 0002, 0003, 0005, 0006, 0007, 0008 | 6 |
+| ➖ NOOP (indexes/defaults only) | 0004 (indexes), 0021 (default 180 min) | 2 |
+| ⚠️ PARTIAL | 0001 (14/15 tables; only `deck_words` missing) | 1 |
+| ❌ **Truly MISSING** | **0009, 0010, 0011, 0012, 0013, 0014, 0015, 0016, 0017, 0018, 0019, 0020, 0022, 0023** | **14** |
+
+**Truly missing files (none of their effects present in DB):**
+```
+0009_client_errors.sql        → table client_errors
+0010_activity_events.sql      → activity_events, xp_ledger, streaks, daily_plans, daily_summary  ← daily_plans blocker
+0011_s1_daily_plan.sql        → profiles.role/goals/... + daily_summary.bonus_awarded
+0012_s2_speaking_coach.sql    → speaking_topics, speaking_questions + speaking_sessions.mode, speaking_turns.turn_client_id
+0013_s3_error_log_makeup.sql  → error_events, error_patterns, pattern_catalog, makeup_lessons
+0014_s4_reflex_vocab_v2.sql   → user_word_triage + phrases.level/latency_ms/meaning_score + words.triage_status/chunk_index
+0015_s5_onboarding_checkpoint.sql → assessment_results
+0016_s6_missions_drills.sql   → strategy_cards, missions, fluency_prompts, mission_attempts, fluency_drills
+0017_s7_listen_pronunciation.sql → shadowing_attempts, pronunciation_* + dictation_attempts.segment_idx
+0018_s8_reading_grammar_writing.sql → reading_attempts, grammar_attempts, grammar_mastery
+0019_s9_roadmap_gamification.sql → roadmap_days
+0020_s10_real_world.sql       → real_world_tasks, real_world_logs
+0022_reflex_core_fields.sql   → phrases.en_alternatives/situation_en/keywords  ← Reflex core blocker
+0023_reflex_reviewed.sql      → phrases.reflex_reviewed
+```
+
+> **Scope note:** This reconciliation is for project `ricthhogtmgxoyjstfkz` (the only cloud project in `.env.local`). If the production "Learn English" project has a different project ref, this table does NOT describe production — see "How to verify production" below.
+
+### How to verify the production project (no secrets needed)
+
+1. Open **Supabase Dashboard** → your production "Learn English" project → **Settings → API**.
+2. Check the **Project URL** host. If it contains `ricthhogtmgxoyjstfkz`, production == this project (table above applies).
+3. If production has a **different** project ref, run this in that project's **SQL Editor** and send back the result (table names only, no secrets):
+   ```sql
+   select table_name from information_schema.tables
+   where table_schema = 'public' order by table_name;
+   ```
+4. To check the reflex columns specifically, run:
+   ```sql
+   select column_name from information_schema.columns
+   where table_schema = 'public' and table_name = 'phrases'
+   order by column_name;
+   ```
 
 ## 4. Manual Deploy Steps (require user action)
 
