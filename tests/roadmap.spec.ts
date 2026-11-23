@@ -3,9 +3,19 @@ import type { Page } from "@playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000";
 const QA_EMAIL = process.env.QA_EMAIL ?? "qa.test.a@gmail.com";
-const QA_PASSWORD = process.env.QA_PASSWORD ?? "TestPass123!";
+const QA_PASSWORD = process.env.QA_PASSWORD!;
 
 async function login(page: Page) {
+  // If already authenticated (storageState), skip the flaky form login
+  await page.goto(`${BASE_URL}/today`, {
+    waitUntil: "domcontentloaded",
+    timeout: 30000,
+  });
+  await page.waitForTimeout(1000);
+  if (page.url().includes("/today")) {
+    await page.waitForTimeout(1500);
+    return;
+  }
   await page.goto(`${BASE_URL}/login`);
   await page.waitForTimeout(1000);
   const emailInput = page.locator('input[type="email"]');

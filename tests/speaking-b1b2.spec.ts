@@ -3,7 +3,7 @@ import type { Page } from "@playwright/test";
 
 const BASE_URL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000";
 const QA_EMAIL = process.env.QA_EMAIL ?? "qa.test.a@gmail.com";
-const QA_PASSWORD = process.env.QA_PASSWORD ?? "TestPass123!";
+const QA_PASSWORD = process.env.QA_PASSWORD!;
 
 async function login(page: Page) {
   await page.goto(`${BASE_URL}/login`);

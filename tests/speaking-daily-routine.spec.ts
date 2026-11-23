@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
 
 const QA_EMAIL = process.env.QA_EMAIL ?? "qa.test.a@gmail.com";
-const QA_PASSWORD = process.env.QA_PASSWORD ?? "TestPass123!";
+const QA_PASSWORD = process.env.QA_PASSWORD!;
 
 async function loginAndStartSession(page: Page) {
   await page.goto("/login");
