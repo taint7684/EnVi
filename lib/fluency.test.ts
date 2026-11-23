@@ -57,4 +57,50 @@ describe("Fluency Engine", () => {
     expect(result.totalPauseMs).toBe(0);
     expect(result.mlr).toBe(1);
   });
+
+  // MLR threshold = 0.4s (MASTER_SPEC 8.17). gap > 0.4s splits a run.
+  describe("MLR boundary at 0.4s threshold", () => {
+    it("gap 0.39s (below threshold) does NOT split — MLR = full word count", () => {
+      const words = [
+        { word: "a", start: 0.0, end: 0.5 },
+        { word: "b", start: 0.89, end: 1.2 }, // gap = 0.89 - 0.5 = 0.39s
+      ];
+      const r = computeFluencyFromWords(words);
+      expect(r.pauseCount).toBe(0);
+      expect(r.mlr).toBe(2);
+    });
+
+    it("gap 0.40s (at threshold) does NOT split — MLR = full word count", () => {
+      const words = [
+        { word: "a", start: 0.0, end: 0.5 },
+        { word: "b", start: 0.9, end: 1.2 }, // gap = 0.9 - 0.5 = 0.40s (not > 0.4)
+      ];
+      const r = computeFluencyFromWords(words);
+      expect(r.pauseCount).toBe(0);
+      expect(r.mlr).toBe(2);
+    });
+
+    it("gap 0.41s (above threshold) splits — MLR = 1 (two runs of 1 word each)", () => {
+      const words = [
+        { word: "a", start: 0.0, end: 0.5 },
+        { word: "b", start: 0.91, end: 1.2 }, // gap = 0.91 - 0.5 = 0.41s (> 0.4)
+      ];
+      const r = computeFluencyFromWords(words);
+      expect(r.pauseCount).toBe(1);
+      expect(r.mlr).toBe(1);
+    });
+
+    it("mixed: two runs separated by 0.5s pause — MLR = avg of run lengths", () => {
+      const words = [
+        { word: "a", start: 0.0, end: 0.4 },
+        { word: "b", start: 0.5, end: 0.8 },
+        { word: "c", start: 0.9, end: 1.2 },
+        // gap c->d = 1.4 - 1.2 = 0.2s? No: d starts at 1.7, gap = 0.5s > 0.4
+        { word: "d", start: 1.7, end: 2.0 },
+      ];
+      const r = computeFluencyFromWords(words);
+      expect(r.pauseCount).toBe(1);
+      expect(r.mlr).toBe(2); // two runs of 3 and 1? No: a,b,c = 3 words, d = 1 word → avg = 2
+    });
+  });
 });

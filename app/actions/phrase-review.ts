@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { createNewCard, reviewCard, rowToCard } from "@/lib/srs";
+import { newCard, repeatCard, rowToCard, cardToRow } from "@/lib/srs";
 import type {
   PhraseReviewRow,
   PhraseReviewRowInsert,
@@ -29,19 +29,18 @@ export async function reviewPhrase(
   if (fetchError) throw new Error(fetchError.message);
 
   const existing = (data ?? null) as PhraseReviewRow | null;
-  const prevLapses = existing?.lapses ?? 0;
   const now = new Date();
-  const card = existing ? rowToCard(existing) : createNewCard(now);
-  const { card: next } = reviewCard(card, grade, now);
+  const card = existing ? rowToCard(existing) : newCard(now);
+  const next = repeatCard(card, grade, now);
 
   const row: PhraseReviewRowInsert = {
     user_id: user.id,
     phrase_id: phraseId,
-    ease: next.EF,
-    interval: next.I,
+    ease: 2.5,
+    interval: Math.round(next.scheduled_days),
     due_at: next.due.toISOString(),
-    reps: next.n,
-    lapses: prevLapses + (grade === "again" ? 1 : 0),
+    reps: next.reps,
+    lapses: next.lapses,
     last_reviewed_at: now.toISOString(),
   };
 
@@ -51,7 +50,6 @@ export async function reviewPhrase(
 
   if (error) throw new Error(error.message);
 
-  // Phrase Reflex: người học nói đúng 1 câu = 15 XP.
   if (grade === "good" || grade === "easy") {
     await supabase.rpc("add_xp", {
       user_uuid: user.id,

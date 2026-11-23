@@ -1,10 +1,11 @@
 import { VocabSession } from "@/components/vocab/vocab-session";
 import { EmptyFlashcard } from "@/components/vocab/empty-flashcard";
-import { getDueCards, getReviewForecast } from "@/lib/vocab";
+import { getDueCards, getReviewForecast, getSessionState } from "@/lib/vocab";
 
 export default async function VocabPage() {
-  const { cards, state } = await getDueCards();
+  const { cards, state, sessionState } = await getDueCards();
   const forecast = await getReviewForecast();
+  const sessionStateFallback = await getSessionState();
 
   return (
     <div className="py-4">
@@ -13,7 +14,7 @@ export default async function VocabPage() {
           Học từ vựng
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Ôn tập lặp lại ngắt quãng với SM-2
+          Flashcard FSRS · Retention 90% · Nhóm 20 từ
         </p>
       </div>
 
@@ -57,7 +58,6 @@ export default async function VocabPage() {
             type="button"
             className="mt-6 inline-flex items-center gap-2 rounded-xl border border-border bg-background px-6 py-3 font-medium transition-colors hover:bg-accent"
             onClick={() => {
-              // Trigger reload with a larger limit to pull new words
               window.location.href = "/vocab?new=1";
             }}
           >
@@ -65,7 +65,10 @@ export default async function VocabPage() {
           </button>
         </div>
       ) : (
-        <VocabSession cards={cards} />
+        <VocabSession
+          cards={cards}
+          initialSessionState={sessionState ?? sessionStateFallback}
+        />
       )}
     </div>
   );

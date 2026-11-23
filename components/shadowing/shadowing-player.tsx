@@ -16,7 +16,6 @@ type Props = {
 };
 
 const SPEEDS = [0.75, 1, 1.25, 1.5];
-const DEFAULT_YOUTUBE_ID = "dQw4w9WgXcQ";
 const POLL_INTERVAL_MS = 200;
 
 type Evaluation = {
@@ -52,8 +51,7 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [useTTS, setUseTTS] = useState(false);
   const [ytReady, setYtReady] = useState(false);
 
-  const isDefaultVideo = lesson.youtubeId === DEFAULT_YOUTUBE_ID;
-  const ttsMode = useTTS || isDefaultVideo;
+  const ttsMode = useTTS;
 
   const recorder = useRecorder();
   const [recordedUrl, setRecordedUrl] = useState<string | null>(null);
@@ -89,7 +87,7 @@ export function ShadowingPlayer({ lesson }: Props) {
   }, [recordedUrl]);
 
   useEffect(() => {
-    if (ttsMode || isDefaultVideo) return;
+    if (ttsMode) return;
     let cancelled = false;
 
     function initPlayer() {
@@ -177,7 +175,7 @@ export function ShadowingPlayer({ lesson }: Props) {
       setYtReady(false);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lesson.youtubeId, ttsMode, isDefaultVideo]);
+  }, [lesson.youtubeId, ttsMode]);
 
   const playSegmentTTS = useCallback((segment: ShadowingSegment) => {
     speakEnglish(segment.text);
@@ -292,9 +290,7 @@ export function ShadowingPlayer({ lesson }: Props) {
               <div className="text-center">
                 <Volume2 className="mx-auto h-8 w-8 text-primary-foreground mb-2" />
                 <p className="text-sm text-muted-foreground">
-                  {isDefaultVideo
-                    ? "Video mặc định không phù hợp — dùng phát âm máy (Edge TTS)"
-                    : "Chế độ phát âm máy (Edge TTS) — không cần YouTube"}
+                  Chế độ phát âm máy (Edge TTS) — không cần YouTube
                 </p>
               </div>
             </div>

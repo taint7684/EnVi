@@ -1,34 +1,24 @@
 import { describe, it, expect } from "vitest";
 import {
-  createNewCard,
+  newCard,
   rowToCard,
-  reviewCard,
+  repeatCard,
   cardToRow,
-  GRADE_TO_SM2,
+  isPracticeGrade,
+  Rating,
+  State,
 } from "./srs";
 import type { CardReviewRow } from "./types";
 
-describe("SM-2 SRS Algorithm", () => {
-  // Helper to create a future date for review simulation
-  function futureDate(days: number): Date {
-    return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
-  }
-
-  describe("GRADE_TO_SM2", () => {
-    it("maps grades correctly", () => {
-      expect(GRADE_TO_SM2.again).toBe(1);
-      expect(GRADE_TO_SM2.hard).toBe(4);
-      expect(GRADE_TO_SM2.good).toBe(5);
-      expect(GRADE_TO_SM2.easy).toBe(5);
-    });
-  });
-
-  describe("createNewCard", () => {
-    it("creates a new card with default values", () => {
-      const card = createNewCard();
-      expect(card.n).toBe(0);
-      expect(card.EF).toBe(2.5);
-      expect(card.I).toBe(0);
+describe("FSRS SRS Algorithm", () => {
+  describe("newCard", () => {
+    it("creates a new card in state New with zero stability", () => {
+      const card = newCard();
+      expect(card.state).toBe(State.New);
+      expect(card.stability).toBe(0);
+      expect(card.difficulty).toBe(0);
+      expect(card.reps).toBe(0);
+      expect(card.lapses).toBe(0);
     });
   });
 
@@ -46,113 +36,119 @@ describe("SM-2 SRS Algorithm", () => {
         last_reviewed_at: null,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
+        stability: 0,
+        difficulty: 0,
+        state: 0,
       };
 
       const card = rowToCard(row);
-      expect(card.n).toBe(0);
-      expect(card.EF).toBe(2.5);
-      expect(card.I).toBe(0);
+      expect(card.reps).toBe(0);
+      expect(card.stability).toBe(0);
+      expect(card.state).toBe(0);
+    });
+
+    it("handles missing optional FSRS fields gracefully", () => {
+      const row = {
+        due_at: new Date().toISOString(),
+      };
+      const card = rowToCard(row);
+      expect(card.stability).toBe(0);
+      expect(card.difficulty).toBe(0);
+      expect(card.state).toBe(0);
     });
   });
 
-  describe("reviewCard - AGAIN", () => {
-    it("resets the card when answered 'again'", () => {
-      const card = createNewCard();
+  describe("repeatCard - AGAIN", () => {
+    it("creates a card in Learning state with low stability", () => {
+      const card = newCard();
       const now = new Date();
-      const result = reviewCard(card, "again", now);
-
-      expect(result.card.n).toBe(0);
-      expect(result.card.I).toBe(0);
-      // EF may decrease or stay same depending on implementation
-      expect(result.card.EF).toBeLessThanOrEqual(2.5);
+      const next = repeatCard(card, "again", now);
+      expect(next.state).toBe(State.Learning);
+      expect(next.stability).toBeLessThan(1);
+      expect(next.due.getTime()).toBeLessThanOrEqual(now.getTime() + 60_000);
     });
   });
 
-  describe("reviewCard - GOOD", () => {
-    it("increases interval for 'good' answer", () => {
-      const card = createNewCard();
+  describe("repeatCard - GOOD", () => {
+    it("creates a card in Learning/Review with positive stability", () => {
+      const card = newCard();
       const now = new Date();
-      const result = reviewCard(card, "good", now);
-
-      expect(result.card.n).toBe(1);
-      expect(result.card.I).toBeGreaterThan(0);
+      const next = repeatCard(card, "good", now);
+      expect(next.stability).toBeGreaterThan(0);
+      expect(next.due.getTime()).toBeGreaterThan(now.getTime());
     });
 
-    it("can review again on the due date", () => {
-      let card = createNewCard();
+    it("increases stability on subsequent reviews", () => {
+      let card = newCard();
       const now = new Date();
-      const result1 = reviewCard(card, "good", now);
-      card = result1.card;
+      const r1 = repeatCard(card, "good", now);
+      card = r1;
 
-      // Next review should be on the due date
       const nextReview = new Date(card.due);
-      const result2 = reviewCard(card, "good", nextReview);
-
-      expect(result2.card.n).toBe(2);
-      expect(result2.card.I).toBeGreaterThan(result1.card.I);
+      const r2 = repeatCard(card, "good", nextReview);
+      expect(r2.stability).toBeGreaterThanOrEqual(r1.stability);
     });
   });
 
-  describe("reviewCard - EASY", () => {
-    it("gives longer interval than 'good' for new card", () => {
-      const card = createNewCard();
+  describe("repeatCard - EASY", () => {
+    it("gives higher stability than 'good' for new card", () => {
+      const card = newCard();
       const now = new Date();
-      const goodResult = reviewCard(card, "good", now);
-      const easyResult = reviewCard(card, "easy", now);
-
-      // Easy should give at least as long interval as good
-      expect(easyResult.card.I).toBeGreaterThanOrEqual(goodResult.card.I);
+      const goodResult = repeatCard(card, "good", now);
+      const easyResult = repeatCard(card, "easy", now);
+      expect(easyResult.stability).toBeGreaterThanOrEqual(goodResult.stability);
     });
   });
 
   describe("cardToRow", () => {
-    it("converts a Card to a database row insert", () => {
-      const card = createNewCard();
+    it("converts a Card to a database row with FSRS fields", () => {
+      const card = newCard();
       const now = new Date();
-      const row = cardToRow("user-1", "word-1", card, 0, "good", now);
+      const next = repeatCard(card, "good", now);
+      const row = cardToRow(next, now);
 
-      expect(row.user_id).toBe("user-1");
-      expect(row.word_id).toBe("word-1");
-      expect(row.ease).toBe(2.5);
-      expect(row.interval).toBe(0);
-      expect(row.reps).toBe(0);
-      expect(row.lapses).toBe(0);
+      expect(row.stability).toBeGreaterThan(0);
+      expect(row.state).toBe(next.state);
+      expect(row.due_at).toBe(next.due.toISOString());
+      expect(row.reps).toBe(next.reps);
+    });
+  });
+
+  describe("isPracticeGrade", () => {
+    it("returns true for again and hard", () => {
+      expect(isPracticeGrade("again")).toBe(true);
+      expect(isPracticeGrade("hard")).toBe(true);
     });
 
-    it("increments lapses when grade is 'again'", () => {
-      const card = createNewCard();
-      const now = new Date();
-      const row = cardToRow("user-1", "word-1", card, 2, "again", now);
-
-      expect(row.lapses).toBe(3);
+    it("returns false for good and easy", () => {
+      expect(isPracticeGrade("good")).toBe(false);
+      expect(isPracticeGrade("easy")).toBe(false);
     });
+  });
 
-    it("does not increment lapses for non-again grades", () => {
-      const card = createNewCard();
-      const now = new Date();
-      const rowGood = cardToRow("user-1", "word-1", card, 2, "good", now);
-      const rowEasy = cardToRow("user-1", "word-1", card, 2, "easy", now);
-
-      expect(rowGood.lapses).toBe(2);
-      expect(rowEasy.lapses).toBe(2);
+  describe("Rating enum", () => {
+    it("maps to 1-4", () => {
+      expect(Rating.Again).toBe(1);
+      expect(Rating.Hard).toBe(2);
+      expect(Rating.Good).toBe(3);
+      expect(Rating.Easy).toBe(4);
     });
   });
 
   describe("Full review cycle simulation", () => {
-    it("simulates multiple reviews with increasing intervals", () => {
-      let card = createNewCard();
-      const intervals: number[] = [];
+    it("simulates multiple reviews with increasing stability", () => {
+      let card = newCard();
+      const stabilities: number[] = [];
 
       for (let i = 0; i < 3; i++) {
         const now = i === 0 ? new Date() : new Date(card.due);
-        const result = reviewCard(card, "good", now);
-        card = result.card;
-        intervals.push(card.I);
+        const next = repeatCard(card, "good", now);
+        card = next;
+        stabilities.push(card.stability);
       }
 
-      // Intervals should be non-decreasing
-      for (let i = 1; i < intervals.length; i++) {
-        expect(intervals[i]).toBeGreaterThanOrEqual(intervals[i - 1]);
+      for (let i = 1; i < stabilities.length; i++) {
+        expect(stabilities[i]).toBeGreaterThanOrEqual(stabilities[i - 1]);
       }
     });
   });

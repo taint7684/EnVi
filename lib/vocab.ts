@@ -7,219 +7,194 @@ import type {
   DueCard,
   DueCount,
   DueSessionState,
+  VocabSessionState,
   WordRow,
 } from "@/lib/types";
 
-export const SESSION_SIZE = 101;
-export const DAILY_NEW_LIMIT = 21;
-
+export const GROUP_SIZE = 20;
 const NEW_WORDS_PAGE_SIZE = 100;
 
 type SupabaseServer = Awaited<ReturnType<typeof createClient>>;
 
-/**
- * Số từ mới tối đa mỗi ngày do người dùng cấu hình (0–500) hoặc null =
- * không giới hạn (Master Prompt mục 4). Nếu chưa cấu hình, dùng mặc định.
- */
-async function getDailyNewLimit(
-  supabase: SupabaseServer,
-): Promise<number | null> {
+export async function getReviewForecast(days = 7): Promise<ForecastDay[]> {
+  const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) return DAILY_NEW_LIMIT;
+  if (!user) return [];
 
-  const { data: profile } = await supabase
-    .from("profiles")
-    .select("new_words_per_day")
-    .eq("id", user.id)
-    .maybeSingle();
+  const { data: reviews } = await supabase
+    .from("card_reviews")
+    .select("due_at")
+    .eq("user_id", user.id)
+    .order("due_at", { ascending: true });
 
-  const value = (profile as { new_words_per_day: number | null } | null)
-    ?.new_words_per_day;
-  return value ?? null;
-}
-
-export async function getReviewForecast(days = 7): Promise<ForecastDay[]> {
-  const supabase = await createClient();
-  const { data, error } = await supabase.from("card_reviews").select("due_at");
-  if (error) throw new Error(error.message);
-  const dueAtList = ((data ?? []) as { due_at: string }[]).map(
-    (r) => r.due_at,
-  );
+  const dueAtList = (reviews ?? []).map((r) => (r as { due_at: string }).due_at);
   return buildReviewForecast(dueAtList, new Date(), days);
 }
 
-export async function getDueCards(
-  limit = SESSION_SIZE,
-): Promise<{ cards: DueCard[]; state: DueSessionState }> {
+export async function getSessionState(): Promise<VocabSessionState> {
   const supabase = await createClient();
-  const now = new Date();
-
-  const { data: reviews, error: reviewsError } = await supabase
-    .from("card_reviews")
-    .select(
-      "id, user_id, word_id, ease, interval, due_at, reps, lapses, last_reviewed_at, created_at, updated_at",
-    )
-    .order("due_at", { ascending: true });
-
-  if (reviewsError) throw new Error(reviewsError.message);
-
-  const allReviews = (reviews ?? []) as CardReviewRow[];
-  const dueReviews = allReviews.filter(
-    (review) => new Date(review.due_at).getTime() <= now.getTime(),
-  );
-  const reviewedIds = new Set(allReviews.map((review) => review.word_id));
-
-  let dueWords: WordRow[] = [];
-  if (dueReviews.length > 0) {
-    const { data, error: wordsError } = await supabase
-      .from("words")
-      .select("*")
-      .in(
-        "id",
-        dueReviews.map((review) => review.word_id),
-      );
-
-    if (wordsError) throw new Error(wordsError.message);
-    dueWords = (data ?? []) as WordRow[];
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return {
+      new_words_count: 0,
+      group_size: GROUP_SIZE,
+      current_position: 0,
+      group_started_at: null,
+      difficult_word_ids: [],
+      practice_queue: [],
+    };
   }
 
-  const startOfToday = new Date(now);
-  startOfToday.setHours(0, 0, 0, 0);
-  const newIntroducedToday = allReviews.filter(
-    (review) =>
-      new Date(review.created_at).getTime() >= startOfToday.getTime(),
-  ).length;
+  const { data } = await supabase
+    .from("vocab_session_state")
+    .select("new_words_count, group_size, current_position, group_started_at, difficult_word_ids, practice_queue")
+    .eq("user_id", user.id)
+    .maybeSingle();
 
-  const dailyNewLimit = await getDailyNewLimit(supabase);
-  const newLimit =
-    dailyNewLimit == null
-      ? Math.max(0, limit - dueWords.length)
-      : Math.max(
-          0,
-          Math.min(
-            limit - dueWords.length,
-            dailyNewLimit - newIntroducedToday,
-          ),
-        );
+  if (!data) {
+    return {
+      new_words_count: 0,
+      group_size: GROUP_SIZE,
+      current_position: 0,
+      group_started_at: null,
+      difficult_word_ids: [],
+      practice_queue: [],
+    };
+  }
 
-  const newWords: WordRow[] = [];
-  if (newLimit > 0) {
+  const row = data as {
+    new_words_count: number;
+    group_size: number;
+    current_position: number;
+    group_started_at: string | null;
+    difficult_word_ids: string[] | null;
+    practice_queue: string[] | null;
+  };
+
+  return {
+    new_words_count: row.new_words_count,
+    group_size: row.group_size,
+    current_position: row.current_position,
+    group_started_at: row.group_started_at,
+    difficult_word_ids: row.difficult_word_ids ?? [],
+    practice_queue: row.practice_queue ?? [],
+  };
+}
+
+export async function getDueCards(
+  limit = 100,
+): Promise<{ cards: DueCard[]; state: DueSessionState; sessionState: VocabSessionState }> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return {
+      cards: [],
+      state: { status: "exhausted", newCount: 0 },
+      sessionState: await getSessionState(),
+    };
+  }
+
+  const sessionState = await getSessionState();
+
+  const { data: reviews } = await supabase
+    .from("card_reviews")
+    .select("word_id, due_at, stability, difficulty, state, reps, lapses, elapsed_days, scheduled_days, learning_steps, last_reviewed_at, ease, interval")
+    .eq("user_id", user.id)
+    .order("due_at", { ascending: true });
+
+  const now = new Date();
+  const dueReviews = (reviews ?? []).filter(
+    (r) => new Date((r as { due_at: string }).due_at) <= now,
+  );
+  const reviewedIds = new Set((reviews ?? []).map((r) => (r as { word_id: string }).word_id));
+
+  const dueWordIds = dueReviews.map((r) => (r as { word_id: string }).word_id);
+
+  const dueCards: DueCard[] = [];
+  if (dueWordIds.length > 0) {
+    const { data: words } = await supabase
+      .from("words")
+      .select("*")
+      .in("id", dueWordIds);
+    const wordMap = new Map<string, WordRow>();
+    for (const w of words ?? []) wordMap.set((w as WordRow).id, w as WordRow);
+    const reviewMap = new Map<string, CardReviewRow>();
+    for (const r of reviews ?? []) reviewMap.set((r as { word_id: string }).word_id, r as CardReviewRow);
+
+    for (const r of dueReviews) {
+      const rev = r as { word_id: string };
+      const word = wordMap.get(rev.word_id);
+      if (word) {
+        dueCards.push({ word, review: reviewMap.get(rev.word_id) ?? null });
+      }
+    }
+  }
+
+  const remaining = Math.max(0, limit - dueCards.length);
+  const newCards: DueCard[] = [];
+
+  if (remaining > 0) {
     let offset = 0;
-
-    while (newWords.length < newLimit) {
-      const { data, error: wordsError } = await supabase
+    while (newCards.length < remaining && offset < 10000) {
+      const { data: words } = await supabase
         .from("words")
         .select("*")
         .order("frequency_rank", { ascending: true, nullsFirst: false })
         .range(offset, offset + NEW_WORDS_PAGE_SIZE - 1);
 
-      if (wordsError) throw new Error(wordsError.message);
+      if (!words || words.length === 0) break;
 
-      const page = (data ?? []) as WordRow[];
-      if (page.length === 0) break;
-
-      for (const word of page) {
-        if (!reviewedIds.has(word.id)) {
-          newWords.push(word);
-          if (newWords.length >= newLimit) break;
+      for (const w of words as WordRow[]) {
+        if (!reviewedIds.has(w.id)) {
+          newCards.push({ word: w, review: null });
+          if (newCards.length >= remaining) break;
         }
       }
-
-      offset += page.length;
+      offset += NEW_WORDS_PAGE_SIZE;
     }
   }
 
-  const cards: DueCard[] = [];
-  const wordById = new Map(dueWords.map((word) => [word.id, word]));
-  const reviewByWord = new Map(
-    dueReviews.map((review) => [review.word_id, review]),
-  );
-
-  for (const review of dueReviews) {
-    const word = wordById.get(review.word_id);
-    if (word) cards.push({ word, review });
-  }
-
-  for (const word of newWords) {
-    cards.push({ word, review: reviewByWord.get(word.id) ?? null });
-  }
-
+  const cards = [...dueCards, ...newCards];
   const sliced = cards.slice(0, limit);
 
-  // Determine session state for UI
-  const { count: totalWords, error: countError } = await supabase
-    .from("words")
-    .select("*", { count: "exact", head: true });
-
-  if (countError) throw new Error(countError.message);
-
-  const total = totalWords ?? 0;
-  const learnedCount = reviewedIds.size;
-  const remainingNew = Math.max(0, total - learnedCount);
-
   let state: DueSessionState;
-  if (dueWords.length > 0) {
-    state = {
-      status: "has_due",
-      dueCount: dueWords.length,
-      newCount: remainingNew,
-    };
-  } else if (remainingNew > 0) {
-    state = {
-      status: "has_new_only",
-      newCount: remainingNew,
-    };
+  if (sliced.length === 0) {
+    state = { status: "exhausted", newCount: 0 };
+  } else if (dueCards.length === 0 && newCards.length > 0) {
+    state = { status: "has_new_only", newCount: newCards.length };
   } else {
-    state = {
-      status: "exhausted",
-      newCount: 0,
-    };
+    state = { status: "has_due", dueCount: dueCards.length, newCount: newCards.length };
   }
 
-  return { cards: sliced, state };
+  return { cards: sliced, state, sessionState };
 }
 
 export async function getDueCount(): Promise<DueCount> {
   const supabase = await createClient();
-  const now = new Date();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return { due: 0, new: 0, total: 0 };
 
-  const { data: reviews, error: reviewsError } = await supabase
+  const { data: reviews } = await supabase
     .from("card_reviews")
-    .select("word_id, due_at, created_at");
+    .select("due_at")
+    .eq("user_id", user.id);
 
-  if (reviewsError) throw new Error(reviewsError.message);
-
-  const allReviews = (reviews ?? []) as Pick<
-    CardReviewRow,
-    "word_id" | "due_at" | "created_at"
-  >[];
-
-  const due = allReviews.filter(
-    (review) => new Date(review.due_at).getTime() <= now.getTime(),
-  ).length;
-  const reviewedIds = new Set(allReviews.map((review) => review.word_id));
-
-  const startOfToday = new Date(now);
-  startOfToday.setHours(0, 0, 0, 0);
-  const newIntroducedToday = allReviews.filter(
-    (review) =>
-      new Date(review.created_at).getTime() >= startOfToday.getTime(),
+  const now = new Date();
+  const due = (reviews ?? []).filter(
+    (r) => new Date((r as { due_at: string }).due_at) <= now,
   ).length;
 
-  const { count: totalWords, error: countError } = await supabase
+  const { count: totalWords } = await supabase
     .from("words")
-    .select("*", { count: "exact", head: true });
+    .select("id", { count: "exact", head: true });
 
-  if (countError) throw new Error(countError.message);
-
-  const newAvailable = Math.max(0, (totalWords ?? 0) - reviewedIds.size);
-  const dailyNewLimit = await getDailyNewLimit(supabase);
-  const newCount =
-    dailyNewLimit == null
-      ? newAvailable
-      : Math.min(newAvailable, Math.max(0, dailyNewLimit - newIntroducedToday));
-
-  return { due, new: newCount, total: due + newCount };
+  return { due, new: (totalWords ?? 0) - (reviews ?? []).length, total: totalWords ?? 0 };
 }

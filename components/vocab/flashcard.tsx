@@ -1,10 +1,52 @@
 "use client";
 
+import { useState } from "react";
 import { ExternalLink, Volume2 } from "lucide-react";
-
 import { playWordAudio } from "@/lib/audio";
 import { emojiForTopic } from "@/lib/emoji";
 import type { DueCard } from "@/lib/types";
+
+type Collocation = {
+  phrase: string;
+  example: string;
+  translation: string;
+  youglishUrl: string;
+};
+
+function getCollocation(word: DueCard["word"]): Collocation | null {
+  const lemma = word.lemma.toLowerCase();
+  const pos = word.pos ?? "";
+
+  if (lemma === "company" && pos.includes("n")) {
+    if (word.meaning_vi.toLowerCase().includes("bầu bạn") || word.meaning_vi.toLowerCase().includes("cùng")) {
+      return {
+        phrase: "keep someone company",
+        example: "I'll keep you company while you wait.",
+        translation: "Tôi sẽ ở cùng bạn trong lúc bạn chờ.",
+        youglishUrl: "https://youglish.com/pronounce/company/english",
+      };
+    }
+    if (word.meaning_vi.toLowerCase().includes("công ty")) {
+      return {
+        phrase: "start a company",
+        example: "She wants to start a company.",
+        translation: "Cô ấy muốn thành lập công ty.",
+        youglishUrl: "https://youglish.com/pronounce/company/english",
+      };
+    }
+  }
+
+  if (lemma === "audience") {
+    return {
+      phrase: "target audience",
+      example: "Who's the target audience for this feature?",
+      translation: "Tính năng này nhắm đến nhóm người dùng nào?",
+      youglishUrl: "https://youglish.com/pronounce/audience/english",
+    };
+  }
+
+  return null;
+}
 
 export function Flashcard({
   card,
@@ -16,89 +58,116 @@ export function Flashcard({
   onFlip: () => void;
 }) {
   const { word } = card;
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const collocation = getCollocation(word);
+
+  function handleAudio(e: React.MouseEvent) {
+    e.stopPropagation();
+    setAudioPlaying(true);
+    playWordAudio(word);
+    window.setTimeout(() => setAudioPlaying(false), 1500);
+  }
 
   return (
-    <div className="[perspective:1200px]">
+    <div
+      className="mx-auto w-full max-w-xl cursor-pointer [perspective:1200px]"
+      onClick={onFlip}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          onFlip();
+        }
+      }}
+    >
       <div
-        role="button"
-        tabIndex={0}
-        onClick={onFlip}
-        className="relative mx-auto block h-80 w-full max-w-xl cursor-pointer text-left outline-none"
-        aria-label="Lật thẻ từ vựng"
+        className={`relative h-80 w-full transition-transform duration-500 [transform-style:preserve-3d] ${
+          flipped ? "[transform:rotateY(180deg)]" : ""
+        }`}
       >
-        <div
-          className={`relative h-full w-full transition-transform duration-500 [transform-style:preserve-3d] ${
-            flipped ? "[transform:rotateY(180deg)]" : ""
-          }`}
-        >
-          <div className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-border bg-card p-8 shadow-sm [backface-visibility:hidden]">
-            <div className="text-6xl">{emojiForTopic(word.topic)}</div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm [backface-visibility:hidden]">
+          {word.image_url ? (
+            <img
+              src={word.image_url}
+              alt={word.lemma}
+              className="h-24 w-24 rounded-xl object-cover"
+            />
+          ) : (
+            <span className="text-4xl">{emojiForTopic(word.topic ?? "general")}</span>
+          )}
 
-            {word.image_url ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={word.image_url}
-                alt=""
-                className="mt-4 h-32 w-32 rounded-2xl object-cover"
-              />
-            ) : null}
+          <h2 className="text-center font-serif text-3xl font-bold text-foreground">
+            {word.lemma}
+          </h2>
 
-            <h2 className="mt-4 text-center text-4xl font-bold text-foreground">
-              {word.lemma}
-            </h2>
+          {word.pos ? (
+            <span className="rounded-full bg-muted px-3 py-0.5 text-xs text-muted-foreground">
+              {word.pos}
+            </span>
+          ) : null}
 
-            {word.ipa ? (
-              <p className="mt-2 text-lg text-muted-foreground">/{word.ipa}/</p>
-            ) : null}
+          {word.ipa ? (
+            <p className="text-sm text-muted-foreground">/{word.ipa}/</p>
+          ) : null}
 
-            <div className="mt-6 flex items-center gap-2">
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  playWordAudio(word);
-                }}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent/80"
-              >
-                <Volume2 className="size-4" />
-                Nghe
-              </button>
+          <button
+            type="button"
+            onClick={handleAudio}
+            className="flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
+            aria-label="Nghe phát âm"
+          >
+            <Volume2 className={`size-4 ${audioPlaying ? "animate-pulse" : ""}`} />
+            Nghe
+          </button>
 
+          <p className="absolute bottom-4 text-xs text-muted-foreground">
+            Nhấn để lật thẻ
+          </p>
+        </div>
+
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 rounded-2xl border border-primary/20 bg-primary p-6 text-primary-foreground shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <h3 className="text-center text-lg font-semibold">
+            {word.meaning_vi}
+          </h3>
+
+          {word.example_en ? (
+            <div className="mt-2 rounded-xl bg-white/10 p-3 text-center">
+              <p className="text-sm italic">{word.example_en}</p>
+              {word.example_vi ? (
+                <p className="mt-1 text-xs opacity-70">{word.example_vi}</p>
+              ) : null}
+            </div>
+          ) : null}
+
+          {collocation ? (
+            <div className="mt-2 w-full rounded-xl bg-white/10 p-3">
+              <p className="text-xs opacity-60">Collocation:</p>
               <a
-                href={`https://youglish.com/pronounce/${encodeURIComponent(word.lemma)}/english`}
+                href={collocation.youglishUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(event) => event.stopPropagation()}
-                className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20"
-                aria-label={`Nghe "${word.lemma}" trong ngữ cảnh thực tế trên YouGlish`}
+                onClick={(e) => e.stopPropagation()}
+                className="mt-1 flex items-center gap-1 text-sm font-medium underline underline-offset-4 hover:opacity-80"
               >
-                <ExternalLink className="size-4" />
-                YouGlish
+                {collocation.phrase}
+                <ExternalLink className="size-3" />
               </a>
+              <p className="mt-1 text-xs italic opacity-80">{collocation.example}</p>
+              <p className="text-xs opacity-60">{collocation.translation}</p>
             </div>
+          ) : null}
 
-            <p className="absolute bottom-4 text-xs text-muted-foreground">
-              Nhấn để lật
-            </p>
-          </div>
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl border border-border bg-primary p-8 text-primary-foreground shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
-            <p className="text-center text-2xl font-semibold">
-              {word.meaning_vi}
-            </p>
-
-            {word.example_en ? (
-              <p className="mt-4 text-center text-base italic opacity-90">
-                {word.example_en}
-              </p>
-            ) : null}
-
-            {word.example_vi ? (
-              <p className="mt-2 text-center text-sm opacity-80">
-                {word.example_vi}
-              </p>
-            ) : null}
-          </div>
+          <a
+            href={`https://youglish.com/pronounce/${encodeURIComponent(word.lemma)}/english`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-2 flex items-center gap-1 text-xs opacity-50 underline underline-offset-4 hover:opacity-80"
+          >
+            Nghe trên YouGlish
+            <ExternalLink className="size-3" />
+          </a>
         </div>
       </div>
     </div>

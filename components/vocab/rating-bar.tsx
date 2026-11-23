@@ -11,33 +11,35 @@ const RATINGS: {
   {
     grade: "again",
     label: "Again",
-    hint: "Chưa thuộc",
+    hint: "Quên rồi",
     className: "bg-red-500 text-white hover:bg-red-600",
   },
   {
     grade: "hard",
     label: "Hard",
-    hint: "Khó",
+    hint: "Khó nhớ",
     className: "bg-amber-500 text-white hover:bg-amber-600",
   },
   {
     grade: "good",
     label: "Good",
-    hint: "Ổn",
+    hint: "Nhớ rồi",
     className: "bg-primary text-primary-foreground hover:bg-primary/90",
   },
   {
     grade: "easy",
     label: "Easy",
-    hint: "Dễ",
+    hint: "Quá dễ",
     className: "bg-sky-500 text-white hover:bg-sky-600",
   },
 ];
 
 export function RatingBar({
   onRate,
+  disabled,
 }: {
   onRate: (grade: ReviewGrade) => void;
+  disabled?: boolean;
 }) {
   return (
     <div className="mx-auto mt-6 grid max-w-xl grid-cols-4 gap-2">
@@ -46,7 +48,8 @@ export function RatingBar({
           key={rating.grade}
           type="button"
           onClick={() => onRate(rating.grade)}
-          className={`flex flex-col items-center gap-0.5 rounded-xl px-2 py-3 text-sm font-semibold transition-colors ${rating.className}`}
+          disabled={disabled}
+          className={`flex flex-col items-center gap-0.5 rounded-xl px-2 py-3 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${rating.className}`}
         >
           <span>{rating.label}</span>
           <span className="text-[11px] font-normal opacity-80">

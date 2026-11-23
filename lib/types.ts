@@ -32,6 +32,13 @@ export type CardReviewRow = {
   last_reviewed_at: string | null;
   created_at: string;
   updated_at: string;
+  stability?: number;
+  difficulty?: number;
+  state?: number;
+  elapsed_days?: number;
+  scheduled_days?: number;
+  learning_steps?: number;
+  last_review?: string | null;
 };
 
 export type CardReviewRowInsert = {
@@ -43,6 +50,22 @@ export type CardReviewRowInsert = {
   reps: number;
   lapses: number;
   last_reviewed_at: string;
+  stability?: number;
+  difficulty?: number;
+  state?: number;
+  elapsed_days?: number;
+  scheduled_days?: number;
+  learning_steps?: number;
+  last_review?: string | null;
+};
+
+export type VocabSessionState = {
+  new_words_count: number;
+  group_size: number;
+  current_position: number;
+  group_started_at: string | null;
+  difficult_word_ids: string[];
+  practice_queue: string[];
 };
 
 export type DueCard = {
