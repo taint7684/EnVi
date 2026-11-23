@@ -276,7 +276,7 @@ All scores exceed thresholds (Perf >=70, A11y >=80, BP >=80, SEO >=80).
 
 ### Blocked / Needs User Action
 
-- [ ] **Rotate secrets**: DB password (Bonggon20028), Supabase service role key, Groq API key, Gemini API key — see `docs/SECURITY_HANDOFF.md`
+- [ ] **Rotate secrets**: DB password, Supabase service role key, Groq API key, Gemini API key — see `docs/SECURITY_HANDOFF.md`
 - [ ] **Deploy**: TEAM_ACCESS_REQUIRED — use Vercel Dashboard Redeploy
 - [ ] **Speaking real AI câu 8**: BLOCKED by Groq free-tier 429 (code correct, mock PASS)
 - [ ] **Reflex core migration 0022/0023**: NOT applied to DB (needs user approval)

@@ -120,5 +120,5 @@ BƯỚC 0 kiểm kê ngày 22/11/2026 — sau S0→S10 + S11 regression (S11b fi
 ## Setup môi trường (BẮT BUỘC trước E2E/Playwright)
 - DB live hiện chỉ có bảng tới ~0009 (REST 404 với daily_plans/mission_attempts/grammar_attempts/real_world_logs). Áp dụng migration 0001–0020 qua Supabase SQL Editor hoặc `supabase link` + `db push`.
 - `.env.local` chỉ có anon + service-role key (JWT), KHÔNG có Postgres connection string / access token → không tự `db push` từ đây được.
-- Tài khoản QA: `qa.test.a@gmail.com` / `TestPass123!`. Khóa AI: `GEMINI_API_KEY`, `GROQ_API_KEY`.
+- Tài khoản QA: `qa.test.a@gmail.com` / (xem biến môi trường `QA_PASSWORD`). Khóa AI: `GEMINI_API_KEY`, `GROQ_API_KEY`.
 - Local Supabase QA (Docker): QA dir `C:\Users\LENOVO\AppData\Local\Temp\kilo\envi-qa`; API 54321, DB 54322, Studio 54323; export 3 vars từ qa.env để trỏ local.
