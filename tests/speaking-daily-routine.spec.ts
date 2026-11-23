@@ -99,7 +99,7 @@ test.describe("EnVi Speaking - Daily Routine CA B", () => {
       console.log(bodyAfterAnswer?.slice(0, 2000));
 
       if (i < 4) {
-        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
+        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, tiếp tục")');
         if ((await repeatBtn.count()) > 0) {
           await repeatBtn.first().click();
           await page.waitForTimeout(2000);
@@ -115,7 +115,7 @@ test.describe("EnVi Speaking - Daily Routine CA B", () => {
 
         await expect(page.getByText(new RegExp(`Câu ${i + 2}\\/5`))).toBeVisible({ timeout: 120000 });
       } else {
-        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
+        const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, tiếp tục")');
         if ((await repeatBtn.count()) > 0) {
           await repeatBtn.first().click();
           await page.waitForTimeout(10000);

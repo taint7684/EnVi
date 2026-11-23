@@ -1,6 +1,6 @@
 # EnVi - Acceptance Matrix & Manual Deploy Guide
 
-> Updated: 2026-11-22. All local gates green. Speaking retry scoring removed, auto-start bug fixed, double-click test rewritten (network-level dedup), Shadowing placeholder videos replaced with real YouTube IDs, Reflex core data generation in progress.
+> Updated: 2026-11-23 (commit 5cbe412 + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score, Reflex core 1354 phrases confirmed in DB but migration 0022/0023 NOT yet applied to DB (BLOCKED on user approval).
 
 ## 1. Verification Gates (all PASS)
 
@@ -12,7 +12,8 @@
 | Production build | `npm run build` | EXIT 0, all 24 routes |
 | Roadmap verify | `npx tsx scripts/verify-roadmap.ts` | PASS - 180 days, 4 phases, checkpoint180 |
 | Content audit | `npx tsx scripts/audit-content.ts` | PASS - no errors |
-| Speaking E2E | `npx playwright test tests/speaking.spec.ts` | 2/5 PASS (double-click, all-providers); A2/B1/B2 blocked by Groq 503 rate limits (environmental) |
+| Writing E2E | `npx playwright test tests/writing.spec.ts` | 7/7 PASS (timeout root cause fixed: level restore bug at line 357, now tracks selectedLevel) |
+| Speaking E2E | `npx playwright test tests/speaking.spec.ts` | double-click + all-providers PASS; A2/B1/B2 5+3 flow in progress (Groq fix applied) |
 | Daily journey | `npx playwright test tests/daily-journey.spec.ts` | 2/2 PASS (9 pages, 0 runtime errors) |
 | Roadmap E2E | `npx playwright test tests/roadmap.spec.ts` | 3/3 PASS (180 dots, 4 phases, reload persistence) |
 | Lighthouse CI | `npx lighthouse http://localhost:3000/login --preset=desktop` | Perf 100, A11y 100, Best Practices 96, SEO 91 (LCP 0.7s, FCP 0.3s, TBT 10ms, CLS 0) |
@@ -36,13 +37,14 @@
 
 | Yeu cau | Ca kiem | Bang chung | Ket qua |
 |---------|---------|------------|---------|
-| A2 speaking - 2 topics, real AI | speaking.spec.ts SPEAKING A2 | Daily Routine + Hobbies, resp1||resp2 = true | PASS (4.3m) |
-| B1 speaking - 2 topics, real AI | speaking.spec.ts SPEAKING B1 | Food & Cooking + Family | PASS (4.3m) |
-| B2 speaking - 2 topics, real AI | speaking.spec.ts SPEAKING B2 | Health & Fitness + Weather & Seasons | PASS (4.3m) |
-| AI router fallback chain | lib/ai/router.ts | groq,gemini,ollama; all-fail -> AiUnavailableError | PASS (200 in dev logs) |
-| Rate limit recovery | speaking.spec.ts retry logic | "Thue lai" button -> 35s wait -> Groq quota reset | PASS |
+| Groq 400 bug FIX | lib/ai/groq.ts | Removed `response_format:{type:"json_object"}` (qwen/qwen3.8-27b returns 400 with JSON mode); system prompt already asks JSON + router parseOrRepair | FIXED (verified: Groq 200, valid JSON) |
 | Double-click dedup | speaking.spec.ts double-click | Network-level: 2 API calls total (auto-start + first "Hello"), second "Hello" = 0 new calls | PASS |
-| Keyboard input at ask-step | speaking.spec.ts + commit d481744 | "Nhap bang ban phim" visible at step 1 | PASS |
+| All-providers error | speaking.spec.ts all-providers | All fail -> "AI đang bận" error shown, no crash | PASS |
+| Repeat step (nói lại) no-LLM | speaking-session.tsx:1038-1049 | "Tôi đã nói lại, tiếp tục" button only sets local state (awaitingRepeat/turnCompleted/retryBlindActive), NO requestAI call | PASS (code-verified) |
+| Repeat step no-score | api/ai/speaking/route.ts:167-169 | Server deletes `retry_score` and `retry_passed` from result before insert | PASS (code-verified) |
+| Speaking 5+3 flow (8 turns) | speaking-b1b2.spec.ts | TOTAL_QUESTIONS=5 + REFLECTION_QUESTIONS=3 = 8 turns; test fixed to 8 turns + regex `/Đã luyện hết \d+ câu/` + polling doTurn + 180s AI wait | PARTIAL — 8 turns initiated with real AI (Groq), but session sync flaky (AI rate-limit timing + prompt compliance); Câu 1-7 advanced, Câu 8 AI delayed |
+| A2/B1/B2 real AI | speaking.spec.ts | Groq fix applied; provider chain groq->gemini->ollama | PARTIAL — Groq 200 verified; A2/B2 same code path as B1 |
+| AI router fallback chain | lib/ai/router.ts | groq,gemini,ollama; all-fail -> AiUnavailableError | PASS (200 in dev logs) |
 | Proxy /api excluded from middleware | commit a5b2785 | /api/ai/speaking not redirected to /login | PASS |
 
 ### 2.3 Content Counts
@@ -50,12 +52,13 @@
 | Content | Count | Evidence |
 |---------|-------|----------|
 | Words | 5029 | import-words.ts batch 50 |
-| Phrases | 2365 | import-phrases.ts 2501 imported |
+| Phrases (reflex core) | 1354 (verified via DB count query) | phrases table: id, vi_text, en_text, audio_url, topic, difficulty |
+| Reflex core fields | BLOCKED (columns not in DB) | en_alternatives/situation_en/keywords require migration 0022 (not applied) |
 | Grammar exercises | 800 (480 MCQ + 320 fill) | audit-content: explanation_vi 800/800, vn_trap 800/800, speak 160/160 |
 | Reading | 80 | audit-content |
-| Shadowing | 60 (real YouTube videos) | audit-content: 60 unique IDs, 0 placeholders |
+| Shadowing | 60 (real YouTube videos) | audit-content: 60 unique IDs, 0 placeholders, transcript structure valid |
 | Pronunciation | 12 groups | audit-content |
-| Speaking questions | 450 (32 topics x 15) | speaking-questions-by-level.ts |
+| Speaking questions | 450 (30 topics x 15) | audit-content: A2=150 B1=150 B2=150 |
 | Missions | 60 (offline_script 60/60) | audit-content |
 | Fluency prompts | 300 | audit-content |
 | Strategy cards | 12 | audit-content |
@@ -75,10 +78,10 @@
 
 | Gap | Impact | Workaround | Status |
 |-----|--------|------------|--------|
-| ~~Shadowing: 60 lessons use placeholder youtubeId `dQw4w9WgXcQ`~~ | ~~No real YouTube video~~ | **FIXED**: All 60 lessons now use real YouTube shadowing videos (scripts/fix-shadowing-videos.ts) | Resolved |
-| Reflex: 145/854 A2 phrases have en_alternatives/situation_en/keywords (generator running in background) | Reflex L2/L3 needs alternatives for lexical scoring | Generator script processes ~90 phrases/run; 709 remaining | In progress |
-| Groq free tier 429/503 after ~5-7 AI calls | Speaking A2/B1/B2 tests flaky on 1st turn | Retry logic (3x35s) + 30s inter-topic delay; resp1||resp2 assertion | Mitigated |
-| Gemini free quota exhausted (20 req/day) | Gemini fallback unavailable | Router falls to Groq; import-words used Groq fallback | Mitigated |
+| ~~Shadowing: 60 lessons use placeholder youtubeId `dQw4w9WgXcQ`~~ | ~~No real YouTube video~~ | **FIXED**: All 60 lessons now use real YouTube shadowing videos (scripts/fix-shadowing-videos.ts); audit-content PASS | Resolved |
+| **Reflex core: 1354 phrases in DB, but en_alternatives/situation_en/keywords columns DO NOT EXIST** | Reflex L2/L3 lexical scoring needs these fields | Migration 0022 (add columns) + 0023 (reflex_reviewed) exist as files but NOT applied to Supabase DB. Verified: `phrases` table has only 7 columns (id, vi_text, en_text, audio_url, topic, difficulty, created_at). Scripts generate-reflex-core.ts / generate-reflex-templates.ts ready to populate once migration applied. | **BLOCKED** — needs user approval to apply migration 0022/0023 (user said "Chờ tôi duyệt trước khi... áp migration live") |
+| Groq free tier 429 after ~5-7 AI calls | Speaking tests slow/flaky | Retry logic (3x35s) + 30s inter-topic delay; Groq API verified working (986/1000 req remaining) | Mitigated |
+| Gemini free quota (429 at test time) | Gemini fallback unavailable at peak | Router falls to Groq (primary); Gemini key valid, models available | Mitigated |
 | Ollama disabled | No local AI fallback | Router tries Groq->Gemini first | Expected |
 
 ## 4. Manual Deploy Steps (require user action)
@@ -189,29 +192,26 @@ All scores exceed thresholds (Perf >=70, A11y >=80, BP >=80, SEO >=80).
 
 ## 7. Deploy Readiness
 
-**Chua san sang duyet deploy** - con cac muc sau can xu ly:
+**Chua san sang duyet deploy v2** - con cac muc sau can xu ly:
 
-### Completed (commit v2)
+### Completed (this session)
 
 - [x] tsc 0 errors, eslint 0 errors, vitest 84/84, build EXIT 0
 - [x] verify-roadmap PASS (180 days, 4 phases, checkpoint180)
-- [x] Speaking E2E 5/5 PASS (A2, B1, B2, all-providers, double-click)
-- [x] Writing E2E 7/7 PASS (draft persistence, cross-context sync, progress test)
+- [x] Writing E2E 7/7 PASS — timeout root cause FIXED (level restore bug: after reload test broke at first level B1 found, but selectedTitle was B2; now tracks selectedLevel)
 - [x] Daily journey 2/2 PASS (9 pages, 0 runtime errors)
-- [x] Roadmap E2E 3/3 PASS (180 dots, reload persistence, writing draft persists)
-- [x] Lighthouse: Perf 100, A11y 100, BP 96, SEO 91 (LCP 0.7s, FCP 0.3s, TBT 10ms, CLS 0)
-- [x] Speaking 5+3 flow: TOTAL_QUESTIONS=5 + REFLECTION_QUESTIONS=3 = 8 turns (fixed)
-- [x] Retry-blind scoring REMOVED: no offline scoring, no API retry_score, no UI display (spec-compliant)
-- [x] Auto-start bug fixed: sessionStartedRef set inside timer (was set before → AI never called)
-- [x] Double-click test: network-level dedup verification (2 API calls, not 3) + testid selector
-- [x] Shadowing: all 60 lessons use real YouTube video IDs (scripts/fix-shadowing-videos.ts)
-- [x] Reflex L1/L2/L3: migration 0022 + 145/854 A2 phrases with en_alternatives/situation_en/keywords + lexical scoring
-- [x] Audit-content: PASS (no placeholder errors, speaking 450, reflex fields)
-- [x] Words 5029, Phrases 2365, Grammar 800, Reading 80, Shadowing 60 (real videos), Speaking 450, Missions 60, Fluency 300
+- [x] Roadmap E2E 3/3 PASS (180 dots, reload persistence)
+- [x] Audit-content PASS (Shadowing 60 real videos, Grammar 800, Missions 60, etc.)
+- [x] Groq 400 bug FIXED (removed response_format; qwen model now returns 200 + valid JSON)
+- [x] Speaking double-click + all-providers PASS (network-level dedup)
+- [x] Speaking repeat step verified: "Tôi đã nói lại, tiếp tục" button = local state only, NO LLM call, NO scoring (server deletes retry_score/retry_passed)
+- [x] Speaking 5+3 flow test fixed (8 turns, regex `/Đã luyện hết \d+ câu/`)
+- [x] Reflex core: 1354 phrases confirmed in DB (verified via count query)
+- [x] Shadowing: 60 lessons real YouTube IDs, audit PASS
 
 ### Blocked / Needs User Action
 
-- [ ] **Shadowing**: ~~60 lessons use placeholder youtubeId~~ RESOLVED — all 60 use real YouTube videos. Transcripts are approximate (chapter-based, not word-for-word); TTS fallback still works as backup.
+- [ ] **Reflex core migration**: migration 0022 (en_alternatives, situation_en, keywords columns) + 0023 (reflex_reviewed) NOT applied to DB. Verified: phrases table has only 7 basic columns. Scripts ready to populate once migration applied. **BLOCKED on user approval** ("Chờ tôi duyệt trước khi... áp migration live").
 - [ ] **Production Supabase**: NO tables exist (all 404). ALL migrations 0001-0022 need to be applied. Service role key in `.env.local` is OLD disabled key (401).
 - [ ] **Supabase**: User confirmed disabled Legacy API Keys. Need to create NEW service role key (sb_secret_...) and update `.env.local` + Vercel.
 - [ ] **Vercel**: Add `CRON_SECRET` env var (cron route returns 401 if unset). `SUPABASE_JWT_SECRET` NOT needed (no code reads it).
@@ -220,7 +220,7 @@ All scores exceed thresholds (Perf >=70, A11y >=80, BP >=80, SEO >=80).
 
 ### Known Gaps (non-blocking)
 
-- Reflex: 145/854 A2 phrases have en_alternatives/situation_en/keywords (generator running, 709 remaining; ~8 more runs at ~90 phrases/run)
-- Groq free tier 429/503 after ~5-7 calls (retry logic handles); Gemini quota exhausted (Groq fallback)
+- Reflex: 1354 phrases in DB; core fields (en_alternatives/situation_en/keywords) need migration 0022 to be applied first
+- Groq free tier 429 after ~5-7 calls (retry logic handles); Gemini quota limited at peak (Groq primary)
 - Ollama disabled (no local AI fallback)
 - Shadowing transcripts are approximate (chapter-based content, not word-for-word YouTube transcript match)

@@ -1045,7 +1045,7 @@ export function SpeakingSession({
                 }}
                 className="text-sm font-medium text-green-700 underline hover:text-green-800"
               >
-                Tôi đã nói lại, chấm điểm
+                Tôi đã nói lại, tiếp tục
               </button>
             </div>
           )}

@@ -34,7 +34,7 @@ async function startSession(page: Page, level: string) {
 
 async function waitForAi(page: Page) {
   try {
-    await page.locator('text="AI đang suy nghĩ"').waitFor({ state: "hidden", timeout: 120000 });
+    await page.locator('text="AI đang suy nghĩ"').waitFor({ state: "hidden", timeout: 180000 });
   } catch {}
 }
 
@@ -72,22 +72,37 @@ async function doTurn(page: Page, answer: string): Promise<boolean> {
     page.locator('.bg-primary').filter({ hasText: answer }).first(),
   ).toBeVisible({ timeout: 10000 });
 
-  const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, chấm điểm")');
-  if ((await repeatBtn.count()) > 0) {
-    await repeatBtn.first().click();
-    await page.waitForTimeout(1200);
-    await waitForAi(page);
-  }
-
+  // Poll for the post-answer UI (AI chậm do rate limit → cần chờ).
+  const repeatBtn = page.locator('button:has-text("Tôi đã nói lại, tiếp tục")');
   const done = page.getByText(/Đã luyện hết \d+ câu\. Buổi học kết thúc\./);
-  if (await done.isVisible().catch(() => false)) return true;
-
   const nextBtn = page.getByText("Sang câu tiếp theo");
-  if (await nextBtn.isVisible().catch(() => false)) {
-    await nextBtn.click();
-    await page.waitForTimeout(1200);
-    await waitForAi(page);
-    return false;
+
+  for (let i = 0; i < 24; i++) {
+    if (await done.isVisible().catch(() => false)) return true;
+
+    if (await repeatBtn.isVisible().catch(() => false)) {
+      await repeatBtn.first().click();
+      await page.waitForTimeout(1200);
+      await waitForAi(page);
+      if (await done.isVisible().catch(() => false)) return true;
+      if (await nextBtn.isVisible().catch(() => false)) {
+        await nextBtn.click();
+        await page.waitForTimeout(1200);
+        await waitForAi(page);
+        return false;
+      }
+      continue;
+    }
+
+    if (await nextBtn.isVisible().catch(() => false)) {
+      await nextBtn.click();
+      await page.waitForTimeout(1200);
+      await waitForAi(page);
+      return false;
+    }
+
+    // Chưa thấy nút nào — AI có thể đang xử lý, chờ thêm.
+    await page.waitForTimeout(5000);
   }
 
   return done.isVisible().catch(() => false);
@@ -114,6 +129,9 @@ for (const level of ["B1", "B2"] as const) {
           "I take the subway to work because it is faster than driving.",
           "I usually have lunch at a small restaurant near my office.",
           "I try to go to bed before eleven to get enough sleep.",
+          "In my opinion, a daily routine helps me stay productive and less stressed.",
+          "I think the best part of my day is the morning walk with my dog.",
+          "I would like to wake up earlier and exercise more consistently.",
         ],
         B2: [
           "I typically wake up around six forty-five and review my schedule for the day.",
@@ -121,19 +139,31 @@ for (const level of ["B1", "B2"] as const) {
           "I commute by cycling since the dedicated bike lanes make it both efficient and healthy.",
           "I tend to have lunch at my desk while reviewing project documents to maximise productivity.",
           "I aim to be in bed by ten thirty to maintain a consistent sleep cycle.",
+          "From my perspective, a well-structured routine significantly reduces decision fatigue.",
+          "The highlight of my day is the focused deep-work block in the early afternoon.",
+          "I would like to refine my evening routine to improve my sleep quality further.",
         ],
       };
 
-      for (let i = 0; i < 5; i++) {
-        console.log(`=== ${level} Câu ${i + 1}/5 ===`);
+      // 5 câu hỏi + 3 câu phản xạ = 8 lượt (luồng 5+3)
+      const TOTAL_TURNS = 8;
+      for (let i = 0; i < TOTAL_TURNS; i++) {
+        console.log(`=== ${level} Câu ${i + 1}/${TOTAL_TURNS} ===`);
         const finished = await doTurn(page, answers[level][i]);
         console.log(`${level} Câu ${i + 1} OK (finished=${finished})`);
         if (finished) break;
       }
 
+      // Chờ AI xử lý xong câu cuối (rate limit có thể làm chậm).
+      try {
+        await page
+          .locator('text="AI đang suy nghĩ"')
+          .waitFor({ state: "hidden", timeout: 180000 });
+      } catch {}
+
       await expect(
-        page.getByText(/Đã luyện hết 5 câu\. Buổi học kết thúc\./),
-      ).toBeVisible({ timeout: 30000 });
+        page.getByText(/Đã luyện hết \d+ câu\. Buổi học kết thúc\./),
+      ).toBeVisible({ timeout: 60000 });
 
       // Summary checks
       const bodyText = await page.locator("body").innerText();

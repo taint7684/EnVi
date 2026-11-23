@@ -43,7 +43,9 @@ export async function callGroqChat({
             { role: "system", content: systemPrompt },
             { role: "user", content: userPrompt },
           ],
-          response_format: { type: "json_object" },
+          // response_format:{type:"json_object"} causes 400 on qwen models
+          // that don't support JSON mode. System prompt already asks for JSON;
+          // parseOrRepair in the router handles parsing/repair.
           temperature: 0.4,
           max_tokens: MAX_TOKENS,
         }),

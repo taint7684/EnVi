@@ -222,7 +222,11 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
 
     // Chuyển sang cấp độ B1 để có prompt chưa hoàn thành (các prompt A2
     // đã bị hoàn thành trong các lần chạy trước). Nếu B1 cũng hết, thử B2.
-    async function selectLevelAndPrompt() {
+    // Trả về cả level để sau reload chuyển đúng cấp độ (tránh timeout).
+    async function selectLevelAndPrompt(): Promise<{
+      level: string;
+      title: string;
+    }> {
       for (const level of ["B1 — Trung cấp", "B2 — Trung cấp nâng cao"]) {
         const levelBtn = page.getByRole("button", { name: level, exact: true });
         if ((await levelBtn.count()) > 0) {
@@ -261,14 +265,15 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
             await promptBtn.click();
             await page.waitForTimeout(1000);
             console.log("WRITING submit test: prompt clicked:", title);
-            return title;
+            return { level, title };
           }
         }
       }
       throw new Error("Không tìm thấy prompt chưa hoàn thành ở bất kỳ cấp độ nào");
     }
 
-    const selectedTitle = await selectLevelAndPrompt();
+    const { level: selectedLevel, title: selectedTitle } =
+      await selectLevelAndPrompt();
 
     // Đảm bảo ở tab "Viết"
     const writeBtn = page.getByRole("button", { name: "Viết", exact: true });
@@ -345,16 +350,23 @@ test.describe("EnVi Writing — bản nháp & khôi phục", () => {
     await page.waitForTimeout(2000);
     console.log("WRITING submit test: reloaded");
 
-    // Quay lại cấp độ đã chọn và mở prompt đã hoàn thành
-    for (const level of ["B1 — Trung cấp", "B2 — Trung cấp nâng cao"]) {
-      const levelBtn2 = page.getByRole("button", { name: level, exact: true });
-      if ((await levelBtn2.count()) > 0) {
-        await levelBtn2.click();
-        await page.waitForTimeout(1000);
-        break;
-      }
-    }
-    await page.locator('button:has-text("' + selectedTitle + '")').first().click();
+    // Quay lại ĐÚNG cấp độ đã chọn (không break ở level đầu tiên) và mở
+    // prompt đã hoàn thành. Dùng selectedLevel để tránh timeout khi prompt
+    // thuộc B2 nhưng trang đang ở B1.
+    const levelBtn2 = page.getByRole("button", {
+      name: selectedLevel,
+      exact: true,
+    });
+    await expect(levelBtn2).toBeVisible({ timeout: 10000 });
+    await levelBtn2.click();
+    await page.waitForTimeout(1000);
+    console.log("WRITING submit test: restored level", selectedLevel);
+
+    const promptBtn2 = page
+      .locator('button:has-text("' + selectedTitle + '")')
+      .first();
+    await expect(promptBtn2).toBeVisible({ timeout: 10000 });
+    await promptBtn2.click();
     await page.waitForTimeout(1000);
     const writeBtn2 = page.getByRole("button", { name: "Viết", exact: true });
     if ((await writeBtn2.count()) > 0) {
