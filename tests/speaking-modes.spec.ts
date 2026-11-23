@@ -69,9 +69,9 @@ test.describe("EnVi Speaking - Modes CA 5c", () => {
     await page.click('text="Daily Routine"');
     await page.waitForTimeout(500);
     await page.locator('button:has-text("Bắt đầu luyện")').first().click();
-    await page.waitForTimeout(2500);
-    await page.locator('button:has-text("Bắt đầu luyện")').first().click();
-    await page.waitForTimeout(3000);
+    // Wait for session to start (AI question 1 loads). Do NOT click again —
+    // the button disappears once the session starts.
+    await page.waitForTimeout(5000);
 
     // Chuyển sang Nói tự do
     await page.click('button:has-text("Nói tự do")');

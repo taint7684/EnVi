@@ -25,8 +25,15 @@ async function fetchAll() {
         },
       },
     );
+    if (!res.ok) {
+      const body = await res.text();
+      throw new Error(`PostgREST ${res.status}: ${body.slice(0, 300)}`);
+    }
     const batch = await res.json();
-    if (!Array.isArray(batch) || batch.length === 0) break;
+    if (!Array.isArray(batch)) {
+      throw new Error(`Unexpected response (not array): ${JSON.stringify(batch).slice(0, 300)}`);
+    }
+    if (batch.length === 0) break;
     all.push(...batch);
     if (batch.length < pageSize) break;
     offset += pageSize;

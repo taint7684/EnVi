@@ -1,6 +1,6 @@
 # EnVi - Acceptance Matrix & Manual Deploy Guide
 
-> Updated: 2026-11-23 (commit 5cbe412 + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score, Reflex core 1354 phrases confirmed in DB but migration 0022/0023 NOT yet applied to DB (BLOCKED on user approval).
+> Updated: 2026-11-23 (commit f1f5611 + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score. Shadowing 60 lessons PASS (60/60 valid structure + transcript, 5/5 YouTube playable, levels A2→B2). Reflex core: 1354 phrases confirmed in DB (content-range 0-0/1354) but `en_alternatives/situation_en/keywords` columns DO NOT EXIST — `PostgREST 400: column phrases.en_alternatives does not exist`. Migrations 0022/0023 NOT applied (BLOCKED on user approval).
 
 ## 1. Verification Gates (all PASS)
 
@@ -53,10 +53,10 @@
 |---------|-------|----------|
 | Words | 5029 | import-words.ts batch 50 |
 | Phrases (reflex core) | 1354 (verified via DB count query) | phrases table: id, vi_text, en_text, audio_url, topic, difficulty |
-| Reflex core fields | BLOCKED (columns not in DB) | en_alternatives/situation_en/keywords require migration 0022 (not applied) |
+| Reflex core fields | BLOCKED (columns not in DB) | `verify-reflex-core.mjs` → `PostgREST 400: {"code":"42703","message":"column phrases.en_alternatives does not exist"}`. Baseline `phrases?select=id,en_text` returns 200 (1354 rows, content-range 0-0/1354). Requires migration 0022 (add en_alternatives/situation_en/keywords) + 0023 (reflex_reviewed). |
 | Grammar exercises | 800 (480 MCQ + 320 fill) | audit-content: explanation_vi 800/800, vn_trap 800/800, speak 160/160 |
 | Reading | 80 | audit-content |
-| Shadowing | 60 (real YouTube videos) | audit-content: 60 unique IDs, 0 placeholders, transcript structure valid |
+| Shadowing | 60 (real YouTube videos) | `verify-shadowing.mjs`: 60/60 valid source structure, 60/60 valid transcripts (sequential ids, time-ordered, ≥2 words/seg), 5/5 sample YouTube playable (oembed 200), levels A2:9 A2-B1:10 B1:13 B1-B2:12 B2:16 |
 | Pronunciation | 12 groups | audit-content |
 | Speaking questions | 450 (30 topics x 15) | audit-content: A2=150 B1=150 B2=150 |
 | Missions | 60 (offline_script 60/60) | audit-content |
