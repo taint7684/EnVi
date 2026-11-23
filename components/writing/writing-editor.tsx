@@ -136,7 +136,6 @@ export function WritingEditor({ prompt, draft, userId, onBack }: Props) {
         savedAt: Date.now(),
       };
       window.localStorage.setItem(key, JSON.stringify(next));
-      console.log("[DEBUG] persistLocal key:", key, "savedAt:", next.savedAt, "draftText:", next.draftText?.slice(0, 50));
     } catch {
       // localStorage full / disabled — cloud save still runs.
     }

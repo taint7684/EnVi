@@ -6,7 +6,7 @@ export async function GET(request: Request) {
   const code = searchParams.get("code");
   const supabaseErrorFromProvider = searchParams.get("error");
   const errorDescription = searchParams.get("error_description");
-  const next = searchParams.get("next") ?? "/dashboard";
+  const next = searchParams.get("next") ?? "/today";
 
   console.error("[auth/callback] request", {
     hasCode: Boolean(code),
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
       const safe =
         next && next.startsWith("/") && !next.startsWith("//")
           ? next
-          : "/dashboard";
+          : "/today";
       return NextResponse.redirect(`${origin}${safe}`);
     }
   }

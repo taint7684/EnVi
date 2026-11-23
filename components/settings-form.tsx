@@ -191,8 +191,8 @@ export function SettingsForm() {
             <Input
               id="minutes"
               type="number"
-              min={30}
-              max={300}
+              min={0}
+              max={480}
               value={profile.minutes_per_day}
               onChange={(e) =>
                 update("minutes_per_day", Number(e.target.value) || 0)

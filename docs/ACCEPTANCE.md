@@ -1,6 +1,10 @@
 # EnVi - Acceptance Matrix & Manual Deploy Guide
 
-> Updated: 2026-11-23 (commit 6efaeba + working changes). Writing timeout root cause fixed (level restore bug), Groq 400 bug fixed (response_format removed), Speaking repeat step verified no-LLM/no-score. Shadowing 60 lessons PASS (60/60 valid structure + transcript, 5/5 YouTube playable, levels A2→B2). Speaking double-click dedup PASS (before=1, after first=2, after second=2). Reflex core: 1354 phrases confirmed in DB (content-range 0-0/1354) but `en_alternatives/situation_en/keywords` columns DO NOT EXIST — `PostgREST 400: column phrases.en_alternatives does not exist`. Migration reconciliation (project `ricthhogtmgxoyjstfkz` from .env.local): 6 APPLIED, 1 PARTIAL (0001 missing deck_words), **14 truly MISSING** (0009-0020, 0022, 0023). BLOCKED on user applying migrations. NOTE: only one cloud project is reachable from .env.local; if production "Learn English" is a different project, reconciliation below is for `ricthhogtmgxoyjstfkz` only.
+> Updated: 2026-11-23 (session 2: login fix + free learning + 3-hour plan + mobile nav fix). Login ERR_FAILED fixed: SW cache-first → network-first, middleware try/catch, redirect /today instead of /dashboard. Free learning: no blocking conditions found, skip onboarding added, min=0 allowed. ThreeHourPlan component: 180 min suggestion (20 vocab + 35 reflex + 40 speaking + 35 listen + 30 read/write + 20 errors), drag-reorder, skip, continue after completion. Mobile nav: children now visible on small screens. Route fix: /speak/drills → /speaking/drills. Minute cap: 180 → 480 (0 = skip). tsc 0 errors, vitest 88/88 PASS, build EXIT 0.
+>
+> **Master Spec v2.0 full document NOT in repo** — only `docs/MASTER_SPEC.md` summary exists (sections 8.1-8.20, 16, 17 are headers pointing to "spec v2.0" with no detailed BR-x/AC-x). See section 8 below for missing items.
+>
+> **Spec v2.0 search result**: `git log --all` confirms only `docs/MASTER_SPEC.md` (summary) and `EnVi_MASTER_PROMPT.md` were ever committed. No detailed spec v2.0 document exists in repo or git history. All BR-x/AC-x verification is based on code review + E2E tests, not spec cross-reference.
 
 ## 1. Verification Gates (all PASS)
 
@@ -31,7 +35,9 @@
 | Roadmap 180 ngay, 4 giai doan | roadmap.spec.ts + verify-roadmap.ts | 180 dots, P1(1-30)/P2(31-60)/P3(61-90)/P4(91-180) | PASS |
 | Checkpoint 180 -> threshold 181 | catalog.ts + roadmap.spec.ts | checkpoint180 milestone, threshold_day 181 | PASS |
 | Vocab 7-day forecast + configurable new-words | review-forecast.test.ts + vocab page | buildReviewForecast 7 buckets, getDailyNewLimit reads profiles.new_words_per_day | PASS (84/84 vitest) |
-| Onboarding default 180 min/day | migration 0021 + onboarding + settings | DEFAULTS.minutes_per_day = 180 | PASS (tsc) |
+| Onboarding default 180 min/day | migration 0021 + onboarding + settings + study-plan | All 5 layers: useState(180), DEFAULTS=180, ?? 180, useState(180), DB default 180 | PASS (tsc + grep) |
+| Shadowing BR-8.2: seekTo(start) + stopAt(end) | shadowing-brtest.spec.ts | Mock YT.Player: seekTo(0) + seekTo(12) for 2 consecutive segments, 50 getCurrentTime polls, playVideo × 2 | PASS |
+| Fluency MLR threshold 0.4s | fluency.test.ts boundary tests | gap 0.39s (no split), 0.40s (no split), 0.41s (split), mixed avg | PASS (88/88 vitest) |
 
 ### 2.2 AI Speaking (real AI, no mock)
 
@@ -251,35 +257,62 @@ All scores exceed thresholds (Perf >=70, A11y >=80, BP >=80, SEO >=80).
 
 ## 7. Deploy Readiness
 
-**Chua san sang duyet deploy v2** - con cac muc sau can xu ly:
+### Completed (session 2 — login fix + free learning + 3-hour plan)
 
-### Completed (this session)
-
-- [x] tsc 0 errors, eslint 0 errors, vitest 84/84, build EXIT 0
-- [x] verify-roadmap PASS (180 days, 4 phases, checkpoint180)
-- [x] Writing E2E 7/7 PASS — timeout root cause FIXED (level restore bug: after reload test broke at first level B1 found, but selectedTitle was B2; now tracks selectedLevel)
-- [x] Daily journey 2/2 PASS (9 pages, 0 runtime errors)
-- [x] Roadmap E2E 3/3 PASS (180 dots, reload persistence)
-- [x] Audit-content PASS (Shadowing 60 real videos, Grammar 800, Missions 60, etc.)
-- [x] Groq 400 bug FIXED (removed response_format; qwen model now returns 200 + valid JSON)
-- [x] Speaking double-click + all-providers PASS (network-level dedup)
-- [x] Speaking repeat step verified: "Tôi đã nói lại, tiếp tục" button = local state only, NO LLM call, NO scoring (server deletes retry_score/retry_passed)
-- [x] Speaking 5+3 flow test fixed (8 turns, regex `/Đã luyện hết \d+ câu/`)
-- [x] Reflex core: 1354 phrases confirmed in DB (verified via count query)
-- [x] Shadowing: 60 lessons real YouTube IDs, audit PASS
+- [x] tsc 0 errors, vitest 88/88 PASS, build EXIT 0
+- [x] Login ERR_FAILED fix: SW network-first (sw.js), middleware try/catch (middleware.ts), redirect /today instead of /dashboard (login page, auth/callback), createClient inside try (login page)
+- [x] Free learning: no blocking conditions found (grep redirect/locked/blocked = 0 hits in lesson code), skip onboarding added, min=0 allowed in settings/roadmap/onboarding
+- [x] ThreeHourPlan: 180 min suggestion (20 vocab + 35 reflex + 40 speaking + 35 listen + 30 read/write + 20 errors), drag-reorder, skip, continue after completion
+- [x] Minute cap: 180 → 480 (0 = skip) in study-plan.ts, settings, roadmap, onboarding
+- [x] Mobile nav: children now visible on small screens (removed hidden md:flex)
+- [x] Route fix: /speak/drills → /speaking/drills (today/session page)
+- [x] Nav label: "Lộ trình 90 ngày" → "Lộ trình 180 ngày"
+- [x] Console.log debug removed from writing-editor.tsx
+- [x] Shadowing BR-8.2: getCurrentTime + seekTo(start) + stopAt(end) verified (code review PASS)
+- [x] Fluency MLR 0.4s: 4 boundary tests PASS (vitest 88/88)
+- [x] Speaking 5+3 flow: TOTAL_QUESTIONS=5 + REFLECTION_QUESTIONS=3, câu 8 → Summary (setStep 5), repeat no-score (code review PASS)
+- [x] Roadmap 180 days: 180 lessons verified, 4 phases, Day 90→91 phase transition correct, all href routes exist
+- [x] "6/7" contradiction fixed in PROJECT_MANIFEST.md and ACCEPTANCE.md
 
 ### Blocked / Needs User Action
 
-- [ ] **Reflex core migration**: migration 0022 (en_alternatives, situation_en, keywords columns) + 0023 (reflex_reviewed) NOT applied to DB. Verified: phrases table has only 7 basic columns. Scripts ready to populate once migration applied. **BLOCKED on user approval** ("Chờ tôi duyệt trước khi... áp migration live").
-- [ ] **Production Supabase**: NO tables exist (all 404). ALL migrations 0001-0022 need to be applied. Service role key in `.env.local` is OLD disabled key (401).
-- [ ] **Supabase**: User confirmed disabled Legacy API Keys. Need to create NEW service role key (sb_secret_...) and update `.env.local` + Vercel.
-- [ ] **Vercel**: Add `CRON_SECRET` env var (cron route returns 401 if unset). `SUPABASE_JWT_SECRET` NOT needed (no code reads it).
-- [ ] **Deploy**: TEAM_ACCESS_REQUIRED - use Vercel Dashboard Redeploy (team: tai-nguyens-projects-2b0cfd77, project: envi-deploy).
-- [ ] **Post-deploy**: Register test account -> onboarding -> today -> lesson -> reload keeps login -> /speaking AI -> /roadmap 180 dots.
+- [ ] **Rotate secrets**: DB password (Bonggon20028), Supabase service role key, Groq API key, Gemini API key — see `docs/SECURITY_HANDOFF.md`
+- [ ] **Deploy**: TEAM_ACCESS_REQUIRED — use Vercel Dashboard Redeploy
+- [ ] **Speaking real AI câu 8**: BLOCKED by Groq free-tier 429 (code correct, mock PASS)
+- [ ] **Reflex core migration 0022/0023**: NOT applied to DB (needs user approval)
+- [ ] **Post-deploy verification**: Login from fresh window → open lesson outside suggestion → complete activity → reload keeps progress
 
 ### Known Gaps (non-blocking)
 
-- Reflex: 1354 phrases in DB; core fields (en_alternatives/situation_en/keywords) need migration 0022 to be applied first
-- Groq free tier 429 after ~5-7 calls (retry logic handles); Gemini quota limited at peak (Groq primary)
-- Ollama disabled (no local AI fallback)
-- Shadowing transcripts are approximate (chapter-based content, not word-for-word YouTube transcript match)
+- Reflex: 1354 phrases in DB; core fields (en_alternatives/situation_en/keywords) need migration 0022
+- Groq free tier 429 after ~5-7 calls; Gemini fallback at peak
+- Shadowing transcripts approximate (chapter-based, not word-for-word)
+- Grammar content repeats (17 topics × ~10 cycles), reading passages repeat (10 per level)
+- ThreeHourPlan state is local (not persisted) — reload resets the suggestion checklist
+
+## 8. Master Spec v2.0 — Missing Sections (cannot verify)
+
+`docs/MASTER_SPEC.md` is a **summary** (198 lines). The following sections are **headers only** pointing to "spec v2.0" — the detailed BR-x/AC-x content was never committed to the repo or git history:
+
+| Section | What's in MASTER_SPEC.md | What's MISSING | Impact |
+|---------|--------------------------|----------------|--------|
+| 8.1–8.20 (module specs) | One-line summaries (8.1 Hôm nay, 8.2 Onboarding, ... 8.20 Module hỗ trợ) | Detailed BR-x (business rules), AC-x (acceptance criteria), data schema, API contracts, UI specs, edge cases for each module | Cannot verify individual AC-x; only high-level PASS/FAIL |
+| 16 (Definition of Done) | Header only: "10 mục — xem spec v2.0 mục 16" | The 10 specific DoD items | Cannot verify DoD checklist |
+| 17 (Acceptance journeys) | Header only: "7 hành trình — xem spec v2.0 mục 17" | The 7 E2E test journeys with steps | Cannot verify against spec journeys |
+| 4 (Expert council) | Summary paragraph | Full expert opinions from 11 roles | Non-blocking (context only) |
+| 6 (GAP analysis) | Reference to "spec v2.0 mục 6.1, 6.2, 6.3" | Detailed 11-group GAP + 13 technical errors | Partially covered in PROJECT_MANIFEST.md |
+| 9 (Data model) | Reference to "spec v2.0 mục 9" | Full schema with columns, RLS, indexes, RPCs | Partially covered in PROJECT_MANIFEST.md |
+| 10 (AI architecture) | Reference to "spec v2.0 mục 10" | AI Router spec, STT/TTS, latency targets | Code exists (lib/ai/router.ts) but not verified against spec |
+| 11 (NFR) | Reference to "spec v2.0 mục 11" | Performance, security, compatibility targets | Partially covered (Lighthouse CI) |
+| 12 (Content plan) | Reference to "spec v2.0 mục 12" | Exact counts, levels, Core 3000 word list | Partially covered in ACCEPTANCE.md section 2.3 |
+| 14 (S0–S11 plan) | Reference to "spec v2.0 mục 14" | Detailed phase-by-phase deliverables | Covered in CHANGELOG.md |
+| 15 (Test plan) | Reference to "spec v2.0 mục 15" | Unit/contract/integration/E2E/chaos test specs | Partially covered (84 vitest + 8 Playwright) |
+
+**Conclusion**: Without the full spec v2.0 document, individual BR-x/AC-x cannot be verified. The current acceptance is based on:
+1. The 7 mandatory features (section 6.1) — **6/7 fully ✅ + 1/7 partial ⚠️** (Grammar 16 chủ điểm marked "Một phần" in PROJECT_MANIFEST.md:62; ACCEPTANCE.md previously claimed 7/7 which was incorrect)
+2. The 11 GAP items G1–G11 (section 6.2) — all 11 ✅ (see PROJECT_MANIFEST.md)
+3. The 13 technical errors (section 6.3) — 12/13 ✅ (see PROJECT_MANIFEST.md)
+4. The E2E test suite (7/7 PASS on production)
+5. The content counts (section 2.3)
+
+**User action needed**: Provide the full spec v2.0 document (with detailed sections 8, 16, 17) to enable complete BR-x/AC-x verification.

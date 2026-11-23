@@ -56,7 +56,7 @@ const items: NavItem[] = [
     icon: TrendingUp,
     children: [
       { href: "/progress", label: "Tiến bộ" },
-      { href: "/roadmap", label: "Lộ trình 90 ngày" },
+      { href: "/roadmap", label: "Lộ trình 180 ngày" },
       { href: "/real-world", label: "Bước ra đời thật" },
       { href: "/progress-test", label: "Kiểm tra" },
     ],
@@ -94,7 +94,7 @@ export function AppNav() {
               {item.label}
             </Link>
             {item.children && active && (
-              <div className="ml-2 hidden flex-col gap-0.5 border-l border-border pl-2 md:flex">
+              <div className="ml-2 flex flex-row flex-wrap gap-1 border-l border-border pl-2 md:flex-col md:gap-0.5">
                 {item.children.map((c) => (
                   <Link
                     key={c.href}

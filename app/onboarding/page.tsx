@@ -12,7 +12,7 @@ const GOALS = [
   "Giao tiếp tự tin với người bản ngữ",
 ] as const;
 
-const MINUTES = [15, 30, 60, 90, 120, 180] as const;
+const MINUTES = [15, 30, 60, 90, 120, 180, 360] as const;
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -27,6 +27,19 @@ export default function OnboardingPage() {
     setError(null);
     try {
       await saveOnboarding({ goal, minutesPerDay });
+      router.push("/today");
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Không lưu được.");
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function handleSkip() {
+    setPending(true);
+    setError(null);
+    try {
+      await saveOnboarding({ goal: GOALS[0], minutesPerDay: 0 });
       router.push("/today");
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Không lưu được.");
@@ -79,7 +92,7 @@ export default function OnboardingPage() {
           <label className="text-sm font-medium text-foreground block">
             Thời gian học mỗi ngày (phút)
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             {MINUTES.map((m) => (
               <button
                 key={m}
@@ -103,6 +116,15 @@ export default function OnboardingPage() {
           className="w-full"
         >
           {pending ? "Đang lưu…" : "Bắt đầu học"}
+        </Button>
+        <Button
+          type="button"
+          variant="ghost"
+          disabled={pending}
+          className="w-full"
+          onClick={handleSkip}
+        >
+          Bỏ qua, vào học ngay
         </Button>
       </form>
     </div>

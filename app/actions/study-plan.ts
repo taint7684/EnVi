@@ -46,7 +46,7 @@ async function getProfileBudget(supabase: Awaited<ReturnType<typeof createClient
     .eq("id", user.id)
     .maybeSingle();
 
-  const budget = Math.max(15, Math.min(180, (profile?.minutes_per_day ?? 60)));
+  const budget = Math.max(0, Math.min(480, (profile?.minutes_per_day ?? 180)));
   return { budget, userId: user.id };
 }
 
@@ -128,7 +128,7 @@ export async function getTodayPlan(): Promise<TodayPlanResult> {
   const speakingMinutes = tasks
     .filter((b) => BLOCK_DEFS[b.id as BlockId]?.speaking)
     .reduce((s, b) => s + b.estimatedMinutes, 0);
-  const allDone = tasks.every((b) => b.done);
+  const allDone = tasks.length > 0 && tasks.every((b) => b.done);
   const enoughMinutes = totalMinutes > 0 && speakingMinutes >= totalMinutes * 0.5;
 
   const { data: summary } = await supabase
@@ -156,7 +156,7 @@ export async function regenerateTodayPlan(budget: number): Promise<TodayPlanResu
   const supabase = await createClient();
   const { userId } = await getProfileBudget(supabase);
   const studyDate = todayString();
-  const safeBudget = Math.max(15, Math.min(180, budget));
+  const safeBudget = Math.max(0, Math.min(480, budget));
 
   const blocks = allocateBlocks(safeBudget).map((b) => ({
     id: b.id,

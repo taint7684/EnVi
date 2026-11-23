@@ -31,7 +31,7 @@ export default function LoginPage() {
     const safe =
       next && next.startsWith("/") && !next.startsWith("//") && !next.startsWith("/login")
         ? next
-        : "/dashboard";
+        : "/today";
     router.push(safe);
     router.refresh();
   }
@@ -48,7 +48,7 @@ export default function LoginPage() {
       return;
     }
     const params = new URLSearchParams(window.location.search);
-    const next = params.get("next") ?? "/dashboard";
+    const next = params.get("next") ?? "/today";
     let data;
     let oauthError;
     try {
@@ -84,9 +84,9 @@ export default function LoginPage() {
     e.preventDefault();
     setInfo(null);
     setLoading(true);
-    const supabase = createClient();
 
     try {
+      const supabase = createClient();
       if (mode === "signup") {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;

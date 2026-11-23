@@ -8,7 +8,7 @@ const BLOCKS: Array<{ id: string; label: string; desc: string; href: string; ico
   { id: "warmup", label: "Khởi động", desc: "Đọc to 5 cụm từ hôm qua + 1 câu hỏi nhanh", href: "/vocab", icon: Flame },
   { id: "reflex", label: "Reflex", desc: "Luyện phản xạ câu tiếng Anh", href: "/reflex", icon: Mic },
   { id: "speaking", label: "Speaking Coach", desc: "6 bước nói với AI (ASK → ANSWER → FEEDBACK → RETRY-BLIND → NEXT → SUMMARY)", href: "/speaking", icon: Mic },
-  { id: "fluency", label: "Fluency Drill", desc: "4/3/2, 1-Minute Talk, mô tả tranh", href: "/speak/drills", icon: Play },
+  { id: "fluency", label: "Fluency Drill", desc: "4/3/2, 1-Minute Talk, mô tả tranh", href: "/speaking/drills", icon: Play },
   { id: "vocab_new", label: "Từ vựng SRS", desc: "Ôn thẻ đến hạn + học từ mới", href: "/vocab", icon: Flame },
   { id: "listen", label: "Nghe & Shadowing", desc: "Hội thoại thật, shadow từng câu", href: "/shadowing", icon: Play },
   { id: "writing", label: "Viết làm việc", desc: "Email / Slack / Jira ngắn", href: "/writing", icon: Play },

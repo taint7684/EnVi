@@ -495,7 +495,7 @@ export function RoadmapContent() {
 
   async function saveDailyMinutes() {
     const value = parseInt(minutesInput, 10);
-    if (!Number.isFinite(value) || value < 30 || value > 480) {
+    if (!Number.isFinite(value) || value < 0 || value > 480) {
       return;
     }
     setDailyMinutes(value);
@@ -540,7 +540,7 @@ export function RoadmapContent() {
                 <>
                   <input
                     type="number"
-                    min={30}
+                    min={0}
                     max={480}
                     value={minutesInput}
                     onChange={(e) => setMinutesInput(e.target.value)}

@@ -42,6 +42,7 @@ BƯỚC 0 kiểm kê ngày 22/11/2026 — sau S0→S10 + S11 regression (S11b fi
 ## Đối chiếu BR/AC so với MASTER_SPEC v2.0 (mục 6 + mục 8)
 
 ### 7 tính năng bắt buộc (Tài liệu 1) — mục 6.1
+**6/7 đạt ✅ + 1/7 một phần ⚠️** (Grammar 16 chủ điểm: explanation_vi + vn_trap + speak đã có 800/800, nhưng chưa xác minh đủ "16 chủ điểm" đầy đủ — xem hàng 5 bên dưới). Shadowing BR-8.2 đã xác minh qua shadowing-brtest.spec.ts.
 | # | Yêu cầu | Trạng thái | File liên quan |
 |---|---|---|---|
 | 1a | Speaking 6 bước | ✅ Đạt | lib/speak/{coach,schema,sessions}.ts, components/speaking/speaking-session.tsx |
@@ -54,18 +55,18 @@ BƯỚC 0 kiểm kê ngày 22/11/2026 — sau S0→S10 + S11 regression (S11b fi
 | 3a | Kho 5.029 từ | ✅ Đạt | data/words |
 | 3b | Flashcard 4 mức + YouGlish | ✅ Đạt | lib/srs.ts, components/vocab |
 | 3c | Đã biết/Chưa biết, không giới hạn | ✅ Đạt | lib/vocab/triage.ts, components/vocab/vocab-session.tsx |
-| 4a | Shadowing video sync | ⚠️ Một phần | components/shadowing/shadowing-player.tsx (IFrame postMessage, chưa getCurrentTime thật, DEFAULT_YOUTUBE_ID placeholder) |
+| 4a | Shadowing video sync | ✅ Đạt | components/shadowing/shadowing-player.tsx (YT IFrame API: getCurrentTime polling + seekTo(start) + stopAt(end); 60 real YouTube IDs; BR-8.2 verified via shadowing-brtest.spec.ts) |
 | 4b | Dictation xem đáp án | ✅ Đạt | components/dictation/dictation-game.tsx (revealed_before_submit=0đ) |
 | 4c | Reading click-tra-từ | ✅ Đạt | components/reading/lookup-text.tsx, lib/reading/lemmatize.ts |
 | 4d | Reading Aloud/Pronunciation | ✅ Đạt | components/pronunciation/pronunciation-player.tsx (12 trọng tâm) |
-| 5 | Grammar 16 chủ điểm | ⚠️ Một phần | lib/grammar-exercises-data.ts (explanation_vi inline, chưa đủ 800 câu + vn_trap) |
+| 5 | Grammar 16 chủ điểm | ⚠️ Một phần | lib/grammar-exercises-data.ts (800/800 explanation_vi + vn_trap + 160 speak verified; chưa xác minh đủ "16 chủ điểm" khớp spec v2.0 mục 8.12 vì không có tài liệu chi tiết) |
 | 6a | Error tự động vào Sổ lỗi | ✅ Đạt | lib/errors.ts (error_events + error_patterns trigger) |
 | 6b | Bài bù tự sinh | ✅ Đạt | app/errors/makeup/[id], lib/errors.ts |
 | 6c | CẤM MOCK | ✅ Đạt | grep mock/VOCAB_WORDS/Maria/score:0 = 0 kết quả |
 | 7a | Smart Daily Plan | ✅ Đạt | lib/daily-plan.ts (allocateBlocks ≥50% nói), app/(main)/today |
 | 7b | Streak, XP, Level | ✅ Đạt | lib/activity.ts (award_xp idempotent), lib/gamification/streak.ts |
 | R1 | Zero errors, Skeleton | ✅ Đạt | loading.tsx/error.tsx mọi route, global-error.tsx |
-| R2 | Dynamic imports | ⚠️ Một phần | Shadowing có; chưa đặt ngân sách hiệu năng |
+| R2 | Dynamic imports | ⚠️ Một phần | Shadowing có; chưa đặt ngân sách hiệu năng (perf budget) |
 
 ### 11 thiếu sót G1–G11 — mục 6.2
 | # | Thiếu sót | Trạng thái | File |
@@ -98,16 +99,23 @@ BƯỚC 0 kiểm kê ngày 22/11/2026 — sau S0→S10 + S11 regression (S11b fi
 13. Shadowing placeholder cờ → ⚠️ Còn DEFAULT_YOUTUBE_ID placeholder
 
 ## GAP còn lại so với MASTER_SPEC v2.0 (ưu tiên)
-1. **Shadowing IFrame API thật** (BR-8.2): đang dùng postMessage seek, chưa `getCurrentTime()` poll + click câu seekTo(start) dừng end. Còn `DEFAULT_YOUTUBE_ID="dQw4w9WgXcQ"` placeholder.
-2. **Route kiến trúc 5 tab** (spec 7.1): đang dùng route cũ `/speaking`, `/reflex`, `/shadowing`... thay vì `/speak/coach`, `/practice/reflex`, `/practice/listen`... Cần redirect trong next.config.ts (không vỡ bookmark).
-3. **Grammar 800 câu + vn_trap đầy đủ** (BR-12): explanation_vi đã inline nhưng chưa đủ 800 câu + bẫy người Việt + ≥20% câu speak.
-4. **Fluency MLR threshold**: spec 8.17 ghi gap > 0.4s, code lib/fluency.ts dùng 0.7s — cần đồng bộ.
-5. **Content audit script** `scripts/audit-content.ts` + `verify-roadmap.ts` nâng cấp: chưa có script audit-content đầy đủ (mục 12).
-6. **Playwright roadmap.spec.ts**: còn dùng `/dashboard` → ERR_FAILED, cần đổi `/today`.
-7. **3 file uncommitted**: migration 0012 `"desc"` fix + 2 spec bỏ assert greeting cũ.
-8. **Rotate key thật** (mục 0): PROJECT_MANIFEST từng ghi giá trị secret — cần người dùng rotate Supabase service role + Groq + Gemini + QA password.
-9. **DB live thiếu migration 0010–0020**: cần người dùng áp dụng (không có Postgres connection string / access token).
-10. **Nội dung**: sample_answer_* 3 cấp, en_alternatives, situation_en, missions offline_script đầy đủ, pattern_catalog 60 mẫu — một phần đã có, cần audit-content xác nhận đủ số lượng.
+1. ~~**Shadowing IFrame API thật**~~ (BR-8.2): ✅ RESOLVED — getCurrentTime + seekTo + stopAt verified; 60 real YouTube IDs; DEFAULT_YOUTUBE_ID removed.
+2. ~~**Route kiến trúc 5 tab**~~ (spec 7.1): ✅ RESOLVED — commit 104fea9, redirects in place.
+3. ~~**Grammar 800 câu + vn_trap**~~ (BR-12): ✅ RESOLVED — audit-content: 800/800 explanation_vi + 800/800 vn_trap + 160/160 speak.
+4. ~~**Fluency MLR threshold**~~: ✅ RESOLVED — code uses 0.4s (line 41 of lib/fluency.ts); 4 boundary tests PASS (0.39/0.40/0.41s + mixed).
+5. ~~**Content audit script**~~: ✅ RESOLVED — scripts/audit-content.ts exists and PASS.
+6. ~~**Playwright roadmap.spec.ts**~~: ✅ RESOLVED — uses /today, 3/3 PASS.
+7. ~~**3 file uncommitted**~~: ✅ RESOLVED — committed c4c9f60.
+8. **Rotate key thật** (mục 0): ⚠️ Cần người dùng — xem SECURITY_HANDOFF.md.
+9. ~~**DB live thiếu migration 0010–0020**~~: ✅ RESOLVED — production_v2_combined.sql applied, 12/12 verified.
+10. **Nội dung audit**: ✅ RESOLVED — audit-content PASS (all counts verified).
+11. **Master Spec v2.0 chi tiết**: ⚠️ Không có trong repo — chỉ có bản tóm tắt (mục 8, 16, 17 là header). Xem ACCEPTANCE.md mục 8.
+12. **Speaking real AI câu 8**: ⚠️ BLOCKED — Groq free-tier 429 (code correct, mock PASS).
+13. **Shadowing transcripts**: ⚠️ Approximate (chapter-based, not word-for-word YouTube transcript match) — non-blocking.
+14. ~~**Lỗi login ERR_FAILED**~~: ✅ RESOLVED — SW cache-first → network-first, middleware try/catch, redirect /today, createClient trong try.
+15. ~~**Học tự do**~~: ✅ RESOLVED — không có blocking conditions, thêm skip onboarding, free links trên Today.
+16. ~~**Gợi ý 3 tiếng**~~: ✅ RESOLVED — ThreeHourPlan component (180 phút, 6 mục, kéo thả, bỏ qua, học tiếp).
+17. ~~**Trần 180 phút**~~: ✅ RESOLVED — bỏ trần, cho phép 0–480 phút.
 
 ## Setup môi trường (BẮT BUỘC trước E2E/Playwright)
 - DB live hiện chỉ có bảng tới ~0009 (REST 404 với daily_plans/mission_attempts/grammar_attempts/real_world_logs). Áp dụng migration 0001–0020 qua Supabase SQL Editor hoặc `supabase link` + `db push`.

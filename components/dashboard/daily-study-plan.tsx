@@ -73,9 +73,34 @@ export function DailyStudyPlan({ plan }: { plan: TodayPlanResult }) {
       ) : null}
 
       {total === 0 ? (
-        <p className="mt-4 text-sm text-muted-foreground">
-          Hôm nay không có khối cụ thể — bạn có thể tự chọn hoạt động để luyện tập.
-        </p>
+        <div className="mt-4 rounded-xl border border-border bg-muted/30 p-4">
+          <p className="text-sm text-muted-foreground">
+            Bạn có thể học tự do — vào thẳng bất kỳ bài nào:
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            <Button asChild size="sm" variant="outline">
+              <Link href="/vocab">Từ vựng</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/reflex">Phản xạ</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/speaking">Speaking</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/shadowing">Nghe & Nhại</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/reading">Đọc</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/writing">Viết</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/error-log">Sổ lỗi</Link>
+            </Button>
+          </div>
+        </div>
       ) : (
         <ul className="mt-4 space-y-2">
           {plan.tasks.map((task) => {
@@ -154,6 +179,13 @@ export function DailyStudyPlan({ plan }: { plan: TodayPlanResult }) {
             {plan.bonusAwarded
               ? "Bạn nhận được +100 XP cho hôm nay!"
               : "Giữ vững phong độ nhé!"}
+          </p>
+          <p className="mt-2 text-xs text-green-700/60">
+            Bạn vẫn có thể học tiếp — vào thẳng{" "}
+            <Link href="/vocab" className="underline">Từ vựng</Link>,{" "}
+            <Link href="/reflex" className="underline">Phản xạ</Link>,{" "}
+            <Link href="/speaking" className="underline">Speaking</Link>{" "}
+            hoặc bất kỳ bài nào.
           </p>
         </div>
       ) : null}

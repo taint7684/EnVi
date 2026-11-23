@@ -9,7 +9,6 @@ export async function updateSession(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {
-    // Chưa cấu hình Supabase (ví dụ dev trước khi setup) — bỏ qua kiểm tra phiên.
     return supabaseResponse;
   }
 
@@ -34,33 +33,40 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user: Awaited<ReturnType<typeof supabase.auth.getUser>>["data"]["user"];
+  try {
+    const result = await supabase.auth.getUser();
+    user = result.data.user;
+  } catch {
+    const url2 = request.nextUrl.clone();
+    url2.pathname = "/login";
+    url2.searchParams.set("next", request.nextUrl.pathname);
+    return NextResponse.redirect(url2);
+  }
 
   const { pathname } = request.nextUrl;
   const isPublic =
     PUBLIC_PATHS.includes(pathname) || pathname.startsWith("/auth");
 
   if (!user && !isPublic) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    url.searchParams.set("next", pathname);
-    return NextResponse.redirect(url);
+    const url2 = request.nextUrl.clone();
+    url2.pathname = "/login";
+    url2.searchParams.set("next", pathname);
+    return NextResponse.redirect(url2);
   }
 
   if (user && pathname === "/login") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/today";
-    url.search = "";
-    return NextResponse.redirect(url);
+    const url2 = request.nextUrl.clone();
+    url2.pathname = "/today";
+    url2.search = "";
+    return NextResponse.redirect(url2);
   }
 
   if (pathname === "/dashboard" || pathname === "/dashboard/") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/today";
-    url.search = "";
-    return NextResponse.redirect(url);
+    const url2 = request.nextUrl.clone();
+    url2.pathname = "/today";
+    url2.search = "";
+    return NextResponse.redirect(url2);
   }
 
   return supabaseResponse;
