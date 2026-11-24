@@ -62,6 +62,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Tôi tên là Anna. Tôi bắt đầu một công việc mới tuần trước tại một hiệu sách nhỏ ở trung tâm thành phố. Tôi làm việc từ chín giờ sáng đến năm giờ chiều. Công việc chính của tôi là giúp khách hàng tìm sách và sắp xếp các kệ sách. Ông chủ cửa hàng, ông Brown, rất tốt và kiên nhẫn. Ông đang dạy tôi cách sử dụng hệ thống máy tính. Tôi thích công việc này vì tôi yêu đọc sách và gặp gỡ mọi người. Vấn đề duy nhất là cửa hàng khá xa nhà tôi, nên mỗi sáng tôi phải đi hai chuyến xe buýt. Tháng sau tôi hy vọng mua một chiếc xe đạp để việc đi lại dễ dàng hơn.",
+    "vocabulary": [
+      {
+        "word": "bookshop",
+        "ipa": "/ˈbʊkʃɒp/",
+        "meaning": "hiệu sách",
+        "pos": "n"
+      },
+      {
+        "word": "customer",
+        "ipa": "/ˈkʌstəmər/",
+        "meaning": "khách hàng",
+        "pos": "n"
+      },
+      {
+        "word": "organize",
+        "ipa": "/ˈɔːrɡənaɪz/",
+        "meaning": "sắp xếp",
+        "pos": "v"
+      },
+      {
+        "word": "shelf",
+        "ipa": "/ʃelf/",
+        "meaning": "kệ sách (số nhiều: shelves)",
+        "pos": "n"
+      },
+      {
+        "word": "patient",
+        "ipa": "/ˈpeɪʃnt/",
+        "meaning": "kiên nhẫn",
+        "pos": "adj"
+      },
+      {
+        "word": "owner",
+        "ipa": "/ˈoʊnər/",
+        "meaning": "chủ sở hữu",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Anna's main job is to help ___ find books.",
+        "options": [
+          "customers",
+          "teachers",
+          "doctors",
+          "drivers"
+        ],
+        "answer": "customers",
+        "explanation": "Anna giúp khách hàng (customers) tìm sách."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Kind' is closest in meaning to ___.",
+        "options": [
+          "nice",
+          "angry",
+          "lazy",
+          "busy"
+        ],
+        "answer": "nice",
+        "explanation": "'Kind' (tử tế) ≈ 'nice' (tốt bụng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She work every morning.",
+          "She works every morning.",
+          "She working every morning.",
+          "She is work every morning."
+        ],
+        "answer": "She works every morning.",
+        "explanation": "Chủ ngữ số ít 'she' + động từ thêm -s: 'works'."
+      }
     ]
   },
   {
@@ -126,6 +209,89 @@
           "Teachers"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Hôm nay là thứ Bảy, nhưng thời tiết rất tệ. Trời đã mưa từ sáng sớm. Tôi muốn đi công viên, nhưng giờ tôi phải ở nhà. Tôi và anh trai quyết định nướng một chiếc bánh. Chúng tôi trộn bột mì, đường, trứng và bơ trong một cái tô lớn. Trong khi bánh ở trong lò, chúng tôi xem một bộ phim hài. Cả ngôi nhà thơm lừng. Khi bánh chín, chúng tôi chia cho bố mẹ. Dù thời tiết xấu, chúng tôi vẫn có một ngày thật vui bên nhau.",
+    "vocabulary": [
+      {
+        "word": "weather",
+        "ipa": "/ˈweðər/",
+        "meaning": "thời tiết",
+        "pos": "n"
+      },
+      {
+        "word": "bake",
+        "ipa": "/beɪk/",
+        "meaning": "nướng, làm bánh",
+        "pos": "v"
+      },
+      {
+        "word": "flour",
+        "ipa": "/ˈflaʊər/",
+        "meaning": "bột mì",
+        "pos": "n"
+      },
+      {
+        "word": "butter",
+        "ipa": "/ˈbʌtər/",
+        "meaning": "bơ",
+        "pos": "n"
+      },
+      {
+        "word": "oven",
+        "ipa": "/ˈʌvn/",
+        "meaning": "lò nướng",
+        "pos": "n"
+      },
+      {
+        "word": "smell",
+        "ipa": "/smel/",
+        "meaning": "có mùi, thơm",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "They decided to ___ a cake instead of going to the park.",
+        "options": [
+          "bake",
+          "buy",
+          "eat",
+          "sell"
+        ],
+        "answer": "bake",
+        "explanation": "Họ quyết định nướng (bake) một chiếc bánh."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Lovely' is closest in meaning to ___.",
+        "options": [
+          "wonderful",
+          "terrible",
+          "boring",
+          "sad"
+        ],
+        "answer": "wonderful",
+        "explanation": "'Lovely' (đáng yêu, tuyệt) ≈ 'wonderful'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "We was watching a movie.",
+          "We were watching a movie.",
+          "We were watch a movie.",
+          "We watching a movie."
+        ],
+        "answer": "We were watching a movie.",
+        "explanation": "Quá khứ tiếp diễn: 'we' + 'were' + V-ing."
       }
     ]
   },
@@ -192,6 +358,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Bạn thân của tôi tên là Minh. Chúng tôi biết nhau từ hồi tiểu học. Minh cao và có mái tóc đen ngắn. Cậu ấy rất hài hước và luôn làm tôi cười. Cả hai đều thích chơi bóng đá và nghe nhạc. Vào cuối tuần, chúng tôi thường đạp xe đến bờ sông và dã ngoại. Minh muốn trở thành bác sĩ vì cậu ấy thích giúp đỡ mọi người. Tôi muốn trở thành giáo viên. Chúng tôi đã hứa sẽ mãi là bạn, ngay cả khi chuyển đến các thành phố khác để học đại học.",
+    "vocabulary": [
+      {
+        "word": "primary school",
+        "ipa": "/ˈpraɪmeri skuːl/",
+        "meaning": "trường tiểu học",
+        "pos": "n"
+      },
+      {
+        "word": "short",
+        "ipa": "/ʃɔːrt/",
+        "meaning": "ngắn",
+        "pos": "adj"
+      },
+      {
+        "word": "laugh",
+        "ipa": "/læf/",
+        "meaning": "cười",
+        "pos": "v"
+      },
+      {
+        "word": "picnic",
+        "ipa": "/ˈpɪknɪk/",
+        "meaning": "buổi dã ngoại",
+        "pos": "n"
+      },
+      {
+        "word": "promise",
+        "ipa": "/ˈprɑːmɪs/",
+        "meaning": "hứa",
+        "pos": "v"
+      },
+      {
+        "word": "forever",
+        "ipa": "/fərˈevər/",
+        "meaning": "mãi mãi",
+        "pos": "adv"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Minh wants to become a ___ because he likes helping people.",
+        "options": [
+          "doctor",
+          "teacher",
+          "driver",
+          "cook"
+        ],
+        "answer": "doctor",
+        "explanation": "Minh muốn trở thành bác sĩ (doctor)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Funny' is closest in meaning to ___.",
+        "options": [
+          "humorous",
+          "serious",
+          "quiet",
+          "rude"
+        ],
+        "answer": "humorous",
+        "explanation": "'Funny' (hài hước) ≈ 'humorous'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He have short black hair.",
+          "He has short black hair.",
+          "He having short black hair.",
+          "He is has short black hair."
+        ],
+        "answer": "He has short black hair.",
+        "explanation": "'He' đi với 'has'."
+      }
     ]
   },
   {
@@ -256,6 +505,89 @@
           "They do not pay"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Mỗi Chủ nhật, mẹ tôi và tôi đến siêu thị để mua thức ăn cho cả tuần. Chúng tôi luôn mang theo một danh sách đi chợ để không quên gì. Tuần này chúng tôi cần gạo, trứng, sữa, rau và một ít trái cây. Siêu thị rất lớn và có nhiều khu vực khác nhau. Phần yêu thích của tôi là tiệm bánh, vì bánh mì thơm quá. Mẹ tôi thường mua cá tươi vào thứ Sáu, nhưng hôm nay bà chọn thịt gà. Khi thanh toán, chúng tôi trả bằng thẻ. Sau đó chúng tôi mang những chiếc túi nặng về nhà và cất mọi thứ vào tủ lạnh.",
+    "vocabulary": [
+      {
+        "word": "supermarket",
+        "ipa": "/ˈsuːpərmɑːrkɪt/",
+        "meaning": "siêu thị",
+        "pos": "n"
+      },
+      {
+        "word": "list",
+        "ipa": "/lɪst/",
+        "meaning": "danh sách",
+        "pos": "n"
+      },
+      {
+        "word": "section",
+        "ipa": "/ˈsekʃn/",
+        "meaning": "khu vực",
+        "pos": "n"
+      },
+      {
+        "word": "bakery",
+        "ipa": "/ˈbeɪkəri/",
+        "meaning": "tiệm bánh",
+        "pos": "n"
+      },
+      {
+        "word": "fresh",
+        "ipa": "/freʃ/",
+        "meaning": "tươi",
+        "pos": "adj"
+      },
+      {
+        "word": "checkout",
+        "ipa": "/ˈtʃekaʊt/",
+        "meaning": "quầy thanh toán",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "They always take a shopping ___ so they do not forget anything.",
+        "options": [
+          "list",
+          "bag",
+          "cart",
+          "basket"
+        ],
+        "answer": "list",
+        "explanation": "Họ mang theo danh sách (list) đi chợ."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Fresh' is closest in meaning to ___.",
+        "options": [
+          "new",
+          "old",
+          "frozen",
+          "salty"
+        ],
+        "answer": "new",
+        "explanation": "'Fresh' (tươi) ≈ 'new' (mới)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She buy fresh fish on Fridays.",
+          "She buys fresh fish on Fridays.",
+          "She buying fresh fish on Fridays.",
+          "She is buy fresh fish on Fridays."
+        ],
+        "answer": "She buys fresh fish on Fridays.",
+        "explanation": "'She' + động từ thêm -s: 'buys'."
       }
     ]
   },
@@ -322,6 +654,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Mùa hè năm ngoái, gia đình tôi đi biển một tuần. Chúng tôi ở trong một khách sạn nhỏ gần biển. Mỗi sáng, tôi thức dậy sớm và đi dạo trên cát. Nước ấm và trong. Em gái tôi xây lâu đài cát trong khi bố mẹ tôi đọc sách dưới một chiếc ô. Vào buổi chiều, chúng tôi ăn hải sản tươi ở một nhà hàng bên bờ nước. Một ngày nọ, chúng tôi đi thuyền và nhìn thấy cá heo. Đó là kỳ nghỉ đẹp nhất đời tôi, và tôi hy vọng năm sau chúng tôi có thể quay lại.",
+    "vocabulary": [
+      {
+        "word": "beach",
+        "ipa": "/biːtʃ/",
+        "meaning": "bãi biển",
+        "pos": "n"
+      },
+      {
+        "word": "sand",
+        "ipa": "/sænd/",
+        "meaning": "cát",
+        "pos": "n"
+      },
+      {
+        "word": "sandcastle",
+        "ipa": "/ˈsændkæsl/",
+        "meaning": "lâu đài cát",
+        "pos": "n"
+      },
+      {
+        "word": "umbrella",
+        "ipa": "/ʌmˈbrelə/",
+        "meaning": "ô, dù",
+        "pos": "n"
+      },
+      {
+        "word": "seafood",
+        "ipa": "/ˈsiːfuːd/",
+        "meaning": "hải sản",
+        "pos": "n"
+      },
+      {
+        "word": "dolphin",
+        "ipa": "/ˈdɑːlfɪn/",
+        "meaning": "cá heo",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "My little sister built ___ on the beach.",
+        "options": [
+          "sandcastles",
+          "houses",
+          "cars",
+          "boats"
+        ],
+        "answer": "sandcastles",
+        "explanation": "Em gái xây lâu đài cát (sandcastles)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Clear' (about water) is closest in meaning to ___.",
+        "options": [
+          "transparent",
+          "dirty",
+          "deep",
+          "cold"
+        ],
+        "answer": "transparent",
+        "explanation": "Nước 'clear' (trong) ≈ 'transparent' (trong suốt)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "We was staying in a hotel.",
+          "We stayed in a hotel.",
+          "We stay in a hotel yesterday.",
+          "We were stay in a hotel."
+        ],
+        "answer": "We stayed in a hotel.",
+        "explanation": "Quá khứ đơn của 'stay' là 'stayed'."
+      }
     ]
   },
   {
@@ -386,6 +801,89 @@
           "It is quick"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Khi còn trẻ, tôi chưa bao giờ nấu ăn. Nhưng sau khi chuyển đến một thành phố mới để học đại học, tôi phải học. Món đầu tiên của tôi là cơm chiên, và nó thật tệ. Dần dần, tôi khá hơn nhờ xem video và luyện tập. Giờ tôi nấu ăn gần như mỗi ngày. Món yêu thích của tôi là súp gà vì nó tốt cho sức khỏe và dễ làm. Nấu ăn giúp tôi tiết kiệm tiền và thư giãn sau khi học. Cuối tuần trước, tôi mời bạn bè đến ăn tối, và họ rất thích đồ ăn của tôi. Tôi cảm thấy tự hào về bản thân.",
+    "vocabulary": [
+      {
+        "word": "dish",
+        "ipa": "/dɪʃ/",
+        "meaning": "món ăn",
+        "pos": "n"
+      },
+      {
+        "word": "terrible",
+        "ipa": "/ˈterəbl/",
+        "meaning": "tệ, kinh khủng",
+        "pos": "adj"
+      },
+      {
+        "word": "practice",
+        "ipa": "/ˈpræktɪs/",
+        "meaning": "luyện tập",
+        "pos": "v"
+      },
+      {
+        "word": "healthy",
+        "ipa": "/ˈhelθi/",
+        "meaning": "tốt cho sức khỏe",
+        "pos": "adj"
+      },
+      {
+        "word": "save",
+        "ipa": "/seɪv/",
+        "meaning": "tiết kiệm",
+        "pos": "v"
+      },
+      {
+        "word": "proud",
+        "ipa": "/praʊd/",
+        "meaning": "tự hào",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer's first dish was fried rice, and it was ___.",
+        "options": [
+          "terrible",
+          "delicious",
+          "perfect",
+          "spicy"
+        ],
+        "answer": "terrible",
+        "explanation": "Món đầu tiên thật tệ (terrible)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Proud' is closest in meaning to ___.",
+        "options": [
+          "pleased",
+          "ashamed",
+          "angry",
+          "tired"
+        ],
+        "answer": "pleased",
+        "explanation": "'Proud' (tự hào) ≈ 'pleased' (hài lòng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She cook almost every day.",
+          "She cooks almost every day.",
+          "She cooking almost every day.",
+          "She is cook almost every day."
+        ],
+        "answer": "She cooks almost every day.",
+        "explanation": "'She' + 'cooks'."
       }
     ]
   },
@@ -452,6 +950,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Một buổi chiều, một chú chó nhỏ màu nâu xuất hiện trong vườn nhà chúng tôi. Nó trông có vẻ đói và mệt. Chúng tôi cho nó chút nước và thức ăn. Em gái tôi muốn giữ nó lại, nhưng chúng tôi quyết định tìm chủ trước. Chúng tôi làm áp phích và dán quanh khu phố. Hai ngày sau, một người phụ nữ gọi cho chúng tôi. Bà ấy đang khóc vì đã mất chó một tuần trước. Khi nhìn thấy chú chó, bà ấy rất vui. Bà cảm ơn chúng tôi và tặng một hộp sô-cô-la. Chúng tôi cảm thấy vui vì đã giúp đỡ.",
+    "vocabulary": [
+      {
+        "word": "appear",
+        "ipa": "/əˈpɪr/",
+        "meaning": "xuất hiện",
+        "pos": "v"
+      },
+      {
+        "word": "hungry",
+        "ipa": "/ˈhʌŋɡri/",
+        "meaning": "đói",
+        "pos": "adj"
+      },
+      {
+        "word": "owner",
+        "ipa": "/ˈoʊnər/",
+        "meaning": "chủ sở hữu",
+        "pos": "n"
+      },
+      {
+        "word": "poster",
+        "ipa": "/ˈpoʊstər/",
+        "meaning": "áp phích",
+        "pos": "n"
+      },
+      {
+        "word": "neighborhood",
+        "ipa": "/ˈneɪbərhʊd/",
+        "meaning": "khu phố",
+        "pos": "n"
+      },
+      {
+        "word": "chocolate",
+        "ipa": "/ˈtʃɑːklət/",
+        "meaning": "sô-cô-la",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The dog looked ___ and tired, so they gave it food.",
+        "options": [
+          "hungry",
+          "angry",
+          "happy",
+          "clean"
+        ],
+        "answer": "hungry",
+        "explanation": "Chú chó trông đói (hungry) và mệt."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Found' is closest in meaning to ___.",
+        "options": [
+          "discovered",
+          "lost",
+          "hid",
+          "broke"
+        ],
+        "answer": "discovered",
+        "explanation": "'Found' (tìm thấy) ≈ 'discovered'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She have lost her dog.",
+          "She had lost her dog.",
+          "She has lose her dog.",
+          "She losing her dog."
+        ],
+        "answer": "She had lost her dog.",
+        "explanation": "Quá khứ hoàn thành: 'had' + quá khứ phân từ 'lost'."
+      }
     ]
   },
   {
@@ -516,6 +1097,89 @@
           "Juice"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Có năm người trong gia đình tôi. Bố tôi là kỹ sư và mẹ tôi là y tá. Tôi có một anh trai và một em gái. Chúng tôi sống trong một ngôi nhà nhỏ có sân vườn. Vào buổi tối, chúng tôi thường ăn tối cùng nhau và nói về ngày của mình. Vào Chủ nhật, chúng tôi đến thăm ông bà sống ở nông thôn. Ông tôi thích làm vườn, và bà tôi làm bánh ngon nhất. Tôi yêu gia đình mình vì chúng tôi luôn hỗ trợ nhau, ngay cả trong những lúc khó khăn.",
+    "vocabulary": [
+      {
+        "word": "engineer",
+        "ipa": "/ˌendʒɪˈnɪr/",
+        "meaning": "kỹ sư",
+        "pos": "n"
+      },
+      {
+        "word": "nurse",
+        "ipa": "/nɜːrs/",
+        "meaning": "y tá",
+        "pos": "n"
+      },
+      {
+        "word": "garden",
+        "ipa": "/ˈɡɑːrdn/",
+        "meaning": "sân vườn",
+        "pos": "n"
+      },
+      {
+        "word": "countryside",
+        "ipa": "/ˈkʌntrisaɪd/",
+        "meaning": "nông thôn",
+        "pos": "n"
+      },
+      {
+        "word": "support",
+        "ipa": "/səˈpɔːrt/",
+        "meaning": "hỗ trợ",
+        "pos": "v"
+      },
+      {
+        "word": "difficult",
+        "ipa": "/ˈdɪfɪkəlt/",
+        "meaning": "khó khăn",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "My father is an ___ and my mother is a nurse.",
+        "options": [
+          "engineer",
+          "artist",
+          "driver",
+          "farmer"
+        ],
+        "answer": "engineer",
+        "explanation": "Bố là kỹ sư (engineer)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Difficult' is closest in meaning to ___.",
+        "options": [
+          "hard",
+          "easy",
+          "simple",
+          "clear"
+        ],
+        "answer": "hard",
+        "explanation": "'Difficult' (khó) ≈ 'hard'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "There is five people in my family.",
+          "There are five people in my family.",
+          "There be five people in my family.",
+          "There were five people in my family."
+        ],
+        "answer": "There are five people in my family.",
+        "explanation": "'Five people' số nhiều → dùng 'are'."
       }
     ]
   },
@@ -582,6 +1246,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Thứ Sáu tuần trước, lớp tôi đi tham quan bảo tàng khoa học. Chúng tôi rời trường lúc tám giờ sáng bằng xe buýt. Bảo tàng rất lớn và có nhiều hiện vật thú vị. Phần yêu thích của tôi là khu không gian, nơi chúng tôi có thể chạm vào đá mặt trăng thật. Chúng tôi cũng xem một bộ phim 3D về khủng long. Vào giờ ăn trưa, chúng tôi ăn bánh mì kẹp trong công viên gần bảo tàng. Vào buổi chiều, chúng tôi ghé cửa hàng quà tặng trước khi về. Mọi người đều mệt nhưng vui. Tôi học được nhiều điều và hy vọng có chuyến đi nữa sớm.",
+    "vocabulary": [
+      {
+        "word": "museum",
+        "ipa": "/mjuˈziːəm/",
+        "meaning": "bảo tàng",
+        "pos": "n"
+      },
+      {
+        "word": "exhibit",
+        "ipa": "/ɪɡˈzɪbɪt/",
+        "meaning": "hiện vật trưng bày",
+        "pos": "n"
+      },
+      {
+        "word": "space",
+        "ipa": "/speɪs/",
+        "meaning": "không gian",
+        "pos": "n"
+      },
+      {
+        "word": "dinosaur",
+        "ipa": "/ˈdaɪnəsɔːr/",
+        "meaning": "khủng long",
+        "pos": "n"
+      },
+      {
+        "word": "sandwich",
+        "ipa": "/ˈsænwɪtʃ/",
+        "meaning": "bánh mì kẹp",
+        "pos": "n"
+      },
+      {
+        "word": "gift shop",
+        "ipa": "/ɡɪft ʃɑːp/",
+        "meaning": "cửa hàng quà tặng",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "They left school at eight in the morning by ___.",
+        "options": [
+          "bus",
+          "train",
+          "plane",
+          "bike"
+        ],
+        "answer": "bus",
+        "explanation": "Họ đi bằng xe buýt (bus)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Huge' is closest in meaning to ___.",
+        "options": [
+          "enormous",
+          "tiny",
+          "narrow",
+          "short"
+        ],
+        "answer": "enormous",
+        "explanation": "'Huge' (khổng lồ) ≈ 'enormous'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "We was at the museum.",
+          "We were at the museum.",
+          "We were at museum yesterday.",
+          "We at the museum."
+        ],
+        "answer": "We were at the museum.",
+        "explanation": "'We' + 'were'."
+      }
     ]
   },
   {
@@ -646,6 +1393,89 @@
           "Learn to drive"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Sở thích yêu thích của tôi là nhiếp ảnh. Tôi có chiếc máy ảnh đầu tiên hai năm trước như một món quà sinh nhật. Kể từ đó, tôi đã chụp hàng nghìn bức ảnh. Tôi thích chụp ảnh thiên nhiên, đặc biệt là cảnh hoàng hôn và núi non. Vào cuối tuần, tôi thường đến một công viên gần nhà với máy ảnh. Đôi khi tôi đăng những bức ảnh đẹp nhất lên mạng, và bạn bè để lại những bình luận tốt đẹp. Nhiếp ảnh dạy tôi để ý những chi tiết nhỏ mà người khác bỏ lỡ. Tôi mơ một ngày đi du lịch vòng quanh thế giới và chụp ảnh ở mọi quốc gia.",
+    "vocabulary": [
+      {
+        "word": "photography",
+        "ipa": "/fəˈtɑːɡrəfi/",
+        "meaning": "nhiếp ảnh",
+        "pos": "n"
+      },
+      {
+        "word": "camera",
+        "ipa": "/ˈkæmərə/",
+        "meaning": "máy ảnh",
+        "pos": "n"
+      },
+      {
+        "word": "nature",
+        "ipa": "/ˈneɪtʃər/",
+        "meaning": "thiên nhiên",
+        "pos": "n"
+      },
+      {
+        "word": "sunset",
+        "ipa": "/ˈsʌnset/",
+        "meaning": "hoàng hôn",
+        "pos": "n"
+      },
+      {
+        "word": "detail",
+        "ipa": "/ˈdiːteɪl/",
+        "meaning": "chi tiết",
+        "pos": "n"
+      },
+      {
+        "word": "country",
+        "ipa": "/ˈkʌntri/",
+        "meaning": "quốc gia",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer's favorite hobby is ___.",
+        "options": [
+          "photography",
+          "cooking",
+          "reading",
+          "swimming"
+        ],
+        "answer": "photography",
+        "explanation": "Sở thích là nhiếp ảnh (photography)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Hobby' is closest in meaning to ___.",
+        "options": [
+          "pastime",
+          "job",
+          "duty",
+          "chore"
+        ],
+        "answer": "pastime",
+        "explanation": "'Hobby' (sở thích) ≈ 'pastime' (thú tiêu khiển)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She have taken thousands of photos.",
+          "She has taken thousands of photos.",
+          "She has took thousands of photos.",
+          "She taking thousands of photos."
+        ],
+        "answer": "She has taken thousands of photos.",
+        "explanation": "Thì hiện tại hoàn thành: 'has' + 'taken'."
       }
     ]
   },
@@ -2012,6 +2842,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Mỗi sáng tôi đi tàu đến chỗ làm. Nhà ga luôn đông đúc vào lúc tám giờ. Tôi mua vé từ máy và đợi ở sân ga số ba. Tàu thường đúng giờ, nhưng đôi khi bị trễ. Hôm qua tôi đã đợi hai mươi phút vì mưa. Tôi thích đọc sách trong khi đi tàu. Điều đó làm cho hành trình có vẻ ngắn hơn. Khi tôi đến văn phòng, tôi cảm thấy sẵn sàng cho ngày mới.",
+    "vocabulary": [
+      {
+        "word": "station",
+        "ipa": "/ˈsteɪʃn/",
+        "meaning": "nhà ga",
+        "pos": "n"
+      },
+      {
+        "word": "ticket",
+        "ipa": "/ˈtɪkɪt/",
+        "meaning": "vé",
+        "pos": "n"
+      },
+      {
+        "word": "platform",
+        "ipa": "/ˈplætfɔːrm/",
+        "meaning": "sân ga",
+        "pos": "n"
+      },
+      {
+        "word": "journey",
+        "ipa": "/ˈdʒɜːrni/",
+        "meaning": "hành trình",
+        "pos": "n"
+      },
+      {
+        "word": "arrive",
+        "ipa": "/əˈraɪv/",
+        "meaning": "đến nơi",
+        "pos": "v"
+      },
+      {
+        "word": "ready",
+        "ipa": "/ˈredi/",
+        "meaning": "sẵn sàng",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "I buy a ___ from the machine before the journey.",
+        "options": [
+          "ticket",
+          "book",
+          "bag",
+          "map"
+        ],
+        "answer": "ticket",
+        "explanation": "Tôi mua vé (ticket) từ máy."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Busy' is closest in meaning to ___.",
+        "options": [
+          "crowded",
+          "empty",
+          "quiet",
+          "clean"
+        ],
+        "answer": "crowded",
+        "explanation": "'Busy' (đông đúc) ≈ 'crowded'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The train usually arrive on time.",
+          "The train usually arrives on time.",
+          "The train usually arriving on time.",
+          "The train usually is arrive on time."
+        ],
+        "answer": "The train usually arrives on time.",
+        "explanation": "'The train' số ít → 'arrives'."
+      }
     ]
   },
   {
@@ -2076,6 +2989,89 @@
           "Video games"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Vào sáng thứ Bảy, tôi dọn nhà và giặt giũ. Vào buổi chiều, tôi gặp bạn bè ở một quán cà phê ở trung tâm thành phố. Chúng tôi trò chuyện, cười và chia sẻ ảnh từ tuần của mình. Vào Chủ nhật, tôi đến thăm ông bà sống gần sông. Bà tôi nấu một bữa trưa lớn cho cả gia đình. Sau bữa trưa, ông tôi và tôi chơi cờ vua trong vườn. Tôi luôn cảm thấy thư giãn và vui sau một cuối tuần bên gia đình.",
+    "vocabulary": [
+      {
+        "word": "laundry",
+        "ipa": "/ˈlɔːndri/",
+        "meaning": "giặt giũ",
+        "pos": "n"
+      },
+      {
+        "word": "cafe",
+        "ipa": "/kæˈfeɪ/",
+        "meaning": "quán cà phê",
+        "pos": "n"
+      },
+      {
+        "word": "share",
+        "ipa": "/ʃer/",
+        "meaning": "chia sẻ",
+        "pos": "v"
+      },
+      {
+        "word": "chess",
+        "ipa": "/tʃes/",
+        "meaning": "cờ vua",
+        "pos": "n"
+      },
+      {
+        "word": "relaxed",
+        "ipa": "/rɪˈlækst/",
+        "meaning": "thư giãn",
+        "pos": "adj"
+      },
+      {
+        "word": "whole",
+        "ipa": "/hoʊl/",
+        "meaning": "toàn bộ",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "On Sunday, the writer visits ___ who live near the river.",
+        "options": [
+          "grandparents",
+          "friends",
+          "cousins",
+          "neighbors"
+        ],
+        "answer": "grandparents",
+        "explanation": "Tôi đến thăm ông bà (grandparents)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Relaxed' is closest in meaning to ___.",
+        "options": [
+          "calm",
+          "stressed",
+          "angry",
+          "busy"
+        ],
+        "answer": "calm",
+        "explanation": "'Relaxed' (thư giãn) ≈ 'calm' (bình tĩnh)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She cook a big lunch every Sunday.",
+          "She cooks a big lunch every Sunday.",
+          "She cooking a big lunch every Sunday.",
+          "She is cook a big lunch every Sunday."
+        ],
+        "answer": "She cooks a big lunch every Sunday.",
+        "explanation": "'She' + 'cooks'."
       }
     ]
   },
@@ -2142,6 +3138,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Một thư viện mới đã khai trương ở thị trấn của chúng tôi vào tháng trước. Đó là một tòa nhà lớn, hiện đại với ba tầng. Tầng trệt có báo và tạp chí, trong khi các tầng trên có sách để học. Cũng có một phòng yên tĩnh với máy tính và Wi-Fi miễn phí. Nơi yêu thích của tôi là khu thiếu nhi, nơi tôi đọc truyện cho em trai. Thư viện mở cửa mỗi ngày trừ thứ Hai. Tôi đến đó hai lần một tuần vì nó yên tĩnh và thanh bình.",
+    "vocabulary": [
+      {
+        "word": "library",
+        "ipa": "/ˈlaɪbreri/",
+        "meaning": "thư viện",
+        "pos": "n"
+      },
+      {
+        "word": "modern",
+        "ipa": "/ˈmɑːdərn/",
+        "meaning": "hiện đại",
+        "pos": "adj"
+      },
+      {
+        "word": "floor",
+        "ipa": "/flɔːr/",
+        "meaning": "tầng",
+        "pos": "n"
+      },
+      {
+        "word": "magazine",
+        "ipa": "/ˈmæɡəziːn/",
+        "meaning": "tạp chí",
+        "pos": "n"
+      },
+      {
+        "word": "peaceful",
+        "ipa": "/ˈpiːsfəl/",
+        "meaning": "thanh bình",
+        "pos": "adj"
+      },
+      {
+        "word": "service",
+        "ipa": "/ˈsɜːrvɪs/",
+        "meaning": "dịch vụ",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The library is open every day ___ Monday.",
+        "options": [
+          "except",
+          "and",
+          "but",
+          "or"
+        ],
+        "answer": "except",
+        "explanation": "Mở cửa mỗi ngày trừ (except) thứ Hai."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Quiet' is closest in meaning to ___.",
+        "options": [
+          "silent",
+          "noisy",
+          "busy",
+          "loud"
+        ],
+        "answer": "silent",
+        "explanation": "'Quiet' (yên tĩnh) ≈ 'silent' (im lặng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "There is many books on the shelf.",
+          "There are many books on the shelf.",
+          "There have many books on the shelf.",
+          "There be many books on the shelf."
+        ],
+        "answer": "There are many books on the shelf.",
+        "explanation": "'Many books' số nhiều → 'are'."
+      }
     ]
   },
   {
@@ -2206,6 +3285,89 @@
           "Faster walking"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Bữa sáng là bữa ăn quan trọng nhất trong ngày. Một bữa sáng tốt cung cấp năng lượng cho buổi sáng. Tôi thường ăn yến mạch với trái cây và một ly sữa. Đôi khi tôi ăn trứng và bánh mì nướng. Tôi cố gắng tránh ngũ cốc ngọt vì chúng chứa quá nhiều đường. Uống nước vào buổi sáng cũng rất quan trọng. Khi tôi ăn sáng lành mạnh, tôi có thể tập trung tốt hơn khi làm việc và không cảm thấy đói trước bữa trưa.",
+    "vocabulary": [
+      {
+        "word": "breakfast",
+        "ipa": "/ˈbrekfəst/",
+        "meaning": "bữa sáng",
+        "pos": "n"
+      },
+      {
+        "word": "energy",
+        "ipa": "/ˈenərdʒi/",
+        "meaning": "năng lượng",
+        "pos": "n"
+      },
+      {
+        "word": "oatmeal",
+        "ipa": "/ˈoʊtmɪəl/",
+        "meaning": "yến mạch",
+        "pos": "n"
+      },
+      {
+        "word": "avoid",
+        "ipa": "/əˈvɔɪd/",
+        "meaning": "tránh",
+        "pos": "v"
+      },
+      {
+        "word": "sugar",
+        "ipa": "/ˈʃʊɡər/",
+        "meaning": "đường",
+        "pos": "n"
+      },
+      {
+        "word": "concentrate",
+        "ipa": "/ˈkɑːnsntreɪt/",
+        "meaning": "tập trung",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "A good breakfast gives you ___ for the morning.",
+        "options": [
+          "energy",
+          "money",
+          "time",
+          "sleep"
+        ],
+        "answer": "energy",
+        "explanation": "Bữa sáng tốt cho bạn năng lượng (energy)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Avoid' is closest in meaning to ___.",
+        "options": [
+          "stay away from",
+          "look for",
+          "eat",
+          "buy"
+        ],
+        "answer": "stay away from",
+        "explanation": "'Avoid' (tránh) ≈ 'stay away from'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Breakfast are the most important meal.",
+          "Breakfast is the most important meal.",
+          "Breakfast were the most important meal.",
+          "Breakfast have the most important meal."
+        ],
+        "answer": "Breakfast is the most important meal.",
+        "explanation": "'Breakfast' số ít → 'is'."
       }
     ]
   },
@@ -2272,6 +3434,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Thứ Bảy tuần trước là sinh nhật của em gái tôi. Chúng tôi đã lên kế hoạch cho một bữa tiệc bất ngờ. Bố mẹ tôi trang trí phòng khách bằng bóng bay và đèn. Tôi nướng một chiếc bánh sô-cô-la và viết tên em lên đó. Khi em đi làm về, tất cả chúng tôi hét lên 'Bất ngờ'. Em vui đến mức bật khóc. Chúng tôi ăn bánh, mở nhạc và nhảy đến nửa đêm. Đó là sinh nhật tuyệt vời nhất mà em từng có, và em cảm ơn mọi người rất nhiều.",
+    "vocabulary": [
+      {
+        "word": "surprise",
+        "ipa": "/sərˈpraɪz/",
+        "meaning": "sự bất ngờ",
+        "pos": "n"
+      },
+      {
+        "word": "decorate",
+        "ipa": "/ˈdekəreɪt/",
+        "meaning": "trang trí",
+        "pos": "v"
+      },
+      {
+        "word": "balloon",
+        "ipa": "/bəˈluːn/",
+        "meaning": "bóng bay",
+        "pos": "n"
+      },
+      {
+        "word": "shout",
+        "ipa": "/ʃaʊt/",
+        "meaning": "hét, reo",
+        "pos": "v"
+      },
+      {
+        "word": "midnight",
+        "ipa": "/ˈmɪdnaɪt/",
+        "meaning": "nửa đêm",
+        "pos": "n"
+      },
+      {
+        "word": "ever",
+        "ipa": "/ˈevər/",
+        "meaning": "từng",
+        "pos": "adv"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "They organized a ___ party for her.",
+        "options": [
+          "surprise",
+          "boring",
+          "small",
+          "quiet"
+        ],
+        "answer": "surprise",
+        "explanation": "Họ tổ chức một bữa tiệc bất ngờ (surprise)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Decorate' is closest in meaning to ___.",
+        "options": [
+          "adorn",
+          "remove",
+          "sell",
+          "wash"
+        ],
+        "answer": "adorn",
+        "explanation": "'Decorate' (trang trí) ≈ 'adorn'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She were so happy that she cried.",
+          "She was so happy that she cried.",
+          "She was so happy that she cry.",
+          "She is so happy that she cried."
+        ],
+        "answer": "She was so happy that she cried.",
+        "explanation": "'She' + 'was' (quá khứ)."
+      }
     ]
   },
   {
@@ -2337,6 +3582,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Mùa yêu thích của tôi là mùa thu. Thời tiết mát mẻ và dễ chịu, không quá nóng cũng không quá lạnh. Cây cối chuyển sang màu đỏ, cam và vàng, trông rất đẹp. Tôi thích đi bộ trong công viên và nghe tiếng lá dưới chân. Mùa thu cũng là mùa của năm học mới và những khởi đầu mới mẻ. Tôi thích uống trà nóng trong khi đọc sách trên ban công. Đối với tôi, mùa thu là khoảng thời gian yên bình và dễ chịu nhất trong năm.",
+    "vocabulary": [
+      {
+        "word": "autumn",
+        "ipa": "/ˈɔːtəm/",
+        "meaning": "mùa thu",
+        "pos": "n"
+      },
+      {
+        "word": "comfortable",
+        "ipa": "/ˈkʌmftəbl/",
+        "meaning": "dễ chịu",
+        "pos": "adj"
+      },
+      {
+        "word": "leaf",
+        "ipa": "/liːf/",
+        "meaning": "lá (số nhiều: leaves)",
+        "pos": "n"
+      },
+      {
+        "word": "season",
+        "ipa": "/ˈsiːzn/",
+        "meaning": "mùa",
+        "pos": "n"
+      },
+      {
+        "word": "balcony",
+        "ipa": "/ˈbælkəni/",
+        "meaning": "ban công",
+        "pos": "n"
+      },
+      {
+        "word": "pleasant",
+        "ipa": "/ˈpleznt/",
+        "meaning": "dễ chịu, thú vị",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "In autumn, the trees turn red, orange, and ___.",
+        "options": [
+          "yellow",
+          "blue",
+          "green",
+          "pink"
+        ],
+        "answer": "yellow",
+        "explanation": "Lá chuyển màu đỏ, cam và vàng (yellow)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Comfortable' is closest in meaning to ___.",
+        "options": [
+          "pleasant",
+          "painful",
+          "cold",
+          "hard"
+        ],
+        "answer": "pleasant",
+        "explanation": "'Comfortable' (dễ chịu) ≈ 'pleasant'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The leaves falls under my feet.",
+          "The leaves fall under my feet.",
+          "The leaves falling under my feet.",
+          "The leaves is falling under my feet."
+        ],
+        "answer": "The leaves fall under my feet.",
+        "explanation": "'Leaves' số nhiều → 'fall'."
+      }
     ]
   },
   {
@@ -2401,6 +3729,89 @@
           "One hour"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Tôi đến bác sĩ hôm qua vì tôi bị ho nặng. Phòng chờ đầy người. Sau ba mươi phút, y tá gọi tên tôi. Bác sĩ kiểm tra nhiệt độ và nghe nhịp tim của tôi. Ông nói tôi bị cảm lạnh thông thường và cho tôi một ít thuốc. Ông bảo tôi nghỉ ngơi ở nhà hai ngày và uống nhiều nước. Tôi làm theo lời khuyên của ông, và hôm nay tôi đã cảm thấy khá hơn hôm qua nhiều.",
+    "vocabulary": [
+      {
+        "word": "cough",
+        "ipa": "/kɔːf/",
+        "meaning": "cơn ho",
+        "pos": "n"
+      },
+      {
+        "word": "waiting room",
+        "ipa": "/ˈweɪtɪ ruːm/",
+        "meaning": "phòng chờ",
+        "pos": "n"
+      },
+      {
+        "word": "nurse",
+        "ipa": "/nɜːrs/",
+        "meaning": "y tá",
+        "pos": "n"
+      },
+      {
+        "word": "temperature",
+        "ipa": "/ˈtemprətʃər/",
+        "meaning": "nhiệt độ",
+        "pos": "n"
+      },
+      {
+        "word": "medicine",
+        "ipa": "/ˈmedɪsn/",
+        "meaning": "thuốc",
+        "pos": "n"
+      },
+      {
+        "word": "advice",
+        "ipa": "/ədˈvaɪs/",
+        "meaning": "lời khuyên",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer went to the doctor because of a bad ___.",
+        "options": [
+          "cough",
+          "fever",
+          "cold",
+          "headache"
+        ],
+        "answer": "cough",
+        "explanation": "Tôi đến bác sĩ vì bị ho (cough)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Advice' is closest in meaning to ___.",
+        "options": [
+          "suggestion",
+          "question",
+          "order",
+          "story"
+        ],
+        "answer": "suggestion",
+        "explanation": "'Advice' (lời khuyên) ≈ 'suggestion' (gợi ý)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He give me some medicine.",
+          "He gave me some medicine.",
+          "He giving me some medicine.",
+          "He is give me some medicine."
+        ],
+        "answer": "He gave me some medicine.",
+        "explanation": "Quá khứ của 'give' là 'gave'."
       }
     ]
   },
@@ -3312,6 +4723,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Mỗi thứ Bảy, Mai đi chợ với mẹ. Họ mua rau, trái cây và cá tươi. Chợ nhỏ nhưng đông đúc. Mai thích người bán trái cây vì cô ấy luôn mỉm cười. Họ thường dành khoảng một giờ ở đó. Sau khi mua sắm, họ ghé ăn một bát mì. Mai mang những túi nhẹ hơn trong khi mẹ cô mang những túi nặng. Trên đường về, họ nói về tuần của mình.",
+    "vocabulary": [
+      {
+        "word": "market",
+        "ipa": "/ˈmɑːrkɪt/",
+        "meaning": "chợ",
+        "pos": "n"
+      },
+      {
+        "word": "vegetable",
+        "ipa": "/ˈvedʒtəbl/",
+        "meaning": "rau",
+        "pos": "n"
+      },
+      {
+        "word": "seller",
+        "ipa": "/ˈselər/",
+        "meaning": "người bán",
+        "pos": "n"
+      },
+      {
+        "word": "smile",
+        "ipa": "/smaɪl/",
+        "meaning": "nụ cười",
+        "pos": "n"
+      },
+      {
+        "word": "noodle",
+        "ipa": "/ˈnuːdl/",
+        "meaning": "mì",
+        "pos": "n"
+      },
+      {
+        "word": "lighter",
+        "ipa": "/ˈlaɪtər/",
+        "meaning": "nhẹ hơn",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Mai goes to the ___ with her mother every Saturday.",
+        "options": [
+          "market",
+          "park",
+          "school",
+          "hospital"
+        ],
+        "answer": "market",
+        "explanation": "Mai đi chợ (market) với mẹ."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Busy' is closest in meaning to ___.",
+        "options": [
+          "crowded",
+          "empty",
+          "quiet",
+          "calm"
+        ],
+        "answer": "crowded",
+        "explanation": "'Busy' (đông đúc) ≈ 'crowded'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She carry the lighter bags.",
+          "She carries the lighter bags.",
+          "She carrying the lighter bags.",
+          "She is carry the lighter bags."
+        ],
+        "answer": "She carries the lighter bags.",
+        "explanation": "'She' + 'carries'."
+      }
     ]
   },
   {
@@ -3376,6 +4870,89 @@
           "Every day"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Tháng trước, một gia đình mới chuyển đến ở kế bên. Họ có hai đứa con và một chú chó nhỏ. Người bố là bác sĩ và người mẹ là y tá. Vào ngày đầu tiên, họ mang một ít bánh quy đến để chào hỏi. Em gái tôi chơi với các con của họ trong vườn. Con chó thân thiện nhưng rất ồn ào. Chúng tôi giúp họ tìm siêu thị gần nhất. Giờ chúng tôi thường ăn tối cùng nhau vào Chủ nhật.",
+    "vocabulary": [
+      {
+        "word": "neighbor",
+        "ipa": "/ˈneɪbər/",
+        "meaning": "hàng xóm",
+        "pos": "n"
+      },
+      {
+        "word": "move in",
+        "ipa": "/muːv ɪn/",
+        "meaning": "chuyển đến",
+        "pos": "phr"
+      },
+      {
+        "word": "cookie",
+        "ipa": "/ˈkʊki/",
+        "meaning": "bánh quy",
+        "pos": "n"
+      },
+      {
+        "word": "friendly",
+        "ipa": "/ˈfrendli/",
+        "meaning": "thân thiện",
+        "pos": "adj"
+      },
+      {
+        "word": "noisy",
+        "ipa": "/ˈnɔɪzi/",
+        "meaning": "ồn ào",
+        "pos": "adj"
+      },
+      {
+        "word": "nearest",
+        "ipa": "/ˈnɪrɪst/",
+        "meaning": "gần nhất",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The new family brought some ___ to say hello.",
+        "options": [
+          "cookies",
+          "flowers",
+          "books",
+          "toys"
+        ],
+        "answer": "cookies",
+        "explanation": "Họ mang bánh quy (cookies) đến chào."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Friendly' is closest in meaning to ___.",
+        "options": [
+          "kind",
+          "rude",
+          "cold",
+          "angry"
+        ],
+        "answer": "kind",
+        "explanation": "'Friendly' (thân thiện) ≈ 'kind' (tốt bụng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "They has two children.",
+          "They have two children.",
+          "They having two children.",
+          "They is have two children."
+        ],
+        "answer": "They have two children.",
+        "explanation": "'They' + 'have'."
       }
     ]
   },
@@ -3442,6 +5019,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Lớp chúng tôi đi dã ngoại về vùng nông thôn vào thứ Sáu tuần trước. Chúng tôi rời trường lúc bảy giờ sáng bằng xe buýt. Chuyến đi mất hai tiếng. Đầu tiên, chúng tôi thăm một trang trại và nhìn thấy bò và gà. Sau đó chúng tôi ăn trưa gần một dòng sông. Vào buổi chiều, chúng tôi chơi trò chơi và chụp nhiều ảnh. Thời tiết nắng và ấm áp. Chúng tôi quay về lúc năm giờ và mọi người đều mệt nhưng vui. Cô giáo nói năm sau chúng tôi sẽ đi nữa.",
+    "vocabulary": [
+      {
+        "word": "countryside",
+        "ipa": "/ˈkʌntrisaɪd/",
+        "meaning": "nông thôn",
+        "pos": "n"
+      },
+      {
+        "word": "farm",
+        "ipa": "/fɑːrm/",
+        "meaning": "trang trại",
+        "pos": "n"
+      },
+      {
+        "word": "cow",
+        "ipa": "/kaʊ/",
+        "meaning": "con bò",
+        "pos": "n"
+      },
+      {
+        "word": "river",
+        "ipa": "/ˈrɪvər/",
+        "meaning": "dòng sông",
+        "pos": "n"
+      },
+      {
+        "word": "sunny",
+        "ipa": "/ˈsʌni/",
+        "meaning": "nắng",
+        "pos": "adj"
+      },
+      {
+        "word": "trip",
+        "ipa": "/trɪp/",
+        "meaning": "chuyến đi",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "They traveled to the countryside by ___.",
+        "options": [
+          "bus",
+          "train",
+          "plane",
+          "car"
+        ],
+        "answer": "bus",
+        "explanation": "Họ đi bằng xe buýt (bus)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Sunny' is closest in meaning to ___.",
+        "options": [
+          "bright",
+          "rainy",
+          "cloudy",
+          "cold"
+        ],
+        "answer": "bright",
+        "explanation": "'Sunny' (nắng) ≈ 'bright' (sáng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The trip take two hours.",
+          "The trip took two hours.",
+          "The trip taking two hours.",
+          "The trip is take two hours."
+        ],
+        "answer": "The trip took two hours.",
+        "explanation": "Quá khứ của 'take' là 'took'."
+      }
     ]
   },
   {
@@ -3506,6 +5166,89 @@
           "A hobby"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Bà tôi là người nấu ăn giỏi nhất trong gia đình. Vào cuối tuần, tôi giúp bà làm món ăn truyền thống. Bà dạy tôi cách nấu cơm, súp và rau. Bà không bao giờ dùng công thức vì bà nhớ mọi thứ. Nhà bếp luôn thơm lừng. Chủ nhật tuần trước, chúng tôi làm gỏi cuốn cùng nhau. Tôi làm chậm, nhưng bà rất kiên nhẫn. Bà nói nấu ăn là một cách để thể hiện tình yêu thương. Tôi hy vọng một ngày nấu ăn giỏi như bà.",
+    "vocabulary": [
+      {
+        "word": "cook",
+        "ipa": "/kʊk/",
+        "meaning": "nấu ăn; người nấu ăn",
+        "pos": "v"
+      },
+      {
+        "word": "traditional",
+        "ipa": "/trəˈdɪʃənl/",
+        "meaning": "truyền thống",
+        "pos": "adj"
+      },
+      {
+        "word": "recipe",
+        "ipa": "/ˈresəpi/",
+        "meaning": "công thức",
+        "pos": "n"
+      },
+      {
+        "word": "smell",
+        "ipa": "/smel/",
+        "meaning": "thơm, có mùi",
+        "pos": "v"
+      },
+      {
+        "word": "spring roll",
+        "ipa": "/sprɪŋ roʊl/",
+        "meaning": "gỏi cuốn",
+        "pos": "n"
+      },
+      {
+        "word": "patient",
+        "ipa": "/ˈpeɪʃnt/",
+        "meaning": "kiên nhẫn",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Grandma never uses a ___ because she remembers everything.",
+        "options": [
+          "recipe",
+          "book",
+          "list",
+          "timer"
+        ],
+        "answer": "recipe",
+        "explanation": "Bà không dùng công thức (recipe)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Patient' is closest in meaning to ___.",
+        "options": [
+          "calm",
+          "angry",
+          "hasty",
+          "rude"
+        ],
+        "answer": "calm",
+        "explanation": "'Patient' (kiên nhẫn) ≈ 'calm' (bình tĩnh)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She teach me how to cook.",
+          "She teaches me how to cook.",
+          "She teaching me how to cook.",
+          "She is teach me how to cook."
+        ],
+        "answer": "She teaches me how to cook.",
+        "explanation": "'She' + 'teaches'."
       }
     ]
   },
@@ -3572,6 +5315,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Hôm nay là thứ Hai và trời mưa to. Tôi quên mang ô, nên tôi bị ướt trên đường đến trường. Các con đường bị ngập và giao thông chậm. Nhiều học sinh đến muộn. Cô giáo cho chúng tôi ở trong lớp giờ ra chơi. Tôi ngồi bên cửa sổ và đọc sách. Sau giờ học, mưa tạnh và mặt trời ló ra. Tôi đi bộ về nhà và nhìn thấy một chiếc cầu vồng tuyệt đẹp. Mẹ tôi pha trà nóng khi tôi về đến nhà.",
+    "vocabulary": [
+      {
+        "word": "heavily",
+        "ipa": "/ˈhevɪli/",
+        "meaning": "dữ dội, nặng hạt",
+        "pos": "adv"
+      },
+      {
+        "word": "umbrella",
+        "ipa": "/ʌmˈbrelə/",
+        "meaning": "ô, dù",
+        "pos": "n"
+      },
+      {
+        "word": "flooded",
+        "ipa": "/ˈflʌdid/",
+        "meaning": "ngập",
+        "pos": "adj"
+      },
+      {
+        "word": "traffic",
+        "ipa": "/ˈtræfɪk/",
+        "meaning": "giao thông",
+        "pos": "n"
+      },
+      {
+        "word": "rainbow",
+        "ipa": "/ˈreɪnboʊ/",
+        "meaning": "cầu vồng",
+        "pos": "n"
+      },
+      {
+        "word": "wet",
+        "ipa": "/wet/",
+        "meaning": "ướt",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer forgot an ___, so he got wet.",
+        "options": [
+          "umbrella",
+          "book",
+          "bag",
+          "coat"
+        ],
+        "answer": "umbrella",
+        "explanation": "Tôi quên ô (umbrella) nên bị ướt."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Heavily' (about rain) is closest in meaning to ___.",
+        "options": [
+          "hard",
+          "lightly",
+          "slowly",
+          "softly"
+        ],
+        "answer": "hard",
+        "explanation": "Mưa 'heavily' (to) ≈ 'hard'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The streets is flooded.",
+          "The streets are flooded.",
+          "The streets be flooded.",
+          "The streets have flooded."
+        ],
+        "answer": "The streets are flooded.",
+        "explanation": "'Streets' số nhiều → 'are'."
+      }
     ]
   },
   {
@@ -3636,6 +5462,89 @@
           "Become a coach"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Môn thể thao yêu thích của tôi là bơi lội. Tôi đến hồ bơi hai lần một tuần với anh trai. Chúng tôi thường bơi trong một tiếng. Bơi lội làm tôi khỏe mạnh. Vào mùa hè, chúng tôi cũng đi biển. Tháng trước, tôi tham gia một câu lạc bộ bơi. Huấn luyện viên rất tốt và dạy chúng tôi những kiểu bơi mới. Tôi không phải người nhanh nhất, nhưng tôi đang tiến bộ. Mục tiêu của tôi là bơi một kilômét mà không dừng lại.",
+    "vocabulary": [
+      {
+        "word": "swimming",
+        "ipa": "/ˈswɪmɪŋ/",
+        "meaning": "bơi lội",
+        "pos": "n"
+      },
+      {
+        "word": "pool",
+        "ipa": "/puːl/",
+        "meaning": "hồ bơi",
+        "pos": "n"
+      },
+      {
+        "word": "healthy",
+        "ipa": "/ˈhelθi/",
+        "meaning": "khỏe mạnh",
+        "pos": "adj"
+      },
+      {
+        "word": "coach",
+        "ipa": "/koʊtʃ/",
+        "meaning": "huấn luyện viên",
+        "pos": "n"
+      },
+      {
+        "word": "improve",
+        "ipa": "/ɪmˈpruːv/",
+        "meaning": "tiến bộ, cải thiện",
+        "pos": "v"
+      },
+      {
+        "word": "goal",
+        "ipa": "/ɡoʊl/",
+        "meaning": "mục tiêu",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer goes to the ___ twice a week.",
+        "options": [
+          "pool",
+          "gym",
+          "park",
+          "beach"
+        ],
+        "answer": "pool",
+        "explanation": "Tôi đến hồ bơi (pool) hai lần một tuần."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Improve' is closest in meaning to ___.",
+        "options": [
+          "get better",
+          "get worse",
+          "stop",
+          "fail"
+        ],
+        "answer": "get better",
+        "explanation": "'Improve' (cải thiện) ≈ 'get better'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Swimming make me strong.",
+          "Swimming makes me strong.",
+          "Swimming making me strong.",
+          "Swimming are make me strong."
+        ],
+        "answer": "Swimming makes me strong.",
+        "explanation": "Động từ 'swimming' (V-ing) số ít → 'makes'."
       }
     ]
   },
@@ -3702,6 +5611,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Hôm qua, ông Nam làm mất ví trên xe buýt. Bên trong có tiền và những chiếc thẻ quan trọng. Ông rất lo lắng. Một học sinh tìm thấy chiếc ví và đưa cho tài xế xe buýt. Tài xế gọi số điện thoại trên thẻ ID. Ông Nam đến bến xe để lấy lại. Ông vui đến mức muốn tặng thưởng. Cậu học sinh nói không cần và chỉ dặn ông cẩn thận hơn lần sau.",
+    "vocabulary": [
+      {
+        "word": "wallet",
+        "ipa": "/ˈwɑːlɪt/",
+        "meaning": "ví",
+        "pos": "n"
+      },
+      {
+        "word": "worry",
+        "ipa": "/ˈwɜːri/",
+        "meaning": "lo lắng",
+        "pos": "v"
+      },
+      {
+        "word": "driver",
+        "ipa": "/ˈdraɪvər/",
+        "meaning": "tài xế",
+        "pos": "n"
+      },
+      {
+        "word": "reward",
+        "ipa": "/rɪˈwɔːrd/",
+        "meaning": "phần thưởng",
+        "pos": "n"
+      },
+      {
+        "word": "careful",
+        "ipa": "/ˈkerfəl/",
+        "meaning": "cẩn thận",
+        "pos": "adj"
+      },
+      {
+        "word": "inside",
+        "ipa": "/ˌɪnˈsaɪd/",
+        "meaning": "bên trong",
+        "pos": "adv"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Mr. Nam lost his ___ on the bus.",
+        "options": [
+          "wallet",
+          "phone",
+          "bag",
+          "keys"
+        ],
+        "answer": "wallet",
+        "explanation": "Ông Nam làm mất ví (wallet)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Worried' is closest in meaning to ___.",
+        "options": [
+          "anxious",
+          "calm",
+          "happy",
+          "proud"
+        ],
+        "answer": "anxious",
+        "explanation": "'Worried' (lo lắng) ≈ 'anxious'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He were very worried.",
+          "He was very worried.",
+          "He is very worried yesterday.",
+          "He have worried."
+        ],
+        "answer": "He was very worried.",
+        "explanation": "'He' + 'was' (quá khứ)."
+      }
     ]
   },
   {
@@ -3766,6 +5758,89 @@
           "Next year"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Lan thân mến, Mình viết từ Đà Nẵng, nơi mình đang đi nghỉ cùng gia đình. Bãi biển ở đây rất đẹp và hải sản rất ngon. Hôm qua chúng mình đã thăm Ngũ Hành Sơn và chụp nhiều ảnh. Thời tiết nóng, nên chúng mình tắm biển mỗi buổi chiều. Vào buổi tối, chúng mình đi dạo dọc bãi biển và ăn kem. Mình ước gì cậu ở đây với chúng mình. Mình sẽ mang cho cậu một món quà nhỏ. Hẹn gặp tuần sau! Bạn của cậu, Hoa.",
+    "vocabulary": [
+      {
+        "word": "holiday",
+        "ipa": "/ˈhɑːlədeɪ/",
+        "meaning": "kỳ nghỉ",
+        "pos": "n"
+      },
+      {
+        "word": "delicious",
+        "ipa": "/dɪˈlɪʃəs/",
+        "meaning": "ngon",
+        "pos": "adj"
+      },
+      {
+        "word": "visit",
+        "ipa": "/ˈvɪzɪt/",
+        "meaning": "thăm",
+        "pos": "v"
+      },
+      {
+        "word": "mountain",
+        "ipa": "/ˈmaʊntn/",
+        "meaning": "ngọn núi",
+        "pos": "n"
+      },
+      {
+        "word": "gift",
+        "ipa": "/ɡɪft/",
+        "meaning": "món quà",
+        "pos": "n"
+      },
+      {
+        "word": "wish",
+        "ipa": "/wɪʃ/",
+        "meaning": "ước",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Hoa is writing from ___ where she is on holiday.",
+        "options": [
+          "Da Nang",
+          "Hanoi",
+          "Hue",
+          "Sa Pa"
+        ],
+        "answer": "Da Nang",
+        "explanation": "Hoa viết từ Đà Nẵng (Da Nang)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Delicious' is closest in meaning to ___.",
+        "options": [
+          "tasty",
+          "awful",
+          "salty",
+          "dry"
+        ],
+        "answer": "tasty",
+        "explanation": "'Delicious' (ngon) ≈ 'tasty'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "We was visiting the mountains.",
+          "We visited the mountains yesterday.",
+          "We visit the mountains yesterday.",
+          "We were visit the mountains."
+        ],
+        "answer": "We visited the mountains yesterday.",
+        "explanation": "Quá khứ đơn của 'visit' là 'visited'."
       }
     ]
   },
@@ -3832,6 +5907,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Thị trấn chúng tôi khai trương một thư viện mới vào tuần trước. Đó là một tòa nhà lớn, hiện đại với ba tầng. Tầng trệt có báo và tạp chí. Tầng một có sách thiếu nhi và khu vui chơi. Tầng hai yên tĩnh để học. Cũng có máy tính với internet miễn phí. Nơi yêu thích của tôi là quán cà phê nhỏ trên tầng trên cùng. Tôi đến đó mỗi thứ Bảy để đọc sách và thư giãn. Thư viện mở cửa từ tám giờ sáng đến tám giờ tối.",
+    "vocabulary": [
+      {
+        "word": "modern",
+        "ipa": "/ˈmɑːdərn/",
+        "meaning": "hiện đại",
+        "pos": "adj"
+      },
+      {
+        "word": "newspaper",
+        "ipa": "/ˈnuːzpeɪpər/",
+        "meaning": "báo",
+        "pos": "n"
+      },
+      {
+        "word": "magazine",
+        "ipa": "/ˈmæɡəziːn/",
+        "meaning": "tạp chí",
+        "pos": "n"
+      },
+      {
+        "word": "internet",
+        "ipa": "/ˈɪntərnet/",
+        "meaning": "internet",
+        "pos": "n"
+      },
+      {
+        "word": "relax",
+        "ipa": "/rɪˈlæks/",
+        "meaning": "thư giãn",
+        "pos": "v"
+      },
+      {
+        "word": "floor",
+        "ipa": "/flɔːr/",
+        "meaning": "tầng",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The library has ___ floors.",
+        "options": [
+          "three",
+          "two",
+          "four",
+          "five"
+        ],
+        "answer": "three",
+        "explanation": "Thư viện có ba (three) tầng."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Quiet' is closest in meaning to ___.",
+        "options": [
+          "silent",
+          "noisy",
+          "busy",
+          "loud"
+        ],
+        "answer": "silent",
+        "explanation": "'Quiet' (yên tĩnh) ≈ 'silent'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The library open at eight.",
+          "The library opens at eight.",
+          "The library opening at eight.",
+          "The library is open at eight yesterday."
+        ],
+        "answer": "The library opens at eight.",
+        "explanation": "'The library' số ít → 'opens'."
+      }
     ]
   },
   {
@@ -3896,6 +6054,89 @@
           "Four"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Tôi có một chú chó cưng tên là Rex. Nó ba tuổi và rất thân thiện. Mỗi sáng, tôi đưa nó đi dạo trong công viên. Nó thích chạy và chơi với quả bóng. Rex sợ sấm, nên nó trốn dưới gầm giường. Nó ăn hai bữa một ngày và ngủ rất nhiều. Gia đình tôi rất yêu nó. Nó không chỉ là một con thú cưng; nó là một phần của gia đình chúng tôi.",
+    "vocabulary": [
+      {
+        "word": "pet",
+        "ipa": "/pet/",
+        "meaning": "thú cưng",
+        "pos": "n"
+      },
+      {
+        "word": "friendly",
+        "ipa": "/ˈfrendli/",
+        "meaning": "thân thiện",
+        "pos": "adj"
+      },
+      {
+        "word": "thunder",
+        "ipa": "/ˈθʌndər/",
+        "meaning": "sấm",
+        "pos": "n"
+      },
+      {
+        "word": "hide",
+        "ipa": "/haɪd/",
+        "meaning": "trốn",
+        "pos": "v"
+      },
+      {
+        "word": "meal",
+        "ipa": "/miːl/",
+        "meaning": "bữa ăn",
+        "pos": "n"
+      },
+      {
+        "word": "part",
+        "ipa": "/pɑːrt/",
+        "meaning": "phần",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The writer's pet dog is named ___.",
+        "options": [
+          "Rex",
+          "Max",
+          "Bob",
+          "Tom"
+        ],
+        "answer": "Rex",
+        "explanation": "Chó tên là Rex."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất.",
+        "question": "'Friendly' is closest in meaning to ___.",
+        "options": [
+          "kind",
+          "fierce",
+          "lazy",
+          "shy"
+        ],
+        "answer": "kind",
+        "explanation": "'Friendly' (thân thiện) ≈ 'kind'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He have three years old.",
+          "He is three years old.",
+          "He has three years old.",
+          "He were three years old."
+        ],
+        "answer": "He is three years old.",
+        "explanation": "Tuổi: 'He is ... years old'."
       }
     ]
   },
