@@ -4,6 +4,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { BookOpen, CheckCircle2, RotateCcw, Trophy, Zap } from "lucide-react";
 
 import { reviewWord, updateSessionState } from "@/app/actions/srs";
+import {
+  applyGrade,
+  continueGroup as continueGroupState,
+  enterPractice,
+  initialGradeState,
+  isDifficult,
+  type GradeState,
+} from "@/lib/vocab-session";
 import type { DueCard, ReviewGrade, VocabSessionState } from "@/lib/types";
 
 import { Flashcard } from "./flashcard";
@@ -11,8 +19,6 @@ import { RatingBar } from "./rating-bar";
 import { Button } from "@/components/ui/button";
 
 const GRADES: ReviewGrade[] = ["again", "hard", "good", "easy"];
-const MAX_REQUEUE = 2;
-const GROUP_SIZE = 20;
 
 function isInteractive(target: EventTarget | null): boolean {
   return (
@@ -20,8 +26,6 @@ function isInteractive(target: EventTarget | null): boolean {
     target.closest("button, input, textarea, select, a") !== null
   );
 }
-
-type Mode = "official" | "practice" | null;
 
 export function VocabSession({
   cards,
@@ -31,71 +35,63 @@ export function VocabSession({
   initialSessionState: VocabSessionState;
 }) {
   const [queue, setQueue] = useState<DueCard[]>(cards);
-  const [index, setIndex] = useState(0);
+  const [gradeState, setGradeState] = useState<GradeState>(() => ({
+    ...initialGradeState(initialSessionState.group_size || 20),
+    queueLength: cards.length,
+    newWordsInGroup: initialSessionState.new_words_count,
+  }));
   const [flipped, setFlipped] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [mode, setMode] = useState<Mode>("official");
   const [submitting, setSubmitting] = useState(false);
-  const [groupFinished, setGroupFinished] = useState(false);
   const [sessionState, setSessionState] = useState(initialSessionState);
 
   const requeueCount = useRef<Record<string, number>>({});
   const ratedIndex = useRef<number | null>(null);
-  const newWordsInGroup = useRef<number>(initialSessionState.new_words_count);
 
-  const current = queue[index];
-  const done = index >= queue.length;
-  const groupSize = sessionState.group_size || GROUP_SIZE;
-  const groupProgress = Math.min(newWordsInGroup.current / groupSize, 1);
+  const { mode, queueIndex, groupSize, groupFinished, newWordsInGroup } = gradeState;
+  const current = queue[queueIndex];
+  const done = queueIndex >= queue.length;
+  const groupProgress = Math.min(newWordsInGroup / groupSize, 1);
 
   const rate = useCallback(
     (grade: ReviewGrade) => {
-      if (!current || ratedIndex.current === index || submitting) return;
-      ratedIndex.current = index;
+      if (!current || ratedIndex.current === queueIndex || submitting) return;
+      ratedIndex.current = queueIndex;
       setSubmitting(true);
       setError(null);
 
-      const reviewMode = mode ?? "official";
+      const count = requeueCount.current[current.word.id] ?? 0;
+      const result = applyGrade(gradeState, current, grade, count);
 
-      if (grade === "again" && reviewMode === "official") {
-        const count = requeueCount.current[current.word.id] ?? 0;
-        if (count < MAX_REQUEUE) {
-          requeueCount.current[current.word.id] = count + 1;
-          setQueue((previous) => [...previous, current]);
-        }
+      if (result.requeue) {
+        requeueCount.current[current.word.id] = count + 1;
+        setQueue((previous) => [...previous, current]);
       }
 
-      setIndex((previous) => previous + 1);
+      setGradeState(result.state);
       setFlipped(false);
 
       if (document.activeElement instanceof HTMLElement) {
         document.activeElement.blur();
       }
 
-      void reviewWord(current.word.id, grade, reviewMode)
-          .then(() => {
-          if (reviewMode === "official") {
-            const isNew = current.review === null;
-            if (isNew) {
-              newWordsInGroup.current += 1;
-              void updateSessionState({
-                newWordsCount: newWordsInGroup.current,
-              });
+      void reviewWord(current.word.id, grade, result.state.mode)
+        .then(() => {
+          if (result.state.mode === "official") {
+            if (result.countedAsNew) {
+              void updateSessionState({ newWordsCount: result.state.newWordsInGroup });
             }
 
-            const isDifficult = grade === "again" || grade === "hard";
-            if (isDifficult && isNew) {
+            if (isDifficult(grade) && result.countedAsNew) {
+              const nextDifficult = [...sessionState.difficult_word_ids, current.word.id];
               setSessionState((prev) => ({
                 ...prev,
-                difficult_word_ids: [...prev.difficult_word_ids, current.word.id],
+                difficult_word_ids: nextDifficult,
               }));
-              void updateSessionState({
-                difficultWordIds: [...sessionState.difficult_word_ids, current.word.id],
-              });
+              void updateSessionState({ difficultWordIds: nextDifficult });
             }
 
-            if (newWordsInGroup.current >= groupSize && !groupFinished) {
-              setGroupFinished(true);
+            if (result.reachedGroupEnd) {
               void updateSessionState({
                 newWordsCount: 0,
                 currentPosition: 0,
@@ -114,34 +110,30 @@ export function VocabSession({
           ratedIndex.current = null;
         });
     },
-    [current, index, submitting, mode, groupSize, groupFinished, sessionState.difficult_word_ids],
+    [current, queueIndex, submitting, gradeState, sessionState.difficult_word_ids],
   );
 
   const startPractice = useCallback(() => {
-    setMode("practice");
-    setFlipped(false);
-    setIndex(0);
     setQueue(cards);
     requeueCount.current = {};
     ratedIndex.current = null;
-    setGroupFinished(false);
-  }, [cards]);
-
-  const continueGroup = useCallback(() => {
-    setMode("official");
+    setGradeState(enterPractice(gradeState, cards.length));
     setFlipped(false);
-    setIndex(0);
-    setQueue(cards.slice(index));
+  }, [cards, gradeState]);
+
+  const handleContinueGroup = useCallback(() => {
+    const remaining = cards.slice(queueIndex);
+    setQueue(remaining);
     requeueCount.current = {};
     ratedIndex.current = null;
-    newWordsInGroup.current = 0;
-    setGroupFinished(false);
+    setGradeState(continueGroupState(gradeState, remaining.length));
+    setFlipped(false);
     void updateSessionState({
       newWordsCount: 0,
-      currentPosition: index,
+      currentPosition: queueIndex,
       groupStartedAt: new Date().toISOString(),
     });
-  }, [cards, index]);
+  }, [cards, queueIndex, gradeState]);
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -201,7 +193,7 @@ export function VocabSession({
             <RotateCcw className="mr-2 size-4" />
             Ôn lại nhóm vừa học
           </Button>
-          <Button onClick={continueGroup} variant="outline" className="w-full">
+          <Button onClick={handleContinueGroup} variant="outline" className="w-full">
             <BookOpen className="mr-2 size-4" />
             Học tiếp {groupSize} từ mới
           </Button>
@@ -230,7 +222,7 @@ export function VocabSession({
 
         <div className="mt-6 flex flex-col gap-3">
           {mode === "practice" ? (
-            <Button onClick={continueGroup} className="w-full">
+            <Button onClick={handleContinueGroup} className="w-full">
               <BookOpen className="mr-2 size-4" />
               Quay lại lịch chính
             </Button>
@@ -240,8 +232,8 @@ export function VocabSession({
                 <RotateCcw className="mr-2 size-4" />
                 Ôn lại nhóm vừa học
               </Button>
-              {cards.length > index ? (
-                <Button onClick={continueGroup} className="w-full">
+              {cards.length > queueIndex ? (
+                <Button onClick={handleContinueGroup} className="w-full">
                   <Zap className="mr-2 size-4" />
                   Học tiếp
                 </Button>
@@ -257,7 +249,7 @@ export function VocabSession({
     <div className="mx-auto max-w-xl">
       <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
         <span>
-          {mode === "practice" ? "Ôn tập" : "Lịch chính"} · Thẻ {index + 1}/{queue.length}
+          {mode === "practice" ? "Ôn tập" : "Lịch chính"} · Thẻ {queueIndex + 1}/{queue.length}
         </span>
         <span>{current.word.pos ?? ""}</span>
         <span className="ml-2 text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -268,7 +260,7 @@ export function VocabSession({
       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
         <div
           className="h-full rounded-full bg-primary transition-all"
-          style={{ width: `${(index / queue.length) * 100}%` }}
+          style={{ width: `${(queueIndex / queue.length) * 100}%` }}
         />
       </div>
 
@@ -281,7 +273,7 @@ export function VocabSession({
             />
           </div>
           <span>
-            {newWordsInGroup.current}/{groupSize} từ mới
+            {newWordsInGroup}/{groupSize} từ mới
           </span>
         </div>
       ) : null}

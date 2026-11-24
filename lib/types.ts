@@ -68,9 +68,16 @@ export type VocabSessionState = {
   practice_queue: string[];
 };
 
+export type CollocationInfo = {
+  collocation: string;
+  example_en: string;
+  example_vi: string;
+};
+
 export type DueCard = {
   word: WordRow;
   review: CardReviewRow | null;
+  collocation?: CollocationInfo | null;
 };
 
 export type DueCount = {

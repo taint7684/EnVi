@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { newCard, repeatCard, rowToCard, cardToRow } from "@/lib/srs";
+import { newCard, repeatCard, rowToCard } from "@/lib/srs";
 import type {
   PhraseReviewRow,
   PhraseReviewRowInsert,

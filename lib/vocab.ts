@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { buildReviewForecast, type ForecastDay } from "@/lib/review-forecast";
 import type {
   CardReviewRow,
+  CollocationInfo,
   DueCard,
   DueCount,
   DueSessionState,
@@ -85,6 +86,26 @@ export async function getSessionState(): Promise<VocabSessionState> {
   };
 }
 
+async function attachCollocations(cards: DueCard[]): Promise<void> {
+  if (cards.length === 0) return;
+  const supabase = await createClient();
+  const ids = cards.map((c) => c.word.id);
+  const { data } = await supabase
+    .from("word_collocations")
+    .select("word_id, collocation, example_en, example_vi")
+    .in("word_id", ids);
+
+  const map = new Map<string, CollocationInfo>();
+  for (const row of data ?? []) {
+    const r = row as { word_id: string; collocation: string; example_en: string; example_vi: string };
+    map.set(r.word_id, { collocation: r.collocation, example_en: r.example_en, example_vi: r.example_vi });
+  }
+
+  for (const c of cards) {
+    c.collocation = map.get(c.word.id) ?? null;
+  }
+}
+
 export async function getDueCards(
   limit = 100,
 ): Promise<{ cards: DueCard[]; state: DueSessionState; sessionState: VocabSessionState }> {
@@ -162,6 +183,8 @@ export async function getDueCards(
 
   const cards = [...dueCards, ...newCards];
   const sliced = cards.slice(0, limit);
+
+  await attachCollocations(sliced);
 
   let state: DueSessionState;
   if (sliced.length === 0) {

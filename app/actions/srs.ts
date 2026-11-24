@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { cardToRow, newCard, repeatCard, rowToCard, isPracticeGrade } from "@/lib/srs";
+import { newCard, repeatCard, rowToCard, isPracticeGrade } from "@/lib/srs";
 import type { CardReviewRow, ReviewGrade } from "@/lib/types";
 
 export async function reviewWord(
@@ -15,6 +15,29 @@ export async function reviewWord(
   } = await supabase.auth.getUser();
 
   if (!user) throw new Error("Bạn cần đăng nhập.");
+
+  // Idempotency: ignore duplicate submissions within a short window (double-click or network retry).
+  const since = new Date(Date.now() - 8000).toISOString();
+  const { data: recentLog } = await supabase
+    .from("vocab_review_log")
+    .select("id")
+    .eq("user_id", user.id)
+    .eq("word_id", wordId)
+    .eq("grade", grade)
+    .eq("review_mode", mode)
+    .gte("created_at", since)
+    .limit(1)
+    .maybeSingle();
+
+  if (recentLog) {
+    const { data: cur } = await supabase
+      .from("card_reviews")
+      .select("due_at")
+      .eq("user_id", user.id)
+      .eq("word_id", wordId)
+      .maybeSingle();
+    return { ok: true, dueAt: (cur as { due_at: string } | null)?.due_at ?? new Date().toISOString() };
+  }
 
   const { data, error: fetchError } = await supabase
     .from("card_reviews")
