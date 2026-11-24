@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CollocationsView } from "@/components/grammar/collocations-view";
 import { GrammarPractice } from "@/components/grammar/grammar-practice";
 import { CollocationsPractice } from "@/components/grammar/collocations-practice";
+import { MindMapView } from "@/components/grammar/mind-map";
+import { ExercisePlayer } from "@/components/grammar/exercise-player";
+import { MixedPractice } from "@/components/grammar/mixed-practice";
+import type { MindMap, GrammarV2Question } from "@/lib/grammar-v2-types";
+import { getGrammarExercises } from "@/lib/grammar-exercises-data";
 
 type GrammarTopic = {
   id: string;
@@ -234,10 +239,12 @@ const B1_B2_TOPICS: GrammarTopic[] = [
   },
 ];
 
-export function GrammarContent() {
+export function GrammarContent({ mindmaps, v2Questions }: { mindmaps: Record<string, MindMap>; v2Questions: GrammarV2Question[] }) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [showMindMap, setShowMindMap] = useState<string | null>(null);
+  const [exerciseType, setExerciseType] = useState<Record<string, string>>({});
   const [view, setView] = useState<
-    "grammar" | "collocations" | "phrasal" | "practice"
+    "grammar" | "collocations" | "phrasal" | "practice" | "tonghop"
   >("grammar");
 
   const toggleExpand = (id: string) => {
@@ -249,6 +256,7 @@ export function GrammarContent() {
     { id: "collocations", label: "Collocations" },
     { id: "phrasal", label: "Phrasal Verbs" },
     { id: "practice", label: "Practice" },
+    { id: "tonghop", label: "Tổng hợp" },
   ] as const;
 
   return (
@@ -273,9 +281,11 @@ export function GrammarContent() {
 
       {view === "practice" ? <CollocationsPractice /> : null}
 
+                {view === "tonghop" ? <MixedPractice v2Questions={v2Questions} /> : null}
+
       {view === "grammar" ? (
         <p className="text-sm text-muted-foreground">
-          Học 16 chủ điểm ngữ pháp và luyện tập với Practice Hub (10 câu ngẫu nhiên mỗi lần).
+          Học 16 chủ điểm ngữ pháp với Sơ đồ tư duy + 4 dạng bài (Trắc nghiệm, Dịch, Sửa lỗi, Chia động từ) + Luyện tổng hợp.
         </p>
       ) : null}
 
@@ -317,7 +327,75 @@ export function GrammarContent() {
                 </p>
               </div>
 
-              <GrammarPractice topicId={topic.id} />
+              {(() => {
+                const mindmap = mindmaps[topic.id] ?? null;
+                if (mindmap) {
+                  const mmOpen = showMindMap === topic.id;
+                  return (
+                    <div className="mb-4">
+                      <button
+                        type="button"
+                        onClick={() => setShowMindMap(mmOpen ? null : topic.id)}
+                        className="flex items-center gap-2 rounded-lg bg-purple-50 px-3 py-2 text-sm font-medium text-purple-700 hover:bg-purple-100"
+                      >
+                        <GitBranch className="size-4" />
+                        Sơ đồ tư duy
+                        <ChevronDown className={`size-4 transition-transform ${mmOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      {mmOpen ? <div className="mt-2"><MindMapView mindmap={mindmap} /></div> : null}
+                    </div>
+                  );
+                }
+                return null;
+              })()}
+
+              {(() => {
+                const types = [
+                  { id: "mcq", label: "Trắc nghiệm" },
+                  { id: "translation", label: "Dịch" },
+                  { id: "error_correction", label: "Sửa lỗi" },
+                  { id: "verb_conjugation", label: "Chia động từ" },
+                ];
+                const selected = exerciseType[topic.id] ?? "mcq";
+                const mcqQuestions = getGrammarExercises(topic.id)?.mcq ?? [];
+                const filteredV2 = v2Questions.filter((q) => q.topic_id === topic.id && q.exercise_type === selected);
+                let questions: any[] = [];
+                if (selected === "mcq") questions = mcqQuestions;
+                else questions = filteredV2;
+
+                return (
+                  <div>
+                    <div className="mb-3 flex flex-wrap gap-1.5">
+                      {types.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => setExerciseType((prev) => ({ ...prev, [topic.id]: t.id }))}
+                          className={cn(
+                            "rounded-lg px-3 py-1.5 text-xs font-medium transition-colors",
+                            selected === t.id
+                              ? "bg-primary text-primary-foreground"
+                              : "bg-muted text-muted-foreground hover:bg-muted/70"
+                          )}
+                        >
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
+                    {questions.length > 0 ? (
+                      <ExercisePlayer
+                        key={`${topic.id}-${selected}`}
+                        questions={questions.slice(0, 10)}
+                        exerciseType={selected as any}
+                      />
+                    ) : (
+                      <p className="text-sm text-muted-foreground">
+                        {selected === "mcq" ? "Đang tải câu hỏi..." : "Chưa có câu hỏi cho dạng này. Đang được tạo..."}
+                      </p>
+                    )}
+                  </div>
+                );
+              })()}
             </div>
           )}
         </div>

@@ -1,0 +1,18 @@
+{
+  "total_lessons": 60,
+  "unique_videos": 10,
+  "video_reuse": {
+    "RJ8Fo29oVZo": ["sh-morning", "sh-directions", "sh-shopping", "sh-family", "sh-animals"],
+    "baiacRy-4L8": ["sh-cafe", "sh-weather", "sh-travel", "sh-colours", "sh-food2", "sh-music", "sh-time", "sh-social", "sh-phone"],
+    "YRTjEUH1kHA": ["sh-health", "sh-food", "sh-bus", "sh-daily-plan", "sh-apology"],
+    "cg1MPssk3jY": ["sh-work", "sh-env", "sh-science", "sh-sport", "sh-exercise", "sh-plan", "sh-email"],
+    "nw6e6jgfPi8": ["sh-tech", "sh-edu", "sh-culture", "sh-weekend", "sh-city", "sh-travel2"],
+    "RGWJp8_gaY8": ["sh-money", "sh-negotiate", "sh-story", "sh-money2", "sh-presentation"],
+    "gVtqUZRSTlc": ["sh-interview", "sh-opinion", "sh-books", "sh-interview2", "sh-meeting", "sh-feedback"],
+    "7bEStwqNPqU": ["sh-psych", "sh-lead", "sh-art", "sh-balance", "sh-conflict"],
+    "p89MfEMe2WA": ["sh-econ", "sh-creative", "sh-future", "sh-tech3", "sh-kindness"],
+    "xzfd55HiyWE": ["sh-tech2", "sh-med", "sh-reflect", "sh-success", "sh-negotiation"]
+  },
+  "mismatched_lessons": "All 60 lessons share 10 videos. Only 10 lessons can have a video that matches their transcript; the other 50 share a video that does not match their topic. The TTS fallback mode (default) speaks each sentence individually so shadowing practice works regardless of video match.",
+  "timestamp_validity": "All 60 lessons have valid timestamps (startTime < endTime, sequential, no overlaps)."
+}

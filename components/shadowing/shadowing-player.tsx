@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { useRecorder } from "@/hooks/use-recorder";
 import type { ShadowingLesson, ShadowingSegment } from "@/lib/shadowing-data";
 import { formatTime } from "@/lib/shadowing-data";
-import { speakEnglish } from "@/lib/speech";
 import { scoreShadowing } from "@/lib/speech/scoring";
 import { saveShadowingAttempt } from "@/lib/shadowing/server";
 
@@ -48,7 +47,9 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
-  const [useTTS, setUseTTS] = useState(false);
+  const [useTTS, setUseTTS] = useState(true);
+  const [ttsSpeed, setTtsSpeed] = useState(1);
+  const [ttsPlayingAll, setTtsPlayingAll] = useState(false);
   const [ytReady, setYtReady] = useState(false);
 
   const ttsMode = useTTS;
@@ -178,8 +179,57 @@ export function ShadowingPlayer({ lesson }: Props) {
   }, [lesson.youtubeId, ttsMode]);
 
   const playSegmentTTS = useCallback((segment: ShadowingSegment) => {
-    speakEnglish(segment.text);
-  }, []);
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(segment.text);
+    utter.lang = "en-US";
+    utter.rate = ttsSpeed;
+    utter.onend = () => {
+      setActiveSegment(null);
+    };
+    setActiveSegment(segment.id);
+    window.speechSynthesis.speak(utter);
+  }, [ttsSpeed]);
+
+  const speakQueueRef = useRef<(queue: number[], idx: number, rate: number) => void>(() => {});
+
+  const speakQueue = useCallback((queue: number[], idx: number, rate: number) => {
+    if (idx >= queue.length) {
+      setTtsPlayingAll(false);
+      setActiveSegment(null);
+      return;
+    }
+    const segId = queue[idx];
+    const seg = lesson.transcript.find((s) => s.id === segId);
+    if (!seg) {
+      speakQueueRef.current(queue, idx + 1, rate);
+      return;
+    }
+    setActiveSegment(seg.id);
+    const utter = new SpeechSynthesisUtterance(seg.text);
+    utter.lang = "en-US";
+    utter.rate = rate;
+    utter.onend = () => {
+      speakQueueRef.current(queue, idx + 1, rate);
+    };
+    window.speechSynthesis.speak(utter);
+  }, [lesson.transcript]);
+
+  speakQueueRef.current = speakQueue;
+
+  const handlePlayAllTTS = useCallback(() => {
+    if (ttsPlayingAll) {
+      window.speechSynthesis?.cancel();
+      setTtsPlayingAll(false);
+      setActiveSegment(null);
+      return;
+    }
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const queue = lesson.transcript.map((s) => s.id);
+    setTtsPlayingAll(true);
+    speakQueue(queue, 0, ttsSpeed);
+  }, [ttsPlayingAll, lesson.transcript, speakQueue, ttsSpeed]);
 
   const handleRecord = useCallback(async () => {
     if (recorder.isRecording) {
@@ -290,26 +340,48 @@ export function ShadowingPlayer({ lesson }: Props) {
               <div className="text-center">
                 <Volume2 className="mx-auto h-8 w-8 text-primary-foreground mb-2" />
                 <p className="text-sm text-muted-foreground">
-                  Chế độ phát âm máy (Edge TTS) — không cần YouTube
+                  Chế độ phát âm máy — không cần YouTube
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  Nhấp câu trong lời thoại để nghe từng câu
                 </p>
               </div>
             </div>
           )}
         </div>
 
+        {!ttsMode && (
+          <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
+            Video YouTube có thể không khớp với lời thoại. Dùng &quot;Phát âm máy&quot; để nghe đúng từng câu.
+          </p>
+        )}
+
         <div className="mt-3 flex flex-wrap items-center gap-2">
           {SPEEDS.map((s) => (
             <Button
               key={s}
               size="sm"
-              variant={speed === s ? "default" : "outline"}
-              onClick={() => handleSpeedChange(s)}
+              variant={(ttsMode ? ttsSpeed : speed) === s ? "default" : "outline"}
+              onClick={() => {
+                if (ttsMode) setTtsSpeed(s);
+                else handleSpeedChange(s);
+              }}
               className="h-7 text-xs"
-              disabled={ttsMode}
             >
               {s}x
             </Button>
           ))}
+
+          {ttsMode ? (
+            <Button
+              size="sm"
+              variant={ttsPlayingAll ? "destructive" : "outline"}
+              onClick={handlePlayAllTTS}
+            >
+              <Play className="mr-1 h-4 w-4" />
+              {ttsPlayingAll ? "Dừng" : "Phát tất cả"}
+            </Button>
+          ) : null}
 
           <Button
             size="sm"

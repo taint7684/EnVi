@@ -24,6 +24,7 @@ const PAGES: SearchResult[] = [
   { type: "page", title: "Phản xạ", subtitle: "Luyện câu giao tiếp", href: "/reflex", icon: <Mic className="size-4" /> },
   { type: "page", title: "Speaking Coach", subtitle: "Luyện nói với AI", href: "/speaking", icon: <Mic className="size-4" /> },
   { type: "page", title: "Shadowing", subtitle: "Nghe và nói lại", href: "/shadowing", icon: <Mic className="size-4" /> },
+  { type: "page", title: "Picture Talk", subtitle: "Mô tả ảnh + nói", href: "/speak/picture-talk", icon: <Mic className="size-4" /> },
   { type: "page", title: "Dictation", subtitle: "Nghe chép chính tả", href: "/dictation", icon: <FileText className="size-4" /> },
   { type: "page", title: "Đọc hiểu", subtitle: "50 bài đọc A2/B1/B2", href: "/reading", icon: <BookOpen className="size-4" /> },
   { type: "page", title: "Ngữ pháp", subtitle: "16 chủ đề + luyện tập", href: "/grammar", icon: <FileText className="size-4" /> },

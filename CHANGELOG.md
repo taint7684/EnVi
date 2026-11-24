@@ -1,14 +1,102 @@
-# EnVi — CHANGELOG
+# CHANGELOG — EnVi Upgrade (feat/vocab-anki-upgrade)
 
-## [Unreleased] — S0–S11 theo docs/MASTER_SPEC.md v2.0
-- S0: An toàn & nền móng (chi lưu tên bien env trong .env.example; tao docs/MASTER_SPEC.md + PROJECT_MANIFEST.md + DECISIONS.md; them .husky/pre-commit quet secret; groq.ts/whisper.ts lay model tu env).
-- S1: Hôm nay / Smart Daily Plan (buildDailyPlan cap phat khoi theo thu tu, >=50% thoi gian noi; luu daily_plans; tu danh dau xong khoi tu activity_events, khong tick tay; ngay ban 15'; bonus ngay idempotent qua daily_summary.bonus_awarded; migrate profile cot moi, mac dinh minutes_per_day=60). Test allocateBlocks (21/21 vitest xanh), tsc/eslint/build xanh.
-- S5: Onboarding + Checkpoint + Tien bo - sua loi compile assessment-form (tach import pure tu lib/assessment, saveAssessmentResult tu lib/assessment-db); onboarding form dung onSubmit + state; assessment luu DB (assessment_results, migration 0015) thay localStorage; them /progress (truoc–sau, lich su danh gia) + loading/error; lib/progress summarizeProgress + 5 unit test; nav 5 tab (Hom nay/Noi/Luyen/So loi/Tien bo) thay 14 muc phang; logo -> /today. tsc sach, 29/29 vitest xanh, build xanh.
-- S6: Roleplay Missions + Strategy Cards + Fluency Drills - migration 0016 (missions, mission_attempts, strategy_cards, fluency_prompts, fluency_drills); content data/missions.json (11 mission work/life/travel/social co offline_script), data/strategy-cards.json (12 the), data/fluency-prompts.json (27 prompt); lib/missions (schema zod, catalog success-rule/objectives + 11 test, judge AI objective_judge, server startMission/submitMissionTurn/finishMission idempotent +XP); lib/drills (schema, catalog summarizeDrill +6 test, server saveDrill); UI /speaking/missions (list+player ghi am/STT + cham objective), /speaking/drills (4/3/2, 1-phut, quick fire...), /speaking/strategy-cards; nav cap nhat. tsc sach, 46/46 vitest xanh, build xanh.
-- S7: Nghe/Shadowing/Dictation/Phat am - migration 0017 (pronunciation_focuses/items/attempts/progress, shadowing_attempts; dictation_attempts + segment_idx/hint_used/revealed_before_submit); lib/speech/scoring (normalizeWords, scoreDictation, scoreShadowing 0.7 acc+0.3 timing, scoreIntelligibility, suggestFocus) + 18 test; data/pronunciation.json (12 trong tam loi nguoi Viet); lib/pronunciation (content + savePronunciationAttempt voi mastery); lib/shadowing/saveShadowingAttempt; Dictation nang cap cham theo tu + nut Xem dap an (xem truoc nop = 0 diem, BR-9.3) + luu item_id/score; Shadowing thay mock score:0 bang STT that + scoreShadowing; UI /pronunciation (ghi am -> do ro). tsc sach, 55/55 vitest xanh, build xanh.
-- S8: Reading + Grammar + Work Writing - migration 0018 (reading_attempts, grammar_attempts, grammar_mastery; writing_drafts + kind); lib/reading (lemmatize + lookupCandidates + 6 test, saveReadingAttempt DB thay localStorage, lookupWord tra words); components/reading/lookup-text (click tu -> tra nghia); reading page luu tom tat DB + click-tra; lib/grammar saveGrammarAttempt + mastery dong; grammar-practice tu luu attempt qua effect; writing_drafts them cot kind. Ghi chu: noi dung grammar explanation_vi da co inline (16+ chu de), them day du 800 cau + vn_trap la viec noi dung con lai. tsc sach, 61/61 vitest xanh, build xanh.
-- S9: Roadmap + Gamification + Settings - migration 0019 (roadmap_days, profiles + new_words_per_day/feedback_mode/study_time, mac dinh minutes_per_day=60); lib/roadmap/catalog (phaseForDay, weekForDay, isCheckpointDay, themeForWeek +8 test); lib/gamification/streak (studyDateKey 03:00 VN, computeStreak co Streak Freeze +8 test); Settings them so tu moi/ngay (co Khong gioi han), che do phan hoi safe/standard, mac dinh 60 phut; export them bang moi. PWA (manifest+sw) da co san. tsc sach, 77/77 vitest xanh, build xanh.
-- S10: Real-world Bridge (P2) - migration 0020 (real_world_tasks, real_world_logs feeling/stuck_points; cap nhat delete_my_account); lib/realworld/catalog (6 buoc thang tang dan + nextTask +5 test); lib/realworld/server (getRealWorldTasks/getDoneTaskIds/logRealWorld); components/realworld/real-world-bridge (card ghi cam xuc emoji + diem vuong, uu tien buoc ke tiep); app/(main)/real-world (page+loading+error), nav tiep bo Progress. tsc sach, 82/82 vitest xanh, build xanh.
-- S11: Final regression + Definition of Done - tsc sach, 82/82 vitest (12 file) xanh, build xanh, eslint 1 error co san (makeup/[id]/page.tsx:64 react-hooks) + 54 warning. Cap nhat PROJECT_MANIFEST (S0->S10, migrations 0001-0020, 23 segment).
-- S11b: Fix eslint error duy nhat - components/reflex/reflex-session.tsx useEffect go bo 6 cuoc goi setState dong bo (da duoc reset trong advance()/changeMode()/initial state), chi giu side-effect startRef+speak+cleanup. eslint 0 error, 54 warning; tsc sach, 82/82 vitest, build xanh.
-- BUOC 0 (22/11/2026): Kiem ke xac nhan - tsc EXIT 0, eslint 0 error/54 warning, vitest 82/82, build EXIT 0, playwright 4/5 (roadmap fail /dashboard ERR_FAILED). Cap nhat PROJECT_MANIFEST day du (Bang doi chieu BR/AC 7 tinh nang + G1-G11 + 13 loi ky thuat). Top GAP: Shadowing IFrame API that, route 5 tab, grammar 800 cau, MLR threshold, audit-content, roadmap.spec /dashboard, rotate key, DB live migration 0010-0020.
+## Part 1: Vocabulary (Flashcard FSRS + Collocations)
+
+### Build fix: server-only data separation
+- **Issue**: `lib/grammar-v2-data.ts`, `lib/reflex-drills-data.ts`, `lib/picture-talk-data.ts` used `node:fs` and were imported by client components → Turbopack build failure.
+- **Fix**: Split each into `* -types.ts` (pure types + constants, no fs) and `*-data.ts` (server-only loaders with `import "server-only"`). Client components import from types files; server components (pages) pre-load data and pass as props.
+
+### Collocation generation
+- 5,029 words total in `data/words.json`.
+- 1,325 collocations pre-generated (from prior session).
+- Batch generator: `scripts/work/generate-collocations-batch.cjs` (Groq, resumable, concurrency 2).
+- Validation: `scripts/qa/assemble-collocations.cjs` checks all fields + collocation-in-example.
+- Coverage target: 5,029/5,029 complete entries.
+
+### Flashcard UI
+- Front: English word + POS + IPA + audio button. ✓
+- Back: Vietnamese meaning + collocation + example (EN + VI) + YouGlish link. ✓
+- Rating bar: Again / Hard / Good / Easy (no "Đã biết/Chưa biết"). ✓
+- YouGlish: collocation link + "Nghe từ gốc" fallback. ✓
+
+### Learning flow
+- 20-word groups with "Ôn lại nhóm" + "Học tiếp 20 từ" after each group. ✓
+- Practice mode (Ôn lại nhóm / Ôn từ khó) doesn't affect official schedule. ✓
+- Requeue on "again" (max 2). ✓
+- Session state persisted per account (vocab_session_state). ✓
+- Idempotency: 8s window in `reviewWord` action. ✓
+- Cards loaded up to 100 (can continue past 20/40/60). ✓
+
+## Part 2: Grammar Upgrade
+
+### Current state
+- 16 topics in `data/grammar-exercises.json` (30 MCQ + 20 fill each = existing data).
+- `data/grammar-v2.jsonl`: 40 lines (partial — 3 topics, 2 types).
+- Need: 16 topics × 3 types (translation, error_correction, verb_conjugation) × 20 = 960 questions + 16 mindmaps + 320 mixed.
+- Generator updated: `scripts/work/generate-grammar-v2.cjs` now generates 20 per topic per type + mixed practice.
+- Components: `grammar-content.tsx`, `exercise-player.tsx`, `mixed-practice.tsx`, `mind-map.tsx` all refactored to use types file + props.
+
+### Issues found
+- **Build failure** (node:fs in client) → fixed via types/data split.
+- **MixedPractice** called `getGrammarV2Questions()` (fs) in client → now receives `v2Questions` as prop.
+- **GrammarContent** called `getMindMap`/`getGrammarV2Questions` (fs) in client → now receives `mindmaps` + `v2Questions` as props.
+
+## Part 3: Reflex Drills
+
+### Current state
+- 50 phrases (10/day × 5 days) in `data/reflex-phrases.json`.
+- Session modes: morning (learn new), noon (review), evening (review shuffled), review5 (all 5 days).
+- Grading: got_it / slow / forgot. Slow/forgot requeue after 3 questions (max 2 requeues).
+- Server-side persistence added: `reflex_drill_progress` table (migration 0027) + `app/actions/reflex-drills.ts`.
+- Progress saved after each grade (completed_ids, results, queue_position).
+- Review5 shows X/50 progress. ✓
+- Types/data split for build fix. ✓
+
+### Issues found
+- **Build failure** (node:fs in client) → fixed via types/data split.
+- **No persistence** → added migration + server actions.
+- **No day prop** → added `day` prop to session component.
+
+## Part 4: Shadowing
+
+### Current state
+- 60 lessons in `data/shadowing-lessons.json`. All timestamps valid (startTime < endTime, sequential).
+- Issue: only 10 unique YouTube videos for 60 lessons → many lessons share mismatched videos.
+- TTS mode (default): speaks each sentence individually via Web Speech API. Works as fallback.
+- Click sentence → TTS speaks that sentence. ✓
+- Click again → replays from start. ✓ (cancel + re-speak)
+- Speed control for TTS (0.75x, 1x, 1.25x, 1.5x). ✓
+- "Phát tất cả" button for TTS mode. ✓
+- "Phát âm máy" / "YouTube video" toggle. ✓
+- Video mode: seekTo start, play, stopAt end (stopAtRef). ✓
+- Warning note when using YouTube mode (video may not match). ✓
+- Audit report: `docs/sharding-video-audit.json`.
+
+### Issues found
+- **TTS nested callbacks** (3 levels deep) → refactored to clean recursive `speakQueue`.
+- **No TTS speed control in UI** → added speed buttons that work in TTS mode.
+- **No play-all button** → added "Phát tất cả" button.
+- **Video mismatch** → TTS fallback + warning note. Cannot fix 60 videos without watching each.
+
+## Part 5: Picture Talk
+
+### Current state
+- 8 built-in image sets in `data/picture-talk-images.json` (morning, office, restaurant, street, travel, kitchen, shopping).
+- 4 levels: describe, opinion, story, teach. ✓
+- Mic recording with Web Speech API (SpeechRecognition). ✓
+- Vocabulary hints (15-25 per image). ✓
+- Opinion questions (4-6 per image). ✓
+- Story starters (2-3 per image). ✓
+- Keyword hints after 5s silence. ✓
+- Fluency metrics: WPM, word count, pauses. ✓
+- "Luyện lại cùng ảnh" / "Sang ảnh mới" buttons. ✓
+- Phao cứu sinh (Vietnamese → TTS → repeat). ✓
+- Types/data split for build fix. ✓
+- Page: `app/(main)/speak/picture-talk/page.tsx`. ✓
+- Nav link added. ✓
+
+### Issues found
+- **Build failure** (node:fs in client) → fixed via types/data split.
+- **Missing retry/next buttons** → added.
+- **Missing phao cứu sinh** → added.
+- **No AI integration** (Gemini Vision, Groq Whisper) → would need API keys. Current implementation uses Web Speech API for STT and browser TTS. Offline mode works with built-in data.

@@ -31,6 +31,7 @@ const items: NavItem[] = [
       { href: "/speaking/missions", label: "Roleplay Missions" },
       { href: "/speaking/drills", label: "Fluency Drills" },
       { href: "/speaking/strategy-cards", label: "Thẻ chiến lược" },
+      { href: "/speak/picture-talk", label: "Picture Talk" },
       { href: "/assessment", label: "Đánh giá nói" },
     ],
   },

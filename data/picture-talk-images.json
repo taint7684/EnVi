@@ -1,0 +1,258 @@
+[
+  {
+    "id": "pt-morning",
+    "title": "Buổi sáng trong nhà",
+    "titleVi": "Buổi sáng ở nhà",
+    "imageUrl": "https://picsum.photos/seed/morning/800/600",
+    "level": "A2",
+    "topic": "family",
+    "vocabulary": [
+      {"word": "wake up", "type": "action", "example": "I wake up at 7 AM."},
+      {"word": "stretch", "type": "action", "example": "She is stretching her arms."},
+      {"word": "draw the curtains", "type": "action", "example": "Mother is drawing the curtains."},
+      {"word": "still in bed", "type": "state", "example": "Father is still in bed."},
+      {"word": "make breakfast", "type": "action", "example": "Dad is making breakfast in the kitchen."},
+      {"word": "brush teeth", "type": "action", "example": "The boy is brushing his teeth."},
+      {"word": "get dressed", "type": "action", "example": "Mom is helping the baby get dressed."},
+      {"word": "look at clothes", "type": "action", "example": "David is looking at his clothes."},
+      {"word": "think about", "type": "action", "example": "He is thinking about what to wear."},
+      {"word": "pour milk", "type": "action", "example": "She is pouring milk into a glass."},
+      {"word": "sleepy", "type": "state", "example": "The baby looks sleepy."},
+      {"word": "kitchen", "type": "object", "example": "The kitchen smells like fresh coffee."},
+      {"word": "window", "type": "object", "example": "Sunlight comes through the window."},
+      {"word": "bed", "type": "object", "example": "The bed is still messy."},
+      {"word": "towel", "type": "object", "example": "He grabs a towel from the rack."},
+      {"word": "morning routine", "type": "state", "example": "Everyone has a different morning routine."},
+      {"word": "in a hurry", "type": "state", "example": "Dad is in a hurry to leave."},
+      {"word": "relax", "type": "action", "example": "Grandpa is relaxing in his chair."}
+    ],
+    "opinion_questions": [
+      "Do you think this family is happy? Why?",
+      "What will David wear today?",
+      "What will the mother do after dressing the baby?",
+      "What do you think the father will do next?",
+      "Is this a typical morning in your family?"
+    ],
+    "story_starters": [
+      "David is looking at his clothes and thinking about what to wear...",
+      "The baby is trying to get out of the cot, but mom is too busy...",
+      "Dad is making breakfast when suddenly the phone rings..."
+    ]
+  },
+  {
+    "id": "pt-office",
+    "title": "Văn phòng làm việc",
+    "titleVi": "Ở văn phòng",
+    "imageUrl": "https://picsum.photos/seed/office/800/600",
+    "level": "B1",
+    "topic": "work",
+    "vocabulary": [
+      {"word": "work on", "type": "action", "example": "She is working on a new feature."},
+      {"word": "type on", "type": "action", "example": "He is typing on his keyboard."},
+      {"word": "attend a meeting", "type": "action", "example": "They are attending a team meeting."},
+      {"word": "present", "type": "action", "example": "She is presenting the quarterly report."},
+      {"word": "discuss", "type": "action", "example": "The team is discussing the new design."},
+      {"word": "drink coffee", "type": "action", "example": "He is drinking coffee at his desk."},
+      {"word": "stare at", "type": "action", "example": "She is staring at the screen."},
+      {"word": "take notes", "type": "action", "example": "He is taking notes during the call."},
+      {"word": "deadline", "type": "state", "example": "The deadline is approaching fast."},
+      {"word": "busy", "type": "state", "example": "Everyone looks busy this morning."},
+      {"word": "focused", "type": "state", "example": "She is very focused on her work."},
+      {"word": "stressed", "type": "state", "example": "He looks stressed about the project."},
+      {"word": "whiteboard", "type": "object", "example": "There are diagrams on the whiteboard."},
+      {"word": "laptop", "type": "object", "example": "Her laptop is covered with stickers."},
+      {"word": "monitor", "type": "object", "example": "He has two monitors on his desk."},
+      {"word": "coffee mug", "type": "object", "example": "Her coffee mug is almost empty."},
+      {"word": "collaborate", "type": "action", "example": "They are collaborating on a new idea."},
+      {"word": "brainstorm", "type": "action", "example": "The team is brainstorming solutions."}
+    ],
+    "opinion_questions": [
+      "Do you think this team works well together? Why?",
+      "What is the woman presenting about?",
+      "What will the man in the back do next?",
+      "Do you prefer working in an office or from home?",
+      "What is the biggest challenge in this picture?"
+    ],
+    "story_starters": [
+      "The team is brainstorming when suddenly the manager walks in...",
+      "She is presenting her idea, but the client doesn't look convinced...",
+      "It's 5 PM and everyone is tired, but the deadline is tomorrow..."
+    ]
+  },
+  {
+    "id": "pt-restaurant",
+    "title": "Nhà hàng",
+    "titleVi": "Ăn ở nhà hàng",
+    "imageUrl": "https://picsum.photos/seed/restaurant/800/600",
+    "level": "A2",
+    "topic": "food",
+    "vocabulary": [
+      {"word": "order food", "type": "action", "example": "They are ordering food from the menu."},
+      {"word": "look at the menu", "type": "action", "example": "She is looking at the menu carefully."},
+      {"word": "serve", "type": "action", "example": "The waiter is serving the dishes."},
+      {"word": "eat", "type": "action", "example": "The couple is eating their dinner."},
+      {"word": "pay the bill", "type": "action", "example": "He is paying the bill with his card."},
+      {"word": "delicious", "type": "state", "example": "The food looks delicious."},
+      {"word": "hungry", "type": "state", "example": "Everyone looks really hungry."},
+      {"word": "full", "type": "state", "example": "After that big meal, I feel full."},
+      {"word": "waiter", "type": "object", "example": "The waiter brings the food quickly."},
+      {"word": "table", "type": "object", "example": "Their table is near the window."},
+      {"word": "menu", "type": "object", "example": "The menu has many vegetarian options."},
+      {"word": "tip", "type": "object", "example": "He leaves a generous tip."},
+      {"word": "recommend", "type": "action", "example": "The waiter recommends the special dish."},
+      {"word": "book a table", "type": "action", "example": "She booked a table for two."}
+    ],
+    "opinion_questions": [
+      "What would you order in this restaurant?",
+      "Do you prefer small restaurants or big ones?",
+      "What will the couple do after dinner?",
+      "Is the food expensive here? What do you think?",
+      "Would you leave a tip? How much?"
+    ],
+    "story_starters": [
+      "The couple is reading the menu when the waiter comes to take their order...",
+      "The food arrives and it looks amazing, but something is missing...",
+      "They are about to pay when they realize they forgot their wallet..."
+    ]
+  },
+  {
+    "id": "pt-street",
+    "title": "Đường phố",
+    "titleVi": "Trên đường phố",
+    "imageUrl": "https://picsum.photos/seed/street/800/600",
+    "level": "A2",
+    "topic": "travel",
+    "vocabulary": [
+      {"word": "walk", "type": "action", "example": "People are walking down the street."},
+      {"word": "cross the road", "type": "action", "example": "She is crossing the road carefully."},
+      {"word": "ride a bike", "type": "action", "example": "He is riding a bike to work."},
+      {"word": "drive", "type": "action", "example": "The taxi is driving through traffic."},
+      {"word": "wait for", "type": "action", "example": "They are waiting for the bus."},
+      {"word": "crowded", "type": "state", "example": "The street is very crowded today."},
+      {"word": "noisy", "type": "state", "example": "The street is noisy with traffic."},
+      {"word": "traffic light", "type": "object", "example": "The traffic light turns red."},
+      {"word": "sidewalk", "type": "object", "example": "They are walking on the sidewalk."},
+      {"word": "bus stop", "type": "object", "example": "The bus stop is on the corner."},
+      {"word": "shop", "type": "object", "example": "There is a small shop on the corner."},
+      {"word": "rush hour", "type": "state", "example": "It's rush hour and the roads are busy."}
+    ],
+    "opinion_questions": [
+      "Do you like living in a busy city?",
+      "How do you usually get to work?",
+      "What is the best way to travel in this city?",
+      "Is traffic a big problem here?",
+      "What will happen if it starts raining?"
+    ],
+    "story_starters": [
+      "She is crossing the road when a bike almost hits her...",
+      "The traffic light turns red and everyone stops, except one car...",
+      "He is waiting for the bus when he sees an old friend..."
+    ]
+  },
+  {
+    "id": "pt-travel",
+    "title": "Du lịch",
+    "titleVi": "Đi du lịch",
+    "imageUrl": "https://picsum.photos/seed/travel/800/600",
+    "level": "A2",
+    "topic": "travel",
+    "vocabulary": [
+      {"word": "pack bags", "type": "action", "example": "She is packing her bags for the trip."},
+      {"word": "board a plane", "type": "action", "example": "They are boarding the plane now."},
+      {"word": "take photos", "type": "action", "example": "He is taking photos of the view."},
+      {"word": "check in", "type": "action", "example": "They are checking in at the hotel."},
+      {"word": "explore", "type": "action", "example": "They are exploring the old town."},
+      {"word": "relax on", "type": "action", "example": "She is relaxing on the beach."},
+      {"word": "excited", "type": "state", "example": "Everyone is excited about the trip."},
+      {"word": "tired", "type": "state", "example": "After the long flight, they feel tired."},
+      {"word": "passport", "type": "object", "example": "Don't forget your passport."},
+      {"word": "suitcase", "type": "object", "example": "Her suitcase is very heavy."},
+      {"word": "ticket", "type": "object", "example": "He is holding his plane ticket."},
+      {"word": "souvenir", "type": "object", "example": "She is buying a souvenir for her friend."},
+      {"word": "book a room", "type": "action", "example": "They booked a room with a sea view."},
+      {"word": "get lost", "type": "state", "example": "They got lost in the old city."}
+    ],
+    "opinion_questions": [
+      "Do you prefer beach holidays or city trips?",
+      "What is the best travel memory you have?",
+      "What will they do first when they arrive?",
+      "Is it better to travel alone or with friends?",
+      "What is one thing you always pack?"
+    ],
+    "story_starters": [
+      "They arrive at the airport and realize they forgot something important...",
+      "She is taking photos when a stranger asks her to take one for them...",
+      "The hotel is fully booked and they have nowhere to stay..."
+    ]
+  },
+  {
+    "id": "pt-kitchen",
+    "title": "Nhà bếp",
+    "titleVi": "Trong nhà bếp",
+    "imageUrl": "https://picsum.photos/seed/kitchen/800/600",
+    "level": "A2",
+    "topic": "food",
+    "vocabulary": [
+      {"word": "cook", "type": "action", "example": "She is cooking dinner for the family."},
+      {"word": "chop", "type": "action", "example": "He is chopping vegetables."},
+      {"word": "boil", "type": "action", "example": "She is boiling water for pasta."},
+      {"word": "fry", "type": "action", "example": "Dad is frying eggs in the pan."},
+      {"word": "wash", "type": "action", "example": "She is washing the dishes."},
+      {"word": "taste", "type": "action", "example": "He is tasting the soup."},
+      {"word": "delicious", "type": "state", "example": "The food smells delicious."},
+      {"word": "messy", "type": "state", "example": "The kitchen is messy after cooking."},
+      {"word": "pan", "type": "object", "example": "The pan is on the stove."},
+      {"word": "knife", "type": "object", "example": "He is using a sharp knife."},
+      {"word": "cutting board", "type": "object", "example": "The cutting board is on the counter."},
+      {"word": "recipe", "type": "object", "example": "She is following a new recipe."},
+      {"word": "fridge", "type": "object", "example": "The fridge is almost empty."},
+      {"word": "spill", "type": "action", "example": "He spilled some sauce on the floor."}
+    ],
+    "opinion_questions": [
+      "Do you like cooking? Why or why not?",
+      "What is your specialty dish?",
+      "Who usually cooks in your family?",
+      "What will they eat tonight?",
+      "Is it better to cook at home or eat out?"
+    ],
+    "story_starters": [
+      "She is cooking when the smoke alarm suddenly goes off...",
+      "He is chopping vegetables when he cuts his finger...",
+      "The recipe says to add sugar, but she accidentally adds salt..."
+    ]
+  },
+  {
+    "id": "pt-shopping",
+    "title": "Mua sắm",
+    "titleVi": "Đi mua sắm",
+    "imageUrl": "https://picsum.photos/seed/shopping/800/600",
+    "level": "A2",
+    "topic": "shopping",
+    "vocabulary": [
+      {"word": "shop for", "type": "action", "example": "She is shopping for new clothes."},
+      {"word": "try on", "type": "action", "example": "He is trying on a jacket."},
+      {"word": "pay for", "type": "action", "example": "She is paying for her items."},
+      {"word": "look for", "type": "action", "example": "He is looking for a birthday gift."},
+      {"word": "fit", "type": "state", "example": "The shirt fits her perfectly."},
+      {"word": "expensive", "type": "state", "example": "That bag looks very expensive."},
+      {"word": "on sale", "type": "state", "example": "These shoes are on sale."},
+      {"word": "receipt", "type": "object", "example": "Keep the receipt just in case."},
+      {"word": "shopping bag", "type": "object", "example": "She has three shopping bags."},
+      {"word": "discount", "type": "object", "example": "They offer a 20% discount."},
+      {"word": "size", "type": "object", "example": "Do you have this in a larger size?"},
+      {"word": "refund", "type": "object", "example": "She wants a refund for this item."}
+    ],
+    "opinion_questions": [
+      "Do you prefer shopping online or in stores?",
+      "What is the best thing you bought recently?",
+      "Would you buy this item? Why or why not?",
+      "Is it better to buy cheap or expensive things?",
+      "What will she do with all those bags?"
+    ],
+    "story_starters": [
+      "She is trying on a dress when she realizes it has a stain...",
+      "The item is on sale, but when she goes to pay, it's not in her size...",
+      "He is looking for a gift when he sees the perfect thing, but it's too expensive..."
+    ]
+  }
+]
