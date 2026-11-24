@@ -159,3 +159,42 @@
 - Existing 80 passages in `data/reading-passages.json` do not yet have `translation`, `vocabulary`, `exercises`, or `sentences` fields — these are optional and the UI handles their absence gracefully.
 - Vocabulary and exercises would benefit from AI generation (Gemini Flash) to enrich existing passages — noted for future work.
 - Daily assignment cycles through all 80 passages deterministically by date.
+
+## Part 9: Speaking AI Upgrade (AI Router + Fallback + Improved Feedback)
+
+### AI Router (Free-first priority order)
+- **New priority chain**: Gemini Flash → Groq (gpt-oss-20b) → OpenRouter (:free models) → Ollama → Fallback.
+- **New provider**: `lib/ai/openrouter.ts` — calls OpenRouter API with `:free` models (default: `google/gemma-2-9b-it:free`). Configurable via `OPENROUTER_API_KEY`, `OPENROUTER_MODEL` env.
+- **Router logging**: `lib/ai/router.ts` now logs provider fallback chain (`[ai-router] provider=X failed, falling back to provider=Y`) and final exhaustion (`[ai-router] all providers exhausted, falling back`).
+- **Default chain**: `AI_PROVIDER_CHAIN=gemini,groq,openrouter,ollama` (was `groq,gemini,ollama`).
+
+### Fallback Mode (AI is enhancement, not requirement)
+- **Pre-made sample answers**: `data/speaking-fallback-samples.ts` — 10 topics × 5 questions each with sample answers + keywords. Covers daily-routine, hobbies, food, family, shopping, health, weather, housing, transport, technology (A2 level).
+- **Fallback flow**: When AI fails (429/timeout/quota), user gets:
+  1. Question display + "Nghe câu hỏi" (TTS)
+  2. "Ghi âm" button (record answer)
+  3. "Xem câu mẫu" button (shows sample answer + keywords, plays TTS)
+  4. "Nói lại" step (after seeing sample, user speaks again)
+  5. Progress through all 5 questions
+  6. Summary with key phrases even in fallback mode
+- **Fallback triggers**: Rate limit (429), quota exceeded, all AI providers exhausted.
+- **Fallback summary**: Shows completed count + 5 useful phrases, works without AI.
+
+### Improved Feedback Quality
+- **System prompt updates** (`lib/speaking-prompt.ts`):
+  - Max 1-2 errors (was 2) — focuses on most important mistakes.
+  - `corrected_sentence` must preserve user's meaning, only fix grammar/vocabulary, use common A2-B1 words.
+  - Explicit instruction: "KHÔNG viết câu quá cao siêu" (don't write overly sophisticated sentences).
+- **API route**: Returns `fallback: true` and `fallback_reason` fields when AI unavailable, so client can distinguish rate limit vs budget vs unavailable.
+
+### "Nói lại" Step Improvements
+- After feedback, corrected sentence is shown.
+- User must speak again before proceeding (existing `awaitingRepeat` state).
+- "Nói lại" step has TTS replay of corrected sentence + recording.
+- In fallback mode: "Nói lại" step shows sample answer + recording button.
+
+### Limitations
+- OpenRouter free models may have lower quality than Gemini/Groq — router tries Gemini first.
+- Fallback samples only cover A2 level and 10 topics. B1/B2 and other topics use generic questions.
+- No OpenRouter API key in current env — OpenRouter provider will fail until key is added.
+- Fallback mode does not save individual turn feedback to DB (only session-level completion).

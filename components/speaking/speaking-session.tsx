@@ -32,6 +32,7 @@ import {
   LEVEL_LABELS,
   type Level,
 } from "@/data/speaking-questions-by-level";
+import { getFallbackQuestion } from "@/data/speaking-fallback-samples";
 import type {
   SpeakingError,
   SpeakingTurnResult,
@@ -103,6 +104,14 @@ export function SpeakingSession({
   } | null>(null);
   const [fallbackMode, setFallbackMode] = useState(false);
   const [fallbackTurnIndex, setFallbackTurnIndex] = useState(0);
+  const [fallbackShowSample, setFallbackShowSample] = useState(false);
+  const [fallbackAwaitingRepeat, setFallbackAwaitingRepeat] = useState(false);
+  const [fallbackCompleted, setFallbackCompleted] = useState<Set<number>>(new Set());
+  const [fallbackSample, setFallbackSample] = useState<{
+    question: string;
+    sampleAnswer: string;
+    keywords: string[];
+  } | null>(null);
   const [textInput, setTextInput] = useState("");
   const [showTextInput, setShowTextInput] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -466,6 +475,9 @@ export function SpeakingSession({
     setSampleAnswer("");
     setKeywords([]);
     setShowSampleUntil(null);
+    setFallbackShowSample(false);
+    setFallbackAwaitingRepeat(false);
+    setFallbackSample(null);
   }, [questionIndex, phase]);
 
   const handleRetryAI = useCallback(() => {
@@ -498,11 +510,46 @@ export function SpeakingSession({
     onEnd();
   }, [sessionId, onEnd]);
 
+  const handleFallbackNext = useCallback(() => {
+    if (fallbackAwaitingRepeat) {
+      setFallbackAwaitingRepeat(false);
+      setFallbackCompleted((prev) => new Set([...prev, fallbackTurnIndex]));
+      const nextIndex = fallbackTurnIndex + 1;
+      if (nextIndex >= allQuestions.length) {
+        setPhase("summary");
+        return;
+      }
+      setFallbackTurnIndex(nextIndex);
+      setFallbackShowSample(false);
+      setFallbackSample(null);
+      return;
+    }
+    if (fallbackShowSample) {
+      setFallbackShowSample(false);
+      setFallbackAwaitingRepeat(true);
+      return;
+    }
+    const nextIndex = fallbackTurnIndex + 1;
+    if (nextIndex >= allQuestions.length) {
+      setPhase("summary");
+      return;
+    }
+    setFallbackTurnIndex(nextIndex);
+  }, [fallbackTurnIndex, fallbackAwaitingRepeat, fallbackShowSample, allQuestions.length]);
+
+  const handleFallbackShowSample = useCallback(() => {
+    const topicIdToUse = mode === "topic" ? topicId : "daily-routine";
+    const sample = getFallbackQuestion(topicIdToUse, level, fallbackTurnIndex);
+    if (sample) {
+      setFallbackSample(sample);
+      setFallbackShowSample(true);
+    }
+  }, [mode, topicId, level, fallbackTurnIndex]);
+
   const handleFallbackToggleRecording = useCallback(async () => {
     if (isRecording) {
       try {
-        const blob = await stopRecording();
-        const url = URL.createObjectURL(blob);
+        await stopRecording();
       } catch (cause) {
         setError(
           cause instanceof Error ? cause.message : "Không thể xử lý ghi âm.",
@@ -512,14 +559,6 @@ export function SpeakingSession({
     }
     await startRecording();
   }, [isRecording, startRecording, stopRecording]);
-
-  const handleFallbackNext = useCallback(() => {
-    const nextIndex =
-      fallbackTurnIndex + 1 < allQuestions.length
-        ? fallbackTurnIndex + 1
-        : 0;
-    setFallbackTurnIndex(nextIndex);
-  }, [fallbackTurnIndex, allQuestions.length]);
 
   const handleModeChange = useCallback((newMode: "topic" | "freespeak") => {
     setMode(newMode);
@@ -535,6 +574,10 @@ export function SpeakingSession({
     setKeywords([]);
     setPraise("");
     setShowSampleUntil(null);
+    setFallbackShowSample(false);
+    setFallbackAwaitingRepeat(false);
+    setFallbackCompleted(new Set());
+    setFallbackSample(null);
   }, []);
 
   const handleSpeakAI = useCallback((text: string) => {
@@ -766,46 +809,151 @@ export function SpeakingSession({
                 Chế độ tự luyện tập (AI tạm thời không khả năng). Bạn tự nghe câu
                 hỏi, ghi âm và phát lại để so sánh. Không có đánh giá AI.
               </div>
-              <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
-                <p className="text-sm font-semibold text-foreground mb-4">
-                  Câu hỏi {fallbackTurnIndex + 1}/{allQuestions.length}
-                </p>
-                <p className="text-lg text-foreground italic">
-                  {"\""}
-                  {allQuestions[fallbackTurnIndex]}
-                  {"\""}
-                </p>
-              </div>
 
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={handleFallbackToggleRecording}
-                  disabled={isRecording}
-                  className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
-                    isRecording
-                      ? "animate-pulse bg-red-500 hover:bg-red-600"
-                      : "bg-primary hover:bg-primary/90"
-                  }`}
-                >
-                  {isRecording ? (
-                    <Square className="size-4" />
-                  ) : (
-                    <Mic className="size-4" />
-                  )}
-                  {isRecording ? "Dừng" : "Ghi âm"}
-                </button>
+              {fallbackAwaitingRepeat ? (
+                <>
+                  <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
+                    <p className="text-sm font-semibold text-foreground mb-2">
+                      Nói lại bằng lời của bạn
+                    </p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Hãy nói lại câu trả lời bằng lời của bạn. Không cần giống mẫu 100%.
+                    </p>
+                    {fallbackSample && (
+                      <div className="rounded-lg bg-green-50 p-3 mb-3">
+                        <p className="text-xs font-semibold text-green-700 mb-1">Câu mẫu:</p>
+                        <p className="text-sm text-green-800 italic">{fallbackSample.sampleAnswer}</p>
+                      </div>
+                    )}
+                    <p className="text-xs text-muted-foreground">
+                      Sau khi nói lại, bấm &quot;Đã nói lại&quot; để sang câu tiếp theo.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={handleFallbackToggleRecording}
+                      disabled={isRecording}
+                      className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                        isRecording
+                          ? "animate-pulse bg-red-500 hover:bg-red-600"
+                          : "bg-primary hover:bg-primary/90"
+                      }`}
+                    >
+                      {isRecording ? (
+                        <Square className="size-4" />
+                      ) : (
+                        <Mic className="size-4" />
+                      )}
+                      {isRecording ? "Dừng" : "Ghi âm nói lại"}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleFallbackNext}
+                      disabled={isRecording}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-emerald-600 px-4 text-sm font-medium text-white transition-colors hover:bg-emerald-700 disabled:opacity-50"
+                    >
+                      <CheckCircle2 className="size-4" />
+                      Đã nói lại, tiếp tục
+                    </button>
+                  </div>
+                </>
+              ) : fallbackShowSample && fallbackSample ? (
+                <>
+                  <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
+                    <p className="text-sm font-semibold text-foreground mb-2">
+                      Câu hỏi {fallbackTurnIndex + 1}/{allQuestions.length}
+                    </p>
+                    <p className="text-lg text-foreground italic mb-4">
+                      {allQuestions[fallbackTurnIndex]}
+                    </p>
+                    <div className="rounded-lg bg-green-50 p-3">
+                      <p className="text-xs font-semibold text-green-700 mb-1">Câu mẫu gợi ý:</p>
+                      <p className="text-sm text-green-800 italic">{fallbackSample.sampleAnswer}</p>
+                    </div>
+                    <p className="mt-2 text-xs text-muted-foreground">
+                      Từ khoá: {fallbackSample.keywords.join(", ")}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        speak(fallbackSample.sampleAnswer);
+                      }}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-4 text-sm text-primary transition-colors hover:bg-muted"
+                    >
+                      <Volume2 className="size-4" />
+                      Nghe mẫu
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleFallbackNext}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-emerald-600 px-4 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
+                    >
+                      <ArrowRight className="size-4" />
+                      Tôi đã nói xong
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="rounded-2xl border border-border bg-white p-6 shadow-sm w-full max-w-lg">
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-sm font-semibold text-foreground">
+                        Câu hỏi {fallbackTurnIndex + 1}/{allQuestions.length}
+                      </p>
+                      {fallbackCompleted.has(fallbackTurnIndex) && (
+                        <CheckCircle2 className="size-4 text-emerald-500" />
+                      )}
+                    </div>
+                    <p className="text-lg text-foreground italic">
+                      {allQuestions[fallbackTurnIndex]}
+                    </p>
+                  </div>
 
-                <button
-                  type="button"
-                  onClick={handleFallbackNext}
-                  disabled={isRecording}
-                  className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-blue-600 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-700 disabled:opacity-50"
-                >
-                  <ArrowRight className="size-4" />
-                  Tiếp theo
-                </button>
-              </div>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={handleFallbackToggleRecording}
+                      disabled={isRecording}
+                      className={`inline-flex h-12 items-center gap-2 rounded-full px-6 text-sm font-semibold text-white transition-colors disabled:opacity-50 ${
+                        isRecording
+                          ? "animate-pulse bg-red-500 hover:bg-red-600"
+                          : "bg-primary hover:bg-primary/90"
+                      }`}
+                    >
+                      {isRecording ? (
+                        <Square className="size-4" />
+                      ) : (
+                        <Mic className="size-4" />
+                      )}
+                      {isRecording ? "Dừng" : "Ghi âm"}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleFallbackShowSample}
+                      disabled={isRecording}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-4 text-sm text-amber-600 transition-colors hover:bg-amber-50 disabled:opacity-50"
+                    >
+                      <Volume2 className="size-4" />
+                      Xem câu mẫu
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        speak(allQuestions[fallbackTurnIndex]);
+                      }}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-4 text-sm text-muted-foreground transition-colors hover:bg-muted"
+                    >
+                      <Volume2 className="size-4" />
+                      Nghe câu hỏi
+                    </button>
+                  </div>
+                </>
+              )}
 
               <button
                 type="button"
@@ -816,6 +964,31 @@ export function SpeakingSession({
               </button>
             </div>
           ) : null}
+
+          {fallbackMode && phase === "summary" && (
+            <div className="mt-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <h2 className="text-lg font-semibold text-foreground mb-2">Tổng kết buổi học</h2>
+              <p className="text-sm text-muted-foreground mb-3">
+                Bạn đã luyện {fallbackCompleted.size}/{allQuestions.length} câu ở chế độ tự luyện.
+              </p>
+              <div className="mb-4">
+                <p className="text-xs font-semibold text-green-700 mb-1">Cụm từ hữu ích đã luyện:</p>
+                <ul className="list-disc pl-4 text-sm text-green-700 space-y-1">
+                  {["I usually...", "In my opinion...", "Because...", "I prefer...", "For example..."].slice(0, 5).map((p, i) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </div>
+              <button
+                type="button"
+                onClick={handleEnd}
+                className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                <ArrowLeft className="size-4" />
+                Kết thúc phiên
+              </button>
+            </div>
+          )}
 
           {!fallbackMode && showingTranscript && (
             <div className="mt-3 flex flex-col gap-2">

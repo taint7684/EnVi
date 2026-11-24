@@ -9,7 +9,7 @@ export class AiUnavailableError extends Error {
   }
 }
 
-type ProviderName = "groq" | "gemini" | "ollama";
+type ProviderName = "gemini" | "groq" | "openrouter" | "ollama";
 
 type ProviderCall = (input: { systemPrompt: string; userPrompt: string; responseSchema?: unknown }) => Promise<string>;
 
@@ -29,7 +29,7 @@ type GenerateResult<T> = {
   ms: number;
 };
 
-const DEFAULT_CHAIN = "groq,gemini,ollama";
+const DEFAULT_CHAIN = "gemini,groq,openrouter,ollama";
 const DEFAULT_TIMEOUT_MS = 12000;
 const TASK_TIMEOUT_MS: Record<string, number> = {
   reflex_judge: 4000,
@@ -44,12 +44,13 @@ function envChain(): ProviderName[] {
   return raw
     .split(",")
     .map((s) => s.trim().toLowerCase())
-    .filter((s): s is ProviderName => s === "groq" || s === "gemini" || s === "ollama");
+    .filter((s): s is ProviderName => s === "gemini" || s === "groq" || s === "openrouter" || s === "ollama");
 }
 
 function envModel(provider: ProviderName): string {
   if (provider === "groq") return process.env.GROQ_MODEL ?? "qwen/qwen3.8-27b";
   if (provider === "gemini") return process.env.GEMINI_MODEL ?? "gemini-3.8-flash";
+  if (provider === "openrouter") return process.env.OPENROUTER_MODEL ?? "google/gemma-2-9b-it:free";
   return process.env.OLLAMA_MODEL ?? "qwen3:1.7b";
 }
 
@@ -239,11 +240,24 @@ async function callOllama(input: GenerateInput<unknown>, timeoutMs: number): Pro
   }
 }
 
+async function callOpenRouter(input: GenerateInput<unknown>, timeoutMs: number): Promise<string> {
+  const mod = await import("./openrouter");
+  const { systemPrompt, userPrompt } = extractMessages(input);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await mod.callOpenRouterChat({ systemPrompt, userPrompt });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function providerCaller(provider: ProviderName, input: GenerateInput<unknown>, timeoutMs: number): ProviderCall {
   return async ({ systemPrompt, userPrompt, responseSchema }) => {
     const fakeInput: GenerateInput<unknown> = { ...input, messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }] };
     if (provider === "groq") return await callGroq(fakeInput, timeoutMs);
     if (provider === "gemini") return await callGemini(fakeInput, timeoutMs);
+    if (provider === "openrouter") return await callOpenRouter(fakeInput, timeoutMs);
     return await callOllama(fakeInput, timeoutMs);
   };
 }
@@ -260,6 +274,7 @@ async function runProvider(
   }
   if (provider === "groq") return await callGroq(input, timeoutMs);
   if (provider === "gemini") return await callGemini(input, timeoutMs);
+  if (provider === "openrouter") return await callOpenRouter(input, timeoutMs);
   return await callOllama(input, timeoutMs);
 }
 
@@ -281,8 +296,16 @@ export const aiRouter = {
     }
 
     let lastError: unknown;
+    let lastProvider: ProviderName | null = null;
     for (const provider of providers) {
-      if (circuit.isOpen(provider)) continue;
+      if (circuit.isOpen(provider)) {
+        console.warn(`[ai-router] provider=${provider} circuit-open, skipping`);
+        continue;
+      }
+      if (lastProvider) {
+        console.warn(`[ai-router] provider=${lastProvider} failed, falling back to provider=${provider}`);
+      }
+      lastProvider = provider;
       const start = Date.now();
       try {
         const text = await runProvider(provider, input, timeoutMs);
@@ -303,6 +326,7 @@ export const aiRouter = {
         lastError = err;
       }
     }
+    console.error(`[ai-router] all providers exhausted, falling back. task=${input.task} error=${String(lastError)}`);
     throw new AiUnavailableError(lastError);
   },
 };

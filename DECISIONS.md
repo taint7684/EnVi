@@ -40,6 +40,30 @@ No new migration needed. The existing table from migration 0018 supports reading
 ### Decision: Removed `reading-practice.tsx`
 The old component was no longer imported by any page (replaced by `reading/page.tsx`). Removed to avoid confusion and implicit-any lint errors.
 
+## Speaking AI Upgrade (Part 9)
+
+### Decision: Gemini-first priority chain
+Changed default `AI_PROVIDER_CHAIN` from `groq,gemini,ollama` to `gemini,groq,openrouter,ollama`. Gemini Flash is prioritized because it's free-tier friendly and higher quality for feedback. Groq is fallback, OpenRouter :free is last resort before Ollama.
+
+### Decision: OpenRouter as 3rd provider
+Added `lib/ai/openrouter.ts` for OpenRouter `:free` models (default: `google/gemma-2-9b-it:free`). This provides a free backup when both Gemini and Groq fail. Requires `OPENROUTER_API_KEY` env (optional — provider fails gracefully if key missing).
+
+### Decision: Fallback mode is first-class, not error state
+Instead of treating AI failure as an error, the fallback mode is a full practice mode with:
+- Pre-made sample answers (10 topics × 5 questions, A2 level)
+- TTS for questions and samples
+- Recording + playback
+- "Nói lại" step (speak again after seeing sample)
+- Summary with key phrases
+
+This follows the principle: "AI is enhancement, not requirement for learning."
+
+### Decision: Fallback samples in separate data file
+`data/speaking-fallback-samples.ts` contains pre-made sample answers + keywords. Kept separate from `speaking-questions-by-level.ts` to avoid coupling. Function `getFallbackQuestion(topicId, level, index)` returns sample for any question index.
+
+### Decision: Router logging for observability
+Added `console.warn`/`console.error` in router for provider fallback chain. This helps debug which provider was used and why fallback was triggered.
+
 ## Known Limitations
 
 ### Pronunciation
@@ -51,3 +75,10 @@ The old component was no longer imported by any page (replaced by `reading/page.
 - 80 passages lack translation/vocabulary/exercises. Future: use Gemini Flash to generate these fields.
 - Daily assignment is deterministic (same for all users) — could be personalized based on progress in future.
 - No "Bài đã học" (learned passages) filter yet — progress tracking exists but no dedicated filter UI.
+
+### Speaking AI
+- OpenRouter free models may have lower quality than Gemini/Groq — router tries Gemini first.
+- Fallback samples only cover A2 level and 10 topics. B1/B2 and other topics use generic questions.
+- No OpenRouter API key in current env — OpenRouter provider will fail until key is added.
+- Fallback mode does not save individual turn feedback to DB (only session-level completion).
+- FreeSpeak mode in fallback uses generic DEFAULT_QUESTIONS (not topic-specific).

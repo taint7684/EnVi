@@ -153,6 +153,8 @@ export async function POST(request: Request) {
             : isBudget
               ? "Bạn đã dùng hết lượt AI hôm nay."
               : "Không thể lấy phản hồi AI.",
+          fallback: true,
+          fallback_reason: isRateLimit ? "rate_limit" : isBudget ? "budget" : "unavailable",
         },
         { status: isRateLimit ? 429 : isBudget ? 429 : 503 },
       );
