@@ -57,3 +57,4 @@ data/*.xlsx
 scripts/*backup*.sql
 scripts/*backup*.json
 *.sql.backup
+data/*.backup.json

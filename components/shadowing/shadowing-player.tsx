@@ -215,7 +215,9 @@ export function ShadowingPlayer({ lesson }: Props) {
     window.speechSynthesis.speak(utter);
   }, [lesson.transcript]);
 
-  speakQueueRef.current = speakQueue;
+  useEffect(() => {
+    speakQueueRef.current = speakQueue;
+  }, [speakQueue]);
 
   const handlePlayAllTTS = useCallback(() => {
     if (ttsPlayingAll) {
@@ -334,12 +336,22 @@ export function ShadowingPlayer({ lesson }: Props) {
 
         <div className="overflow-hidden rounded-xl bg-black">
           {!ttsMode ? (
-            <div ref={ytContainerRef} className="aspect-video w-full" />
+            <div className="relative">
+              <div ref={ytContainerRef} className="aspect-video w-full" />
+              {!ytReady && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black">
+                  <p className="text-sm text-muted-foreground">Đang tải video…</p>
+                </div>
+              )}
+            </div>
           ) : (
             <div className="aspect-video w-full bg-black flex items-center justify-center">
               <div className="text-center">
                 <Volume2 className="mx-auto h-8 w-8 text-primary-foreground mb-2" />
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-primary-foreground font-medium">
+                  Đồng bộ 100% · Đọc đúng từng câu
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
                   Chế độ phát âm máy — không cần YouTube
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
@@ -350,11 +362,15 @@ export function ShadowingPlayer({ lesson }: Props) {
           )}
         </div>
 
-        {!ttsMode && (
-          <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
-            Video YouTube có thể không khớp với lời thoại. Dùng &quot;Phát âm máy&quot; để nghe đúng từng câu.
+        {!ttsMode && lesson.videoSynced ? (
+          <p className="mt-2 rounded-lg bg-emerald-50 px-3 py-2 text-xs text-emerald-700">
+            Video đã đồng bộ với lời thoại — âm thanh khớp chính xác.
           </p>
-        )}
+        ) : !ttsMode ? (
+          <p className="mt-2 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
+            Video tham khảo — có thể không khớp lời thoại. Dùng &quot;Phát âm máy&quot; để nghe đúng từng câu.
+          </p>
+        ) : null}
 
         <div className="mt-3 flex flex-wrap items-center gap-2">
           {SPEEDS.map((s) => (
@@ -392,7 +408,7 @@ export function ShadowingPlayer({ lesson }: Props) {
             }}
           >
             <Play className="mr-1 h-4 w-4" />
-            {ttsMode ? "YouTube video" : "Phát âm máy"}
+            {ttsMode ? "Dùng video YouTube" : "Phát âm máy (đồng bộ)"}
           </Button>
 
           {isPlaying && !ttsMode && (
@@ -526,9 +542,9 @@ export function ShadowingPlayer({ lesson }: Props) {
             )}
 
             <p className="text-xs text-muted-foreground">
-              Nhấp vào câu trong lời thoại để tua đến đoạn đó. Video sẽ phát từ
-              đầu câu và tự dừng ở cuối câu. Sau đó nhấn Ghi âm và đọc theo.
-              Nhấn Đánh giá để so sánh.
+              Chế độ &quot;Phát âm máy&quot; đọc đúng từng câu lời thoại (đồng bộ 100%).
+              Nhấp câu để nghe, hoặc &quot;Phát tất cả&quot; để nghe toàn bài. Sau đó nhấn
+              Ghi âm và đọc theo, rồi Đánh giá để so sánh.
             </p>
           </div>
         </div>

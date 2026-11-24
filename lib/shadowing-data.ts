@@ -15,6 +15,7 @@ export type ShadowingLesson = {
   level: string;
   duration: string;
   transcript: ShadowingSegment[];
+  videoSynced?: boolean;
 };
 
 export const SHADOWING_LESSONS = shadowingLessons as ShadowingLesson[];

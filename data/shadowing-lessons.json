@@ -1,47 +1,54 @@
 [
   {
     "id": "sh-morning",
-    "youtubeId": "RJ8Fo29oVZo",
+    "youtubeId": "aQ0w2I0Eb9I",
     "title": "My Morning Routine",
-    "titleVi": "Thói Quen Buổi Sáng Của Tôi",
+    "titleVi": "Thói Quen Buổi Sáng",
     "level": "A2",
-    "duration": "1:00",
+    "duration": "1:10",
     "transcript": [
       {
         "id": 1,
         "startTime": 0,
-        "endTime": 12,
-        "text": "My name is Daniel and I am a teacher."
+        "endTime": 25,
+        "text": "So, I normally wake up at about 6 or 6:15 AM."
       },
       {
         "id": 2,
-        "startTime": 12,
-        "endTime": 24,
-        "text": "Every morning I wake up at six thirty."
+        "startTime": 25,
+        "endTime": 36,
+        "text": "When I wake up, the first thing I do is read my bible."
       },
       {
         "id": 3,
-        "startTime": 24,
-        "endTime": 36,
-        "text": "First, I drink a glass of water and stretch."
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I like to study in the morning, because I feel motivated."
       },
       {
         "id": 4,
-        "startTime": 36,
-        "endTime": 48,
-        "text": "Then I take a warm shower and get dressed."
+        "startTime": 48,
+        "endTime": 53,
+        "text": "Other people prefer studying in the evening."
       },
       {
         "id": 5,
-        "startTime": 48,
-        "endTime": 60,
-        "text": "I eat breakfast with my family before work."
+        "startTime": 53,
+        "endTime": 65,
+        "text": "So, after I study, I usually eat some fruit. This is my first food of the day."
+      },
+      {
+        "id": 6,
+        "startTime": 65,
+        "endTime": 70,
+        "text": "I usually start working at 7:30 AM."
       }
-    ]
+    ],
+    "videoSynced": true
   },
   {
     "id": "sh-cafe",
-    "youtubeId": "baiacRy-4L8",
+    "youtubeId": "6Mcn4k1EtZA",
     "title": "Ordering at a Café",
     "titleVi": "Gọi Món Ở Quán Cà Phê",
     "level": "A2",
@@ -77,11 +84,12 @@
         "endTime": 60,
         "text": "That will be five dollars and fifty cents."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-directions",
-    "youtubeId": "RJ8Fo29oVZo",
+    "youtubeId": "thfcha1WpKQ",
     "title": "Asking for Directions",
     "titleVi": "Hỏi Đường",
     "level": "A2",
@@ -117,7 +125,8 @@
         "endTime": 60,
         "text": "Thank you so much for your help!"
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-weather",
@@ -157,11 +166,12 @@
         "endTime": 60,
         "text": "Do not forget to bring a warm jacket."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-shopping",
-    "youtubeId": "RJ8Fo29oVZo",
+    "youtubeId": "I6CRtpSZ67c",
     "title": "Shopping for Groceries",
     "titleVi": "Mua Đồ Ở Siêu Thị",
     "level": "A2",
@@ -197,7 +207,8 @@
         "endTime": 60,
         "text": "I will take three kilos, please."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-health",
@@ -237,7 +248,8 @@
         "endTime": 80,
         "text": "Try to avoid your phone before bedtime."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-travel",
@@ -277,7 +289,8 @@
         "endTime": 80,
         "text": "I cannot wait to see the beautiful views."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-food",
@@ -317,7 +330,8 @@
         "endTime": 80,
         "text": "Dinner is ready, let us eat together."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-work",
@@ -357,7 +371,8 @@
         "endTime": 80,
         "text": "It felt great to work together as a team."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-tech",
@@ -397,7 +412,8 @@
         "endTime": 80,
         "text": "Continuous learning is the key to future success."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-env",
@@ -437,7 +453,8 @@
         "endTime": 80,
         "text": "Small daily actions can make a real difference."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-edu",
@@ -477,7 +494,8 @@
         "endTime": 80,
         "text": "Understanding history helps us build a better future."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-science",
@@ -517,7 +535,8 @@
         "endTime": 80,
         "text": "We can keep that curiosity alive by asking questions."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-culture",
@@ -557,7 +576,8 @@
         "endTime": 80,
         "text": "Traveling during a festival is an unforgettable experience."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-sport",
@@ -597,7 +617,8 @@
         "endTime": 80,
         "text": "The most important thing is to stay consistent."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-money",
@@ -637,7 +658,8 @@
         "endTime": 90,
         "text": "A budget gives you control over your financial future."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-interview",
@@ -677,7 +699,8 @@
         "endTime": 90,
         "text": "I admire your mission and I would love to contribute."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-negotiate",
@@ -717,7 +740,8 @@
         "endTime": 90,
         "text": "Yes, delivery is free within the city."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-opinion",
@@ -757,7 +781,8 @@
         "endTime": 90,
         "text": "What do you think about this idea?"
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-story",
@@ -797,7 +822,8 @@
         "endTime": 90,
         "text": "That trip taught me to slow down and enjoy life."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-psych",
@@ -837,7 +863,8 @@
         "endTime": 90,
         "text": "Focus on systems rather than short term goals."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-econ",
@@ -877,7 +904,8 @@
         "endTime": 90,
         "text": "Understanding these ideas helps us make better choices."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-tech2",
@@ -917,7 +945,8 @@
         "endTime": 90,
         "text": "The future of work will likely be a hybrid model."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-lead",
@@ -957,7 +986,8 @@
         "endTime": 90,
         "text": "Leadership is about service, not about power."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-creative",
@@ -997,7 +1027,8 @@
         "endTime": 90,
         "text": "Give your mind time to rest and ideas will appear."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-med",
@@ -1037,7 +1068,8 @@
         "endTime": 90,
         "text": "Balance is not a destination but a daily practice."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-global",
@@ -1077,7 +1109,8 @@
         "endTime": 90,
         "text": "Do not wait until you are perfect to start talking."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-future",
@@ -1117,7 +1150,8 @@
         "endTime": 90,
         "text": "Your future depends on the choices you make today."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-reflect",
@@ -1157,7 +1191,8 @@
         "endTime": 90,
         "text": "Tomorrow is a fresh chance to grow a little more."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-books",
@@ -1197,7 +1232,8 @@
         "endTime": 90,
         "text": "A good book stays with you long after the last page."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-time",
@@ -1237,7 +1273,8 @@
         "endTime": 60,
         "text": "I will take a taxi instead."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-family",
@@ -1277,7 +1314,8 @@
         "endTime": 60,
         "text": "I love spending time with my family."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-colours",
@@ -1317,7 +1355,8 @@
         "endTime": 60,
         "text": "We painted her room yellow last weekend."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-animals",
@@ -1357,11 +1396,12 @@
         "endTime": 60,
         "text": "I love my dog very much."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-food2",
-    "youtubeId": "baiacRy-4L8",
+    "youtubeId": "5zSmbWz4354",
     "title": "At a Restaurant",
     "titleVi": "Ở Nhà Hàng",
     "level": "A2-B1",
@@ -1397,7 +1437,8 @@
         "endTime": 80,
         "text": "Just some water, thank you."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-bus",
@@ -1437,7 +1478,8 @@
         "endTime": 80,
         "text": "Thank you for your help."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-music",
@@ -1477,7 +1519,8 @@
         "endTime": 80,
         "text": "I often sing along when I am alone."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-weekend",
@@ -1517,7 +1560,8 @@
         "endTime": 80,
         "text": "It should be very relaxing."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-exercise",
@@ -1557,7 +1601,8 @@
         "endTime": 80,
         "text": "Small habits make a big difference over time."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-city",
@@ -1597,7 +1642,8 @@
         "endTime": 80,
         "text": "For me, the energy of the city is worth it."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-plan",
@@ -1637,7 +1683,8 @@
         "endTime": 80,
         "text": "Good planning saves a lot of time later."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-travel2",
@@ -1677,7 +1724,8 @@
         "endTime": 80,
         "text": "Have a pleasant flight."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-money2",
@@ -1717,7 +1765,8 @@
         "endTime": 90,
         "text": "Over time, it will grow into something meaningful."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-interview2",
@@ -1757,7 +1806,8 @@
         "endTime": 90,
         "text": "We would like to invite you for a second interview."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-science2",
@@ -1797,7 +1847,8 @@
         "endTime": 90,
         "text": "The more you recall, the longer you remember."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-art",
@@ -1837,7 +1888,8 @@
         "endTime": 90,
         "text": "Everyone has the ability to create something meaningful."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-tech3",
@@ -1877,7 +1929,8 @@
         "endTime": 90,
         "text": "It should serve us, not control us."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-success",
@@ -1917,7 +1970,8 @@
         "endTime": 90,
         "text": "Persistence is more powerful than talent alone."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-balance",
@@ -1957,7 +2011,8 @@
         "endTime": 90,
         "text": "Balance allows us to enjoy the journey, not just the destination."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-kindness",
@@ -1997,7 +2052,8 @@
         "endTime": 90,
         "text": "The world becomes better one small action at a time."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-daily-plan",
@@ -2043,7 +2099,8 @@
         "endTime": 72,
         "text": "In the evening, I review what I completed and prepare for tomorrow."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-email",
@@ -2089,7 +2146,8 @@
         "endTime": 72,
         "text": "Finally, close with a courteous sign-off and your contact details."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-meeting",
@@ -2135,7 +2193,8 @@
         "endTime": 72,
         "text": "Send the minutes promptly so everyone knows what happens next."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-negotiation",
@@ -2181,7 +2240,8 @@
         "endTime": 72,
         "text": "Finally, confirm the agreement clearly to avoid misunderstandings later."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-presentation",
@@ -2227,7 +2287,8 @@
         "endTime": 72,
         "text": "Close by summarising your message and stating what you want them to do."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-feedback",
@@ -2273,7 +2334,8 @@
         "endTime": 72,
         "text": "End on a positive note, recognising their strengths and potential."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-conflict",
@@ -2319,7 +2381,8 @@
         "endTime": 72,
         "text": "If emotions run high, suggest taking a short break and returning later."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-social",
@@ -2365,7 +2428,8 @@
         "endTime": 72,
         "text": "Close gracefully by thanking the person and wishing them a good day."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-apology",
@@ -2411,7 +2475,8 @@
         "endTime": 72,
         "text": "Finally, thank the person for their patience and understanding."
       }
-    ]
+    ],
+    "videoSynced": false
   },
   {
     "id": "sh-phone",
@@ -2457,6 +2522,7 @@
         "endTime": 72,
         "text": "End the call politely by confirming the next step and thanking them."
       }
-    ]
+    ],
+    "videoSynced": false
   }
 ]
