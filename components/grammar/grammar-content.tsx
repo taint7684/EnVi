@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown, ChevronUp, GitBranch } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CollocationsView } from "@/components/grammar/collocations-view";
@@ -9,6 +9,7 @@ import { CollocationsPractice } from "@/components/grammar/collocations-practice
 import { MindMapView } from "@/components/grammar/mind-map";
 import { ExercisePlayer } from "@/components/grammar/exercise-player";
 import { MixedPractice } from "@/components/grammar/mixed-practice";
+import { getGrammarWrongAnswers } from "@/app/actions/grammar-v2";
 import type { MindMap, GrammarV2Question } from "@/lib/grammar-v2-types";
 import { getGrammarExercises } from "@/lib/grammar-exercises-data";
 
@@ -246,6 +247,12 @@ export function GrammarContent({ mindmaps, v2Questions }: { mindmaps: Record<str
   const [view, setView] = useState<
     "grammar" | "collocations" | "phrasal" | "practice" | "tonghop"
   >("grammar");
+  const [wrongAnswerIds, setWrongAnswerIds] = useState<string[]>([]);
+  useEffect(() => {
+    getGrammarWrongAnswers()
+      .then((rows) => setWrongAnswerIds(rows.map((r) => r.questionId)))
+      .catch(() => {});
+  }, []);
 
   const toggleExpand = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -281,7 +288,7 @@ export function GrammarContent({ mindmaps, v2Questions }: { mindmaps: Record<str
 
       {view === "practice" ? <CollocationsPractice /> : null}
 
-                {view === "tonghop" ? <MixedPractice v2Questions={v2Questions} /> : null}
+                {view === "tonghop" ? <MixedPractice v2Questions={v2Questions} wrongAnswerIds={wrongAnswerIds} /> : null}
 
       {view === "grammar" ? (
         <p className="text-sm text-muted-foreground">

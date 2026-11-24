@@ -53,6 +53,7 @@ export function ReflexDrillsSession({
     setResults(newResults);
 
     // Requeue slow/forgot after 3 other questions
+    let effectiveLen = queue.length;
     if (grade !== "got_it") {
       const count = requeueCount.current[current.id] ?? 0;
       if (count < 2) {
@@ -61,12 +62,13 @@ export function ReflexDrillsSession({
         const insertAt = Math.min(index + 3, requeue.length);
         requeue.splice(insertAt, 0, current);
         setQueue(requeue);
+        effectiveLen = requeue.length;
       }
     }
 
     const nextIndex = index + 1;
     const completedIds = Array.from(uniqueCompleted.current);
-    const doneNow = nextIndex >= queue.length;
+    const doneNow = nextIndex >= effectiveLen;
 
     void saveReflexDrillProgress(day, mode, completedIds, newResults, nextIndex, queue.length).catch(() => {});
 

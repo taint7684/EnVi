@@ -24,8 +24,8 @@
     "topic_name_vi": "Câu Điều Kiện",
     "sentence": "If I studys more time, I would study.",
     "error_part": "studys",
-    "correct_part": "studyed",
-    "corrected": "If I studyed more time, I would study.",
+    "correct_part": "studied",
+    "corrected": "If I studied more time, I would study.",
     "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
   },
   {

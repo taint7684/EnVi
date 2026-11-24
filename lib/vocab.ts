@@ -164,6 +164,14 @@ export async function getDueCards(
   );
   const reviewedIds = new Set((reviews ?? []).map((r) => (r as { word_id: string }).word_id));
 
+  // Words the user triaged as "known" must not reappear as new cards.
+  const { data: knownTriage } = await supabase
+    .from("user_word_triage")
+    .select("word_id")
+    .eq("user_id", user.id)
+    .eq("status", "known");
+  const knownIds = new Set((knownTriage ?? []).map((r) => (r as { word_id: string }).word_id));
+
   const dueWordIds = dueReviews.map((r) => (r as { word_id: string }).word_id);
 
   const dueCards: DueCard[] = [];
@@ -201,7 +209,7 @@ export async function getDueCards(
       if (!words || words.length === 0) break;
 
       for (const w of words as WordRow[]) {
-        if (!reviewedIds.has(w.id)) {
+        if (!reviewedIds.has(w.id) && !knownIds.has(w.id)) {
           newCards.push({ word: w, review: null });
           if (newCards.length >= remaining) break;
         }

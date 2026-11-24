@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   ArrowLeft,
   BookOpen,
@@ -279,7 +279,7 @@ function ReadAloudTab({ passage }: { passage: ReadingPassage; progress?: Reading
   const [recording, setRecording] = useState(false);
   const [showVocab, setShowVocab] = useState(false);
   const [readDone, setReadDone] = useState<Set<number>>(new Set());
-  const mediaRef = useState<{ recorder: MediaRecorder | null; chunks: Blob[] }>({ recorder: null, chunks: [] })[0];
+  const mediaRef = useRef<{ recorder: MediaRecorder | null; chunks: Blob[] }>({ recorder: null, chunks: [] });
 
   function startRecording() {
     navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
@@ -293,8 +293,8 @@ function ReadAloudTab({ passage }: { passage: ReadingPassage; progress?: Reading
         setRecording(false);
         stream.getTracks().forEach((t) => t.stop());
       };
-      mediaRef.recorder = recorder;
-      mediaRef.chunks = chunks;
+      mediaRef.current.recorder = recorder;
+      mediaRef.current.chunks = chunks;
       recorder.start();
       setRecording(true);
     }).catch(() => {
@@ -303,7 +303,7 @@ function ReadAloudTab({ passage }: { passage: ReadingPassage; progress?: Reading
   }
 
   function stopRecording() {
-    mediaRef.recorder?.stop();
+    mediaRef.current.recorder?.stop();
   }
 
   function speakSentence(idx: number) {

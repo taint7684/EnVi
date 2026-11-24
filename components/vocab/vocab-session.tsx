@@ -24,7 +24,7 @@ const GRADES: ReviewGrade[] = ["again", "hard", "good", "easy"];
 function isInteractive(target: EventTarget | null): boolean {
   return (
     target instanceof HTMLElement &&
-    target.closest("button, input, textarea, select, a") !== null
+    target.closest("button, input, textarea, select, a, [role='button']") !== null
   );
 }
 

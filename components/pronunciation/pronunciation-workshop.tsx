@@ -664,12 +664,15 @@ function Step5QuickTest({
   const [busy, setBusy] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [score, setScore] = useState<number | null>(null);
+  const [spokenScores, setSpokenScores] = useState<Record<number, number>>({});
   const [error, setError] = useState<string | null>(null);
 
   const tests = focus.quick_test;
   const current = tests[index];
   const isLast = index + 1 >= tests.length;
-  const allAnswered = Object.keys(answers).length >= tests.length;
+  const allAnswered = tests.every((t, i) =>
+    t.type === "listen-choose" ? answers[i] != null : spokenScores[i] != null,
+  );
 
   function answer(idx: number, opt: number) {
     setAnswers((a) => ({ ...a, [idx]: opt }));
@@ -685,6 +688,7 @@ function Step5QuickTest({
         setTranscript(text);
         const scored = scoreIntelligibility(text, current?.target ?? "");
         setScore(scored.score);
+        setSpokenScores((s) => ({ ...s, [index]: scored.score }));
         await savePronunciationAttempt({
           focusId: focus.id,
           itemType: "quick_test",
@@ -716,6 +720,9 @@ function Step5QuickTest({
   for (const [idx, ans] of Object.entries(answers)) {
     const t = tests[Number(idx)];
     if (t?.type === "listen-choose" && ans === t.answer) correctCount++;
+  }
+  for (const sc of Object.values(spokenScores)) {
+    if (sc >= 80) correctCount++;
   }
 
   return (
@@ -838,6 +845,7 @@ function Step5QuickTest({
                 setIndex(0);
                 setTranscript("");
                 setScore(null);
+                setSpokenScores({});
                 setError(null);
               }}
             >

@@ -100,6 +100,7 @@ export function PictureTalkPlayer({
   const audioBlobRef = useRef<Blob | null>(null);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const recordingRef = useRef(false);
 
   const wordCount = countWords(transcript);
   const wpm = duration > 0 ? Math.round((wordCount / duration) * 60) : 0;
@@ -136,6 +137,7 @@ export function PictureTalkPlayer({
   }, [lifesaverText, lifesaverTranslating]);
 
   const stopRecording = useCallback(() => {
+    recordingRef.current = false;
     setRecording(false);
     try { recRef.current?.stop(); } catch { /* */ }
     recRef.current = null;
@@ -168,12 +170,13 @@ export function PictureTalkPlayer({
       lastResultTimeRef.current = Date.now();
     };
     rec.onerror = () => {
+      recordingRef.current = false;
       setRecording(false);
       try { rec.stop(); } catch { /* */ }
       recRef.current = null;
     };
     rec.onend = () => {
-      if (recording) {
+      if (recordingRef.current) {
         try { rec.start(); } catch { /* */ }
       }
     };
@@ -181,11 +184,12 @@ export function PictureTalkPlayer({
     transcriptRef.current = "";
     setTranscript("");
     setInterim("");
+    recordingRef.current = true;
     setRecording(true);
     setStartTime(Date.now());
     lastResultTimeRef.current = Date.now();
     try { rec.start(); } catch { /* */ }
-  }, [recording]);
+  }, []);
 
   // Silence detection: show hints after 5s of no new results
   useEffect(() => {
@@ -303,6 +307,7 @@ export function PictureTalkPlayer({
       };
       mr.start();
       mediaRecorderRef.current = mr;
+      recordingRef.current = true;
       setRecording(true);
       setStartTime(Date.now());
       lastResultTimeRef.current = Date.now();
@@ -314,6 +319,7 @@ export function PictureTalkPlayer({
   const stopWhisperRecording = useCallback(() => {
     try { mediaRecorderRef.current?.stop(); } catch { /* */ }
     mediaRecorderRef.current = null;
+    recordingRef.current = false;
     setRecording(false);
     if (startTime) setDuration((Date.now() - startTime) / 1000);
   }, [startTime]);

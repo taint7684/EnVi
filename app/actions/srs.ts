@@ -52,31 +52,13 @@ export async function reviewWord(
   const now = new Date();
   const card = existing ? rowToCard(existing) : newCard(now);
 
-  let nextCard;
-  let row;
-
+  // Practice mode must NOT change the official FSRS schedule (per CHANGELOG).
+  let dueAt: string;
   if (mode === "practice") {
-    nextCard = repeatCard(card, grade, now);
-    row = {
-      user_id: user.id,
-      word_id: wordId,
-      ease: 2.5,
-      interval: Math.round(nextCard.scheduled_days),
-      due_at: nextCard.due.toISOString(),
-      reps: nextCard.reps,
-      lapses: nextCard.lapses,
-      last_reviewed_at: now.toISOString(),
-      stability: nextCard.stability,
-      difficulty: nextCard.difficulty,
-      state: nextCard.state,
-      elapsed_days: nextCard.elapsed_days,
-      scheduled_days: nextCard.scheduled_days,
-      learning_steps: nextCard.learning_steps,
-      last_review: nextCard.last_review ? nextCard.last_review.toISOString() : null,
-    };
+    dueAt = (existing as { due_at?: string } | null)?.due_at ?? now.toISOString();
   } else {
-    nextCard = repeatCard(card, grade, now);
-    row = {
+    const nextCard = repeatCard(card, grade, now);
+    const row = {
       user_id: user.id,
       word_id: wordId,
       ease: 2.5,
@@ -93,13 +75,12 @@ export async function reviewWord(
       learning_steps: nextCard.learning_steps,
       last_review: nextCard.last_review ? nextCard.last_review.toISOString() : null,
     };
+    const { error } = await supabase
+      .from("card_reviews")
+      .upsert(row, { onConflict: "user_id,word_id" });
+    if (error) throw new Error(error.message);
+    dueAt = nextCard.due.toISOString();
   }
-
-  const { error } = await supabase
-    .from("card_reviews")
-    .upsert(row, { onConflict: "user_id,word_id" });
-
-  if (error) throw new Error(error.message);
 
   await supabase.from("vocab_review_log").insert({
     user_id: user.id,
@@ -125,7 +106,7 @@ export async function reviewWord(
     }
   }
 
-  return { ok: true, dueAt: nextCard.due.toISOString() };
+  return { ok: true, dueAt };
 }
 
 export async function updateSessionState(input: {

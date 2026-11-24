@@ -8,6 +8,7 @@ import { GRAMMAR_EXERCISES } from "@/lib/grammar-exercises-data";
 import type { GrammarMcq, GrammarFill } from "@/lib/grammar-exercises-data";
 import type { GrammarV2Question } from "@/lib/grammar-v2-types";
 import grammarMixed from "@/data/grammar-mixed.json";
+import { saveGrammarV2Attempt } from "@/app/actions/grammar-v2";
 
 type ExerciseType = "mcq" | "translation" | "error_correction" | "verb_conjugation";
 type ExerciseQuestion = GrammarMcq | GrammarFill | GrammarV2Question;
@@ -98,11 +99,10 @@ export function MixedPractice({ wrongAnswerIds = [], v2Questions }: { wrongAnswe
     setIndex(0);
     setStarted(true);
     if (sessionMode === "review_wrong") {
-      // Filter to wrong answers
-      const wrongSet = new Set(wrongAnswerIds);
+      // Filter to wrong answers (matched by the question's own id)
+      const wrongSet = new Set(wrongAnswerIds.map(String));
       const qs = buildMixedQuestions(999, v2Questions).filter((q) => {
-        const id = `${q.type}-${q.question.id}-${q.topicId}`;
-        return wrongSet.has(id);
+        return wrongSet.has(String((q.question as { id?: string | number }).id ?? ""));
       });
       setQuestions(qs.length > 0 ? qs : buildMixedQuestions(count, v2Questions));
     } else {
@@ -114,6 +114,15 @@ export function MixedPractice({ wrongAnswerIds = [], v2Questions }: { wrongAnswe
     const q = questions[index];
     if (!q) return;
     setResults((prev) => [...prev, { topicId: q.topicId, topicName: q.topicName, correct }]);
+    void saveGrammarV2Attempt({
+      topicId: q.topicId,
+      questionId: questionId || String((q.question as { id?: string | number }).id ?? ""),
+      exerciseType: q.type,
+      correct,
+      userAnswer: "",
+      correctAnswer: "",
+      questionText: "",
+    }).catch(() => {});
   }, [questions, index]);
 
   const handleNext = useCallback(() => {

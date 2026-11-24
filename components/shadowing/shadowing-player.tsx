@@ -51,6 +51,7 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [ttsSpeed, setTtsSpeed] = useState(1);
   const [ttsPlayingAll, setTtsPlayingAll] = useState(false);
   const [ytReady, setYtReady] = useState(false);
+  const [ytError, setYtError] = useState(false);
 
   const ttsMode = useTTS;
 
@@ -62,6 +63,7 @@ export function ShadowingPlayer({ lesson }: Props) {
   const playerRef = useRef<YTPlayer | null>(null);
   const ytContainerRef = useRef<HTMLDivElement | null>(null);
   const startRef = useRef<number>(0);
+  const recordedDurRef = useRef<number>(0);
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const stopAtRef = useRef<number | null>(null);
 
@@ -118,6 +120,11 @@ export function ShadowingPlayer({ lesson }: Props) {
           },
           onStateChange: (data: { data: number }) => {
             setIsPlaying(data.data === 1);
+          },
+          onError: () => {
+            if (cancelled) return;
+            setYtError(true);
+            setYtReady(false);
           },
         },
       });
@@ -235,10 +242,12 @@ export function ShadowingPlayer({ lesson }: Props) {
 
   const handleRecord = useCallback(async () => {
     if (recorder.isRecording) {
+      recordedDurRef.current = (Date.now() - startRef.current) / 1000;
       await recorder.stop();
     } else {
       setEvaluation(null);
       startRef.current = Date.now();
+      recordedDurRef.current = 0;
       await recorder.start();
     }
   }, [recorder]);
@@ -252,7 +261,7 @@ export function ShadowingPlayer({ lesson }: Props) {
     setEvaluating(true);
     try {
       const transcript = await transcribe(blob);
-      const userDur = (Date.now() - startRef.current) / 1000;
+      const userDur = recordedDurRef.current > 0 ? recordedDurRef.current : (Date.now() - startRef.current) / 1000;
       const refDur = Math.max(0.1, seg.endTime - seg.startTime);
       const scored = scoreShadowing(transcript, seg.text, userDur, refDur);
       const pct = Math.round(scored.score * 100);
@@ -281,6 +290,7 @@ export function ShadowingPlayer({ lesson }: Props) {
       setActiveSegment(segment.id);
       setEvaluation(null);
       if (ttsMode) {
+        setTtsPlayingAll(false);
         playSegmentTTS(segment);
         return;
       }
@@ -338,9 +348,17 @@ export function ShadowingPlayer({ lesson }: Props) {
           {!ttsMode ? (
             <div className="relative">
               <div ref={ytContainerRef} className="aspect-video w-full" />
-              {!ytReady && (
+              {!ytReady && !ytError && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black">
                   <p className="text-sm text-muted-foreground">Đang tải video…</p>
+                </div>
+              )}
+              {ytError && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 bg-black px-4 text-center">
+                  <p className="text-sm font-medium text-red-400">Không tải được video.</p>
+                  <p className="text-xs text-muted-foreground">
+                    Dùng &quot;Phát âm máy&quot; để luyện theo lời thoại.
+                  </p>
                 </div>
               )}
             </div>
