@@ -47,7 +47,7 @@ export function ShadowingPlayer({ lesson }: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
   const [activeSegment, setActiveSegment] = useState<number | null>(null);
-  const [useTTS, setUseTTS] = useState(true);
+  const [useTTS, setUseTTS] = useState(!lesson.videoSynced);
   const [ttsSpeed, setTtsSpeed] = useState(1);
   const [ttsPlayingAll, setTtsPlayingAll] = useState(false);
   const [ytReady, setYtReady] = useState(false);
@@ -417,17 +417,19 @@ export function ShadowingPlayer({ lesson }: Props) {
             </Button>
           ) : null}
 
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => {
-              setUseTTS((prev) => !prev);
-              setEvaluation(null);
-            }}
-          >
-            <Play className="mr-1 h-4 w-4" />
-            {ttsMode ? "Dùng video YouTube" : "Phát âm máy (đồng bộ)"}
-          </Button>
+          {lesson.videoSynced ? (
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => {
+                setUseTTS((prev) => !prev);
+                setEvaluation(null);
+              }}
+            >
+              <Play className="mr-1 h-4 w-4" />
+              {ttsMode ? "Dùng video YouTube" : "Phát âm máy (đồng bộ)"}
+            </Button>
+          ) : null}
 
           {isPlaying && !ttsMode && (
             <Button

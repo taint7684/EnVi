@@ -206,3 +206,78 @@ export async function getDashboardData(): Promise<{
     weekData: (progress as { date: string; minutes: number; words_reviewed: number }[]) ?? [],
   };
 }
+export type NorthStarMetrics = {
+  speakingMinutesToday: number;
+  speakingMinutesWeek: number;
+  speakingSessionsWeek: number;
+  avgWpmWeek: number | null;
+  streak: number;
+};
+
+/**
+ * North Star metrics: các chỉ số then chốt phản ánh tiến bộ nói.
+ * - speakingMinutes*: tổng thời gian luyện Speaking (speaking_turns.duration_ms).
+ * - avgWpmWeek: WPM trung bình (có trọng số theo thời lượng) trong 7 ngày.
+ * - streak: chuỗi ngày học liên tiếp (daily_progress.streak).
+ */
+export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
+  const empty: NorthStarMetrics = {
+    speakingMinutesToday: 0,
+    speakingMinutesWeek: 0,
+    speakingSessionsWeek: 0,
+    avgWpmWeek: null,
+    streak: 0,
+  };
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return empty;
+
+  const now = new Date();
+  const todayStart = new Date(now);
+  todayStart.setHours(0, 0, 0, 0);
+  const weekStart = new Date(todayStart.getTime() - 6 * DAY_MS);
+
+  const { data: turns } = await supabase
+    .from("speaking_turns")
+    .select("duration_ms, wpm, created_at")
+    .eq("user_id", user.id)
+    .gte("created_at", weekStart.toISOString());
+
+  let todayMs = 0;
+  let weekMs = 0;
+  let wpmWeighted = 0;
+  let wpmWeightMs = 0;
+  for (const t of (turns as { duration_ms: number | null; wpm: number | null; created_at: string }[] | null) ?? []) {
+    const dur = Number(t.duration_ms ?? 0);
+    if (dur <= 0) continue;
+    weekMs += dur;
+    if (new Date(t.created_at) >= todayStart) todayMs += dur;
+    const w = Number(t.wpm ?? 0);
+    if (w > 0) {
+      wpmWeighted += w * dur;
+      wpmWeightMs += dur;
+    }
+  }
+
+  const { count: sessionsWeek } = await supabase
+    .from("speaking_sessions")
+    .select("*", { count: "exact", head: true })
+    .gte("started_at", weekStart.toISOString());
+
+  const { data: streakData } = await supabase
+    .from("daily_progress")
+    .select("streak")
+    .eq("user_id", user.id)
+    .order("date", { ascending: false })
+    .limit(1);
+
+  return {
+    speakingMinutesToday: Math.round(todayMs / 60000),
+    speakingMinutesWeek: Math.round(weekMs / 60000),
+    speakingSessionsWeek: sessionsWeek ?? 0,
+    avgWpmWeek: wpmWeightMs > 0 ? Math.round((wpmWeighted / wpmWeightMs) * 10) / 10 : null,
+    streak: (streakData as { streak: number }[] | null)?.[0]?.streak ?? 0,
+  };
+}

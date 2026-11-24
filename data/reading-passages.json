@@ -1542,6 +1542,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Đọc sách là một trong những thói quen giá trị nhất mà một người có thể rèn luyện. Khác với việc xem video, đọc sách buộc bộ não phải tạo ra hình ảnh và tưởng tượng các tình huống. Điều này củng cố trí nhớ và cải thiện sự tập trung. Các nghiên cứu cho thấy những người đọc sách thường xuyên có vốn từ phong phú hơn và hiểu các ý tưởng phức tạp tốt hơn. Đọc sách cũng giúp giảm căng thẳng; chỉ sáu phút đọc sách thôi cũng có thể làm chậm nhịp tim và thư giãn các cơ. Nhiều người thành công, từ các nhà khoa học đến các nhà lãnh đạo doanh nghiệp, đều nói rằng đọc sách mỗi ngày là bí quyết cho sự phát triển của họ. Điều cốt lõi là hãy chọn những cuốn sách mà bạn thực sự yêu thích, bởi vì sự hứng thú chính là động lực tốt nhất.",
+    "vocabulary": [
+      {
+        "word": "valuable",
+        "ipa": "/ˈvæljuəbl/",
+        "meaning": "có giá trị, quý giá",
+        "pos": "adj"
+      },
+      {
+        "word": "concentration",
+        "ipa": "/ˌkɒnsnˈtreɪʃn/",
+        "meaning": "sự tập trung",
+        "pos": "n"
+      },
+      {
+        "word": "vocabulary",
+        "ipa": "/vəˈkæbjələri/",
+        "meaning": "vốn từ",
+        "pos": "n"
+      },
+      {
+        "word": "stress",
+        "ipa": "/stres/",
+        "meaning": "sự căng thẳng",
+        "pos": "n"
+      },
+      {
+        "word": "motivation",
+        "ipa": "/ˌməʊtɪˈveɪʃn/",
+        "meaning": "động lực",
+        "pos": "n"
+      },
+      {
+        "word": "genuinely",
+        "ipa": "/ˈdʒɪnjuɪnli/",
+        "meaning": "một cách chân thành, thực sự",
+        "pos": "adv"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Reading regularly can improve your ___ and memory.",
+        "options": [
+          "concentration",
+          "strength",
+          "height",
+          "speed"
+        ],
+        "answer": "concentration",
+        "explanation": "Đọc sách thường xuyên cải thiện sự tập trung (concentration) và trí nhớ, theo như bài đọc."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Valuable' is closest in meaning to ___.",
+        "options": [
+          "precious",
+          "cheap",
+          "weak",
+          "short"
+        ],
+        "answer": "precious",
+        "explanation": "'Valuable' (có giá trị) ≈ 'precious' (quý giá)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Reading strengthen the brain.",
+          "Reading strengthens the brain.",
+          "Reading are strengthen the brain.",
+          "Reading is strengthen the brain."
+        ],
+        "answer": "Reading strengthens the brain.",
+        "explanation": "Động từ nguyên mẫu 'reading' ở đây là danh động từ số ít nên động từ thêm -s: 'strengthens'."
+      }
     ]
   },
   {
@@ -1606,6 +1689,89 @@
           "Study and sleep"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Làm việc từ xa ngày càng trở nên phổ biến trong nhiều ngành nghề. Nó cho phép nhân viên tiết kiệm thời gian và tiền bạc cho việc đi lại và mang lại cho họ nhiều sự linh hoạt hơn. Tuy nhiên, nó cũng mang đến những thách thức. Một số người thấy khó duy trì động lực ở nhà, và việc giao tiếp với đồng đội có thể trở nên khó khăn hơn. Các công ty đã phản ứng bằng cách sử dụng các cuộc gọi video, ứng dụng trò chuyện và tài liệu dùng chung. Các chuyên gia cho rằng mô hình kết hợp, trong đó nhân viên làm việc ở nhà vài ngày một tuần, có thể là giải pháp tốt nhất cho tương lai. Mô hình này kết hợp sự thoải mái của ngôi nhà với những lợi ích xã hội của văn phòng.",
+    "vocabulary": [
+      {
+        "word": "commuting",
+        "ipa": "/kəˈmjuːtɪŋ/",
+        "meaning": "việc đi lại (đi làm)",
+        "pos": "n"
+      },
+      {
+        "word": "flexibility",
+        "ipa": "/ˌfleksəˈbɪləti/",
+        "meaning": "tính linh hoạt",
+        "pos": "n"
+      },
+      {
+        "word": "hybrid",
+        "ipa": "/ˈhaɪbrɪd/",
+        "meaning": "kết hợp, lai",
+        "pos": "adj"
+      },
+      {
+        "word": "motivated",
+        "ipa": "/ˈməʊtɪveɪtɪd/",
+        "meaning": "có động lực",
+        "pos": "adj"
+      },
+      {
+        "word": "communication",
+        "ipa": "/kəˌmjuːnɪˈkeɪʃn/",
+        "meaning": "sự giao tiếp",
+        "pos": "n"
+      },
+      {
+        "word": "responded",
+        "ipa": "/rɪˈspɒndɪd/",
+        "meaning": "đã phản ứng, đáp lại",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Remote work gives employees more ___ to manage their own time.",
+        "options": [
+          "flexibility",
+          "pressure",
+          "distance",
+          "punishment"
+        ],
+        "answer": "flexibility",
+        "explanation": "Làm việc từ xa mang lại sự linh hoạt (flexibility) cho nhân viên."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Flexibility' is closest in meaning to ___.",
+        "options": [
+          "adaptability",
+          "rigidity",
+          "weakness",
+          "honesty"
+        ],
+        "answer": "adaptability",
+        "explanation": "'Flexibility' (tính linh hoạt) ≈ 'adaptability' (khả năng thích nghi)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She work from home two days a week.",
+          "She working from home two days a week.",
+          "She is work from home two days a week.",
+          "She works from home two days a week."
+        ],
+        "answer": "She works from home two days a week.",
+        "explanation": "Chủ ngữ số ít 'she' + động từ thêm -s: 'works'."
       }
     ]
   },
@@ -1672,6 +1838,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Sống một cuộc đời khỏe mạnh không đòi hỏi những thay đổi lớn lao. Những thói quen nhỏ nhưng đều đặn có thể tạo ra sự khác biệt to lớn theo thời gian. Ví dụ, uống đủ nước cải thiện năng lượng và sự tập trung. Đi bộ ngắn sau bữa ăn giúp tiêu hóa và kiểm soát lượng đường trong máu. Giấc ngủ cũng quan trọng không kém; người trưởng thành cần ngủ từ bảy đến chín giờ mỗi đêm để hoạt động tốt. Nhiều người phớt lờ căng thẳng, nhưng nó có thể gây ra các vấn đề sức khỏe nghiêm trọng. Những hoạt động đơn giản như hít thở sâu, thiền định, hoặc trò chuyện với một người bạn có thể giảm căng thẳng đáng kể. Nguyên tắc quan trọng nhất là hãy kiên nhẫn và đều đặn thay vì hướng tới sự hoàn hảo.",
+    "vocabulary": [
+      {
+        "word": "consistent",
+        "ipa": "/kənˈsɪstənt/",
+        "meaning": "nhất quán, đều đặn",
+        "pos": "adj"
+      },
+      {
+        "word": "digestion",
+        "ipa": "/daɪˈdʒestʃən/",
+        "meaning": "sự tiêu hóa",
+        "pos": "n"
+      },
+      {
+        "word": "significant",
+        "ipa": "/sɪɡˈnɪfɪkənt/",
+        "meaning": "đáng kể",
+        "pos": "adj"
+      },
+      {
+        "word": "meditation",
+        "ipa": "/ˌmedɪˈteɪʃn/",
+        "meaning": "sự thiền định",
+        "pos": "n"
+      },
+      {
+        "word": "energy",
+        "ipa": "/ˈenədʒi/",
+        "meaning": "năng lượng",
+        "pos": "n"
+      },
+      {
+        "word": "function",
+        "ipa": "/ˈfʌŋkʃn/",
+        "meaning": "hoạt động (bình thường)",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Drinking enough water improves your ___ and concentration.",
+        "options": [
+          "energy",
+          "strength",
+          "height",
+          "vision"
+        ],
+        "answer": "energy",
+        "explanation": "Uống đủ nước cải thiện năng lượng (energy) và sự tập trung."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Consistent' is closest in meaning to ___.",
+        "options": [
+          "regular",
+          "rare",
+          "random",
+          "lazy"
+        ],
+        "answer": "regular",
+        "explanation": "'Consistent' (đều đặn) ≈ 'regular' (thường xuyên, đều đặn)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Taking a short walk help digestion.",
+          "Taking a short walk are help digestion.",
+          "Taking a short walk helps digestion.",
+          "Taking a short walk is helps digestion."
+        ],
+        "answer": "Taking a short walk helps digestion.",
+        "explanation": "Động từ nguyên mẫu 'taking a short walk' là số ít nên động từ thêm -s: 'helps'."
+      }
     ]
   },
   {
@@ -1736,6 +1985,89 @@
           "Money"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Học một ngôn ngữ mới là một hành trình vừa bổ ích vừa đầy thử thách. Nhiều người học bỏ cuộc vì họ mong trở nên thành thạo chỉ trong vài tuần. Trên thực tế, sự thành thạo đòi hỏi nhiều tháng luyện tập đều đặn. Một phương pháp hiệu quả là đắm mình vào ngôn ngữ bằng cách nghe nhạc, xem phim, và nói chuyện với người bản ngữ. Mắc lỗi là một phần tự nhiên và cần thiết của việc học; mỗi lỗi lầm dạy cho bạn điều gì đó. Việc đặt ra những mục tiêu nhỏ, có thể đạt được, chẳng hạn như học mười từ mới mỗi ngày, cũng rất hữu ích. Trên hết, sự kiên trì quan trọng hơn cường độ. Một buổi luyện tập ngắn mỗi ngày tốt hơn nhiều so với một buổi dài mỗi tuần một lần.",
+    "vocabulary": [
+      {
+        "word": "fluency",
+        "ipa": "/ˈfluːənsi/",
+        "meaning": "sự thành thạo, trôi chảy",
+        "pos": "n"
+      },
+      {
+        "word": "immerse",
+        "ipa": "/ɪˈmɜːs/",
+        "meaning": "đắm mình vào",
+        "pos": "v"
+      },
+      {
+        "word": "native",
+        "ipa": "/ˈneɪtɪv/",
+        "meaning": "bản ngữ",
+        "pos": "adj"
+      },
+      {
+        "word": "achievable",
+        "ipa": "/əˈtʃiːvəbl/",
+        "meaning": "có thể đạt được",
+        "pos": "adj"
+      },
+      {
+        "word": "consistency",
+        "ipa": "/kənˈsɪstənsi/",
+        "meaning": "sự kiên trì, tính nhất quán",
+        "pos": "n"
+      },
+      {
+        "word": "intensity",
+        "ipa": "/ɪnˈtensəti/",
+        "meaning": "cường độ",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Fluency requires months of regular ___.",
+        "options": [
+          "practice",
+          "rest",
+          "journey",
+          "travel"
+        ],
+        "answer": "practice",
+        "explanation": "Sự thành thạo đòi hỏi nhiều tháng luyện tập (practice) đều đặn."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Achievable' is closest in meaning to ___.",
+        "options": [
+          "attainable",
+          "impossible",
+          "expensive",
+          "rare"
+        ],
+        "answer": "attainable",
+        "explanation": "'Achievable' (có thể đạt được) ≈ 'attainable' (có thể đạt tới)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Making mistakes are a natural part of learning.",
+          "Making mistakes is a natural part of learning.",
+          "Making mistakes is a natural part of learn.",
+          "Making mistakes be a natural part of learning."
+        ],
+        "answer": "Making mistakes is a natural part of learning.",
+        "explanation": "Động từ nguyên mẫu 'making mistakes' là số ít nên dùng 'is'."
       }
     ]
   },
@@ -1802,6 +2134,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Nền kinh tế chia sẻ đã thay đổi cách chúng ta di chuyển và sinh sống. Các dịch vụ như đi xe chung và cho thuê nhà cho phép mọi người sử dụng tài nguyên hiệu quả hơn. Thay vì sở hữu một chiếc xe, bạn chỉ cần gọi một chiếc khi cần. Du khách có thể ở trong những ngôi nhà của người dân địa phương thay vì những khách sạn đắt tiền. Tuy nhiên, mô hình này cũng làm dấy lên những lo ngại. Một số người cho rằng người lao động không nhận được mức lương công bằng hay các phúc lợi, và các tiêu chuẩn an toàn có thể khác nhau. Các chính phủ vẫn đang cố gắng tìm ra sự cân bằng hợp lý giữa việc khuyến khích đổi mới và bảo vệ con người. Nền kinh tế chia sẻ có khả năng sẽ tiếp tục phát triển, nhưng nó cần những quy định rõ ràng để công bằng cho tất cả mọi người.",
+    "vocabulary": [
+      {
+        "word": "rentals",
+        "ipa": "/ˈrentl/",
+        "meaning": "sự cho thuê",
+        "pos": "n"
+      },
+      {
+        "word": "efficiently",
+        "ipa": "/ɪˈfɪʃntli/",
+        "meaning": "một cách hiệu quả",
+        "pos": "adv"
+      },
+      {
+        "word": "concerns",
+        "ipa": "/kənˈsɜːnz/",
+        "meaning": "những mối lo ngại",
+        "pos": "n"
+      },
+      {
+        "word": "innovation",
+        "ipa": "/ˌɪnəˈveɪʃn/",
+        "meaning": "sự đổi mới",
+        "pos": "n"
+      },
+      {
+        "word": "balance",
+        "ipa": "/ˈbæləns/",
+        "meaning": "sự cân bằng",
+        "pos": "n"
+      },
+      {
+        "word": "benefits",
+        "ipa": "/ˈbenɪfɪts/",
+        "meaning": "phúc lợi, lợi ích",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Instead of owning a car, you can simply ___ one when needed.",
+        "options": [
+          "call",
+          "build",
+          "sell",
+          "paint"
+        ],
+        "answer": "call",
+        "explanation": "Thay vì sở hữu xe, bạn chỉ cần gọi (call) một chiếc khi cần."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Concerns' is closest in meaning to ___.",
+        "options": [
+          "worries",
+          "joys",
+          "gifts",
+          "rewards"
+        ],
+        "answer": "worries",
+        "explanation": "'Concerns' (mối lo ngại) ≈ 'worries' (sự lo lắng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Some workers does not receive fair pay.",
+          "Some workers do not receives fair pay.",
+          "Some workers do not receive fair pay.",
+          "Some workers not receive fair pay."
+        ],
+        "answer": "Some workers do not receive fair pay.",
+        "explanation": "Chủ ngữ số nhiều 'workers' dùng 'do not' + động từ nguyên mẫu 'receive'."
+      }
     ]
   },
   {
@@ -1866,6 +2281,89 @@
           "Ignoring friends"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Mạng xã hội đã trở thành một phần trung tâm của cuộc sống hiện đại. Nó giúp mọi người giữ liên lạc với bạn bè và gia đình, chia sẻ ý tưởng, và khám phá tin tức. Tuy nhiên, dành quá nhiều thời gian trên mạng có thể gây ra những tác động tiêu cực. Các nghiên cứu cho thấy việc sử dụng mạng xã hội quá mức có liên quan đến sự lo âu và giấc ngủ kém, đặc biệt ở lứa tuổi thanh thiếu niên. Các chuyên gia khuyên nên đặt ra giới hạn, tắt thông báo, và nghỉ ngơi thường xuyên. Cũng cần nhớ rằng mọi người thường chỉ đăng những khoảnh khắc đẹp nhất trong cuộc sống của họ, chứ không phải toàn bộ thực tế. Sử dụng mạng xã hội một cách chú tâm có thể giúp chúng ta tận hưởng những lợi ích của nó trong khi vẫn bảo vệ sức khỏe tinh thần.",
+    "vocabulary": [
+      {
+        "word": "connected",
+        "ipa": "/kəˈnektɪd/",
+        "meaning": "được kết nối",
+        "pos": "adj"
+      },
+      {
+        "word": "anxiety",
+        "ipa": "/æŋˈzaɪəti/",
+        "meaning": "sự lo âu",
+        "pos": "n"
+      },
+      {
+        "word": "recommend",
+        "ipa": "/ˌrekəˈmend/",
+        "meaning": "khuyên, đề nghị",
+        "pos": "v"
+      },
+      {
+        "word": "notifications",
+        "ipa": "/ˌnəʊtɪfɪˈkeɪʃn/",
+        "meaning": "thông báo",
+        "pos": "n"
+      },
+      {
+        "word": "mindfully",
+        "ipa": "/ˈmaɪndfəli/",
+        "meaning": "một cách chú tâm",
+        "pos": "adv"
+      },
+      {
+        "word": "benefits",
+        "ipa": "/ˈbenɪfɪts/",
+        "meaning": "lợi ích",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Heavy use of social media is linked to ___ and poor sleep.",
+        "options": [
+          "anxiety",
+          "exercise",
+          "nutrition",
+          "wealth"
+        ],
+        "answer": "anxiety",
+        "explanation": "Dùng mạng xã hội quá mức liên quan đến lo âu (anxiety) và ngủ kém."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Recommend' is closest in meaning to ___.",
+        "options": [
+          "suggest",
+          "order",
+          "force",
+          "forbid"
+        ],
+        "answer": "suggest",
+        "explanation": "'Recommend' (khuyên) ≈ 'suggest' (đề nghị, gợi ý)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Experts recommends setting limits.",
+          "Experts recommend to setting limits.",
+          "Experts recommend setting limits.",
+          "Experts recommending setting limits."
+        ],
+        "answer": "Experts recommend setting limits.",
+        "explanation": "'Recommend' đi với V-ing: 'recommend setting limits'."
       }
     ]
   },
@@ -1932,6 +2430,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Giấc ngủ rất cần thiết cho cả sức khỏe thể chất lẫn tinh thần. Trong khi ngủ, cơ thể sửa chữa các mô và bộ não xử lý thông tin thu thập được trong ngày. Thiếu ngủ có thể dẫn đến các vấn đề nghiêm trọng, bao gồm sự tập trung kém, suy giảm trí nhớ, và nguy cơ mắc bệnh cao hơn. Thật không may, nhiều người hy sinh giấc ngủ vì công việc hoặc giải trí. Để cải thiện chất lượng giấc ngủ, các chuyên gia khuyên nên giữ một lịch trình đều đặn, tránh caffeine vào buổi tối, và tạo ra một phòng ngủ tối, yên tĩnh. Tập thể dục đều đặn vào ban ngày cũng có thể giúp bạn dễ ngủ hơn. Giấc ngủ ngon không phải là một thứ xa xỉ; đó là một nhu cầu cơ bản cho một cuộc sống khỏe mạnh.",
+    "vocabulary": [
+      {
+        "word": "essential",
+        "ipa": "/ɪˈsenʃl/",
+        "meaning": "thiết yếu, cần thiết",
+        "pos": "adj"
+      },
+      {
+        "word": "repairs",
+        "ipa": "/rɪˈpeəz/",
+        "meaning": "sửa chữa, phục hồi",
+        "pos": "v"
+      },
+      {
+        "word": "concentration",
+        "ipa": "/ˌkɒnsnˈtreɪʃn/",
+        "meaning": "sự tập trung",
+        "pos": "n"
+      },
+      {
+        "word": "caffeine",
+        "ipa": "/ˈkæfiːn/",
+        "meaning": "chất caffeine",
+        "pos": "n"
+      },
+      {
+        "word": "luxury",
+        "ipa": "/ˈlʌkʃəri/",
+        "meaning": "sự xa xỉ, xa xỉ phẩm",
+        "pos": "n"
+      },
+      {
+        "word": "quality",
+        "ipa": "/ˈkwɒləti/",
+        "meaning": "chất lượng",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Experts recommend avoiding ___ in the evening to sleep better.",
+        "options": [
+          "caffeine",
+          "water",
+          "exercise",
+          "reading"
+        ],
+        "answer": "caffeine",
+        "explanation": "Nên tránh caffeine (caffeine) vào buổi tối để ngủ ngon hơn."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Essential' is closest in meaning to ___.",
+        "options": [
+          "vital",
+          "useless",
+          "optional",
+          "harmful"
+        ],
+        "answer": "vital",
+        "explanation": "'Essential' (thiết yếu) ≈ 'vital' (quan trọng sống còn)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Good sleep are a basic need for a healthy life.",
+          "Good sleep is a basic need for a healthy life.",
+          "Good sleep is a basics need for a healthy life.",
+          "Good sleep be a basic need for a healthy life."
+        ],
+        "answer": "Good sleep is a basic need for a healthy life.",
+        "explanation": "Chủ ngữ số ít 'good sleep' dùng 'is'; 'basic' là tính từ đúng, không phải 'basics'."
+      }
     ]
   },
   {
@@ -1996,6 +2577,89 @@
           "Anger"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Du lịch là một trong những cách tốt nhất để tìm hiểu về các nền văn hóa khác. Khi chúng ta đến thăm một đất nước mới, chúng ta trải nghiệm những món ăn, phong tục và cách sống khác nhau. Ở Nhật Bản, người ta thường cởi giày trước khi vào nhà. Ở Pháp, chào hỏi người bán hàng trước khi đặt câu hỏi là điều lịch sự. Những khác biệt nhỏ này nhắc nhở chúng ta rằng không có một cách sống duy nhất đúng đắn. Du lịch cũng làm cho lịch sử trở nên sống động; đứng trước những tàn tích cổ xưa khiến quá khứ trở nên chân thực. Hơn nữa, du lịch giúp chúng ta phát triển sự đồng cảm bằng cách cho thấy người khác sống như thế nào và họ coi trọng điều gì.",
+    "vocabulary": [
+      {
+        "word": "customs",
+        "ipa": "/ˈkʌstəmz/",
+        "meaning": "phong tục",
+        "pos": "n"
+      },
+      {
+        "word": "empathy",
+        "ipa": "/ˈempəθi/",
+        "meaning": "sự đồng cảm",
+        "pos": "n"
+      },
+      {
+        "word": "ruins",
+        "ipa": "/ˈruːɪnz/",
+        "meaning": "tàn tích, di tích",
+        "pos": "n"
+      },
+      {
+        "word": "polite",
+        "ipa": "/pəˈlaɪt/",
+        "meaning": "lịch sự",
+        "pos": "adj"
+      },
+      {
+        "word": "experience",
+        "ipa": "/ɪkˈspɪəriəns/",
+        "meaning": "trải nghiệm",
+        "pos": "v"
+      },
+      {
+        "word": "ancient",
+        "ipa": "/ˈeɪnʃənt/",
+        "meaning": "cổ xưa",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Travel helps us develop ___ by showing how other people live.",
+        "options": [
+          "empathy",
+          "anger",
+          "fear",
+          "laziness"
+        ],
+        "answer": "empathy",
+        "explanation": "Du lịch giúp phát triển sự đồng cảm (empathy) qua cách người khác sống."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Ancient' is closest in meaning to ___.",
+        "options": [
+          "old",
+          "modern",
+          "new",
+          "future"
+        ],
+        "answer": "old",
+        "explanation": "'Ancient' (cổ xưa) ≈ 'old' (cũ, xưa)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "In Japan, people often removes their shoes before entering a home.",
+          "In Japan, people often remove their shoes before entering a home.",
+          "In Japan, people often removing their shoes before entering a home.",
+          "In Japan, people often is remove their shoes before entering a home."
+        ],
+        "answer": "In Japan, people often remove their shoes before entering a home.",
+        "explanation": "Chủ ngữ số nhiều 'people' + động từ nguyên mẫu 'remove'."
       }
     ]
   },
@@ -2062,6 +2726,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Nền kinh tế gig đề cập đến một thị trường lao động trong đó mọi người làm việc như những người làm tự do hoặc nhà thầu độc lập thay vì là nhân viên toàn thời gian. Tài xế, nhà thiết kế, và nhân viên giao hàng thường tìm việc thông qua các ứng dụng. Mô hình này mang lại sự linh hoạt và cơ hội trở thành ông chủ của chính mình. Tuy nhiên, nó cũng có những nhược điểm. Người lao động gig thường không nhận được bảo hiểm y tế, nghỉ phép có lương, hay sự đảm bảo công việc. Thu nhập của họ có thể không ổn định và phụ thuộc vào công việc liên tục. Khi nền kinh tế gig phát triển, các chính phủ chịu áp lực phải tạo ra những luật mới để bảo vệ những người lao động này trong khi vẫn duy trì sự tự do đã thu hút họ.",
+    "vocabulary": [
+      {
+        "word": "freelancers",
+        "ipa": "/ˈfriːlɑːnsəz/",
+        "meaning": "những người làm tự do",
+        "pos": "n"
+      },
+      {
+        "word": "contractors",
+        "ipa": "/kənˈtræktəz/",
+        "meaning": "nhà thầu",
+        "pos": "n"
+      },
+      {
+        "word": "flexibility",
+        "ipa": "/ˌfleksəˈbɪləti/",
+        "meaning": "tính linh hoạt",
+        "pos": "n"
+      },
+      {
+        "word": "insurance",
+        "ipa": "/ɪnˈʃʊərəns/",
+        "meaning": "bảo hiểm",
+        "pos": "n"
+      },
+      {
+        "word": "unstable",
+        "ipa": "/ʌnˈsteɪbl/",
+        "meaning": "không ổn định",
+        "pos": "adj"
+      },
+      {
+        "word": "preserve",
+        "ipa": "/prɪˈzɜːv/",
+        "meaning": "bảo tồn, duy trì",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Gig workers often find jobs through ___.",
+        "options": [
+          "apps",
+          "schools",
+          "luck",
+          "newspapers only"
+        ],
+        "answer": "apps",
+        "explanation": "Người lao động gig thường tìm việc qua các ứng dụng (apps)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Downsides' is closest in meaning to ___.",
+        "options": [
+          "drawbacks",
+          "benefits",
+          "advantages",
+          "rewards"
+        ],
+        "answer": "drawbacks",
+        "explanation": "'Downsides' (nhược điểm) ≈ 'drawbacks' (điểm bất lợi)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Their income can is unstable.",
+          "Their income can unstable.",
+          "Their income can be unstable.",
+          "Their income can been unstable."
+        ],
+        "answer": "Their income can be unstable.",
+        "explanation": "Sau động từ khuyết thiếu 'can' dùng động từ nguyên mẫu 'be'."
+      }
     ]
   },
   {
@@ -2126,6 +2873,89 @@
           "Luck"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Những mục tiêu lớn thường có vẻ quá sức, đó là lý do vì sao nhiều người không bao giờ bắt đầu. Một cách tiếp cận hiệu quả hơn là tập trung vào những thói quen nhỏ dễ lặp lại mỗi ngày. Ví dụ, thay vì quyết định đọc năm mươi cuốn sách một năm, chỉ cần đọc hai trang trước khi ngủ. Theo thời gian, những hành động nhỏ bé này cộng dồn thành những kết quả đáng kinh ngạc. Bí quyết là làm cho thói quen nhỏ đến mức không thể thất bại. Một khi thói quen trở nên tự động, bạn có thể tăng dần nó lên. Cách tiếp cận này hiệu quả bởi vì nó tạo đà và giảm nỗi sợ thất bại. Hãy nhớ rằng, bạn không vươn lên tới mức của những mục tiêu; bạn tụt xuống tới mức của những hệ thống của mình.",
+    "vocabulary": [
+      {
+        "word": "overwhelming",
+        "ipa": "/ˌəʊvəˈwelmɪŋ/",
+        "meaning": "quá sức, choáng ngợp",
+        "pos": "adj"
+      },
+      {
+        "word": "momentum",
+        "ipa": "/məˈmentəm/",
+        "meaning": "đà, đà tiến",
+        "pos": "n"
+      },
+      {
+        "word": "automatic",
+        "ipa": "/ˌɔːtəˈmætɪk/",
+        "meaning": "tự động",
+        "pos": "adj"
+      },
+      {
+        "word": "gradually",
+        "ipa": "/ˈɡrædʒuəli/",
+        "meaning": "dần dần",
+        "pos": "adv"
+      },
+      {
+        "word": "failure",
+        "ipa": "/ˈfeɪljə/",
+        "meaning": "sự thất bại",
+        "pos": "n"
+      },
+      {
+        "word": "repeat",
+        "ipa": "/rɪˈpiːt/",
+        "meaning": "lặp lại",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The secret is to make the habit so small that it is impossible to ___.",
+        "options": [
+          "fail",
+          "start",
+          "win",
+          "stop"
+        ],
+        "answer": "fail",
+        "explanation": "Bí quyết là làm thói quen nhỏ đến mức không thể thất bại (fail)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Overwhelming' is closest in meaning to ___.",
+        "options": [
+          "too much",
+          "very tiny",
+          "very simple",
+          "very slow"
+        ],
+        "answer": "too much",
+        "explanation": "'Overwhelming' (quá sức, choáng ngợp) ≈ 'too much' (quá nhiều, quá tải)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Tiny actions adds up to remarkable results.",
+          "Tiny actions are add up to remarkable results.",
+          "Tiny actions adding up to remarkable results.",
+          "Tiny actions add up to remarkable results."
+        ],
+        "answer": "Tiny actions add up to remarkable results.",
+        "explanation": "Chủ ngữ số nhiều 'tiny actions' + động từ nguyên mẫu 'add'."
       }
     ]
   },
@@ -2192,6 +3022,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Nơi làm việc đang trải qua một sự chuyển đổi sâu sắc do tự động hóa và trí tuệ nhân tạo. Các tác vụ thường ngày ngày càng được máy móc thực hiện, trong khi nhu cầu về các kỹ năng mà công nghệ không dễ sao chép, như sáng tạo, sự đồng cảm và giải quyết vấn đề phức tạp, ngày càng tăng. Thay vì lo sợ những thay đổi này, người lao động nên xem chúng như một cơ hội để tập trung vào công việc có ý nghĩa và mang tính chiến lược hơn. Học tập suốt đời đã trở nên thiết yếu, vì các kỹ năng cần thiết hôm nay có thể trở nên lỗi thời trong vài năm. Chính phủ và doanh nghiệp phải hợp tác để cung cấp các chương trình đào tạo lại dễ tiếp cận. Cuối cùng, tương lai của công việc sẽ thuộc về những người có thể thích nghi, học liên tục và kết hợp sức mạnh con người với công cụ công nghệ.",
+    "vocabulary": [
+      {
+        "word": "profound",
+        "ipa": "/prəˈfaʊnd/",
+        "meaning": "sâu sắc",
+        "pos": "adj"
+      },
+      {
+        "word": "automation",
+        "ipa": "/ˌɔːtəˈmeɪʃn/",
+        "meaning": "tự động hóa",
+        "pos": "n"
+      },
+      {
+        "word": "replicate",
+        "ipa": "/ˈreplɪkeɪt/",
+        "meaning": "sao chép, lặp lại",
+        "pos": "v"
+      },
+      {
+        "word": "empathy",
+        "ipa": "/ˈempəθi/",
+        "meaning": "sự đồng cảm",
+        "pos": "n"
+      },
+      {
+        "word": "outdated",
+        "ipa": "/aʊtˈdeɪtɪd/",
+        "meaning": "lỗi thời",
+        "pos": "adj"
+      },
+      {
+        "word": "retraining",
+        "ipa": "/riːˈtreɪnɪŋ/",
+        "meaning": "đào tạo lại",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Workers should view these changes as an ___ to focus on more meaningful work.",
+        "options": [
+          "opportunity",
+          "disaster",
+          "burden",
+          "punishment"
+        ],
+        "answer": "opportunity",
+        "explanation": "Người lao động nên xem các thay đổi như một cơ hội (opportunity)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Profound' is closest in meaning to ___.",
+        "options": [
+          "deep",
+          "shallow",
+          "brief",
+          "minor"
+        ],
+        "answer": "deep",
+        "explanation": "'Profound' (sâu sắc) ≈ 'deep' (sâu)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The skills required today may becomes outdated.",
+          "The skills required today may become outdated.",
+          "The skills required today may becoming outdated.",
+          "The skills required today may is outdated."
+        ],
+        "answer": "The skills required today may become outdated.",
+        "explanation": "Sau modal 'may' dùng động từ nguyên mẫu: 'become'."
+      }
     ]
   },
   {
@@ -2256,6 +3169,89 @@
           "It is a legal duty"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Biến đổi khí hậu là một trong những thách thức cấp bách nhất thời đại của chúng ta. Mặc dù chính phủ và các tập đoàn phải chịu trách nhiệm đáng kể, các cá nhân cũng đóng vai trò quan trọng. Những lựa chọn như giảm tiêu thụ thịt, sử dụng phương tiện công cộng và giảm thiểu rác thải có thể cùng nhau giảm phát thải carbon. Tuy nhiên, đặt toàn bộ gánh nặng lên cá nhân có thể gây hiểu lầm, vì thay đổi hệ thống đòi hỏi ý chí chính trị và cải cách công nghiệp. Cách tiếp cận hiệu quả nhất kết hợp hành động cá nhân với áp lực buộc các thể chế áp dụng chính sách bền vững. Giáo dục cũng rất quan trọng, vì công dân được thông tin sẽ có khả năng đòi hỏi thay đổi và ủng hộ đổi mới xanh. Giải quyết khủng hoảng đòi hỏi sự hợp tác ở mọi cấp độ xã hội.",
+    "vocabulary": [
+      {
+        "word": "urgent",
+        "ipa": "/ˈɜːrdʒənt/",
+        "meaning": "cấp bách",
+        "pos": "adj"
+      },
+      {
+        "word": "corporation",
+        "ipa": "/ˌkɔːrpəˈreɪʃn/",
+        "meaning": "tập đoàn",
+        "pos": "n"
+      },
+      {
+        "word": "crucial",
+        "ipa": "/ˈkruːʃl/",
+        "meaning": "quan trọng, then chốt",
+        "pos": "adj"
+      },
+      {
+        "word": "minimize",
+        "ipa": "/ˈmɪnɪmaɪz/",
+        "meaning": "giảm thiểu",
+        "pos": "v"
+      },
+      {
+        "word": "misleading",
+        "ipa": "/mɪsˈliːdɪŋ/",
+        "meaning": "gây hiểu lầm",
+        "pos": "adj"
+      },
+      {
+        "word": "sustainable",
+        "ipa": "/səˈsteɪnəbl/",
+        "meaning": "bền vững",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Placing the entire burden on individuals can be ___, since systemic change requires reform.",
+        "options": [
+          "misleading",
+          "helpful",
+          "accurate",
+          "necessary"
+        ],
+        "answer": "misleading",
+        "explanation": "Đặt toàn bộ gánh nặng lên cá nhân có thể gây hiểu lầm (misleading)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Urgent' is closest in meaning to ___.",
+        "options": [
+          "pressing",
+          "trivial",
+          "optional",
+          "delayed"
+        ],
+        "answer": "pressing",
+        "explanation": "'Urgent' (cấp bách) ≈ 'pressing' (đòi hỏi ngay)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Solving the crisis require cooperation.",
+          "Solving the crisis requires cooperation.",
+          "Solving the crisis is require cooperation.",
+          "Solving the crisis are requiring cooperation."
+        ],
+        "answer": "Solving the crisis requires cooperation.",
+        "explanation": "Chủ ngữ 'Solving the crisis' số ít → 'requires'."
       }
     ]
   },
@@ -2322,6 +3318,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Thói quen là những lực lượng mạnh mẽ định hình cuộc sống hàng ngày của chúng ta, thường mà không có sự nhận thức của chúng ta. Các nhà tâm lý học mô tả một vòng lặp thói quen gồm tín hiệu, thói quen hành động và phần thưởng. Tín hiệu kích hoạt hành vi, thói quen là chính hành động, còn phần thưởng củng cố mô hình. Để thay đổi một thói quen không mong muốn, hiệu quả hơn là thay thế hành động trong khi giữ nguyên tín hiệu và phần thưởng, thay vì chỉ dựa vào ý chí. Ví dụ, người nào đó ăn vặt khi căng thẳng có thể thay bằng một cuộc đi bộ ngắn. Hiểu cơ chế này cho phép chúng ta thiết kế môi trường để khuyến khích thói quen tốt và giảm tiếp xúc với các yếu tố kích hoạt thói quen xấu.",
+    "vocabulary": [
+      {
+        "word": "awareness",
+        "ipa": "/əˈwernəs/",
+        "meaning": "sự nhận thức",
+        "pos": "n"
+      },
+      {
+        "word": "cue",
+        "ipa": "/kjuː/",
+        "meaning": "tín hiệu kích hoạt",
+        "pos": "n"
+      },
+      {
+        "word": "routine",
+        "ipa": "/ruːˈtiːn/",
+        "meaning": "thói quen hành động",
+        "pos": "n"
+      },
+      {
+        "word": "reinforce",
+        "ipa": "/ˌriːɪnˈfɔːrs/",
+        "meaning": "củng cố",
+        "pos": "v"
+      },
+      {
+        "word": "willpower",
+        "ipa": "/ˈwɪlpaʊər/",
+        "meaning": "ý chí",
+        "pos": "n"
+      },
+      {
+        "word": "substitute",
+        "ipa": "/ˈsʌbstɪtuːt/",
+        "meaning": "thay thế",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "To change an unwanted habit, it is more effective to ___ the routine while keeping the cue and reward.",
+        "options": [
+          "replace",
+          "ignore",
+          "repeat",
+          "delete"
+        ],
+        "answer": "replace",
+        "explanation": "Hiệu quả hơn là thay thế (replace) hành động."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Substitute' is closest in meaning to ___.",
+        "options": [
+          "exchange",
+          "keep",
+          "remove",
+          "create"
+        ],
+        "answer": "exchange",
+        "explanation": "'Substitute' (thay thế) ≈ 'exchange' (đổi)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Habits shapes our daily lives.",
+          "Habits shape our daily lives.",
+          "Habits shaping our daily lives.",
+          "Habits is shape our daily lives."
+        ],
+        "answer": "Habits shape our daily lives.",
+        "explanation": "'Habits' số nhiều → động từ nguyên mẫu 'shape'."
+      }
     ]
   },
   {
@@ -2386,6 +3465,89 @@
           "No privacy"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Trong kỷ nguyên số, dữ liệu cá nhân đã trở thành một hàng hóa cực kỳ có giá trị. Mỗi lượt tìm kiếm, mua sắm và nhấp chuột đều tạo ra thông tin mà các công ty thu thập và phân tích. Mặc dù dữ liệu này có thể cải thiện dịch vụ và cá nhân hóa trải nghiệm, nó cũng đặt ra những lo ngại nghiêm trọng về quyền riêng tư. Nhiều người dùng không biết họ chia sẻ bao nhiêu thông tin hay thông tin được sử dụng như thế nào. Các quy định mạnh hơn, như luật bảo vệ dữ liệu, nhằm trao cho cá nhân nhiều quyền kiểm soát hơn đối với thông tin của mình. Tuy nhiên, công nghệ đơn thuần không thể giải quyết vấn đề; người dùng cũng phải trở nên thông tin hơn và thận trọng hơn. Cân bằng giữa sự tiện lợi và quyền riêng tư là một trong những thách thức xác định của xã hội hiện đại.",
+    "vocabulary": [
+      {
+        "word": "commodity",
+        "ipa": "/kəˈmɑːdəti/",
+        "meaning": "hàng hóa",
+        "pos": "n"
+      },
+      {
+        "word": "generate",
+        "ipa": "/ˈdʒenəreɪt/",
+        "meaning": "tạo ra",
+        "pos": "v"
+      },
+      {
+        "word": "privacy",
+        "ipa": "/ˈpraɪvəsi/",
+        "meaning": "quyền riêng tư",
+        "pos": "n"
+      },
+      {
+        "word": "regulation",
+        "ipa": "/ˌreɡjəˈleɪʃn/",
+        "meaning": "quy định",
+        "pos": "n"
+      },
+      {
+        "word": "cautious",
+        "ipa": "/ˈkɔːʃəs/",
+        "meaning": "thận trọng",
+        "pos": "adj"
+      },
+      {
+        "word": "convenience",
+        "ipa": "/kənˈviːniəns/",
+        "meaning": "sự tiện lợi",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Balancing ___ with privacy is a defining challenge of modern society.",
+        "options": [
+          "convenience",
+          "fear",
+          "hunger",
+          "noise"
+        ],
+        "answer": "convenience",
+        "explanation": "Cân bằng giữa sự tiện lợi (convenience) và quyền riêng tư."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Cautious' is closest in meaning to ___.",
+        "options": [
+          "careful",
+          "careless",
+          "reckless",
+          "hasty"
+        ],
+        "answer": "careful",
+        "explanation": "'Cautious' (thận trọng) ≈ 'careful' (cẩn thận)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Technology alone cannot solve the problem.",
+          "Technology alone cannot solves the problem.",
+          "Technology alone cannot solving the problem.",
+          "Technology alone cannot is solve the problem."
+        ],
+        "answer": "Technology alone cannot solve the problem.",
+        "explanation": "Sau modal 'cannot' dùng động từ nguyên mẫu: 'solve'."
       }
     ]
   },
@@ -2452,6 +3614,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Hội thoại hay là một kỹ năng có thể phát triển qua luyện tập. Một trong những nguyên tắc quan trọng nhất là lắng nghe tích cực: thay vì lên kế hoạch câu trả lời trong khi người kia đang nói, bạn tập trung hoàn toàn vào việc hiểu họ. Đặt câu hỏi mở khuyến khích thảo luận sâu hơn và thể hiện sự quan tâm chân thành. Việc chia sẻ điều gì đó về bản thân cũng có giá trị, vì hội thoại là một sự trao đổi hai chiều. Tránh các yếu tố gây phân tâm, như kiểm tra điện thoại, thể hiện sự tôn trọng. Cuối cùng, cảm thấy thoải mái với những khoảng im lặng ngắn là điều quan trọng; sự im lặng không phải lúc nào cũng khó xử và có thể cho cả hai thời gian để suy nghĩ. Thành thạo những thói quen này làm cho các cuộc hội thoại có ý nghĩa và thú vị hơn.",
+    "vocabulary": [
+      {
+        "word": "active listening",
+        "ipa": "/ˈæktɪv ˈlɪsənɪŋ/",
+        "meaning": "lắng nghe tích cực",
+        "pos": "phr"
+      },
+      {
+        "word": "open-ended",
+        "ipa": "/ˌoʊpən ˈendɪd/",
+        "meaning": "mở, không có câu trả lời cố định",
+        "pos": "adj"
+      },
+      {
+        "word": "genuine",
+        "ipa": "/ˈdʒenjuɪn/",
+        "meaning": "chân thành",
+        "pos": "adj"
+      },
+      {
+        "word": "distraction",
+        "ipa": "/dɪˈstrækʃn/",
+        "meaning": "yếu tố gây phân tâm",
+        "pos": "n"
+      },
+      {
+        "word": "awkward",
+        "ipa": "/ˈɔːkwərd/",
+        "meaning": "khó xử",
+        "pos": "adj"
+      },
+      {
+        "word": "mastering",
+        "ipa": "/ˈmæstərɪŋ/",
+        "meaning": "thành thạo",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Asking ___ questions encourages deeper discussion.",
+        "options": [
+          "open-ended",
+          "closed",
+          "rude",
+          "irrelevant"
+        ],
+        "answer": "open-ended",
+        "explanation": "Câu hỏi mở (open-ended) khuyến khích thảo luận sâu."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Genuine' is closest in meaning to ___.",
+        "options": [
+          "sincere",
+          "fake",
+          "superficial",
+          "forced"
+        ],
+        "answer": "sincere",
+        "explanation": "'Genuine' (chân thành) ≈ 'sincere' (thành thật)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Avoiding distractions signals respect.",
+          "Avoiding distractions signal respect.",
+          "Avoid distractions signals respect.",
+          "Avoiding distractions is signal respect."
+        ],
+        "answer": "Avoiding distractions signals respect.",
+        "explanation": "Danh động từ 'Avoiding distractions' số ít → 'signals'."
+      }
     ]
   },
   {
@@ -2516,6 +3761,89 @@
           "Taxes"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Độc lập tài chính thường bị hiểu nhầm là đơn giản là giàu có. Trên thực tế, nó có nghĩa là có đủ nguồn lực để trang trải nhu cầu mà không phụ thuộc vào lương. Đạt được điều đó đòi hỏi kỷ luật, kiên nhẫn và góc nhìn dài hạn. Các chiến lược chính bao gồm chi tiêu ít hơn số tiền kiếm được, xây dựng quỹ khẩn cấp và đầu tư liên tục vào các tài sản đa dạng. Tránh nợ lãi suất cao cũng quan trọng như vậy. Nhiều người trì hoãn tiết kiệm vì tin rằng cần một số tiền lớn để bắt đầu, nhưng ngay cả những khoản đóng góp nhỏ, đều đặn cũng có thể tăng trưởng đáng kể theo thời gian nhờ lãi kép. Cuối cùng, độc lập tài chính ít liên quan đến số tiền bạn kiếm được và nhiều hơn đến cách bạn quản lý khôn ngoan số tiền mình có.",
+    "vocabulary": [
+      {
+        "word": "independence",
+        "ipa": "/ˌɪndɪˈpendəns/",
+        "meaning": "sự độc lập",
+        "pos": "n"
+      },
+      {
+        "word": "discipline",
+        "ipa": "/ˈdɪsəplɪn/",
+        "meaning": "kỷ luật",
+        "pos": "n"
+      },
+      {
+        "word": "emergency fund",
+        "ipa": "/ɪˈmɜːrdʒənsi fʌnd/",
+        "meaning": "quỹ khẩn cấp",
+        "pos": "phr"
+      },
+      {
+        "word": "diversified",
+        "ipa": "/daɪˈvɜːrsɪfaɪd/",
+        "meaning": "đa dạng",
+        "pos": "adj"
+      },
+      {
+        "word": "compound interest",
+        "ipa": "/ˈkɑːmpaʊnd ˈɪntrəst/",
+        "meaning": "lãi kép",
+        "pos": "phr"
+      },
+      {
+        "word": "manage",
+        "ipa": "/ˈmænɪdʒ/",
+        "meaning": "quản lý",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Small, regular contributions can grow significantly over time thanks to ___.",
+        "options": [
+          "compound interest",
+          "inflation",
+          "debt",
+          "taxes"
+        ],
+        "answer": "compound interest",
+        "explanation": "Các khoản đóng góp nhỏ tăng trưởng nhờ lãi kép (compound interest)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Diversified' is closest in meaning to ___.",
+        "options": [
+          "varied",
+          "uniform",
+          "limited",
+          "single"
+        ],
+        "answer": "varied",
+        "explanation": "'Diversified' (đa dạng) ≈ 'varied' (đa dạng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Avoiding high interest debt are important.",
+          "Avoiding high interest debt is important.",
+          "Avoid high interest debt is important.",
+          "Avoiding high interest debt were important."
+        ],
+        "answer": "Avoiding high interest debt is important.",
+        "explanation": "Danh động từ 'Avoiding' số ít → 'is'."
       }
     ]
   },
@@ -2582,6 +3910,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Hạnh phúc không chỉ là kết quả của may mắn hay sự giàu có; nó bị ảnh hưởng mạnh mẽ bởi thói quen và tư duy của chúng ta. Nghiên cứu trong tâm lý học tích cực gợi ý rằng các mối quan hệ mạnh mẽ là yếu tố dự báo lớn nhất cho hạnh phúc lâu dài. Những người vun đắp tình bạn và các kết nối gia đình có xu hướng sống lâu hơn và báo cáo sự hài lòng cuộc sống cao hơn. Các yếu tố khác bao gồm lòng biết ơn, tập thể dục thường xuyên và các hành động tử tế. Đáng chú ý, chi tiêu tiền cho trải nghiệm thay vì đồ vật thường mang lại niềm vui lâu dài hơn. Mặc dù chúng ta không thể kiểm soát mọi sự kiện trong cuộc sống, chúng ta có thể chọn cách phản ứng với chúng. Do đó, hạnh phúc ít liên quan đến việc theo đuổi khoái lạc và nhiều hơn đến việc bồi đắp ý nghĩa và kết nối.",
+    "vocabulary": [
+      {
+        "word": "predictor",
+        "ipa": "/prɪˈdɪktər/",
+        "meaning": "yếu tố dự báo",
+        "pos": "n"
+      },
+      {
+        "word": "nurture",
+        "ipa": "/ˈnɜːrtʃər/",
+        "meaning": "vun đắp, nuôi dưỡng",
+        "pos": "v"
+      },
+      {
+        "word": "gratitude",
+        "ipa": "/ˈɡrætɪtuːd/",
+        "meaning": "lòng biết ơn",
+        "pos": "n"
+      },
+      {
+        "word": "possessions",
+        "ipa": "/pəˈzeʃnz/",
+        "meaning": "đồ vật, tài sản",
+        "pos": "n"
+      },
+      {
+        "word": "cultivate",
+        "ipa": "/ˈkʌltɪveɪt/",
+        "meaning": "bồi đắp, vun trồng",
+        "pos": "v"
+      },
+      {
+        "word": "meaning",
+        "ipa": "/ˈmiːnɪŋ/",
+        "meaning": "ý nghĩa",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Strong relationships are the single greatest ___ of long term happiness.",
+        "options": [
+          "predictor",
+          "result",
+          "obstacle",
+          "limit"
+        ],
+        "answer": "predictor",
+        "explanation": "Các mối quan hệ mạnh là yếu tố dự báo (predictor) lớn nhất."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Nurture' is closest in meaning to ___.",
+        "options": [
+          "foster",
+          "neglect",
+          "destroy",
+          "ignore"
+        ],
+        "answer": "foster",
+        "explanation": "'Nurture' (vun đắp) ≈ 'foster' (nuôi dưỡng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "People who nurture friendships tend to lives longer.",
+          "People who nurture friendships tend to live longer.",
+          "People who nurture friendships tend to living longer.",
+          "People who nurture friendships tended longer."
+        ],
+        "answer": "People who nurture friendships tend to live longer.",
+        "explanation": "Sau 'tend to' dùng động từ nguyên mẫu: 'live'."
+      }
     ]
   },
   {
@@ -2646,6 +4057,89 @@
           "Indifference"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Trong thời đại tràn ngập thông tin, tư duy phản biện đã trở thành một kỹ năng thiết yếu. Nó bao gồm phân tích các tuyên bố, đánh giá bằng chứng và nhận ra các thiên kiến trước khi đi đến kết luận. Thật không may, mọi người thường chấp nhận thông tin củng cố niềm tin hiện có mà không đặt câu hỏi, một xu hướng được gọi là thiên kiến xác nhận. Để suy nghĩ phản biện, người ta nên hỏi ai đang đưa ra tuyên bố, bằng chứng nào ủng hộ nó, và liệu có các giải thích thay thế nào không. Phân biệt giữa sự thật và ý kiến cũng rất quan trọng. Phát triển kỹ năng này đòi hỏi sự tò mò và khiêm tốn, vì những người tư duy phản biện sẵn sàng thay đổi quan điểm khi được trình bày các lập luận mạnh hơn. Trong một thế giới đầy thông tin sai lệch, những khả năng này bảo vệ chúng ta khỏi bị thao túng.",
+    "vocabulary": [
+      {
+        "word": "information overload",
+        "ipa": "/ˌɪnfərˈmeɪʃn ˈoʊvərloʊd/",
+        "meaning": "tràn ngập thông tin",
+        "pos": "phr"
+      },
+      {
+        "word": "bias",
+        "ipa": "/ˈbaɪəs/",
+        "meaning": "thiên kiến",
+        "pos": "n"
+      },
+      {
+        "word": "confirmation bias",
+        "ipa": "/ˌkɑːnfərˈmeɪʃn ˈbaɪəs/",
+        "meaning": "thiên kiến xác nhận",
+        "pos": "phr"
+      },
+      {
+        "word": "evidence",
+        "ipa": "/ˈevɪdəns/",
+        "meaning": "bằng chứng",
+        "pos": "n"
+      },
+      {
+        "word": "humility",
+        "ipa": "/hjuːˈmɪləti/",
+        "meaning": "sự khiêm tốn",
+        "pos": "n"
+      },
+      {
+        "word": "misinformation",
+        "ipa": "/ˌmɪsɪnfərˈmeɪʃn/",
+        "meaning": "thông tin sai lệch",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "It is important to distinguish between facts and ___.",
+        "options": [
+          "opinions",
+          "colors",
+          "numbers",
+          "sounds"
+        ],
+        "answer": "opinions",
+        "explanation": "Cần phân biệt sự thật và ý kiến (opinions)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Humility' is closest in meaning to ___.",
+        "options": [
+          "modesty",
+          "arrogance",
+          "pride",
+          "confidence"
+        ],
+        "answer": "modesty",
+        "explanation": "'Humility' (khiêm tốn) ≈ 'modesty' (khiêm nhường)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Critical thinkers is willing to change their minds.",
+          "Critical thinkers are willing to change their minds.",
+          "Critical thinkers be willing to change their minds.",
+          "Critical thinkers was willing to change their minds."
+        ],
+        "answer": "Critical thinkers are willing to change their minds.",
+        "explanation": "'Critical thinkers' số nhiều → 'are'."
       }
     ]
   },
@@ -2712,6 +4206,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Học tập suốt đời là sự theo đuổi liên tục kiến thức và kỹ năng suốt cuộc đời. Trong một thế giới thay đổi nhanh chóng, kiến thức thu được ở trường học nhanh chóng trở nên không đủ. Những người cam kết học liên tục được trang bị tốt hơn để thích nghi với công nghệ mới và yêu cầu nghề nghiệp. Học không cần phải chính thức; nó có thể xảy ra qua đọc sách, khóa học trực tuyến, các cuộc trò chuyện, hoặc chỉ đơn giản là thử nghiệm ý tưởng mới. Lợi ích vượt ra ngoài thăng tiến nghề nghiệp, bao gồm cải thiện sự sắc bén tinh thần và tăng cường sự tự tin. Quan trọng hơn, người học suốt đời có xu hướng duy trì sự tò mò và đầu óc cởi mở, những phẩm chất làm phong phú cả cuộc sống cá nhân và nghề nghiệp. Hành trình học tập không bao giờ thực sự kết thúc.",
+    "vocabulary": [
+      {
+        "word": "pursuit",
+        "ipa": "/pərˈsuːt/",
+        "meaning": "sự theo đuổi",
+        "pos": "n"
+      },
+      {
+        "word": "insufficient",
+        "ipa": "/ˌɪnsəˈfɪʃnt/",
+        "meaning": "không đủ",
+        "pos": "adj"
+      },
+      {
+        "word": "adapt",
+        "ipa": "/əˈdæpt/",
+        "meaning": "thích nghi",
+        "pos": "v"
+      },
+      {
+        "word": "formal",
+        "ipa": "/ˈfɔːrml/",
+        "meaning": "chính thức",
+        "pos": "adj"
+      },
+      {
+        "word": "sharpness",
+        "ipa": "/ˈʃɑːrpnəs/",
+        "meaning": "sự sắc bén",
+        "pos": "n"
+      },
+      {
+        "word": "open-minded",
+        "ipa": "/ˌoʊpən ˈmaɪndɪd/",
+        "meaning": "cởi mở",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Lifelong learners tend to remain curious and ___.",
+        "options": [
+          "open-minded",
+          "stubborn",
+          "indifferent",
+          "careless"
+        ],
+        "answer": "open-minded",
+        "explanation": "Người học suốt đời duy trì sự tò mò và đầu óc cởi mở (open-minded)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Insufficient' is closest in meaning to ___.",
+        "options": [
+          "inadequate",
+          "enough",
+          "abundant",
+          "excessive"
+        ],
+        "answer": "inadequate",
+        "explanation": "'Insufficient' (không đủ) ≈ 'inadequate' (thiếu)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The knowledge acquired in school quickly become insufficient.",
+          "The knowledge acquired in school quickly becomes insufficient.",
+          "The knowledge acquired in school quickly becoming insufficient.",
+          "The knowledge acquired in school quickly is become insufficient."
+        ],
+        "answer": "The knowledge acquired in school quickly becomes insufficient.",
+        "explanation": "'The knowledge' số ít → 'becomes'."
+      }
     ]
   },
   {
@@ -2776,6 +4353,89 @@
           "Only governments"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Sống bền vững có nghĩa là đưa ra những lựa chọn giảm thiểu tác động tiêu cực của chúng ta lên môi trường trong khi vẫn duy trì chất lượng cuộc sống tốt. Nó không phải là sống mà không có sự thoải mái, mà là tiêu dùng một cách có suy nghĩ hơn. Các hành động đơn giản như mua thực phẩm địa phương, giảm sử dụng năng lượng và chọn sản phẩm tái sử dụng có thể đáng kể giảm dấu chân sinh thái của một người. Tuy nhiên, tính bền vững không chỉ là nỗ lực cá nhân; nó đòi hỏi những thay đổi hệ thống trong cách hàng hóa được sản xuất và phân phối. Các nhà phê bình cho rằng các tập đoàn lớn phải đi đầu, trong khi những người ủng hộ tin rằng lựa chọn cá nhân tạo áp lực văn hóa cho cải cách rộng hơn. Sự thật nằm ở đâu đó ở giữa: tiến bộ có ý nghĩa phụ thuộc vào cả trách nhiệm cá nhân và hành động tập thể.",
+    "vocabulary": [
+      {
+        "word": "ecological footprint",
+        "ipa": "/ˌiːkəˈlɑːdʒɪkl ˈfʊtprɪnt/",
+        "meaning": "dấu chân sinh thái",
+        "pos": "phr"
+      },
+      {
+        "word": "thoughtfully",
+        "ipa": "/ˈθɔːtfəli/",
+        "meaning": "có suy nghĩ",
+        "pos": "adv"
+      },
+      {
+        "word": "reusable",
+        "ipa": "/riːˈjuːzəbl/",
+        "meaning": "tái sử dụng được",
+        "pos": "adj"
+      },
+      {
+        "word": "systemic",
+        "ipa": "/sɪˈstemɪk/",
+        "meaning": "mang tính hệ thống",
+        "pos": "adj"
+      },
+      {
+        "word": "critics",
+        "ipa": "/ˈkrɪtɪks/",
+        "meaning": "những người phê bình",
+        "pos": "n"
+      },
+      {
+        "word": "collective action",
+        "ipa": "/kəˈlektɪv ˈækʃn/",
+        "meaning": "hành động tập thể",
+        "pos": "phr"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Simple actions can significantly lower one's ___.",
+        "options": [
+          "ecological footprint",
+          "salary",
+          "height",
+          "age"
+        ],
+        "answer": "ecological footprint",
+        "explanation": "Các hành động đơn giản giảm dấu chân sinh thái (ecological footprint)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Thoughtfully' is closest in meaning to ___.",
+        "options": [
+          "carefully",
+          "carelessly",
+          "randomly",
+          "hastily"
+        ],
+        "answer": "carefully",
+        "explanation": "'Thoughtfully' (có suy nghĩ) ≈ 'carefully' (cẩn thận)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Sustainability are not solely an individual effort.",
+          "Sustainability is not solely an individual effort.",
+          "Sustainability be not solely an individual effort.",
+          "Sustainability were not solely an individual effort."
+        ],
+        "answer": "Sustainability is not solely an individual effort.",
+        "explanation": "'Sustainability' số ít → 'is'."
       }
     ]
   },
@@ -3878,6 +5538,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Nền kinh tế gig đã thay đổi cách hàng triệu người làm việc. Thay vì một công việc lâu dài, người lao động nhận các nhiệm vụ ngắn hạn thông qua các ứng dụng và trang web. Tài xế, nhà thiết kế, và nhà văn có thể chọn khi nào và ở đâu họ làm việc. Sự linh hoạt này rất hấp dẫn, đặc biệt đối với sinh viên và các bậc cha mẹ. Tuy nhiên, công việc gig cũng có những nhược điểm nghiêm trọng. Hầu hết người lao động không nhận được bảo hiểm y tế, nghỉ phép có lương, hay thu nhập ổn định. Các chính phủ hiện đang tranh luận về việc liệu những luật mới có nên bảo vệ những người lao động này hay không. Tương lai của nền kinh tế gig sẽ phụ thuộc vào việc tìm ra sự cân bằng công bằng giữa tự do và sự an toàn.",
+    "vocabulary": [
+      {
+        "word": "permanent",
+        "ipa": "/ˈpɜːmənənt/",
+        "meaning": "lâu dài, vĩnh viễn",
+        "pos": "adj"
+      },
+      {
+        "word": "tasks",
+        "ipa": "/tɑːsks/",
+        "meaning": "nhiệm vụ, công việc",
+        "pos": "n"
+      },
+      {
+        "word": "attractive",
+        "ipa": "/əˈtræktɪv/",
+        "meaning": "hấp dẫn",
+        "pos": "adj"
+      },
+      {
+        "word": "drawbacks",
+        "ipa": "/ˈdrɔːbæks/",
+        "meaning": "nhược điểm",
+        "pos": "n"
+      },
+      {
+        "word": "stable",
+        "ipa": "/ˈsteɪbl/",
+        "meaning": "ổn định",
+        "pos": "adj"
+      },
+      {
+        "word": "security",
+        "ipa": "/sɪˈkjʊərəti/",
+        "meaning": "sự an toàn, sự đảm bảo",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "In the gig economy, workers take short-term ___ through apps.",
+        "options": [
+          "tasks",
+          "journeys",
+          "classes",
+          "meals"
+        ],
+        "answer": "tasks",
+        "explanation": "Người lao động gig nhận các nhiệm vụ ngắn hạn (tasks) qua ứng dụng."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Drawbacks' is closest in meaning to ___.",
+        "options": [
+          "disadvantages",
+          "benefits",
+          "advantages",
+          "rewards"
+        ],
+        "answer": "disadvantages",
+        "explanation": "'Drawbacks' (nhược điểm) ≈ 'disadvantages' (điểm bất lợi)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Gig workers can chooses when and where they work.",
+          "Gig workers can choosing when and where they work.",
+          "Gig workers can to choose when and where they work.",
+          "Gig workers can choose when and where they work."
+        ],
+        "answer": "Gig workers can choose when and where they work.",
+        "explanation": "Sau 'can' dùng động từ nguyên mẫu 'choose'."
+      }
     ]
   },
   {
@@ -3942,6 +5685,89 @@
           "Gardening is impossible"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Làm vườn đô thị đang trở nên phổ biến ở những thành phố đông đúc. Người ta trồng rau và thảo mộc trên mái nhà, ban công, và những khu đất trống. Hoạt động này cung cấp thực phẩm tươi ngon và giúp giảm căng thẳng. Nó cũng làm mát các tòa nhà và cải thiện chất lượng không khí. Những khu vườn cộng đồng gắn kết những người hàng xóm lại với nhau, tạo ra cảm giác thuộc về mạnh mẽ hơn. Một số thành phố thậm chí còn cung cấp các lớp học miễn phí để dạy cư dân cách bắt đầu. Mặc dù không gian có hạn, những người làm vườn sáng tạo chứng minh rằng bạn không cần một khoảng sân lớn để trồng thức ăn của chính mình. Chỉ vài chiếc chậu thôi cũng có thể tạo nên sự khác biệt.",
+    "vocabulary": [
+      {
+        "word": "rooftops",
+        "ipa": "/ˈruːftɒps/",
+        "meaning": "mái nhà",
+        "pos": "n"
+      },
+      {
+        "word": "balconies",
+        "ipa": "/ˈbælkəniz/",
+        "meaning": "ban công",
+        "pos": "n"
+      },
+      {
+        "word": "belonging",
+        "ipa": "/bɪˈlɒŋɪŋ/",
+        "meaning": "sự thuộc về",
+        "pos": "n"
+      },
+      {
+        "word": "residents",
+        "ipa": "/ˈrezɪdənts/",
+        "meaning": "cư dân",
+        "pos": "n"
+      },
+      {
+        "word": "quality",
+        "ipa": "/ˈkwɒləti/",
+        "meaning": "chất lượng",
+        "pos": "n"
+      },
+      {
+        "word": "creative",
+        "ipa": "/kriˈeɪtɪv/",
+        "meaning": "sáng tạo",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "People grow vegetables and herbs on rooftops, ___, and empty lots.",
+        "options": [
+          "balconies",
+          "forests",
+          "factories",
+          "deserts"
+        ],
+        "answer": "balconies",
+        "explanation": "Người ta trồng rau trên mái nhà, ban công (balconies), và khu đất trống."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Creative' is closest in meaning to ___.",
+        "options": [
+          "imaginative",
+          "boring",
+          "lazy",
+          "careless"
+        ],
+        "answer": "imaginative",
+        "explanation": "'Creative' (sáng tạo) ≈ 'imaginative' (giàu tưởng tượng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Community gardens brings neighbors together.",
+          "Community gardens are bring neighbors together.",
+          "Community gardens bringing neighbors together.",
+          "Community gardens bring neighbors together."
+        ],
+        "answer": "Community gardens bring neighbors together.",
+        "explanation": "Chủ ngữ số nhiều 'community gardens' + động từ nguyên mẫu 'bring'."
       }
     ]
   },
@@ -4008,6 +5834,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Tình nguyện là một cách mạnh mẽ để giúp đỡ người khác và phát triển bản thân. Nhiều người tình nguyện tại các nơi trú ẩn, bệnh viện, hoặc các tổ chức môi trường. Mặc dù công việc không được trả lương, nhưng những phần thưởng lại rất đáng kể. Những người tình nguyện phát triển các kỹ năng mới, gặp gỡ những người thú vị, và có được cảm giác về mục đích sống. Các nghiên cứu cho thấy việc giúp đỡ người khác có thể giảm căng thẳng và tăng cường hạnh phúc. Đối với sinh viên, hoạt động tình nguyện cũng trông đẹp trong hồ sơ và dạy về trách nhiệm. Bạn không cần những kỹ năng đặc biệt để bắt đầu; hầu hết các tổ chức đều cung cấp đào tạo. Chỉ vài giờ mỗi tháng thôi cũng thực sự có thể thay đổi cuộc đời của một ai đó, bao gồm cả của chính bạn.",
+    "vocabulary": [
+      {
+        "word": "shelters",
+        "ipa": "/ˈʃeltəz/",
+        "meaning": "nơi trú ẩn",
+        "pos": "n"
+      },
+      {
+        "word": "unpaid",
+        "ipa": "/ʌnˈpeɪd/",
+        "meaning": "không được trả lương",
+        "pos": "adj"
+      },
+      {
+        "word": "significant",
+        "ipa": "/sɪɡˈnɪfɪkənt/",
+        "meaning": "đáng kể",
+        "pos": "adj"
+      },
+      {
+        "word": "responsibility",
+        "ipa": "/rɪˌspɒnsəˈbɪləti/",
+        "meaning": "trách nhiệm",
+        "pos": "n"
+      },
+      {
+        "word": "purpose",
+        "ipa": "/ˈpɜːpəs/",
+        "meaning": "mục đích",
+        "pos": "n"
+      },
+      {
+        "word": "training",
+        "ipa": "/ˈtreɪnɪŋ/",
+        "meaning": "sự đào tạo",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Although the work is ___, the rewards are significant.",
+        "options": [
+          "unpaid",
+          "expensive",
+          "dangerous",
+          "boring"
+        ],
+        "answer": "unpaid",
+        "explanation": "Mặc dù công việc tình nguyện không được trả lương (unpaid), phần thưởng vẫn đáng kể."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Rewards' is closest in meaning to ___.",
+        "options": [
+          "benefits",
+          "punishments",
+          "costs",
+          "losses"
+        ],
+        "answer": "benefits",
+        "explanation": "'Rewards' (phần thưởng) ≈ 'benefits' (lợi ích, điều tốt đẹp nhận được)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "A few hours a month can changes someone's life.",
+          "A few hours a month can changing someone's life.",
+          "A few hours a month can to change someone's life.",
+          "A few hours a month can change someone's life."
+        ],
+        "answer": "A few hours a month can change someone's life.",
+        "explanation": "Sau động từ khuyết thiếu 'can' dùng động từ nguyên mẫu 'change'."
+      }
     ]
   },
   {
@@ -4072,6 +5981,89 @@
           "Close early"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Lãng phí thực phẩm là một vấn đề nghiêm trọng trên toàn cầu. Mỗi năm, khoảng một phần ba tổng lượng thực phẩm được sản xuất bị ném đi. Điều này không chỉ lãng phí thực phẩm mà còn là nước, năng lượng và tiền bạc. Ở các nước giàu, phần lớn lãng phí xảy ra ở siêu thị và trong gia đình. Ở các nước nghèo, thực phẩm thường bị mất trước khi đến chợ. Có những giải pháp đơn giản: lên kế hoạch bữa ăn, chỉ mua những gì bạn cần và dùng lại phần còn lại. Một số nhà hàng hiện nay quyên góp thực phẩm dư thừa cho các tổ chức từ thiện. Giảm lãng phí thực phẩm tốt cho môi trường và có thể giúp gia đình tiết kiệm một khoản tiền đáng kể.",
+    "vocabulary": [
+      {
+        "word": "waste",
+        "ipa": "/weɪst/",
+        "meaning": "lãng phí",
+        "pos": "n"
+      },
+      {
+        "word": "produce",
+        "ipa": "/ˈprɒdjuːs/",
+        "meaning": "sản xuất",
+        "pos": "v"
+      },
+      {
+        "word": "leftovers",
+        "ipa": "/ˈleftˌoʊvərz/",
+        "meaning": "phần còn lại",
+        "pos": "n"
+      },
+      {
+        "word": "donate",
+        "ipa": "/dəˈneɪt/",
+        "meaning": "quyên góp",
+        "pos": "v"
+      },
+      {
+        "word": "solution",
+        "ipa": "/səˈluːʃn/",
+        "meaning": "giải pháp",
+        "pos": "n"
+      },
+      {
+        "word": "environment",
+        "ipa": "/ɪnˈvaɪrənmənt/",
+        "meaning": "môi trường",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "About one third of all food produced is ___ away.",
+        "options": [
+          "thrown",
+          "kept",
+          "saved",
+          "bought"
+        ],
+        "answer": "thrown",
+        "explanation": "Thực phẩm bị ném đi (thrown away)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Surprising' is closest in meaning to ___.",
+        "options": [
+          "unexpected",
+          "normal",
+          "expensive",
+          "common"
+        ],
+        "answer": "unexpected",
+        "explanation": "'Surprising' (đáng ngạc nhiên) ≈ 'unexpected' (không dự liệu)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Food waste is a serious problem.",
+          "Food waste are a serious problem.",
+          "Food waste be a serious problem.",
+          "Food waste have a serious problem."
+        ],
+        "answer": "Food waste is a serious problem.",
+        "explanation": "'Food waste' số ít → dùng 'is'."
       }
     ]
   },
@@ -4138,6 +6130,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Học trực tuyến đã trở thành một cách phổ biến để đạt được những kỹ năng mới. Các nền tảng cung cấp khóa học trên gần như mọi chủ đề, từ mã hóa đến nấu ăn. Học viên có thể học theo tốc độ của mình và thường miễn phí. Tuy nhiên, học trực tuyến đòi hỏi kỷ luật bản thân rất mạnh. Không có giáo viên giám sát, rất dễ mất động lực. Những người học thành công xác định mục tiêu rõ ràng, tuân theo lịch trình và tham gia các cộng đồng trực tuyến để được hỗ trợ. Thách thức khác là thiếu thực hành thực tế trong một số lĩnh vực. Lại có những khó khăn này, giáo dục trực tuyến vẫn mở ra cánh cửa cho hàng triệu người không thể đi đến các trường truyền thống.",
+    "vocabulary": [
+      {
+        "word": "platform",
+        "ipa": "/ˈplætfɔːrm/",
+        "meaning": "nền tảng",
+        "pos": "n"
+      },
+      {
+        "word": "discipline",
+        "ipa": "/ˈdɪsəplɪn/",
+        "meaning": "kỷ luật",
+        "pos": "n"
+      },
+      {
+        "word": "motivation",
+        "ipa": "/ˌmoʊtɪˈveɪʃn/",
+        "meaning": "động lực",
+        "pos": "n"
+      },
+      {
+        "word": "schedule",
+        "ipa": "/ˈskedʒuːl/",
+        "meaning": "lịch trình",
+        "pos": "n"
+      },
+      {
+        "word": "community",
+        "ipa": "/kəˈmjuːnəti/",
+        "meaning": "cộng đồng",
+        "pos": "n"
+      },
+      {
+        "word": "obstacle",
+        "ipa": "/ˈɑːbstəkl/",
+        "meaning": "trở ngại",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Online learning requires strong self ___.",
+        "options": [
+          "discipline",
+          "freedom",
+          "holiday",
+          "music"
+        ],
+        "answer": "discipline",
+        "explanation": "Học trực tuyến đòi hỏi kỷ luật bản thân (discipline)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Common' is closest in meaning to ___.",
+        "options": [
+          "popular",
+          "rare",
+          "difficult",
+          "expensive"
+        ],
+        "answer": "popular",
+        "explanation": "'Common' (phổ biến) ≈ 'popular'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She study online every day.",
+          "She studies online every day.",
+          "She studying online every day.",
+          "She is study online every day."
+        ],
+        "answer": "She studies online every day.",
+        "explanation": "'She' + động từ thêm -s: 'studies'."
+      }
     ]
   },
   {
@@ -4202,6 +6277,89 @@
           "Nobody"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Chia sẻ kiến thức là một trong những điều quý giá nhất mà chúng ta có thể làm. Khi chúng ta dạy người khác, chúng ta cũng hiểu rõ hơn về chủ đề đó. Giải thích một ý tưởng bắt buộc chúng ta phải sắp xếp các suy nghĩ một cách rõ ràng. Trong quá khứ, kiến thức được truyền lại qua những câu chuyện và cộng tác. Ngày nay, internet cho phép bất kỳ ai chia sẻ những gì họ biết với thế giới. Blog, video và diễn đàn đã làm cho việc học nhanh hơn và dễ tiếp cận hơn. Tuy nhiên, không phải mọi thông tin trực tuyến đều chính xác, nên điều quan trọng là phải suy nghĩ phản biện. Chia sẻ kiến thức một cách hào phóng giúp cả người cho và người nhận đều phát triển.",
+    "vocabulary": [
+      {
+        "word": "valuable",
+        "ipa": "/ˈvæljuəbl/",
+        "meaning": "quý giá",
+        "pos": "adj"
+      },
+      {
+        "word": "explain",
+        "ipa": "/ɪkˈspleɪn/",
+        "meaning": "giải thích",
+        "pos": "v"
+      },
+      {
+        "word": "accessible",
+        "ipa": "/əkˈsesəbl/",
+        "meaning": "dễ tiếp cận",
+        "pos": "adj"
+      },
+      {
+        "word": "accurate",
+        "ipa": "/ˈækjərət/",
+        "meaning": "chính xác",
+        "pos": "adj"
+      },
+      {
+        "word": "generously",
+        "ipa": "/ˈdʒenərəsli/",
+        "meaning": "hào phóng",
+        "pos": "adv"
+      },
+      {
+        "word": "receiver",
+        "ipa": "/rɪˈsiːvər/",
+        "meaning": "người nhận",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Explaining an idea forces us to organize our thoughts clearly.",
+        "options": [
+          "Forces",
+          "Helps",
+          "Allows",
+          "Stops"
+        ],
+        "answer": "Forces",
+        "explanation": "'Forces' (bắt buộc) phù hợp nhất."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Accessible' is closest in meaning to ___.",
+        "options": [
+          "available",
+          "hidden",
+          "difficult",
+          "expensive"
+        ],
+        "answer": "available",
+        "explanation": "'Accessible' (dễ tiếp cận) ≈ 'available' (có sẵn)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "They share knowledge every day.",
+          "They shares knowledge every day.",
+          "They sharing knowledge every day.",
+          "They is share knowledge every day."
+        ],
+        "answer": "They share knowledge every day.",
+        "explanation": "'They' đi với động từ nguyên thể 'share'."
       }
     ]
   },
@@ -4268,6 +6426,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Giao thông công cộng đóng vai trò quan trọng trong các thành phố hiện đại. Xe buýt, tàu hỏa và tàu điện ngầm vận chuyển hàng triệu người mỗi ngày. So với ô tô riêng, giao thông công cộng rẻ hơn và gây ít ô nhiễm hơn. Nó cũng giảm tắc giao thông và tai nạn. Tuy nhiên, nhiều hệ thống cũ và quá đông đúc, đặc biệt là vào giờ cao điểm. Để cải thiện, các thành phố cần đầu tư vào phương tiện mới, lộ trình tốt hơn và lịch trình tin cậy. Một số địa phương đã làm giao thông miễn phí để khuyến khích sử dụng. Hệ thống giao thông công cộng tốt tạo thành phố đáng sống và công bằng hơn cho mọi người.",
+    "vocabulary": [
+      {
+        "word": "transport",
+        "ipa": "/ˈtrænspɔːrt/",
+        "meaning": "vận chuyển",
+        "pos": "n"
+      },
+      {
+        "word": "pollution",
+        "ipa": "/pəˈluːʃn/",
+        "meaning": "ô nhiễm",
+        "pos": "n"
+      },
+      {
+        "word": "overcrowded",
+        "ipa": "/ˌoʊvərkraʊdɪd/",
+        "meaning": "quá đông đúc",
+        "pos": "adj"
+      },
+      {
+        "word": "invest",
+        "ipa": "/ɪnˈvest/",
+        "meaning": "đầu tư",
+        "pos": "v"
+      },
+      {
+        "word": "reliable",
+        "ipa": "/rɪˈlaɪəbl/",
+        "meaning": "tin cậy",
+        "pos": "adj"
+      },
+      {
+        "word": "livable",
+        "ipa": "/ˈlɪvəbl/",
+        "meaning": "đáng sống",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Public transport is cheaper and produces less ___.",
+        "options": [
+          "pollution",
+          "money",
+          "traffic",
+          "noise"
+        ],
+        "answer": "pollution",
+        "explanation": "Giao thông công cộng gây ít ô nhiễm (pollution) hơn."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Reliable' is closest in meaning to ___.",
+        "options": [
+          "trustworthy",
+          "unsafe",
+          "slow",
+          "expensive"
+        ],
+        "answer": "trustworthy",
+        "explanation": "'Reliable' (tin cậy) ≈ 'trustworthy' (có thể tin cậy)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Buses move millions of people every day.",
+          "Buses moves millions of people every day.",
+          "Buses moving millions of people every day.",
+          "Buses is move millions of people every day."
+        ],
+        "answer": "Buses move millions of people every day.",
+        "explanation": "'Buses' số nhiều → động từ nguyên thể 'move'."
+      }
     ]
   },
   {
@@ -4332,6 +6573,89 @@
           "Deleting accounts only"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Trong kỷ nguyên số, sự chú ý của con người đã trở thành một nguồn lực khan hiếm và có giá trị. Các công ty cạnh tranh quyết liệt để thu hút nó, vì doanh thu quảng cáo phụ thuộc vào thời gian người dùng ở lại tương tác. Các nền tảng được thiết kế để gây nghiện, sử dụng thông báo, cuộn vô tận và tự động phát để giữ mọi người bị cuốn hút. Điều này có thể gây hại cho sức khỏe tinh thần, giảm năng suất và làm yếu các mối quan hệ thực sự. Một số chuyên gia cho rằng người dùng nên kiểm soát bằng cách đặt giới hạn và tắt các cảnh báo không thiết yếu. Những người khác tin rằng chính phủ nên quy định cách các nền tảng được thiết kế. Hiểu nền kinh tế sự chú ý là bước đầu tiên để sử dụng công nghệ một cách có ý định hơn.",
+    "vocabulary": [
+      {
+        "word": "scarce",
+        "ipa": "/skers/",
+        "meaning": "khan hiếm",
+        "pos": "adj"
+      },
+      {
+        "word": "fiercely",
+        "ipa": "/ˈfɪrsli/",
+        "meaning": "quyết liệt",
+        "pos": "adv"
+      },
+      {
+        "word": "addictive",
+        "ipa": "/əˈdɪktɪv/",
+        "meaning": "gây nghiện",
+        "pos": "adj"
+      },
+      {
+        "word": "productivity",
+        "ipa": "/ˌproʊdʌkˈtɪvəti/",
+        "meaning": "năng suất",
+        "pos": "n"
+      },
+      {
+        "word": "intentionally",
+        "ipa": "/ɪnˈtenʃənəli/",
+        "meaning": "có ý định",
+        "pos": "adv"
+      },
+      {
+        "word": "non-essential",
+        "ipa": "/ˌnɑːn ɪˈsenʃl/",
+        "meaning": "không thiết yếu",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Platforms are designed to be ___, using notifications and endless scrolling.",
+        "options": [
+          "addictive",
+          "boring",
+          "simple",
+          "offline"
+        ],
+        "answer": "addictive",
+        "explanation": "Các nền tảng được thiết kế để gây nghiện (addictive)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Scarce' is closest in meaning to ___.",
+        "options": [
+          "rare",
+          "abundant",
+          "common",
+          "plentiful"
+        ],
+        "answer": "rare",
+        "explanation": "'Scarce' (khan hiếm) ≈ 'rare' (hiếm)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Advertising revenue depend on user engagement.",
+          "Advertising revenue depends on user engagement.",
+          "Advertising revenue depending on user engagement.",
+          "Advertising revenue are depend on user engagement."
+        ],
+        "answer": "Advertising revenue depends on user engagement.",
+        "explanation": "'Advertising revenue' số ít → 'depends'."
       }
     ]
   },
@@ -4398,6 +6722,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Cách chúng ta sản xuất thực phẩm đang thay đổi nhanh chóng. Với dân số toàn cầu đang tăng và đất nông nghiệp hạn chế, các nhà khoa học đang khám phá những giải pháp mới. Thịt nuôi trong phòng thí nghiệm, nông nghiệp thẳng đứng và protein thực vật có thể giảm tác động môi trường của nông nghiệp truyền thống. Những đổi mới này hứa hẹn sử dụng ít nước và đất hơn trong khi sản xuất nhiều thực phẩm hơn. Tuy nhiên, chúng cũng đặt ra các câu hỏi về chi phí, hương vị và sự chấp nhận của công chúng. Các nhà phê bình lo ngại rằng những sản phẩm như vậy có thể đắt đỏ hoặc qua chế biến heavily. Những người ủng hộ cho rằng sự đổi mới là cần thiết để nuôi sống hành tinh một cách bền vững. Tương lai của thực phẩm có thể kết hợp truyền thống với công nghệ.",
+    "vocabulary": [
+      {
+        "word": "lab-grown",
+        "ipa": "/ˈlæb ɡroʊn/",
+        "meaning": "nuôi trong phòng thí nghiệm",
+        "pos": "adj"
+      },
+      {
+        "word": "vertical farming",
+        "ipa": "/ˈvɜːrtɪkl ˈfɑːrmɪŋ/",
+        "meaning": "nông nghiệp thẳng đứng",
+        "pos": "phr"
+      },
+      {
+        "word": "plant-based",
+        "ipa": "/ˈplænt beɪst/",
+        "meaning": "từ thực vật",
+        "pos": "adj"
+      },
+      {
+        "word": "agriculture",
+        "ipa": "/ˈæɡrɪkʌltʃər/",
+        "meaning": "nông nghiệp",
+        "pos": "n"
+      },
+      {
+        "word": "acceptance",
+        "ipa": "/əkˈseptəns/",
+        "meaning": "sự chấp nhận",
+        "pos": "n"
+      },
+      {
+        "word": "processed",
+        "ipa": "/ˈprɑːsest/",
+        "meaning": "qua chế biến",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Innovations promise to use less water and land while producing more ___.",
+        "options": [
+          "food",
+          "waste",
+          "pollution",
+          "debt"
+        ],
+        "answer": "food",
+        "explanation": "Những đổi mới hứa hẹn sản xuất nhiều thực phẩm (food) hơn."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Acceptance' is closest in meaning to ___.",
+        "options": [
+          "approval",
+          "rejection",
+          "denial",
+          "refusal"
+        ],
+        "answer": "approval",
+        "explanation": "'Acceptance' (sự chấp nhận) ≈ 'approval' (sự đồng ý)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The way we produce food are changing rapidly.",
+          "The way we produce food is changing rapidly.",
+          "The way we produce food be changing rapidly.",
+          "The way we produce food were changing rapidly."
+        ],
+        "answer": "The way we produce food is changing rapidly.",
+        "explanation": "'The way' số ít → 'is'."
+      }
     ]
   },
   {
@@ -4462,6 +6869,89 @@
           "Nothing"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Mạng lưới định hình cuộc sống của chúng ta theo những cách chúng ta thường bỏ qua. Từ tình bạn đến các mối liên hệ nghề nghiệp, những người chúng ta biết ảnh hưởng đến cơ hội và ý tưởng của chúng ta. Nghiên cứu cho thấy các mối liên kết yếu, hay những người quen, thường có giá trị hơn bạn thân trong việc tìm việc làm mới. Điều này là vì họ kết nối chúng ta với các vòng tròn thông tin khác nhau. Mạng lưới trực tuyến đã mở rộng các vòng tròn này một cách đáng kể, cho phép mọi người vươn tới khắp toàn cầu. Tuy nhiên, các kết nối kỹ thuật số có thể thiếu chiều sâu của các mối quan hệ trực tiếp. Xây dựng một mạng lưới đa dạng đòi hỏi nỗ lực chân thành: tham dự sự kiện, giữ liên lạc và giúp đỡ người khác mà không mong đợi phần thưởng ngay lập tức.",
+    "vocabulary": [
+      {
+        "word": "overlook",
+        "ipa": "/ˌoʊvərˈlʊk/",
+        "meaning": "bỏ qua, không để ý",
+        "pos": "v"
+      },
+      {
+        "word": "weak tie",
+        "ipa": "/wiːk taɪ/",
+        "meaning": "mối liên kết yếu",
+        "pos": "phr"
+      },
+      {
+        "word": "acquaintance",
+        "ipa": "/əˈkweɪntəns/",
+        "meaning": "người quen",
+        "pos": "n"
+      },
+      {
+        "word": "diverse",
+        "ipa": "/daɪˈvɜːrs/",
+        "meaning": "đa dạng",
+        "pos": "adj"
+      },
+      {
+        "word": "face-to-face",
+        "ipa": "/ˌfeɪs tə ˈfeɪs/",
+        "meaning": "trực tiếp",
+        "pos": "adj"
+      },
+      {
+        "word": "genuine effort",
+        "ipa": "/ˈdʒenjuɪn ˈefərt/",
+        "meaning": "nỗ lực chân thành",
+        "pos": "phr"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Weak ties connect us to different ___ of information.",
+        "options": [
+          "circles",
+          "blocks",
+          "lines",
+          "boxes"
+        ],
+        "answer": "circles",
+        "explanation": "Các mối liên kết yếu kết nối chúng ta với các vòng tròn (circles) thông tin khác nhau."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Diverse' is closest in meaning to ___.",
+        "options": [
+          "varied",
+          "uniform",
+          "identical",
+          "narrow"
+        ],
+        "answer": "varied",
+        "explanation": "'Diverse' (đa dạng) ≈ 'varied' (đa dạng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Digital connections can lacks the depth of face-to-face relationships.",
+          "Digital connections can lack the depth of face-to-face relationships.",
+          "Digital connections can lacking the depth of face-to-face relationships.",
+          "Digital connections can is lack the depth of face-to-face relationships."
+        ],
+        "answer": "Digital connections can lack the depth of face-to-face relationships.",
+        "explanation": "Sau modal 'can' dùng động từ nguyên mẫu: 'lack'."
       }
     ]
   },
@@ -4528,6 +7018,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Du lịch bền vững nhằm giảm thiểu tác động tiêu cực của du lịch lên môi trường và các cộng đồng địa phương. Du lịch đại trà có thể làm hỏng hệ sinh thái, tăng ô nhiễm và đẩy giá cao lên cho người dân. Du khách có thể giúp đỡ bằng cách chọn nơi ở thân thiện với môi trường, sử dụng phương tiện công cộng và tôn trọng văn hóa địa phương. Một số điểm đến hiện giới hạn số lượng khách để bảo vệ các di sản mong manh. Những nơi khác khuyến khích du khách đến trong mùa thấp. Dù du lịch bền vững đôi khi tốn kém hơn, nhiều người tin rằng nó đáng đầu tư. Du lịch có suy nghĩ cho phép chúng ta tận hưởng thế giới trong khi bảo tồn nó cho thế hệ tương lai.",
+    "vocabulary": [
+      {
+        "word": "sustainable",
+        "ipa": "/səˈsteɪnəbl/",
+        "meaning": "bền vững",
+        "pos": "adj"
+      },
+      {
+        "word": "minimize",
+        "ipa": "/ˈmɪnɪmaɪz/",
+        "meaning": "giảm thiểu",
+        "pos": "v"
+      },
+      {
+        "word": "ecosystem",
+        "ipa": "/ˈiːkoʊsɪstəm/",
+        "meaning": "hệ sinh thái",
+        "pos": "n"
+      },
+      {
+        "word": "accommodation",
+        "ipa": "/əˌkɒməˈdeɪʃn/",
+        "meaning": "chỗ ở, nơi lưu trú",
+        "pos": "n"
+      },
+      {
+        "word": "fragile",
+        "ipa": "/ˈfrædʒaɪl/",
+        "meaning": "mong manh, dễ vỡ",
+        "pos": "adj"
+      },
+      {
+        "word": "preserve",
+        "ipa": "/prɪˈzɜːrv/",
+        "meaning": "bảo tồn, giữ gìn",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Sustainable travel aims to ___ the negative impact of tourism.",
+        "options": [
+          "minimize",
+          "maximize",
+          "ignore",
+          "increase"
+        ],
+        "answer": "minimize",
+        "explanation": "Du lịch bền vững nhằm giảm thiểu (minimize) tác động tiêu cực."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Fragile' is closest in meaning to ___.",
+        "options": [
+          "delicate",
+          "strong",
+          "durable",
+          "tough"
+        ],
+        "answer": "delicate",
+        "explanation": "'Fragile' (mong manh) ≈ 'delicate' (dễ vỡ, mong manh)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Some destinations limits visitor numbers.",
+          "Some destinations limit visitor numbers.",
+          "Some destinations limiting visitor numbers.",
+          "Some destinations is limit visitor numbers."
+        ],
+        "answer": "Some destinations limit visitor numbers.",
+        "explanation": "Chủ ngữ số nhiều 'destinations' + động từ nguyên mẫu 'limit'."
+      }
     ]
   },
   {
@@ -4593,6 +7166,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Động lực thường bị hiểu lầm là cảm giác hưng phấn liên tục. Thực tế, nó dao động, và việc chỉ dựa vào nó là không tin cậy. Các nhà tâm lý học phân biệt giữa động lực nội tại, đến từ sự quan tâm thực sự, và động lực ngoại tại, đến từ phần thưởng bên ngoài. Nghiên cứu cho thấy động lực nội tại dẫn đến học tập sâu hơn và sự kiên trì lớn hơn. Một chiến lược hiệu quả là chia mục tiêu lớn thành các bước nhỏ, dễ quản lý, vì mỗi bước hoàn thành mang lại cảm giác tiến bộ. Chiến lược khác là gắn kết nhiệm vụ với giá trị cá nhân. Hiểu điều gì thực sự thúc đẩy bạn có thể giúp bạn giữ sự nhất quán ngay cả khi động lực thấp.",
+    "vocabulary": [
+      {
+        "word": "fluctuate",
+        "ipa": "/ˈflʌktʃueɪt/",
+        "meaning": "biến động, dao động",
+        "pos": "v"
+      },
+      {
+        "word": "intrinsic",
+        "ipa": "/ɪnˈtrɪnzɪk/",
+        "meaning": "nội tại, bên trong",
+        "pos": "adj"
+      },
+      {
+        "word": "extrinsic",
+        "ipa": "/ɪkˈstrɪnsɪk/",
+        "meaning": "ngoại tại, bên ngoài",
+        "pos": "adj"
+      },
+      {
+        "word": "persistence",
+        "ipa": "/pərˈsɪstəns/",
+        "meaning": "sự kiên trì",
+        "pos": "n"
+      },
+      {
+        "word": "manageable",
+        "ipa": "/ˈmænɪdʒəbl/",
+        "meaning": "có thể kiểm soát, dễ quản lý",
+        "pos": "adj"
+      },
+      {
+        "word": "consistent",
+        "ipa": "/kənˈsɪstənt/",
+        "meaning": "nhất quán",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Intrinsic motivation comes from genuine ___.",
+        "options": [
+          "interest",
+          "reward",
+          "pressure",
+          "money"
+        ],
+        "answer": "interest",
+        "explanation": "Động lực nội tại đến từ sự quan tâm (interest) thực sự."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Persistence' is closest in meaning to ___.",
+        "options": [
+          "determination",
+          "laziness",
+          "doubt",
+          "hesitation"
+        ],
+        "answer": "determination",
+        "explanation": "'Persistence' (sự kiên trì) ≈ 'determination' (sự quyết tâm)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Each step provide a sense of progress.",
+          "Each step provides a sense of progress.",
+          "Each step providing a sense of progress.",
+          "Each step is provide a sense of progress."
+        ],
+        "answer": "Each step provides a sense of progress.",
+        "explanation": "Chủ ngữ 'Each step' số ít → động từ thêm -s: 'provides'."
+      }
     ]
   },
   {
@@ -4657,6 +7313,89 @@
           "Remove humans"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Khi trí tuệ nhân tạo trở nên mạnh mẽ hơn, các câu hỏi đạo đức đã trở nên cấp bách. Hệ thống AI có thể đưa ra quyết định về việc làm, khoản vay, thậm chí công lý, thường thiếu minh bách. Một mối quan ngại lớn là thiên kiến: nếu dữ liệu dùng để huấn luyện hệ thống bị bất công, hệ thống có thể tái tạo và khuếch đại sự bất công đó. Mối quan ngại khác là trách nhiệm, vì thường không rõ ai chịu trách nhiệm khi AI mắc lỗi. Nhiều chuyên gia kêu gọi quy định rõ ràng, thuật toán minh bách và giám sát của con người. Mục tiêu không phải làm chậm đổi mới, mà đảm bảo AI phục vụ nhân loại công bằng và an toàn. Phát triển có trách nhiệm đòi hỏi sự hợp tác giữa chính phủ, doanh nghiệp và công dân.",
+    "vocabulary": [
+      {
+        "word": "ethical",
+        "ipa": "/ˈeθɪkl/",
+        "meaning": "đạo đức",
+        "pos": "adj"
+      },
+      {
+        "word": "transparency",
+        "ipa": "/trænsˈpærənsi/",
+        "meaning": "sự minh bạch",
+        "pos": "n"
+      },
+      {
+        "word": "bias",
+        "ipa": "/ˈbaɪəs/",
+        "meaning": "thiên kiến, định kiến",
+        "pos": "n"
+      },
+      {
+        "word": "accountability",
+        "ipa": "/əˌkaʊntəˈbɪləti/",
+        "meaning": "trách nhiệm giải trình",
+        "pos": "n"
+      },
+      {
+        "word": "oversight",
+        "ipa": "/ˈoʊvərsaɪt/",
+        "meaning": "giám sát, kiểm soát",
+        "pos": "n"
+      },
+      {
+        "word": "amplify",
+        "ipa": "/ˈæmplɪfaɪ/",
+        "meaning": "khuếch đại, tăng cường",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "If training data is unfair, the system may reproduce and ___ that unfairness.",
+        "options": [
+          "amplify",
+          "reduce",
+          "ignore",
+          "hide"
+        ],
+        "answer": "amplify",
+        "explanation": "Hệ thống có thể khuếch đại (amplify) sự bất công."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Accountability' is closest in meaning to ___.",
+        "options": [
+          "responsibility",
+          "freedom",
+          "privacy",
+          "speed"
+        ],
+        "answer": "responsibility",
+        "explanation": "'Accountability' (trách nhiệm giải trình) ≈ 'responsibility' (trách nhiệm)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "It is often unclear who are responsible.",
+          "It is often unclear who is responsible.",
+          "It is often unclear who responsible.",
+          "It is often unclear who be responsible."
+        ],
+        "answer": "It is often unclear who is responsible.",
+        "explanation": "Mệnh đề quan hệ 'who is responsible' dùng 'is' cho chủ ngữ số ít."
       }
     ]
   },
@@ -6203,6 +8942,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Kể từ năm ngoái, nhiều công ty đã cho phép nhân viên làm việc tại nhà. Có những lợi ích và nhược điểm rõ ràng. Bên tích cực, người dân tiết kiệm thời gian và tiền bạc vì không phải đi làm đến văn phòng mỗi ngày. Họ cũng có thể có lịch trình linh hoạt hơn và dành nhiều thời gian hơn cho gia đình. Tuy nhiên, một số người thấy khó tập trung ở nhà vì tiếng ồn hoặc những sự phân tâm. Những người khác cảm thấy cô đơn nếu không có đồng nghiệp. Các chuyên gia gợi ý rằng sự kết hợp giữa làm việc tại nhà và văn phòng có thể là giải pháp tốt nhất cho hầu hết mọi người.",
+    "vocabulary": [
+      {
+        "word": "advantage",
+        "ipa": "/ədˈvæntɪdʒ/",
+        "meaning": "lợi ích",
+        "pos": "n"
+      },
+      {
+        "word": "disadvantage",
+        "ipa": "/ˌdɪsədˈvæntɪdʒ/",
+        "meaning": "nhược điểm",
+        "pos": "n"
+      },
+      {
+        "word": "flexible",
+        "ipa": "/ˈfleksəbl/",
+        "meaning": "linh hoạt",
+        "pos": "adj"
+      },
+      {
+        "word": "distraction",
+        "ipa": "/dɪˈstrækʃn/",
+        "meaning": "sự phân tâm",
+        "pos": "n"
+      },
+      {
+        "word": "lonely",
+        "ipa": "/ˈloʊnli/",
+        "meaning": "cô đơn",
+        "pos": "adj"
+      },
+      {
+        "word": "colleague",
+        "ipa": "/ˈkɑːliɡ/",
+        "meaning": "đồng nghiệp",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "People save time and money because they do not have to ___ to the office.",
+        "options": [
+          "travel",
+          "stay",
+          "sleep",
+          "eat"
+        ],
+        "answer": "travel",
+        "explanation": "Không cần đi lại (travel) đến văn phòng."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Flexible' is closest in meaning to ___.",
+        "options": [
+          "adaptable",
+          "rigid",
+          "fixed",
+          "strict"
+        ],
+        "answer": "adaptable",
+        "explanation": "'Flexible' (linh hoạt) ≈ 'adaptable' (có thể điều chỉnh)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He work from home every day.",
+          "He works from home every day.",
+          "He working from home every day.",
+          "He is work from home every day."
+        ],
+        "answer": "He works from home every day.",
+        "explanation": "'He' + động từ thêm -s: 'works'."
+      }
     ]
   },
   {
@@ -6267,6 +9089,89 @@
           "Travel is expensive"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Hai năm trước, tôi đi du lịch miền bắc Việt Nam với hai bạn. Chúng tôi lên kế hoạch cho chuyến đi trong nhiều tuần, nhưng không có gì diễn ra như mong đợi. Xe buýt của chúng tôi hỏng ở một nơi hoang vắng, và chúng tôi phải chờ năm tiếng. Đúng khi chúng tôi nghĩ chuyến đi bị hỏng, một gia đình địa phương đã mời chúng tôi ăn trưa. Họ vô cùng tử tế và chỉ dẫn cho chúng tôi một chiếc thác nước gần đó. Cuối cùng, chúng tôi có một trong những ngày tốt nhất trong đời. Kể từ đó, tôi đã học được rằng đôi khi những khoảnh khắc tốt nhất là những khoảnh khắc bạn không tính đến trước.",
+    "vocabulary": [
+      {
+        "word": "journey",
+        "ipa": "/ˈdʒɜːrni/",
+        "meaning": "chuyến đi",
+        "pos": "n"
+      },
+      {
+        "word": "expect",
+        "ipa": "/ɪkˈspekt/",
+        "meaning": "mong đợi",
+        "pos": "v"
+      },
+      {
+        "word": "invite",
+        "ipa": "/ɪnˈvaɪt/",
+        "meaning": "mời",
+        "pos": "v"
+      },
+      {
+        "word": "hidden",
+        "ipa": "/ˈhɪdn/",
+        "meaning": "ẩn giấu",
+        "pos": "adj"
+      },
+      {
+        "word": "unexpected",
+        "ipa": "/ˌʌnɪkˈspektɪd/",
+        "meaning": "không dự liệu",
+        "pos": "adj"
+      },
+      {
+        "word": "ruin",
+        "ipa": "/ˈruːɪn/",
+        "meaning": "làm hỏng",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Their bus broke down in the middle of ___.",
+        "options": [
+          "nowhere",
+          "somewhere",
+          "everywhere",
+          "anywhere"
+        ],
+        "answer": "nowhere",
+        "explanation": "Ở một nơi hoang vắng (in the middle of nowhere)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Memorable' is closest in meaning to ___.",
+        "options": [
+          "unforgettable",
+          "ordinary",
+          "boring",
+          "common"
+        ],
+        "answer": "unforgettable",
+        "explanation": "'Memorable' (đáng nhớ) ≈ 'unforgettable' (không thể quên)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "I travelled to Vietnam two years ago.",
+          "I travel to Vietnam two years ago.",
+          "I traveling to Vietnam two years ago.",
+          "I is travel to Vietnam two years ago."
+        ],
+        "answer": "I travelled to Vietnam two years ago.",
+        "explanation": "Thì quá khứ đơn: 'travelled'."
       }
     ]
   },
@@ -6333,6 +9238,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Đọc là một trong những thói quen hữu ích nhất mà một người có thể phát triển. Không giống như xem video, đọc đòi hỏi chúng ta sử dụng trí tưởng tượng và tập trung trong thời gian dài. Nghiên cứu cho thấy những người đọc thường xuyên có vốn từ vựng lớn hơn và trí nhớ tốt hơn. Việc đọc cũng làm giảm stress; chỉ sáu phút đọc có thể làm chậm nhịp tim và thả lỏng cơ bắp. Một số người khẳng định rằng họ không có thời gian để đọc, nhưng thực tế, hầu hết chúng ta có thể tìm được ít nhất mười lăm phút mỗi ngày, ví dụ trước khi đi ngủ. Chìa khóa là chọn những cuốn sách mà chúng ta thực sự thích.",
+    "vocabulary": [
+      {
+        "word": "habit",
+        "ipa": "/ˈhæbɪt/",
+        "meaning": "thói quen",
+        "pos": "n"
+      },
+      {
+        "word": "imagination",
+        "ipa": "/ˌɪməˈdʒeɪʃn/",
+        "meaning": "trí tưởng tượng",
+        "pos": "n"
+      },
+      {
+        "word": "concentrate",
+        "ipa": "/ˈkɑːnsntreɪt/",
+        "meaning": "tập trung",
+        "pos": "v"
+      },
+      {
+        "word": "reduce",
+        "ipa": "/rɪˈduːs/",
+        "meaning": "giảm",
+        "pos": "v"
+      },
+      {
+        "word": "genuinely",
+        "ipa": "/ˈdʒenjuənli/",
+        "meaning": "thực sự",
+        "pos": "adv"
+      },
+      {
+        "word": "vocabulary",
+        "ipa": "/vəˈkæbjueri/",
+        "meaning": "vốn từ vựng",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Reading requires us to use our imagination and ___ for a long time.",
+        "options": [
+          "concentrate",
+          "sleep",
+          "run",
+          "eat"
+        ],
+        "answer": "concentrate",
+        "explanation": "Đọc đòi hỏi tập trung (concentrate)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Useful' is closest in meaning to ___.",
+        "options": [
+          "helpful",
+          "harmful",
+          "useless",
+          "difficult"
+        ],
+        "answer": "helpful",
+        "explanation": "'Useful' (có ích) ≈ 'helpful' (giúp ích)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Reading improves memory.",
+          "Reading improve memory.",
+          "Reading improving memory.",
+          "Reading is improve memory."
+        ],
+        "answer": "Reading improves memory.",
+        "explanation": "'Reading' số ít → 'improves'."
+      }
     ]
   },
   {
@@ -6397,6 +9385,89 @@
           "Angry"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Sau mười năm làm kế toán, Linh quyết định đổi nghề. Cô ấy luôn thích nấu ăn, vì thế đã đăng ký một khóa học nấu ăn. Bạn bè cô ấy nghĩ cô ấy điên khi rời một công việc ổn định, nhưng cô ấy kiên quyết. Một vài tháng đầu rất khó vì cô ấy kiếm ít tiền hơn trước. Tuy nhiên, cô ấy dần xây dựng được một lớp khách hàng trung thành bằng cách bán bánh làm tại nhà trực tuyến. Trong vòng một năm, doanh nghiệp nhỏ của cô ấy đã sinh lời. Linh nói rằng mặc dù hành trình đó gây stress, cô ấy đã không bao giờ cảm thấy vui hài và mãn nguyện hơn.",
+    "vocabulary": [
+      {
+        "word": "accountant",
+        "ipa": "/əˈkaʊntənt/",
+        "meaning": "kế toán",
+        "pos": "n"
+      },
+      {
+        "word": "enroll",
+        "ipa": "/ɪnˈroʊl/",
+        "meaning": "đăng ký",
+        "pos": "v"
+      },
+      {
+        "word": "determined",
+        "ipa": "/dɪˈtɜːrmɪnd/",
+        "meaning": "kiên quyết",
+        "pos": "adj"
+      },
+      {
+        "word": "loyal",
+        "ipa": "/ˈlɔɪəl/",
+        "meaning": "trung thành",
+        "pos": "adj"
+      },
+      {
+        "word": "profitable",
+        "ipa": "/ˈprɑːfɪtəbl/",
+        "meaning": "sinh lời",
+        "pos": "adj"
+      },
+      {
+        "word": "fulfilled",
+        "ipa": "/fʊlˈfɪld/",
+        "meaning": "mãn nguyện",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Linh decided to change her ___ after ten years as an accountant.",
+        "options": [
+          "career",
+          "job",
+          "school",
+          "city"
+        ],
+        "answer": "career",
+        "explanation": "Linh đổi nghề (career)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Determined' is closest in meaning to ___.",
+        "options": [
+          "resolute",
+          "hesitant",
+          "lazy",
+          "doubtful"
+        ],
+        "answer": "resolute",
+        "explanation": "'Determined' (kiên quyết) ≈ 'resolute'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She enrolled in a cooking course.",
+          "She enroll in a cooking course.",
+          "She enrolled in cooking course.",
+          "She is enroll in a cooking course."
+        ],
+        "answer": "She enrolled in a cooking course.",
+        "explanation": "Quá khứ đơn của 'enroll' là 'enrolled'."
       }
     ]
   },
@@ -6463,6 +9534,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Thói quen ảnh hưởng đến cuộc sống của chúng ta nhiều hơn chúng ta nhận ra. Một thói quen là một hành động chúng ta lặp lại thường xuyên đến mức não bộ thực hiện nó một cách tự động, mà không cần suy nghĩ. Đây là lý do tại sao khó từ bỏ thói quen xấu và cũng là lý do tại sao thói quen tốt lại vô cùng mạnh mẽ. Các nhà nghiên cứu gợi ý bắt đầu với những thay đổi nhỏ, chẳng hạn như đọc một trang mỗi ngày hoặc đi bộ trong mười phút. Những hành động nhỏ này dễ duy trì và dần trở nên tự động. Chìa khóa là sự kiên trì hơn là cường độ. Qua thời gian, những thói quen nhỏ có thể dẫn đến những kết quả đáng chú ý.",
+    "vocabulary": [
+      {
+        "word": "habit",
+        "ipa": "/ˈhæbɪt/",
+        "meaning": "thói quen",
+        "pos": "n"
+      },
+      {
+        "word": "automatically",
+        "ipa": "/ˌɔːtəˈmætɪkli/",
+        "meaning": "tự động",
+        "pos": "adv"
+      },
+      {
+        "word": "researcher",
+        "ipa": "/ˈriːsɜːrtʃər/",
+        "meaning": "nhà nghiên cứu",
+        "pos": "n"
+      },
+      {
+        "word": "maintain",
+        "ipa": "/meɪnˈteɪn/",
+        "meaning": "duy trì",
+        "pos": "v"
+      },
+      {
+        "word": "consistency",
+        "ipa": "/kənˈsɪstnsi/",
+        "meaning": "sự kiên trì",
+        "pos": "n"
+      },
+      {
+        "word": "remarkable",
+        "ipa": "/rɪˈmɑːrkəbl/",
+        "meaning": "đáng chú ý",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Good habits are so ___ because they work automatically.",
+        "options": [
+          "powerful",
+          "weak",
+          "useless",
+          "slow"
+        ],
+        "answer": "powerful",
+        "explanation": "Thói quen tốt vô cùng mạnh mẽ (powerful)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Consistency' is closest in meaning to ___.",
+        "options": [
+          "persistence",
+          "change",
+          "forgetting",
+          "stopping"
+        ],
+        "answer": "persistence",
+        "explanation": "'Consistency' (sự kiên trì) ≈ 'persistence'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Habits shape our lives.",
+          "Habits shapes our lives.",
+          "Habits shaping our lives.",
+          "Habits is shape our lives."
+        ],
+        "answer": "Habits shape our lives.",
+        "explanation": "'Habits' số nhiều → động từ 'shape'."
+      }
     ]
   },
   {
@@ -6527,6 +9681,89 @@
           "Avoiding transport"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Sống ở thành phố lớn có cả hai bên thú vị và mệt mỏi. Bên một bên, luôn có cái gì đó để làm: nhà hàng, rạp chiếu phim, hội nghị và trung tâm mua sắm mở muộn. Giao thông công cộng vận chuyển suốt đêm, vì vậy người dân có thể di chuyển dễ dàng. Bên kia, thành phố ồn ào và đông đúc, và chi phí sinh hoạt cao. Nhiều người chuyển đến thành phố để làm việc cuối cùng cũng cảm thấy kiệt sức bởi nhịp sống nhanh. Để khỏe mạnh, các chuyên gia khuyên tìm các khu xanh yên tĩnh, chẳng hạn như công viên, nơi người dân có thể thư giãn và hít không khí trong lành.",
+    "vocabulary": [
+      {
+        "word": "exciting",
+        "ipa": "/ɪkˈsaɪtɪŋ/",
+        "meaning": "thú vị",
+        "pos": "adj"
+      },
+      {
+        "word": "crowded",
+        "ipa": "/ˈkraʊdɪd/",
+        "meaning": "đông đúc",
+        "pos": "adj"
+      },
+      {
+        "word": "exhausted",
+        "ipa": "/ɪɡˈzɔːstɪd/",
+        "meaning": "kiệt sức",
+        "pos": "adj"
+      },
+      {
+        "word": "recommend",
+        "ipa": "/ˌrekəˈmend/",
+        "meaning": "khuyên",
+        "pos": "v"
+      },
+      {
+        "word": "fresh",
+        "ipa": "/freʃ/",
+        "meaning": "trong lành",
+        "pos": "adj"
+      },
+      {
+        "word": "pace",
+        "ipa": "/peɪs/",
+        "meaning": "nhịp độ",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The city is noisy and ___.",
+        "options": [
+          "crowded",
+          "quiet",
+          "clean",
+          "empty"
+        ],
+        "answer": "crowded",
+        "explanation": "Thành phố ồn ào và đông đúc (crowded)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Exhausted' is closest in meaning to ___.",
+        "options": [
+          "tired",
+          "energetic",
+          "happy",
+          "excited"
+        ],
+        "answer": "tired",
+        "explanation": "'Exhausted' (kiệt sức) ≈ 'tired' (mệt)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "She feels exhausted after work.",
+          "She feel exhausted after work.",
+          "She feeling exhausted after work.",
+          "She is feel exhausted after work."
+        ],
+        "answer": "She feels exhausted after work.",
+        "explanation": "'She' + 'feels'."
       }
     ]
   },
@@ -6593,6 +9830,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Chạy marathon là một giấc mơ dường như không thể xảy ra đối với Tuấn. Ông chưa bao giờ là người đam mê thể thao và khó có thể chạy hai kilômét. Tuy nhiên, sau khi bác sĩ cảnh báo ông về sức khỏe, ông quyết định thay đổi. Ông bắt đầu bằng cách chạy quãng đường ngắn ba lần một tuần và dần tăng chiều dài. Điều mất tám tháng của việc tập luyện cởi cứng để sẵn sàng. Vào ngày cuộc đua, ông lo lắng nhưng kiên quyết. Mặc dù ông kết thúc gần cuối, việc vượt qua đường kết thúc là một khoảnh khắc tự hào nhất trong đời.",
+    "vocabulary": [
+      {
+        "word": "marathon",
+        "ipa": "/ˈmærəθɒn/",
+        "meaning": "marathon",
+        "pos": "n"
+      },
+      {
+        "word": "warn",
+        "ipa": "/wɔːrn/",
+        "meaning": "cảnh báo",
+        "pos": "v"
+      },
+      {
+        "word": "distance",
+        "ipa": "/ˈdɪstəns/",
+        "meaning": "quãng đường",
+        "pos": "n"
+      },
+      {
+        "word": "determined",
+        "ipa": "/dɪˈtɜːrmɪnd/",
+        "meaning": "kiên quyết",
+        "pos": "adj"
+      },
+      {
+        "word": "finish line",
+        "ipa": "/ˈfɪnɪʃ laɪn/",
+        "meaning": "điểm kết thúc",
+        "pos": "n"
+      },
+      {
+        "word": "proud",
+        "ipa": "/praʊd/",
+        "meaning": "tự hào",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Tuan could barely run two ___ before he started training.",
+        "options": [
+          "kilometres",
+          "hours",
+          "miles",
+          "meters"
+        ],
+        "answer": "kilometres",
+        "explanation": "Tuan chỉ có thể chạy khoảng hai kilômét."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Determined' is closest in meaning to ___.",
+        "options": [
+          "resolute",
+          "uncertain",
+          "lazy",
+          "weak"
+        ],
+        "answer": "resolute",
+        "explanation": "'Determined' (kiên quyết) ≈ 'resolute'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He trained for eight months.",
+          "He train for eight months.",
+          "He training for eight months.",
+          "He is train for eight months."
+        ],
+        "answer": "He trained for eight months.",
+        "explanation": "Quá khứ đơn của 'train' là 'trained'."
+      }
     ]
   },
   {
@@ -6657,6 +9977,89 @@
           "Went home"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Bữa tối vốn dĩ đơn giản, nhưng đã biến thành một buổi tối đáng quên. Cha mẹ tôi đã mời một số người bạn cũ mà chúng tôi không gặp đã lâu. Mẹ tôi dành cả buổi chiều nấu ăn, còn bố tôi dọn dẹp nhà cửa. Đúng lúc khách đến, điện ngắt vì bão. Thay vì hoảng loạn, chúng tôi đèn nến và tiếp tục. Thức ăn thậm chí còn ngon hơn dưới ánh nến, và mọi người cười và chia sẻ câu chuyện muộn tối. Điều đó nhắc nhở chúng tôi rằng những khoảnh khắc tốt nhất thường đến từ những tình huống bất ngờ.",
+    "vocabulary": [
+      {
+        "word": "unforgettable",
+        "ipa": "/ˌʌnfərˈɡetəbl/",
+        "meaning": "đáng quên",
+        "pos": "adj"
+      },
+      {
+        "word": "guest",
+        "ipa": "/ɡest/",
+        "meaning": "khách",
+        "pos": "n"
+      },
+      {
+        "word": "electricity",
+        "ipa": "/ɪˌlekˈtrɪsəti/",
+        "meaning": "điện lực",
+        "pos": "n"
+      },
+      {
+        "word": "candle",
+        "ipa": "/ˈkændl/",
+        "meaning": "nến",
+        "pos": "n"
+      },
+      {
+        "word": "unexpected",
+        "ipa": "/ˌʌnɪkˈspektɪd/",
+        "meaning": "bất ngờ",
+        "pos": "adj"
+      },
+      {
+        "word": "storm",
+        "ipa": "/stɔːrm/",
+        "meaning": "bão",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Just as the guests arrived, the ___ went out.",
+        "options": [
+          "electricity",
+          "water",
+          "gas",
+          "phone"
+        ],
+        "answer": "electricity",
+        "explanation": "Điện ngắt (electricity went out)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Unforgettable' is closest in meaning to ___.",
+        "options": [
+          "memorable",
+          "forgettable",
+          "ordinary",
+          "boring"
+        ],
+        "answer": "memorable",
+        "explanation": "'Unforgettable' (đáng quên) ≈ 'memorable' (đáng nhớ)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The electricity went out because of a storm.",
+          "The electricity goes out because of a storm.",
+          "The electricity going out because of a storm.",
+          "The electricity is went out because of a storm."
+        ],
+        "answer": "The electricity went out because of a storm.",
+        "explanation": "Quá khứ đơn: 'went out'."
       }
     ]
   },
@@ -6723,6 +10126,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Internet đã hoàn toàn thay đổi cách chúng ta tạo ra và duy trì tình bạn. Thông qua mạng xã hội, chúng ta có thể giữ liên lạc với mọi người trên khắp thế giới và tìm thấy những cộng đồng chia sẻ sở thích. Tuy nhiên, một số nhà tâm lý học cảnh báo rằng tình bạn trực tuyến có thể th nông hơn so với những mối quan hệ thực tế. Họ cho rằng giao tiếp trực tiếp dạy cho chúng ta những kỹ năng quan trọng, chẳng hạn như đọc ngôn ngữ cơ thể và xử lý các cuộc trò chuyện khó khăn. Cách tiếp cận lành mạnh nhất, họ gợi ý, là sử dụng internet như một công cụ hỗ trợ các mối quan hệ thực tế thay vì là một sự thay thế cho chúng.",
+    "vocabulary": [
+      {
+        "word": "community",
+        "ipa": "/kəˈmjuːnəti/",
+        "meaning": "cộng đồng",
+        "pos": "n"
+      },
+      {
+        "word": "shallow",
+        "ipa": "/ˈʃæloʊ/",
+        "meaning": "th nông",
+        "pos": "adj"
+      },
+      {
+        "word": "face-to-face",
+        "ipa": "/ˌfeɪs tə ˈfeɪs/",
+        "meaning": "trực tiếp",
+        "pos": "phr"
+      },
+      {
+        "word": "skill",
+        "ipa": "/skɪl/",
+        "meaning": "kỹ năng",
+        "pos": "n"
+      },
+      {
+        "word": "approach",
+        "ipa": "/əˈproʊtʃ/",
+        "meaning": "cách tiếp cận",
+        "pos": "n"
+      },
+      {
+        "word": "replacement",
+        "ipa": "/rɪˈpleɪsmənt/",
+        "meaning": "sự thay thế",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Online friendships can be ___ compared to real ones.",
+        "options": [
+          "shallow",
+          "deep",
+          "close",
+          "strong"
+        ],
+        "answer": "shallow",
+        "explanation": "Tình bạn trực tuyến có thể th nông (shallow)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Approach' is closest in meaning to ___.",
+        "options": [
+          "method",
+          "result",
+          "end",
+          "stop"
+        ],
+        "answer": "method",
+        "explanation": "'Approach' (cách tiếp cận) ≈ 'method'."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "The internet has changed friendships.",
+          "The internet have changed friendships.",
+          "The internet is changed friendships.",
+          "The internet changing friendships."
+        ],
+        "answer": "The internet has changed friendships.",
+        "explanation": "Thì hiện tại hoàn thành: 'has changed'."
+      }
     ]
   },
   {
@@ -6787,6 +10273,89 @@
           "Avoiding mistakes"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Học một ngôn ngữ mới khi trưởng thành là thách thức nhưng có ích. Trẻ em dường như học một cách tự nhiên, trong khi người lớn thường thấy xấu hổ khi làm sai. Tuy nhiên, nghiên cứu cho thấy người lớn cũng có ưu điểm: họ có thể hiểu quy tắc ngữ pháp và học từ vựng hiệu quả hơn. Yếu tố quan trọng nhất là thực hành thường xuyên. Các chuyên gia khuyên nói càng nhiều càng tốt, ngay cả khi làm sai, vì giao tiếp quan trọng hơn sự hoàn hảo. Xem phim, nghe nhạc và đọc sách đơn giản bằng ngôn ngữ mục tiêu cũng giúp đỡ. Với sự kiên nhẫn và nỗ lực hàng ngày, bất kỳ ai cũng có thể trở nên thạo qua thời gian.",
+    "vocabulary": [
+      {
+        "word": "challenging",
+        "ipa": "/ˈtʃælɪndʒɪŋ/",
+        "meaning": "thách thức",
+        "pos": "adj"
+      },
+      {
+        "word": "embarrassed",
+        "ipa": "/ɪmˈbærəst/",
+        "meaning": "xấu hổ",
+        "pos": "adj"
+      },
+      {
+        "word": "efficiently",
+        "ipa": "/ɪˈfɪʃəntli/",
+        "meaning": "hiệu quả",
+        "pos": "adv"
+      },
+      {
+        "word": "factor",
+        "ipa": "/ˈfæktər/",
+        "meaning": "yếu tố",
+        "pos": "n"
+      },
+      {
+        "word": "fluent",
+        "ipa": "/ˈfluːənt/",
+        "meaning": "thạo",
+        "pos": "adj"
+      },
+      {
+        "word": "practice",
+        "ipa": "/ˈpræktɪs/",
+        "meaning": "thực hành",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The most important factor is regular ___.",
+        "options": [
+          "practice",
+          "rest",
+          "sleep",
+          "food"
+        ],
+        "answer": "practice",
+        "explanation": "Yếu tố quan trọng nhất là thực hành thường xuyên (practice)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Fluent' is closest in meaning to ___.",
+        "options": [
+          "proficient",
+          "beginner",
+          "slow",
+          "quiet"
+        ],
+        "answer": "proficient",
+        "explanation": "'Fluent' (thạo) ≈ 'proficient' (giỏi)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "He speaks English very well.",
+          "He speak English very well.",
+          "He speaking English very well.",
+          "He is speak English very well."
+        ],
+        "answer": "He speaks English very well.",
+        "explanation": "'He' + 'speaks'."
       }
     ]
   },
@@ -6853,6 +10422,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Kinh tế tự do, có đặc điểm là việc làm ngắn hạn, linh hoạt thay vì hợp đồng lâu dài, đã tăng trưởng nhanh chóng trong thập kỷ qua. Người ủng hộ cho rằng nó mang lại tự do cho người lao động và tiết kiệm chi phí cho công ty. Tài xế, người làm tự do và nhân viên giao hàng có thể chọn khi nào và làm bao nhiêu. Người phê bình tuy nhiên chỉ ra rằng người lao động tự do thường thiếu an toàn việc làm, nghỉ có lương và bảo hiểm y tế. Hơn nữa, thiếu lịch trình cố định có thể dẫn đến thu nhập khó dự đoán và căng thẳng mãn tính. Các chính phủ trên thế giới đang tranh luận cách quản lý lĩnh vực này, cân bằng giữa sự linh hoạt mà người lao động trân trọng với các quyền lợi mà việc làm truyền thống cung cấp. Kết quả của cuộc tranh luận này sẽ định hình tương lai việc làm cho hàng triệu người.",
+    "vocabulary": [
+      {
+        "word": "characterised",
+        "ipa": "/ˈkærəktəraɪzd/",
+        "meaning": "có đặc điểm",
+        "pos": "v"
+      },
+      {
+        "word": "freelancer",
+        "ipa": "/ˈfriːlænsər/",
+        "meaning": "người làm tự do",
+        "pos": "n"
+      },
+      {
+        "word": "job security",
+        "ipa": "/dʒɒb sɪˈkjʊərəti/",
+        "meaning": "an toàn việc làm",
+        "pos": "n"
+      },
+      {
+        "word": "unpredictable",
+        "ipa": "/ʌnprɪˈdɪktəbl/",
+        "meaning": "khó dự đoán",
+        "pos": "adj"
+      },
+      {
+        "word": "chronic",
+        "ipa": "/ˈkrɒnɪk/",
+        "meaning": "mãn tính, kéo dài",
+        "pos": "adj"
+      },
+      {
+        "word": "regulate",
+        "ipa": "/ˈreɡjuleɪt/",
+        "meaning": "quy định, quản lý",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Gig workers often lack job ___, paid leave, and health insurance.",
+        "options": [
+          "security",
+          "freedom",
+          "flexibility",
+          "salary"
+        ],
+        "answer": "security",
+        "explanation": "Người lao động tự do thường thiếu an toàn việc làm (job security)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Unpredictable' is closest in meaning to ___.",
+        "options": [
+          "uncertain",
+          "certain",
+          "fixed",
+          "planned"
+        ],
+        "answer": "uncertain",
+        "explanation": "'Unpredictable' (khó dự đoán) ≈ 'uncertain' (không chắc chắn)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Governments are debating how to regulate this sector.",
+          "Governments are debating how regulating this sector.",
+          "Governments are debating how regulate this sector.",
+          "Governments are debating how regulated this sector."
+        ],
+        "answer": "Governments are debating how to regulate this sector.",
+        "explanation": "Sau 'how' dùng dạng động từ nguyên mẫu có 'to': 'how to regulate'."
+      }
     ]
   },
   {
@@ -6917,6 +10569,89 @@
           "Nobody should work"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Nhiều thế hệ nay, thành công được đo lường chủ yếu bằng của cải, địa vị và thăng tiến sự nghiệp. Gần đây, tuy nhiên, một phong trào ngày càng lớn đã bắt đầu thách thức định nghĩa hẹp hòi này. Nhiều chuyên gia, đặc biệt là người trẻ, đang ưu tiên sức khỏe tinh thần, công việc có ý nghĩa và thời gian với gia đình hơn lương và chức danh. Sự thay đổi này một phần là phản ứng với kiệt sức, đã đạt mức báo động trong nhiều ngành. Các công ty đang thích ứng bằng cách cung cấp hỗ trợ sức khỏe tinh thần, giờ làm linh hoạt và cơ hội phát triển cá nhân. Mặc dù người phê bình lập luận rằng tham vọng vẫn quan trọng, ít ai phản đối việc một định nghĩa thành công bỏ qua sức khỏe và hạnh phúc là không hoàn chỉnh. Thách thức nằm ở việc định nghĩa lại thành công mà không mất đi động lực để đạt được.",
+    "vocabulary": [
+      {
+        "word": "narrow",
+        "ipa": "/ˈnæroʊ/",
+        "meaning": "hẹp, hẹp hòi",
+        "pos": "adj"
+      },
+      {
+        "word": "prioritise",
+        "ipa": "/praɪˈɒrətaɪz/",
+        "meaning": "ưu tiên",
+        "pos": "v"
+      },
+      {
+        "word": "burnout",
+        "ipa": "/ˈbɜːrnaʊt/",
+        "meaning": "kiệt sức, kiệt lực",
+        "pos": "n"
+      },
+      {
+        "word": "alarming",
+        "ipa": "/əˈlɑːrmɪŋ/",
+        "meaning": "báo động",
+        "pos": "adj"
+      },
+      {
+        "word": "ambition",
+        "ipa": "/æmˈbɪʃn/",
+        "meaning": "tham vọng, hoài bão",
+        "pos": "n"
+      },
+      {
+        "word": "resilience",
+        "ipa": "/rɪˈzɪliəns/",
+        "meaning": "sự kiên cường, khả năng phục hồi",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The shift is partly a response to ___, which has reached alarming levels.",
+        "options": [
+          "burnout",
+          "success",
+          "wealth",
+          "status"
+        ],
+        "answer": "burnout",
+        "explanation": "Sự thay đổi một phần là phản ứng với kiệt sức (burnout)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Narrow' is closest in meaning to ___.",
+        "options": [
+          "limited",
+          "wide",
+          "broad",
+          "vast"
+        ],
+        "answer": "limited",
+        "explanation": "'Narrow' (hẹp hòi) ≈ 'limited' (hạn chế, giới hạn)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Companies are adapting by offer mental health support.",
+          "Companies are adapting by offering mental health support.",
+          "Companies are adapting by offered mental health support.",
+          "Companies are adapting by offers mental health support."
+        ],
+        "answer": "Companies are adapting by offering mental health support.",
+        "explanation": "Sau giới từ 'by' dùng động từ V-ing: 'by offering'."
       }
     ]
   },
@@ -6983,6 +10718,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Khi trí tuệ nhân tạo trở thành một phần của cuộc sống hàng ngày, các câu hỏi đạo đức đã chuyển từ lý thuyết sang thực tiễn. Thuật toán hiện ảnh hưởng đến ai được vay, ứng viên nào được lọc hồ sơ, thậm chí chẩn đoán y tế. Lo ngại là những hệ thống này, được huấn luyện trên dữ liệu lịch sử, có thể tái tạo và khuếch đại định kiến hiện hữu. Ví dụ, thuật toán tuyển dụng có thể khiến ứng viên từ các nhóm ít được đại diện bị bất lợi nếu tuyển dụng trong quá khứ bị lệch. Minh bạch là vấn đề lớn khác: nhiều hệ thống AI là 'hộp đen' mà quyết định không thể giải thích dễ dàng. Nhà hoạch định chính sách do đó đang thúc đẩy các quy định yêu cầu công bằng, trách nhiệm giải trình và giám sát của con người. Mục tiêu không phải làm chậm đổi mới, mà đảm bảo nó mang lại lợi ích cho toàn thể xã hội.",
+    "vocabulary": [
+      {
+        "word": "embedded",
+        "ipa": "/ɪmˈbedɪd/",
+        "meaning": "được nhúng, tích hợp",
+        "pos": "adj"
+      },
+      {
+        "word": "algorithm",
+        "ipa": "/ˈælɡərɪðəm/",
+        "meaning": "thuật toán",
+        "pos": "n"
+      },
+      {
+        "word": "reproduce",
+        "ipa": "/ˌriːprəˈduːs/",
+        "meaning": "tái tạo, lặp lại",
+        "pos": "v"
+      },
+      {
+        "word": "amplify",
+        "ipa": "/ˈæmplɪfaɪ/",
+        "meaning": "khuếch đại",
+        "pos": "v"
+      },
+      {
+        "word": "black box",
+        "ipa": "/blæk bɒks/",
+        "meaning": "hộp đen (hệ thống không minh bạch)",
+        "pos": "n"
+      },
+      {
+        "word": "oversight",
+        "ipa": "/ˈoʊvərsaɪt/",
+        "meaning": "giám sát",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Algorithms now influence who gets a loan and which job applicants are ___.",
+        "options": [
+          "shortlisted",
+          "rejected",
+          "ignored",
+          "hired"
+        ],
+        "answer": "shortlisted",
+        "explanation": "Thuật toán ảnh hưởng đến ai được lọc hồ sơ (shortlisted)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Reproduce' is closest in meaning to ___.",
+        "options": [
+          "replicate",
+          "destroy",
+          "reduce",
+          "prevent"
+        ],
+        "answer": "replicate",
+        "explanation": "'Reproduce' (tái tạo) ≈ 'replicate' (nhân bản, lặp lại)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Many AI systems are 'black boxes' whose decisions cannot be easily explained.",
+          "Many AI systems are 'black boxes' whose decisions cannot easily explained.",
+          "Many AI systems are 'black boxes' which decisions cannot be easily explained.",
+          "Many AI systems are 'black boxes' who decisions cannot be easily explained."
+        ],
+        "answer": "Many AI systems are 'black boxes' whose decisions cannot be easily explained.",
+        "explanation": "Dùng 'whose' cho sở hữu của vật/khái niệm, 'cannot be explained' là bị động đúng."
+      }
     ]
   },
   {
@@ -7047,6 +10865,89 @@
           "Fewer people"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Hãy tưởng tượng một trung tâm thành phố nơi xe hơi bị cấm và đường phố thuộc về người đi bộ và xe đạp. Một số thành phố châu Âu đã thử nghiệm ý tưởng này, và kết quả đáng ngạc nhiên là tích cực. Chất lượng không khí cải thiện, mức độ tiếng ồn giảm, và các doanh nghiệp địa phương báo cáo lượng khách đến tăng. Người phê bình ban đầu lo ngại hỗn loạn, nhưng hệ thống giao thông công cộng và cơ sở hạ tầng xe đạp được thiết kế tốt đã giải quyết hầu hết lo ngại. Không ngạc nhiên, cư dân báo cáo cảm thấy khỏe mạnh hơn và gắn kết hơn với cộng đồng. Tất nhiên, những thay đổi này đòi hỏi đầu tư đáng kể và ý chí chính trị, điều giải thích tại sao chúng vẫn hiếm gặp. Tuy nhiên, các thử nghiệm cho thấy ưu tiên con người hơn xe cộ có thể thay đổi đời sống đô thị.",
+    "vocabulary": [
+      {
+        "word": "ban",
+        "ipa": "/bæn/",
+        "meaning": "cấm",
+        "pos": "v"
+      },
+      {
+        "word": "pedestrian",
+        "ipa": "/pəˈdestriən/",
+        "meaning": "người đi bộ",
+        "pos": "n"
+      },
+      {
+        "word": "footfall",
+        "ipa": "/ˈfʊtfɔːl/",
+        "meaning": "lượng khách đến, lưu lượng người",
+        "pos": "n"
+      },
+      {
+        "word": "infrastructure",
+        "ipa": "/ˈɪnfrəstrʌktʃər/",
+        "meaning": "cơ sở hạ tầng",
+        "pos": "n"
+      },
+      {
+        "word": "prioritise",
+        "ipa": "/praɪˈɒrətaɪz/",
+        "meaning": "ưu tiên",
+        "pos": "v"
+      },
+      {
+        "word": "transform",
+        "ipa": "/trænsˈfɔːrm/",
+        "meaning": "chuyển đổi, thay đổi hoàn toàn",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Air quality improved, noise levels dropped, and local businesses reported higher ___.",
+        "options": [
+          "footfall",
+          "profits",
+          "rents",
+          "taxes"
+        ],
+        "answer": "footfall",
+        "explanation": "Doanh nghiệp báo cáo lượng khách đến (footfall) tăng."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Infrastructure' is closest in meaning to ___.",
+        "options": [
+          "facilities",
+          "buildings",
+          "vehicles",
+          "roads"
+        ],
+        "answer": "facilities",
+        "explanation": "'Infrastructure' (cơ sở hạ tầng) ≈ 'facilities' (cơ sở vật chất)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Such changes require significant investment and political will.",
+          "Such changes requires significant investment and political will.",
+          "Such changes requiring significant investment and political will.",
+          "Such changes is require significant investment and political will."
+        ],
+        "answer": "Such changes require significant investment and political will.",
+        "explanation": "Chủ ngữ số nhiều 'changes' + động từ nguyên mẫu 'require'."
       }
     ]
   },
@@ -7113,6 +11014,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Giấc ngủ không phải trạng thái thụ động mà là một quá trình chủ động thiết yếu cho sức khỏe. Trong giấc ngủ sâu, cơ thể sửa chữa mô và tăng cường hệ miễn dịch, trong khi não bộ củng cố ký ức và thanh lọc chất thải. Thiếu ngủ mãn tính, ngược lại, liên quan đến béo phái, tiểu đường và suy giảm chức năng nhận thức. Tuy nhiên, lối sống hiện đại thường coi ngủ là xa xỉ. Ánh sáng xanh từ màn hình ức chế melatonin, khiến khó ngủ, trong khi caffeine và lịch trình không đều phá vỡ nhịp tự nhiên. Các nhà khoa học khuyên nên có thói quen ngủ đều đặn, phòng tối và mát, và tránh màn hình một giờ trước khi ngủ. Ưu tiên giấc ngủ là một trong những cách hiệu quả nhất để cải thiện sức khỏe tổng thể.",
+    "vocabulary": [
+      {
+        "word": "passive",
+        "ipa": "/ˈpæsɪv/",
+        "meaning": "thụ động",
+        "pos": "adj"
+      },
+      {
+        "word": "consolidate",
+        "ipa": "/kənˈsɒlɪdeɪt/",
+        "meaning": "củng cố, làm vững chắc",
+        "pos": "v"
+      },
+      {
+        "word": "deprivation",
+        "ipa": "/ˌdeprɪˈveɪʃn/",
+        "meaning": "sự thiếu hụt, sự liệt cụ",
+        "pos": "n"
+      },
+      {
+        "word": "suppress",
+        "ipa": "/səˈpres/",
+        "meaning": "ức chế, ngăn chặn",
+        "pos": "v"
+      },
+      {
+        "word": "melatonin",
+        "ipa": "/ˌmeləˈtoʊnɪn/",
+        "meaning": "melatonin (hormone điều hòa giấc ngủ)",
+        "pos": "n"
+      },
+      {
+        "word": "rhythm",
+        "ipa": "/ˈrɪðəm/",
+        "meaning": "nhịp điệu, nhịp sinh học",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Blue light from screens ___ melatonin, making it harder to fall asleep.",
+        "options": [
+          "suppresses",
+          "increases",
+          "produces",
+          "releases"
+        ],
+        "answer": "suppresses",
+        "explanation": "Ánh sáng xanh ức chế (suppresses) melatonin."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Consolidate' is closest in meaning to ___.",
+        "options": [
+          "strengthen",
+          "weaken",
+          "forget",
+          "lose"
+        ],
+        "answer": "strengthen",
+        "explanation": "'Consolidate' (củng cố) ≈ 'strengthen' (làm mạnh)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Scientists recommend a consistent sleep routine and avoiding screens.",
+          "Scientists recommend a consistent sleep routine and avoid screens.",
+          "Scientists recommend a consistent sleep routine and to avoid screens.",
+          "Scientists recommends a consistent sleep routine and avoiding screens."
+        ],
+        "answer": "Scientists recommend a consistent sleep routine and avoiding screens.",
+        "explanation": "Sau 'recommend' dùng V-ing: 'recommend ... avoiding'; chủ ngữ 'Scientists' số nhiều → 'recommend'."
+      }
     ]
   },
   {
@@ -7177,6 +11161,89 @@
           "The uselessness of shops"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Trong hai thập kỷ qua, các cửa hàng nhỏ địa phương đã đóng cửa với tốc độ báo động, bị thay thế bởi các chuỗi lớn và người bán lẻ trực tuyến. Mặc dù người tiêu dùng tận hưởng giá thấp hơn và sự tiện lợi lớn hơn, sự mất mát của doanh nghiệp địa phương có những hậu quả tinh vi nhưng nghiêm trọng. Cửa hàng địa phương giữ tiền lưu thông trong cộng đồng, tạo việc làm địa phương và mang cho khu phố đặc trưng riêng biệt. Chúng cũng cung cấp sự tiếp xúc con người mà thuật toán không thể sao chép: một cuộc trò chuyện thân thiện, lời khuyên cá nhân hóa, hoặc đơn giản là một khuôn mặt quen thuộc. Một số thị trấn đã phản ứng với các sáng kiến như chiến dịch 'mua hàng địa phương' và giảm tiền thuê cho doanh nghiệp độc lập. Cho dù những nỗ lực này có thể 역转 xu hướng vẫn chưa chắc chắn, nhưng giá trị của việc bảo tồn thương mại địa phương ngày càng được công nhận.",
+    "vocabulary": [
+      {
+        "word": "alarming",
+        "ipa": "/əˈlɑːrmɪŋ/",
+        "meaning": "báo động",
+        "pos": "adj"
+      },
+      {
+        "word": "retailer",
+        "ipa": "/ˈriːteɪlər/",
+        "meaning": "người bán lẻ",
+        "pos": "n"
+      },
+      {
+        "word": "circulate",
+        "ipa": "/ˈsɜːrkjuleɪt/",
+        "meaning": "lưu thông",
+        "pos": "v"
+      },
+      {
+        "word": "replicate",
+        "ipa": "/ˈreplɪkeɪt/",
+        "meaning": "sao chép, tái tạo",
+        "pos": "v"
+      },
+      {
+        "word": "initiative",
+        "ipa": "/ɪˈnɪʃətɪv/",
+        "meaning": "sáng kiến, chủ trương",
+        "pos": "n"
+      },
+      {
+        "word": "reverse",
+        "ipa": "/rɪˈvɜːrs/",
+        "meaning": "đảo ngược, làm ngược lại",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Local shops keep money ___ within the community.",
+        "options": [
+          "circulating",
+          "circulate",
+          "circulated",
+          "circulation"
+        ],
+        "answer": "circulating",
+        "explanation": "Cấu trúc 'keep + O + V-ing': 'keep money circulating'."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Replicate' is closest in meaning to ___.",
+        "options": [
+          "copy",
+          "delete",
+          "ignore",
+          "create"
+        ],
+        "answer": "copy",
+        "explanation": "'Replicate' (sao chép, tái tạo) ≈ 'copy' (sao chép)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Some towns have responded with initiatives such as shop local campaigns.",
+          "Some towns have responded with initiatives such as shopping local campaigns.",
+          "Some towns have responded with initiatives such as shops local campaigns.",
+          "Some towns have responded with initiatives such as shop locally campaigns."
+        ],
+        "answer": "Some towns have responded with initiatives such as shop local campaigns.",
+        "explanation": "'Shop local' là cụm cố định (phrasal verb dùng như danh từ) chỉ chiến dịch mua hàng địa phương."
       }
     ]
   },
@@ -7243,6 +11310,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Biến đổi khí hậu đang ngày càng buộc người dân phải rời bỏ ngôi nhà. Mực nước biển dâng, hạn hán kéo dài và các sự kiện thời tiết cực đoan đã khiến hàng triệu người trên toàn thế giới phải di cư. Khác với người tị nạn chạy trốn chiến tranh, những người di cư vì khí hậu thường nằm ngoài các bảo vệ pháp lý hiện có, để họ trong vị thế bất lợi. Bangladesh, ví dụ, đối mặt với cả lũ lụt và xâm nhập nước mặn, đe dọa nông nghiệp. Trong khi đó, hạn hán ở vùng Sahel đang đẩy nông dân vào thành phố. Các chuyên gia cảnh báo di cư vì khí hậu sẽ gia tăng trong những thập kỷ tới, có thể tạo ra căng thẳng mới ở các khu vực tiếp nhận. Họ kêu gọi các khung pháp lý quốc tế công nhận sự di cư vì khí hậu và cung cấp hỗ trợ, lập luận rằng lên kế hoạch trước rẻ hơn nhiều so với ứng phó khủng hoảng.",
+    "vocabulary": [
+      {
+        "word": "displace",
+        "ipa": "/dɪsˈpleɪs/",
+        "meaning": "làm di cư, đẩy đi",
+        "pos": "v"
+      },
+      {
+        "word": "prolonged",
+        "ipa": "/prəˈlɒŋd/",
+        "meaning": "kéo dài",
+        "pos": "adj"
+      },
+      {
+        "word": "precarious",
+        "ipa": "/prɪˈkeəriəs/",
+        "meaning": "bất ổn, rủi ro",
+        "pos": "adj"
+      },
+      {
+        "word": "intrusion",
+        "ipa": "/ɪnˈtruːʒn/",
+        "meaning": "sự xâm nhập",
+        "pos": "n"
+      },
+      {
+        "word": "intensify",
+        "ipa": "/ɪnˈtensɪfaɪ/",
+        "meaning": "gia tăng, đậm đặc",
+        "pos": "v"
+      },
+      {
+        "word": "framework",
+        "ipa": "/ˈfreɪmwɜːrk/",
+        "meaning": "khung pháp lý, khung khái niệm",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Climate migrants often fall outside existing legal protections, leaving them in a ___ position.",
+        "options": [
+          "precarious",
+          "secure",
+          "stable",
+          "safe"
+        ],
+        "answer": "precarious",
+        "explanation": "Họ ở trong vị thế bất ổn, rủi ro (precarious)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Intensify' is closest in meaning to ___.",
+        "options": [
+          "escalate",
+          "decrease",
+          "weaken",
+          "reduce"
+        ],
+        "answer": "escalate",
+        "explanation": "'Intensify' (gia tăng) ≈ 'escalate' (leo thang, gia tăng)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Experts warn that climate migration will intensify in coming decades.",
+          "Experts warn that climate migration will intensifies in coming decades.",
+          "Experts warn that climate migration intensify in coming decades.",
+          "Experts warn that climate migration is intensify in coming decades."
+        ],
+        "answer": "Experts warn that climate migration will intensify in coming decades.",
+        "explanation": "Sau modal 'will' dùng động từ nguyên mẫu: 'will intensify'."
+      }
     ]
   },
   {
@@ -7307,6 +11457,89 @@
           "Hiding mistakes"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Trong nhiều nền văn hóa, thất bại được xem là điều cần tránh và giấu kín. Tuy nhiên, một lượng nghiên cứu ngày càng tăng cho thấy thất bại, khi được xử lý xây dựng, là một trong những động lực mạnh mẽ nhất của việc học tập. Thomas Edison từng nói nổi tiếng rằng ông không thất bại mà đã tìm ra hàng nghìn cách không hoạt động. Ở Thung lũng Silicon, các doanh nhân thường coi những thất bại như huy hiệu kinh nghiệm. Chìa khóa là đối xử với thất bại như phản hồi: phân tích điều gì sai, điều chỉnh cách tiếp cận và thử lại. Các tổ chức trừng phạt sai lầm thường nuôi dưỡng nỗi sợ và sự trì trệ, trong khi những tổ chức khuyến khích mạo hiểm thông minh thúc đẩy đổi mới. Việc định hình lại thất bại do đó không phải là hạ thấp tiêu chuẩn, mà là xây dựng sự kiên cường.",
+    "vocabulary": [
+      {
+        "word": "constructive",
+        "ipa": "/kənˈstrʌktɪv/",
+        "meaning": "xây dựng, tích cực",
+        "pos": "adj"
+      },
+      {
+        "word": "engine",
+        "ipa": "/ˈendʒɪn/",
+        "meaning": "động lực, động cơ",
+        "pos": "n"
+      },
+      {
+        "word": "badge",
+        "ipa": "/bædʒ/",
+        "meaning": "huy hiệu, dấu hiệu",
+        "pos": "n"
+      },
+      {
+        "word": "stagnation",
+        "ipa": "/stæɡˈneɪʃn/",
+        "meaning": "sự trì trệ, đứng yên",
+        "pos": "n"
+      },
+      {
+        "word": "foster",
+        "ipa": "/ˈfɒstər/",
+        "meaning": "thúc đẩy, nuôi dưỡng",
+        "pos": "v"
+      },
+      {
+        "word": "resilience",
+        "ipa": "/rɪˈzɪliəns/",
+        "meaning": "sự kiên cường, khả năng phục hồi",
+        "pos": "n"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "The key is to treat failure as ___: analysing what went wrong and trying again.",
+        "options": [
+          "feedback",
+          "punishment",
+          "luck",
+          "fate"
+        ],
+        "answer": "feedback",
+        "explanation": "Đối xử với thất bại như phản hồi (feedback)."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Stagnation' is closest in meaning to ___.",
+        "options": [
+          "inactivity",
+          "growth",
+          "progress",
+          "development"
+        ],
+        "answer": "inactivity",
+        "explanation": "'Stagnation' (sự trì trệ) ≈ 'inactivity' (sự không hoạt động)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Organisations that punish mistakes tend to breed fear and stagnation.",
+          "Organisations that punish mistakes tends to breed fear and stagnation.",
+          "Organisations that punish mistakes tending to breed fear and stagnation.",
+          "Organisations that punish mistakes is tend to breed fear and stagnation."
+        ],
+        "answer": "Organisations that punish mistakes tend to breed fear and stagnation.",
+        "explanation": "Chủ ngữ 'Organisations' số nhiều → động từ 'tend'."
       }
     ]
   },
@@ -7373,6 +11606,89 @@
         ],
         "answer": 0
       }
+    ],
+    "translation": "Bản chất của công việc đang trải qua sự chuyển biến đáng kể nhất kể từ cuộc cách mạng công nghiệp. Tự động hóa và trí tuệ nhân tạo đang thay thế các tác vụ lặp lại, trong khi làm việc từ xa đã làm mờ ranh giới giữa văn phòng và nhà. Dự báo rất khác nhau: một số dự báo thất nghiệp hàng loạt, trong khi người khác kỳ vọng loại việc làm mới sẽ xuất hiện, như đã xảy ra với mọi chuyển dịch công nghệ trước đây. Điều dường như rõ ràng là học tập liên tục sẽ trở nên thiết yếu, vì kỹ năng cần thiết hôm nay có thể lỗi thời trong vài năm. Hệ thống giáo dục sẽ cần thích ứng, nhấn mạnh khả năng thích ứng, sáng tạo và hợp tác hơn là kiến thức vẹt. Thay vì sợ thay đổi, xã hội có cơ hội thiết kế công việc nhân văn, linh hoạt và đầy ý nghĩa hơn.",
+    "vocabulary": [
+      {
+        "word": "transformation",
+        "ipa": "/ˌtrænsfərˈmeɪʃn/",
+        "meaning": "sự chuyển đổi, biến đổi",
+        "pos": "n"
+      },
+      {
+        "word": "automation",
+        "ipa": "/ˌɔːtəˈmeɪʃn/",
+        "meaning": "tự động hóa",
+        "pos": "n"
+      },
+      {
+        "word": "blurred",
+        "ipa": "/blɜːrd/",
+        "meaning": "làm mờ, không rõ ràng",
+        "pos": "adj"
+      },
+      {
+        "word": "obsolete",
+        "ipa": "/ˌɒbsəˈliːt/",
+        "meaning": "lỗi thời, không còn dùng",
+        "pos": "adj"
+      },
+      {
+        "word": "adaptability",
+        "ipa": "/əˌdæptəˈbɪləti/",
+        "meaning": "khả năng thích ứng",
+        "pos": "n"
+      },
+      {
+        "word": "rote",
+        "ipa": "/roʊt/",
+        "meaning": "vẹt, học vẹt",
+        "pos": "adj"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Continuous learning will become essential, as skills required today may become ___ within a few years.",
+        "options": [
+          "obsolete",
+          "modern",
+          "popular",
+          "useful"
+        ],
+        "answer": "obsolete",
+        "explanation": "Kỹ năng hôm nay có thể lỗi thời (obsolete) trong vài năm."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Adaptability' is closest in meaning to ___.",
+        "options": [
+          "flexibility",
+          "rigidity",
+          "stiffness",
+          "fixedness"
+        ],
+        "answer": "flexibility",
+        "explanation": "'Adaptability' (khả năng thích ứng) ≈ 'flexibility' (sự linh hoạt)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Educational systems will need to adapt, emphasising adaptability over rote knowledge.",
+          "Educational systems will need to adapt, emphasise adaptability over rote knowledge.",
+          "Educational systems will need to adapt, emphasised adaptability over rote knowledge.",
+          "Educational systems will need to adapt, to emphasise adaptability over rote knowledge."
+        ],
+        "answer": "Educational systems will need to adapt, emphasising adaptability over rote knowledge.",
+        "explanation": "Dùng phân từ hiện tại 'emphasising' chỉ hành động đi kèm/hết ý."
+      }
     ]
   },
   {
@@ -7437,6 +11753,89 @@
           "Import limits"
         ],
         "answer": 0
+      }
+    ],
+    "translation": "Khoảng một phần ba toàn bộ thực phẩm sản xuất toàn cầu bị lãng phí, một con số kinh ngạc khi mà hàng triệu người vẫn đói. Sự lãng phí xảy ra ở mọi giai đoạn: vụ mùa không được thu hoạch, nông sản bị loại vì lý do thẩm mỹ, và người tiêu dùng vứt bỏ thực phẩm còn ăn được. Chi phí môi trường là to lớn, vì thực phẩm lãng phí phân hủy ở bãi rác và giải phóng methane, một khí nhà kính mạnh. Siêu thị ngày càng tặng thực phẩm không bán được cho từ thiện, trong khi các ứng dụng kết nối nhà hàng với khách hàng sẵn sàng mua bữa dư thừa với giá giảm. Một số quốc gia thậm chí đã ban hành luật yêu cầu các nhà bán lẻ lớn tặng thay vì vứt. Giảm lãng phí thực phẩm, các chuyên gia lập luận, là một trong những cách đơn giản và hiệu quả nhất để chống lại cả đói nghèo và biến đổi khí hậu.",
+    "vocabulary": [
+      {
+        "word": "staggering",
+        "ipa": "/ˈstæɡərɪŋ/",
+        "meaning": "kinh ngạc, khiến choáng váng",
+        "pos": "adj"
+      },
+      {
+        "word": "cosmetic",
+        "ipa": "/kɒzˈmetɪk/",
+        "meaning": "thẩm mỹ, về ngoại hình",
+        "pos": "adj"
+      },
+      {
+        "word": "decompose",
+        "ipa": "/ˌdiːkəmˈpoʊz/",
+        "meaning": "phân hủy, phân giải",
+        "pos": "v"
+      },
+      {
+        "word": "methane",
+        "ipa": "/ˈmeθeɪn/",
+        "meaning": "methane (khí metan)",
+        "pos": "n"
+      },
+      {
+        "word": "surplus",
+        "ipa": "/ˈsɜːrplʌs/",
+        "meaning": "thặng dư, dư thừa",
+        "pos": "n"
+      },
+      {
+        "word": "discard",
+        "ipa": "/dɪsˈkɑːrd/",
+        "meaning": "vứt bỏ, loại bỏ",
+        "pos": "v"
+      }
+    ],
+    "exercises": [
+      {
+        "id": 1,
+        "type": "fill_blank",
+        "instruction": "Chọn từ đúng để điền vào chỗ trống.",
+        "question": "Produce is sometimes rejected for ___ reasons, such as imperfect shape.",
+        "options": [
+          "cosmetic",
+          "nutritional",
+          "economic",
+          "legal"
+        ],
+        "answer": "cosmetic",
+        "explanation": "Nông sản bị loại vì lý do thẩm mỹ (cosmetic) như hình dáng không đẹp."
+      },
+      {
+        "id": 2,
+        "type": "synonym",
+        "instruction": "Chọn từ gần nghĩa nhất với từ in đậm.",
+        "question": "'Decompose' is closest in meaning to ___.",
+        "options": [
+          "rot",
+          "grow",
+          "freeze",
+          "cook"
+        ],
+        "answer": "rot",
+        "explanation": "'Decompose' (phân hủy) ≈ 'rot' (thối, phân hủy)."
+      },
+      {
+        "id": 3,
+        "type": "error_correction",
+        "instruction": "Chọn câu đúng ngữ pháp.",
+        "question": "Which sentence is correct?",
+        "options": [
+          "Some countries have passed laws requiring large retailers to donate rather than discard.",
+          "Some countries have passed laws requiring large retailers to donate rather than discarding.",
+          "Some countries have passed laws requiring large retailers donating rather than discard.",
+          "Some countries have passed laws requiring large retailers donate rather than discard."
+        ],
+        "answer": "Some countries have passed laws requiring large retailers to donate rather than discard.",
+        "explanation": "Cấu trúc 'require someone to do something'; 'rather than' + động từ nguyên mẫu không 'to'."
       }
     ]
   }
