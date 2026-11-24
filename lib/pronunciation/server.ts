@@ -1,15 +1,61 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { loadPronunciationFocuses, type PronunciationFocus } from "./content";
+import { loadPronunciationFocuses } from "./content";
+import type { PronunciationFocus, PronunciationProgress } from "./types";
 
 export async function getPronunciationFocuses(): Promise<PronunciationFocus[]> {
   return loadPronunciationFocuses();
 }
 
+export async function getPronunciationProgress(): Promise<Record<string, PronunciationProgress>> {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return {};
+
+  const { data: progress } = await supabase
+    .from("pronunciation_progress")
+    .select("focus_id, mastery, updated_at")
+    .eq("user_id", user.id);
+
+  if (!progress || progress.length === 0) return {};
+
+  const { data: attempts } = await supabase
+    .from("pronunciation_attempts")
+    .select("focus_id")
+    .eq("user_id", user.id);
+
+  const attemptCounts: Record<string, number> = {};
+  for (const a of attempts ?? []) {
+    attemptCounts[a.focus_id] = (attemptCounts[a.focus_id] ?? 0) + 1;
+  }
+
+  const result: Record<string, PronunciationProgress> = {};
+  for (const p of progress) {
+    const attemptsCount = attemptCounts[p.focus_id] ?? 0;
+    const mastery = Number(p.mastery ?? 0);
+    let status: "new" | "practicing" | "mastered" | "weak";
+    if (attemptsCount === 0) status = "new";
+    else if (mastery >= 80) status = "mastered";
+    else if (mastery < 50) status = "weak";
+    else status = "practicing";
+
+    result[p.focus_id] = {
+      focusId: p.focus_id,
+      mastery,
+      attempts: attemptsCount,
+      lastPracticed: p.updated_at ?? null,
+      status,
+    };
+  }
+  return result;
+}
+
 export type PronunciationAttemptInput = {
   focusId: string;
-  itemType: "pair" | "word" | "sentence" | "passage";
+  itemType: "pair" | "word" | "sentence" | "passage" | "quick_test";
   targetText: string;
   transcript: string;
   wordResults: Array<{ word: string; ok: boolean }>;
@@ -18,7 +64,6 @@ export type PronunciationAttemptInput = {
   scorer?: string;
 };
 
-/** Lưu một lượt luyện phát âm (đã chấm ở client bằng lib/speech/scoring). */
 export async function savePronunciationAttempt(
   input: PronunciationAttemptInput,
 ): Promise<{ id: string }> {

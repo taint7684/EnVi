@@ -117,3 +117,45 @@
 - `mixed-practice.tsx`: loads dedicated 320 questions as primary pool, supplements with existing pool if needed.
 - Each question has `id`, `exercise_type`, `topic_id`, and type-specific fields (question/options/answer for MCQ; vi/hints/answer for translation; sentence/error_part/corrected for error_correction; blanks/full for verb_conjugation).
 - Coverage: 16 topics × 4 types = 64 cells, all with ≥5 questions each.
+
+## Part 7: Pronunciation Workshop (12 sound groups, 5-step flow)
+
+### New features
+- **12 sound groups** in `data/pronunciation.json` (expanded from basic to full workshop data): /θ/ vs /ð/, /ʃ/ vs /s/, /r/ vs /l/, /v/ vs /w/, final consonants, ending -s, ending -ed, long/short vowels, consonant clusters, /ŋ/ vs /n/, word stress, linking.
+- Each group has: `ipa`, `category`, `mouth_guide` (tongue/lips/throat/airflow in Vietnamese), `minimal_pairs` (8 pairs with IPA + Vietnamese meaning), `words` (10-14 example words), `phrases` (8 example phrases), `sentences` (4 example sentences), `quick_test` (4 listen-choose + 1 speak-sentence).
+- **5-step flow** in `components/pronunciation/pronunciation-workshop.tsx`:
+  1. Học âm: listen to sample + mouth guide + tip + example words
+  2. Cặp từ tối thiểu: minimal pairs with TTS for each word
+  3. Từ & cụm từ: record + transcribe + score (Whisper STT + intelligibility scoring)
+  4. Luyện trong câu: read sentences + record + score
+  5. Kiểm tra nhanh: listen-choose + speak-sentence tests
+- **Progress tracking**: `getPronunciationProgress()` returns per-focus mastery, attempts, status (new/practicing/mastered/weak). Saved to `pronunciation_progress` + `pronunciation_attempts` tables.
+- **Focus list page**: `components/pronunciation/pronunciation-focus-list.tsx` — grouped by category (consonant/vowel/suprasegmental/connected_speech), shows status icon + mastery %.
+- **Page**: `/pronunciation` (list) + `/pronunciation?focus=<id>` (workshop). Uses URL search params for deep linking.
+
+### Types/data split
+- `lib/pronunciation/types.ts`: pure types (PronunciationFocus, MouthGuide, MinimalPair, QuickTestItem, PronunciationProgress, CATEGORY_LABELS, STEP_LABELS).
+- `lib/pronunciation/content.ts`: server-only data loader (`import "server-only"`).
+- `lib/pronunciation/server.ts`: server actions (getPronunciationFocuses, getPronunciationProgress, savePronunciationAttempt).
+
+## Part 8: Reading Daily (2-tab: Read Aloud + Comprehension+Exercises)
+
+### New features
+- **2-tab interface** in `components/reading/reading-daily.tsx`:
+  - **Đọc to tab**: sentence-by-sentence display with TTS, recording (MediaRecorder), playback, vocabulary list (collapsible), translation toggle.
+  - **Đọc hiểu + Bài tập tab**: comprehension questions (4-6 MCQ) + vocabulary/structure exercises (fill_blank, synonym, error_correction) + summary textarea.
+- **Daily assignment**: `getDailyReadingPassages()` uses deterministic date-based selection to give 2 new passages per day (same for all users). Shows "Bài đọc hôm nay" section with daily passages.
+- **Progress tracking**: `getReadingProgress()` returns per-passage status (new/in_progress/completed), quiz score, readAloud/comprehension/exercises booleans. Saved to `reading_attempts`.
+- **Vocabulary exercises**: each passage can have `exercises` array with fill_blank, synonym, error_correction types + explanations.
+- **Sentence splitting**: `splitSentences()` splits passage text by sentence boundaries for sentence-by-sentence reading.
+- **Page**: `/reading` — rewritten to use new `ReadingDaily` component with daily section + level filter + passage detail with 2 tabs.
+
+### Types/data split
+- `lib/reading/types.ts`: ReadingPassage (extended with translation?, vocabulary?, exercises?, sentences?), ReadingProgress, DailyReadingAssignment, ReadingExercise, ReadingVocabularyItem.
+- `lib/reading/server.ts`: getReadingProgress, getDailyReadingPassages, saveReadingAttempt (with mode field), lookupWord.
+- `lib/reading-data.ts`: re-exports from types + loads passages from JSON.
+
+### Limitations
+- Existing 80 passages in `data/reading-passages.json` do not yet have `translation`, `vocabulary`, `exercises`, or `sentences` fields — these are optional and the UI handles their absence gracefully.
+- Vocabulary and exercises would benefit from AI generation (Gemini Flash) to enrich existing passages — noted for future work.
+- Daily assignment cycles through all 80 passages deterministically by date.

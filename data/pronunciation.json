@@ -1,110 +1,482 @@
 [
   {
-    "id": "final-consonants",
+    "id": "th-voiced-voiceless",
     "num": 1,
-    "title_vi": "Âm cuối (final consonants)",
-    "description_vi": "Người Việt hay bỏ âm cuối /t/, /d/, /k/, /s/, /z/. Giữ âm cuối để người nghe hiểu đúng.",
-    "tip_vi": "Đưa lưỡi lên chạm vòm miệng cho /t/, /d/; giữ hơi cho /k/. Đừng nuốt âm cuối.",
-    "words": ["best", "good", "back", "nice", "please", "worked", "need", "stop"],
-    "sentences": ["I need the best price, please.", "She worked hard and did a good job."]
-  },
-  {
-    "id": "ending-s",
-    "num": 2,
-    "title_vi": "Đuôi -s / -es",
-    "description_vi": "Chia động từ ngôi thứ 3 số ít và danh từ số nhiều: /s/, /z/, /ɪz/.",
-    "tip_vi": "Sau âm vô thanh → /s/ (works); sau âm hữu thanh → /z/ (plays); sau /s,z,ʃ,ʧ/ → /ɪz/ (watches).",
-    "words": ["works", "plays", "watches", "makes", "needs", "boxes", "teaches", "goes"],
-    "sentences": ["She works with our team every day.", "He watches two meetings in the morning."]
-  },
-  {
-    "id": "ending-ed",
-    "num": 3,
-    "title_vi": "Đuôi -ed",
-    "description_vi": "Thì quá khứ: /t/, /d/, /ɪd/.",
-    "tip_vi": "Sau âm vô thanh → /t/ (worked); sau âm hữu thanh → /d/ (played); sau /t,d/ → /ɪd/ (wanted).",
-    "words": ["worked", "played", "wanted", "needed", "asked", "called", "decided", "moved"],
-    "sentences": ["I worked late and then I played a game.", "He wanted to join but he needed help."]
-  },
-  {
-    "id": "th",
-    "num": 4,
-    "title_vi": "/θ/ và /ð/ (think / this)",
-    "description_vi": "Đặt đầu lưỡi giữa hai răng, thổi hơi cho /θ/ (think); rung giọng cho /ð/ (this).",
+    "title_vi": "/θ/ vs /ð/ (think / this)",
+    "ipa": "/θ/ vs /ð/",
+    "category": "consonant",
+    "description_vi": "Đặt đầu lưỡi giữa hai hàm răng, thổi hơi nhẹ. /θ/ (think) không rung giọng, /ð/ (this) rung giọng.",
     "tip_vi": "Nhìn vào gương để chắc lưỡi nằm giữa hai răng. Đừng nói thành /t/ hay /d/.",
-    "words": ["think", "this", "three", "that", "thank", "they", "through", "other"],
-    "sentences": ["I think this is the right thing to do.", "Thank you for the other three files."]
+    "mouth_guide": {
+      "tongue": "Đầu lưỡi đặt nhẹ giữa hai hàm răng, hơi thò ra ngoài.",
+      "lips": "Môi hơi mở, không chu, không ngang.",
+      "throat": "Cổ họng mở bình thường.",
+      "airflow": "Thổi hơi nhẹ qua kẽ răng cho /θ/; rung thanh quản cho /ð/."
+    },
+    "minimal_pairs": [
+      { "word1": "think", "ipa1": "/θɪŋk/", "word2": "sink", "ipa2": "/sɪŋk/", "vi": "nghĩ / chìm" },
+      { "word1": "thin", "ipa1": "/θɪn/", "word2": "sin", "ipa2": "/sɪn/", "vi": "mỏng / tội lỗi" },
+      { "word1": "thick", "ipa1": "/θɪk/", "word2": "sick", "ipa2": "/sɪk/", "vi": "dày / ốm" },
+      { "word1": "path", "ipa1": "/pæθ/", "word2": "pass", "ipa2": "/pæs/", "vi": "đường / vượt qua" },
+      { "word1": "mouth", "ipa1": "/maʊθ/", "word2": "mouse", "ipa2": "/maʊs/", "vi": "miệng / chuột" },
+      { "word1": "this", "ipa1": "/ðɪs/", "word2": "dis", "ipa2": "/dɪs/", "vi": "này / (viết tắt disrespect)" },
+      { "word1": "then", "ipa1": "/ðen/", "word2": "den", "ipa2": "/den/", "vi": "rồi / hang" },
+      { "word1": "they", "ipa1": "/ðeɪ/", "word2": "day", "ipa2": "/deɪ/", "vi": "họ / ngày" }
+    ],
+    "words": ["think", "this", "three", "that", "thank", "they", "through", "other", "mother", "father", "weather", "together"],
+    "phrases": ["think about", "this one", "three times", "thank you", "they are", "other people", "mother and father", "weather report"],
+    "sentences": [
+      "I think this is the right thing to do.",
+      "Thank you for the other three files.",
+      "My mother and father live in the north.",
+      "They weathered the storm together."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "think", "options": ["think", "sink"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "this", "options": ["dis", "this"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "three", "options": ["tree", "three"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "mouth", "options": ["mouth", "mouse"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "I think this is the right thing to do." }
+    ]
   },
   {
     "id": "sh-vs-s",
-    "num": 5,
+    "num": 2,
     "title_vi": "/ʃ/ vs /s/ (she / see)",
-    "description_vi": "Phân biệt /ʃ/ (she, ship) và /s/ (see, sip).",
-    "tip_vi": "/ʃ/ bĩu môi nhẹ, lưỡi lùi; /s/ môi ngang, lưỡi gần lợi.",
-    "words": ["she", "see", "ship", "sip", "share", "sare", "shoe", "sue"],
-    "sentences": ["She can see the ship from here.", "Please share the file, not the password."]
+    "ipa": "/ʃ/ vs /s/",
+    "category": "consonant",
+    "description_vi": "Phân biệt /ʃ/ (she, ship) và /s/ (see, sip). /ʃ/ bĩu môi nhẹ, /s/ môi ngang.",
+    "tip_vi": "Đặt tay trước miệng: /ʃ/ tạo luồng gió rộng hơn /s/.",
+    "mouth_guide": {
+      "tongue": "/ʃ/: lưỡi lùi về sau, gần vòm miệng. /s/: đầu lưỡi gần lợi trên.",
+      "lips": "/ʃ/: môi hơi chu về phía trước. /s/: môi ngang, hơi cười.",
+      "throat": "Cổ họng mở bình thường, không rung giọng.",
+      "airflow": "Luồng gió rộng và khuếch tán cho /ʃ/; luồng gió hẹp và sắc cho /s/."
+    },
+    "minimal_pairs": [
+      { "word1": "she", "ipa1": "/ʃiː/", "word2": "see", "ipa2": "/siː/", "vi": "cô ấy / thấy" },
+      { "word1": "ship", "ipa1": "/ʃɪp/", "word2": "sip", "ipa2": "/sɪp/", "vi": "tàu / nhấp" },
+      { "word1": "shoe", "ipa1": "/ʃuː/", "word2": "sue", "ipa2": "/suː/", "vi": "giày / kiện" },
+      { "word1": "share", "ipa1": "/ʃeər/", "word2": "sare", "ipa2": "/seər/", "vi": "chia sẻ / (hiếm) sóc" },
+      { "word1": "shop", "ipa1": "/ʃɒp/", "word2": "sop", "ipa2": "/sɒp/", "vi": "cửa hàng / miếng mút" },
+      { "word1": "wash", "ipa1": "/wɒʃ/", "word2": "wos", "ipa2": "/wɒs/", "vi": "rửa / (cũ) wos" },
+      { "word1": "cash", "ipa1": "/kæʃ/", "word2": "case", "ipa2": "/keɪs/", "vi": "tiền mặt / hộp" },
+      { "word1": "shy", "ipa1": "/ʃaɪ/", "word2": "sigh", "ipa2": "/saɪ/", "vi": "nhút nhát / thở dài" }
+    ],
+    "words": ["she", "see", "ship", "sip", "share", "shoe", "shop", "cash", "wash", "finish", "nation", "sure"],
+    "phrases": ["she sees", "ship shop", "share this", "finish the task", "nation sure", "cash machine"],
+    "sentences": [
+      "She can see the ship from here.",
+      "Please share the file, not the password.",
+      "She finished her shopping at the cash machine.",
+      "I'm sure she will see the difference."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "she", "options": ["she", "see"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "ship", "options": ["sip", "ship"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "shoe", "options": ["shoe", "sue"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "cash", "options": ["case", "cash"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "She can see the ship from here." }
+    ]
   },
   {
-    "id": "r-l-n",
+    "id": "r-vs-l",
+    "num": 3,
+    "title_vi": "/r/ vs /l/ (right / light)",
+    "ipa": "/r/ vs /l/",
+    "category": "consonant",
+    "description_vi": "Phân biệt /r/ (right) và /l/ (light). /r/ lưỡi cong không chạm, /l/ đầu lưỡi chạm lợi.",
+    "tip_vi": "Đặt ngón tay lên cổ: /l/ chạm nhẹ lợi, /r/ không chạm.",
+    "mouth_guide": {
+      "tongue": "/r/: đầu lưỡi cong lên nhưng không chạm vòm miệng. /l/: đầu lưỡi chạm nhẹ lợi trên.",
+      "lips": "/r/: môi hơi chu tròn. /l/: môi hơi mở ngang.",
+      "throat": "Cổ họng mở bình thường.",
+      "airflow": "Luồng gió thoát hai bên lưỡi cho /r/; luồng gió thoát qua kẽ lưỡi-lợi cho /l/."
+    },
+    "minimal_pairs": [
+      { "word1": "right", "ipa1": "/raɪt/", "word2": "light", "ipa2": "/laɪt/", "vi": "phải / ánh sáng" },
+      { "word1": "rice", "ipa1": "/raɪs/", "word2": "lice", "ipa2": "/laɪs/", "vi": "cơm / chấy" },
+      { "word1": "road", "ipa1": "/roʊd/", "word2": "load", "ipa2": "/loʊd/", "vi": "đường / tải" },
+      { "word1": "correct", "ipa1": "/kəˈrekt/", "word2": "collect", "ipa2": "/kəˈlekt/", "vi": "đúng / thu thập" },
+      { "word1": "grass", "ipa1": "/ɡræs/", "word2": "glass", "ipa2": "/ɡlæs/", "vi": "cỏ / kính" },
+      { "word1": "pray", "ipa1": "/preɪ/", "word2": "play", "ipa2": "/pleɪ/", "vi": "cầu nguyện / chơi" },
+      { "word1": "free", "ipa1": "/friː/", "word2": "flee", "ipa2": "/fliː/", "vi": "miễn phí / chạy trốn" },
+      { "word1": "crow", "ipa1": "/kroʊ/", "word2": "clow", "ipa2": "/kloʊ/", "vi": "quạ / (hiếm) clow" }
+    ],
+    "words": ["right", "light", "night", "correct", "collect", "road", "load", "grass", "glass", "pray", "play", "free", "world", "girl"],
+    "phrases": ["turn right", "next light", "correct answer", "collect data", "grass glass", "play free", "world girl", "road load"],
+    "sentences": [
+      "Turn right at the next light.",
+      "I need to collect the report tonight.",
+      "She played with the glass on the grass.",
+      "Please correct the girl's right answer."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "right", "options": ["right", "light"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "road", "options": ["road", "load"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "grass", "options": ["glass", "grass"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "pray", "options": ["pray", "play"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "Turn right at the next light." }
+    ]
+  },
+  {
+    "id": "v-vs-w",
+    "num": 4,
+    "title_vi": "/v/ vs /w/ (vote / wrote)",
+    "ipa": "/v/ vs /w/",
+    "category": "consonant",
+    "description_vi": "Phân biệt /v/ (vote, very) và /w/ (wrote, we). /v/ dùng răng cắn môi, /w/ chu môi tròn.",
+    "tip_vi": "Chạm răng trên vào môi dưới cho /v/; không chạm cho /w/.",
+    "mouth_guide": {
+      "tongue": "/v/: đầu lưỡi hạ thấp, không chạm răng. /w/: lưỡi lùi về sau, nâng cao.",
+      "lips": "/v/: răng trên cắn nhẹ môi dưới. /w/: môi chu tròn về phía trước.",
+      "throat": "Cổ họng mở bình thường, rung giọng.",
+      "airflow": "Luồng gió rung qua kẽ răng-môi cho /v/; luồng gió tròn qua môi cho /w/."
+    },
+    "minimal_pairs": [
+      { "word1": "vote", "ipa1": "/voʊt/", "word2": "wrote", "ipa2": "/roʊt/", "vi": "bỏ phiếu / viết" },
+      { "word1": "vest", "ipa1": "/vest/", "word2": "west", "ipa2": "/west/", "vi": "áo gi lê / phía tây" },
+      { "word1": "vine", "ipa1": "/vaɪn/", "word2": "wine", "ipa2": "/waɪn/", "vi": "dây leo / rượu vang" },
+      { "word1": "veal", "ipa1": "/viːl/", "word2": "wheel", "ipa2": "/wiːl/", "vi": "thịt bê / bánh xe" },
+      { "word1": "very", "ipa1": "/ˈveri/", "word2": "wary", "ipa2": "/ˈweəri/", "vi": "rất / dè chừng" },
+      { "word1": "verse", "ipa1": "/vɜːrs/", "word2": "worse", "ipa2": "/wɜːrs/", "vi": "câu thơ / tệ hơn" },
+      { "word1": "vain", "ipa1": "/veɪn/", "word2": "wane", "ipa2": "/weɪn/", "vi": "hư vinh / lặn" },
+      { "word1": "visor", "ipa1": "/ˈvaɪzər/", "word2": "wiser", "ipa2": "/ˈwaɪzər/", "vi": "tấm che / khôn hơn" }
+    ],
+    "words": ["vote", "wrote", "very", "we", "vine", "wine", "vest", "west", "veal", "wheel", "voice", "wise", "visit", "week"],
+    "phrases": ["vote wrote", "very wary", "vine wine", "vest west", "voice wise", "visit week"],
+    "sentences": [
+      "We visited the vineyard and tasted the wine.",
+      "The very wise man wrote a vote for the vest.",
+      "She drove the wheel with great care.",
+      "They voice their concerns every week."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "vote", "options": ["vote", "wrote"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "vine", "options": ["wine", "vine"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "very", "options": ["very", "wary"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "veal", "options": ["veal", "wheel"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "We visited the vineyard and tasted the wine." }
+    ]
+  },
+  {
+    "id": "final-consonants",
+    "num": 5,
+    "title_vi": "Phụ âm cuối (final consonants)",
+    "ipa": "/t/, /d/, /k/, /s/, /z/, /n/, /l/",
+    "category": "consonant",
+    "description_vi": "Người Việt hay bỏ âm cuối /t/, /d/, /k/, /s/, /z/. Giữ âm cuối để người nghe hiểu đúng.",
+    "tip_vi": "Đưa lưỡi lên chạm vòm miệng cho /t/, /d/; giữ hơi cho /k/. Đừng nuốt âm cuối.",
+    "mouth_guide": {
+      "tongue": "/t/: đầu lưỡi chạm lợi trên rồi bật ra. /d/: như /t/ nhưng rung giọng. /k/: lưỡi chạm vòm mềm. /s/: lưỡi gần lợi. /z/: như /s/ nhưng rung giọng. /n/: hơi qua mũi. /l/: đầu lưỡi chạm lợi.",
+      "lips": "Môi giữ vị trí trung tính, không chu.",
+      "throat": "Rung giọng cho /d/, /z/, /n/; không rung cho /t/, /k/, /s/.",
+      "airflow": "Ngắt hơi đột ngột cho /t/, /d/, /k/; luồng hơi liên tục cho /s/, /z/."
+    },
+    "minimal_pairs": [
+      { "word1": "back", "ipa1": "/bæk/", "word2": "bad", "ipa2": "/bæd/", "vi": "lưng / xấu" },
+      { "word1": "cap", "ipa1": "/kæp/", "word2": "cab", "ipa2": "/kæb/", "vi": "mũ / taxi" },
+      { "word1": "bat", "ipa1": "/bæt/", "word2": "bad", "ipa2": "/bæd/", "vi": "dơi / xấu" },
+      { "word1": "hit", "ipa1": "/hɪt/", "word2": "hid", "ipa2": "/hɪd/", "vi": "đánh / giấu" },
+      { "word1": "peck", "ipa1": "/pek/", "word2": "peg", "ipa2": "/peg/", "vi": "mổ / chốt" },
+      { "word1": "peace", "ipa1": "/piːs/", "word2": "peas", "ipa2": "/piːz/", "vi": "hòa bình / đậu" },
+      { "word1": "ice", "ipa1": "/aɪs/", "word2": "eyes", "ipa2": "/aɪz/", "vi": "đá / mắt" },
+      { "word1": "sue", "ipa1": "/suː/", "word2": "sues", "ipa2": "/suːz/", "vi": "kiện / kiện (số 3)" }
+    ],
+    "words": ["best", "good", "back", "nice", "please", "worked", "need", "stop", "desk", "hand", "pick", "bag", "ask", "love"],
+    "phrases": ["best price", "good job", "back again", "nice day", "please help", "worked hard", "need more", "stop here"],
+    "sentences": [
+      "I need the best price, please.",
+      "She worked hard and did a good job.",
+      "Please pick up the bag from the desk.",
+      "He asked me to stop at the next light."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "back", "options": ["back", "bad"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "hit", "options": ["hit", "hid"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "peace", "options": ["peace", "peas"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "sue", "options": ["sue", "sues"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "I need the best price, please." }
+    ]
+  },
+  {
+    "id": "ending-s",
     "num": 6,
-    "title_vi": "/r/, /l/, /n/",
-    "description_vi": "Phân biệt /r/ (right), /l/ (light), /n/ (night) — hay lẫn ở cuối và giữa từ.",
-    "tip_vi": "/r/ lưỡi cong không chạm; /l/ đầu lưỡi chạm lợi; /n/ hơi qua mũi.",
-    "words": ["right", "light", "night", "correct", "collect", "connect", "road", "load"],
-    "sentences": ["Turn right at the next light.", "I need to collect the report tonight."]
+    "title_vi": "Đuôi -s / -es",
+    "ipa": "/s/, /z/, /ɪz/",
+    "category": "consonant",
+    "description_vi": "Chia động từ ngôi thứ 3 số ít và danh từ số nhiều: /s/, /z/, /ɪz/.",
+    "tip_vi": "Sau âm vô thanh → /s/ (works); sau âm hữu thanh → /z/ (plays); sau /s,z,ʃ,ʧ/ → /ɪz/ (watches).",
+    "mouth_guide": {
+      "tongue": "/s/: đầu lưỡi gần lợi trên, không chạm. /z/: như /s/ nhưng rung giọng. /ɪz/: thêm nguyên âm ngắn /ɪ/ giữa /s/ hoặc /z/.",
+      "lips": "Môi ngang, không chu.",
+      "throat": "Rung giọng cho /z/ và /ɪz/; không rung cho /s/.",
+      "airflow": "Luồng gió hẹp cho /s/; luồng gió có rung cho /z/; thêm nguyên âm cho /ɪz/."
+    },
+    "minimal_pairs": [
+      { "word1": "works", "ipa1": "/wɜːrks/", "word2": "work", "ipa2": "/wɜːrk/", "vi": "làm việc (số 3) / làm việc" },
+      { "word1": "plays", "ipa1": "/pleɪz/", "word2": "play", "ipa2": "/pleɪ/", "vi": "chơi (số 3) / chơi" },
+      { "word1": "watches", "ipa1": "/ˈwɒtʃɪz/", "word2": "watch", "ipa2": "/wɒtʃ/", "vi": "xem (số 3) / xem" },
+      { "word1": "makes", "ipa1": "/meɪks/", "word2": "make", "ipa2": "/meɪk/", "vi": "làm (số 3) / làm" },
+      { "word1": "needs", "ipa1": "/niːdz/", "word2": "need", "ipa2": "/niːd/", "vi": "cần (số 3) / cần" },
+      { "word1": "boxes", "ipa1": "/ˈbɒksɪz/", "word2": "box", "ipa2": "/bɒks/", "vi": "hộp (số nhiều) / hộp" },
+      { "word1": "teaches", "ipa1": "/ˈtiːtʃɪz/", "word2": "teach", "ipa2": "/tiːtʃ/", "vi": "dạy (số 3) / dạy" },
+      { "word1": "goes", "ipa1": "/ɡoʊz/", "word2": "go", "ipa2": "/ɡoʊ/", "vi": "đi (số 3) / đi" }
+    ],
+    "words": ["works", "plays", "watches", "makes", "needs", "boxes", "teaches", "goes", "books", "dogs", "classes", "languages"],
+    "phrases": ["she works", "he plays", "she watches", "it makes", "she needs", "the boxes", "he teaches", "she goes"],
+    "sentences": [
+      "She works with our team every day.",
+      "He watches two meetings in the morning.",
+      "She teaches three classes and makes good progress.",
+      "He needs boxes and goes to the store."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "works", "options": ["work", "works"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "plays", "options": ["play", "plays"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "watches", "options": ["watch", "watches"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "boxes", "options": ["box", "boxes"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "She works with our team every day." }
+    ]
+  },
+  {
+    "id": "ending-ed",
+    "num": 7,
+    "title_vi": "Đuôi -ed",
+    "ipa": "/t/, /d/, /ɪd/",
+    "category": "consonant",
+    "description_vi": "Thì quá khứ: /t/, /d/, /ɪd/.",
+    "tip_vi": "Sau âm vô thanh → /t/ (worked); sau âm hữu thanh → /d/ (played); sau /t,d/ → /ɪd/ (wanted).",
+    "mouth_guide": {
+      "tongue": "/t/: đầu lưỡi chạm lợi rồi bật. /d/: như /t/ nhưng rung giọng. /ɪd/: thêm nguyên âm /ɪ/ + /d/.",
+      "lips": "Môi trung tính.",
+      "throat": "Rung giọng cho /d/, /ɪd/; không rung cho /t/.",
+      "airflow": "Ngắt hơi cho /t/, /d/; thêm nguyên âm cho /ɪd/."
+    },
+    "minimal_pairs": [
+      { "word1": "worked", "ipa1": "/wɜːrkt/", "word2": "work", "ipa2": "/wɜːrk/", "vi": "đã làm / làm" },
+      { "word1": "played", "ipa1": "/pleɪd/", "word2": "play", "ipa2": "/pleɪ/", "vi": "đã chơi / chơi" },
+      { "word1": "wanted", "ipa1": "/ˈwɒntɪd/", "word2": "want", "ipa2": "/wɒnt/", "vi": "đã muốn / muốn" },
+      { "word1": "needed", "ipa1": "/ˈniːdɪd/", "word2": "need", "ipa2": "/niːd/", "vi": "đã cần / cần" },
+      { "word1": "asked", "ipa1": "/æskt/", "word2": "ask", "ipa2": "/æsk/", "vi": "đã hỏi / hỏi" },
+      { "word1": "called", "ipa1": "/kɔːld/", "word2": "call", "ipa2": "/kɔːl/", "vi": "đã gọi / gọi" },
+      { "word1": "decided", "ipa1": "/dɪˈsaɪdɪd/", "word2": "decide", "ipa2": "/dɪˈsaɪd/", "vi": "đã quyết / quyết" },
+      { "word1": "moved", "ipa1": "/muːvd/", "word2": "move", "ipa2": "/muːv/", "vi": "đã chuyển / chuyển" }
+    ],
+    "words": ["worked", "played", "wanted", "needed", "asked", "called", "decided", "moved", "finished", "started", "ended", "added"],
+    "phrases": ["worked late", "played games", "wanted help", "needed time", "asked questions", "called today", "decided soon", "moved away"],
+    "sentences": [
+      "I worked late and then I played a game.",
+      "He wanted to join but he needed help.",
+      "She asked a question and he called back.",
+      "They decided to move after the meeting."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "worked", "options": ["work", "worked"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "wanted", "options": ["want", "wanted"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "played", "options": ["play", "played"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "asked", "options": ["ask", "asked"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "I worked late and then I played a game." }
+    ]
   },
   {
     "id": "long-short-vowels",
-    "num": 7,
+    "num": 8,
     "title_vi": "Nguyên âm dài / ngắn (ship / sheep)",
-    "description_vi": "Phân biệt /ɪ/ (ship) và /iː/ (sheep), /ʊ/ (full) và /uː/ (fool).",
+    "ipa": "/iː/ vs /ɪ/, /uː/ vs /ʊ/, /æ/ vs /e/",
+    "category": "vowel",
+    "description_vi": "Phân biệt nguyên âm dài và ngắn: /iː/ (sheep) vs /ɪ/ (ship), /uː/ (fool) vs /ʊ/ (full).",
     "tip_vi": "Nguyên âm dài kéo dài hơn và căng môi hơn.",
-    "words": ["ship", "sheep", "full", "fool", "live", "leave", "sit", "seat"],
-    "sentences": ["The sheep is on the ship.", "Please leave the full report, not the fool one."]
+    "mouth_guide": {
+      "tongue": "/iː/: lưỡi cao, căng về phía trước. /ɪ/: lưỡi thấp hơn, thư giãn. /uː/: lưỡi cao, lùi về sau. /ʊ/: lưỡi thấp hơn, thư giãn.",
+      "lips": "/iː/: môi ngang, hơi cười. /ɪ/: môi trung tính. /uː/: môi chu tròn căng. /ʊ/: môi chu nhẹ, thư giãn.",
+      "throat": "Cổ họng mở bình thường.",
+      "airflow": "Nguyên âm dài: luồng hơi liên tục lâu hơn. Nguyên âm ngắn: ngắt ngắn hơn."
+    },
+    "minimal_pairs": [
+      { "word1": "ship", "ipa1": "/ʃɪp/", "word2": "sheep", "ipa2": "/ʃiːp/", "vi": "tàu / cừu" },
+      { "word1": "full", "ipa1": "/fʊl/", "word2": "fool", "ipa2": "/fuːl/", "vi": "đầy / kẻ ngốc" },
+      { "word1": "live", "ipa1": "/lɪv/", "word2": "leave", "ipa2": "/liːv/", "vi": "sống / rời đi" },
+      { "word1": "sit", "ipa1": "/sɪt/", "word2": "seat", "ipa2": "/siːt/", "vi": "ngồi / ghế" },
+      { "word1": "bad", "ipa1": "/bæd/", "word2": "bed", "ipa2": "/bed/", "vi": "xấu / giường" },
+      { "word1": "man", "ipa1": "/mæn/", "word2": "men", "ipa2": "/men/", "vi": "đàn ông / đàn ông (số nhiều)" },
+      { "word1": "had", "ipa1": "/hæd/", "word2": "head", "ipa2": "/hed/", "vi": "đã có / đầu" },
+      { "word1": "cat", "ipa1": "/kæt/", "word2": "ket", "ipa2": "/ket/", "vi": "mèo / (hiếm) ket" }
+    ],
+    "words": ["ship", "sheep", "full", "fool", "live", "leave", "sit", "seat", "bad", "bed", "man", "men", "had", "head", "hit", "heat"],
+    "phrases": ["ship sheep", "full fool", "live leave", "sit seat", "bad bed", "man men", "hit heat", "fit feet"],
+    "sentences": [
+      "The sheep is on the ship.",
+      "Please leave the full report, not the fool one.",
+      "The bad man sat on the bed with his head down.",
+      "She lives to leave a seat for every man."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "ship", "options": ["ship", "sheep"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "full", "options": ["full", "fool"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "bad", "options": ["bad", "bed"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "hit", "options": ["hit", "heat"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "The sheep is on the ship." }
+    ]
   },
   {
     "id": "consonant-clusters",
-    "num": 8,
+    "num": 9,
     "title_vi": "Cụm phụ âm (street, desks)",
+    "ipa": "/str/, /ks/, /sks/, /mpt/, /nd/",
+    "category": "consonant",
     "description_vi": "Đọc trơn cụm phụ âm đầu/cuối, không thêm nguyên âm giữa.",
     "tip_vi": "Đọc nhanh cả cụm: /str/ trong street, /ks/ trong desks. Đừng thêm /ə/.",
-    "words": ["street", "desks", "projects", "texts", "spring", "script", "tasks", "risks"],
-    "sentences": ["We finished the projects on schedule.", "There are three desks in the meeting room."]
+    "mouth_guide": {
+      "tongue": "Lưỡi di chuyển nhanh qua từng vị trí phụ âm mà không dừng lại.",
+      "lips": "Môi thay đổi nhanh theo từng âm trong cụm.",
+      "throat": "Cổ họng phối hợp nhanh, không ngắt quãng.",
+      "airflow": "Luồng gió liên tục, không ngắt giữa cụm phụ âm."
+    },
+    "minimal_pairs": [
+      { "word1": "street", "ipa1": "/striːt/", "word2": "seat", "ipa2": "/siːt/", "vi": "đường / ghế" },
+      { "word1": "desks", "ipa1": "/desks/", "word2": "desk", "ipa2": "/desk/", "vi": "bàn (số nhiều) / bàn" },
+      { "word1": "texts", "ipa1": "/teksts/", "word2": "text", "ipa2": "/tekst/", "vi": "văn bản (số nhiều) / văn bản" },
+      { "word1": "projects", "ipa1": "/ˈprɒdʒekts/", "word2": "project", "ipa2": "/ˈprɒdʒekt/", "vi": "dự án (số nhiều) / dự án" },
+      { "word1": "spring", "ipa1": "/sprɪŋ/", "word2": "sing", "ipa2": "/sɪŋ/", "vi": "mùa xuân / hát" },
+      { "word1": "script", "ipa1": "/skrɪpt/", "word2": "skip", "ipa2": "/skɪp/", "vi": "kịch bản / bỏ qua" },
+      { "word1": "tasks", "ipa1": "/tæsks/", "word2": "task", "ipa2": "/tæsk/", "vi": "nhiệm vụ (số nhiều) / nhiệm vụ" },
+      { "word1": "risks", "ipa1": "/rɪsks/", "word2": "risk", "ipa2": "/rɪsk/", "vi": "rủi ro (số nhiều) / rủi ro" }
+    ],
+    "words": ["street", "desks", "projects", "texts", "spring", "script", "tasks", "risks", "asks", "helps", "works", "stops"],
+    "phrases": ["main street", "three desks", "five projects", "long texts", "spring script", "daily tasks", "high risks", "asks helps"],
+    "sentences": [
+      "We finished the projects on schedule.",
+      "There are three desks in the meeting room.",
+      "She asked me to check the texts and scripts.",
+      "He helps with tasks and risks on the street."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "street", "options": ["street", "seat"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "desks", "options": ["desk", "desks"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "projects", "options": ["project", "projects"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "asks", "options": ["ask", "asks"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "We finished the projects on schedule." }
+    ]
+  },
+  {
+    "id": "ng-sound",
+    "num": 10,
+    "title_vi": "/ŋ/ (ng) và /n/ (n)",
+    "ipa": "/ŋ/ vs /n/",
+    "category": "consonant",
+    "description_vi": "Phân biệt /ŋ/ (sing, think) và /n/ (sin, thin). /ŋ/ tạo ở vòm mềm, /n/ ở lợi.",
+    "tip_vi": "Lưỡi chạm vòm mềm cho /ŋ/; đầu lưỡi chạm lợi cho /n/.",
+    "mouth_guide": {
+      "tongue": "/ŋ/: lưng lưỡi chạm vòm mềm (phía sau). /n/: đầu lưỡi chạm lợi trên (phía trước).",
+      "lips": "Môi trung tính cho cả hai.",
+      "throat": "Hơi thoát qua mũi cho cả /ŋ/ và /n/.",
+      "airflow": "Luồng hơi qua mũi, khác vị trí chạm lưỡi."
+    },
+    "minimal_pairs": [
+      { "word1": "sing", "ipa1": "/sɪŋ/", "word2": "sin", "ipa2": "/sɪn/", "vi": "hát / tội lỗi" },
+      { "word1": "thing", "ipa1": "/θɪŋ/", "word2": "thin", "ipa2": "/θɪn/", "vi": "vật / mỏng" },
+      { "word1": "ring", "ipa1": "/rɪŋ/", "word2": "rim", "ipa2": "/rɪm/", "vi": "nhẫn / vành" },
+      { "word1": "bang", "ipa1": "/bæŋ/", "word2": "ban", "ipa2": "/bæn/", "vi": "nổ / cấm" },
+      { "word1": "long", "ipa1": "/lɒŋ/", "word2": "lawn", "ipa2": "/lɔːn/", "vi": "dài / bãi cỏ" },
+      { "word1": "wrong", "ipa1": "/rɒŋ/", "word2": "Ron", "ipa2": "/rɒn/", "vi": "sai / Ron (tên)" },
+      { "word1": "sang", "ipa1": "/sæŋ/", "word2": "san", "ipa2": "/sæn/", "vi": "đã hát / (viết tắt) san" },
+      { "word1": "ping", "ipa1": "/pɪŋ/", "word2": "pin", "ipa2": "/pɪn/", "vi": "ping / gim" }
+    ],
+    "words": ["sing", "sin", "thing", "thin", "ring", "rim", "bang", "ban", "long", "wrong", "morning", "running", "walking", "working"],
+    "phrases": ["sing along", "thin thing", "ring phone", "ban wrong", "long morning", "running walking"],
+    "sentences": [
+      "She loves to sing along with the morning song.",
+      "The thing is thin, not thick.",
+      "He was running and walking in the long park.",
+      "I was wrong about the thing."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "sing", "options": ["sing", "sin"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "thing", "options": ["thin", "thing"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "long", "options": ["long", "lawn"], "answer": 0 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy từ nào?", "audio_text": "wrong", "options": ["wrong", "Ron"], "answer": 0 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "She loves to sing along with the morning song." }
+    ]
   },
   {
     "id": "word-stress",
-    "num": 9,
+    "num": 11,
     "title_vi": "Trọng âm từ",
+    "ipa": "/ˈsɪmpl/ vs /sɪmˈpliː/",
+    "category": "suprasegmental",
     "description_vi": "Nhấn đúng âm tiết: deVELop (không phải DEvelop), comPUter, reQUire.",
     "tip_vi": "Âm tiết nhấn đọc to hơn, dài hơn, cao hơn.",
-    "words": ["develop", "computer", "require", "important", "understand", "begin", "report", "design"],
-    "sentences": ["We need to develop a new design for the computer app.", "It is important to understand the requirement."]
-  },
-  {
-    "id": "weak-forms",
-    "num": 10,
-    "title_vi": "Trọng âm câu & từ chức năng (weak forms)",
-    "description_vi": "Từ nhỏ (a, to, of, and, can) đọc nhẹ, lướt; từ mang nghĩa đọc rõ.",
-    "tip_vi": "Đọc 'a lot of' thành /ə lɒt əv/. Từ khóa nhấn mạnh.",
-    "words": ["a lot of", "kind of", "to be", "and then", "as soon as", "for example", "in order to", "because of"],
-    "sentences": ["I have a lot of work to do because of the deadline.", "We will start as soon as the client confirms."]
+    "mouth_guide": {
+      "tongue": "Âm tiết nhấn: lưỡi cử động mạnh hơn, rõ hơn. Âm tiết không nhấn: lưỡi thư giãn, ngắn.",
+      "lips": "Âm tiết nhấn: môi mở rộng hơn. Âm tiết không nhấn: môi ít cử động.",
+      "throat": "Âm tiết nhấn: cao độ cao hơn.",
+      "airflow": "Âm tiết nhấn: luồng hơi mạnh hơn, kéo dài hơn."
+    },
+    "minimal_pairs": [
+      { "word1": "DE-velop", "ipa1": "/dɪˈveləp/", "word2": "de-VE-lop", "ipa2": "/ˈdevələp/", "vi": "phát triển (đúng) / phát triển (sai)" },
+      { "word1": "COM-puter", "ipa1": "/kəmˈpjuːtər/", "word2": "com-PU-ter", "ipa2": "/ˈkɒmpjuːtər/", "vi": "máy tính (đúng) / máy tính (sai)" },
+      { "word1": "re-QUIRE", "ipa1": "/rɪˈkwaɪər/", "word2": "RE-quire", "ipa2": "/ˈriːkwaɪər/", "vi": "yêu cầu (đúng) / yêu cầu (sai)" },
+      { "word1": "im-POR-tant", "ipa1": "/ɪmˈpɔːrtənt/", "word2": "IM-por-tant", "ipa2": "/ˈɪmpɔːrtənt/", "vi": "quan trọng (đúng) / quan trọng (sai)" },
+      { "word1": "un-der-STAND", "ipa1": "/ˌʌndərˈstænd/", "word2": "UN-der-stand", "ipa2": "/ˈʌndərstænd/", "vi": "hiểu (đúng) / hiểu (sai)" },
+      { "word1": "be-GIN", "ipa1": "/bɪˈɡɪn/", "word2": "BE-gin", "ipa2": "/ˈbeɡɪn/", "vi": "bắt đầu (đúng) / bắt đầu (sai)" },
+      { "word1": "re-PORT", "ipa1": "/rɪˈpɔːrt/", "word2": "RE-port", "ipa2": "/ˈriːpɔːrt/", "vi": "báo cáo (đúng) / báo cáo (sai)" },
+      { "word1": "de-SIGN", "ipa1": "/dɪˈzaɪn/", "word2": "DE-sign", "ipa2": "/ˈdezaɪn/", "vi": "thiết kế (đúng) / thiết kế (sai)" }
+    ],
+    "words": ["develop", "computer", "require", "important", "understand", "begin", "report", "design", "create", "product", "develop", "management"],
+    "phrases": ["de-VE-lop", "com-PU-ter", "re-QUIRE", "im-POR-tant", "un-der-STAND", "be-GIN", "re-PORT", "de-SIGN"],
+    "sentences": [
+      "We need to develop a new design for the computer app.",
+      "It is important to understand the requirement.",
+      "The report about the product was very clear.",
+      "Begin the project and create a design."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy trọng âm ở đâu?", "audio_text": "develop", "options": ["DE-velop", "de-VE-lop"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy trọng âm ở đâu?", "audio_text": "computer", "options": ["COM-puter", "com-PU-ter"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy trọng âm ở đâu?", "audio_text": "important", "options": ["IM-por-tant", "im-POR-tant"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy trọng âm ở đâu?", "audio_text": "begin", "options": ["BE-gin", "be-GIN"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "We need to develop a new design for the computer app." }
+    ]
   },
   {
     "id": "linking",
-    "num": 11,
+    "num": 12,
     "title_vi": "Nối âm (linking)",
+    "ipa": "/ʧɛ kɪ t aʊt/ → check it out",
+    "category": "connected_speech",
     "description_vi": "Nối phụ âm cuối với nguyên âm đầu từ sau: 'check it out' → /ʧɛ kɪ t aʊt/.",
     "tip_vi": "Đọc liền từ cuối sang từ đầu, không ngắt quãng.",
-    "words": ["check it out", "pick it up", "turn it off", "an hour", "far away", "come in", "log in", "figure it out"],
-    "sentences": ["Let's check it out and pick it up later.", "Please turn it off and log in again."]
-  },
-  {
-    "id": "intonation",
-    "num": 12,
-    "title_vi": "Ngữ điệu câu hỏi / câu kể",
-    "description_vi": "Câu hỏi Yes/No lên giọng cuối; câu hỏi Wh và câu kể xuống giọng.",
-    "tip_vi": "Lên giọng ở từ cuối cho 'Are you ready?'; xuống giọng cho 'What do you do?'",
-    "words": ["Are you ready?", "Do you agree?", "What do you mean?", "Where is the file?", "I'll handle it.", "That makes sense."],
-    "sentences": ["Are you coming to the meeting?", "What time does the call start?"]
+    "mouth_guide": {
+      "tongue": "Lưỡi di chuyển liên tục từ âm cuối từ này sang âm đầu từ sau, không dừng.",
+      "lips": "Môi chuyển liền mạch, không ngắt.",
+      "throat": "Cổ họng mở liên tục.",
+      "airflow": "Luồng hơi liên tục, không ngắt giữa các từ."
+    },
+    "minimal_pairs": [
+      { "word1": "check it out", "ipa1": "/ʧɛ kɪ t aʊt/", "word2": "check. It. Out.", "ipa2": "/ʧɛk. ɪt. aʊt/", "vi": "nối / ngắt" },
+      { "word1": "pick it up", "ipa1": "/pɪ kɪ t ʌp/", "word2": "pick. It. Up.", "ipa2": "/pɪk. ɪt. ʌp/", "vi": "nối / ngắt" },
+      { "word1": "turn it off", "ipa1": "/tɜːn ɪ t ɒf/", "word2": "turn. It. Off.", "ipa2": "/tɜːn. ɪt. ɒf/", "vi": "nối / ngắt" },
+      { "word1": "an hour", "ipa1": "/ə naʊər/", "word2": "an. hour.", "ipa2": "/æn. aʊər/", "vi": "nối / ngắt" },
+      { "word1": "far away", "ipa1": "/fɑːr əˈweɪ/", "word2": "far. away.", "ipa2": "/fɑːr. əˈweɪ/", "vi": "nối / ngắt" },
+      { "word1": "come in", "ipa1": "/kʌm ɪn/", "word2": "come. in.", "ipa2": "/kʌm. ɪn/", "vi": "nối / ngắt" },
+      { "word1": "log in", "ipa1": "/lɒɡ ɪn/", "word2": "log. in.", "ipa2": "/lɒɡ. ɪn/", "vi": "nối / ngắt" },
+      { "word1": "figure it out", "ipa1": "/fɪɡjər ɪ t aʊt/", "word2": "figure. It. Out.", "ipa2": "/fɪɡjər. ɪt. aʊt/", "vi": "nối / ngắt" }
+    ],
+    "words": ["check it out", "pick it up", "turn it off", "an hour", "far away", "come in", "log in", "figure it out", "a lot of", "kind of", "as soon as", "for example"],
+    "phrases": ["check it out", "pick it up", "turn it off", "an hour", "far away", "come in", "log in", "figure it out"],
+    "sentences": [
+      "Let's check it out and pick it up later.",
+      "Please turn it off and log in again.",
+      "We'll figure it out in an hour.",
+      "Come in and log in to the system."
+    ],
+    "quick_test": [
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy cụm từ nào?", "audio_text": "check it out", "options": ["check. It. Out.", "check it out"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy cụm từ nào?", "audio_text": "pick it up", "options": ["pick. It. Up.", "pick it up"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy cụm từ nào?", "audio_text": "an hour", "options": ["an. hour.", "an hour"], "answer": 1 },
+      { "type": "listen-choose", "prompt": "Bạn nghe thấy cụm từ nào?", "audio_text": "come in", "options": ["come. in.", "come in"], "answer": 1 },
+      { "type": "speak-sentence", "prompt": "Đọc to câu sau:", "target": "Let's check it out and pick it up later." }
+    ]
   }
 ]

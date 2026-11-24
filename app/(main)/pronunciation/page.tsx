@@ -1,39 +1,56 @@
-import { getPronunciationFocuses } from "@/lib/pronunciation/server";
-import { PronunciationPlayer } from "@/components/pronunciation/pronunciation-player";
+import { getPronunciationFocuses, getPronunciationProgress } from "@/lib/pronunciation/server";
+import { PronunciationWorkshop } from "@/components/pronunciation/pronunciation-workshop";
+import { PronunciationFocusList } from "@/components/pronunciation/pronunciation-focus-list";
 
-export const metadata = { title: "Phát âm & Đọc to — EnVi" };
+export const metadata = { title: "Luyện phát âm — EnVi" };
 
-export default async function PronunciationPage() {
-  const focuses = await getPronunciationFocuses();
+export default async function PronunciationPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ focus?: string }>;
+}) {
+  const [focuses, progress] = await Promise.all([
+    getPronunciationFocuses(),
+    getPronunciationProgress(),
+  ]);
 
+  const params = await searchParams;
+  const selectedId = params.focus;
+
+  // If a focus is selected, show the workshop
+  if (selectedId) {
+    const selected = focuses.find((f) => f.id === selectedId);
+    if (selected) {
+      return (
+        <div className="mx-auto max-w-3xl space-y-6">
+          <div>
+            <a href="/pronunciation" className="text-sm text-primary hover:underline">
+              ← Tất cả nhóm âm
+            </a>
+            <h1 className="mt-2 font-serif text-2xl font-semibold">
+              {selected.ipa} — {selected.title_vi}
+            </h1>
+          </div>
+          <PronunciationWorkshop
+            focus={selected}
+            progress={progress[selected.id]}
+          />
+        </div>
+      );
+    }
+  }
+
+  // Default: show list of all focuses
   return (
     <div className="mx-auto max-w-4xl space-y-6">
       <div>
-        <h1 className="font-serif text-2xl font-semibold">Phát âm &amp; Đọc to</h1>
+        <h1 className="font-serif text-2xl font-semibold">Luyện phát âm</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          12 trọng tâm phát âm cho người Việt. Đọc và được chấm độ rõ (intelligibility) — không aim giọng bản xứ.
+          {focuses.length} nhóm âm khó cho người Việt. Luyện theo chuỗi 5 bước: học âm →
+          cặp từ tối thiểu → từ & cụm → câu → kiểm tra nhanh.
         </p>
       </div>
-
-      <div className="space-y-6">
-        {focuses.map((f) => (
-          <section key={f.id} className="rounded-2xl border bg-card p-5 shadow-sm">
-            <div className="flex items-start gap-3">
-              <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
-                {f.num}
-              </span>
-              <div>
-                <h2 className="font-medium">{f.title_vi}</h2>
-                <p className="text-sm text-muted-foreground">{f.description_vi}</p>
-                <p className="mt-1 text-xs text-primary">Mẹo: {f.tip_vi}</p>
-              </div>
-            </div>
-            <div className="mt-4">
-              <PronunciationPlayer focus={f} />
-            </div>
-          </section>
-        ))}
-      </div>
+      <PronunciationFocusList focuses={focuses} progress={progress} />
     </div>
   );
 }

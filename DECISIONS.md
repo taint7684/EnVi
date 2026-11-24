@@ -1,30 +1,53 @@
-# EnVi — DECISIONS.md (nhật ký quyết định kỹ thuật)
+# DECISIONS.md — EnVi Development Decisions
 
-## Quy tắc quyết định
-- Ưu tiên phương án làm người dùng NÓI NHIỀU HƠN, ÍT DỊCH HƠN, ÍT SỢ HƠN.
-- Không commit secret; không mock dữ liệu người dùng; không màn trắng.
-- Chỉ thêm migration mới (`db/migrations/0011_*` trở đi), không xoá dữ liệu cũ.
+## Pronunciation Workshop (Part 7)
 
-## Quyết định (điền khi thực thi S0→S11)
-- [BƯỚC 0 - 22/11/2026] Kiểm kê xác nhận: tsc EXIT 0, eslint 0 error/54 warning, vitest 82/82, build EXIT 0, playwright 4/5 (roadmap fail `/dashboard` ERR_FAILED). Không còn mock/VOCAB_WORDS/Maria/score:0 trong app/lib. 3 file uncommitted (migration 0012 `"desc"`, 2 spec bỏ assert greeting cũ).
-- [BƯỚC 0 - 22/11/2026] Top GAP xác định: (1) Shadowing chưa dùng YouTube IFrame API thật (getCurrentTime/seekTo, còn DEFAULT_YOUTUBE_ID placeholder); (2) Route chưa theo kiến trúc 5 tab spec 7.1 (`/speaking` vs `/speak/coach`...); (3) Grammar chưa đủ 800 câu + vn_trap; (4) Fluency MLR threshold 0.7s vs spec 0.4s; (5) thiếu audit-content.ts; (6) roadmap.spec dùng `/dashboard`; (7) rotate key thật; (8) DB live thiếu migration 0010-0020; (9) nội dung sample_answer/en_alternatives cần audit.
-- [BƯỚC 0 - 22/11/2026] Quyết định thực thi: S0→S11 đã hoàn thành (theo CHANGELOG). S11 = regression + DoD. Việc còn lại chủ yếu là: fix roadmap.spec `/dashboard`→`/today`, commit 3 file uncommitted, chạy lại playwright xanh, audit nội dung, và các việc cần người dùng (rotate key, migrate DB live). KHÔNG có S-phase mới cần viết code trừ khi audit phát hiện thiếu.
-- [S0] `.env.example`: giữ chỉ tên biến, xoá giá trị thật (rotate key do người dùng thực hiện bên ngoài repo).
-- [S0] `docs/MASTER_SPEC.md`: tạo từ spec v2.0 đã được duyệt.
-- [S0] `PROJECT_MANIFEST.md`, `DECISIONS.md`, `CHANGELOG.md`: tạo khởi tạo.
-- [S5] Assessment: giữ `lib/assessment.ts` (pure + localStorage legacy) làm nguồn câu hỏi/chấm; thêm `lib/assessment-db.ts` (server) lưu `assessment_results`. Form import pure từ `assessment`, save từ `assessment-db`.
-- [S5] Onboarding: dùng state + onSubmit (không dùng form action FormData) để tương thích React 19 và đọc state đã chọn.
-- [S5] Nav: chuyển sang IA 5 tab (spec 7.1) dùng route hiện có (`/speaking` thay `/speak/coach` tới khi refactor route); sub-item chỉ mở rộng khi tab active để gọn sidebar.
-- [S5] `/progress` là server component đọc `assessment_results`, tổng hợp Trước–Sau bằng `summarizeProgress` (pure, có test). Biểu đồ fluency đầy đủ (WPM/latency) hoãn tới khi có dữ liệu `fluency_daily`.
-- [S6] Mission/Drill dùng server actions (startMission/submitMissionTurn/finishMission, saveDrill) thay vì API route riêng — cùng contract, ít bề mặt hơn. Objective judge qua `aiRouter task=objective_judge`, lỗi → [] (không chặn).
-- [S6] Nội dung mission/strategy/drill để ở `data/*.json` + validate zod khi load (server-only); đọc DB trước (`missions`...), trống thì fallback JSON → chạy được trước khi seed. Persona turn dùng `offline_script` (pre-written) + STT từ `/api/stt` cho câu trả lời; WPM drill đo bằng thời gian ghi thực tế + word count transcript.
-- [S6] `fluency_drills`/`mission_attempts` xóa theo `delete_my_account` (migration 0016).
-- [S7] Chấm điểm dùng chung `lib/speech/scoring.ts` (thuần, có test): Dictation/Shadowing/Pronunciation. Dictation BR-9.3: xem đáp án trước khi nộp → score 0, 0 XP (`revealed_before_submit`).
-- [S7] Shadowing: bỏ mock `score:0`, chấm bằng STT (`/api/stt`) + `scoreShadowing` (accuracy 0.7 + timing 0.3), lưu `shadowing_attempts`. IFrame API seek bằng postMessage (đã có) — highlight getCurrentTime để lại sau.
-- [S7] Pronunciation Lab: 12 trọng tâm (data/pronunciation.json) validate zod, chấm intelligibility = % từ Whisper nhận đúng (adapter `whisper`; Azure tùy chọn sau). Lưu `pronunciation_attempts` + `pronunciation_progress.mastery` (trung bình 10 lượt gần nhất).
-- [S8] Reading: bỏ localStorage, lưu `reading_attempts` qua `saveReadingAttempt`; click-to-lookup dùng `lookupWord` (thử từ gốc + lemma trong bảng `words`); AI `define_in_context` fallback + cache để sau.
-- [S8] Grammar: attempt lưu qua effect (theo dõi `checked`), `grammar_mastery` = % đúng 20 lượt gần nhất theo topic. Nội dung `explanation_vi` đã có inline; mở rộng 800 câu + `vn_trap` + ≥20% câu speak là công việc nội dung còn lại.
-- [S8] Work Writing (P2): đã lưu DB (`writing_drafts`); thêm cột `kind`. Feedback schema khen→≤2 lỗi→natural + đọc to bản sửa để làm sau.
-- [S9] Roadmap/Gamification dùng logic thuần (`lib/roadmap`, `lib/gamification/streak`) + test. `roadmap_days` seed sau (đọc DB nếu có, fallback code). Streak Freeze tính 1 ngày đóng băng = 1 ngày streak ( semantics Duolingo), chỉ bắc cầu khi phía trước có ngày đã học.
-- [S9] Settings: thêm `new_words_per_day` (null = không giới hạn), `feedback_mode` (safe/standard), mặc định 60 phút. `roadmap_days` + profile fields qua migration 0019.
-- [S10] Real-world Bridge là thang gợi ý cố định trong code (`lib/realworld/catalog`), không cần bảng seed; chỉ log người dùng (`real_world_logs`). Ghi cảm xúc 1–5 (emoji) + điểm vướng tự do. Ưu tiên "bước kế tiếp" theo thứ tự, không ép buộc.
+### Decision: 12 sound groups covering Vietnamese-learner pain points
+Chose 12 groups based on common Vietnamese pronunciation errors: /θ/ vs /ð/, /ʃ/ vs /s/, /r/ vs /l/, /v/ vs /w/, final consonants, ending -s/-ed, long/short vowels, consonant clusters, /ŋ/ vs /n/, word stress, linking. Each group has minimal pairs, mouth guide, example words/phrases/sentences, and quick test.
+
+### Decision: 5-step pedagogical flow
+Steps: Learn → Minimal Pairs → Words/Phrases → Sentences → Quick Test. This follows the "listen → imitate → record → compare" principle. Each step builds on the previous.
+
+### Decision: Use existing `pronunciation_attempts` + `pronunciation_progress` tables
+No new migration needed — the existing tables from migration 0017 support the workshop flow. Added `quick_test` as a new `item_type` value.
+
+### Decision: Types/data split (same pattern as Grammar/Picture Talk)
+- `types.ts` (pure types, no fs) — imported by client components.
+- `content.ts` (server-only, imports JSON) — imported by server pages.
+- `server.ts` (server actions) — handles DB operations.
+This avoids the `node:fs` in client bundle build failure.
+
+### Decision: URL-based deep linking
+`/pronunciation?focus=<id>` uses search params instead of dynamic routes. Simpler, no `[id]` folder needed, and works with static generation.
+
+## Reading Daily (Part 8)
+
+### Decision: 2-tab interface (Đọc to + Đọc hiểu)
+User requested separate modes. Tabs provide clear separation: "Đọc to" focuses on pronunciation practice (TTS + recording), "Đọc hiểu + Bài tập" focuses on comprehension (questions + exercises + summary).
+
+### Decision: Deterministic daily assignment
+`getDailyReadingPassages()` uses date-based modulo selection to give 2 passages per day. All users get the same daily set, no DB table needed for daily assignments. Cycles through all 80 passages.
+
+### Decision: Optional fields for backward compatibility
+`translation`, `vocabulary`, `exercises`, `sentences` are optional in the ReadingPassage type. Existing 80 passages work without them. UI handles absence gracefully (hides translation button, hides vocab section, skips exercises).
+
+### Decision: Sentence splitting at render time
+Instead of pre-computing `sentences` array in data, `splitSentences()` splits at render time. This means all 80 passages immediately support sentence-by-sentence reading without data migration.
+
+### Decision: Use existing `reading_attempts` table
+No new migration needed. The existing table from migration 0018 supports reading progress. Added optional `mode` field to `saveReadingAttempt` (not stored in DB, used for client-side tracking).
+
+### Decision: Removed `reading-practice.tsx`
+The old component was no longer imported by any page (replaced by `reading/page.tsx`). Removed to avoid confusion and implicit-any lint errors.
+
+## Known Limitations
+
+### Pronunciation
+- No British vs American accent toggle (both use en-US TTS). Could add en-GB voice selection in future.
+- Quick test uses TTS for "listen-choose" — relies on browser SpeechSynthesis, not pre-recorded audio.
+- No AI pronunciation scoring (phoneme-level). Uses word-level intelligibility scoring via Whisper STT.
+
+### Reading
+- 80 passages lack translation/vocabulary/exercises. Future: use Gemini Flash to generate these fields.
+- Daily assignment is deterministic (same for all users) — could be personalized based on progress in future.
+- No "Bài đã học" (learned passages) filter yet — progress tracking exists but no dedicated filter UI.

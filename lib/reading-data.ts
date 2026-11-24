@@ -1,22 +1,14 @@
 import readingPassages from "@/data/reading-passages.json";
+import type { ReadingPassage } from "./reading/types";
 
-export type ReadingQuestion = {
-  id: number;
-  question: string;
-  options: string[];
-  answer: number;
-};
+export const READING_PASSAGES = readingPassages as unknown as ReadingPassage[];
 
-export type ReadingPassage = {
-  id: string;
-  level: string;
-  title: string;
-  titleVi: string;
-  wordCount: number;
-  text: string;
-  questions: ReadingQuestion[];
-};
-
-export const READING_PASSAGES = readingPassages as ReadingPassage[];
-
-export const READING_LEVELS = ["A2", "B1", "B2"] as const;
+export { READING_LEVELS } from "./reading/types";
+export type {
+  ReadingPassage,
+  ReadingQuestion,
+  ReadingVocabularyItem,
+  ReadingExercise,
+  ReadingProgress,
+  DailyReadingAssignment,
+} from "./reading/types";

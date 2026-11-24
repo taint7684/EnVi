@@ -7,7 +7,7 @@ import { useRecorder } from "@/hooks/use-recorder";
 import { useSpeechSynthesis } from "@/hooks/use-speech-synthesis";
 import { scoreIntelligibility, type WordResult } from "@/lib/speech/scoring";
 import { savePronunciationAttempt } from "@/lib/pronunciation/server";
-import type { PronunciationFocus } from "@/lib/pronunciation/content";
+import type { PronunciationFocus } from "@/lib/pronunciation/types";
 
 async function transcribe(blob: Blob): Promise<string> {
   const form = new FormData();
