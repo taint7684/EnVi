@@ -8,6 +8,7 @@ import type {
   DueCard,
   DueCount,
   DueSessionState,
+  TriageStatus,
   VocabSessionState,
   WordRow,
 } from "@/lib/types";
@@ -106,6 +107,34 @@ async function attachCollocations(cards: DueCard[]): Promise<void> {
   }
 }
 
+async function attachTriageStatus(cards: DueCard[]): Promise<void> {
+  if (cards.length === 0) return;
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const ids = cards.map((c) => c.word.id);
+  const { data } = await supabase
+    .from("user_word_triage")
+    .select("word_id, status")
+    .eq("user_id", user.id)
+    .in("word_id", ids);
+
+  const map = new Map<string, TriageStatus>();
+  for (const row of data ?? []) {
+    const r = row as { word_id: string; status: string };
+    if (r.status === "known" || r.status === "unknown" || r.status === "learning") {
+      map.set(r.word_id, r.status as TriageStatus);
+    }
+  }
+
+  for (const c of cards) {
+    c.triageStatus = map.get(c.word.id) ?? null;
+  }
+}
+
 export async function getDueCards(
   limit = 100,
 ): Promise<{ cards: DueCard[]; state: DueSessionState; sessionState: VocabSessionState }> {
@@ -185,6 +214,7 @@ export async function getDueCards(
   const sliced = cards.slice(0, limit);
 
   await attachCollocations(sliced);
+  await attachTriageStatus(sliced);
 
   let state: DueSessionState;
   if (sliced.length === 0) {

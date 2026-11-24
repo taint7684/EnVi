@@ -61,8 +61,9 @@ function countWords(text: string): number {
 }
 
 function countPauses(text: string): number {
-  const pauses = text.match(/\[pause\]|\.{2,}|\?\?+/g);
-  return pauses ? pauses.length : 0;
+  const fillers = text.match(/\b(um|uh|er|ah|hmm|like|you know)\b/gi);
+  const ellipses = text.match(/\.{2,}/g);
+  return (fillers?.length ?? 0) + (ellipses?.length ?? 0);
 }
 
 const LEVEL_ORDER: PictureLevel[] = ["describe", "opinion", "story", "teach"];
@@ -88,6 +89,7 @@ export function PictureTalkPlayer({
   const [analyzeError, setAnalyzeError] = useState<string | null>(null);
   const [whisperMode, setWhisperMode] = useState(false);
   const [whisperLoading, setWhisperLoading] = useState(false);
+  const [lifesaverTranslating, setLifesaverTranslating] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const recRef = useRef<SpeechRecognitionLike | null>(null);
@@ -102,6 +104,36 @@ export function PictureTalkPlayer({
   const wordCount = countWords(transcript);
   const wpm = duration > 0 ? Math.round((wordCount / duration) * 60) : 0;
   const pauses = countPauses(transcript);
+
+  const handleLifesaver = useCallback(async () => {
+    const text = lifesaverText.trim();
+    if (!text || lifesaverTranslating) return;
+    setLifesaverTranslating(true);
+    try {
+      const res = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ text, from: "vi", to: "en" }),
+      });
+      if (res.ok) {
+        const data = (await res.json()) as { translation?: string };
+        const english = data.translation?.trim();
+        if (english) {
+          speakEnglish(english);
+        } else {
+          speakEnglish(text);
+        }
+      } else {
+        speakEnglish(text);
+      }
+    } catch {
+      speakEnglish(text);
+    } finally {
+      setLifesaverTranslating(false);
+      setLifesaverText("");
+      setShowLifesaver(false);
+    }
+  }, [lifesaverText, lifesaverTranslating]);
 
   const stopRecording = useCallback(() => {
     setRecording(false);
@@ -462,10 +494,10 @@ export function PictureTalkPlayer({
               : "Nhận diện trực tiếp bằng Web Speech API (Chrome/Edge)."}
           </p>
 
-          {/* Lifesaver: Vietnamese → simple English */}
+          {/* Lifesaver: Vietnamese → translate → speak English */}
           {showLifesaver ? (
             <div className="rounded-2xl border border-blue-300 bg-blue-50 p-3">
-              <p className="text-xs font-medium text-blue-800">Phao cứu sinh — nói tiếng Việt (1 lần):</p>
+              <p className="text-xs font-medium text-blue-800">Phao cứu sinh — nói tiếng Việt:</p>
               <div className="mt-2 flex gap-2">
                 <input
                   type="text"
@@ -473,29 +505,23 @@ export function PictureTalkPlayer({
                   onChange={(e) => setLifesaverText(e.target.value)}
                   placeholder="Ví dụ: Tôi đang uống cà phê..."
                   className="flex-1 rounded-lg border border-blue-200 bg-white px-3 py-2 text-sm text-foreground"
+                  disabled={lifesaverTranslating}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" && lifesaverText.trim()) {
-                      speakEnglish(lifesaverText.trim());
-                      setLifesaverText("");
-                      setShowLifesaver(false);
+                      void handleLifesaver();
                     }
                   }}
                 />
                 <button
                   type="button"
-                  onClick={() => {
-                    if (lifesaverText.trim()) {
-                      speakEnglish(lifesaverText.trim());
-                      setLifesaverText("");
-                      setShowLifesaver(false);
-                    }
-                  }}
-                  className="rounded-lg bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600"
+                  onClick={() => void handleLifesaver()}
+                  disabled={!lifesaverText.trim() || lifesaverTranslating}
+                  className="rounded-lg bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600 disabled:opacity-50"
                 >
-                  Nói lại
+                  {lifesaverTranslating ? "Đang dịch..." : "Dịch & đọc"}
                 </button>
               </div>
-              <p className="mt-1 text-xs text-blue-600">App sẽ đọc câu tiếng Việt — sau đó bạn nói lại bằng tiếng Anh</p>
+              <p className="mt-1 text-xs text-blue-600">App sẽ dịch sang tiếng Anh và đọc — sau đó bạn nói lại</p>
             </div>
           ) : (
             <button
@@ -503,7 +529,7 @@ export function PictureTalkPlayer({
               onClick={() => setShowLifesaver(true)}
               className="text-xs text-blue-600 underline hover:text-blue-800"
             >
-              Cần trợ giúp? Dùng phao cứu sinh (nói tiếng Việt 1 lần)
+              Cần trợ giúp? Dùng phao cứu sinh (nói tiếng Việt)
             </button>
           )}
 

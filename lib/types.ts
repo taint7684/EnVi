@@ -74,10 +74,13 @@ export type CollocationInfo = {
   example_vi: string;
 };
 
+export type TriageStatus = "known" | "unknown" | "learning";
+
 export type DueCard = {
   word: WordRow;
   review: CardReviewRow | null;
   collocation?: CollocationInfo | null;
+  triageStatus?: TriageStatus | null;
 };
 
 export type DueCount = {
