@@ -1,0 +1,5007 @@
+[
+  {
+    "_type": "mixed",
+    "id": "mixed-1",
+    "exercise_type": "translation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "vi": "Nếu tôi có nhiều thời gian hơn, tôi sẽ study.",
+    "hints": [
+      "if: nếu",
+      "would: sẽ"
+    ],
+    "answer": "If I had more time, I would study.",
+    "alternatives": [],
+    "explanation_vi": "Câu điều kiện loại 2: If + quá khứ, would + V (giả định không thực tế hiện tại)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-2",
+    "exercise_type": "error_correction",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If I studys more time, I would study.",
+    "error_part": "studys",
+    "correct_part": "studyed",
+    "corrected": "If I studyed more time, I would study.",
+    "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-3",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If I ___ (have) more time, I would study.",
+    "blanks": [
+      {
+        "word": "have",
+        "answer": "had"
+      }
+    ],
+    "full": "If I had more time, I would study.",
+    "explanation_vi": "If + quá khứ (had) cho điều kiện loại 2."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-4",
+    "exercise_type": "mcq",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "question": "If I _____ more time, I would study.",
+    "options": [
+      "have",
+      "had",
+      "will have",
+      "having"
+    ],
+    "answer": 1,
+    "explanation_vi": "Điều kiện loại 2: If + quá khứ đơn (had)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-5",
+    "exercise_type": "translation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "vi": "Nếu she có nhiều thời gian hơn, she sẽ travel.",
+    "hints": [
+      "if: nếu",
+      "would: sẽ"
+    ],
+    "answer": "If she had more time, she would travel.",
+    "alternatives": [],
+    "explanation_vi": "Câu điều kiện loại 2: If + quá khứ, would + V (giả định không thực tế hiện tại)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-6",
+    "exercise_type": "error_correction",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If she travels more time, she would travel.",
+    "error_part": "travels",
+    "correct_part": "traveled",
+    "corrected": "If she traveled more time, she would travel.",
+    "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-7",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If she ___ (have) more time, she would travel.",
+    "blanks": [
+      {
+        "word": "have",
+        "answer": "had"
+      }
+    ],
+    "full": "If she had more time, she would travel.",
+    "explanation_vi": "If + quá khứ (had) cho điều kiện loại 2."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-8",
+    "exercise_type": "mcq",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "question": "If she _____ more time, she would travel.",
+    "options": [
+      "have",
+      "had",
+      "will have",
+      "having"
+    ],
+    "answer": 1,
+    "explanation_vi": "Điều kiện loại 2: If + quá khứ đơn (had)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-9",
+    "exercise_type": "translation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "vi": "Nếu they có nhiều thời gian hơn, they sẽ work.",
+    "hints": [
+      "if: nếu",
+      "would: sẽ"
+    ],
+    "answer": "If they had more time, they would work.",
+    "alternatives": [],
+    "explanation_vi": "Câu điều kiện loại 2: If + quá khứ, would + V (giả định không thực tế hiện tại)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-10",
+    "exercise_type": "error_correction",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If they works more time, they would work.",
+    "error_part": "works",
+    "correct_part": "worked",
+    "corrected": "If they worked more time, they would work.",
+    "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-11",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If they ___ (have) more time, they would work.",
+    "blanks": [
+      {
+        "word": "have",
+        "answer": "had"
+      }
+    ],
+    "full": "If they had more time, they would work.",
+    "explanation_vi": "If + quá khứ (had) cho điều kiện loại 2."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-12",
+    "exercise_type": "mcq",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "question": "If they _____ more time, they would work.",
+    "options": [
+      "have",
+      "had",
+      "will have",
+      "having"
+    ],
+    "answer": 1,
+    "explanation_vi": "Điều kiện loại 2: If + quá khứ đơn (had)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-13",
+    "exercise_type": "translation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "vi": "Nếu we có nhiều thời gian hơn, we sẽ learn.",
+    "hints": [
+      "if: nếu",
+      "would: sẽ"
+    ],
+    "answer": "If we had more time, we would learn.",
+    "alternatives": [],
+    "explanation_vi": "Câu điều kiện loại 2: If + quá khứ, would + V (giả định không thực tế hiện tại)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-14",
+    "exercise_type": "error_correction",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If we learns more time, we would learn.",
+    "error_part": "learns",
+    "correct_part": "learned",
+    "corrected": "If we learned more time, we would learn.",
+    "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-15",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If we ___ (have) more time, we would learn.",
+    "blanks": [
+      {
+        "word": "have",
+        "answer": "had"
+      }
+    ],
+    "full": "If we had more time, we would learn.",
+    "explanation_vi": "If + quá khứ (had) cho điều kiện loại 2."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-16",
+    "exercise_type": "mcq",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "question": "If we _____ more time, we would learn.",
+    "options": [
+      "have",
+      "had",
+      "will have",
+      "having"
+    ],
+    "answer": 1,
+    "explanation_vi": "Điều kiện loại 2: If + quá khứ đơn (had)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-17",
+    "exercise_type": "translation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "vi": "Nếu he có nhiều thời gian hơn, he sẽ go.",
+    "hints": [
+      "if: nếu",
+      "would: sẽ"
+    ],
+    "answer": "If he had more time, he would go.",
+    "alternatives": [],
+    "explanation_vi": "Câu điều kiện loại 2: If + quá khứ, would + V (giả định không thực tế hiện tại)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-18",
+    "exercise_type": "error_correction",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If he goes more time, he would go.",
+    "error_part": "goes",
+    "correct_part": "went",
+    "corrected": "If he went more time, he would go.",
+    "explanation_vi": "Câu điều kiện loại 2 dùng quá khứ đơn ở mệnh đề if."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-19",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "sentence": "If he ___ (have) more time, he would go.",
+    "blanks": [
+      {
+        "word": "have",
+        "answer": "had"
+      }
+    ],
+    "full": "If he had more time, he would go.",
+    "explanation_vi": "If + quá khứ (had) cho điều kiện loại 2."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-20",
+    "exercise_type": "mcq",
+    "topic_id": "conditionals",
+    "topic_name": "Conditional Sentences",
+    "topic_name_vi": "Câu Điều Kiện",
+    "question": "If he _____ more time, he would go.",
+    "options": [
+      "have",
+      "had",
+      "will have",
+      "having"
+    ],
+    "answer": 1,
+    "explanation_vi": "Điều kiện loại 2: If + quá khứ đơn (had)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-21",
+    "exercise_type": "translation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "vi": "I đã được study hôm qua.",
+    "hints": [
+      "was: was",
+      "undefined: undefined"
+    ],
+    "answer": "I was undefined yesterday.",
+    "alternatives": [],
+    "explanation_vi": "Câu bị động quá khứ đơn: was/were + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-22",
+    "exercise_type": "error_correction",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "I undefined yesterday.",
+    "correct_part": "was undefined",
+    "corrected": "I was undefined yesterday.",
+    "explanation_vi": "Câu bị động cần 'be' + V3, không thể thiếu 'was'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-23",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "I ___ (send) yesterday.",
+    "blanks": [
+      {
+        "word": "send",
+        "answer": "was undefined"
+      }
+    ],
+    "full": "I was undefined yesterday.",
+    "explanation_vi": "Bị động quá khứ: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-24",
+    "exercise_type": "mcq",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "question": "I _____ yesterday.",
+    "options": [
+      null,
+      "was undefined",
+      "is undefined",
+      "been undefined"
+    ],
+    "answer": 1,
+    "explanation_vi": "Bị động quá khứ đơn: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-25",
+    "exercise_type": "translation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "vi": "she đã được travel hôm qua.",
+    "hints": [
+      "was: was",
+      "undefined: undefined"
+    ],
+    "answer": "she was undefined yesterday.",
+    "alternatives": [],
+    "explanation_vi": "Câu bị động quá khứ đơn: was/were + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-26",
+    "exercise_type": "error_correction",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "she undefined yesterday.",
+    "correct_part": "was undefined",
+    "corrected": "she was undefined yesterday.",
+    "explanation_vi": "Câu bị động cần 'be' + V3, không thể thiếu 'was'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-27",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "she ___ (send) yesterday.",
+    "blanks": [
+      {
+        "word": "send",
+        "answer": "was undefined"
+      }
+    ],
+    "full": "she was undefined yesterday.",
+    "explanation_vi": "Bị động quá khứ: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-28",
+    "exercise_type": "mcq",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "question": "she _____ yesterday.",
+    "options": [
+      null,
+      "was undefined",
+      "is undefined",
+      "been undefined"
+    ],
+    "answer": 1,
+    "explanation_vi": "Bị động quá khứ đơn: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-29",
+    "exercise_type": "translation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "vi": "they đã được work hôm qua.",
+    "hints": [
+      "was: was",
+      "undefined: undefined"
+    ],
+    "answer": "they was undefined yesterday.",
+    "alternatives": [],
+    "explanation_vi": "Câu bị động quá khứ đơn: was/were + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-30",
+    "exercise_type": "error_correction",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "they undefined yesterday.",
+    "correct_part": "was undefined",
+    "corrected": "they was undefined yesterday.",
+    "explanation_vi": "Câu bị động cần 'be' + V3, không thể thiếu 'was'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-31",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "they ___ (send) yesterday.",
+    "blanks": [
+      {
+        "word": "send",
+        "answer": "was undefined"
+      }
+    ],
+    "full": "they was undefined yesterday.",
+    "explanation_vi": "Bị động quá khứ: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-32",
+    "exercise_type": "mcq",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "question": "they _____ yesterday.",
+    "options": [
+      null,
+      "was undefined",
+      "is undefined",
+      "been undefined"
+    ],
+    "answer": 1,
+    "explanation_vi": "Bị động quá khứ đơn: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-33",
+    "exercise_type": "translation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "vi": "we đã được learn hôm qua.",
+    "hints": [
+      "was: was",
+      "undefined: undefined"
+    ],
+    "answer": "we was undefined yesterday.",
+    "alternatives": [],
+    "explanation_vi": "Câu bị động quá khứ đơn: was/were + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-34",
+    "exercise_type": "error_correction",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "we undefined yesterday.",
+    "correct_part": "was undefined",
+    "corrected": "we was undefined yesterday.",
+    "explanation_vi": "Câu bị động cần 'be' + V3, không thể thiếu 'was'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-35",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "we ___ (send) yesterday.",
+    "blanks": [
+      {
+        "word": "send",
+        "answer": "was undefined"
+      }
+    ],
+    "full": "we was undefined yesterday.",
+    "explanation_vi": "Bị động quá khứ: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-36",
+    "exercise_type": "mcq",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "question": "we _____ yesterday.",
+    "options": [
+      null,
+      "was undefined",
+      "is undefined",
+      "been undefined"
+    ],
+    "answer": 1,
+    "explanation_vi": "Bị động quá khứ đơn: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-37",
+    "exercise_type": "translation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "vi": "he đã được go hôm qua.",
+    "hints": [
+      "was: was",
+      "undefined: undefined"
+    ],
+    "answer": "he was undefined yesterday.",
+    "alternatives": [],
+    "explanation_vi": "Câu bị động quá khứ đơn: was/were + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-38",
+    "exercise_type": "error_correction",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "he undefined yesterday.",
+    "correct_part": "was undefined",
+    "corrected": "he was undefined yesterday.",
+    "explanation_vi": "Câu bị động cần 'be' + V3, không thể thiếu 'was'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-39",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "sentence": "he ___ (send) yesterday.",
+    "blanks": [
+      {
+        "word": "send",
+        "answer": "was undefined"
+      }
+    ],
+    "full": "he was undefined yesterday.",
+    "explanation_vi": "Bị động quá khứ: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-40",
+    "exercise_type": "mcq",
+    "topic_id": "passive",
+    "topic_name": "Passive Voice",
+    "topic_name_vi": "Câu Bị Động",
+    "question": "he _____ yesterday.",
+    "options": [
+      null,
+      "was undefined",
+      "is undefined",
+      "been undefined"
+    ],
+    "answer": 1,
+    "explanation_vi": "Bị động quá khứ đơn: was + V3."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-41",
+    "exercise_type": "translation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "vi": "I mà tôi đã nói với bạn.",
+    "hints": [
+      "that: mà",
+      "told: đã nói"
+    ],
+    "answer": "This is I that I told you about.",
+    "alternatives": [],
+    "explanation_vi": "Mệnh đề quan hệ 'that' chỉ người/vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-42",
+    "exercise_type": "error_correction",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "This is I which I told you about yesterday.",
+    "error_part": "which",
+    "correct_part": "that",
+    "corrected": "This is I that I told you about yesterday.",
+    "explanation_vi": "'that' dùng cho cả người và vật; 'which' chỉ vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-43",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "The person ___ (who/live) next door is a doctor.",
+    "blanks": [
+      {
+        "word": "who/live",
+        "answer": "who lives"
+      }
+    ],
+    "full": "The person who lives next door is a doctor.",
+    "explanation_vi": "Who + V (động từ chia theo chủ ngữ)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-44",
+    "exercise_type": "mcq",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "question": "The woman _____ lives upstairs is a teacher.",
+    "options": [
+      "who",
+      "which",
+      "where",
+      "when"
+    ],
+    "answer": 0,
+    "explanation_vi": "Who dùng cho người."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-45",
+    "exercise_type": "translation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "vi": "she mà tôi đã nói với bạn.",
+    "hints": [
+      "that: mà",
+      "told: đã nói"
+    ],
+    "answer": "This is she that I told you about.",
+    "alternatives": [],
+    "explanation_vi": "Mệnh đề quan hệ 'that' chỉ người/vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-46",
+    "exercise_type": "error_correction",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "This is she which I told you about yesterday.",
+    "error_part": "which",
+    "correct_part": "that",
+    "corrected": "This is she that I told you about yesterday.",
+    "explanation_vi": "'that' dùng cho cả người và vật; 'which' chỉ vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-47",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "The person ___ (who/live) next door is a doctor.",
+    "blanks": [
+      {
+        "word": "who/live",
+        "answer": "who lives"
+      }
+    ],
+    "full": "The person who lives next door is a doctor.",
+    "explanation_vi": "Who + V (động từ chia theo chủ ngữ)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-48",
+    "exercise_type": "mcq",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "question": "The woman _____ lives upstairs is a teacher.",
+    "options": [
+      "who",
+      "which",
+      "where",
+      "when"
+    ],
+    "answer": 0,
+    "explanation_vi": "Who dùng cho người."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-49",
+    "exercise_type": "translation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "vi": "they mà tôi đã nói với bạn.",
+    "hints": [
+      "that: mà",
+      "told: đã nói"
+    ],
+    "answer": "This is they that I told you about.",
+    "alternatives": [],
+    "explanation_vi": "Mệnh đề quan hệ 'that' chỉ người/vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-50",
+    "exercise_type": "error_correction",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "This is they which I told you about yesterday.",
+    "error_part": "which",
+    "correct_part": "that",
+    "corrected": "This is they that I told you about yesterday.",
+    "explanation_vi": "'that' dùng cho cả người và vật; 'which' chỉ vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-51",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "The person ___ (who/live) next door is a doctor.",
+    "blanks": [
+      {
+        "word": "who/live",
+        "answer": "who lives"
+      }
+    ],
+    "full": "The person who lives next door is a doctor.",
+    "explanation_vi": "Who + V (động từ chia theo chủ ngữ)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-52",
+    "exercise_type": "mcq",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "question": "The woman _____ lives upstairs is a teacher.",
+    "options": [
+      "who",
+      "which",
+      "where",
+      "when"
+    ],
+    "answer": 0,
+    "explanation_vi": "Who dùng cho người."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-53",
+    "exercise_type": "translation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "vi": "we mà tôi đã nói với bạn.",
+    "hints": [
+      "that: mà",
+      "told: đã nói"
+    ],
+    "answer": "This is we that I told you about.",
+    "alternatives": [],
+    "explanation_vi": "Mệnh đề quan hệ 'that' chỉ người/vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-54",
+    "exercise_type": "error_correction",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "This is we which I told you about yesterday.",
+    "error_part": "which",
+    "correct_part": "that",
+    "corrected": "This is we that I told you about yesterday.",
+    "explanation_vi": "'that' dùng cho cả người và vật; 'which' chỉ vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-55",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "The person ___ (who/live) next door is a doctor.",
+    "blanks": [
+      {
+        "word": "who/live",
+        "answer": "who lives"
+      }
+    ],
+    "full": "The person who lives next door is a doctor.",
+    "explanation_vi": "Who + V (động từ chia theo chủ ngữ)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-56",
+    "exercise_type": "mcq",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "question": "The woman _____ lives upstairs is a teacher.",
+    "options": [
+      "who",
+      "which",
+      "where",
+      "when"
+    ],
+    "answer": 0,
+    "explanation_vi": "Who dùng cho người."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-57",
+    "exercise_type": "translation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "vi": "he mà tôi đã nói với bạn.",
+    "hints": [
+      "that: mà",
+      "told: đã nói"
+    ],
+    "answer": "This is he that I told you about.",
+    "alternatives": [],
+    "explanation_vi": "Mệnh đề quan hệ 'that' chỉ người/vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-58",
+    "exercise_type": "error_correction",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "This is he which I told you about yesterday.",
+    "error_part": "which",
+    "correct_part": "that",
+    "corrected": "This is he that I told you about yesterday.",
+    "explanation_vi": "'that' dùng cho cả người và vật; 'which' chỉ vật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-59",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "sentence": "The person ___ (who/live) next door is a doctor.",
+    "blanks": [
+      {
+        "word": "who/live",
+        "answer": "who lives"
+      }
+    ],
+    "full": "The person who lives next door is a doctor.",
+    "explanation_vi": "Who + V (động từ chia theo chủ ngữ)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-60",
+    "exercise_type": "mcq",
+    "topic_id": "relative-clauses",
+    "topic_name": "Relative Clauses",
+    "topic_name_vi": "Mệnh Đề Quan Hệ",
+    "question": "The woman _____ lives upstairs is a teacher.",
+    "options": [
+      "who",
+      "which",
+      "where",
+      "when"
+    ],
+    "answer": 0,
+    "explanation_vi": "Who dùng cho người."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-61",
+    "exercise_type": "translation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "vi": "I nên đi khám bác sĩ.",
+    "hints": [
+      "should: nên",
+      "see: gặp"
+    ],
+    "answer": "I should see a doctor.",
+    "alternatives": [],
+    "explanation_vi": "Should + V: lời khuyên."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-62",
+    "exercise_type": "error_correction",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "I must to study harder.",
+    "error_part": "must to",
+    "correct_part": "must",
+    "corrected": "I must study harder.",
+    "explanation_vi": "Modal verb theo sau là V nguyên mẫu, không có 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-63",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "I ___ (can) speak three languages.",
+    "blanks": [
+      {
+        "word": "can",
+        "answer": "can"
+      }
+    ],
+    "full": "I can speak three languages.",
+    "explanation_vi": "Can + V: khả năng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-64",
+    "exercise_type": "mcq",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "question": "You _____ smoke here. It's forbidden.",
+    "options": [
+      "must",
+      "mustn't",
+      "should",
+      "can"
+    ],
+    "answer": 1,
+    "explanation_vi": "Mustn't: cấm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-65",
+    "exercise_type": "translation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "vi": "she nên đi khám bác sĩ.",
+    "hints": [
+      "should: nên",
+      "see: gặp"
+    ],
+    "answer": "she should see a doctor.",
+    "alternatives": [],
+    "explanation_vi": "Should + V: lời khuyên."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-66",
+    "exercise_type": "error_correction",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "she must to study harder.",
+    "error_part": "must to",
+    "correct_part": "must",
+    "corrected": "she must study harder.",
+    "explanation_vi": "Modal verb theo sau là V nguyên mẫu, không có 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-67",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "she ___ (can) speak three languages.",
+    "blanks": [
+      {
+        "word": "can",
+        "answer": "can"
+      }
+    ],
+    "full": "she can speak three languages.",
+    "explanation_vi": "Can + V: khả năng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-68",
+    "exercise_type": "mcq",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "question": "You _____ smoke here. It's forbidden.",
+    "options": [
+      "must",
+      "mustn't",
+      "should",
+      "can"
+    ],
+    "answer": 1,
+    "explanation_vi": "Mustn't: cấm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-69",
+    "exercise_type": "translation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "vi": "they nên đi khám bác sĩ.",
+    "hints": [
+      "should: nên",
+      "see: gặp"
+    ],
+    "answer": "they should see a doctor.",
+    "alternatives": [],
+    "explanation_vi": "Should + V: lời khuyên."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-70",
+    "exercise_type": "error_correction",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "they must to study harder.",
+    "error_part": "must to",
+    "correct_part": "must",
+    "corrected": "they must study harder.",
+    "explanation_vi": "Modal verb theo sau là V nguyên mẫu, không có 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-71",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "they ___ (can) speak three languages.",
+    "blanks": [
+      {
+        "word": "can",
+        "answer": "can"
+      }
+    ],
+    "full": "they can speak three languages.",
+    "explanation_vi": "Can + V: khả năng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-72",
+    "exercise_type": "mcq",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "question": "You _____ smoke here. It's forbidden.",
+    "options": [
+      "must",
+      "mustn't",
+      "should",
+      "can"
+    ],
+    "answer": 1,
+    "explanation_vi": "Mustn't: cấm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-73",
+    "exercise_type": "translation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "vi": "we nên đi khám bác sĩ.",
+    "hints": [
+      "should: nên",
+      "see: gặp"
+    ],
+    "answer": "we should see a doctor.",
+    "alternatives": [],
+    "explanation_vi": "Should + V: lời khuyên."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-74",
+    "exercise_type": "error_correction",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "we must to study harder.",
+    "error_part": "must to",
+    "correct_part": "must",
+    "corrected": "we must study harder.",
+    "explanation_vi": "Modal verb theo sau là V nguyên mẫu, không có 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-75",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "we ___ (can) speak three languages.",
+    "blanks": [
+      {
+        "word": "can",
+        "answer": "can"
+      }
+    ],
+    "full": "we can speak three languages.",
+    "explanation_vi": "Can + V: khả năng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-76",
+    "exercise_type": "mcq",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "question": "You _____ smoke here. It's forbidden.",
+    "options": [
+      "must",
+      "mustn't",
+      "should",
+      "can"
+    ],
+    "answer": 1,
+    "explanation_vi": "Mustn't: cấm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-77",
+    "exercise_type": "translation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "vi": "he nên đi khám bác sĩ.",
+    "hints": [
+      "should: nên",
+      "see: gặp"
+    ],
+    "answer": "he should see a doctor.",
+    "alternatives": [],
+    "explanation_vi": "Should + V: lời khuyên."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-78",
+    "exercise_type": "error_correction",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "he must to study harder.",
+    "error_part": "must to",
+    "correct_part": "must",
+    "corrected": "he must study harder.",
+    "explanation_vi": "Modal verb theo sau là V nguyên mẫu, không có 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-79",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "sentence": "he ___ (can) speak three languages.",
+    "blanks": [
+      {
+        "word": "can",
+        "answer": "can"
+      }
+    ],
+    "full": "he can speak three languages.",
+    "explanation_vi": "Can + V: khả năng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-80",
+    "exercise_type": "mcq",
+    "topic_id": "modal-verbs",
+    "topic_name": "Modal Verbs",
+    "topic_name_vi": "Động Từ Khuyết Thiếu",
+    "question": "You _____ smoke here. It's forbidden.",
+    "options": [
+      "must",
+      "mustn't",
+      "should",
+      "can"
+    ],
+    "answer": 1,
+    "explanation_vi": "Mustn't: cấm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-81",
+    "exercise_type": "translation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "vi": "Tôi thích đọc sách.",
+    "hints": [
+      "enjoy: thích",
+      "reading: đọc"
+    ],
+    "answer": "I enjoy reading books.",
+    "alternatives": [],
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-82",
+    "exercise_type": "error_correction",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "I enjoy to read books.",
+    "error_part": "to read",
+    "correct_part": "reading",
+    "corrected": "I enjoy reading books.",
+    "explanation_vi": "Enjoy + V-ing, không dùng to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-83",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "I decided ___ (study) abroad.",
+    "blanks": [
+      {
+        "word": "study",
+        "answer": "to study"
+      }
+    ],
+    "full": "I decided to study abroad.",
+    "explanation_vi": "Decide + to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-84",
+    "exercise_type": "mcq",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "question": "I enjoy _____ books in my free time.",
+    "options": [
+      "read",
+      "reading",
+      "to read",
+      "reads"
+    ],
+    "answer": 1,
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-85",
+    "exercise_type": "translation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "vi": "she thích đọc sách.",
+    "hints": [
+      "enjoy: thích",
+      "reading: đọc"
+    ],
+    "answer": "she enjoys reading books.",
+    "alternatives": [],
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-86",
+    "exercise_type": "error_correction",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "she enjoys to read books.",
+    "error_part": "to read",
+    "correct_part": "reading",
+    "corrected": "she enjoys reading books.",
+    "explanation_vi": "Enjoy + V-ing, không dùng to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-87",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "she decided ___ (study) abroad.",
+    "blanks": [
+      {
+        "word": "study",
+        "answer": "to study"
+      }
+    ],
+    "full": "she decided to study abroad.",
+    "explanation_vi": "Decide + to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-88",
+    "exercise_type": "mcq",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "question": "I enjoy _____ books in my free time.",
+    "options": [
+      "read",
+      "reading",
+      "to read",
+      "reads"
+    ],
+    "answer": 1,
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-89",
+    "exercise_type": "translation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "vi": "they thích đọc sách.",
+    "hints": [
+      "enjoy: thích",
+      "reading: đọc"
+    ],
+    "answer": "they enjoys reading books.",
+    "alternatives": [],
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-90",
+    "exercise_type": "error_correction",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "they enjoys to read books.",
+    "error_part": "to read",
+    "correct_part": "reading",
+    "corrected": "they enjoys reading books.",
+    "explanation_vi": "Enjoy + V-ing, không dùng to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-91",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "they decided ___ (study) abroad.",
+    "blanks": [
+      {
+        "word": "study",
+        "answer": "to study"
+      }
+    ],
+    "full": "they decided to study abroad.",
+    "explanation_vi": "Decide + to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-92",
+    "exercise_type": "mcq",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "question": "I enjoy _____ books in my free time.",
+    "options": [
+      "read",
+      "reading",
+      "to read",
+      "reads"
+    ],
+    "answer": 1,
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-93",
+    "exercise_type": "translation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "vi": "we thích đọc sách.",
+    "hints": [
+      "enjoy: thích",
+      "reading: đọc"
+    ],
+    "answer": "we enjoys reading books.",
+    "alternatives": [],
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-94",
+    "exercise_type": "error_correction",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "we enjoys to read books.",
+    "error_part": "to read",
+    "correct_part": "reading",
+    "corrected": "we enjoys reading books.",
+    "explanation_vi": "Enjoy + V-ing, không dùng to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-95",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "we decided ___ (study) abroad.",
+    "blanks": [
+      {
+        "word": "study",
+        "answer": "to study"
+      }
+    ],
+    "full": "we decided to study abroad.",
+    "explanation_vi": "Decide + to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-96",
+    "exercise_type": "mcq",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "question": "I enjoy _____ books in my free time.",
+    "options": [
+      "read",
+      "reading",
+      "to read",
+      "reads"
+    ],
+    "answer": 1,
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-97",
+    "exercise_type": "translation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "vi": "he thích đọc sách.",
+    "hints": [
+      "enjoy: thích",
+      "reading: đọc"
+    ],
+    "answer": "he enjoys reading books.",
+    "alternatives": [],
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-98",
+    "exercise_type": "error_correction",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "he enjoys to read books.",
+    "error_part": "to read",
+    "correct_part": "reading",
+    "corrected": "he enjoys reading books.",
+    "explanation_vi": "Enjoy + V-ing, không dùng to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-99",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "sentence": "he decided ___ (study) abroad.",
+    "blanks": [
+      {
+        "word": "study",
+        "answer": "to study"
+      }
+    ],
+    "full": "he decided to study abroad.",
+    "explanation_vi": "Decide + to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-100",
+    "exercise_type": "mcq",
+    "topic_id": "gerunds-infinitives",
+    "topic_name": "Gerunds & Infinitives",
+    "topic_name_vi": "Danh Động Từ & Nguyên Mẫu",
+    "question": "I enjoy _____ books in my free time.",
+    "options": [
+      "read",
+      "reading",
+      "to read",
+      "reads"
+    ],
+    "answer": 1,
+    "explanation_vi": "Enjoy + V-ing."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-101",
+    "exercise_type": "translation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "vi": "Cuốn sách này thú vị hơn cuốn kia.",
+    "hints": [
+      "more...than: hơn"
+    ],
+    "answer": "This book is more interesting than that one.",
+    "alternatives": [],
+    "explanation_vi": "So sánh hơn với tính từ dài: more + adj + than."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-102",
+    "exercise_type": "error_correction",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "This exercise is more easier than the last one.",
+    "error_part": "more easier",
+    "correct_part": "easier",
+    "corrected": "This exercise is easier than the last one.",
+    "explanation_vi": "Tính từ ngắn dùng -er, không dùng 'more'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-103",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "She is the ___ (smart) student in the class.",
+    "blanks": [
+      {
+        "word": "smart",
+        "answer": "smartest"
+      }
+    ],
+    "full": "She is the smartest student in the class.",
+    "explanation_vi": "So sánh nhất: the + -est."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-104",
+    "exercise_type": "mcq",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "question": "My new phone is _____ than my old one.",
+    "options": [
+      "good",
+      "better",
+      "best",
+      "more good"
+    ],
+    "answer": 1,
+    "explanation_vi": "So sánh hơn của 'good' là 'better'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-105",
+    "exercise_type": "translation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "vi": "Cuốn sách này thú vị hơn cuốn kia.",
+    "hints": [
+      "more...than: hơn"
+    ],
+    "answer": "This book is more interesting than that one.",
+    "alternatives": [],
+    "explanation_vi": "So sánh hơn với tính từ dài: more + adj + than."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-106",
+    "exercise_type": "error_correction",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "This exercise is more easier than the last one.",
+    "error_part": "more easier",
+    "correct_part": "easier",
+    "corrected": "This exercise is easier than the last one.",
+    "explanation_vi": "Tính từ ngắn dùng -er, không dùng 'more'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-107",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "She is the ___ (smart) student in the class.",
+    "blanks": [
+      {
+        "word": "smart",
+        "answer": "smartest"
+      }
+    ],
+    "full": "She is the smartest student in the class.",
+    "explanation_vi": "So sánh nhất: the + -est."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-108",
+    "exercise_type": "mcq",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "question": "My new phone is _____ than my old one.",
+    "options": [
+      "good",
+      "better",
+      "best",
+      "more good"
+    ],
+    "answer": 1,
+    "explanation_vi": "So sánh hơn của 'good' là 'better'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-109",
+    "exercise_type": "translation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "vi": "Cuốn sách này thú vị hơn cuốn kia.",
+    "hints": [
+      "more...than: hơn"
+    ],
+    "answer": "This book is more interesting than that one.",
+    "alternatives": [],
+    "explanation_vi": "So sánh hơn với tính từ dài: more + adj + than."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-110",
+    "exercise_type": "error_correction",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "This exercise is more easier than the last one.",
+    "error_part": "more easier",
+    "correct_part": "easier",
+    "corrected": "This exercise is easier than the last one.",
+    "explanation_vi": "Tính từ ngắn dùng -er, không dùng 'more'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-111",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "She is the ___ (smart) student in the class.",
+    "blanks": [
+      {
+        "word": "smart",
+        "answer": "smartest"
+      }
+    ],
+    "full": "She is the smartest student in the class.",
+    "explanation_vi": "So sánh nhất: the + -est."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-112",
+    "exercise_type": "mcq",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "question": "My new phone is _____ than my old one.",
+    "options": [
+      "good",
+      "better",
+      "best",
+      "more good"
+    ],
+    "answer": 1,
+    "explanation_vi": "So sánh hơn của 'good' là 'better'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-113",
+    "exercise_type": "translation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "vi": "Cuốn sách này thú vị hơn cuốn kia.",
+    "hints": [
+      "more...than: hơn"
+    ],
+    "answer": "This book is more interesting than that one.",
+    "alternatives": [],
+    "explanation_vi": "So sánh hơn với tính từ dài: more + adj + than."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-114",
+    "exercise_type": "error_correction",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "This exercise is more easier than the last one.",
+    "error_part": "more easier",
+    "correct_part": "easier",
+    "corrected": "This exercise is easier than the last one.",
+    "explanation_vi": "Tính từ ngắn dùng -er, không dùng 'more'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-115",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "She is the ___ (smart) student in the class.",
+    "blanks": [
+      {
+        "word": "smart",
+        "answer": "smartest"
+      }
+    ],
+    "full": "She is the smartest student in the class.",
+    "explanation_vi": "So sánh nhất: the + -est."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-116",
+    "exercise_type": "mcq",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "question": "My new phone is _____ than my old one.",
+    "options": [
+      "good",
+      "better",
+      "best",
+      "more good"
+    ],
+    "answer": 1,
+    "explanation_vi": "So sánh hơn của 'good' là 'better'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-117",
+    "exercise_type": "translation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "vi": "Cuốn sách này thú vị hơn cuốn kia.",
+    "hints": [
+      "more...than: hơn"
+    ],
+    "answer": "This book is more interesting than that one.",
+    "alternatives": [],
+    "explanation_vi": "So sánh hơn với tính từ dài: more + adj + than."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-118",
+    "exercise_type": "error_correction",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "This exercise is more easier than the last one.",
+    "error_part": "more easier",
+    "correct_part": "easier",
+    "corrected": "This exercise is easier than the last one.",
+    "explanation_vi": "Tính từ ngắn dùng -er, không dùng 'more'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-119",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "sentence": "She is the ___ (smart) student in the class.",
+    "blanks": [
+      {
+        "word": "smart",
+        "answer": "smartest"
+      }
+    ],
+    "full": "She is the smartest student in the class.",
+    "explanation_vi": "So sánh nhất: the + -est."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-120",
+    "exercise_type": "mcq",
+    "topic_id": "comparatives",
+    "topic_name": "Comparatives & Superlatives",
+    "topic_name_vi": "So Sánh Hơn & Nhất",
+    "question": "My new phone is _____ than my old one.",
+    "options": [
+      "good",
+      "better",
+      "best",
+      "more good"
+    ],
+    "answer": 1,
+    "explanation_vi": "So sánh hơn của 'good' là 'better'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-121",
+    "exercise_type": "translation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "vi": "Tôi đã hoàn thành bài tập rồi.",
+    "hints": [
+      "have + V3: đã",
+      "already: rồi"
+    ],
+    "answer": "I have finished my homework already.",
+    "alternatives": [],
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-122",
+    "exercise_type": "error_correction",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "They have gone to Paris last year.",
+    "error_part": "have gone",
+    "correct_part": "went",
+    "corrected": "They went to Paris last year.",
+    "explanation_vi": "Last year là mốc cụ thể → quá khứ đơn."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-123",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "She has never ___ (eat) sushi.",
+    "blanks": [
+      {
+        "word": "eat",
+        "answer": "eaten"
+      }
+    ],
+    "full": "She has never eaten sushi.",
+    "explanation_vi": "Never + hiện tại hoàn thành, eat → eaten (V3)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-124",
+    "exercise_type": "mcq",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "question": "I _____ my homework already.",
+    "options": [
+      "finish",
+      "finished",
+      "have finished",
+      "am finishing"
+    ],
+    "answer": 2,
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-125",
+    "exercise_type": "translation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "vi": "Tôi đã hoàn thành bài tập rồi.",
+    "hints": [
+      "have + V3: đã",
+      "already: rồi"
+    ],
+    "answer": "I have finished my homework already.",
+    "alternatives": [],
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-126",
+    "exercise_type": "error_correction",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "They have gone to Paris last year.",
+    "error_part": "have gone",
+    "correct_part": "went",
+    "corrected": "They went to Paris last year.",
+    "explanation_vi": "Last year là mốc cụ thể → quá khứ đơn."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-127",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "She has never ___ (eat) sushi.",
+    "blanks": [
+      {
+        "word": "eat",
+        "answer": "eaten"
+      }
+    ],
+    "full": "She has never eaten sushi.",
+    "explanation_vi": "Never + hiện tại hoàn thành, eat → eaten (V3)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-128",
+    "exercise_type": "mcq",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "question": "I _____ my homework already.",
+    "options": [
+      "finish",
+      "finished",
+      "have finished",
+      "am finishing"
+    ],
+    "answer": 2,
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-129",
+    "exercise_type": "translation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "vi": "Tôi đã hoàn thành bài tập rồi.",
+    "hints": [
+      "have + V3: đã",
+      "already: rồi"
+    ],
+    "answer": "I have finished my homework already.",
+    "alternatives": [],
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-130",
+    "exercise_type": "error_correction",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "They have gone to Paris last year.",
+    "error_part": "have gone",
+    "correct_part": "went",
+    "corrected": "They went to Paris last year.",
+    "explanation_vi": "Last year là mốc cụ thể → quá khứ đơn."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-131",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "She has never ___ (eat) sushi.",
+    "blanks": [
+      {
+        "word": "eat",
+        "answer": "eaten"
+      }
+    ],
+    "full": "She has never eaten sushi.",
+    "explanation_vi": "Never + hiện tại hoàn thành, eat → eaten (V3)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-132",
+    "exercise_type": "mcq",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "question": "I _____ my homework already.",
+    "options": [
+      "finish",
+      "finished",
+      "have finished",
+      "am finishing"
+    ],
+    "answer": 2,
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-133",
+    "exercise_type": "translation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "vi": "Tôi đã hoàn thành bài tập rồi.",
+    "hints": [
+      "have + V3: đã",
+      "already: rồi"
+    ],
+    "answer": "I have finished my homework already.",
+    "alternatives": [],
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-134",
+    "exercise_type": "error_correction",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "They have gone to Paris last year.",
+    "error_part": "have gone",
+    "correct_part": "went",
+    "corrected": "They went to Paris last year.",
+    "explanation_vi": "Last year là mốc cụ thể → quá khứ đơn."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-135",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "She has never ___ (eat) sushi.",
+    "blanks": [
+      {
+        "word": "eat",
+        "answer": "eaten"
+      }
+    ],
+    "full": "She has never eaten sushi.",
+    "explanation_vi": "Never + hiện tại hoàn thành, eat → eaten (V3)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-136",
+    "exercise_type": "mcq",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "question": "I _____ my homework already.",
+    "options": [
+      "finish",
+      "finished",
+      "have finished",
+      "am finishing"
+    ],
+    "answer": 2,
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-137",
+    "exercise_type": "translation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "vi": "Tôi đã hoàn thành bài tập rồi.",
+    "hints": [
+      "have + V3: đã",
+      "already: rồi"
+    ],
+    "answer": "I have finished my homework already.",
+    "alternatives": [],
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-138",
+    "exercise_type": "error_correction",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "They have gone to Paris last year.",
+    "error_part": "have gone",
+    "correct_part": "went",
+    "corrected": "They went to Paris last year.",
+    "explanation_vi": "Last year là mốc cụ thể → quá khứ đơn."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-139",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "sentence": "She has never ___ (eat) sushi.",
+    "blanks": [
+      {
+        "word": "eat",
+        "answer": "eaten"
+      }
+    ],
+    "full": "She has never eaten sushi.",
+    "explanation_vi": "Never + hiện tại hoàn thành, eat → eaten (V3)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-140",
+    "exercise_type": "mcq",
+    "topic_id": "present-perfect-vs-past",
+    "topic_name": "Present Perfect vs Past Simple",
+    "topic_name_vi": "Hiện Tại Hoàn Thành vs Quá Khứ Đơn",
+    "question": "I _____ my homework already.",
+    "options": [
+      "finish",
+      "finished",
+      "have finished",
+      "am finishing"
+    ],
+    "answer": 2,
+    "explanation_vi": "Already + hiện tại hoàn thành."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-141",
+    "exercise_type": "translation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "vi": "Tôi sẽ giúp bạn ngày mai.",
+    "hints": [
+      "will: sẽ",
+      "tomorrow: mai"
+    ],
+    "answer": "I will help you tomorrow.",
+    "alternatives": [],
+    "explanation_vi": "Will + V: quyết định tương lai."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-142",
+    "exercise_type": "error_correction",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "I will to help you tomorrow.",
+    "error_part": "will to",
+    "correct_part": "will",
+    "corrected": "I will help you tomorrow.",
+    "explanation_vi": "Will + V nguyên mẫu, không 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-143",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "Look at the clouds! It ___ (rain).",
+    "blanks": [
+      {
+        "word": "rain",
+        "answer": "is going to rain"
+      }
+    ],
+    "full": "Look at the clouds! It is going to rain.",
+    "explanation_vi": "Be going to: dự đoán dựa trên bằng chứng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-144",
+    "exercise_type": "mcq",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "question": "Look! The baby _____ cry.",
+    "options": [
+      "will",
+      "is going to",
+      "would",
+      "shall to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Be going to: dự đoán dựa trên tình huống hiện tại."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-145",
+    "exercise_type": "translation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "vi": "Tôi sẽ giúp bạn ngày mai.",
+    "hints": [
+      "will: sẽ",
+      "tomorrow: mai"
+    ],
+    "answer": "I will help you tomorrow.",
+    "alternatives": [],
+    "explanation_vi": "Will + V: quyết định tương lai."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-146",
+    "exercise_type": "error_correction",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "I will to help you tomorrow.",
+    "error_part": "will to",
+    "correct_part": "will",
+    "corrected": "I will help you tomorrow.",
+    "explanation_vi": "Will + V nguyên mẫu, không 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-147",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "Look at the clouds! It ___ (rain).",
+    "blanks": [
+      {
+        "word": "rain",
+        "answer": "is going to rain"
+      }
+    ],
+    "full": "Look at the clouds! It is going to rain.",
+    "explanation_vi": "Be going to: dự đoán dựa trên bằng chứng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-148",
+    "exercise_type": "mcq",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "question": "Look! The baby _____ cry.",
+    "options": [
+      "will",
+      "is going to",
+      "would",
+      "shall to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Be going to: dự đoán dựa trên tình huống hiện tại."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-149",
+    "exercise_type": "translation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "vi": "Tôi sẽ giúp bạn ngày mai.",
+    "hints": [
+      "will: sẽ",
+      "tomorrow: mai"
+    ],
+    "answer": "I will help you tomorrow.",
+    "alternatives": [],
+    "explanation_vi": "Will + V: quyết định tương lai."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-150",
+    "exercise_type": "error_correction",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "I will to help you tomorrow.",
+    "error_part": "will to",
+    "correct_part": "will",
+    "corrected": "I will help you tomorrow.",
+    "explanation_vi": "Will + V nguyên mẫu, không 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-151",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "Look at the clouds! It ___ (rain).",
+    "blanks": [
+      {
+        "word": "rain",
+        "answer": "is going to rain"
+      }
+    ],
+    "full": "Look at the clouds! It is going to rain.",
+    "explanation_vi": "Be going to: dự đoán dựa trên bằng chứng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-152",
+    "exercise_type": "mcq",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "question": "Look! The baby _____ cry.",
+    "options": [
+      "will",
+      "is going to",
+      "would",
+      "shall to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Be going to: dự đoán dựa trên tình huống hiện tại."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-153",
+    "exercise_type": "translation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "vi": "Tôi sẽ giúp bạn ngày mai.",
+    "hints": [
+      "will: sẽ",
+      "tomorrow: mai"
+    ],
+    "answer": "I will help you tomorrow.",
+    "alternatives": [],
+    "explanation_vi": "Will + V: quyết định tương lai."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-154",
+    "exercise_type": "error_correction",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "I will to help you tomorrow.",
+    "error_part": "will to",
+    "correct_part": "will",
+    "corrected": "I will help you tomorrow.",
+    "explanation_vi": "Will + V nguyên mẫu, không 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-155",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "Look at the clouds! It ___ (rain).",
+    "blanks": [
+      {
+        "word": "rain",
+        "answer": "is going to rain"
+      }
+    ],
+    "full": "Look at the clouds! It is going to rain.",
+    "explanation_vi": "Be going to: dự đoán dựa trên bằng chứng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-156",
+    "exercise_type": "mcq",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "question": "Look! The baby _____ cry.",
+    "options": [
+      "will",
+      "is going to",
+      "would",
+      "shall to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Be going to: dự đoán dựa trên tình huống hiện tại."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-157",
+    "exercise_type": "translation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "vi": "Tôi sẽ giúp bạn ngày mai.",
+    "hints": [
+      "will: sẽ",
+      "tomorrow: mai"
+    ],
+    "answer": "I will help you tomorrow.",
+    "alternatives": [],
+    "explanation_vi": "Will + V: quyết định tương lai."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-158",
+    "exercise_type": "error_correction",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "I will to help you tomorrow.",
+    "error_part": "will to",
+    "correct_part": "will",
+    "corrected": "I will help you tomorrow.",
+    "explanation_vi": "Will + V nguyên mẫu, không 'to'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-159",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "sentence": "Look at the clouds! It ___ (rain).",
+    "blanks": [
+      {
+        "word": "rain",
+        "answer": "is going to rain"
+      }
+    ],
+    "full": "Look at the clouds! It is going to rain.",
+    "explanation_vi": "Be going to: dự đoán dựa trên bằng chứng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-160",
+    "exercise_type": "mcq",
+    "topic_id": "future-forms",
+    "topic_name": "Future Forms",
+    "topic_name_vi": "Các Dạng Tương Lai",
+    "question": "Look! The baby _____ cry.",
+    "options": [
+      "will",
+      "is going to",
+      "would",
+      "shall to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Be going to: dự đoán dựa trên tình huống hiện tại."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-161",
+    "exercise_type": "translation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "vi": "Cô ấy nói rằng cô ấy sẽ đến.",
+    "hints": [
+      "said: nói",
+      "would: sẽ (gián tiếp)"
+    ],
+    "answer": "She said that she would come.",
+    "alternatives": [],
+    "explanation_vi": "Lùi thì: will → would khi tường thuật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-162",
+    "exercise_type": "error_correction",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "He said that he will come tomorrow.",
+    "error_part": "will",
+    "correct_part": "would",
+    "corrected": "He said that he would come tomorrow.",
+    "explanation_vi": "Lùi thì trong câu gián tiếp: will → would."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-163",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "She said she ___ (be) busy.",
+    "blanks": [
+      {
+        "word": "be",
+        "answer": "was"
+      }
+    ],
+    "full": "She said she was busy.",
+    "explanation_vi": "Lùi thì: am/is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-164",
+    "exercise_type": "mcq",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "question": "He said that he _____ tired.",
+    "options": [
+      "is",
+      "was",
+      "has",
+      "be"
+    ],
+    "answer": 1,
+    "explanation_vi": "Lùi thì: is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-165",
+    "exercise_type": "translation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "vi": "Cô ấy nói rằng cô ấy sẽ đến.",
+    "hints": [
+      "said: nói",
+      "would: sẽ (gián tiếp)"
+    ],
+    "answer": "She said that she would come.",
+    "alternatives": [],
+    "explanation_vi": "Lùi thì: will → would khi tường thuật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-166",
+    "exercise_type": "error_correction",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "He said that he will come tomorrow.",
+    "error_part": "will",
+    "correct_part": "would",
+    "corrected": "He said that he would come tomorrow.",
+    "explanation_vi": "Lùi thì trong câu gián tiếp: will → would."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-167",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "She said she ___ (be) busy.",
+    "blanks": [
+      {
+        "word": "be",
+        "answer": "was"
+      }
+    ],
+    "full": "She said she was busy.",
+    "explanation_vi": "Lùi thì: am/is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-168",
+    "exercise_type": "mcq",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "question": "He said that he _____ tired.",
+    "options": [
+      "is",
+      "was",
+      "has",
+      "be"
+    ],
+    "answer": 1,
+    "explanation_vi": "Lùi thì: is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-169",
+    "exercise_type": "translation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "vi": "Cô ấy nói rằng cô ấy sẽ đến.",
+    "hints": [
+      "said: nói",
+      "would: sẽ (gián tiếp)"
+    ],
+    "answer": "She said that she would come.",
+    "alternatives": [],
+    "explanation_vi": "Lùi thì: will → would khi tường thuật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-170",
+    "exercise_type": "error_correction",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "He said that he will come tomorrow.",
+    "error_part": "will",
+    "correct_part": "would",
+    "corrected": "He said that he would come tomorrow.",
+    "explanation_vi": "Lùi thì trong câu gián tiếp: will → would."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-171",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "She said she ___ (be) busy.",
+    "blanks": [
+      {
+        "word": "be",
+        "answer": "was"
+      }
+    ],
+    "full": "She said she was busy.",
+    "explanation_vi": "Lùi thì: am/is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-172",
+    "exercise_type": "mcq",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "question": "He said that he _____ tired.",
+    "options": [
+      "is",
+      "was",
+      "has",
+      "be"
+    ],
+    "answer": 1,
+    "explanation_vi": "Lùi thì: is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-173",
+    "exercise_type": "translation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "vi": "Cô ấy nói rằng cô ấy sẽ đến.",
+    "hints": [
+      "said: nói",
+      "would: sẽ (gián tiếp)"
+    ],
+    "answer": "She said that she would come.",
+    "alternatives": [],
+    "explanation_vi": "Lùi thì: will → would khi tường thuật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-174",
+    "exercise_type": "error_correction",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "He said that he will come tomorrow.",
+    "error_part": "will",
+    "correct_part": "would",
+    "corrected": "He said that he would come tomorrow.",
+    "explanation_vi": "Lùi thì trong câu gián tiếp: will → would."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-175",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "She said she ___ (be) busy.",
+    "blanks": [
+      {
+        "word": "be",
+        "answer": "was"
+      }
+    ],
+    "full": "She said she was busy.",
+    "explanation_vi": "Lùi thì: am/is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-176",
+    "exercise_type": "mcq",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "question": "He said that he _____ tired.",
+    "options": [
+      "is",
+      "was",
+      "has",
+      "be"
+    ],
+    "answer": 1,
+    "explanation_vi": "Lùi thì: is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-177",
+    "exercise_type": "translation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "vi": "Cô ấy nói rằng cô ấy sẽ đến.",
+    "hints": [
+      "said: nói",
+      "would: sẽ (gián tiếp)"
+    ],
+    "answer": "She said that she would come.",
+    "alternatives": [],
+    "explanation_vi": "Lùi thì: will → would khi tường thuật."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-178",
+    "exercise_type": "error_correction",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "He said that he will come tomorrow.",
+    "error_part": "will",
+    "correct_part": "would",
+    "corrected": "He said that he would come tomorrow.",
+    "explanation_vi": "Lùi thì trong câu gián tiếp: will → would."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-179",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "sentence": "She said she ___ (be) busy.",
+    "blanks": [
+      {
+        "word": "be",
+        "answer": "was"
+      }
+    ],
+    "full": "She said she was busy.",
+    "explanation_vi": "Lùi thì: am/is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-180",
+    "exercise_type": "mcq",
+    "topic_id": "reported-speech",
+    "topic_name": "Reported Speech",
+    "topic_name_vi": "Câu Gián Tiếp",
+    "question": "He said that he _____ tired.",
+    "options": [
+      "is",
+      "was",
+      "has",
+      "be"
+    ],
+    "answer": 1,
+    "explanation_vi": "Lùi thì: is → was."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-181",
+    "exercise_type": "translation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "vi": "Tôi từng hút thuốc.",
+    "hints": [
+      "used to: từng"
+    ],
+    "answer": "I used to smoke.",
+    "alternatives": [],
+    "explanation_vi": "Used to + V: thói quen quá khứ đã dừng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-182",
+    "exercise_type": "error_correction",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "I use to smoke when I was young.",
+    "error_part": "use to",
+    "correct_part": "used to",
+    "corrected": "I used to smoke when I was young.",
+    "explanation_vi": "Dạng đúng là 'used to' cho thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-183",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "She ___ (use) to live in Hanoi.",
+    "blanks": [
+      {
+        "word": "use",
+        "answer": "used"
+      }
+    ],
+    "full": "She used to live in Hanoi.",
+    "explanation_vi": "Used to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-184",
+    "exercise_type": "mcq",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "question": "I _____ play football when I was a child.",
+    "options": [
+      "use to",
+      "used to",
+      "am used to",
+      "using to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Used to: thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-185",
+    "exercise_type": "translation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "vi": "Tôi từng hút thuốc.",
+    "hints": [
+      "used to: từng"
+    ],
+    "answer": "I used to smoke.",
+    "alternatives": [],
+    "explanation_vi": "Used to + V: thói quen quá khứ đã dừng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-186",
+    "exercise_type": "error_correction",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "I use to smoke when I was young.",
+    "error_part": "use to",
+    "correct_part": "used to",
+    "corrected": "I used to smoke when I was young.",
+    "explanation_vi": "Dạng đúng là 'used to' cho thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-187",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "She ___ (use) to live in Hanoi.",
+    "blanks": [
+      {
+        "word": "use",
+        "answer": "used"
+      }
+    ],
+    "full": "She used to live in Hanoi.",
+    "explanation_vi": "Used to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-188",
+    "exercise_type": "mcq",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "question": "I _____ play football when I was a child.",
+    "options": [
+      "use to",
+      "used to",
+      "am used to",
+      "using to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Used to: thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-189",
+    "exercise_type": "translation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "vi": "Tôi từng hút thuốc.",
+    "hints": [
+      "used to: từng"
+    ],
+    "answer": "I used to smoke.",
+    "alternatives": [],
+    "explanation_vi": "Used to + V: thói quen quá khứ đã dừng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-190",
+    "exercise_type": "error_correction",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "I use to smoke when I was young.",
+    "error_part": "use to",
+    "correct_part": "used to",
+    "corrected": "I used to smoke when I was young.",
+    "explanation_vi": "Dạng đúng là 'used to' cho thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-191",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "She ___ (use) to live in Hanoi.",
+    "blanks": [
+      {
+        "word": "use",
+        "answer": "used"
+      }
+    ],
+    "full": "She used to live in Hanoi.",
+    "explanation_vi": "Used to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-192",
+    "exercise_type": "mcq",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "question": "I _____ play football when I was a child.",
+    "options": [
+      "use to",
+      "used to",
+      "am used to",
+      "using to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Used to: thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-193",
+    "exercise_type": "translation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "vi": "Tôi từng hút thuốc.",
+    "hints": [
+      "used to: từng"
+    ],
+    "answer": "I used to smoke.",
+    "alternatives": [],
+    "explanation_vi": "Used to + V: thói quen quá khứ đã dừng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-194",
+    "exercise_type": "error_correction",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "I use to smoke when I was young.",
+    "error_part": "use to",
+    "correct_part": "used to",
+    "corrected": "I used to smoke when I was young.",
+    "explanation_vi": "Dạng đúng là 'used to' cho thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-195",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "She ___ (use) to live in Hanoi.",
+    "blanks": [
+      {
+        "word": "use",
+        "answer": "used"
+      }
+    ],
+    "full": "She used to live in Hanoi.",
+    "explanation_vi": "Used to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-196",
+    "exercise_type": "mcq",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "question": "I _____ play football when I was a child.",
+    "options": [
+      "use to",
+      "used to",
+      "am used to",
+      "using to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Used to: thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-197",
+    "exercise_type": "translation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "vi": "Tôi từng hút thuốc.",
+    "hints": [
+      "used to: từng"
+    ],
+    "answer": "I used to smoke.",
+    "alternatives": [],
+    "explanation_vi": "Used to + V: thói quen quá khứ đã dừng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-198",
+    "exercise_type": "error_correction",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "I use to smoke when I was young.",
+    "error_part": "use to",
+    "correct_part": "used to",
+    "corrected": "I used to smoke when I was young.",
+    "explanation_vi": "Dạng đúng là 'used to' cho thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-199",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "sentence": "She ___ (use) to live in Hanoi.",
+    "blanks": [
+      {
+        "word": "use",
+        "answer": "used"
+      }
+    ],
+    "full": "She used to live in Hanoi.",
+    "explanation_vi": "Used to + V."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-200",
+    "exercise_type": "mcq",
+    "topic_id": "used-to",
+    "topic_name": "Used To",
+    "topic_name_vi": "Used To (Thói Quen Quá Khứ)",
+    "question": "I _____ play football when I was a child.",
+    "options": [
+      "use to",
+      "used to",
+      "am used to",
+      "using to"
+    ],
+    "answer": 1,
+    "explanation_vi": "Used to: thói quen quá khứ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-201",
+    "exercise_type": "translation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "vi": "Tôi là một kỹ sư.",
+    "hints": [
+      "an: một (trước nguyên âm)"
+    ],
+    "answer": "I am an engineer.",
+    "alternatives": [],
+    "explanation_vi": "'an' trước từ bắt đầu bằng nguyên âm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-202",
+    "exercise_type": "error_correction",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "She is a engineer at a tech company.",
+    "error_part": "a engineer",
+    "correct_part": "an engineer",
+    "corrected": "She is an engineer at a tech company.",
+    "explanation_vi": "'engineer' bắt đầu bằng nguyên âm → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-203",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "He is ___ (a/an) university student.",
+    "blanks": [
+      {
+        "word": "a/an",
+        "answer": "a"
+      }
+    ],
+    "full": "He is a university student.",
+    "explanation_vi": "'university' bắt đầu bằng âm /j/ → 'a'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-204",
+    "exercise_type": "mcq",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "question": "She is _____ honest person.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "answer": 1,
+    "explanation_vi": "'honest' bắt đầu bằng nguyên âm (h câm) → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-205",
+    "exercise_type": "translation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "vi": "Tôi là một kỹ sư.",
+    "hints": [
+      "an: một (trước nguyên âm)"
+    ],
+    "answer": "I am an engineer.",
+    "alternatives": [],
+    "explanation_vi": "'an' trước từ bắt đầu bằng nguyên âm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-206",
+    "exercise_type": "error_correction",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "She is a engineer at a tech company.",
+    "error_part": "a engineer",
+    "correct_part": "an engineer",
+    "corrected": "She is an engineer at a tech company.",
+    "explanation_vi": "'engineer' bắt đầu bằng nguyên âm → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-207",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "He is ___ (a/an) university student.",
+    "blanks": [
+      {
+        "word": "a/an",
+        "answer": "a"
+      }
+    ],
+    "full": "He is a university student.",
+    "explanation_vi": "'university' bắt đầu bằng âm /j/ → 'a'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-208",
+    "exercise_type": "mcq",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "question": "She is _____ honest person.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "answer": 1,
+    "explanation_vi": "'honest' bắt đầu bằng nguyên âm (h câm) → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-209",
+    "exercise_type": "translation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "vi": "Tôi là một kỹ sư.",
+    "hints": [
+      "an: một (trước nguyên âm)"
+    ],
+    "answer": "I am an engineer.",
+    "alternatives": [],
+    "explanation_vi": "'an' trước từ bắt đầu bằng nguyên âm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-210",
+    "exercise_type": "error_correction",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "She is a engineer at a tech company.",
+    "error_part": "a engineer",
+    "correct_part": "an engineer",
+    "corrected": "She is an engineer at a tech company.",
+    "explanation_vi": "'engineer' bắt đầu bằng nguyên âm → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-211",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "He is ___ (a/an) university student.",
+    "blanks": [
+      {
+        "word": "a/an",
+        "answer": "a"
+      }
+    ],
+    "full": "He is a university student.",
+    "explanation_vi": "'university' bắt đầu bằng âm /j/ → 'a'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-212",
+    "exercise_type": "mcq",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "question": "She is _____ honest person.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "answer": 1,
+    "explanation_vi": "'honest' bắt đầu bằng nguyên âm (h câm) → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-213",
+    "exercise_type": "translation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "vi": "Tôi là một kỹ sư.",
+    "hints": [
+      "an: một (trước nguyên âm)"
+    ],
+    "answer": "I am an engineer.",
+    "alternatives": [],
+    "explanation_vi": "'an' trước từ bắt đầu bằng nguyên âm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-214",
+    "exercise_type": "error_correction",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "She is a engineer at a tech company.",
+    "error_part": "a engineer",
+    "correct_part": "an engineer",
+    "corrected": "She is an engineer at a tech company.",
+    "explanation_vi": "'engineer' bắt đầu bằng nguyên âm → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-215",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "He is ___ (a/an) university student.",
+    "blanks": [
+      {
+        "word": "a/an",
+        "answer": "a"
+      }
+    ],
+    "full": "He is a university student.",
+    "explanation_vi": "'university' bắt đầu bằng âm /j/ → 'a'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-216",
+    "exercise_type": "mcq",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "question": "She is _____ honest person.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "answer": 1,
+    "explanation_vi": "'honest' bắt đầu bằng nguyên âm (h câm) → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-217",
+    "exercise_type": "translation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "vi": "Tôi là một kỹ sư.",
+    "hints": [
+      "an: một (trước nguyên âm)"
+    ],
+    "answer": "I am an engineer.",
+    "alternatives": [],
+    "explanation_vi": "'an' trước từ bắt đầu bằng nguyên âm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-218",
+    "exercise_type": "error_correction",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "She is a engineer at a tech company.",
+    "error_part": "a engineer",
+    "correct_part": "an engineer",
+    "corrected": "She is an engineer at a tech company.",
+    "explanation_vi": "'engineer' bắt đầu bằng nguyên âm → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-219",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "sentence": "He is ___ (a/an) university student.",
+    "blanks": [
+      {
+        "word": "a/an",
+        "answer": "a"
+      }
+    ],
+    "full": "He is a university student.",
+    "explanation_vi": "'university' bắt đầu bằng âm /j/ → 'a'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-220",
+    "exercise_type": "mcq",
+    "topic_id": "articles",
+    "topic_name": "Articles",
+    "topic_name_vi": "Mạo Từ",
+    "question": "She is _____ honest person.",
+    "options": [
+      "a",
+      "an",
+      "the",
+      "no article"
+    ],
+    "answer": 1,
+    "explanation_vi": "'honest' bắt đầu bằng nguyên âm (h câm) → 'an'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-221",
+    "exercise_type": "translation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "vi": "Tôi sinh năm 1990.",
+    "hints": [
+      "in: trong (năm)"
+    ],
+    "answer": "I was born in 1990.",
+    "alternatives": [],
+    "explanation_vi": "In + năm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-222",
+    "exercise_type": "error_correction",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "I was born on 1990.",
+    "error_part": "on",
+    "correct_part": "in",
+    "corrected": "I was born in 1990.",
+    "explanation_vi": "In + năm, on + ngày cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-223",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "The meeting is ___ (on/at) Monday.",
+    "blanks": [
+      {
+        "word": "on/at",
+        "answer": "on"
+      }
+    ],
+    "full": "The meeting is on Monday.",
+    "explanation_vi": "On + thứ trong tuần."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-224",
+    "exercise_type": "mcq",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "question": "She arrived _____ the airport at 6 PM.",
+    "options": [
+      "in",
+      "at",
+      "on",
+      "to"
+    ],
+    "answer": 1,
+    "explanation_vi": "At + địa điểm cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-225",
+    "exercise_type": "translation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "vi": "Tôi sinh năm 1990.",
+    "hints": [
+      "in: trong (năm)"
+    ],
+    "answer": "I was born in 1990.",
+    "alternatives": [],
+    "explanation_vi": "In + năm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-226",
+    "exercise_type": "error_correction",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "I was born on 1990.",
+    "error_part": "on",
+    "correct_part": "in",
+    "corrected": "I was born in 1990.",
+    "explanation_vi": "In + năm, on + ngày cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-227",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "The meeting is ___ (on/at) Monday.",
+    "blanks": [
+      {
+        "word": "on/at",
+        "answer": "on"
+      }
+    ],
+    "full": "The meeting is on Monday.",
+    "explanation_vi": "On + thứ trong tuần."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-228",
+    "exercise_type": "mcq",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "question": "She arrived _____ the airport at 6 PM.",
+    "options": [
+      "in",
+      "at",
+      "on",
+      "to"
+    ],
+    "answer": 1,
+    "explanation_vi": "At + địa điểm cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-229",
+    "exercise_type": "translation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "vi": "Tôi sinh năm 1990.",
+    "hints": [
+      "in: trong (năm)"
+    ],
+    "answer": "I was born in 1990.",
+    "alternatives": [],
+    "explanation_vi": "In + năm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-230",
+    "exercise_type": "error_correction",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "I was born on 1990.",
+    "error_part": "on",
+    "correct_part": "in",
+    "corrected": "I was born in 1990.",
+    "explanation_vi": "In + năm, on + ngày cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-231",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "The meeting is ___ (on/at) Monday.",
+    "blanks": [
+      {
+        "word": "on/at",
+        "answer": "on"
+      }
+    ],
+    "full": "The meeting is on Monday.",
+    "explanation_vi": "On + thứ trong tuần."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-232",
+    "exercise_type": "mcq",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "question": "She arrived _____ the airport at 6 PM.",
+    "options": [
+      "in",
+      "at",
+      "on",
+      "to"
+    ],
+    "answer": 1,
+    "explanation_vi": "At + địa điểm cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-233",
+    "exercise_type": "translation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "vi": "Tôi sinh năm 1990.",
+    "hints": [
+      "in: trong (năm)"
+    ],
+    "answer": "I was born in 1990.",
+    "alternatives": [],
+    "explanation_vi": "In + năm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-234",
+    "exercise_type": "error_correction",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "I was born on 1990.",
+    "error_part": "on",
+    "correct_part": "in",
+    "corrected": "I was born in 1990.",
+    "explanation_vi": "In + năm, on + ngày cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-235",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "The meeting is ___ (on/at) Monday.",
+    "blanks": [
+      {
+        "word": "on/at",
+        "answer": "on"
+      }
+    ],
+    "full": "The meeting is on Monday.",
+    "explanation_vi": "On + thứ trong tuần."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-236",
+    "exercise_type": "mcq",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "question": "She arrived _____ the airport at 6 PM.",
+    "options": [
+      "in",
+      "at",
+      "on",
+      "to"
+    ],
+    "answer": 1,
+    "explanation_vi": "At + địa điểm cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-237",
+    "exercise_type": "translation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "vi": "Tôi sinh năm 1990.",
+    "hints": [
+      "in: trong (năm)"
+    ],
+    "answer": "I was born in 1990.",
+    "alternatives": [],
+    "explanation_vi": "In + năm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-238",
+    "exercise_type": "error_correction",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "I was born on 1990.",
+    "error_part": "on",
+    "correct_part": "in",
+    "corrected": "I was born in 1990.",
+    "explanation_vi": "In + năm, on + ngày cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-239",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "sentence": "The meeting is ___ (on/at) Monday.",
+    "blanks": [
+      {
+        "word": "on/at",
+        "answer": "on"
+      }
+    ],
+    "full": "The meeting is on Monday.",
+    "explanation_vi": "On + thứ trong tuần."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-240",
+    "exercise_type": "mcq",
+    "topic_id": "prepositions",
+    "topic_name": "Prepositions",
+    "topic_name_vi": "Giới Từ",
+    "question": "She arrived _____ the airport at 6 PM.",
+    "options": [
+      "in",
+      "at",
+      "on",
+      "to"
+    ],
+    "answer": 1,
+    "explanation_vi": "At + địa điểm cụ thể."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-241",
+    "exercise_type": "translation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "vi": "Có nhiều người ở đó.",
+    "hints": [
+      "many: nhiều (đếm được)"
+    ],
+    "answer": "There are many people there.",
+    "alternatives": [],
+    "explanation_vi": "Many + danh từ đếm được số nhiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-242",
+    "exercise_type": "error_correction",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "There are much people at the event.",
+    "error_part": "much",
+    "correct_part": "many",
+    "corrected": "There are many people at the event.",
+    "explanation_vi": "Many cho danh từ đếm được, much cho không đếm được."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-243",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "How ___ (many/much) water do you drink?",
+    "blanks": [
+      {
+        "word": "many/much",
+        "answer": "much"
+      }
+    ],
+    "full": "How much water do you drink?",
+    "explanation_vi": "Much + danh từ không đếm được (water)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-244",
+    "exercise_type": "mcq",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "question": "There isn't _____ milk left.",
+    "options": [
+      "many",
+      "much",
+      "a few",
+      "several"
+    ],
+    "answer": 1,
+    "explanation_vi": "Much + không đếm được (milk)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-245",
+    "exercise_type": "translation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "vi": "Có nhiều người ở đó.",
+    "hints": [
+      "many: nhiều (đếm được)"
+    ],
+    "answer": "There are many people there.",
+    "alternatives": [],
+    "explanation_vi": "Many + danh từ đếm được số nhiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-246",
+    "exercise_type": "error_correction",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "There are much people at the event.",
+    "error_part": "much",
+    "correct_part": "many",
+    "corrected": "There are many people at the event.",
+    "explanation_vi": "Many cho danh từ đếm được, much cho không đếm được."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-247",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "How ___ (many/much) water do you drink?",
+    "blanks": [
+      {
+        "word": "many/much",
+        "answer": "much"
+      }
+    ],
+    "full": "How much water do you drink?",
+    "explanation_vi": "Much + danh từ không đếm được (water)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-248",
+    "exercise_type": "mcq",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "question": "There isn't _____ milk left.",
+    "options": [
+      "many",
+      "much",
+      "a few",
+      "several"
+    ],
+    "answer": 1,
+    "explanation_vi": "Much + không đếm được (milk)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-249",
+    "exercise_type": "translation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "vi": "Có nhiều người ở đó.",
+    "hints": [
+      "many: nhiều (đếm được)"
+    ],
+    "answer": "There are many people there.",
+    "alternatives": [],
+    "explanation_vi": "Many + danh từ đếm được số nhiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-250",
+    "exercise_type": "error_correction",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "There are much people at the event.",
+    "error_part": "much",
+    "correct_part": "many",
+    "corrected": "There are many people at the event.",
+    "explanation_vi": "Many cho danh từ đếm được, much cho không đếm được."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-251",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "How ___ (many/much) water do you drink?",
+    "blanks": [
+      {
+        "word": "many/much",
+        "answer": "much"
+      }
+    ],
+    "full": "How much water do you drink?",
+    "explanation_vi": "Much + danh từ không đếm được (water)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-252",
+    "exercise_type": "mcq",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "question": "There isn't _____ milk left.",
+    "options": [
+      "many",
+      "much",
+      "a few",
+      "several"
+    ],
+    "answer": 1,
+    "explanation_vi": "Much + không đếm được (milk)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-253",
+    "exercise_type": "translation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "vi": "Có nhiều người ở đó.",
+    "hints": [
+      "many: nhiều (đếm được)"
+    ],
+    "answer": "There are many people there.",
+    "alternatives": [],
+    "explanation_vi": "Many + danh từ đếm được số nhiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-254",
+    "exercise_type": "error_correction",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "There are much people at the event.",
+    "error_part": "much",
+    "correct_part": "many",
+    "corrected": "There are many people at the event.",
+    "explanation_vi": "Many cho danh từ đếm được, much cho không đếm được."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-255",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "How ___ (many/much) water do you drink?",
+    "blanks": [
+      {
+        "word": "many/much",
+        "answer": "much"
+      }
+    ],
+    "full": "How much water do you drink?",
+    "explanation_vi": "Much + danh từ không đếm được (water)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-256",
+    "exercise_type": "mcq",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "question": "There isn't _____ milk left.",
+    "options": [
+      "many",
+      "much",
+      "a few",
+      "several"
+    ],
+    "answer": 1,
+    "explanation_vi": "Much + không đếm được (milk)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-257",
+    "exercise_type": "translation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "vi": "Có nhiều người ở đó.",
+    "hints": [
+      "many: nhiều (đếm được)"
+    ],
+    "answer": "There are many people there.",
+    "alternatives": [],
+    "explanation_vi": "Many + danh từ đếm được số nhiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-258",
+    "exercise_type": "error_correction",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "There are much people at the event.",
+    "error_part": "much",
+    "correct_part": "many",
+    "corrected": "There are many people at the event.",
+    "explanation_vi": "Many cho danh từ đếm được, much cho không đếm được."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-259",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "sentence": "How ___ (many/much) water do you drink?",
+    "blanks": [
+      {
+        "word": "many/much",
+        "answer": "much"
+      }
+    ],
+    "full": "How much water do you drink?",
+    "explanation_vi": "Much + danh từ không đếm được (water)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-260",
+    "exercise_type": "mcq",
+    "topic_id": "quantifiers",
+    "topic_name": "Quantifiers",
+    "topic_name_vi": "Lượng Từ",
+    "question": "There isn't _____ milk left.",
+    "options": [
+      "many",
+      "much",
+      "a few",
+      "several"
+    ],
+    "answer": 1,
+    "explanation_vi": "Much + không đếm được (milk)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-261",
+    "exercise_type": "translation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "vi": "Bạn làm nghề gì?",
+    "hints": [
+      "what: gì",
+      "do you do: làm nghề"
+    ],
+    "answer": "What do you do?",
+    "alternatives": [],
+    "explanation_vi": "What do you do?: hỏi nghề nghiệp."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-262",
+    "exercise_type": "error_correction",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "Where you work?",
+    "error_part": "Where you work",
+    "correct_part": "Where do you work",
+    "corrected": "Where do you work?",
+    "explanation_vi": "Câu hỏi cần trợ động từ 'do'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-263",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "___ (Do/Does) she like coffee?",
+    "blanks": [
+      {
+        "word": "Do/Does",
+        "answer": "Does"
+      }
+    ],
+    "full": "Does she like coffee?",
+    "explanation_vi": "Does + chủ ngữ số ít (she)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-264",
+    "exercise_type": "mcq",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "question": "_____ did you go yesterday?",
+    "options": [
+      "What",
+      "Where",
+      "Who",
+      "When"
+    ],
+    "answer": 1,
+    "explanation_vi": "Where: hỏi địa điểm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-265",
+    "exercise_type": "translation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "vi": "Bạn làm nghề gì?",
+    "hints": [
+      "what: gì",
+      "do you do: làm nghề"
+    ],
+    "answer": "What do you do?",
+    "alternatives": [],
+    "explanation_vi": "What do you do?: hỏi nghề nghiệp."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-266",
+    "exercise_type": "error_correction",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "Where you work?",
+    "error_part": "Where you work",
+    "correct_part": "Where do you work",
+    "corrected": "Where do you work?",
+    "explanation_vi": "Câu hỏi cần trợ động từ 'do'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-267",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "___ (Do/Does) she like coffee?",
+    "blanks": [
+      {
+        "word": "Do/Does",
+        "answer": "Does"
+      }
+    ],
+    "full": "Does she like coffee?",
+    "explanation_vi": "Does + chủ ngữ số ít (she)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-268",
+    "exercise_type": "mcq",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "question": "_____ did you go yesterday?",
+    "options": [
+      "What",
+      "Where",
+      "Who",
+      "When"
+    ],
+    "answer": 1,
+    "explanation_vi": "Where: hỏi địa điểm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-269",
+    "exercise_type": "translation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "vi": "Bạn làm nghề gì?",
+    "hints": [
+      "what: gì",
+      "do you do: làm nghề"
+    ],
+    "answer": "What do you do?",
+    "alternatives": [],
+    "explanation_vi": "What do you do?: hỏi nghề nghiệp."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-270",
+    "exercise_type": "error_correction",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "Where you work?",
+    "error_part": "Where you work",
+    "correct_part": "Where do you work",
+    "corrected": "Where do you work?",
+    "explanation_vi": "Câu hỏi cần trợ động từ 'do'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-271",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "___ (Do/Does) she like coffee?",
+    "blanks": [
+      {
+        "word": "Do/Does",
+        "answer": "Does"
+      }
+    ],
+    "full": "Does she like coffee?",
+    "explanation_vi": "Does + chủ ngữ số ít (she)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-272",
+    "exercise_type": "mcq",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "question": "_____ did you go yesterday?",
+    "options": [
+      "What",
+      "Where",
+      "Who",
+      "When"
+    ],
+    "answer": 1,
+    "explanation_vi": "Where: hỏi địa điểm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-273",
+    "exercise_type": "translation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "vi": "Bạn làm nghề gì?",
+    "hints": [
+      "what: gì",
+      "do you do: làm nghề"
+    ],
+    "answer": "What do you do?",
+    "alternatives": [],
+    "explanation_vi": "What do you do?: hỏi nghề nghiệp."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-274",
+    "exercise_type": "error_correction",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "Where you work?",
+    "error_part": "Where you work",
+    "correct_part": "Where do you work",
+    "corrected": "Where do you work?",
+    "explanation_vi": "Câu hỏi cần trợ động từ 'do'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-275",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "___ (Do/Does) she like coffee?",
+    "blanks": [
+      {
+        "word": "Do/Does",
+        "answer": "Does"
+      }
+    ],
+    "full": "Does she like coffee?",
+    "explanation_vi": "Does + chủ ngữ số ít (she)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-276",
+    "exercise_type": "mcq",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "question": "_____ did you go yesterday?",
+    "options": [
+      "What",
+      "Where",
+      "Who",
+      "When"
+    ],
+    "answer": 1,
+    "explanation_vi": "Where: hỏi địa điểm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-277",
+    "exercise_type": "translation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "vi": "Bạn làm nghề gì?",
+    "hints": [
+      "what: gì",
+      "do you do: làm nghề"
+    ],
+    "answer": "What do you do?",
+    "alternatives": [],
+    "explanation_vi": "What do you do?: hỏi nghề nghiệp."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-278",
+    "exercise_type": "error_correction",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "Where you work?",
+    "error_part": "Where you work",
+    "correct_part": "Where do you work",
+    "corrected": "Where do you work?",
+    "explanation_vi": "Câu hỏi cần trợ động từ 'do'."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-279",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "sentence": "___ (Do/Does) she like coffee?",
+    "blanks": [
+      {
+        "word": "Do/Does",
+        "answer": "Does"
+      }
+    ],
+    "full": "Does she like coffee?",
+    "explanation_vi": "Does + chủ ngữ số ít (she)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-280",
+    "exercise_type": "mcq",
+    "topic_id": "question-forms",
+    "topic_name": "Question Forms",
+    "topic_name_vi": "Dạng Câu Hỏi",
+    "question": "_____ did you go yesterday?",
+    "options": [
+      "What",
+      "Where",
+      "Who",
+      "When"
+    ],
+    "answer": 1,
+    "explanation_vi": "Where: hỏi địa điểm."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-281",
+    "exercise_type": "translation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "vi": "Tôi thích cà phê và trà.",
+    "hints": [
+      "and: và"
+    ],
+    "answer": "I like coffee and tea.",
+    "alternatives": [],
+    "explanation_vi": "And: nối hai vế ngang bằng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-282",
+    "exercise_type": "error_correction",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "I like coffee but I don't like tea, and I drink it every morning.",
+    "error_part": "and I drink it",
+    "correct_part": "but I drink it",
+    "corrected": "I like coffee but I don't like tea, but I drink it every morning.",
+    "explanation_vi": "Dùng 'but' để chỉ sự tương phản."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-283",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "She is smart ___ (and/but) hardworking.",
+    "blanks": [
+      {
+        "word": "and/but",
+        "answer": "and"
+      }
+    ],
+    "full": "She is smart and hardworking.",
+    "explanation_vi": "And: nối hai tính từ cùng chiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-284",
+    "exercise_type": "mcq",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "question": "I was tired, _____ I finished the work.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "answer": 1,
+    "explanation_vi": "But: tương phản (tired vs finished)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-285",
+    "exercise_type": "translation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "vi": "Tôi thích cà phê và trà.",
+    "hints": [
+      "and: và"
+    ],
+    "answer": "I like coffee and tea.",
+    "alternatives": [],
+    "explanation_vi": "And: nối hai vế ngang bằng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-286",
+    "exercise_type": "error_correction",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "I like coffee but I don't like tea, and I drink it every morning.",
+    "error_part": "and I drink it",
+    "correct_part": "but I drink it",
+    "corrected": "I like coffee but I don't like tea, but I drink it every morning.",
+    "explanation_vi": "Dùng 'but' để chỉ sự tương phản."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-287",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "She is smart ___ (and/but) hardworking.",
+    "blanks": [
+      {
+        "word": "and/but",
+        "answer": "and"
+      }
+    ],
+    "full": "She is smart and hardworking.",
+    "explanation_vi": "And: nối hai tính từ cùng chiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-288",
+    "exercise_type": "mcq",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "question": "I was tired, _____ I finished the work.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "answer": 1,
+    "explanation_vi": "But: tương phản (tired vs finished)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-289",
+    "exercise_type": "translation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "vi": "Tôi thích cà phê và trà.",
+    "hints": [
+      "and: và"
+    ],
+    "answer": "I like coffee and tea.",
+    "alternatives": [],
+    "explanation_vi": "And: nối hai vế ngang bằng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-290",
+    "exercise_type": "error_correction",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "I like coffee but I don't like tea, and I drink it every morning.",
+    "error_part": "and I drink it",
+    "correct_part": "but I drink it",
+    "corrected": "I like coffee but I don't like tea, but I drink it every morning.",
+    "explanation_vi": "Dùng 'but' để chỉ sự tương phản."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-291",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "She is smart ___ (and/but) hardworking.",
+    "blanks": [
+      {
+        "word": "and/but",
+        "answer": "and"
+      }
+    ],
+    "full": "She is smart and hardworking.",
+    "explanation_vi": "And: nối hai tính từ cùng chiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-292",
+    "exercise_type": "mcq",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "question": "I was tired, _____ I finished the work.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "answer": 1,
+    "explanation_vi": "But: tương phản (tired vs finished)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-293",
+    "exercise_type": "translation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "vi": "Tôi thích cà phê và trà.",
+    "hints": [
+      "and: và"
+    ],
+    "answer": "I like coffee and tea.",
+    "alternatives": [],
+    "explanation_vi": "And: nối hai vế ngang bằng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-294",
+    "exercise_type": "error_correction",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "I like coffee but I don't like tea, and I drink it every morning.",
+    "error_part": "and I drink it",
+    "correct_part": "but I drink it",
+    "corrected": "I like coffee but I don't like tea, but I drink it every morning.",
+    "explanation_vi": "Dùng 'but' để chỉ sự tương phản."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-295",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "She is smart ___ (and/but) hardworking.",
+    "blanks": [
+      {
+        "word": "and/but",
+        "answer": "and"
+      }
+    ],
+    "full": "She is smart and hardworking.",
+    "explanation_vi": "And: nối hai tính từ cùng chiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-296",
+    "exercise_type": "mcq",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "question": "I was tired, _____ I finished the work.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "answer": 1,
+    "explanation_vi": "But: tương phản (tired vs finished)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-297",
+    "exercise_type": "translation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "vi": "Tôi thích cà phê và trà.",
+    "hints": [
+      "and: và"
+    ],
+    "answer": "I like coffee and tea.",
+    "alternatives": [],
+    "explanation_vi": "And: nối hai vế ngang bằng."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-298",
+    "exercise_type": "error_correction",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "I like coffee but I don't like tea, and I drink it every morning.",
+    "error_part": "and I drink it",
+    "correct_part": "but I drink it",
+    "corrected": "I like coffee but I don't like tea, but I drink it every morning.",
+    "explanation_vi": "Dùng 'but' để chỉ sự tương phản."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-299",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "sentence": "She is smart ___ (and/but) hardworking.",
+    "blanks": [
+      {
+        "word": "and/but",
+        "answer": "and"
+      }
+    ],
+    "full": "She is smart and hardworking.",
+    "explanation_vi": "And: nối hai tính từ cùng chiều."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-300",
+    "exercise_type": "mcq",
+    "topic_id": "conjunctions",
+    "topic_name": "Conjunctions",
+    "topic_name_vi": "Liên Từ",
+    "question": "I was tired, _____ I finished the work.",
+    "options": [
+      "and",
+      "but",
+      "or",
+      "so"
+    ],
+    "answer": 1,
+    "explanation_vi": "But: tương phản (tired vs finished)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-301",
+    "exercise_type": "translation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "vi": "Cô ấy mua một chiếc váy đẹp.",
+    "hints": [
+      "beautiful: đẹp",
+      "dress: váy"
+    ],
+    "answer": "She bought a beautiful dress.",
+    "alternatives": [],
+    "explanation_vi": "Trật tự: S + V + O + tính từ + danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-302",
+    "exercise_type": "error_correction",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "She bought a dress beautiful.",
+    "error_part": "dress beautiful",
+    "correct_part": "beautiful dress",
+    "corrected": "She bought a beautiful dress.",
+    "explanation_vi": "Tính từ đứng trước danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-303",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "He ___ (quick/quickly) finished the report.",
+    "blanks": [
+      {
+        "word": "quick/quickly",
+        "answer": "quickly"
+      }
+    ],
+    "full": "He quickly finished the report.",
+    "explanation_vi": "Trạng từ đứng trước động từ chính."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-304",
+    "exercise_type": "mcq",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "question": "She always _____ her homework on time.",
+    "options": [
+      "does",
+      "do",
+      "doing",
+      "done"
+    ],
+    "answer": 0,
+    "explanation_vi": "Chủ ngữ số ít (she) + V chia -s (does)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-305",
+    "exercise_type": "translation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "vi": "Cô ấy mua một chiếc váy đẹp.",
+    "hints": [
+      "beautiful: đẹp",
+      "dress: váy"
+    ],
+    "answer": "She bought a beautiful dress.",
+    "alternatives": [],
+    "explanation_vi": "Trật tự: S + V + O + tính từ + danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-306",
+    "exercise_type": "error_correction",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "She bought a dress beautiful.",
+    "error_part": "dress beautiful",
+    "correct_part": "beautiful dress",
+    "corrected": "She bought a beautiful dress.",
+    "explanation_vi": "Tính từ đứng trước danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-307",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "He ___ (quick/quickly) finished the report.",
+    "blanks": [
+      {
+        "word": "quick/quickly",
+        "answer": "quickly"
+      }
+    ],
+    "full": "He quickly finished the report.",
+    "explanation_vi": "Trạng từ đứng trước động từ chính."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-308",
+    "exercise_type": "mcq",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "question": "She always _____ her homework on time.",
+    "options": [
+      "does",
+      "do",
+      "doing",
+      "done"
+    ],
+    "answer": 0,
+    "explanation_vi": "Chủ ngữ số ít (she) + V chia -s (does)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-309",
+    "exercise_type": "translation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "vi": "Cô ấy mua một chiếc váy đẹp.",
+    "hints": [
+      "beautiful: đẹp",
+      "dress: váy"
+    ],
+    "answer": "She bought a beautiful dress.",
+    "alternatives": [],
+    "explanation_vi": "Trật tự: S + V + O + tính từ + danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-310",
+    "exercise_type": "error_correction",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "She bought a dress beautiful.",
+    "error_part": "dress beautiful",
+    "correct_part": "beautiful dress",
+    "corrected": "She bought a beautiful dress.",
+    "explanation_vi": "Tính từ đứng trước danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-311",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "He ___ (quick/quickly) finished the report.",
+    "blanks": [
+      {
+        "word": "quick/quickly",
+        "answer": "quickly"
+      }
+    ],
+    "full": "He quickly finished the report.",
+    "explanation_vi": "Trạng từ đứng trước động từ chính."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-312",
+    "exercise_type": "mcq",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "question": "She always _____ her homework on time.",
+    "options": [
+      "does",
+      "do",
+      "doing",
+      "done"
+    ],
+    "answer": 0,
+    "explanation_vi": "Chủ ngữ số ít (she) + V chia -s (does)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-313",
+    "exercise_type": "translation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "vi": "Cô ấy mua một chiếc váy đẹp.",
+    "hints": [
+      "beautiful: đẹp",
+      "dress: váy"
+    ],
+    "answer": "She bought a beautiful dress.",
+    "alternatives": [],
+    "explanation_vi": "Trật tự: S + V + O + tính từ + danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-314",
+    "exercise_type": "error_correction",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "She bought a dress beautiful.",
+    "error_part": "dress beautiful",
+    "correct_part": "beautiful dress",
+    "corrected": "She bought a beautiful dress.",
+    "explanation_vi": "Tính từ đứng trước danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-315",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "He ___ (quick/quickly) finished the report.",
+    "blanks": [
+      {
+        "word": "quick/quickly",
+        "answer": "quickly"
+      }
+    ],
+    "full": "He quickly finished the report.",
+    "explanation_vi": "Trạng từ đứng trước động từ chính."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-316",
+    "exercise_type": "mcq",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "question": "She always _____ her homework on time.",
+    "options": [
+      "does",
+      "do",
+      "doing",
+      "done"
+    ],
+    "answer": 0,
+    "explanation_vi": "Chủ ngữ số ít (she) + V chia -s (does)."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-317",
+    "exercise_type": "translation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "vi": "Cô ấy mua một chiếc váy đẹp.",
+    "hints": [
+      "beautiful: đẹp",
+      "dress: váy"
+    ],
+    "answer": "She bought a beautiful dress.",
+    "alternatives": [],
+    "explanation_vi": "Trật tự: S + V + O + tính từ + danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-318",
+    "exercise_type": "error_correction",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "She bought a dress beautiful.",
+    "error_part": "dress beautiful",
+    "correct_part": "beautiful dress",
+    "corrected": "She bought a beautiful dress.",
+    "explanation_vi": "Tính từ đứng trước danh từ."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-319",
+    "exercise_type": "verb_conjugation",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "sentence": "He ___ (quick/quickly) finished the report.",
+    "blanks": [
+      {
+        "word": "quick/quickly",
+        "answer": "quickly"
+      }
+    ],
+    "full": "He quickly finished the report.",
+    "explanation_vi": "Trạng từ đứng trước động từ chính."
+  },
+  {
+    "_type": "mixed",
+    "id": "mixed-320",
+    "exercise_type": "mcq",
+    "topic_id": "word-order",
+    "topic_name": "Word Order",
+    "topic_name_vi": "Trật Tự Từ",
+    "question": "She always _____ her homework on time.",
+    "options": [
+      "does",
+      "do",
+      "doing",
+      "done"
+    ],
+    "answer": 0,
+    "explanation_vi": "Chủ ngữ số ít (she) + V chia -s (does)."
+  }
+]

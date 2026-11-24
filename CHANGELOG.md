@@ -78,6 +78,14 @@
 - **No play-all button** → added "Phát tất cả" button.
 - **Video mismatch** → TTS fallback + warning note. Cannot fix 60 videos without watching each.
 
+### Fixes applied (v2)
+- **Unique videos**: 6 → 15 unique YouTube IDs across 60 lessons. `scripts/work/fix-shadowing-videos.cjs` assigns topic-matched videos where found.
+- **Real synced transcript**: `sh-morning` replaced with real video (`aQ0w2I0Eb9I`, Listening Time) + real 6-segment transcript matching audio.
+- **`videoSynced` flag**: added to `ShadowingLesson` type. `true` only for verified real transcripts (currently 1: sh-morning). UI shows green "đã đồng bộ" badge for synced, amber "tham khảo" warning for unsynced.
+- **TTS is authoritative**: default mode `useTTS=true`. UI labels "Đồng bộ 100% · Đọc đúng từng câu". Toggle button renamed to "Dùng video YouTube" / "Phát âm máy (đồng bộ)".
+- **Loading state**: YouTube player shows "Đang tải video…" overlay while `!ytReady`.
+- **Lint fix**: `speakQueueRef.current` moved to `useEffect` (no ref access during render). `ytReady` now used for loading overlay.
+
 ## Part 5: Picture Talk
 
 ### Current state
@@ -99,4 +107,13 @@
 - **Build failure** (node:fs in client) → fixed via types/data split.
 - **Missing retry/next buttons** → added.
 - **Missing phao cứu sinh** → added.
-- **No AI integration** (Gemini Vision, Groq Whisper) → would need API keys. Current implementation uses Web Speech API for STT and browser TTS. Offline mode works with built-in data.
+- **AI integration ADDED**: Gemini Vision (`callGeminiVision` in `lib/ai/gemini.ts`) + `/api/picture-talk/analyze` route for image upload → vocabulary/questions JSON. Groq Whisper STT (`/api/stt`) integrated via MediaRecorder for audio recording. Fallback: built-in images use pre-made metadata (no AI needed); if Gemini quota exceeded, error shown + user can use built-in images (offline mode).
+
+## Part 6: Mixed Practice (320 dedicated questions)
+
+### Current state
+- `data/grammar-mixed.json`: 320 NEW questions (80 per type × 4 types, 16 topics covered).
+- Generator: `scripts/work/generate-mixed-practice.cjs` (offline, template-based, no API).
+- `mixed-practice.tsx`: loads dedicated 320 questions as primary pool, supplements with existing pool if needed.
+- Each question has `id`, `exercise_type`, `topic_id`, and type-specific fields (question/options/answer for MCQ; vi/hints/answer for translation; sentence/error_part/corrected for error_correction; blanks/full for verb_conjugation).
+- Coverage: 16 topics × 4 types = 64 cells, all with ≥5 questions each.

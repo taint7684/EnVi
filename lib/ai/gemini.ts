@@ -90,6 +90,89 @@ export async function callGemini({
     : new Error(String(lastError));
 }
 
+/**
+ * Call Gemini with an image (vision). Sends base64-encoded image + text prompt.
+ * Returns the model's text response (expected to be JSON).
+ */
+export async function callGeminiVision({
+  systemPrompt,
+  userPrompt,
+  imageBase64,
+  mimeType = "image/jpeg",
+}: {
+  systemPrompt: string;
+  userPrompt: string;
+  imageBase64: string;
+  mimeType?: string;
+}): Promise<string> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) throw new GeminiError("Thiếu GEMINI_API_KEY");
+
+  const body = {
+    systemInstruction: { parts: [{ text: systemPrompt }] },
+    contents: [
+      {
+        parts: [
+          { text: userPrompt },
+          { inline_data: { mime_type: mimeType, data: imageBase64 } },
+        ],
+      },
+    ],
+    generationConfig: {
+      temperature: 0.4,
+      responseMimeType: "application/json",
+    },
+  };
+
+  let lastError: unknown;
+
+  for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+    const model = MODELS[attempt % MODELS.length];
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey)}`,
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body),
+          signal: AbortSignal.timeout(60000),
+        },
+      );
+
+      if (!res.ok) {
+        const text = await res.text().catch(() => "");
+        throw new GeminiError(
+          `Gemini Vision ${res.status} (${model}): ${text.slice(0, 300)}`,
+          res.status,
+        );
+      }
+
+      const data = (await res.json()) as GeminiResponse;
+      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!text || !text.trim()) {
+        throw new GeminiError("Gemini Vision trả về rỗng", 0);
+      }
+
+      return text;
+    } catch (error) {
+      lastError = error;
+      const status = error instanceof GeminiError ? error.status : undefined;
+      const retryable =
+        status === undefined ||
+        status === 429 ||
+        status === 503 ||
+        (status !== undefined && status >= 500);
+
+      if (attempt === MAX_ATTEMPTS - 1 || !retryable) break;
+      await sleep(backoff(attempt));
+    }
+  }
+
+  throw lastError instanceof Error
+    ? lastError
+    : new Error(String(lastError));
+}
+
 type GeminiResponse = {
   candidates?: Array<{
     content?: {

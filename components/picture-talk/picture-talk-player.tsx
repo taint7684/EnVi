@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import {
   Mic, MicOff, Volume2, Eye, EyeOff, ArrowLeft, ArrowRight,
-  Lightbulb, BarChart3, RotateCcw,
+  Lightbulb, BarChart3, RotateCcw, Upload, Loader2,
 } from "lucide-react";
 import type {
   PictureTalkImage,
@@ -84,12 +84,20 @@ export function PictureTalkPlayer({
   const [duration, setDuration] = useState(0);
   const [lifesaverText, setLifesaverText] = useState("");
   const [showLifesaver, setShowLifesaver] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analyzeError, setAnalyzeError] = useState<string | null>(null);
+  const [whisperMode, setWhisperMode] = useState(false);
+  const [whisperLoading, setWhisperLoading] = useState(false);
 
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const recRef = useRef<SpeechRecognitionLike | null>(null);
   const transcriptRef = useRef("");
   const lastResultTimeRef = useRef<number>(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const silenceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const audioBlobRef = useRef<Blob | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
 
   const wordCount = countWords(transcript);
   const wpm = duration > 0 ? Math.round((wordCount / duration) * 60) : 0;
@@ -187,12 +195,139 @@ export function PictureTalkPlayer({
     setStartTime(null);
     setShowHints(false);
     transcriptRef.current = "";
+    audioBlobRef.current = null;
   }, []);
+
+  const handleImageUpload = useCallback(async (file: File) => {
+    setAnalyzing(true);
+    setAnalyzeError(null);
+    try {
+      const form = new FormData();
+      form.append("image", file);
+      const res = await fetch("/api/picture-talk/analyze", { method: "POST", body: form });
+      const json = await res.json();
+      if (!res.ok || json.error) {
+        setAnalyzeError(json.error || "Không phân tích được ảnh");
+        setAnalyzing(false);
+        return;
+      }
+      const data = json.data as {
+        vocabulary: PictureVocabulary[];
+        opinion_questions: string[];
+        story_starters: string[];
+      };
+      const imageUrl = URL.createObjectURL(file);
+      const customPic: PictureTalkImage = {
+        id: `custom-${Date.now()}`,
+        title: "Ảnh của bạn",
+        titleVi: "Ảnh tải lên",
+        imageUrl,
+        level: "B1",
+        topic: "custom",
+        vocabulary: data.vocabulary || [],
+        opinion_questions: data.opinion_questions || [],
+        story_starters: data.story_starters || [],
+      };
+      setSelected(customPic);
+    } catch {
+      setAnalyzeError("Lỗi kết nối khi phân tích ảnh");
+    } finally {
+      setAnalyzing(false);
+    }
+  }, []);
+
+  const transcribeWithWhisper = useCallback(async (blob: Blob): Promise<string> => {
+    setWhisperLoading(true);
+    try {
+      const form = new FormData();
+      form.append("audio", blob, "recording.webm");
+      const res = await fetch("/api/stt", { method: "POST", body: form });
+      if (!res.ok) return "";
+      const json = await res.json();
+      return json.text || "";
+    } catch {
+      return "";
+    } finally {
+      setWhisperLoading(false);
+    }
+  }, []);
+
+  const startWhisperRecording = useCallback(async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mr = new MediaRecorder(stream);
+      chunksRef.current = [];
+      mr.ondataavailable = (e) => { if (e.data.size > 0) chunksRef.current.push(e.data); };
+      mr.onstop = async () => {
+        stream.getTracks().forEach((t) => t.stop());
+        const blob = new Blob(chunksRef.current, { type: "audio/webm" });
+        audioBlobRef.current = blob;
+        const text = await transcribeWithWhisper(blob);
+        if (text) {
+          transcriptRef.current = text;
+          setTranscript(text);
+        }
+        setShowHints(true);
+      };
+      mr.start();
+      mediaRecorderRef.current = mr;
+      setRecording(true);
+      setStartTime(Date.now());
+      lastResultTimeRef.current = Date.now();
+    } catch {
+      setAnalyzeError("Không truy cập được micro. Hãy dùng chế độ nhận diện trực tiếp.");
+    }
+  }, [transcribeWithWhisper]);
+
+  const stopWhisperRecording = useCallback(() => {
+    try { mediaRecorderRef.current?.stop(); } catch { /* */ }
+    mediaRecorderRef.current = null;
+    setRecording(false);
+    if (startTime) setDuration((Date.now() - startTime) / 1000);
+  }, [startTime]);
 
   if (!selected) {
     return (
       <div className="mx-auto max-w-3xl space-y-4">
         <h2 className="font-serif text-xl font-semibold">Chọn một bức ảnh</h2>
+
+        {/* Upload custom image */}
+        <div className="rounded-2xl border border-dashed border-border bg-card p-4">
+          <p className="mb-2 text-sm text-muted-foreground">
+            Hoặc tải ảnh của bạn lên — AI sẽ phân tích và tạo từ vựng + câu hỏi
+          </p>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) void handleImageUpload(file);
+              e.target.value = "";
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={analyzing}
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90 disabled:opacity-50"
+          >
+            {analyzing ? <Loader2 className="size-4 animate-spin" /> : <Upload className="size-4" />}
+            {analyzing ? "AI đang phân tích ảnh..." : "Tải ảnh lên"}
+          </button>
+          {analyzeError ? (
+            <div className="mt-2 rounded-lg bg-red-50 p-2 text-sm text-red-700">
+              {analyzeError}
+              <br />
+              <span className="text-xs text-red-600">Vẫn có thể chọn ảnh có sẵn bên dưới để luyện tập offline.</span>
+            </div>
+          ) : null}
+          <p className="mt-2 text-xs text-muted-foreground">
+            Dùng Gemini Vision để phân tích ảnh. Nếu hết quota, dùng ảnh có sẵn (offline).
+          </p>
+        </div>
+
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           {pictures.map((pic) => (
             <button
@@ -273,15 +408,21 @@ export function PictureTalkPlayer({
             {!recording ? (
               <button
                 type="button"
-                onClick={startRecording}
+                onClick={() => {
+                  if (whisperMode) void startWhisperRecording();
+                  else startRecording();
+                }}
                 className="inline-flex items-center gap-2 rounded-xl bg-red-500 px-5 py-3 text-sm font-semibold text-white hover:bg-red-600"
               >
-                <Mic className="size-4" /> Bắt đầu nói
+                <Mic className="size-4" /> {whisperMode ? "Ghi âm (Whisper)" : "Bắt đầu nói"}
               </button>
             ) : (
               <button
                 type="button"
-                onClick={stopRecording}
+                onClick={() => {
+                  if (whisperMode) stopWhisperRecording();
+                  else stopRecording();
+                }}
                 className="inline-flex items-center gap-2 rounded-xl bg-gray-700 px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
               >
                 <MicOff className="size-4" /> Dừng ({Math.round(duration)}s)
@@ -297,6 +438,29 @@ export function PictureTalkPlayer({
               </button>
             ) : null}
           </div>
+
+          {/* STT mode toggle + Whisper loading */}
+          <div className="flex items-center justify-center gap-2 text-xs">
+            <button
+              type="button"
+              onClick={() => setWhisperMode((p) => !p)}
+              className={`rounded-lg px-3 py-1.5 font-medium transition ${
+                whisperMode ? "bg-blue-100 text-blue-700" : "bg-muted text-muted-foreground"
+              }`}
+            >
+              {whisperMode ? "✓ Whisper (Ghi âm → AI nhận diện)" : "Nhận diện trực tiếp (Web Speech)"}
+            </button>
+          </div>
+          {whisperLoading ? (
+            <p className="flex items-center justify-center gap-2 text-sm text-blue-600">
+              <Loader2 className="size-4 animate-spin" /> Đang nhận diện bằng Groq Whisper...
+            </p>
+          ) : null}
+          <p className="text-center text-xs text-muted-foreground">
+            {whisperMode
+              ? "Ghi âm rồi gửi lên Groq Whisper để nhận diện. Hoạt động mọi trình duyệt."
+              : "Nhận diện trực tiếp bằng Web Speech API (Chrome/Edge)."}
+          </p>
 
           {/* Lifesaver: Vietnamese → simple English */}
           {showLifesaver ? (

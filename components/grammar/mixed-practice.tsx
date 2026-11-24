@@ -7,10 +7,36 @@ import { ExercisePlayer } from "./exercise-player";
 import { GRAMMAR_EXERCISES } from "@/lib/grammar-exercises-data";
 import type { GrammarMcq, GrammarFill } from "@/lib/grammar-exercises-data";
 import type { GrammarV2Question } from "@/lib/grammar-v2-types";
+import grammarMixed from "@/data/grammar-mixed.json";
 
 type ExerciseType = "mcq" | "translation" | "error_correction" | "verb_conjugation";
 type ExerciseQuestion = GrammarMcq | GrammarFill | GrammarV2Question;
 type Mode = "mix_all" | "review_wrong";
+
+type MixedQuestion = {
+  _type: "mixed";
+  id: string;
+  exercise_type: ExerciseType;
+  topic_id: string;
+  topic_name: string;
+  topic_name_vi: string;
+  question?: string;
+  options?: string[];
+  answer?: number | string;
+  correct?: number;
+  explanation_vi?: string;
+  vi?: string;
+  hints?: string[];
+  alternatives?: string[];
+  sentence?: string;
+  error_part?: string;
+  correct_part?: string;
+  corrected?: string;
+  blanks?: { word: string; answer: string }[];
+  full?: string;
+};
+
+const DEDICATED_MIXED = grammarMixed as MixedQuestion[];
 
 const TYPE_LABELS: Record<ExerciseType, string> = {
   mcq: "Trắc nghiệm",
@@ -31,28 +57,27 @@ function shuffle<T>(arr: T[]): T[] {
 function buildMixedQuestions(count: number, v2Questions: GrammarV2Question[], excludeIds: Set<string> = new Set()): { question: ExerciseQuestion; type: ExerciseType; topicId: string; topicName: string }[] {
   const pool: { question: ExerciseQuestion; type: ExerciseType; topicId: string; topicName: string }[] = [];
 
-  // MCQ from all topics
-  for (const topic of GRAMMAR_EXERCISES) {
-    for (const q of topic.mcq) {
-      if (!excludeIds.has(`mcq-${q.id}-${topic.topicId}`)) {
-        pool.push({ question: q, type: "mcq", topicId: topic.topicId, topicName: topic.name });
+  // Dedicated 320 mixed-practice questions (primary source)
+  for (const q of DEDICATED_MIXED) {
+    const id = `mixed-${q.exercise_type}-${q.topic_id}-${pool.length}`;
+    if (!excludeIds.has(id)) {
+      pool.push({ question: q as unknown as ExerciseQuestion, type: q.exercise_type, topicId: q.topic_id, topicName: q.topic_name });
+    }
+  }
+
+  // Supplement with existing pool if dedicated questions run low
+  if (pool.length < count) {
+    for (const topic of GRAMMAR_EXERCISES) {
+      for (const q of topic.mcq) {
+        if (!excludeIds.has(`mcq-${q.id}-${topic.topicId}`)) {
+          pool.push({ question: q, type: "mcq", topicId: topic.topicId, topicName: topic.name });
+        }
       }
     }
-  }
-
-  // V2 questions (translation, error_correction, verb_conjugation)
-  for (const q of v2Questions) {
-    const id = `${q.exercise_type}-${(q as any).index}-${q.topic_id}`;
-    if (!excludeIds.has(id)) {
-      pool.push({ question: q, type: q.exercise_type as ExerciseType, topicId: q.topic_id, topicName: q.topic_name });
-    }
-  }
-
-  // Fill (from existing data, used as verb_conjugation for non-grammar topics)
-  for (const topic of GRAMMAR_EXERCISES) {
-    for (const q of topic.fill) {
-      if (!excludeIds.has(`fill-${q.id}-${topic.topicId}`)) {
-        pool.push({ question: q, type: "verb_conjugation", topicId: topic.topicId, topicName: topic.name });
+    for (const q of v2Questions) {
+      const id = `${q.exercise_type}-${(q as any).index}-${q.topic_id}`;
+      if (!excludeIds.has(id)) {
+        pool.push({ question: q, type: q.exercise_type as ExerciseType, topicId: q.topic_id, topicName: q.topic_name });
       }
     }
   }
