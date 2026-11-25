@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { DuePhrase, PhraseReviewRow, PhraseRow } from "@/lib/types";
 
 export const SESSION_SIZE = 20;
-export const DAILY_NEW_LIMIT = 20;
+export const DAILY_NEW_LIMIT = 10;
 const NEW_PHRASES_PAGE_SIZE = 100;
 
 export async function getDuePhrases(
@@ -149,4 +149,49 @@ export async function getDuePhraseCount(): Promise<{
   );
 
   return { due, new: newCount, total: due + newCount };
+}
+
+function shuffleArray<T>(items: T[]): T[] {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+export async function getReviewPhrases(
+  limit = SESSION_SIZE,
+  difficulty?: string,
+): Promise<DuePhrase[]> {
+  const supabase = await createClient();
+
+  const { data: reviews, error: reviewsError } = await supabase
+    .from("phrase_reviews")
+    .select("phrase_id")
+    .order("last_reviewed_at", { ascending: false });
+
+  if (reviewsError) throw new Error(reviewsError.message);
+
+  const ids = (reviews ?? []).map(
+    (r) => (r as { phrase_id: string }).phrase_id,
+  );
+  if (ids.length === 0) return [];
+
+  const { data, error: phrasesError } = await supabase
+    .from("phrases")
+    .select("*")
+    .in("id", ids);
+
+  if (phrasesError) throw new Error(phrasesError.message);
+
+  let phrases = (data ?? []) as PhraseRow[];
+  if (difficulty) {
+    phrases = phrases.filter((phrase) => phrase.difficulty === difficulty);
+  }
+  if (phrases.length === 0) return [];
+
+  return shuffleArray(phrases)
+    .slice(0, limit)
+    .map((phrase) => ({ phrase, review: null }));
 }

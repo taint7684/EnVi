@@ -40,7 +40,15 @@ const LEVEL_LABEL: Record<string, string> = {
   L3: "L3 - Nâng cao",
 };
 
-export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
+export function ReflexSession({
+  phrases,
+  sessionMode = "learn",
+  level = "all",
+}: {
+  phrases: DuePhrase[];
+  sessionMode?: "learn" | "review";
+  level?: string;
+}) {
   const [queue] = useState<DuePhrase[]>(phrases);
   const [index, setIndex] = useState(0);
   const [mode, setMode] = useState<Mode>("reflex");
@@ -195,21 +203,49 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
   }
 
   if (done) {
+    const reviewHref = (() => {
+      const params = new URLSearchParams();
+      if (level !== "all") params.set("level", level);
+      params.set("mode", "review");
+      return `/reflex?${params.toString()}`;
+    })();
+    const learnHref = (() => {
+      const params = new URLSearchParams();
+      if (level !== "all") params.set("level", level);
+      const qs = params.toString();
+      return qs ? `/reflex?${qs}` : "/reflex";
+    })();
+
     return (
       <div className="mx-auto max-w-xl rounded-3xl border border-border bg-card p-10 text-center shadow-sm">
-        <p className="text-4xl">🎉</p>
+        <p className="text-4xl">{sessionMode === "review" ? "✅" : "🎉"}</p>
         <h2 className="mt-4 font-serif text-2xl font-semibold text-foreground">
-          Hoàn thành phiên luyện phản xạ!
+          {sessionMode === "review"
+            ? "Hoàn thành phiên ôn tập!"
+            : "Hoàn thành phiên luyện phản xạ!"}
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Bạn đã luyện {queue.length} câu. Hẹn gặp lại ở lượt sau.
+          {sessionMode === "review"
+            ? `Bạn đã ôn ${queue.length} câu. Có thể luyện tiếp không giới hạn.`
+            : `Bạn đã luyện ${queue.length} câu. Mỗi ngày học 10 câu mới — muốn luyện thêm thì chuyển sang ôn tập.`}
         </p>
-        <div className="mt-6 flex justify-center gap-3">
-          <Link href="/reflex">
-            <Button variant="outline">Luyện tiếp</Button>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {sessionMode === "learn" ? (
+            <Link href={reviewHref}>
+              <Button>Ôn tập thêm</Button>
+            </Link>
+          ) : (
+            <Link href={reviewHref}>
+              <Button variant="outline">Luyện tiếp</Button>
+            </Link>
+          )}
+          <Link href={learnHref}>
+            <Button variant={sessionMode === "review" ? "outline" : "ghost"}>
+              {sessionMode === "review" ? "Về chế độ học" : "Luyện tiếp"}
+            </Button>
           </Link>
           <Link href="/dashboard">
-            <Button>Về tổng quan</Button>
+            <Button variant="ghost">Về tổng quan</Button>
           </Link>
         </div>
       </div>
@@ -227,7 +263,7 @@ export function ReflexSession({ phrases }: { phrases: DuePhrase[] }) {
     <div className="mx-auto max-w-2xl">
       <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
         <span>
-          Câu {index + 1}/{queue.length}
+          {sessionMode === "review" ? "Ôn tập · " : ""}Câu {index + 1}/{queue.length}
         </span>
         <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
           {phrase.topic}
