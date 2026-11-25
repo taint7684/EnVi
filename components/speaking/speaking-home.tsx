@@ -18,12 +18,14 @@ export function SpeakingHome() {
     topic: string;
     topicId: string;
     level: Level;
+    aiMode: "ai" | "fallback";
   } | null>(null);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [activeGroup, setActiveGroup] = useState(GROUPS[0].id);
   const [activeLevel, setActiveLevel] = useState<Level>("A2");
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
+  const [aiMode, setAiMode] = useState<"ai" | "fallback">("ai");
 
   async function start(topicId: string, topicLabel: string, level: Level) {
     setStarting(true);
@@ -35,7 +37,7 @@ export function SpeakingHome() {
         setError("Server không trả về sessionId.");
         return;
       }
-      setSession({ sessionId, topic: topicLabel, topicId, level });
+      setSession({ sessionId, topic: topicLabel, topicId, level, aiMode });
     } catch (cause) {
       setError(
         cause instanceof Error ? cause.message : "Không thể bắt đầu phiên.",
@@ -52,6 +54,7 @@ export function SpeakingHome() {
         topic={session.topic}
         topicId={session.topicId}
         level={session.level}
+        initialMode={session.aiMode}
         onEnd={() => setSession(null)}
       />
     );
@@ -115,6 +118,36 @@ export function SpeakingHome() {
               {LEVEL_LABELS[level as Level]}
             </button>
           ))}
+        </div>
+      </div>
+
+      <div className="mb-6 flex items-center gap-4">
+        <span className="text-xs uppercase tracking-wide text-muted-foreground">
+          Phản hồi
+        </span>
+        <div className="flex rounded-lg border border-border">
+          <button
+            type="button"
+            onClick={() => setAiMode("ai")}
+            className={`px-3 py-1 text-xs font-medium transition-colors ${
+              aiMode === "ai"
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted"
+            }`}
+          >
+            Có AI (đánh giá)
+          </button>
+          <button
+            type="button"
+            onClick={() => setAiMode("fallback")}
+            className={`px-3 py-1 text-xs font-medium transition-colors ${
+              aiMode === "fallback"
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:bg-muted"
+            }`}
+          >
+            Không AI (tự luyện)
+          </button>
         </div>
       </div>
 

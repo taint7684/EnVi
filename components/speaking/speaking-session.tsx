@@ -81,12 +81,14 @@ export function SpeakingSession({
   topicId,
   level,
   onEnd,
+  initialMode = "ai",
 }: {
   sessionId: string;
   topic: string;
   topicId: string;
   level: Level;
   onEnd: () => void;
+  initialMode?: "ai" | "fallback";
 }) {
   const [mode, setMode] = useState<"topic" | "freespeak">("topic");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -102,7 +104,7 @@ export function SpeakingSession({
     timestamp: number;
     mode: "topic" | "freespeak";
   } | null>(null);
-  const [fallbackMode, setFallbackMode] = useState(false);
+  const [fallbackMode, setFallbackMode] = useState(initialMode === "fallback");
   const [fallbackTurnIndex, setFallbackTurnIndex] = useState(0);
   const [fallbackShowSample, setFallbackShowSample] = useState(false);
   const [fallbackAwaitingRepeat, setFallbackAwaitingRepeat] = useState(false);
@@ -481,6 +483,10 @@ export function SpeakingSession({
   }, [questionIndex, phase]);
 
   const handleRetryAI = useCallback(() => {
+    setFallbackMode(false);
+    setFallbackShowSample(false);
+    setFallbackAwaitingRepeat(false);
+    setFallbackSample(null);
     if (retryAttempts >= MAX_RETRY_ATTEMPTS) {
       setRetryAttempts(0);
       void handleNextTurn();
@@ -584,6 +590,38 @@ export function SpeakingSession({
     speak(text);
   }, [speak]);
 
+  const handleAiSourceChange = useCallback((source: "ai" | "fallback") => {
+    setError(null);
+    setRateLimitRetry(null);
+    setTranscript("");
+    setShowingTranscript(false);
+    setTranscriptEdited(false);
+    lastSentRef.current = null;
+    setRetryBlindActive(false);
+    setSampleAnswer("");
+    setKeywords([]);
+    setPraise("");
+    setShowSampleUntil(null);
+    setFallbackShowSample(false);
+    setFallbackAwaitingRepeat(false);
+    setFallbackCompleted(new Set());
+    setFallbackSample(null);
+    setFallbackTurnIndex(0);
+    setPhase("questions");
+    setStep(1);
+    setTurnCompleted(false);
+    setAwaitingRepeat(false);
+    setQuestionIndex(0);
+    setMessages([]);
+    if (source === "fallback") {
+      setFallbackMode(true);
+      sessionStartedRef.current = true;
+    } else {
+      setFallbackMode(false);
+      sessionStartedRef.current = false;
+    }
+  }, []);
+
   const handleShowSample = useCallback(async () => {
     setShowSampleUntil(Date.now() + SAMPLE_PEEK_MS);
     try {
@@ -661,6 +699,34 @@ export function SpeakingSession({
           </div>
         </div>
 
+        <div className="flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">Phản hồi:</span>
+          <div className="flex rounded-lg border border-border">
+            <button
+              type="button"
+              onClick={() => handleAiSourceChange("ai")}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${
+                !fallbackMode
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+            >
+              Có AI
+            </button>
+            <button
+              type="button"
+              onClick={() => handleAiSourceChange("fallback")}
+              className={`px-3 py-1 text-xs font-medium transition-colors ${
+                fallbackMode
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-muted"
+              }`}
+            >
+              Không AI
+            </button>
+          </div>
+        </div>
+
         <button
           type="button"
           onClick={() => void handleEnd()}
@@ -708,8 +774,9 @@ export function SpeakingSession({
         </div>
       ) : null}
 
-      {!fallbackMode && (
+      {(
         <>
+          {!fallbackMode && (
           <div className="flex min-h-[420px] max-h-[60vh] flex-col gap-3 overflow-y-auto rounded-2xl border border-border bg-card p-4 shadow-sm">
             {messages.map((message) => (
               <MessageBubble
@@ -726,6 +793,7 @@ export function SpeakingSession({
 
             <div ref={bottomRef} />
           </div>
+          )}
 
           {rateLimitRetry ? (
             <div className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-700 flex flex-col items-start gap-2">
