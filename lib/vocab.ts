@@ -1,10 +1,10 @@
 import "server-only";
 
+import collocationsData from "@/data/word-collocations.json";
 import { createClient } from "@/lib/supabase/server";
 import { buildReviewForecast, type ForecastDay } from "@/lib/review-forecast";
 import type {
   CardReviewRow,
-  CollocationInfo,
   DueCard,
   DueCount,
   DueSessionState,
@@ -87,23 +87,29 @@ export async function getSessionState(): Promise<VocabSessionState> {
   };
 }
 
+type CollocationEntry = {
+  collocation: string;
+  example_en: string;
+  example_vi: string;
+  meaning_vi?: string;
+};
+
+const COLLOCATIONS = collocationsData as Record<string, CollocationEntry>;
+
 async function attachCollocations(cards: DueCard[]): Promise<void> {
   if (cards.length === 0) return;
-  const supabase = await createClient();
-  const ids = cards.map((c) => c.word.id);
-  const { data } = await supabase
-    .from("word_collocations")
-    .select("word_id, collocation, example_en, example_vi")
-    .in("word_id", ids);
-
-  const map = new Map<string, CollocationInfo>();
-  for (const row of data ?? []) {
-    const r = row as { word_id: string; collocation: string; example_en: string; example_vi: string };
-    map.set(r.word_id, { collocation: r.collocation, example_en: r.example_en, example_vi: r.example_vi });
-  }
-
   for (const c of cards) {
-    c.collocation = map.get(c.word.id) ?? null;
+    const entry = COLLOCATIONS[c.word.id];
+    if (entry && entry.collocation) {
+      c.collocation = {
+        collocation: entry.collocation,
+        example_en: entry.example_en,
+        example_vi: entry.example_vi,
+        meaning_vi: entry.meaning_vi,
+      };
+    } else {
+      c.collocation = null;
+    }
   }
 }
 
@@ -152,11 +158,21 @@ export async function getDueCards(
 
   const sessionState = await getSessionState();
 
-  const { data: reviews } = await supabase
+  const fullReviews = await supabase
     .from("card_reviews")
     .select("word_id, due_at, stability, difficulty, state, reps, lapses, elapsed_days, scheduled_days, learning_steps, last_reviewed_at, ease, interval")
     .eq("user_id", user.id)
     .order("due_at", { ascending: true });
+  let reviews = fullReviews.data;
+  if (fullReviews.error || !reviews) {
+    // Production schema may lack FSRS columns; fall back to the basic set.
+    const basicReviews = await supabase
+      .from("card_reviews")
+      .select("word_id, due_at, reps, lapses, ease, interval, last_reviewed_at")
+      .eq("user_id", user.id)
+      .order("due_at", { ascending: true });
+    reviews = (basicReviews.data ?? null) as unknown as typeof fullReviews.data;
+  }
 
   const now = new Date();
   const dueReviews = (reviews ?? []).filter(

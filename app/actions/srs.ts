@@ -58,12 +58,13 @@ export async function reviewWord(
     dueAt = (existing as { due_at?: string } | null)?.due_at ?? now.toISOString();
   } else {
     const nextCard = repeatCard(card, grade, now);
-    const row = {
+    const dueAtIso = nextCard.due.toISOString();
+    const fullRow = {
       user_id: user.id,
       word_id: wordId,
       ease: 2.5,
       interval: Math.round(nextCard.scheduled_days),
-      due_at: nextCard.due.toISOString(),
+      due_at: dueAtIso,
       reps: nextCard.reps,
       lapses: nextCard.lapses,
       last_reviewed_at: now.toISOString(),
@@ -75,11 +76,28 @@ export async function reviewWord(
       learning_steps: nextCard.learning_steps,
       last_review: nextCard.last_review ? nextCard.last_review.toISOString() : null,
     };
-    const { error } = await supabase
+    const full = await supabase
       .from("card_reviews")
-      .upsert(row, { onConflict: "user_id,word_id" });
-    if (error) throw new Error(error.message);
-    dueAt = nextCard.due.toISOString();
+      .upsert(fullRow, { onConflict: "user_id,word_id" });
+    if (full.error) {
+      // Production schema may lack FSRS columns (stability/difficulty/...).
+      // Fall back to the basic column set so rating still works everywhere.
+      const basicRow = {
+        user_id: user.id,
+        word_id: wordId,
+        ease: 2.5,
+        interval: Math.round(nextCard.scheduled_days),
+        due_at: dueAtIso,
+        reps: nextCard.reps,
+        lapses: nextCard.lapses,
+        last_reviewed_at: now.toISOString(),
+      };
+      const basic = await supabase
+        .from("card_reviews")
+        .upsert(basicRow, { onConflict: "user_id,word_id" });
+      if (basic.error) throw new Error(basic.error.message);
+    }
+    dueAt = dueAtIso;
   }
 
   await supabase.from("vocab_review_log").insert({

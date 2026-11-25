@@ -1,10 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle2, RotateCcw, ThumbsDown, ThumbsUp, Trophy, Zap } from "lucide-react";
+import { BookOpen, CheckCircle2, RotateCcw, Trophy, Zap } from "lucide-react";
 
 import { reviewWord, updateSessionState } from "@/app/actions/srs";
-import { setTriageStatus } from "@/lib/vocab/triage";
 import {
   applyGrade,
   continueGroup as continueGroupState,
@@ -45,7 +44,6 @@ export function VocabSession({
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [sessionState, setSessionState] = useState(initialSessionState);
-  const [triageBusy, setTriageBusy] = useState(false);
 
   const requeueCount = useRef<Record<string, number>>({});
   const ratedIndex = useRef<number | null>(null);
@@ -123,45 +121,6 @@ export function VocabSession({
     setFlipped(false);
   }, [cards, gradeState]);
 
-  const handleTriage = useCallback(
-    async (status: "known" | "unknown") => {
-      if (!current || triageBusy || submitting) return;
-      setTriageBusy(true);
-      setError(null);
-      const wordId = current.word.id;
-
-      try {
-        await setTriageStatus({ wordId, status });
-
-        if (status === "known") {
-          // Remove this card from the queue — user already knows it
-          const newQueue = queue.filter((_, i) => i !== queueIndex);
-          setQueue(newQueue);
-          setGradeState((prev) => ({
-            ...prev,
-            queueLength: newQueue.length,
-            // queueIndex stays the same — next card shifts into this position
-          }));
-          setFlipped(false);
-        } else {
-          // Unknown — advance to next card, keep in queue for grading
-          setGradeState((prev) => ({
-            ...prev,
-            queueIndex: prev.queueIndex + 1,
-          }));
-          setFlipped(false);
-        }
-      } catch (cause) {
-        setError(
-          cause instanceof Error ? cause.message : "Có lỗi xảy ra khi lưu.",
-        );
-      } finally {
-        setTriageBusy(false);
-      }
-    },
-    [current, triageBusy, submitting, queueIndex, queue],
-  );
-
   const handleContinueGroup = useCallback(() => {
     const remaining = cards.slice(queueIndex);
     setQueue(remaining);
@@ -188,6 +147,7 @@ export function VocabSession({
       }
 
       if (event.key >= "1" && event.key <= "4") {
+        if (!flipped) return;
         const grade = GRADES[Number(event.key) - 1];
         if (grade) rate(grade);
       }
@@ -195,7 +155,7 @@ export function VocabSession({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [done, rate, groupFinished, submitting]);
+  }, [done, rate, groupFinished, submitting, flipped]);
 
   if (groupFinished) {
     const difficult = sessionState.difficult_word_ids;
@@ -333,45 +293,13 @@ export function VocabSession({
         />
       </div>
 
-      {current.review === null && !current.triageStatus ? (
-        <div className="mt-4 rounded-xl bg-muted/50 p-3">
-          <p className="mb-2 text-center text-xs text-muted-foreground">
-            Bạn có biết từ này trước khi học không?
-          </p>
-          <div className="flex justify-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => handleTriage("unknown")}
-              disabled={triageBusy || submitting}
-              className="border-amber-300 text-amber-700 hover:bg-amber-50"
-            >
-              <ThumbsDown className="mr-1.5 size-4" />
-              Chưa biết
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => handleTriage("known")}
-              disabled={triageBusy || submitting}
-              className="border-emerald-300 text-emerald-700 hover:bg-emerald-50"
-            >
-              <ThumbsUp className="mr-1.5 size-4" />
-              Đã biết
-            </Button>
-          </div>
-        </div>
-      ) : current.triageStatus === "known" ? (
-        <div className="mt-4 rounded-xl bg-emerald-50 p-2 text-center text-xs text-emerald-700">
-          Đã đánh dấu: Biết từ này
-        </div>
-      ) : current.triageStatus === "unknown" ? (
-        <div className="mt-4 rounded-xl bg-amber-50 p-2 text-center text-xs text-amber-700">
-          Đã đánh dấu: Chưa biết — đang học
-        </div>
-      ) : null}
-
-      <RatingBar onRate={rate} disabled={submitting} />
+      {flipped ? (
+        <RatingBar onRate={rate} disabled={submitting} />
+      ) : (
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Nhấn “Lật thẻ” (hoặc Space) để xem đáp án và đánh giá.
+        </p>
+      )}
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
         {mode === "practice"

@@ -72,6 +72,7 @@ export type CollocationInfo = {
   collocation: string;
   example_en: string;
   example_vi: string;
+  meaning_vi?: string;
 };
 
 export type TriageStatus = "known" | "unknown" | "learning";
