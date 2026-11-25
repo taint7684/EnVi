@@ -1282,18 +1282,18 @@ export function SpeakingSession({
           )}
 
           {latestAi?.errors && latestAi.errors.length > 0 && isAnswerStep ? (
-            <div className="mt-2 space-y-1.5 rounded-lg bg-red-50 px-3 py-2">
-              <p className="text-xs font-semibold text-red-700">
-                Lỗi cần sửa (tối đa 2)
+            <div className="mt-2 space-y-1.5 rounded-lg bg-amber-50 px-3 py-2">
+              <p className="text-xs font-semibold text-amber-700">
+                Cách nói tự nhiên hơn (không phải lỗi sai — bạn đã nói được ý rồi)
               </p>
               {latestAi.errors.map((item, index) => (
                 <div key={index} className="text-sm">
-                  <p className="text-red-700">
+                  <p className="text-amber-800">
                     <span className="font-medium">{item.error}</span>
                     {item.correction ? ` → ${item.correction}` : ""}
                   </p>
                   {item.explanation_vi ? (
-                    <p className="text-xs text-red-600/80">
+                    <p className="text-xs text-amber-700/80">
                       {item.explanation_vi}
                     </p>
                   ) : null}
@@ -1303,11 +1303,11 @@ export function SpeakingSession({
           ) : null}
 
           {latestAi?.corrected_sentence && isAnswerStep ? (
-            <div className="mt-2 rounded-lg bg-green-50 px-3 py-2">
-              <p className="text-xs font-semibold text-green-700">
-                Câu cải thiện
+            <div className="mt-2 rounded-lg bg-emerald-50 px-3 py-2">
+              <p className="text-xs font-semibold text-emerald-700">
+                Cách nói tự nhiên hơn (dùng để nói lại)
               </p>
-              <p className="text-sm text-green-800">{latestAi.corrected_sentence}</p>
+              <p className="text-sm text-emerald-800">{latestAi.corrected_sentence}</p>
             </div>
           ) : null}
 
@@ -1321,19 +1321,22 @@ export function SpeakingSession({
                   </span>
                 ))}
               </div>
+              <p className="mt-1 text-xs text-blue-600">
+                Sai cũng được — hãy nói theo ý bạn, dùng từ khoá gợi ý.
+              </p>
               {retryAttempts >= MAX_RETRY_ATTEMPTS && (
-                <p className="mt-1 text-xs text-red-600">
-                  Đã đạt số lần thử tối đa ({MAX_RETRY_ATTEMPTS}), sang câu tiếp theo.
+                <p className="mt-1 text-xs text-amber-600">
+                  Đã thử {MAX_RETRY_ATTEMPTS} lần, câu sau sẽ tốt hơn. Tiếp tục nhé!
                 </p>
               )}
             </div>
           )}
 
           {awaitingRepeat && !turnCompleted && !fallbackMode && !isRetryBlindStep && (
-            <div className="mt-3 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700 flex flex-col items-start gap-2">
+            <div className="mt-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700 flex flex-col items-start gap-2">
               <span>
-                Hãy nói lại câu đã cải thiện ở trên. Khi xong, bấm Ghi âm và đọc
-                lại.
+                Bạn đã nói rất tốt! Hãy nói lại bằng lời mình với câu tự nhiên hơn ở trên.
+                Khi xong, bấm Ghi âm và đọc lại.
               </span>
               <button
                 type="button"

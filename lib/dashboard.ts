@@ -212,6 +212,9 @@ export type NorthStarMetrics = {
   speakingSessionsWeek: number;
   avgWpmWeek: number | null;
   streak: number;
+  speakingMinutesPrevWeek: number;
+  speakingSessionsPrevWeek: number;
+  avgWpmPrevWeek: number | null;
 };
 
 /**
@@ -227,6 +230,9 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     speakingSessionsWeek: 0,
     avgWpmWeek: null,
     streak: 0,
+    speakingMinutesPrevWeek: 0,
+    speakingSessionsPrevWeek: 0,
+    avgWpmPrevWeek: null,
   };
   const supabase = await createClient();
   const {
@@ -238,26 +244,40 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
   const todayStart = new Date(now);
   todayStart.setHours(0, 0, 0, 0);
   const weekStart = new Date(todayStart.getTime() - 6 * DAY_MS);
+  const prevWeekStart = new Date(weekStart.getTime() - 7 * DAY_MS);
+  const prevWeekEnd = new Date(weekStart.getTime() - 1);
 
   const { data: turns } = await supabase
     .from("speaking_turns")
     .select("duration_ms, wpm, created_at")
     .eq("user_id", user.id)
-    .gte("created_at", weekStart.toISOString());
+    .gte("created_at", prevWeekStart.toISOString());
 
   let todayMs = 0;
   let weekMs = 0;
+  let prevWeekMs = 0;
   let wpmWeighted = 0;
   let wpmWeightMs = 0;
+  let prevWpmWeighted = 0;
+  let prevWpmWeightMs = 0;
   for (const t of (turns as { duration_ms: number | null; wpm: number | null; created_at: string }[] | null) ?? []) {
     const dur = Number(t.duration_ms ?? 0);
     if (dur <= 0) continue;
-    weekMs += dur;
-    if (new Date(t.created_at) >= todayStart) todayMs += dur;
+    const created = new Date(t.created_at);
     const w = Number(t.wpm ?? 0);
-    if (w > 0) {
-      wpmWeighted += w * dur;
-      wpmWeightMs += dur;
+    if (created >= weekStart) {
+      weekMs += dur;
+      if (created >= todayStart) todayMs += dur;
+      if (w > 0) {
+        wpmWeighted += w * dur;
+        wpmWeightMs += dur;
+      }
+    } else if (created >= prevWeekStart && created <= prevWeekEnd) {
+      prevWeekMs += dur;
+      if (w > 0) {
+        prevWpmWeighted += w * dur;
+        prevWpmWeightMs += dur;
+      }
     }
   }
 
@@ -265,6 +285,12 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     .from("speaking_sessions")
     .select("*", { count: "exact", head: true })
     .gte("started_at", weekStart.toISOString());
+
+  const { count: sessionsPrevWeek } = await supabase
+    .from("speaking_sessions")
+    .select("*", { count: "exact", head: true })
+    .gte("started_at", prevWeekStart.toISOString())
+    .lte("started_at", prevWeekEnd.toISOString());
 
   const { data: streakData } = await supabase
     .from("daily_progress")
@@ -279,5 +305,8 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     speakingSessionsWeek: sessionsWeek ?? 0,
     avgWpmWeek: wpmWeightMs > 0 ? Math.round((wpmWeighted / wpmWeightMs) * 10) / 10 : null,
     streak: (streakData as { streak: number }[] | null)?.[0]?.streak ?? 0,
+    speakingMinutesPrevWeek: Math.round(prevWeekMs / 60000),
+    speakingSessionsPrevWeek: sessionsPrevWeek ?? 0,
+    avgWpmPrevWeek: prevWpmWeightMs > 0 ? Math.round((prevWpmWeighted / prevWpmWeightMs) * 10) / 10 : null,
   };
 }

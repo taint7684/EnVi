@@ -64,6 +64,8 @@ export function ReflexSession({
   const [latencyMs, setLatencyMs] = useState<number | null>(null);
   const [pureRevealed, setPureRevealed] = useState(false);
   const [pureTranscript, setPureTranscript] = useState("");
+  const [sessionLatencies, setSessionLatencies] = useState<number[]>([]);
+  const [gotItCount, setGotItCount] = useState(0);
   const gradedIndex = useRef<number | null>(null);
   const startRef = useRef<number>(0);
 
@@ -139,6 +141,9 @@ export function ReflexSession({
     if (mode === "pure") {
       setPureTranscript(spoken);
       setPureRevealed(true);
+      if (latency > 0) {
+        setSessionLatencies((prev) => [...prev, latency]);
+      }
       return;
     }
 
@@ -222,6 +227,7 @@ export function ReflexSession({
   function handlePureGrade(grade: "got_it" | "slow" | "forgot") {
     const mapped: ReviewGrade =
       grade === "got_it" ? "good" : grade === "slow" ? "hard" : "again";
+    if (grade === "got_it") setGotItCount((c) => c + 1);
     record(mapped);
     advance();
   }
@@ -291,6 +297,11 @@ export function ReflexSession({
   const reflexLevel = getReflexLevel(phrase.difficulty);
   const levelLabel =
     LEVEL_LABEL[judgment?.meaning.level ?? phrase.level ?? reflexLevel] ?? reflexLevel;
+  const avgLatency = sessionLatencies.length
+    ? Math.round(
+        sessionLatencies.reduce((a, b) => a + b, 0) / sessionLatencies.length,
+      )
+    : null;
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -298,14 +309,35 @@ export function ReflexSession({
         <span>
           {sessionMode === "review" ? "Ôn tập · " : ""}Câu {index + 1}/{queue.length}
         </span>
-        <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
-          {phrase.topic}
-        </span>
-        {latencyMs != null && (
+        {mode === "pure" ? (
+          <span className="flex items-center gap-2">
+            <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
+              Bật ra: {gotItCount}
+            </span>
+            {avgLatency != null ? (
+              <span
+                className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                  avgLatency <= 3000
+                    ? "bg-emerald-100 text-emerald-700"
+                    : avgLatency <= 6000
+                      ? "bg-amber-100 text-amber-700"
+                      : "bg-muted text-muted-foreground"
+                }`}
+              >
+                ⚡ TB {(avgLatency / 1000).toFixed(1)}s
+              </span>
+            ) : null}
+          </span>
+        ) : (
+          <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
+            {phrase.topic}
+          </span>
+        )}
+        {latencyMs != null && mode !== "pure" ? (
           <span className="rounded-full bg-muted px-2 py-0.5 text-xs">
             {latencyMs} ms
           </span>
-        )}
+        ) : null}
       </div>
       <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
         <div
@@ -401,8 +433,21 @@ export function ReflexSession({
                   </div>
                 ) : null}
 
+                {latencyMs != null ? (
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    ⚡ Bạn mở miệng sau {(latencyMs / 1000).toFixed(1)}s —{" "}
+                    {latencyMs <= 3000
+                      ? "phản xạ nhanh, đúng chất!"
+                      : latencyMs <= 6000
+                        ? "ổn, nói lại sẽ nhanh hơn."
+                        : "chậm một chút, nói lại vài lần là bật ra."}
+                  </p>
+                ) : null}
+
                 <div className="mt-5">
-                  <p className="text-sm font-medium text-foreground">Tự chấm:</p>
+                  <p className="text-sm font-medium text-foreground">
+                    Bạn thấy sao? (sai cũng được, miễn là đã nói)
+                  </p>
                   <div className="mt-2 flex flex-wrap justify-center gap-2">
                     <Button onClick={() => handlePureGrade("got_it")} size="lg">
                       Bật ra được
@@ -425,7 +470,7 @@ export function ReflexSession({
                   <div className="mt-3 flex justify-center">
                     <Button onClick={handlePureRetry} variant="ghost">
                       <RotateCcw className="size-4" />
-                      Nói lại
+                      Nói lại (không giới hạn)
                     </Button>
                   </div>
                 </div>
