@@ -441,6 +441,18 @@ export function PictureTalkPlayer({
           </div>
           <p className="text-center text-xs text-muted-foreground">{LEVEL_DESCRIPTIONS[level]}</p>
 
+          {transcript.trim() ? (
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => reset()}
+                className="text-xs font-medium text-primary underline hover:text-primary/80"
+              >
+                🔁 Nói lại mượt hơn (xóa bản nói, thử lại)
+              </button>
+            </div>
+          ) : null}
+
           {/* Recording controls */}
           <div className="flex items-center justify-center gap-3">
             {!recording ? (

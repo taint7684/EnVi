@@ -7,6 +7,18 @@ import { Button } from "@/components/ui/button";
 
 const PAGE_SIZE = 5;
 
+const LEVEL_RANK: Record<string, number> = {
+  A2: 0,
+  "A2-B1": 1,
+  B1: 2,
+  "B1-B2": 3,
+  B2: 4,
+};
+
+const SORTED_LESSONS = [...SHADOWING_LESSONS].sort(
+  (a, b) => (LEVEL_RANK[a.level] ?? 9) - (LEVEL_RANK[b.level] ?? 9),
+);
+
 const ShadowingPlayer = dynamic(
   () => import("@/components/shadowing/shadowing-player").then((m) => m.ShadowingPlayer),
   {
@@ -24,7 +36,7 @@ const ShadowingPlayer = dynamic(
 
 export function ShadowingContent() {
   const [visible, setVisible] = useState(PAGE_SIZE);
-  const lessons = SHADOWING_LESSONS.slice(0, visible);
+  const lessons = SORTED_LESSONS.slice(0, visible);
 
   return (
     <div className="mx-auto max-w-5xl">
@@ -44,13 +56,13 @@ export function ShadowingContent() {
         ))}
       </div>
 
-      {visible < SHADOWING_LESSONS.length ? (
+      {visible < SORTED_LESSONS.length ? (
         <div className="mt-6 flex justify-center">
           <Button
             variant="outline"
             onClick={() => setVisible((v) => v + PAGE_SIZE)}
           >
-            Xem thêm ({SHADOWING_LESSONS.length - visible} bài)
+            Xem thêm ({SORTED_LESSONS.length - visible} bài)
           </Button>
         </div>
       ) : null}

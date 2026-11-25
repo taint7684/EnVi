@@ -27,15 +27,15 @@ export const BLOCK_DEFS: Record<
 };
 
 export const ORDER: BlockId[] = [
-  "warmup",
-  "makeup",
   "reflex",
   "speaking",
-  "fluency",
-  "srs",
   "listen",
-  "vocab_new",
   "pronunciation",
+  "fluency",
+  "warmup",
+  "srs",
+  "vocab_new",
+  "makeup",
   "rotate",
 ];
 

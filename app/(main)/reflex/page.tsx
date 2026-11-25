@@ -43,7 +43,7 @@ export default async function ReflexPage({
         <p className="mt-1 text-sm text-muted-foreground">
           {sessionMode === "review"
             ? "Chế độ ôn tập · Luyện không giới hạn các câu đã học"
-            : "Nghe → Dịch → Nói · Mục tiêu 10 câu mới mỗi ngày"}
+            : "Nghe → Nói ngay → So sánh → Nói lại · 10 câu mới mỗi ngày"}
         </p>
       </div>
 

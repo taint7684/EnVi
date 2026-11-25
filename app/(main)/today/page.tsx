@@ -16,6 +16,15 @@ export default async function TodayPage() {
   return (
     <div className="space-y-6">
       <NorthStarCard metrics={metrics} />
+      <div className="rounded-2xl border border-primary/20 bg-primary/5 p-4">
+        <p className="text-sm font-semibold text-foreground">
+          Ưu tiên hôm nay: NÓI NGAY — đừng dịch trong đầu
+        </p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          Làm 2–3 block nói trước (Phản xạ · Speaking · Shadowing · Phát âm).
+          Mỗi lần: Nghe → Nói → Sửa → Nói lại. Mục tiêu: nói nhiều, ít dịch, ít sợ.
+        </p>
+      </div>
       <TodayPlan plan={plan} />
       <ThreeHourPlan />
     </div>

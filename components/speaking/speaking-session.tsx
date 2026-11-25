@@ -216,7 +216,10 @@ export function SpeakingSession({
             feedback_vi: result.feedback_vi || undefined,
             praise: result.praise || undefined,
             errors: result.errors?.length ? result.errors : undefined,
-            corrected_sentence: result.corrected_sentence || undefined,
+            corrected_sentence:
+              result.step === 2
+                ? undefined
+                : result.corrected_sentence || undefined,
             top_errors: result.top_errors?.length ? result.top_errors : undefined,
             key_phrases: result.key_phrases?.length ? result.key_phrases : undefined,
             reflex_questions: result.reflex_questions?.length ? result.reflex_questions : undefined,
@@ -232,7 +235,11 @@ export function SpeakingSession({
         if (result.sample_answer) setSampleAnswer(result.sample_answer);
         if (result.keywords?.length) setKeywords(result.keywords);
 
-        if (result.next_action === "done") {
+        if (result.step === 2) {
+          // Force "Nói lại bằng lời của mình" after feedback; corrected sentence stays hidden.
+          setStep(3);
+          setAwaitingRepeat(true);
+        } else if (result.next_action === "done") {
           setTurnCompleted(true);
           setAwaitingRepeat(false);
         } else if (result.next_action === "request_retry") {
@@ -1239,6 +1246,19 @@ export function SpeakingSession({
                       Xem lại mẫu câu
                     </button>
                   )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setRetryBlindActive(true);
+                      setRepeatedTurns((prev) => new Set([...prev, questionIndex]));
+                      void handleNextTurn();
+                    }}
+                    disabled={isRecording || loading || transcribing}
+                    className="inline-flex h-10 items-center gap-1.5 rounded-lg bg-emerald-600 px-4 text-sm font-medium text-white transition-colors hover:bg-emerald-700 disabled:opacity-50"
+                  >
+                    Tôi đã nói lại, tiếp tục
+                    <ArrowRight className="size-4" />
+                  </button>
                 </>
               )}
               {!isAskStep && !isRetryBlindStep && (
