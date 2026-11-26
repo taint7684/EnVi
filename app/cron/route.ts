@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-export const config = { schedule: "0 3 * * *" };
+export const config = { schedule: "0 20 * * *" }; // 20:00 UTC = 03:00 VN (UTC+7)
 
 export async function GET(request: Request) {
   const secret = request.headers.get("authorization");
@@ -9,72 +9,111 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const service = await createClient(); // service role bypasses RLS
+  const service = await createClient();
   const now = new Date().toISOString();
 
-  // 1. Lay cac pattern can xet lai (new/practicing, den han next_check_at)
-  const { data: patterns, error: perr } = await service
-    .from("error_patterns")
-    .select("user_id, pattern_key, status, mastery_streak")
-    .in("status", ["new", "practicing"])
-    .or("next_check_at.is.null,next_check_at.lte." + now);
+  try {
+    // 1. Process error events to update patterns (from error log)
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://envi-deploy-one.vercel.app";
+    const processRes = await fetch(`${siteUrl}/api/errors/process`, {
+      method: "GET",
+      headers: { "Authorization": `Bearer ${process.env.CRON_SECRET}` },
+    });
+    const processData = await processRes.json();
 
-  if (perr) return NextResponse.json({ error: perr.message }, { status: 500 });
-  if (!patterns || patterns.length === 0) {
-    return NextResponse.json({ ok: true, created: 0 });
-  }
+    // 2. Update pattern mastery streaks (for patterns without errors today)
+    // 03:00 VN = 20:00 UTC
+    const todayStart = new Date();
+    todayStart.setHours(20, 0, 0, 0);
+    if (todayStart > new Date()) todayStart.setDate(todayStart.getDate() - 1);
 
-  // 2. Nhom theo user
-  const byUser = new Map<string, string[]>();
-  for (const p of patterns) {
-    const keys = byUser.get(p.user_id) ?? [];
-    keys.push(p.pattern_key);
-    byUser.set(p.user_id, keys);
-  }
+    const { data: patterns } = await service
+      .from("error_patterns")
+      .select("*")
+      .eq("status", "active");
 
-  let created = 0;
-  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+    let patternsUpdated = 0;
+    if (patterns && patterns.length > 0) {
+      for (const pattern of patterns) {
+        const { data: todayErrors } = await service
+          .from("error_events")
+          .select("id")
+          .eq("user_id", pattern.user_id)
+          .gte("created_at", todayStart.toISOString())
+          .like("error_type", `${pattern.pattern_type}%`);
 
-  for (const [userId, keys] of byUser) {
-    // Kiem tra lesson da co trong 30 ngay qua de khong tao trung
-    const { data: existing } = await service
-      .from("makeup_lessons")
-      .select("pattern_key")
-      .eq("user_id", userId)
-      .in("status", ["ready", "in_progress"])
-      .gte("created_at", thirtyDaysAgo);
-    const existingKeys = new Set(
-      (existing ?? []).map((e: { pattern_key: string }) => e.pattern_key),
-    );
+        const hadErrorToday = todayErrors && todayErrors.length > 0;
 
-    for (const key of keys) {
-      if (existingKeys.has(key)) continue;
-      const { error: ierr } = await service.from("makeup_lessons").insert({
-        user_id: userId,
-        pattern_key: key,
-        status: "ready",
-        content: {},
-        progress: {},
-      });
-      if (!ierr) created += 1;
+        if (hadErrorToday) {
+          await service
+            .from("error_patterns")
+            .update({ mastery_streak: 0, status: "active", last_seen: now })
+            .eq("id", pattern.id);
+        } else {
+          const newStreak = pattern.mastery_streak + 1;
+          let newStatus = "improving";
+          let newLevel = pattern.mastery_level;
+
+          if (newStreak >= 1 && newLevel < 1) newLevel = 1;
+          if (newStreak >= 3 && newLevel < 2) newLevel = 2;
+          if (newStreak >= 7 && newLevel < 3) newLevel = 3;
+          if (newStreak >= 14 && newLevel < 4) newLevel = 4;
+          if (newStreak >= 30 && newLevel < 5) newLevel = 5;
+
+          if (newStreak >= 14) newStatus = "mastered";
+
+          await service
+            .from("error_patterns")
+            .update({
+              mastery_streak: newStreak,
+              mastery_level: newLevel,
+              status: newStatus,
+            })
+            .eq("id", pattern.id);
+        }
+        patternsUpdated++;
+      }
     }
 
-    // 3. Cap nhat next_check_at (+1 ngay, tang theo mastery_streak)
-    const delayDays =
-      1 +
-      Math.min(
-        5,
-        Math.floor(
-          (patterns.find((p: { user_id: string }) => p.user_id === userId)
-            ?.mastery_streak ?? 0) / 2,
-        ),
-      );
-    await service
-      .from("error_patterns")
-      .update({ next_check_at: new Date(Date.now() + delayDays * 24 * 60 * 60 * 1000).toISOString() })
-      .eq("user_id", userId)
-      .in("pattern_key", keys);
-  }
+    // 3. Auto-create makeup lessons for critical/open errors
+    const { data: criticalErrors } = await service
+      .from("error_events")
+      .select("*")
+      .eq("status", "open")
+      .in("severity", ["major", "critical"])
+      .is("mastered_at", null);
 
-  return NextResponse.json({ ok: true, created });
+    let makeupsCreated = 0;
+    if (criticalErrors && criticalErrors.length > 0) {
+      for (const error of criticalErrors) {
+        const { data: existing } = await service
+          .from("makeup_lessons")
+          .select("id")
+          .eq("error_event_id", error.id)
+          .maybeSingle();
+
+        if (!existing) {
+          await service
+            .from("makeup_lessons")
+            .insert({
+              user_id: error.user_id,
+              error_event_id: error.id,
+              status: "in_progress",
+              step: 1,
+            });
+          makeupsCreated++;
+        }
+      }
+    }
+
+    return NextResponse.json({ 
+      ok: true, 
+      processed: processData.processed || 0,
+      patternsUpdated,
+      makeupsCreated,
+    });
+  } catch (error) {
+    console.error("Cron error:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+  }
 }

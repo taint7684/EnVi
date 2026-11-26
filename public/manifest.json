@@ -1,56 +1,84 @@
 {
-  "name": "EnVi - Luyện tiếng Anh mỗi ngày",
+  "name": "EnVi - English Speaking Practice",
   "short_name": "EnVi",
-  "description": "Website học tiếng Anh cá nhân hoá: speaking coach AI, flashcard 3000 từ, shadowing, dictation, đọc to và lộ trình 90 ngày.",
-  "start_url": "/",
+  "description": "180-day spiral curriculum to reach B1 by day 90 and B2 by day 180",
+  "start_url": "/today",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#16a34a",
+  "theme_color": "#3b82f6",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-192x192.svg",
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-256x256.svg",
-      "sizes": "256x256",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-384x384.svg",
+      "src": "/icons/icon-384x384.png",
       "sizes": "384x384",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512x512.svg",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "categories": ["education", "productivity"],
-  "lang": "vi",
-  "dir": "ltr",
-  "screenshots": [],
   "shortcuts": [
     {
-      "name": "Học từ vựng",
-      "short_name": "Vocab",
-      "description": "Ôn tập flashcard",
-      "url": "/vocab",
-      "icons": [{ "src": "/icon-192x192.svg", "sizes": "192x192" }]
+      "name": "Today's Lesson",
+      "short_name": "Today",
+      "description": "Start today's 90-minute speaking session",
+      "url": "/today",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
     },
     {
-      "name": "Luyện nói",
+      "name": "Reflex Practice",
+      "short_name": "Reflex",
+      "description": "Practice 10 reflex phrases",
+      "url": "/reflex",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Speaking",
       "short_name": "Speaking",
-      "description": "Luyện nói với AI",
+      "description": "30-minute AI speaking session",
       "url": "/speaking",
-      "icons": [{ "src": "/icon-192x192.svg", "sizes": "192x192" }]
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
 }

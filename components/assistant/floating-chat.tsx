@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import type { LearningSnapshot } from "@/lib/types";
 import { loadChatHistory, saveChatHistory, type ChatMessage } from "@/lib/chat-history";
 import { toast } from "sonner";
+import { useFeatureFlag } from "@/lib/hooks/useFeatureFlags";
 
 type Message = ChatMessage;
 
@@ -37,6 +38,10 @@ const GREETING: Message = {
 };
 
 export function FloatingChat() {
+  const { enabled: assistantEnabled, loading: flagLoading } = useFeatureFlag("assistant_chat");
+  
+  if (!assistantEnabled) return null;
+
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(() =>

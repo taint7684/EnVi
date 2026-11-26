@@ -4,12 +4,12 @@ import { z } from "zod";
 
 export class AiUnavailableError extends Error {
   constructor(public readonly cause?: unknown) {
-    super("Tat ca provider AI khong hoat dod");
+    super("All AI providers unavailable");
     this.name = "AiUnavailableError";
   }
 }
 
-type ProviderName = "gemini" | "groq" | "openrouter" | "ollama";
+type ProviderName = "groq" | "openrouter" | "ollama";
 
 type ProviderCall = (input: { systemPrompt: string; userPrompt: string; responseSchema?: unknown }) => Promise<string>;
 
@@ -29,7 +29,7 @@ type GenerateResult<T> = {
   ms: number;
 };
 
-const DEFAULT_CHAIN = "gemini,groq,openrouter,ollama";
+const DEFAULT_CHAIN = "ollama,groq,openrouter";
 const DEFAULT_TIMEOUT_MS = 12000;
 const TASK_TIMEOUT_MS: Record<string, number> = {
   reflex_judge: 4000,
@@ -44,12 +44,11 @@ function envChain(): ProviderName[] {
   return raw
     .split(",")
     .map((s) => s.trim().toLowerCase())
-    .filter((s): s is ProviderName => s === "gemini" || s === "groq" || s === "openrouter" || s === "ollama");
+    .filter((s): s is ProviderName => s === "groq" || s === "openrouter" || s === "ollama");
 }
 
 function envModel(provider: ProviderName): string {
   if (provider === "groq") return process.env.GROQ_MODEL ?? "qwen/qwen3.8-27b";
-  if (provider === "gemini") return process.env.GEMINI_MODEL ?? "gemini-3.8-flash";
   if (provider === "openrouter") return process.env.OPENROUTER_MODEL ?? "google/gemma-2-9b-it:free";
   return process.env.OLLAMA_MODEL ?? "qwen3:1.7b";
 }
@@ -114,6 +113,36 @@ class OllamaHealth {
 }
 
 const ollamaHealth = new OllamaHealth();
+
+// Groq concurrency queue - max 1 concurrent request (free tier 30 RPM)
+class GroqQueue {
+  private running = false;
+  private queue: Array<{ resolve: (v: string) => void; reject: (e: Error) => void; fn: () => Promise<string> }> = [];
+
+  async enqueue(fn: () => Promise<string>): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.queue.push({ resolve, reject, fn });
+      this.process();
+    });
+  }
+
+  private async process(): Promise<void> {
+    if (this.running || this.queue.length === 0) return;
+    this.running = true;
+    const { resolve, reject, fn } = this.queue.shift()!;
+    try {
+      const result = await fn();
+      resolve(result);
+    } catch (e) {
+      reject(e instanceof Error ? e : new Error(String(e)));
+    } finally {
+      this.running = false;
+      this.process();
+    }
+  }
+}
+
+const groqQueue = new GroqQueue();
 
 type BudgetEntry = { count: number; day: string };
 
@@ -211,21 +240,17 @@ async function parseOrRepair<T>(
 }
 
 async function callGroq(input: GenerateInput<unknown>, timeoutMs: number): Promise<string> {
-  const mod = await import("./groq");
-  const { systemPrompt, userPrompt } = extractMessages(input);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    return await mod.callGroqChat({ systemPrompt, userPrompt });
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
-async function callGemini(input: GenerateInput<unknown>, timeoutMs: number): Promise<string> {
-  const mod = await import("./gemini");
-  const { systemPrompt, userPrompt } = extractMessages(input);
-  return await mod.callGemini({ systemPrompt, userPrompt, responseSchema: input.schema });
+  return groqQueue.enqueue(async () => {
+    const mod = await import("./groq");
+    const { systemPrompt, userPrompt } = extractMessages(input);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      return await mod.callGroqChat({ systemPrompt, userPrompt });
+    } finally {
+      clearTimeout(timer);
+    }
+  });
 }
 
 async function callOllama(input: GenerateInput<unknown>, timeoutMs: number): Promise<string> {
@@ -256,7 +281,6 @@ function providerCaller(provider: ProviderName, input: GenerateInput<unknown>, t
   return async ({ systemPrompt, userPrompt, responseSchema }) => {
     const fakeInput: GenerateInput<unknown> = { ...input, messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }] };
     if (provider === "groq") return await callGroq(fakeInput, timeoutMs);
-    if (provider === "gemini") return await callGemini(fakeInput, timeoutMs);
     if (provider === "openrouter") return await callOpenRouter(fakeInput, timeoutMs);
     return await callOllama(fakeInput, timeoutMs);
   };
@@ -269,11 +293,10 @@ async function runProvider(
 ): Promise<string> {
   if (provider === "ollama") {
     if (!(await ollamaHealth.isAvailable())) {
-      throw new Error("Ollama khong san sang");
+      throw new Error("Ollama not available");
     }
   }
   if (provider === "groq") return await callGroq(input, timeoutMs);
-  if (provider === "gemini") return await callGemini(input, timeoutMs);
   if (provider === "openrouter") return await callOpenRouter(input, timeoutMs);
   return await callOllama(input, timeoutMs);
 }

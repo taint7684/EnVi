@@ -1,0 +1,2528 @@
+[
+  {
+    "id": "sh-morning",
+    "youtubeId": "aQ0w2I0Eb9I",
+    "title": "My Morning Routine",
+    "titleVi": "Thói Quen Buổi Sáng",
+    "level": "A2",
+    "duration": "1:10",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 25,
+        "text": "So, I normally wake up at about 6 or 6:15 AM."
+      },
+      {
+        "id": 2,
+        "startTime": 25,
+        "endTime": 36,
+        "text": "When I wake up, the first thing I do is read my bible."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I like to study in the morning, because I feel motivated."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 53,
+        "text": "Other people prefer studying in the evening."
+      },
+      {
+        "id": 5,
+        "startTime": 53,
+        "endTime": 65,
+        "text": "So, after I study, I usually eat some fruit. This is my first food of the day."
+      },
+      {
+        "id": 6,
+        "startTime": 65,
+        "endTime": 70,
+        "text": "I usually start working at 7:30 AM."
+      }
+    ],
+    "videoSynced": true
+  },
+  {
+    "id": "sh-cafe",
+    "youtubeId": "6Mcn4k1EtZA",
+    "title": "Ordering at a Café",
+    "titleVi": "Gọi Món Ở Quán Cà Phê",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Good morning, what would you like to order?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "I would like a small latte with oat milk, please."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Would you like anything to eat with that?"
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Yes, I will take a blueberry muffin."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "That will be five dollars and fifty cents."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-directions",
+    "youtubeId": "thfcha1WpKQ",
+    "title": "Asking for Directions",
+    "titleVi": "Hỏi Đường",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Excuse me, could you help me find the museum?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Sure, go straight and turn left at the bank."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "The museum is next to the big library."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "It is about a ten minute walk from here."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Thank you so much for your help!"
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-weather",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Talking About the Weather",
+    "titleVi": "Nói Về Thời Tiết",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "It is really cold today, is not it?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Yes, I think it might snow this evening."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "The weather app says it will be sunny tomorrow."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I hope so, I want to go for a picnic."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Do not forget to bring a warm jacket."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-shopping",
+    "youtubeId": "I6CRtpSZ67c",
+    "title": "Shopping for Groceries",
+    "titleVi": "Mua Đồ Ở Siêu Thị",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I need to buy some vegetables and fruit."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "The tomatoes look fresh and red today."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "How much are these apples per kilo?"
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "They are two dollars and ninety cents."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I will take three kilos, please."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-health",
+    "youtubeId": "YRTjEUH1kHA",
+    "title": "A New Study on Sleep",
+    "titleVi": "Một Nghiên Cứu Mới Về Giấc Ngủ",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Scientists have found that sleep improves memory."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Adults should sleep between seven and nine hours."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "People who sleep less often feel tired and stressed."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "A regular sleep schedule helps the body rest."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Try to avoid your phone before bedtime."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-travel",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Planning a Trip",
+    "titleVi": "Lên Kế Hoạch Cho Chuyến Đi",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "We are planning a trip to the mountains next month."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We will rent a small cabin near the lake."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "The drive takes about four hours from the city."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "I have booked the tickets and the hotel already."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "I cannot wait to see the beautiful views."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-food",
+    "youtubeId": "YRTjEUH1kHA",
+    "title": "Cooking Dinner",
+    "titleVi": "Nấu Cơm Tối",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Tonight I am cooking pasta with tomato sauce."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "First, I boil water and add a little salt."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Then I cook the pasta for about ten minutes."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "While it cooks, I prepare a fresh green salad."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Dinner is ready, let us eat together."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-work",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "A Day at the Office",
+    "titleVi": "Một Ngày Ở Văn Phòng",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "The office was busy from the moment we arrived."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We had a team meeting to discuss the new project."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Everyone shared ideas and gave useful feedback."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "By lunchtime, we had finished the first draft."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "It felt great to work together as a team."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-tech",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "How AI Is Changing Work",
+    "titleVi": "AI Đang Thay Đổi Công Việc",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Artificial intelligence is changing many industries."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It can analyze data faster than any human."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "However, it cannot replace human creativity easily."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Workers should learn new skills to stay competitive."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Continuous learning is the key to future success."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-env",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "Protecting the Environment",
+    "titleVi": "Bảo Vệ Môi Trường",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Climate change is a serious global challenge."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "We must reduce the amount of plastic we use."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Recycling helps save energy and natural resources."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Governments and businesses need to act together."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Small daily actions can make a real difference."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-edu",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "Why We Study History",
+    "titleVi": "Tại Sao Chúng Ta Học Lịch Sử",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "History is not only about dates and names."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It helps us understand how societies have changed."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "By studying the past, we learn from mistakes."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "It also teaches us to respect other cultures."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Understanding history helps us build a better future."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-science",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "The Power of Curiosity",
+    "titleVi": "Sức Mạnh Của Sự Tò Mò",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Curiosity is one of the strongest drivers of learning."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "When we are curious, our brain releases dopamine."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "This makes learning feel exciting and rewarding."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Children are naturally curious about the world."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "We can keep that curiosity alive by asking questions."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-culture",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "Festivals Around the World",
+    "titleVi": "Lễ Hội Trên Thế Giới",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Every culture has its own special festivals."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "In Japan, people celebrate the cherry blossom season."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "In India, the festival of colors brings people together."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "These events teach us about local traditions."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Traveling during a festival is an unforgettable experience."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-sport",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "The Benefits of Exercise",
+    "titleVi": "Lợi Ích Của Việc Tập Thể Dục",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Regular exercise keeps both the body and mind healthy."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It reduces stress and improves your mood."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Doctors recommend at least thirty minutes a day."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "You do not need a gym; walking is enough."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "The most important thing is to stay consistent."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-money",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "Managing Money Wisely",
+    "titleVi": "Quản Lý Tiền Bạc Khôn Ngoan",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Managing money is a skill everyone should learn."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Start by tracking your daily expenses carefully."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Try to save at least ten percent of your income."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Avoid buying things you do not really need."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "A budget gives you control over your financial future."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-interview",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "A Job Interview",
+    "titleVi": "Một Buổi Phỏng Vấn Xin Việc",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Thank you for coming in for the interview today."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Could you tell me a little about yourself?"
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "I have three years of experience in marketing."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Why do you want to work for our company?"
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "I admire your mission and I would love to contribute."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-negotiate",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "Negotiating a Price",
+    "titleVi": "Mặc Cả Giá Cả",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "This sofa is beautiful, but it is quite expensive."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Would you consider a small discount if I pay cash?"
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "I can offer ten percent off for cash payments."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "That sounds fair, do you deliver to my home?"
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Yes, delivery is free within the city."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-opinion",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "Giving Your Opinion",
+    "titleVi": "Đưa Ra Ý Kiến",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "In my opinion, public transport should be free."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It would reduce traffic and air pollution."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "However, some people think it is too expensive."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "I believe the long term benefits are worth it."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "What do you think about this idea?"
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-story",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "A Short Story",
+    "titleVi": "Một Câu Chuyện Ngắn",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Last summer, I traveled to a small coastal town."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Every morning, I walked along the quiet beach."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "One day, I met an old fisherman named Thomas."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "He told me fascinating stories about the sea."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "That trip taught me to slow down and enjoy life."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-psych",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "The Science of Habits",
+    "titleVi": "Khoa Học Về Thói Quen",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Habits shape our lives more than we realize."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Each habit follows a cue, routine, and reward loop."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "To change a habit, you must change the routine."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Small improvements, repeated daily, lead to big results."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Focus on systems rather than short term goals."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-econ",
+    "youtubeId": "p89MfEMe2WA",
+    "title": "Understanding the Economy",
+    "titleVi": "Hiểu Về Kinh Tế",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "The economy affects almost every part of our lives."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Inflation reduces the purchasing power of money."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Central banks raise interest rates to control it."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Unemployment and growth are closely connected."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Understanding these ideas helps us make better choices."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-tech2",
+    "youtubeId": "xzfd55HiyWE",
+    "title": "The Future of Remote Work",
+    "titleVi": "Tương Lai Của Làm Việc Từ Xa",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Remote work has become common in many industries."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It offers flexibility but also brings new challenges."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Employees must manage their time and stay motivated."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Companies need clear communication and good tools."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The future of work will likely be a hybrid model."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-lead",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "What Makes a Great Leader",
+    "titleVi": "Điều Tạo Nên Một Nhà Lãnh Đạo Giỏi",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Great leaders inspire people to reach their potential."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "They communicate a clear and honest vision."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "They listen carefully and respect different opinions."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Most importantly, they lead by example every day."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Leadership is about service, not about power."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-creative",
+    "youtubeId": "p89MfEMe2WA",
+    "title": "Unlocking Creativity",
+    "titleVi": "Khơi Mở Sự Sáng Tạo",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Creativity is not a gift; it is a skill you can build."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It begins with curiosity and the courage to experiment."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Do not fear mistakes, because they teach you quickly."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Combine ideas from different fields to find new solutions."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Give your mind time to rest and ideas will appear."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-med",
+    "youtubeId": "xzfd55HiyWE",
+    "title": "Living a Balanced Life",
+    "titleVi": "Sống Cân Bằng",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "A balanced life includes work, rest, and relationships."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We often focus too much on productivity alone."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Taking breaks actually improves our performance."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Strong relationships are linked to long term happiness."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Balance is not a destination but a daily practice."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-global",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "Speaking Globally",
+    "titleVi": "Giao Tiếp Toàn Cầu",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "English connects people from very different cultures."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Speaking clearly matters more than a perfect accent."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Listeners focus on your message, not your mistakes."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Confidence grows every time you practice speaking."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Do not wait until you are perfect to start talking."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-future",
+    "youtubeId": "p89MfEMe2WA",
+    "title": "Preparing for the Future",
+    "titleVi": "Chuẩn Bị Cho Tương Lai",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "The world is changing faster than ever before."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Jobs that exist today may disappear in ten years."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Adaptability has become the most valuable skill."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Keep learning, stay curious, and embrace change."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Your future depends on the choices you make today."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-reflect",
+    "youtubeId": "xzfd55HiyWE",
+    "title": "Reflecting on Your Day",
+    "titleVi": "Nhìn Lại Một Ngày Của Bạn",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "At the end of each day, take a moment to reflect."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Ask yourself what went well and what did not."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Celebrate small wins, even the ones others miss."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Learn from mistakes without being hard on yourself."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Tomorrow is a fresh chance to grow a little more."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-books",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "Why I Love Books",
+    "titleVi": "Tại Sao Tôi Yêu Sách",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Books have always been my favorite way to travel."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "With a single page, I can visit another country."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "They introduce me to ideas I would never find alone."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Reading before bed helps me relax and sleep well."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "A good book stays with you long after the last page."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-time",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Telling the Time",
+    "titleVi": "Nói Về Thời Gian",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Excuse me, do you have the time, please?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Yes, it is half past three."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Thank you, I am late for my class."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "You should hurry, the bus leaves at four."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I will take a taxi instead."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-family",
+    "youtubeId": "RJ8Fo29oVZo",
+    "title": "My Family",
+    "titleVi": "Gia Đình Tôi",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I have a small family with four people."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "My father is a doctor and my mother is a teacher."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "I have one younger sister who is still at school."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "We often have dinner together on Sundays."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I love spending time with my family."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-colours",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Talking About Colours",
+    "titleVi": "Nói Về Màu Sắc",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "What is your favorite colour?"
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "My favorite colour is blue."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "I like the sea and the sky, so blue makes me happy."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "My sister prefers red and orange."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "We painted her room yellow last weekend."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-animals",
+    "youtubeId": "RJ8Fo29oVZo",
+    "title": "My Pet",
+    "titleVi": "Thú Cưng Của Tôi",
+    "level": "A2",
+    "duration": "1:00",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "I have a small dog called Max."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "He is brown and very friendly."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Every morning I take him for a walk."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "He likes to play with a ball in the park."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "I love my dog very much."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-food2",
+    "youtubeId": "5zSmbWz4354",
+    "title": "At a Restaurant",
+    "titleVi": "Ở Nhà Hàng",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Good evening, a table for two, please."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Here is the menu, take your time."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "I would like the grilled chicken and a salad."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Would you like anything to drink?"
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Just some water, thank you."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-bus",
+    "youtubeId": "YRTjEUH1kHA",
+    "title": "Taking the Bus",
+    "titleVi": "Đi Xe Buýt",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Does this bus go to the city center?"
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Yes, it does, but you need to change at the next stop."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "How much is the ticket?"
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "It is two dollars for a single ride."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Thank you for your help."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-music",
+    "youtubeId": "baiacRy-4L8",
+    "title": "My Favorite Music",
+    "titleVi": "Âm Nhạc Yêu Thích",
+    "level": "A2-B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "I love listening to pop music in the morning."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "It helps me feel happy and full of energy."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "My favorite singer is Adele."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Her songs are emotional and beautiful."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "I often sing along when I am alone."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-weekend",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "Weekend Plans",
+    "titleVi": "Kế Hoạch Cuối Tuần",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "What are you doing this weekend?"
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "I am planning to visit my grandparents."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "We will cook a big lunch together."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Maybe we will go for a walk in the countryside."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "It should be very relaxing."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-exercise",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "Staying Healthy",
+    "titleVi": "Giữ Gìn Sức Khỏe",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Staying healthy is not very difficult."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "You just need to eat well and move more."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "I try to walk at least thirty minutes a day."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "I also drink plenty of water."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Small habits make a big difference over time."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-city",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "Life in the City",
+    "titleVi": "Cuộc Sống Ở Thành Phố",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Living in a big city has many advantages."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "There are shops, cinemas, and restaurants everywhere."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Public transport is usually convenient."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "However, the cost of living is quite high."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "For me, the energy of the city is worth it."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-plan",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "Making Plans",
+    "titleVi": "Lập Kế Hoạch",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Let us make a plan for the project."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "First, we should set a clear goal."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Then we can divide the work equally."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "We should also decide on a deadline."
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Good planning saves a lot of time later."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-travel2",
+    "youtubeId": "nw6e6jgfPi8",
+    "title": "At the Airport",
+    "titleVi": "Tại Sân Bay",
+    "level": "B1",
+    "duration": "1:20",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 16,
+        "text": "Welcome to the international airport."
+      },
+      {
+        "id": 2,
+        "startTime": 16,
+        "endTime": 32,
+        "text": "Please have your passport and ticket ready."
+      },
+      {
+        "id": 3,
+        "startTime": 32,
+        "endTime": 48,
+        "text": "Your flight boards at gate number twelve."
+      },
+      {
+        "id": 4,
+        "startTime": 48,
+        "endTime": 64,
+        "text": "Do you have any luggage to check in?"
+      },
+      {
+        "id": 5,
+        "startTime": 64,
+        "endTime": 80,
+        "text": "Have a pleasant flight."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-money2",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "Saving Money",
+    "titleVi": "Tiết Kiệm Tiền",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Saving money is a habit that everyone should build."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "Start by writing down what you spend each day."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "You will be surprised where your money goes."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Try to save a small amount every week."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Over time, it will grow into something meaningful."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-interview2",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "A Phone Interview",
+    "titleVi": "Phỏng Vấn Qua Điện Thoại",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Thank you for taking my call."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "I am calling about the position you applied for."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Could you tell me about your experience?"
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "I have worked in sales for four years."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "We would like to invite you for a second interview."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-science2",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "How Memory Works",
+    "titleVi": "Cơ Chế Của Trí Nhớ",
+    "level": "B1-B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Memory is not a single thing in the brain."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It is a network of connections that grow stronger with use."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Sleep plays a key role in storing new information."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Testing yourself is more effective than rereading."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The more you recall, the longer you remember."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-art",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "The World of Art",
+    "titleVi": "Thế Giới Nghệ Thuật",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Art has always been a way for humans to express themselves."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It allows us to communicate feelings that words cannot capture."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "A painting can tell a story without a single sentence."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Great art challenges us to see the world differently."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Everyone has the ability to create something meaningful."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-tech3",
+    "youtubeId": "p89MfEMe2WA",
+    "title": "Living With Technology",
+    "titleVi": "Sống Cùng Công Nghệ",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Technology has transformed the way we live and work."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We can now connect with anyone in seconds."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "However, we must be careful not to lose real human contact."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "Balance is the key to using technology wisely."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "It should serve us, not control us."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-success",
+    "youtubeId": "xzfd55HiyWE",
+    "title": "The Road to Success",
+    "titleVi": "Con Đường Đến Thành Công",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Success is rarely a straight line."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It is built from failures, lessons, and small wins."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "The most successful people are not the most talented."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "They are the ones who keep going when others quit."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Persistence is more powerful than talent alone."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-balance",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "Work and Life Balance",
+    "titleVi": "Cân Bằng Công Việc Và Cuộc Sống",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "Finding balance between work and life is a challenge for many."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "We often feel guilty when we rest."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "But rest is not a waste of time; it is necessary."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "A rested mind is more creative and productive."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "Balance allows us to enjoy the journey, not just the destination."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-kindness",
+    "youtubeId": "p89MfEMe2WA",
+    "title": "The Power of Kindness",
+    "titleVi": "Sức Mạnh Của Lòng Tử Tế",
+    "level": "B2",
+    "duration": "1:30",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 18,
+        "text": "A small act of kindness can change someone's entire day."
+      },
+      {
+        "id": 2,
+        "startTime": 18,
+        "endTime": 36,
+        "text": "It costs nothing, yet it means everything to the receiver."
+      },
+      {
+        "id": 3,
+        "startTime": 36,
+        "endTime": 54,
+        "text": "Kindness creates a chain reaction."
+      },
+      {
+        "id": 4,
+        "startTime": 54,
+        "endTime": 72,
+        "text": "When we are kind, others are inspired to be kind too."
+      },
+      {
+        "id": 5,
+        "startTime": 72,
+        "endTime": 90,
+        "text": "The world becomes better one small action at a time."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-daily-plan",
+    "youtubeId": "YRTjEUH1kHA",
+    "title": "Planning My Day",
+    "titleVi": "Lập Kế Hoạch Cho Ngày",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Good morning, everyone. Today I want to share how I plan my day."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "I always start by writing a short list of tasks the night before."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "In the morning, I check my calendar and choose the top three priorities."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "I try to finish the most difficult task first, while my energy is high."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "After lunch, I handle emails and smaller jobs that take less focus."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "In the evening, I review what I completed and prepare for tomorrow."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-email",
+    "youtubeId": "cg1MPssk3jY",
+    "title": "Writing a Professional Email",
+    "titleVi": "Viết Email Chuyên Nghiệp",
+    "level": "B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A good professional email should be clear and respectful."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start with a short greeting and state the purpose in the first line."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Use polite phrases such as 'I would like to' or 'Could you please'."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Keep paragraphs short so the reader can scan the message quickly."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Always proofread for spelling and grammar before you send it."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, close with a courteous sign-off and your contact details."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-meeting",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "Running an Effective Meeting",
+    "titleVi": "Chủ Trì Cuộc Họp Hiệu Quả",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "An effective meeting begins with a clear agenda shared in advance."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Invite only the people who need to be there, and keep the list short."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Start on time and appoint someone to take notes and track actions."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Encourage quieter members to speak, and prevent one person from dominating."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Summarise decisions and assign owners with deadlines before closing."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Send the minutes promptly so everyone knows what happens next."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-negotiation",
+    "youtubeId": "xzfd55HiyWE",
+    "title": "Negotiating Successfully",
+    "titleVi": "Đàm Phán Thành Công",
+    "level": "B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Successful negotiation is not about winning, but about finding mutual value."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Prepare thoroughly by understanding your goals and your limits in advance."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Listen carefully to the other party and acknowledge their concerns."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Separate the people from the problem to keep the discussion constructive."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Focus on interests rather than positions, and explore creative options."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, confirm the agreement clearly to avoid misunderstandings later."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-presentation",
+    "youtubeId": "RGWJp8_gaY8",
+    "title": "Giving a Clear Presentation",
+    "titleVi": "Thuyết Trình Rõ Ràng",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A clear presentation follows a simple structure: tell them what you will say."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Open with a strong hook that connects to your audience's needs."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Present three main points, each supported by evidence or an example."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Use visuals sparingly to reinforce, not to replace, your words."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Speak slowly, pause after key ideas, and make eye contact."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Close by summarising your message and stating what you want them to do."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-feedback",
+    "youtubeId": "gVtqUZRSTlc",
+    "title": "Giving Constructive Feedback",
+    "titleVi": "Đưa Phản Hồi Xây Dựng",
+    "level": "B1-B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Constructive feedback should be specific, timely, and focused on behaviour."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Begin by describing the situation objectively, without judgement."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Explain the impact of the behaviour on the team or the outcome."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Invite the other person's perspective and listen without interrupting."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Agree on a concrete action and a follow-up date together."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "End on a positive note, recognising their strengths and potential."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-conflict",
+    "youtubeId": "7bEStwqNPqU",
+    "title": "Handling Conflict Calmly",
+    "titleVi": "Xử Lý Mâu Thuẫn Bình TĨnh",
+    "level": "B2",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Conflict is natural in any team, but how we handle it makes the difference."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Stay calm and take a moment before responding to a difficult message."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Acknowledge the other person's feelings before presenting your view."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Look for shared goals rather than focusing on who is right or wrong."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Propose a practical solution and be willing to compromise where needed."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "If emotions run high, suggest taking a short break and returning later."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-social",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Making Small Talk",
+    "titleVi": "Trò Chuyện Xã Giao",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Small talk is a friendly way to build rapport with people you have just met."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start with a simple, open question about a shared situation."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Listen actively and respond with follow-up questions to keep the flow."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Share a little about yourself, but avoid dominating the conversation."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Use positive body language, such as smiling and nodding, to show interest."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Close gracefully by thanking the person and wishing them a good day."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-apology",
+    "youtubeId": "YRTjEUH1kHA",
+    "title": "Saying Sorry Properly",
+    "titleVi": "Xin Lỗi Đúng Cách",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "A sincere apology can repair a relationship quickly when done well."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Start by clearly acknowledging what you did wrong, without excuses."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Show that you understand how the other person felt."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "Offer a genuine explanation only if it helps, not to defend yourself."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Propose a concrete way to make things right."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "Finally, thank the person for their patience and understanding."
+      }
+    ],
+    "videoSynced": false
+  },
+  {
+    "id": "sh-phone",
+    "youtubeId": "baiacRy-4L8",
+    "title": "Answering the Phone Professionally",
+    "titleVi": "Trả Lời Điện Thoại Chuyên Nghiệp",
+    "level": "A2-B1",
+    "duration": "1:12",
+    "transcript": [
+      {
+        "id": 1,
+        "startTime": 0,
+        "endTime": 12,
+        "text": "Answering the phone professionally creates a strong first impression."
+      },
+      {
+        "id": 2,
+        "startTime": 12,
+        "endTime": 24,
+        "text": "Greet the caller and state your name and company clearly."
+      },
+      {
+        "id": 3,
+        "startTime": 24,
+        "endTime": 36,
+        "text": "Ask how you can help and listen without interrupting."
+      },
+      {
+        "id": 4,
+        "startTime": 36,
+        "endTime": 48,
+        "text": "If you need to transfer the call, explain why and where."
+      },
+      {
+        "id": 5,
+        "startTime": 48,
+        "endTime": 60,
+        "text": "Take a message with the caller's name, number, and reason for calling."
+      },
+      {
+        "id": 6,
+        "startTime": 60,
+        "endTime": 72,
+        "text": "End the call politely by confirming the next step and thanking them."
+      }
+    ],
+    "videoSynced": false
+  }
+]

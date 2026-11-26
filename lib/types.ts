@@ -108,6 +108,7 @@ export type PhraseRow = {
   keywords: string[] | null;
   reflex_reviewed: boolean;
   created_at: string;
+  sentence_type: "qa" | "situation" | "continue" | "paraphrase" | "circumlocution" | null;
 };
 
 export type PhraseReviewRow = {

@@ -18,6 +18,8 @@ import { evaluateMeaning, recordReflexResult } from "@/lib/reflex/judge";
 import type { ReflexMeaning } from "@/lib/reflex/schema";
 import type { DuePhrase, ReviewGrade } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { updateReflexProgress } from "@/app/actions/gamification";
+import { useVadWithMetrics } from "@/lib/hooks/useVad";
 
 const AudioButton = dynamic(() =>
   import("./audio-button").then((m) => m.AudioButton),
@@ -29,16 +31,16 @@ const MicButton = dynamic(() =>
 type Mode = "pure" | "shadowing" | "reflex" | "dictation";
 
 const MODES: { id: Mode; label: string; short: string }[] = [
-  { id: "pure", label: "Phản xạ thuần", short: "Thuần" },
-  { id: "shadowing", label: "Nghe & Nói đuổi", short: "Shadowing" },
-  { id: "reflex", label: "Dịch & Nói", short: "Reflex" },
-  { id: "dictation", label: "Điền từ", short: "Dictation" },
+  { id: "pure", label: "Pure Reflex", short: "Pure" },
+  { id: "shadowing", label: "Shadowing", short: "Shadow" },
+  { id: "reflex", label: "Translate & Speak", short: "Reflex" },
+  { id: "dictation", label: "Dictation", short: "Dictate" },
 ];
 
 const LEVEL_LABEL: Record<string, string> = {
-  L1: "L1 - Cơ bản",
-  L2: "L2 - Trung cấp",
-  L3: "L3 - Nâng cao",
+  L1: "L1 - Basic",
+  L2: "L2 - Intermediate",
+  L3: "L3 - Advanced",
 };
 
 export function ReflexSession({
@@ -69,6 +71,10 @@ export function ReflexSession({
   const gradedIndex = useRef<number | null>(null);
   const startRef = useRef<number>(0);
 
+  // VAD for onset latency measurement
+  const vad = useVadWithMetrics();
+  const [vadLatency, setVadLatency] = useState<number | null>(null);
+
   const current = queue[index];
   const done = index >= queue.length;
 
@@ -78,11 +84,17 @@ export function ReflexSession({
     if (mode === "pure") {
       const q = current.phrase.situation_en || current.phrase.en_text;
       speakEnglish(q, current.phrase.audio_url);
+      // Start VAD after TTS ends
+      vad.markTtsEnd();
+      vad.startListening();
     } else if (mode === "shadowing" || mode === "dictation") {
       speakEnglish(current.phrase.en_text, current.phrase.audio_url);
     }
-    return () => stopSpeaking();
-  }, [current, mode]);
+    return () => {
+      stopSpeaking();
+      vad.stopListening();
+    };
+  }, [current, mode, vad]);
 
   const record = useCallback(
     (grade: ReviewGrade) => {
@@ -136,6 +148,14 @@ export function ReflexSession({
     if (!current) return;
     const latency = Math.round(performance.now() - startRef.current);
     setLatencyMs(latency);
+
+    // Capture VAD onset latency
+    if (vad.onsetLatencyMs && vad.onsetLatencyMs > 0) {
+      setVadLatency(vad.onsetLatencyMs);
+      if (mode === "pure") {
+        setSessionLatencies((prev) => [...prev, vad.onsetLatencyMs!]);
+      }
+    }
 
     // Pure reflex: capture what the learner said, reveal answer, self-grade.
     if (mode === "pure") {
@@ -242,6 +262,9 @@ export function ReflexSession({
   }
 
   if (done) {
+    // Award XP for reflex phrases completed
+    updateReflexProgress(queue.length);
+
     const reviewHref = (() => {
       const params = new URLSearchParams();
       if (level !== "all") params.set("level", level);
@@ -312,19 +335,31 @@ export function ReflexSession({
         {mode === "pure" ? (
           <span className="flex items-center gap-2">
             <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
-              Bật ra: {gotItCount}
+              Got it: {gotItCount}
             </span>
-            {avgLatency != null ? (
+            {vadLatency != null ? (
+              <span
+                className={`rounded-full px-2 py-0.5 text-xs font-medium ${
+                  vadLatency <= 2000
+                    ? "bg-emerald-100 text-emerald-700"
+                    : vadLatency <= 4000
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-rose-100 text-rose-700"
+                }`}
+              >
+                ⚡ VAD: {(vadLatency / 1000).toFixed(2)}s
+              </span>
+            ) : avgLatency != null ? (
               <span
                 className={`rounded-full px-2 py-0.5 text-xs font-medium ${
                   avgLatency <= 3000
                     ? "bg-emerald-100 text-emerald-700"
                     : avgLatency <= 6000
-                      ? "bg-amber-100 text-amber-700"
-                      : "bg-muted text-muted-foreground"
+                    ? "bg-amber-100 text-amber-700"
+                    : "bg-muted text-muted-foreground"
                 }`}
               >
-                ⚡ TB {(avgLatency / 1000).toFixed(1)}s
+                ⚡ Avg: {(avgLatency / 1000).toFixed(1)}s
               </span>
             ) : null}
           </span>
@@ -407,70 +442,74 @@ export function ReflexSession({
               <>
                 <div className="mt-5 rounded-2xl bg-muted p-4 text-left">
                   <p className="text-xs font-semibold text-muted-foreground">
-                    Câu mẫu (transcript):
+                    Model answer:
                   </p>
                   <p className="mt-1 text-lg font-medium text-foreground">
                     {phrase.en_text}
                   </p>
-                  {phrase.vi_text ? (
-                    <p className="mt-1 text-sm text-muted-foreground">
-                      {phrase.vi_text}
-                    </p>
-                  ) : null}
                   <div className="mt-2 flex justify-start">
                     <AudioButton
                       text={phrase.en_text}
                       audioUrl={phrase.audio_url}
-                      label="Nghe đáp án"
+                      label="Hear answer"
                     />
                   </div>
                 </div>
 
                 {pureTranscript ? (
                   <div className="mt-3 rounded-2xl bg-sky-50 p-3 text-left">
-                    <p className="text-xs font-semibold text-sky-700">Bạn đã nói:</p>
+                    <p className="text-xs font-semibold text-sky-700">You said:</p>
                     <p className="mt-1 text-sm text-sky-900">{pureTranscript}</p>
                   </div>
                 ) : null}
 
-                {latencyMs != null ? (
+                {vadLatency != null ? (
                   <p className="mt-3 text-sm text-muted-foreground">
-                    ⚡ Bạn mở miệng sau {(latencyMs / 1000).toFixed(1)}s —{" "}
+                    ⚡ VAD onset: {(vadLatency / 1000).toFixed(2)}s —{" "}
+                    {vadLatency <= 2000
+                      ? "Fast reflex!"
+                      : vadLatency <= 4000
+                      ? "Good, getting faster."
+                      : "A bit slow, practice more."}
+                  </p>
+                ) : latencyMs != null ? (
+                  <p className="mt-3 text-sm text-muted-foreground">
+                    ⚡ You spoke after {(latencyMs / 1000).toFixed(1)}s —{" "}
                     {latencyMs <= 3000
-                      ? "phản xạ nhanh, đúng chất!"
+                      ? "Fast reflex!"
                       : latencyMs <= 6000
-                        ? "ổn, nói lại sẽ nhanh hơn."
-                        : "chậm một chút, nói lại vài lần là bật ra."}
+                      ? "Good, getting faster."
+                      : "A bit slow, practice more."}
                   </p>
                 ) : null}
 
                 <div className="mt-5">
                   <p className="text-sm font-medium text-foreground">
-                    Bạn thấy sao? (sai cũng được, miễn là đã nói)
+                    How did it go? (Wrong is fine, as long as you spoke)
                   </p>
                   <div className="mt-2 flex flex-wrap justify-center gap-2">
                     <Button onClick={() => handlePureGrade("got_it")} size="lg">
-                      Bật ra được
+                      Got it
                     </Button>
                     <Button
                       onClick={() => handlePureGrade("slow")}
                       variant="outline"
                       size="lg"
                     >
-                      Còn chậm
+                      Too slow
                     </Button>
                     <Button
                       onClick={() => handlePureGrade("forgot")}
                       variant="outline"
                       size="lg"
                     >
-                      Chưa nhớ
+                      Forgot
                     </Button>
                   </div>
                   <div className="mt-3 flex justify-center">
                     <Button onClick={handlePureRetry} variant="ghost">
                       <RotateCcw className="size-4" />
-                      Nói lại (không giới hạn)
+                      Retry (unlimited)
                     </Button>
                   </div>
                 </div>
@@ -479,23 +518,21 @@ export function ReflexSession({
           </div>
         ) : (
           <>
-        {mode === "reflex" ? (
+{mode === "reflex" ? (
           <div className="text-center">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">
               {reflexLevel === "L1"
-                ? `Dịch câu này sang tiếng Anh rồi nói · ${levelLabel}`
+                ? `Listen and respond in English · ${levelLabel}`
                 : reflexLevel === "L2"
-                  ? `Đọc tình huống rồi trả lời bằng tiếng Anh · ${levelLabel}`
-                  : `Trả lời câu hỏi bằng tiếng Anh · ${levelLabel}`}
+                ? `Read the situation and reply in English · ${levelLabel}`
+                : `Answer the question in English · ${levelLabel}`}
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-              {reflexLevel === "L1"
-                ? phrase.vi_text
-                : phrase.situation_en || phrase.vi_text}
+              {phrase.situation_en || phrase.en_text}
             </h2>
             {reflexLevel === "L1" && phrase.en_alternatives && phrase.en_alternatives.length > 0 ? (
               <p className="mt-2 text-sm text-muted-foreground">
-                (Chấp nhận nhiều cách nói khác nhau)
+                (Multiple natural responses accepted)
               </p>
             ) : null}
           </div>
@@ -562,17 +599,17 @@ export function ReflexSession({
                 : "bg-red-500/10 text-red-700",
             )}
           >
-            <p className="flex items-center justify-center gap-2 text-lg font-semibold">
+<p className="flex items-center justify-center gap-2 text-lg font-semibold">
               {correct ? (
                 <>
                   <Check className="size-5" />
                   {meaningCorrect
-                    ? "Ý nghĩa đúng! +15 XP"
-                    : "Câu đúng, ý nghĩa cần refine"}
+                    ? "Meaning correct! +15 XP"
+                    : "Correct, meaning needs refine"}
                 </>
               ) : (
                 <>
-                  <X className="size-5" /> Chưa đúng, thử lại nhé
+                  <X className="size-5" /> Not quite, try again
                 </>
               )}
             </p>
@@ -586,7 +623,7 @@ export function ReflexSession({
             {!correct ? (
               <div className="mt-2 text-sm">
                 <p className="flex items-center justify-center gap-1 text-muted-foreground">
-                  <Lightbulb className="size-4" /> Đáp án đúng:
+                  <Lightbulb className="size-4" /> Correct answer:
                 </p>
                 <p className="mt-1 text-base font-medium text-foreground">
                   {phrase.en_text}
@@ -595,7 +632,7 @@ export function ReflexSession({
                   <AudioButton
                     text={phrase.en_text}
                     audioUrl={phrase.audio_url}
-                    label="Nghe đáp án"
+                    label="Hear answer"
                   />
                 </div>
               </div>
@@ -606,12 +643,12 @@ export function ReflexSession({
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           {correct ? (
             <Button onClick={handleNext} size="lg">
-              Tiếp theo
+              Next
               <ArrowRight className="size-4" />
             </Button>
           ) : mode === "shadowing" ? (
             <Button onClick={handleNext} size="lg">
-              {attempts > 0 ? "Tiếp theo" : "Bỏ qua câu này"}
+              {attempts > 0 ? "Next" : "Skip this"}
               <ArrowRight className="size-4" />
             </Button>
           ) : result && !correct ? (
@@ -626,16 +663,16 @@ export function ReflexSession({
                 variant="outline"
               >
                 <RotateCcw className="size-4" />
-                Nói lại
+                Retry
               </Button>
               <Button onClick={handleSkip}>
-                Bỏ qua, xem câu tiếp
+                Skip, next phrase
                 <ArrowRight className="size-4" />
               </Button>
             </>
           ) : (
             <Button onClick={handleSkip} variant="outline">
-              Bỏ qua câu này
+              Skip this
               <ArrowRight className="size-4" />
             </Button>
           )}
@@ -646,7 +683,7 @@ export function ReflexSession({
               variant="ghost"
             >
               <Lightbulb className="size-4" />
-              Nghe gợi ý
+              Hear hint
             </Button>
           ) : null}
         </div>
@@ -656,7 +693,7 @@ export function ReflexSession({
             <AudioButton
               text={phrase.en_text}
               audioUrl={phrase.audio_url}
-              label="Phát lại"
+              label="Play again"
             />
           </div>
         ) : null}
@@ -665,7 +702,7 @@ export function ReflexSession({
       </div>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Mẹo: nói tự nhiên cả câu, không dịch từng từ trong đầu.
+        Tip: Speak naturally in full sentences, don't translate word by word in your head.
       </p>
     </div>
   );

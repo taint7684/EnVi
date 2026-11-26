@@ -1,0 +1,159 @@
+{
+  "processed": 190,
+  "total": 3223,
+  "ok": 153,
+  "fail": 37,
+  "rate": 0.33,
+  "failures": [
+    {
+      "id": "7bccca98-a032-45e4-b439-a4bc08d996ba",
+      "lemma": "imagination",
+      "error": "rate-limited"
+    },
+    {
+      "id": "da3f7ccc-3999-4b25-9258-52d3f9578a35",
+      "lemma": "imagine",
+      "error": "rate-limited"
+    },
+    {
+      "id": "86ea3556-8b3f-4e0f-829c-1a64837de508",
+      "lemma": "immediate",
+      "error": "rate-limited"
+    },
+    {
+      "id": "bd3f82ec-9958-472c-8137-782f57f94ac7",
+      "lemma": "immediately",
+      "error": "rate-limited"
+    },
+    {
+      "id": "d862e8d6-4279-4455-8103-34943eb36716",
+      "lemma": "immense",
+      "error": "rate-limited"
+    },
+    {
+      "id": "734154f8-e6cb-4a0e-bf5b-4895669b0e73",
+      "lemma": "immigrant",
+      "error": "rate-limited"
+    },
+    {
+      "id": "64d8ae92-648a-4ffd-a809-699d651861fd",
+      "lemma": "immigration",
+      "error": "rate-limited"
+    },
+    {
+      "id": "7589146d-133b-49ae-8257-282274f0dd20",
+      "lemma": "imminent",
+      "error": "rate-limited"
+    },
+    {
+      "id": "1f7028ae-2b61-4d42-8a12-4a97b77cafa7",
+      "lemma": "immune",
+      "error": "rate-limited"
+    },
+    {
+      "id": "18c305c4-897d-4265-9380-bca9edb7a747",
+      "lemma": "impact",
+      "error": "rate-limited"
+    },
+    {
+      "id": "0cfeb844-6ce7-4fb5-bf90-95812f937138",
+      "lemma": "impress",
+      "error": "rate-limited"
+    },
+    {
+      "id": "81cc7dd8-eefe-436b-9a1a-1e87eb70686b",
+      "lemma": "impressed",
+      "error": "rate-limited"
+    },
+    {
+      "id": "b95ee20e-453e-47c6-9478-9c856b685982",
+      "lemma": "impression",
+      "error": "rate-limited"
+    },
+    {
+      "id": "98586931-a845-41b4-a587-71098573a274",
+      "lemma": "impressive",
+      "error": "rate-limited"
+    },
+    {
+      "id": "cf3f8f55-da6c-430f-8f85-25ab1eca64b8",
+      "lemma": "imprison",
+      "error": "rate-limited"
+    },
+    {
+      "id": "03e7d051-57b6-4b22-a680-2fc5929cda24",
+      "lemma": "imprisonment",
+      "error": "rate-limited"
+    },
+    {
+      "id": "b3dcecbd-0234-47bd-97ff-af4ed67fcb20",
+      "lemma": "improve",
+      "error": "rate-limited"
+    },
+    {
+      "id": "3f4adf95-bbe3-4d28-beb8-c59de98dfbc3",
+      "lemma": "improvement",
+      "error": "rate-limited"
+    },
+    {
+      "id": "a1303cbd-2e0f-4f20-aefb-ecec7e666c1c",
+      "lemma": "meter",
+      "error": "rate-limited"
+    },
+    {
+      "id": "f2d5a019-af90-4eb2-907c-0358c3943298",
+      "lemma": "inability",
+      "error": "rate-limited"
+    },
+    {
+      "id": "ddfb0715-000b-4b58-a8d0-1e1aec541187",
+      "lemma": "inadequate",
+      "error": "rate-limited"
+    },
+    {
+      "id": "b0e0e2da-9a81-440c-a1d6-c5be96444da3",
+      "lemma": "inappropriate",
+      "error": "rate-limited"
+    },
+    {
+      "id": "174babb4-3ef1-46f9-833f-4a434488c099",
+      "lemma": "incentive",
+      "error": "rate-limited"
+    },
+    {
+      "id": "4dc0fd68-f77a-4c5c-b474-4022021b2aef",
+      "lemma": "inch",
+      "error": "rate-limited"
+    },
+    {
+      "id": "30914bc4-aaa1-4095-9e16-8eec81b5436e",
+      "lemma": "incidence",
+      "error": "rate-limited"
+    },
+    {
+      "id": "3fa77041-3896-4253-86d7-049c005f9ca9",
+      "lemma": "incident",
+      "error": "rate-limited"
+    },
+    {
+      "id": "e6a581a4-e688-41ae-8c2b-3a730980e884",
+      "lemma": "inclined",
+      "error": "rate-limited"
+    },
+    {
+      "id": "dc8c1bc5-dac1-41eb-8aa9-f540d84be543",
+      "lemma": "include",
+      "error": "rate-limited"
+    },
+    {
+      "id": "729f9ef1-d79c-49f8-9fef-13f5912e2e23",
+      "lemma": "included",
+      "error": "rate-limited"
+    },
+    {
+      "id": "4782e72f-c556-4ff1-b24d-837139febed0",
+      "lemma": "including",
+      "error": "rate-limited"
+    }
+  ]
+}

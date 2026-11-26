@@ -1,37 +1,54 @@
 import Link from "next/link";
 import { ReflexSession } from "@/components/reflex/reflex-session";
-import {
-  getDuePhrases,
-  getReviewPhrases,
-  SESSION_SIZE,
-} from "@/lib/phrases";
+import { getCurriculumPhrases } from "@/lib/phrases-v2";
+import { getDayPlan } from "@/lib/curriculum";
+import { createClient } from "@/lib/supabase/server";
 import { cn } from "@/lib/utils";
-
-const LEVELS = ["all", "A1", "A2", "B1", "B2"] as const;
 
 export default async function ReflexPage({
   searchParams,
 }: {
-  searchParams: Promise<{ level?: string; mode?: string }>;
+  searchParams: Promise<{ day?: string; mode?: string }>;
 }) {
-  const { level, mode } = await searchParams;
-  const active = LEVELS.includes(level as (typeof LEVELS)[number])
-    ? (level as string)
-    : "all";
-  const difficulty = active === "all" ? undefined : active;
+  const { day, mode } = await searchParams;
+  const userDay = day ? Math.max(1, Math.min(180, parseInt(day, 10))) : 1;
   const sessionMode: "learn" | "review" = mode === "review" ? "review" : "learn";
 
-  const phrases =
-    sessionMode === "review"
-      ? await getReviewPhrases(SESSION_SIZE, difficulty)
-      : await getDuePhrases(SESSION_SIZE, difficulty);
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  let currentDay = userDay;
+  if (user) {
+    const { data: progress } = await supabase
+      .from("curriculum_progress")
+      .select("current_day")
+      .eq("user_id", user.id)
+      .single();
+    if (progress) currentDay = progress.current_day;
+  }
 
-  const levelHref = (lv: string) => {
+  const dayPlan = getDayPlan(currentDay, {
+    currentDay,
+    currentWeek: Math.ceil(currentDay / 7),
+    currentPhase: "G1",
+    baselineLatencyMs: null,
+    baselineWpm: null,
+    totalSpeakingMinutes: 0,
+    streakDays: 0,
+  });
+
+  const reflexBlock = dayPlan.blocks.find(b => b.id === "reflex");
+  const phrases = await getCurriculumPhrases(
+    reflexBlock?.config.topicId || "topic-01-self",
+    reflexBlock?.config.layer || "L1",
+    reflexBlock?.config.round || 1,
+    reflexBlock?.config.phraseCount || 12
+  );
+
+  const dayHref = (d: number) => {
     const params = new URLSearchParams();
-    if (lv !== "all") params.set("level", lv);
+    params.set("day", d.toString());
     if (sessionMode === "review") params.set("mode", "review");
-    const qs = params.toString();
-    return qs ? `/reflex?${qs}` : "/reflex";
+    return `/reflex?${params.toString()}`;
   };
 
   return (
@@ -43,23 +60,23 @@ export default async function ReflexPage({
         <p className="mt-1 text-sm text-muted-foreground">
           {sessionMode === "review"
             ? "Chế độ ôn tập · Luyện không giới hạn các câu đã học"
-            : "Nghe → Nói ngay → So sánh → Nói lại · 10 câu mới mỗi ngày"}
+            : `Ngày ${currentDay}/180 · ${dayPlan.topicNameVi} · Layer ${reflexBlock?.config.layer || "L1"} · 12 câu/ngày`}
         </p>
       </div>
 
       <div className="mx-auto mb-6 flex max-w-xl flex-wrap justify-center gap-2">
-        {LEVELS.map((lv) => (
+        {Array.from({ length: 180 }, (_, i) => i + 1).map((d) => (
           <Link
-            key={lv}
-            href={levelHref(lv)}
+            key={d}
+            href={dayHref(d)}
             className={cn(
-              "rounded-full px-3 py-1 text-sm font-medium transition-colors",
-              active === lv
+              "rounded-full px-2 py-1 text-xs font-medium transition-colors",
+              currentDay === d
                 ? "bg-primary text-primary-foreground"
                 : "bg-muted text-muted-foreground hover:text-foreground",
             )}
           >
-            {lv === "all" ? "Tất cả" : lv}
+            {d}
           </Link>
         ))}
       </div>
@@ -75,22 +92,11 @@ export default async function ReflexPage({
           <p className="mt-2 text-sm text-muted-foreground">
             {sessionMode === "review"
               ? "Hãy học vài câu mới trước, rồi quay lại ôn tập."
-              : active === "all"
-                ? "Hãy import câu giao tiếp hoặc quay lại sau."
-                : `Chưa có câu trình độ ${active} nào đến hạn. Hãy thử mức khác.`}
+              : "Hãy thử ngày khác hoặc import câu giao tiếp."}
           </p>
-          {sessionMode === "review" ? (
-            <div className="mt-6 flex justify-center">
-              <Link href={levelHref("all")}>
-                <span className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-                  Về chế độ học
-                </span>
-              </Link>
-            </div>
-          ) : null}
         </div>
       ) : (
-        <ReflexSession phrases={phrases} sessionMode={sessionMode} level={active} />
+        <ReflexSession phrases={phrases.map(p => ({ phrase: p, review: null }))} sessionMode={sessionMode} level={reflexBlock?.config.layer || "L1"} />
       )}
     </div>
   );

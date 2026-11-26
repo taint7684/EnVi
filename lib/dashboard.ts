@@ -29,6 +29,38 @@ export type WeeklyReport = {
   insightType: "reflex" | "speaking" | "vocab" | "streak" | "good";
 };
 
+export type NorthStarMetrics = {
+  speakingMinutesToday: number;
+  speakingMinutesWeek: number;
+  speakingSessionsWeek: number;
+  avgWpmWeek: number | null;
+  avgLatencyMsWeek: number | null;
+  viSegmentsWeek: number;
+  lifelineUsedWeek: number;
+  streak: number;
+  speakingMinutesPrevWeek: number;
+  speakingSessionsPrevWeek: number;
+  avgWpmPrevWeek: number | null;
+  avgLatencyPrevWeek: number | null;
+  viSegmentsPrevWeek: number;
+  lifelineUsedPrevWeek: number;
+
+  // Chart history data (last 7 days)
+  wpmHistory: { date: string; value: number }[];
+  latencyHistory: { date: string; value: number }[];
+  viHistory: { date: string; value: number }[];
+  lifelineHistory: { date: string; value: number }[];
+
+  // Computed trends
+  wpmTrend: number;
+  latencyTrend: number;
+  viTrend: number;
+  lifelineTrend: number;
+  streakTrend: number;
+  dailySpeakingTrend: number;
+  dailySpeakingMinutes: number;
+};
+
 const DAY_MS = 86_400_000;
 const WEEKDAY_LABELS = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
 
@@ -61,7 +93,6 @@ export async function getWeeklyReport(): Promise<WeeklyReport> {
   const last7Start = new Date(today.getTime() - 6 * DAY_MS);
   const prev7Start = new Date(today.getTime() - 13 * DAY_MS);
 
-  // Từ đã ôn trong 7 ngày (dựa trên card_reviews.last_reviewed_at).
   const { data: reviewRows } = await supabase
     .from("card_reviews")
     .select("last_reviewed_at")
@@ -81,7 +112,6 @@ export async function getWeeklyReport(): Promise<WeeklyReport> {
   });
   const wordsReviewed = wordsPerDay.reduce((s, d) => s + d.count, 0);
 
-  // Phút học: daily_progress (14 ngày để so sánh tuần này vs tuần trước).
   const { data: progressRows } = await supabase
     .from("daily_progress")
     .select("date, minutes")
@@ -96,19 +126,18 @@ export async function getWeeklyReport(): Promise<WeeklyReport> {
   }
   const minutesDelta = minutesThisWeek - minutesLastWeek;
 
-  // Phiên Speaking trong 7 ngày.
   const { count: speakingSessions } = await supabase
-    .from("speaking_sessions")
+    .from("speech_metrics")
     .select("*", { count: "exact", head: true })
-    .gte("started_at", last7Start.toISOString());
+    .eq("user_id", user.id)
+    .in("module", ["speaking", "picture_talk", "real_world"])
+    .gte("created_at", last7Start.toISOString());
 
-  // Câu reflex đã luyện trong 7 ngày.
   const { count: reflexPracticed } = await supabase
     .from("phrase_reviews")
     .select("*", { count: "exact", head: true })
     .gte("last_reviewed_at", last7Start.toISOString());
 
-  // Độ chính xác reflex (cho insight).
   const { data: prRows } = await supabase
     .from("phrase_reviews")
     .select("reps, lapses");
@@ -206,21 +235,14 @@ export async function getDashboardData(): Promise<{
     weekData: (progress as { date: string; minutes: number; words_reviewed: number }[]) ?? [],
   };
 }
-export type NorthStarMetrics = {
-  speakingMinutesToday: number;
-  speakingMinutesWeek: number;
-  speakingSessionsWeek: number;
-  avgWpmWeek: number | null;
-  streak: number;
-  speakingMinutesPrevWeek: number;
-  speakingSessionsPrevWeek: number;
-  avgWpmPrevWeek: number | null;
-};
 
 /**
- * North Star metrics: các chỉ số then chốt phản ánh tiến bộ nói.
- * - speakingMinutes*: tổng thời gian luyện Speaking (speaking_turns.duration_ms).
- * - avgWpmWeek: WPM trung bình (có trọng số theo thời lượng) trong 7 ngày.
+ * North Star metrics from speech_metrics table (new unified table).
+ * - speakingMinutes*: tổng audio_duration_ms của các block nói.
+ * - avgWpmWeek: WPM trung bình có trọng số theo thời lượng.
+ * - avgLatencyMsWeek: onset_latency_ms trung bình của Reflex.
+ * - viSegmentsWeek: số đoạn tiếng Việt phát hiện.
+ * - lifelineUsedWeek: số lần dùng lifeline.
  * - streak: chuỗi ngày học liên tiếp (daily_progress.streak).
  */
 export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
@@ -229,10 +251,27 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     speakingMinutesWeek: 0,
     speakingSessionsWeek: 0,
     avgWpmWeek: null,
+    avgLatencyMsWeek: null,
+    viSegmentsWeek: 0,
+    lifelineUsedWeek: 0,
     streak: 0,
     speakingMinutesPrevWeek: 0,
     speakingSessionsPrevWeek: 0,
     avgWpmPrevWeek: null,
+    avgLatencyPrevWeek: null,
+    viSegmentsPrevWeek: 0,
+    lifelineUsedPrevWeek: 0,
+    wpmHistory: [],
+    latencyHistory: [],
+    viHistory: [],
+    lifelineHistory: [],
+    wpmTrend: 0,
+    latencyTrend: 0,
+    viTrend: 0,
+    lifelineTrend: 0,
+    streakTrend: 0,
+    dailySpeakingTrend: 0,
+    dailySpeakingMinutes: 0,
   };
   const supabase = await createClient();
   const {
@@ -247,11 +286,76 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
   const prevWeekStart = new Date(weekStart.getTime() - 7 * DAY_MS);
   const prevWeekEnd = new Date(weekStart.getTime() - 1);
 
-  const { data: turns } = await supabase
-    .from("speaking_turns")
-    .select("duration_ms, wpm, created_at")
+  // Get daily aggregated metrics for the last 14 days (for trends)
+  const { data: dailyMetrics } = await supabase
+    .from("speech_metrics")
+    .select("audio_duration_ms, wpm, onset_latency_ms, vi_segments, lifeline_used, module, created_at")
     .eq("user_id", user.id)
     .gte("created_at", prevWeekStart.toISOString());
+
+  const dailyData = new Map<string, {
+    wpmSum: number;
+    wpmWeight: number;
+    latencySum: number;
+    latencyCount: number;
+    viSegments: number;
+    lifelineCount: number;
+    speakingMs: number;
+  }>();
+
+  const speakingModules = new Set(["shadowing", "reflex", "picture_talk", "speaking", "chunks", "voice_diary"]);
+
+  for (const m of (dailyMetrics as {
+    audio_duration_ms: number | null;
+    wpm: number | null;
+    onset_latency_ms: number | null;
+    vi_segments: number | null;
+    lifeline_used: boolean | null;
+    module: string;
+    created_at: string;
+  }[] | null) ?? []) {
+    const dur = Number(m.audio_duration_ms ?? 0);
+    if (dur <= 0) continue;
+    const created = new Date(m.created_at);
+    const dateKey = dateOnly(created);
+    const w = Number(m.wpm ?? 0);
+    const lat = Number(m.onset_latency_ms ?? 0);
+    const vi = Number(m.vi_segments ?? 0);
+    const lf = m.lifeline_used ?? false;
+    const isSpeakingModule = speakingModules.has(m.module);
+
+    const day = dailyData.get(dateKey) || {
+      wpmSum: 0,
+      wpmWeight: 0,
+      latencySum: 0,
+      latencyCount: 0,
+      viSegments: 0,
+      lifelineCount: 0,
+      speakingMs: 0,
+    };
+
+    if (isSpeakingModule) {
+      day.speakingMs += dur;
+      if (w > 0) {
+        day.wpmSum += w * dur;
+        day.wpmWeight += dur;
+      }
+    }
+    if (lat > 0 && m.module === "reflex") {
+      day.latencySum += lat;
+      day.latencyCount++;
+    }
+    if (vi > 0) day.viSegments += vi;
+    if (lf) day.lifelineCount++;
+
+    dailyData.set(dateKey, day);
+  }
+
+  // Build history arrays for last 7 days
+  const wpmHistory: { date: string; value: number }[] = [];
+  const latencyHistory: { date: string; value: number }[] = [];
+  const viHistory: { date: string; value: number }[] = [];
+  const lifelineHistory: { date: string; value: number }[] = [];
 
   let todayMs = 0;
   let weekMs = 0;
@@ -260,37 +364,83 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
   let wpmWeightMs = 0;
   let prevWpmWeighted = 0;
   let prevWpmWeightMs = 0;
-  for (const t of (turns as { duration_ms: number | null; wpm: number | null; created_at: string }[] | null) ?? []) {
-    const dur = Number(t.duration_ms ?? 0);
-    if (dur <= 0) continue;
-    const created = new Date(t.created_at);
-    const w = Number(t.wpm ?? 0);
-    if (created >= weekStart) {
-      weekMs += dur;
-      if (created >= todayStart) todayMs += dur;
-      if (w > 0) {
-        wpmWeighted += w * dur;
-        wpmWeightMs += dur;
+  let latencyWeekSum = 0;
+  let latencyWeekCount = 0;
+  let latencyPrevSum = 0;
+  let latencyPrevCount = 0;
+  let viSegmentsWeek = 0;
+  let viSegmentsPrev = 0;
+  let lifelineWeek = 0;
+  let lifelinePrev = 0;
+
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(weekStart.getTime() + i * DAY_MS);
+    const key = dateOnly(d);
+    const day = dailyData.get(key);
+    
+    const wpm = day && day.wpmWeight > 0 ? Math.round((day.wpmSum / day.wpmWeight) * 10) / 10 : 0;
+    const latency = day && day.latencyCount > 0 ? Math.round(day.latencySum / day.latencyCount) : 0;
+    const vi = day?.viSegments || 0;
+    const lifeline = day?.lifelineCount || 0;
+    const speakingMin = day ? Math.round(day.speakingMs / 60000) : 0;
+
+    wpmHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: wpm });
+    latencyHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: latency });
+    viHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: vi });
+    lifelineHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: lifeline });
+
+    if (d >= weekStart) {
+      if (day?.speakingMs) weekMs += day.speakingMs;
+      if (wpm > 0 && day?.wpmWeight) {
+        wpmWeighted += day.wpmSum;
+        wpmWeightMs += day.wpmWeight;
       }
-    } else if (created >= prevWeekStart && created <= prevWeekEnd) {
-      prevWeekMs += dur;
-      if (w > 0) {
-        prevWpmWeighted += w * dur;
-        prevWpmWeightMs += dur;
+      if (latency > 0) {
+        latencyWeekSum += latency * (day?.latencyCount || 1);
+        latencyWeekCount += day?.latencyCount || 1;
       }
+      viSegmentsWeek += vi;
+      lifelineWeek += lifeline;
+    }
+
+    if (d >= todayStart) {
+      if (day?.speakingMs) todayMs += day.speakingMs;
     }
   }
 
+  // Previous week data
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(prevWeekStart.getTime() + i * DAY_MS);
+    const key = dateOnly(d);
+    const day = dailyData.get(key);
+    
+    if (day?.speakingMs) prevWeekMs += day.speakingMs;
+    if (day?.wpmWeight && day.wpmWeight > 0) {
+      prevWpmWeighted += day.wpmSum;
+      prevWpmWeightMs += day.wpmWeight;
+    }
+    if (day?.latencyCount && day.latencyCount > 0) {
+      latencyPrevSum += day.latencySum;
+      latencyPrevCount += day.latencyCount;
+    }
+    viSegmentsPrev += day?.viSegments || 0;
+    lifelinePrev += day?.lifelineCount || 0;
+  }
+
   const { count: sessionsWeek } = await supabase
-    .from("speaking_sessions")
+    .from("speech_metrics")
     .select("*", { count: "exact", head: true })
-    .gte("started_at", weekStart.toISOString());
+    .eq("user_id", user.id)
+    .in("module", ["speaking", "picture_talk", "real_world"])
+    .gte("created_at", weekStart.toISOString());
 
   const { count: sessionsPrevWeek } = await supabase
-    .from("speaking_sessions")
+    .from("speech_metrics")
     .select("*", { count: "exact", head: true })
-    .gte("started_at", prevWeekStart.toISOString())
-    .lte("started_at", prevWeekEnd.toISOString());
+    .eq("user_id", user.id)
+    .in("module", ["speaking", "picture_talk", "real_world"])
+    .gte("created_at", prevWeekStart.toISOString())
+    .lte("created_at", prevWeekEnd.toISOString());
 
   const { data: streakData } = await supabase
     .from("daily_progress")
@@ -299,14 +449,45 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     .order("date", { ascending: false })
     .limit(1);
 
+  const streak = (streakData as { streak: number }[] | null)?.[0]?.streak ?? 0;
+
+  // Calculate trends
+  const avgWpmWeek = wpmWeightMs > 0 ? Math.round((wpmWeighted / wpmWeightMs) * 10) / 10 : null;
+  const avgLatencyMsWeek = latencyWeekCount > 0 ? Math.round(latencyWeekSum / latencyWeekCount) : null;
+  const avgWpmPrevWeek = prevWpmWeightMs > 0 ? Math.round((prevWpmWeighted / prevWpmWeightMs) * 10) / 10 : null;
+  const avgLatencyPrevWeek = latencyPrevCount > 0 ? Math.round(latencyPrevSum / latencyPrevCount) : null;
+
+  const wpmTrend = avgWpmWeek && avgWpmPrevWeek ? Math.round(((avgWpmWeek - avgWpmPrevWeek) / avgWpmPrevWeek) * 100) : 0;
+  const latencyTrend = avgLatencyMsWeek && avgLatencyPrevWeek ? Math.round(((avgLatencyMsWeek - avgLatencyPrevWeek) / avgLatencyPrevWeek) * 100) : 0;
+  const viTrend = viSegmentsPrev > 0 ? Math.round(((viSegmentsWeek - viSegmentsPrev) / viSegmentsPrev) * 100) : 0;
+  const lifelineTrend = lifelinePrev > 0 ? Math.round(((lifelineWeek - lifelinePrev) / lifelinePrev) * 100) : 0;
+  const dailySpeakingTrend = prevWeekMs > 0 ? Math.round(((weekMs - prevWeekMs) / prevWeekMs) * 100) : 0;
+
   return {
     speakingMinutesToday: Math.round(todayMs / 60000),
     speakingMinutesWeek: Math.round(weekMs / 60000),
     speakingSessionsWeek: sessionsWeek ?? 0,
-    avgWpmWeek: wpmWeightMs > 0 ? Math.round((wpmWeighted / wpmWeightMs) * 10) / 10 : null,
-    streak: (streakData as { streak: number }[] | null)?.[0]?.streak ?? 0,
+    avgWpmWeek,
+    avgLatencyMsWeek,
+    viSegmentsWeek,
+    lifelineUsedWeek: lifelineWeek,
+    streak,
     speakingMinutesPrevWeek: Math.round(prevWeekMs / 60000),
     speakingSessionsPrevWeek: sessionsPrevWeek ?? 0,
-    avgWpmPrevWeek: prevWpmWeightMs > 0 ? Math.round((prevWpmWeighted / prevWpmWeightMs) * 10) / 10 : null,
+    avgWpmPrevWeek,
+    avgLatencyPrevWeek,
+    viSegmentsPrevWeek: viSegmentsPrev,
+    lifelineUsedPrevWeek: lifelinePrev,
+    wpmHistory,
+    latencyHistory,
+    viHistory,
+    lifelineHistory,
+    wpmTrend,
+    latencyTrend,
+    viTrend,
+    lifelineTrend,
+    streakTrend: 0,
+    dailySpeakingTrend,
+    dailySpeakingMinutes: Math.round(todayMs / 60000),
   };
 }

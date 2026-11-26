@@ -1,4 +1,4 @@
-import { Flame, Gauge, Mic, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { Flame, Gauge, Mic, TrendingUp, TrendingDown, Minus, AlertTriangle, Zap } from "lucide-react";
 
 import type { NorthStarMetrics } from "@/lib/dashboard";
 
@@ -50,18 +50,28 @@ export function NorthStarCard({ metrics }: { metrics: NorthStarMetrics }) {
   const sessionsDelta = metrics.speakingSessionsPrevWeek != null
     ? metrics.speakingSessionsWeek - metrics.speakingSessionsPrevWeek
     : null;
+  const latency = metrics.avgLatencyMsWeek != null ? Math.round(metrics.avgLatencyMsWeek) : "—";
+  const latencyDelta = metrics.avgLatencyPrevWeek != null && metrics.avgLatencyMsWeek != null
+    ? Math.round(metrics.avgLatencyPrevWeek - metrics.avgLatencyMsWeek)
+    : null;
+  const viDelta = metrics.viSegmentsPrevWeek != null
+    ? metrics.viSegmentsPrevWeek - metrics.viSegmentsWeek
+    : null;
+  const lifelineDelta = metrics.lifelineUsedPrevWeek != null
+    ? metrics.lifelineUsedPrevWeek - metrics.lifelineUsedWeek
+    : null;
 
   return (
     <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h2 className="font-serif text-lg font-semibold text-foreground">Chỉ số then chốt</h2>
+          <h2 className="font-serif text-lg font-semibold text-foreground">Chỉ số then chốt (North Star)</h2>
           <p className="text-xs text-muted-foreground">
-            Tuần này vs tuần trước — phút nói, tốc độ (WPM), chuỗi ngày.
+            Tuần này vs tuần trước — phút nói, tốc độ (WPM), độ trễ (ms), tiếng Việt, lifeline, chuỗi ngày.
           </p>
         </div>
       </div>
-      <div className="grid gap-3 sm:grid-cols-3">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Stat
           icon={<Mic className="h-4 w-4" />}
           value={metrics.speakingMinutesWeek}
@@ -79,26 +89,66 @@ export function NorthStarCard({ metrics }: { metrics: NorthStarMetrics }) {
           delta={wpmDelta != null ? { value: wpmDelta, label: " WPM" } : null}
         />
         <Stat
+          icon={<Zap className="h-4 w-4" />}
+          value={latency}
+          unit="ms"
+          label="Độ trễ Reflex (onset)"
+          accent="text-amber-600"
+          delta={latencyDelta != null ? { value: latencyDelta, label: "ms" } : null}
+        />
+        <Stat
           icon={<Flame className="h-4 w-4" />}
           value={metrics.streak}
           unit="ngày"
-          label="Streak liên tiếp"
+          label="Streak (≥3′ nói/ngày)"
           accent="text-orange-600"
         />
       </div>
+      <div className="mt-3 grid gap-2 sm:grid-cols-3 text-xs">
+        <div className="rounded-lg border border-border bg-background p-3 flex items-center gap-2">
+          <AlertTriangle className="h-3.5 w-3.5 text-rose-500" />
+          <div>
+            <p className="font-medium text-rose-700">VI segments tuần này</p>
+            <p className="text-foreground">{metrics.viSegmentsWeek} đoạn</p>
+          </div>
+          {viDelta != null && (
+            <span className={`ml-auto text-[10px] font-medium ${viDelta >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
+              {viDelta >= 0 ? "+" : ""}{viDelta} vs tuần trước
+            </span>
+          )}
+        </div>
+        <div className="rounded-lg border border-border bg-background p-3 flex items-center gap-2">
+          <Zap className="h-3.5 w-3.5 text-amber-500" />
+          <div>
+            <p className="font-medium text-amber-700">Lifeline dùng tuần này</p>
+            <p className="text-foreground">{metrics.lifelineUsedWeek} lần</p>
+          </div>
+          {lifelineDelta != null && (
+            <span className={`ml-auto text-[10px] font-medium ${lifelineDelta >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
+              {lifelineDelta >= 0 ? "+" : ""}{lifelineDelta} vs tuần trước
+            </span>
+          )}
+        </div>
+        <div className="rounded-lg border border-border bg-background p-3 flex items-center gap-2">
+          <Mic className="h-3.5 w-3.5 text-purple-500" />
+          <div>
+            <p className="font-medium text-purple-700">Phiên Speaking tuần này</p>
+            <p className="text-foreground">{metrics.speakingSessionsWeek} phiên</p>
+          </div>
+          {sessionsDelta != null && (
+            <span className={`ml-auto text-[10px] font-medium ${sessionsDelta >= 0 ? "text-emerald-600" : "text-rose-600"}`}>
+              {sessionsDelta >= 0 ? "+" : ""}{sessionsDelta} vs tuần trước
+            </span>
+          )}
+        </div>
+      </div>
       {metrics.speakingSessionsWeek === 0 ? (
         <p className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700">
-          Tuần này bạn chưa luyện Speaking. Hãy làm 1 phiên để bắt đầu ghi nhận phút nói và WPM.
+          Tuần này bạn chưa luyện Speaking. Hãy làm 1 phiên để bắt đầu ghi nhận phút nói, WPM và độ trễ.
         </p>
       ) : (
         <p className="mt-3 text-xs text-muted-foreground flex items-center gap-2">
-          <span>Tuần này: {metrics.speakingSessionsWeek} phiên</span>
-          {sessionsDelta != null && (
-            <span className={sessionsDelta >= 0 ? "text-emerald-600" : "text-rose-600"}>
-              {sessionsDelta >= 0 ? "+" : ""}{sessionsDelta} so với tuần trước
-            </span>
-          )}
-          <span>· WPM càng tăng là bạn nói càng trôi chảy.</span>
+          <span>Mục tiêu: WPM ↑, Độ trễ ↓, VI segments ↓, Lifeline ↓, Streak ≥3′ nói/ngày</span>
         </p>
       )}
     </div>

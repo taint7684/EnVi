@@ -5,6 +5,7 @@ import { Volume2, Eye, EyeOff, CheckCircle2 } from "lucide-react";
 import type { ReflexPhrase, SessionMode, ReflexGrade } from "@/lib/reflex-drills-types";
 import { GRADE_LABELS, MODE_LABELS } from "@/lib/reflex-drills-types";
 import { saveReflexDrillProgress } from "@/app/actions/reflex-drills";
+import { updateReflexProgress } from "@/app/actions/gamification";
 
 function speakEnglish(text: string) {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
@@ -75,6 +76,7 @@ export function ReflexDrillsSession({
     if (doneNow) {
       setDone(true);
       onComplete?.(newResults);
+      updateReflexProgress(uniqueCompleted.current.size);
     } else {
       setIndex(nextIndex);
       setShowAnswer(mode === "morning");

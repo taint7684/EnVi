@@ -7,6 +7,8 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { createClient } from "@/lib/supabase/client";
 import { READING_PASSAGES } from "@/lib/reading-data";
 import { cn } from "@/lib/utils";
+import { useFeatureFlags } from "@/lib/hooks/useFeatureFlags";
+import type { FeatureFlag } from "@/lib/feature-flags-types";
 
 const MAX_RESULTS = 10;
 
@@ -35,6 +37,14 @@ const PAGES: SearchResult[] = [
 ];
 
 export function GlobalSearch() {
+  const { flags, loading: flagsLoading } = useFeatureFlags();
+  const globalSearchEnabled = flags.global_search ?? false;
+  const readingEnabled = flags.reading ?? false;
+  const grammarEnabled = flags.grammar_translation ?? false;
+  const progressTestEnabled = flags.progress_test_14day ?? false;
+  const assistantEnabled = flags.assistant_chat ?? false;
+  const dictationEnabled = flags.dictation ?? false;
+
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -69,13 +79,21 @@ export function GlobalSearch() {
 
     setLoading(true);
 
-    const pageResults = PAGES.filter(
-      (p) =>
-        p.title.toLowerCase().includes(term) ||
-        p.subtitle?.toLowerCase().includes(term),
+    const filteredPages = PAGES.filter(
+      (p) => {
+        if (!readingEnabled && p.href === "/reading") return false;
+        if (!grammarEnabled && p.href === "/grammar") return false;
+        if (!progressTestEnabled && p.href === "/progress-test") return false;
+        if (!assistantEnabled && p.href === "/assistant") return false;
+        if (!dictationEnabled && p.href === "/dictation") return false;
+        return (
+          p.title.toLowerCase().includes(term) ||
+          p.subtitle?.toLowerCase().includes(term)
+        );
+      }
     );
 
-    const readingResults: SearchResult[] = READING_PASSAGES.filter(
+    const readingResults: SearchResult[] = readingEnabled ? READING_PASSAGES.filter(
       (p) =>
         p.title.toLowerCase().includes(term) ||
         p.titleVi.toLowerCase().includes(term),
@@ -87,7 +105,7 @@ export function GlobalSearch() {
         subtitle: `${p.level} · ${p.titleVi}`,
         href: "/reading",
         icon: <BookOpen className="size-4" />,
-      }));
+      })) : [];
 
     let wordResults: SearchResult[] = [];
     try {
@@ -115,10 +133,10 @@ export function GlobalSearch() {
     }
 
     setResults(
-      [...pageResults, ...readingResults, ...wordResults].slice(0, MAX_RESULTS),
+      [...filteredPages, ...readingResults, ...wordResults].slice(0, MAX_RESULTS),
     );
     setLoading(false);
-  }, []);
+  }, [readingEnabled, grammarEnabled, progressTestEnabled, assistantEnabled, dictationEnabled]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -129,7 +147,8 @@ export function GlobalSearch() {
   }, [query, search]);
 
   return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
+    flagsLoading || !globalSearchEnabled ? null : (
+      <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="max-w-lg gap-0 overflow-hidden p-0">
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
           <Search className="size-4 shrink-0 text-muted-foreground" />
@@ -184,7 +203,8 @@ export function GlobalSearch() {
             </div>
           )}
         </div>
-      </DialogContent>
-    </Dialog>
+</DialogContent>
+      </Dialog>
+    )
   );
 }

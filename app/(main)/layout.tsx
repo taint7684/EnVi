@@ -6,6 +6,7 @@ import { XpBar } from "@/components/gamification/xp-bar";
 import { GlobalSearch } from "@/components/ui/global-search";
 import { FloatingChat } from "@/components/assistant/floating-chat";
 import { SignOutButton } from "@/components/sign-out-button";
+import { OfflineBanner } from "@/components/offline/OfflineBanner";
 
 export default async function MainLayout({
   children,
@@ -51,6 +52,7 @@ export default async function MainLayout({
       </div>
 
       <FloatingChat />
+      <OfflineBanner />
     </div>
   );
 }

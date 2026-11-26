@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import { Toaster } from "sonner";
 import { SearchShortcut } from "@/components/ui/search-shortcut";
-import { SWRegistration } from "@/components/ui/sw-registration";
+import { PWAProvider } from "@/components/pwa/PWAProvider";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -44,8 +44,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <SearchShortcut />
-        <SWRegistration />
-        {children}
+        <PWAProvider>
+          {children}
+        </PWAProvider>
         <Toaster position="bottom-right" richColors closeButton />
       </body>
     </html>
