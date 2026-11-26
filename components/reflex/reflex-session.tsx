@@ -20,6 +20,7 @@ import type { DuePhrase, ReviewGrade } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { updateReflexProgress } from "@/app/actions/gamification";
 import { useVadWithMetrics } from "@/lib/hooks/useVad";
+import { scheduleReflexReview, dbToCardState, cardStateToDb } from "@/lib/reflex/scheduler";
 
 const AudioButton = dynamic(() =>
   import("./audio-button").then((m) => m.AudioButton),
@@ -83,12 +84,12 @@ export function ReflexSession({
     startRef.current = performance.now();
     if (mode === "pure") {
       const q = current.phrase.situation_en || current.phrase.en_text;
-      speakEnglish(q, current.phrase.audio_url);
+      speakEnglish(q, current.phrase.audio_url, current.phrase.id);
       // Start VAD after TTS ends
       vad.markTtsEnd();
       vad.startListening();
     } else if (mode === "shadowing" || mode === "dictation") {
-      speakEnglish(current.phrase.en_text, current.phrase.audio_url);
+      speakEnglish(current.phrase.en_text, current.phrase.audio_url, current.phrase.id);
     }
     return () => {
       stopSpeaking();
@@ -101,6 +102,25 @@ export function ReflexSession({
       if (!current) return;
       if (gradedIndex.current === index) return;
       gradedIndex.current = index;
+
+      // Client-side FSRS scheduling for immediate feedback (review mode)
+      if (sessionMode === "review" && current.review) {
+        const cardState = dbToCardState(current.review);
+        const meaningScore = judgment?.meaning.meaningCorrect ? 1 : 0;
+        
+        const { nextState, intervalDays, nextReview } = scheduleReflexReview({
+          phraseId: current.phrase.id,
+          currentState: cardState,
+          grade,
+          latencyMs: latencyMs || vadLatency || 0,
+          meaningScore,
+        });
+        
+        // Update local review state for immediate UI feedback
+        // In production, this would be synced to server
+        console.log(`FSRS: Next review in ${intervalDays} days (${nextReview.toLocaleDateString()})`);
+      }
+
       void reviewPhrase(current.phrase.id, grade)
         .then(() => {
           window.dispatchEvent(new Event("envi:xp-refresh"));
@@ -111,7 +131,7 @@ export function ReflexSession({
           );
         });
     },
-    [current, index],
+    [current, index, sessionMode, latencyMs, vadLatency, judgment],
   );
 
   const advance = useCallback(() => {
@@ -258,7 +278,7 @@ export function ReflexSession({
     setAttempts((a) => a + 1);
     startRef.current = performance.now();
     const q = current?.phrase.situation_en || current?.phrase.en_text;
-    if (q) speakEnglish(q, current?.phrase.audio_url);
+    if (q) speakEnglish(q, current?.phrase.audio_url, current?.phrase.id);
   }
 
   if (done) {
@@ -417,6 +437,7 @@ export function ReflexSession({
                 text={phrase.situation_en || phrase.en_text}
                 audioUrl={phrase.audio_url}
                 label="Nghe câu hỏi"
+                phraseId={phrase.id}
               />
             </div>
 
@@ -452,6 +473,7 @@ export function ReflexSession({
                       text={phrase.en_text}
                       audioUrl={phrase.audio_url}
                       label="Hear answer"
+                      phraseId={phrase.id}
                     />
                   </div>
                 </div>
@@ -546,6 +568,7 @@ export function ReflexSession({
                 text={phrase.en_text}
                 audioUrl={phrase.audio_url}
                 label="Nghe"
+                phraseId={phrase.id}
               />
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
@@ -633,6 +656,7 @@ export function ReflexSession({
                     text={phrase.en_text}
                     audioUrl={phrase.audio_url}
                     label="Hear answer"
+                    phraseId={phrase.id}
                   />
                 </div>
               </div>
@@ -679,7 +703,7 @@ export function ReflexSession({
 
           {mode === "reflex" && !result ? (
             <Button
-              onClick={() => speakEnglish(phrase.en_text, phrase.audio_url)}
+              onClick={() => speakEnglish(phrase.en_text, phrase.audio_url, phrase.id)}
               variant="ghost"
             >
               <Lightbulb className="size-4" />
@@ -694,6 +718,7 @@ export function ReflexSession({
               text={phrase.en_text}
               audioUrl={phrase.audio_url}
               label="Play again"
+              phraseId={phrase.id}
             />
           </div>
         ) : null}

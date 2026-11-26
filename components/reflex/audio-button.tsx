@@ -12,6 +12,7 @@ type AudioButtonProps = {
   audioUrl?: string | null;
   label?: string;
   className?: string;
+  phraseId?: string;
 };
 
 export function AudioButton({
@@ -19,11 +20,12 @@ export function AudioButton({
   audioUrl,
   label = "Nghe",
   className,
+  phraseId,
 }: AudioButtonProps) {
   const [active, setActive] = useState(false);
 
   function handleClick() {
-    speakEnglish(text, audioUrl);
+    speakEnglish(text, audioUrl, phraseId);
     setActive(true);
     window.setTimeout(() => setActive(false), 1000);
   }

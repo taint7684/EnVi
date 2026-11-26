@@ -1,8 +1,28 @@
 import { cacheTTS, getCachedTTS } from "@/lib/offline-queue";
 
+// Edge TTS voice pool - rotate through these for variety
 const EDGE_TTS_VOICES = {
-  en: ["en-US-AriaNeural", "en-US-GuyNeural", "en-US-JennyNeural", "en-GB-LibbyNeural", "en-GB-RyanNeural"],
-  vi: ["vi-VN-HoaiMyNeural", "vi-VN-NamMinhNeural"],
+  en: [
+    // US voices
+    { name: "en-US-AriaNeural", gender: "female", region: "US" },
+    { name: "en-US-GuyNeural", gender: "male", region: "US" },
+    { name: "en-US-JennyNeural", gender: "female", region: "US" },
+    { name: "en-US-DavisNeural", gender: "male", region: "US" },
+    { name: "en-US-AmberNeural", gender: "female", region: "US" },
+    { name: "en-US-ChristopherNeural", gender: "male", region: "US" },
+    // UK voices
+    { name: "en-GB-LibbyNeural", gender: "female", region: "UK" },
+    { name: "en-GB-RyanNeural", gender: "male", region: "UK" },
+    { name: "en-GB-SoniaNeural", gender: "female", region: "UK" },
+    { name: "en-GB-ThomasNeural", gender: "male", region: "UK" },
+    // AU voices
+    { name: "en-AU-NatashaNeural", gender: "female", region: "AU" },
+    { name: "en-AU-WilliamNeural", gender: "male", region: "AU" },
+  ],
+  vi: [
+    { name: "vi-VN-HoaiMyNeural", gender: "female", region: "VN" },
+    { name: "vi-VN-NamMinhNeural", gender: "male", region: "VN" },
+  ],
 };
 
 interface TTSOptions {
@@ -11,6 +31,23 @@ interface TTSOptions {
   voice?: string;
   rate?: number;
   pitch?: number;
+}
+
+// Deterministic voice selection based on phrase ID for consistency
+export function getVoiceForPhrase(phraseId: string, lang: "en" | "vi" = "en"): string {
+  const voices = EDGE_TTS_VOICES[lang];
+  const hash = phraseId.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return voices[hash % voices.length].name;
+}
+
+// Get all voices for a language
+export function getVoicesForLang(lang: "en" | "vi" = "en"): typeof EDGE_TTS_VOICES.en {
+  return EDGE_TTS_VOICES[lang];
+}
+
+// Get voice info by name
+export function getVoiceInfo(voiceName: string) {
+  return [...EDGE_TTS_VOICES.en, ...EDGE_TTS_VOICES.vi].find(v => v.name === voiceName);
 }
 
 function generateCacheKey(options: TTSOptions): string {
@@ -66,7 +103,7 @@ export async function fetchAndCacheTTS(options: TTSOptions): Promise<void> {
   if (typeof window === "undefined" || !window.speechSynthesis) return;
 
   const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-  const destination = audioContext.createMediaStreamDestination();
+   audioContext.createMediaStreamDestination();
   
   const utter = new SpeechSynthesisUtterance(options.text);
   utter.lang = options.lang === "vi" ? "vi-VN" : "en-US";
