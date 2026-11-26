@@ -83,16 +83,69 @@ export function PictureTalkSession({
     setTotalSpeakingSeconds((prev) => prev + Math.ceil(latency / 1000));
     setImagesDescribed((prev) => prev + 1);
 
-    setFeedback({
-      praise: latency < 5000 ? "Phản xạ tốt!" : "Ổn, nói lại sẽ nhanh hơn.",
-      naturalAlternative: `Thay vì "${spoken}", bạn có thể nói: "${currentImage?.prompt.split(".")[0]}. ${currentImage?.vocab.slice(0, 3).join(", ")}."`,
-      structuresUsed: currentImage?.expectedStructures.filter(s => spoken.toLowerCase().includes(s.toLowerCase())) || [],
-      vocabUsed: currentImage?.vocab.filter(v => spoken.toLowerCase().includes(v.toLowerCase())) || [],
-      viSegments,
-      wpm,
-    });
+    // Layer-specific feedback
+    const layerFeedback = getLayerFeedback(config.layer, spoken, currentImage, latency, viSegments, wpm);
+    
+    setFeedback(layerFeedback);
 
     setShowHint(false);
+  }
+
+  function getLayerFeedback(
+    layer: "L1" | "L2" | "L3",
+    spoken: string,
+    image: PictureTalkImage | undefined,
+    latency: number,
+    viSegments: number,
+    wpm: number
+  ) {
+    const baseFeedback = {
+      structuresUsed: image?.expectedStructures.filter(s => spoken.toLowerCase().includes(s.toLowerCase())) || [],
+      vocabUsed: image?.vocab.filter(v => spoken.toLowerCase().includes(v.toLowerCase())) || [],
+      viSegments,
+      wpm,
+    };
+
+    if (layer === "L1") {
+      return {
+        ...baseFeedback,
+        praise: latency < 5000 ? "Phản xạ tốt! Mô tả hiện tại rất tự nhiên." : "Ổn, nói lại sẽ nhanh hơn.",
+        naturalAlternative: `Thay vì "${spoken}", bạn có thể nói: "${image?.prompt.split(".")[0]}. ${image?.vocab.slice(0, 3).join(", ")}."`,
+      };
+    }
+
+    if (layer === "L2") {
+      const hasSequencing = image?.expectedStructures.some(s => 
+        ["First", "Then", "After", "Finally", "Next", "Later"].some(w => s.includes(w))
+      ) && image?.expectedStructures.some(s => spoken.toLowerCase().includes(s.toLowerCase().split(" ")[0]));
+      
+      return {
+        ...baseFeedback,
+        praise: hasSequencing 
+          ? "Kể chuyện hay! Cấu trúc trình tự sự kiện rõ ràng."
+          : "Cố gắng dùng First, Then, After that, Finally để kể chuyện mượt hơn.",
+        naturalAlternative: hasSequencing 
+          ? `"${spoken}" - Cấu trúc tốt!`
+          : `Thử: "First, ${image?.prompt.split(".")[0].toLowerCase()}. Then, something happened. Finally, ${image?.vocab[0]}."`,
+      };
+    }
+
+    // L3 - Opinion/Argument
+    const hasOpinionMarkers = ["think", "believe", "opinion", "perspective", "view", "should", "must", "agree", "disagree"]
+      .some(w => spoken.toLowerCase().includes(w));
+    const hasReasoning = ["because", "since", "as", "reason", "therefore", "so", "thus"].some(w => spoken.toLowerCase().includes(w));
+    
+    return {
+      ...baseFeedback,
+      praise: hasOpinionMarkers && hasReasoning
+        ? "Bày tỏ quan điểm rất thuyết phục! Có ý kiến và lý lẽ rõ ràng."
+        : hasOpinionMarkers
+          ? "Tốt! Đã có ý kiến cá nhân. Hãy thêm 'because' để giải thích lý do."
+          : "Hãy bắt đầu bằng 'In my opinion...', 'I think...', 'From my perspective...'",
+      naturalAlternative: hasOpinionMarkers && hasReasoning
+        ? `"${spoken}" - Luận điểm chắc chắn!`
+        : `Thử: "In my opinion, ${image?.prompt.split(".")[0].toLowerCase()} because ${image?.vocab[0]} is important. I believe..."`,
+    };
   }
 
   function nextImage() {
@@ -204,13 +257,33 @@ export function PictureTalkSession({
 
       {state === "intro" && (
         <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-center">
-          <p className="font-semibold text-amber-700">Picture Talk - Layer {config.layer}</p>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <span className="text-3xl">
+              {config.layer === "L1" && "📸"}
+              {config.layer === "L2" && "📖"}
+              {config.layer === "L3" && "💭"}
+            </span>
+            <p className="font-semibold text-amber-700">Picture Talk - Layer {config.layer}</p>
+          </div>
           <p className="mt-1 text-sm text-amber-600">
-            Describe {config.images.length} images for topic "{config.topicId}".
-            Layer {config.layer === "L1" ? "L1: Describe present" : config.layer === "L2" ? "L2: Tell a story" : "L3: Opinion/Compare"}.
+            {config.layer === "L1" 
+              ? `Mô tả ${config.images.length} ảnh cho chủ đề "${config.topicId}". Dùng hiện tại đơn, thói quen, thích/không thích.`
+              : config.layer === "L2"
+              ? `Kể chuyện về ${config.images.length} ảnh. Dùng quá khứ, trình tự (First, Then, After, Finally), cảm xúc.`
+              : `Bày tỏ quan điểm về ${config.images.length} ảnh. Dùng "I think...", "In my opinion...", "because...", so sánh, lập luận.`
+            }
           </p>
+          <div className="mt-3 p-3 rounded-lg bg-white/50 text-xs text-left text-amber-700">
+            <p className="font-semibold mb-1">Cấu trúc gợi ý ({config.layer}):</p>
+            <p>{config.layer === "L1" 
+              ? "I usually... | Every day I... | I like to... | There is/are..."
+              : config.layer === "L2"
+              ? "First... Then... After that... Finally... It was... I felt... I remember..."
+              : "In my opinion... I think... From my perspective... I believe... because... however..."}
+            </p>
+          </div>
           <Button className="mt-4 w-full size-12" onClick={() => setState("describing")}>
-            <Image className="size-6" /> Start describing image 1
+            <Image className="size-6" /> Bắt đầu ảnh 1
           </Button>
         </div>
       )}
@@ -218,7 +291,11 @@ export function PictureTalkSession({
       {state === "describing" && (
         <div className="mb-4 rounded-2xl border border-border bg-background p-4">
           <p className="text-center text-sm text-muted-foreground">
-            Look at image → Speak immediately (no translating in head) → AI gives feedback
+            {config.layer === "L1"
+              ? "Nhìn ảnh → Nói ngay (không dịch trong đầu) → AI phản hồi"
+              : config.layer === "L2"
+              ? "Nhìn ảnh → Kể chuyện (trình tự sự kiện, cảm xúc) → AI phản hồi"
+              : "Nhìn ảnh → Bày tỏ quan điểm (ý kiến + lý lẽ) → AI phản hồi"}
           </p>
           <div className="mt-4 flex justify-center">
             <Button

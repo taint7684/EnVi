@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Calendar, Mic, TrendingUp, Award, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AssessmentTest } from "./components/AssessmentTest";
+import { PlacementTest } from "./components/PlacementTest";
 import { OralMirrorRecorder } from "./components/OralMirrorRecorder";
 import { createClient } from "@/lib/supabase/client";
 
@@ -65,11 +66,12 @@ export default function AssessmentPage() {
       <div className="border-b border-border pb-2 mb-4" />
 
       {activeTab === "placement" && (
-        <AssessmentTest
+        <PlacementTest
           onComplete={(result) => {
             setLastAssessment({
               final_level: result.level,
               total_score: result.score,
+              section_scores: result.sectionScores,
               completed_at: new Date().toISOString(),
             });
             setActiveTab("history");

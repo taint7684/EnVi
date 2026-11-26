@@ -1,27 +1,17 @@
+// Service Worker for PWA Push Notifications
+// Place in public/sw.js
+
 const CACHE_NAME = 'envi-v1';
 const STATIC_ASSETS = [
   '/',
   '/today',
-  '/dashboard',
   '/reflex',
   '/speaking',
-  '/shadowing',
-  '/chunks',
-  '/voice-diary',
-  '/speak/picture-talk',
   '/assessment',
-  '/gamification',
+  '/manifest.json',
 ];
 
-const CACHE_STRATEGIES = {
-  // Cache first for static assets
-  static: ['/static/', '/_next/static/', '/fonts/', '/images/'],
-  // Network first for API calls
-  networkFirst: ['/api/'],
-  // Stale while revalidate for pages
-  staleWhileRevalidate: ['/today', '/dashboard', '/reflex', '/speaking', '/shadowing', '/chunks', '/voice-diary', '/speak/picture-talk', '/assessment', '/gamification'],
-};
-
+// Install event - cache static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -31,165 +21,135 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
+// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
+        cacheNames
+          .filter((name) => name !== CACHE_NAME)
+          .map((name) => caches.delete(name))
       );
     })
   );
   self.clients.claim();
 });
 
+// Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', (event) => {
-  const { request } = event;
-  const url = new URL(request.url);
-
   // Skip non-GET requests
-  if (request.method !== 'GET') {
-    return;
-  }
-
-  // Skip external requests
-  if (url.origin !== location.origin) {
-    return;
-  }
-
-  // API calls - network first with offline fallback
-  if (CACHE_STRATEGIES.networkFirst.some(path => url.pathname.startsWith(path))) {
-    event.respondWith(networkFirst(request));
-    return;
-  }
-
-  // Static assets - cache first
-  if (CACHE_STRATEGIES.static.some(path => url.pathname.startsWith(path))) {
-    event.respondWith(cacheFirst(request));
-    return;
-  }
-
-  // Pages - stale while revalidate
-  if (CACHE_STRATEGIES.staleWhileRevalidate.some(path => url.pathname.startsWith(path))) {
-    event.respondWith(staleWhileRevalidate(request));
-    return;
-  }
-
-  // Default: network first
-  event.respondWith(networkFirst(request));
-});
-
-async function cacheFirst(request) {
-  const cachedResponse = await caches.match(request);
-  if (cachedResponse) {
-    return cachedResponse;
-  }
-
-  try {
-    const networkResponse = await fetch(request);
-    if (networkResponse.ok) {
-      const cache = await caches.open(CACHE_NAME);
-      cache.put(request, networkResponse.clone());
-    }
-    return networkResponse;
-  } catch (error) {
-    return new Response('Offline', { status: 503 });
-  }
-}
-
-async function networkFirst(request) {
-  try {
-    const networkResponse = await fetch(request);
-    if (networkResponse.ok) {
-      const cache = await caches.open(CACHE_NAME);
-      cache.put(request, networkResponse.clone());
-    }
-    return networkResponse;
-  } catch (error) {
-    const cachedResponse = await caches.match(request);
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-    return new Response(JSON.stringify({ error: 'Offline' }), {
-      status: 503,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-}
-
-async function staleWhileRevalidate(request) {
-  const cachedResponse = await caches.match(request);
-  const fetchPromise = fetch(request).then((networkResponse) => {
-    if (networkResponse.ok) {
-      const cache = caches.open(CACHE_NAME);
-      cache.then(c => c.put(request, networkResponse.clone()));
-    }
-    return networkResponse;
-  }).catch(() => cachedResponse);
-
-  return cachedResponse || fetchPromise;
-}
-
-// Background sync for recording uploads
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'upload-recordings') {
-    event.waitUntil(uploadPendingRecordings());
-  }
-});
-
-async function uploadPendingRecordings() {
-  const db = await openDB();
-  const tx = db.transaction('pending-recordings', 'readwrite');
-  const store = tx.objectStore('pending-recordings');
-  const recordings = await store.getAll();
-
-  for (const recording of recordings) {
-    try {
-      const response = await fetch('/api/speak/turns', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(recording),
+  if (event.request.method !== 'GET') return;
+  
+  // Skip chrome-extension and other non-http requests
+  if (!event.request.url.startsWith('http')) return;
+  
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      
+      return fetch(event.request).then((response) => {
+        // Don't cache non-successful responses
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+        
+        // Clone the response
+        const responseToCache = response.clone();
+        
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+        
+        return response;
       });
+    })
+  );
+});
 
-      if (response.ok) {
-        await store.delete(recording.id);
-      }
-    } catch (error) {
-      console.error('Failed to upload recording:', error);
-    }
+// Push event - handle incoming push notifications
+self.addEventListener('push', (event) => {
+  if (!event.data) return;
+  
+  const data = event.data.json();
+  const options = {
+    body: data.body || 'EnVi - Time for your daily English practice!',
+    icon: '/icons/icon-192x192.png',
+    badge: '/icons/badge-72x72.png',
+    vibrate: [100, 50, 100],
+    data: {
+      url: data.url || '/today',
+      ...data.data,
+    },
+    actions: [
+      { action: 'open', title: 'Mở EnVi' },
+      { action: 'dismiss', title: 'Để sau' },
+    ],
+    requireInteraction: true,
+    tag: data.tag || 'envi-daily-reminder',
+    renotify: true,
+  };
+  
+  event.waitUntil(
+    self.registration.showNotification(data.title || 'EnVi - Luyện nói tiếng Anh', options)
+  );
+});
+
+// Notification click event
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  
+  if (event.action === 'dismiss') {
+    return;
   }
-}
-
-function openDB() {
-  return new Promise((resolve, reject) => {
-    const request = indexedDB.open('envi-offline', 1);
-    request.onerror = () => reject(request.error);
-    request.onsuccess = () => resolve(request.result);
-    request.onupgradeneeded = (event) => {
-      const db = event.target.result;
-      if (!db.objectStoreNames.contains('pending-recordings')) {
-        db.createObjectStore('pending-recordings', { keyPath: 'id', autoIncrement: true });
+  
+  const url = event.notification.data?.url || '/today';
+  
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      // Check if app is already open
+      for (const client of clientList) {
+        if (client.url.includes(url) && 'focus' in client) {
+          return client.focus();
+        }
       }
-      if (!db.objectStoreNames.contains('tts-cache')) {
-        db.createObjectStore('tts-cache', { keyPath: 'key' });
+      
+      // Open new window
+      if (clients.openWindow) {
+        return clients.openWindow(url);
       }
-    };
-  });
-}
+    })
+  );
+});
 
-// TTS caching
-self.addEventListener('message', (event) => {
-  if (event.data.type === 'CACHE_TTS') {
-    event.waitUntil(cacheTTS(event.data.key, event.data.audioBlob));
+// Notification close event
+self.addEventListener('notificationclose', (event) => {
+  // Track dismissal if needed
+  console.log('Notification closed:', event.notification.tag);
+});
+
+// Background sync for offline data
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-speaking-data') {
+    event.waitUntil(syncSpeakingData());
   }
 });
 
-async function cacheTTS(key, audioBlob) {
-  const db = await openDB();
-  const tx = db.transaction('tts-cache', 'readwrite');
-  const store = tx.objectStore('tts-cache');
-  await store.put({ key, audioBlob, timestamp: Date.now() });
+async function syncSpeakingData() {
+  // Implement offline data sync when back online
+  console.log('Syncing speaking data...');
+}
+
+// Periodic background sync (if supported)
+self.addEventListener('periodicsync', (event) => {
+  if (event.tag === 'daily-reminder-check') {
+    event.waitUntil(checkDailyReminder());
+  }
+});
+
+async function checkDailyReminder() {
+  // Check if user has completed today's session
+  // If not, show reminder notification
+  console.log('Checking daily reminder...');
 }
