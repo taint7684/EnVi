@@ -3,17 +3,17 @@ import "server-only";
 import { z } from "zod";
 
 export class AiUnavailableError extends Error {
-  constructor(public readonly cause?: unknown) {
+  constructor(public override readonly cause?: unknown) {
     super("All AI providers unavailable");
     this.name = "AiUnavailableError";
   }
 }
 
-type ProviderName = "groq" | "openrouter" | "ollama";
+export type ProviderName = "groq" | "openrouter" | "ollama";
 
-type ProviderCall = (input: { systemPrompt: string; userPrompt: string; responseSchema?: unknown }) => Promise<string>;
+export type ProviderCall = (input: { systemPrompt: string; userPrompt: string; responseSchema?: unknown }) => Promise<string>;
 
-type GenerateInput<T> = {
+export type GenerateInput<T> = {
   task: string;
   schema: z.ZodType<T>;
   messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
@@ -22,14 +22,14 @@ type GenerateInput<T> = {
   maxTokens?: number;
 };
 
-type GenerateResult<T> = {
+export type GenerateResult<T> = {
   data: T;
   provider: string;
   model: string;
   ms: number;
 };
 
-const DEFAULT_CHAIN = "ollama,groq,openrouter";
+const DEFAULT_CHAIN = "groq,openrouter,ollama";
 const DEFAULT_TIMEOUT_MS = 12000;
 const TASK_TIMEOUT_MS: Record<string, number> = {
   reflex_judge: 4000,
@@ -199,13 +199,13 @@ function setCache<T>(key: string, data: T): void {
   ttlCache.set(key, { data, ts: Date.now() });
 }
 
-const cacheableTasks = new Set(["define_in_context", "makeup_gen", "weekly_insight"]);
+const cacheableTasks = new Set(["define_in_context", "makeup_gen", "weekly_insight", "speaking_turn", "reflex_judge", "mission_turn", "assessment_cefr"]);
 
-function sleep(ms: number): Promise<void> {
+function _sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function backoffMs(attempt: number): number {
+function _backoffMs(attempt: number): number {
   return Math.pow(2, attempt) * 1000 + Math.floor(Math.random() * 500);
 }
 
@@ -278,7 +278,7 @@ async function callOpenRouter(input: GenerateInput<unknown>, timeoutMs: number):
 }
 
 function providerCaller(provider: ProviderName, input: GenerateInput<unknown>, timeoutMs: number): ProviderCall {
-  return async ({ systemPrompt, userPrompt, responseSchema }) => {
+  return async ({ systemPrompt, userPrompt, responseSchema: _responseSchema }) => {
     const fakeInput: GenerateInput<unknown> = { ...input, messages: [{ role: "system", content: systemPrompt }, { role: "user", content: userPrompt }] };
     if (provider === "groq") return await callGroq(fakeInput, timeoutMs);
     if (provider === "openrouter") return await callOpenRouter(fakeInput, timeoutMs);

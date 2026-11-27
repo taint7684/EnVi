@@ -1,4 +1,4 @@
-import { FSRS, type Card, type CardInput, type FSRSParameters, type Grade } from "ts-fsrs";
+import { FSRS, type CardInput, type FSRSParameters, type Grade } from "ts-fsrs";
 
 type ReviewGrade = "again" | "hard" | "good" | "easy";
 
@@ -12,6 +12,18 @@ interface CardState {
   lapses: number;
   state: 0 | 1 | 2 | 3;
   last_review: Date | null;
+}
+
+export interface DbCardState {
+  due: string;
+  stability: number;
+  difficulty: number;
+  elapsed_days: number;
+  scheduled_days: number;
+  reps: number;
+  lapses: number;
+  state: 0 | 1 | 2 | 3;
+  last_review: string | null;
 }
 
 interface SchedulerInput {
@@ -198,7 +210,7 @@ export function getInitialReflexState(phraseId: string, now = new Date()): CardS
 /**
  * Convert database stored state to CardState
  */
-export function dbToCardState(data: Record<string, any>): CardState | null {
+export function dbToCardState(data: DbCardState | null): CardState | null {
   if (!data) return null;
   return {
     due: new Date(data.due),
@@ -216,7 +228,7 @@ export function dbToCardState(data: Record<string, any>): CardState | null {
 /**
  * Convert CardState to database format
  */
-export function cardStateToDb(state: CardState): Record<string, any> {
+export function cardStateToDb(state: CardState): DbCardState {
   return {
     due: state.due.toISOString(),
     stability: state.stability,
@@ -231,9 +243,31 @@ export function cardStateToDb(state: CardState): Record<string, any> {
 }
 
 /**
+ * Convert PhraseReviewRow to DbCardState
+ */
+export function phraseReviewRowToDbCardState(row: { due_at: string; stability?: number; difficulty?: number; elapsed_days?: number; scheduled_days?: number; reps: number; lapses: number; ease?: number; interval?: number; last_reviewed_at: string | null }): DbCardState {
+  // Map PhraseReviewRow fields to DbCardState
+  // PhraseReviewRow uses ease/interval, DbCardState uses stability/difficulty
+  const stability = row.stability ?? (row.ease ? (row.ease - 1.3) * 10 : 25);
+  const difficulty = row.difficulty ?? (row.ease ? 10 - row.ease : 5);
+  
+  return {
+    due: row.due_at,
+    stability,
+    difficulty,
+    elapsed_days: row.elapsed_days ?? (row.interval || 0),
+    scheduled_days: row.scheduled_days ?? (row.interval || 0),
+    reps: row.reps,
+    lapses: row.lapses,
+    state: 0, // Default to new
+    last_review: row.last_reviewed_at,
+  };
+}
+
+/**
  * Get phrases due for review
  */
-export function getDuePhrases(phrases: Array<{ id: string; fsrs_state: Record<string, any> }>, now = new Date()): string[] {
+export function getDuePhrases(phrases: Array<{ id: string; fsrs_state: DbCardState }>, now = new Date()): string[] {
   return phrases
     .filter(p => {
       const state = dbToCardState(p.fsrs_state);

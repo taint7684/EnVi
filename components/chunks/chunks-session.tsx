@@ -47,7 +47,7 @@ export function ChunksSession({
   const [attemptCount, setAttemptCount] = useState(0);
   const startRef = useRef<number>(0);
 
-  const currentChunk = config.chunks[currentIndex];
+  const currentChunk = config.chunks[currentIndex]!;
   const isLastChunk = currentIndex >= config.chunks.length - 1;
   const masteredCount = mastered.size;
 

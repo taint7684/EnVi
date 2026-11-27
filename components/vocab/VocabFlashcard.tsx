@@ -1,7 +1,7 @@
 // Vocab Flashcard Component - Spaced Repetition Vocabulary Practice
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Brain, RefreshCw, Check, X, Volume2, Flag, BookOpen, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -36,10 +36,14 @@ export function VocabFlashcard({ cards, mode = "review", onComplete }: VocabFlas
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMeaning, setShowMeaning] = useState(false);
   const [stats, setStats] = useState({ reviewed: 0, correct: 0, timeSpent: 0 });
-  const [sessionStart] = useState(Date.now());
+  const sessionStartRef = useRef<number>(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [quizAnswer, setQuizAnswer] = useState("");
   const [quizResult, setQuizResult] = useState<"correct" | "incorrect" | null>(null);
+
+  useEffect(() => {
+    sessionStartRef.current = Date.now();
+  }, []);
 
   const currentCard = cards[currentIndex];
   const isLast = currentIndex >= cards.length - 1;
@@ -52,7 +56,7 @@ export function VocabFlashcard({ cards, mode = "review", onComplete }: VocabFlas
     setStats(prev => ({
       reviewed: prev.reviewed + 1,
       correct: prev.correct + (isCorrect ? 1 : 0),
-      timeSpent: Math.floor((Date.now() - sessionStart) / 1000),
+      timeSpent: Math.floor((Date.now() - sessionStartRef.current) / 1000),
     }));
 
     // In real app, call FSRS scheduler API here
@@ -67,7 +71,7 @@ export function VocabFlashcard({ cards, mode = "review", onComplete }: VocabFlas
       setQuizResult(null);
       setQuizAnswer("");
     }
-  }, [currentCard, isLast, onComplete, stats, sessionStart]);
+  }, [currentCard, isLast, onComplete, stats]);
 
   const handleQuizSubmit = () => {
     if (!quizAnswer.trim()) return;
@@ -153,7 +157,7 @@ export function VocabFlashcard({ cards, mode = "review", onComplete }: VocabFlas
           <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl border border-border bg-card p-8 shadow-sm flex flex-col items-center justify-center">
             <div className="text-center">
               <p className="text-2xl font-medium text-primary mb-3">{currentCard.meaning}</p>
-              <p className="text-sm text-muted-foreground italic mb-4">"{currentCard.example}"</p>
+              <p className="text-sm text-muted-foreground italic mb-4">&ldquo;{currentCard.example}&rdquo;</p>
               <div className="flex gap-2">
                 {currentCard.audio_url && (
                   <Button variant="outline" size="icon" onClick={(e) => { e.stopPropagation(); speakEnglish(currentCard.meaning, currentCard.audio_url); }}>

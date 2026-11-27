@@ -25,10 +25,10 @@ describe("buildReviewForecast", () => {
     );
 
     expect(forecast).toHaveLength(7);
-    expect(forecast[0].label).toBe("Hôm nay");
-    expect(forecast[0].due).toBe(2); // quá hạn + hôm nay
-    expect(forecast[1].label).toBe("Ngày mai");
-    expect(forecast[1].due).toBe(1);
+    expect(forecast[0]!.label).toBe("Hôm nay");
+    expect(forecast[0]!.due).toBe(2); // quá hạn + hôm nay
+    expect(forecast[1]!.label).toBe("Ngày mai");
+    expect(forecast[1]!.due).toBe(1);
     expect(forecast.reduce((sum, d) => sum + d.due, 0)).toBe(3);
   });
 });

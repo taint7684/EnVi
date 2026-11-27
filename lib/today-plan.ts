@@ -110,7 +110,7 @@ function getMode(dayIndex: number, userMode?: TodayMode): TodayMode {
 
 function getEncouragement(dayIndex: number, stats: UserStats): string {
   const idx = (dayIndex + stats.streakDays) % ENCOURAGEMENTS.length;
-  let msg = ENCOURAGEMENTS[idx];
+  let msg = ENCOURAGEMENTS[idx]!;
   if (stats.baselineLatencyMs && stats.baselineLatencyMs > 3000) {
     msg += " Hãy tập mở miệng trước 2 giây nhé!";
   }

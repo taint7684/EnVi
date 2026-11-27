@@ -50,7 +50,9 @@ function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    const temp = a[i];
+    a[i] = a[j]!;
+    a[j] = temp!;
   }
   return a;
 }
@@ -167,9 +169,9 @@ export function MixedPractice({ wrongAnswerIds = [], v2Questions }: { wrongAnswe
   if (done || !current) {
     const byTopic: Record<string, { total: number; correct: number }> = {};
     for (const r of results) {
-      if (!byTopic[r.topicName]) byTopic[r.topicName] = { total: 0, correct: 0 };
-      byTopic[r.topicName].total++;
-      if (r.correct) byTopic[r.topicName].correct++;
+      if (!byTopic[r.topicName!]) byTopic[r.topicName!] = { total: 0, correct: 0 };
+      byTopic[r.topicName!].total++;
+      if (r.correct) byTopic[r.topicName!].correct++;
     }
     const totalCorrect = results.filter((r) => r.correct).length;
 

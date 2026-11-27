@@ -141,14 +141,14 @@ describe("FSRS SRS Algorithm", () => {
       const stabilities: number[] = [];
 
       for (let i = 0; i < 3; i++) {
-        const now = i === 0 ? new Date() : new Date(card.due);
+        const now = i === 0 ? new Date() : new Date(card.due!);
         const next = repeatCard(card, "good", now);
         card = next;
         stabilities.push(card.stability);
       }
 
       for (let i = 1; i < stabilities.length; i++) {
-        expect(stabilities[i]).toBeGreaterThanOrEqual(stabilities[i - 1]);
+        expect(stabilities[i]!).toBeGreaterThanOrEqual(stabilities[i - 1]!);
       }
     });
   });

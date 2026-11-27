@@ -48,7 +48,7 @@ export function summarizeProgress(
     }));
 
   const baselineRow = history.find((h) => h.milestone === "baseline") ?? null;
-  const latest = history.length > 0 ? history[history.length - 1] : null;
+  const latest = history.length > 0 ? history[history.length - 1]! : null;
   const hasComparison = baselineRow != null && latest != null && latest.milestone !== "baseline";
   const deltaTotal =
     hasComparison && baselineRow && latest

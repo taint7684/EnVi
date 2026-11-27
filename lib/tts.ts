@@ -1,4 +1,5 @@
-import { cacheTTS, getCachedTTS } from "@/lib/offline-queue";
+// import { cacheTTS, getCachedTTS } from "@/lib/offline-queue";
+import { getCachedTTS } from "@/lib/offline-queue";
 
 // Edge TTS voice pool - rotate through these for variety
 const EDGE_TTS_VOICES = {
@@ -37,7 +38,7 @@ interface TTSOptions {
 export function getVoiceForPhrase(phraseId: string, lang: "en" | "vi" = "en"): string {
   const voices = EDGE_TTS_VOICES[lang];
   const hash = phraseId.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return voices[hash % voices.length].name;
+  return voices[hash % voices.length]!.name;
 }
 
 // Get all voices for a language
@@ -102,7 +103,7 @@ export async function fetchAndCacheTTS(options: TTSOptions): Promise<void> {
   // For now, we'll use browser synthesis and cache the result
   if (typeof window === "undefined" || !window.speechSynthesis) return;
 
-  const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+  const audioContext = new (window.AudioContext || (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
    audioContext.createMediaStreamDestination();
   
   const utter = new SpeechSynthesisUtterance(options.text);

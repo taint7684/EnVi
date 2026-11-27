@@ -533,7 +533,7 @@ export function RoadmapContent() {
             </h2>
             <p className="text-sm text-muted-foreground">
               Ngày {currentDay}/{TOTAL_DAYS} · Giai đoạn {activePhase + 1}:{" "}
-              {PHASES[activePhase].title}
+              {PHASES[activePhase]!.title}
             </p>
             <div className="mt-2 flex items-center gap-2 text-sm">
               {editingMinutes ? (

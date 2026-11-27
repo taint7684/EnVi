@@ -21,6 +21,7 @@ export function MirrorRecorder({
   const [duration, setDuration] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
@@ -86,10 +87,12 @@ export function MirrorRecorder({
 
   const playPause = () => {
     if (!audioRef.current) return;
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-    } else {
+    if (isPlaying) {
       audioRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      audioRef.current.play();
+      setIsPlaying(true);
     }
   };
 
@@ -204,7 +207,7 @@ export function MirrorRecorder({
         <div className="space-y-4">
           <div className="flex items-center justify-center gap-4">
             <Button variant="outline" onClick={playPause} size="lg" className="size-12 rounded-full">
-              {audioRef.current?.paused ? <Play className="size-6" /> : <Pause className="size-6" />}
+              {isPlaying ? <Pause className="size-6" /> : <Play className="size-6" />}
             </Button>
             <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
               <div 
@@ -245,10 +248,6 @@ export function MirrorComparison({ weekNum }: { weekNum: number }) {
   } | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchComparison();
-  }, [weekNum]);
-
   const fetchComparison = async () => {
     try {
       const sb = createClient();
@@ -264,6 +263,10 @@ export function MirrorComparison({ weekNum }: { weekNum: number }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchComparison();
+  }, [weekNum]);
 
   if (loading) return <div className="text-center py-8">Loading comparison...</div>;
   if (!comparison) return <div className="text-center py-8 text-muted-foreground">No comparison data yet. Complete Week 1 and current week recordings.</div>;

@@ -58,9 +58,9 @@ export function scoreDictation(userText: string, targetText: string): DictationS
   const results: WordResult[] = [];
   let correct = 0;
   for (let i = 0; i < total; i++) {
-    const ok = (spoken[i] ?? "") === target[i];
+    const ok = (spoken[i] ?? "") === target[i]!;
     if (ok) correct += 1;
-    results.push({ word: target[i], ok });
+    results.push({ word: target[i]!, ok });
   }
   const percent = total > 0 ? correct / total : 0;
   return {

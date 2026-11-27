@@ -107,7 +107,8 @@ export function ThreeHourPlan() {
       const to = prev.findIndex((b) => b.id === toId);
       if (from === -1 || to === -1) return prev;
       const next = [...prev];
-      const [moved] = next.splice(from, 1);
+      const moved = next.splice(from, 1)[0];
+      if (!moved) return prev;
       next.splice(to, 0, moved);
       return next;
     });

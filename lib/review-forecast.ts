@@ -6,7 +6,7 @@ export type ForecastDay = {
   due: number;
 };
 
-const WEEKDAYS = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"];
+const WEEKDAYS = ["CN", "T2", "T3", "T4", "T5", "T6", "T7"] as const;
 
 function addDays(d: Date, n: number): Date {
   const r = new Date(d);
@@ -39,11 +39,11 @@ export function buildReviewForecast(
   for (const dueAt of dueAtList) {
     const dueStr = dateOnlyVN(new Date(dueAt));
     if (dueStr <= todayStr) {
-      buckets[0].due += 1;
+      buckets[0]!.due += 1;
       continue;
     }
     const i = index.get(dueStr);
-    if (i !== undefined) buckets[i].due += 1;
+    if (i !== undefined) buckets[i]!.due += 1;
   }
 
   return buckets;

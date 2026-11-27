@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
-import { Play, Pause, Check, X, ChevronRight, Clock, Volume2, Flag, RotateCcw } from "lucide-react";
+import { useEffect, useState, useCallback, useRef, useMemo } from "react";
+import { Play, Pause, Check, X, ChevronRight, Clock, Volume2, Flag, RotateCcw, Zap, Flame, Target, Trophy, Star, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -32,6 +32,18 @@ const MODULE_LABELS: Record<string, string> = {
   dashboard: "Dashboard",
 };
 
+const MODULE_ICONS: Record<string, React.ReactNode> = {
+  reflex: <Zap className="h-4 w-4" />,
+  picture_talk: <Target className="h-4 w-4" />,
+  voice_diary: <Star className="h-4 w-4" />,
+  chunks: <Trophy className="h-4 w-4" />,
+  shadowing: <Flame className="h-4 w-4" />,
+  speaking: <Sparkles className="h-4 w-4" />,
+  mirror: <Target className="h-4 w-4" />,
+  real_world: <Flag className="h-4 w-4" />,
+  dashboard: <Trophy className="h-4 w-4" />,
+};
+
 export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
   const router = useRouter();
   const [blocks, setBlocks] = useState<BlockWithStatus[]>(
@@ -42,14 +54,40 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
   const [isPaused, setIsPaused] = useState(false);
   const [elapsedMs, setElapsedMs] = useState(0);
   const [sessionCompleted, setSessionCompleted] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const blockStartRef = useRef<number>(0);
+  const celebrationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const currentBlock = blocks[currentIndex];
+  const currentBlock = blocks[currentIndex]!;
   const isLastBlock = currentIndex >= blocks.length - 1;
   const completedCount = blocks.filter((b) => b.status === "completed").length;
   const totalSpeakingMinutes = plan.speakingMinutes;
   const totalMinutes = plan.totalMinutes;
+  const overallProgress = useMemo(() => Math.round((completedCount / plan.blocks.length) * 100), [completedCount, plan.blocks.length]);
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        if (currentBlock?.status === "running" && !isPaused) pauseBlock();
+        else if (isPaused) resumeBlock();
+        else if (currentBlock?.status === "pending") startBlock();
+      }
+      if (e.key === "ArrowRight" && (currentBlock?.status === "completed" || currentBlock?.status === "running")) {
+        e.preventDefault();
+        handleBlockComplete();
+      }
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        e.preventDefault();
+        setCurrentIndex(i => i - 1);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentBlock, currentIndex, isPaused, isRunning]);
 
   useEffect(() => {
     if (isRunning && !isPaused) {
@@ -84,7 +122,7 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
   }, []);
 
   const handleBlockComplete = useCallback(async () => {
-    const completedBlock = blocks[currentIndex];
+    const completedBlock = blocks[currentIndex]!;
     const blockModule = completedBlock.module;
     const minutes = completedBlock.minutes;
     
@@ -130,6 +168,8 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
     if (isLastBlock) {
       setIsRunning(false);
       setSessionCompleted(true);
+      setShowCelebration(true);
+      celebrationTimeoutRef.current = setTimeout(() => setShowCelebration(false), 3000);
     } else {
       setCurrentIndex((i) => i + 1);
       setElapsedMs(0);
@@ -171,6 +211,7 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
     setIsPaused(false);
     setElapsedMs(0);
     setSessionCompleted(false);
+    setShowCelebration(false);
   }, [plan.blocks]);
 
   const formatTime = (ms: number) => {
@@ -201,7 +242,7 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
       <div className="mx-auto max-w-3xl">
         <Card className="mb-6">
           <CardContent className="py-12 text-center">
-            <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+            <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-green-100 animate-pulse">
               <Check className="h-10 w-10 text-green-600" />
             </div>
             <h2 className="font-serif text-2xl font-semibold">Hoàn thành buổi học! 🎉</h2>
@@ -225,8 +266,14 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
     );
   }
 
-  return (
+return (
     <div className="mx-auto max-w-3xl space-y-6">
+      {showCelebration && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
+          <div className="text-8xl animate-bounce">🎉</div>
+        </div>
+      )}
+      
       <div className="rounded-2xl border border-border bg-card p-4 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -258,6 +305,9 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
         </div>
 
         <p className="mt-3 text-sm text-muted-foreground italic">&#8220;{plan.encouragement}&#8221;</p>
+        
+        <Progress value={overallProgress} className="mt-3 h-1.5" />
+        <p className="mt-1 text-xs text-muted-foreground text-center">Tiến độ tổng thể: {overallProgress}%</p>
       </div>
 
       <Card>
@@ -270,21 +320,21 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
-          <Progress value={Math.round((completedCount / plan.blocks.length) * 100)} className="mb-4 h-2" />
+          <Progress value={overallProgress} className="mb-4 h-2" />
 
           <div className="space-y-2">
             {blocks.map((block, index) => (
               <div
                 key={block.id}
                 className={cn(
-                  "relative flex items-center gap-3 rounded-xl border p-3 transition-all",
-                  block.status === "running" && "border-primary bg-primary/5 ring-1 ring-primary/20",
+                  "relative flex items-center gap-3 rounded-xl border p-3 transition-all duration-300",
+                  block.status === "running" && "border-primary bg-primary/5 ring-1 ring-primary/20 shadow-lg",
                   block.status === "completed" && "border-emerald-200 bg-emerald-50",
                   block.status === "skipped" && "border-amber-200 bg-amber-50 opacity-70",
-                  block.status === "pending" && "border-border bg-card"
+                  block.status === "pending" && "border-border bg-card hover:border-primary/30"
                 )}
               >
-                <div className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium", block.status === "completed" && "bg-emerald-100 text-emerald-700", block.status === "running" && "bg-primary text-primary-foreground animate-pulse", block.status === "skipped" && "bg-amber-100 text-amber-700", block.status === "pending" && "bg-muted text-muted-foreground")}>
+                <div className={cn("flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium transition-all", block.status === "completed" && "bg-emerald-100 text-emerald-700", block.status === "running" && "bg-primary text-primary-foreground animate-pulse shadow-[0_0_0_3px_rgba(59,130,246,0.3)]", block.status === "skipped" && "bg-amber-100 text-amber-700", block.status === "pending" && "bg-muted text-muted-foreground")}>
                   {block.status === "completed" ? (
                     <Check className="h-4 w-4" />
                   ) : block.status === "skipped" ? (
@@ -295,9 +345,16 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <p className={cn("font-medium truncate", block.status === "completed" && "line-through text-muted-foreground")}>
-                    {block.label}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    {MODULE_ICONS[block.module] && (
+                      <span className={cn("flex-shrink-0", block.status === "completed" && "text-emerald-600", block.status === "running" && "text-primary", block.status === "pending" && "text-muted-foreground")}>
+                        {MODULE_ICONS[block.module]}
+                      </span>
+                    )}
+                    <p className={cn("font-medium truncate", block.status === "completed" && "line-through text-muted-foreground")}>
+                      {block.label}
+                    </p>
+                  </div>
                   <p className="text-xs text-muted-foreground">
                     ~{block.minutes} phút • {block.speaking ? "Nói" : "Input"}
                   </p>
@@ -311,13 +368,17 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
                 )}
 
                 {block.status === "completed" && block.startedAt && block.completedAt && (
-                  <span className="text-xs text-emerald-700">
+                  <span className="text-xs text-emerald-700 flex items-center gap-1">
+                    <Check className="h-3 w-3" />
                     Hoàn thành trong {formatTime(block.completedAt - block.startedAt)}
                   </span>
                 )}
 
                 {block.status === "skipped" && (
-                  <span className="text-xs text-amber-700">Đã bỏ qua</span>
+                  <span className="text-xs text-amber-700 flex items-center gap-1">
+                    <X className="h-3 w-3" />
+                    Đã bỏ qua
+                  </span>
                 )}
               </div>
             ))}
@@ -358,15 +419,23 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
                     value={Math.min(100, (elapsedMs / (currentBlock.minutes * 60 * 1000)) * 100)}
                     className="mt-2 h-3"
                   />
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Còn {formatTime(Math.max(0, currentBlock.minutes * 60 * 1000 - elapsedMs))}
+                  </p>
                 </div>
               </div>
             )}
 
             <div className="space-y-4">
               <div className="rounded-xl border border-border bg-background p-6">
-                <p className="text-center text-muted-foreground mb-4">
-                  Module: <span className="font-medium capitalize">{MODULE_LABELS[currentBlock.module] || currentBlock.module}</span>
-                </p>
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  {MODULE_ICONS[currentBlock.module] && (
+                    <span className="text-primary">{MODULE_ICONS[currentBlock.module]}</span>
+                  )}
+                  <p className="text-center text-muted-foreground mb-0">
+                    Module: <span className="font-medium capitalize">{MODULE_LABELS[currentBlock.module] || currentBlock.module}</span>
+                  </p>
+                </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                   <div className="rounded-lg bg-card p-3 text-center">
@@ -380,15 +449,25 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
                 </div>
 
                 {currentBlock.config.topicId && (
-                  <p className="text-xs text-muted-foreground mb-2">
-                    Chủ đề: {currentBlock.config.topicId} • Tầng: {currentBlock.config.layer || "L1"} • Round: {currentBlock.config.round || 1}
+                  <p className="text-xs text-muted-foreground mb-2 flex items-center justify-center gap-1">
+                    <span className="rounded bg-primary/10 px-2 py-0.5 text-primary text-xs">Chủ đề: {currentBlock.config.topicId}</span>
+                    <span className="rounded bg-emerald/10 px-2 py-0.5 text-emerald-600 text-xs">Tầng: {currentBlock.config.layer || "L1"}</span>
+                    <span className="rounded bg-amber/10 px-2 py-0.5 text-amber-600 text-xs">Round: {currentBlock.config.round || 1}</span>
                   </p>
                 )}
 
                 {currentBlock.config.chunkKeys && currentBlock.config.chunkKeys.length > 0 && (
-                  <p className="text-xs text-muted-foreground mb-4">
-                    Chunks: {currentBlock.config.chunkKeys.slice(0, 5).join(", ")}{currentBlock.config.chunkKeys.length > 5 ? "..." : ""}
-                  </p>
+                  <div className="mb-4">
+                    <p className="text-xs text-muted-foreground mb-2 text-center">Chunks tuần này:</p>
+                    <div className="flex flex-wrap justify-center gap-1">
+                      {currentBlock.config.chunkKeys.slice(0, 8).map((chunk, i) => (
+                        <span key={i} className="rounded-full bg-primary/10 px-2 py-0.5 text-primary text-xs font-medium">{chunk}</span>
+                      ))}
+                      {currentBlock.config.chunkKeys.length > 8 && (
+                        <span className="rounded-full bg-muted px-2 py-0.5 text-muted-foreground text-xs">+{currentBlock.config.chunkKeys.length - 8} nữa</span>
+                      )}
+                    </div>
+                  </div>
                 )}
 
                 <div className="flex flex-wrap justify-center gap-2">
@@ -417,6 +496,13 @@ export function DailyPlanRunner({ plan }: { plan: TodayPlan }) {
                 <p className="mt-4 text-center text-xs text-muted-foreground">
                   Mẹo: Nói to, đừng dịch trong đầu. Mở miệng trước, nghĩ trong lúc nói.
                 </p>
+                
+                {/* Keyboard hints */}
+                <div className="mt-3 pt-3 border-t border-border/50 flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
+                  <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">Space/Enter</kbd><span> Bắt đầu/Tạm dừng</span>
+                  <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">→</kbd><span> Hoàn thành</span>
+                  <kbd className="rounded bg-muted px-1.5 py-0.5 font-mono">←</kbd><span> Quay lại</span>
+                </div>
               </div>
             </div>
           </>

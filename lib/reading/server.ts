@@ -86,7 +86,7 @@ export async function getReadingProgress(): Promise<Record<string, ReadingProgre
   const grouped: Record<string, Array<{ score: number; date: string }>> = {};
   for (const a of attempts) {
     if (!grouped[a.passage_id]) grouped[a.passage_id] = [];
-    grouped[a.passage_id].push({
+    grouped[a.passage_id]!.push({
       score: Number(a.quiz_score ?? 0),
       date: a.created_at ?? "",
     });
@@ -94,7 +94,7 @@ export async function getReadingProgress(): Promise<Record<string, ReadingProgre
 
   const result: Record<string, ReadingProgress> = {};
   for (const [passageId, entries] of Object.entries(grouped)) {
-    const latest = entries[0];
+    const latest = entries[0]!;
     const totalEntries = entries.length;
     const maxScore = Math.max(...entries.map((e) => e.score));
     const status =
@@ -133,6 +133,6 @@ export async function getDailyReadingPassages(
 
   return {
     date: today,
-    passageIds: [allPassages[idx1].id, allPassages[idx2].id],
+    passageIds: [allPassages[idx1]!.id, allPassages[idx2]!.id],
   };
 }

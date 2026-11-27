@@ -7,6 +7,7 @@ import { GlobalSearch } from "@/components/ui/global-search";
 import { FloatingChat } from "@/components/assistant/floating-chat";
 import { SignOutButton } from "@/components/sign-out-button";
 import { OfflineBanner } from "@/components/offline/OfflineBanner";
+import { ErrorBoundary } from "@/components/ui/error-boundary";
 
 export default async function MainLayout({
   children,
@@ -48,7 +49,11 @@ export default async function MainLayout({
           <AppNav />
         </div>
 
-        <main className="flex-1 px-4 py-6 md:px-8">{children}</main>
+        <main className="flex-1 px-4 py-6 md:px-8">
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </main>
       </div>
 
       <FloatingChat />

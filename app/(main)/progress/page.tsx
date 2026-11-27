@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { getAssessmentResults } from "@/lib/assessment-db";
+import { getNorthStarMetrics } from "@/lib/dashboard";
+import { NorthStarCard } from "@/components/dashboard/north-star-card";
 import { summarizeProgress } from "@/lib/progress";
 
 export const metadata = { title: "Tiến bộ — EnVi" };
@@ -21,22 +23,29 @@ function fmtDate(iso: string): string {
 }
 
 export default async function ProgressPage() {
-  const rows = await getAssessmentResults();
+  const [rows, metrics] = await Promise.all([
+    getAssessmentResults(),
+    getNorthStarMetrics(),
+  ]);
   const summary = summarizeProgress(rows);
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
+    <div className="mx-auto max-w-5xl space-y-6">
       <div>
         <h1 className="font-serif text-2xl font-semibold text-foreground">Tiến bộ</h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          So sánh năng lực Trước – Sau qua các mốc đánh giá.
+          Theo dõi chỉ số North Star và so sánh năng lực qua các mốc đánh giá.
         </p>
       </div>
 
+      {/* North Star Metrics */}
+      <NorthStarCard metrics={metrics} />
+
+      {/* Assessment Comparison */}
       {summary.baseline && summary.latest ? (
         <Card>
           <CardHeader>
-            <CardTitle>Trước – Sau</CardTitle>
+            <CardTitle>Đánh giá CEFR — Trước vs Sau</CardTitle>
             <CardDescription>
               {summary.hasComparison
                 ? "Cùng bộ đề và rubric, so sánh đầu kỳ với mốc mới nhất."
@@ -107,6 +116,9 @@ export default async function ProgressPage() {
         </Button>
         <Button variant="outline" asChild>
           <Link href="/roadmap">Xem lộ trình 90 ngày</Link>
+        </Button>
+        <Button variant="outline" asChild>
+          <Link href="/metrics">Xem Dashboard chi tiết</Link>
         </Button>
       </div>
     </div>

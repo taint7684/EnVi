@@ -1,5 +1,8 @@
+"use client";
+
 import { SettingsForm } from "@/components/settings-form";
 import { AiUsageStats } from "@/components/settings/ai-usage-stats";
+import { PushNotificationSettings } from "@/components/settings/PushNotificationSettings";
 
 export default function SettingsPage() {
   return (
@@ -8,6 +11,7 @@ export default function SettingsPage() {
       <div className="mx-auto grid max-w-3xl gap-6">
         <SettingsForm />
         <AiUsageStats />
+        <PushNotificationSettings />
       </div>
     </div>
   );

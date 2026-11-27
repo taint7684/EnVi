@@ -14,6 +14,7 @@ import type {
   SpeakingMode,
   SpeakingTurnResult,
 } from "@/lib/types/speaking";
+import { aiRateLimiter, getRateLimitHeaders } from "@/lib/rate-limiter";
 
 export const runtime = "nodejs";
 
@@ -22,6 +23,21 @@ const REFLECTION_QUESTIONS = 3;
 const TOTAL_TURNS = TOTAL_QUESTIONS + REFLECTION_QUESTIONS;
 
 export async function POST(request: Request) {
+  // Rate limiting
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Chưa đăng nhập" }, { status: 401 });
+  }
+
+  const rateLimitResult = await aiRateLimiter(user.id);
+  if (!rateLimitResult.success) {
+    return NextResponse.json(
+      { error: "Quá nhiều yêu cầu AI. Vui lòng thử lại sau." },
+      { status: 429, headers: getRateLimitHeaders(rateLimitResult) }
+    );
+  }
+
   const body = await request.json().catch(() => null);
   if (!body || typeof body !== "object") {
     return NextResponse.json({ error: "Body không hợp lệ" }, { status: 400 });
@@ -62,15 +78,6 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
-  }
-
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return NextResponse.json({ error: "Chưa đăng nhập" }, { status: 401 });
   }
 
   const { data: session, error: sessionError } = await supabase

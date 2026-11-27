@@ -24,7 +24,7 @@ export function isSameDayVN(a: Date | string, b: Date | string): boolean {
   return aStr === bStr;
 }
 
-export function dayOfWeekVN(d: Date): number {
+export function dayOfWeekVN(d: Date): 0 | 1 | 2 | 3 | 4 | 5 | 6 {
   const parts = dateOnlyVN(d).split("-");
-  return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])).getDay();
+  return new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2])).getDay() as 0 | 1 | 2 | 3 | 4 | 5 | 6;
 }

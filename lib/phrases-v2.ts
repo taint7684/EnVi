@@ -130,7 +130,7 @@ export async function getCurriculumPhrases(
   round: 1 | 2,
   phraseCount: number = 12
 ): Promise<PhraseRow[]> {
-  const phrases = REFLEX_PHRASES[topicId] || REFLEX_PHRASES["topic-01-self"];
+  const phrases = REFLEX_PHRASES[topicId]! || REFLEX_PHRASES["topic-01-self"]!;
   const filtered = phrases.filter(p => p.level === layer);
   return filtered.slice(0, phraseCount).length > 0
     ? filtered.slice(0, phraseCount)
@@ -285,7 +285,9 @@ function shuffleArray<T>(items: T[]): T[] {
   const arr = [...items];
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    const temp = arr[i];
+    arr[i] = arr[j]!;
+    arr[j] = temp!;
   }
   return arr;
 }

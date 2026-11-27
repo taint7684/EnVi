@@ -173,7 +173,7 @@ function getPhase(dayIndex: number): CurriculumPhase {
 function getWeekPlan(dayIndex: number): WeekPlan {
   const clamped = Math.max(1, Math.min(180, dayIndex));
   const week = WEEK_PLANS.find((w) => clamped >= w.startDay && clamped <= w.endDay);
-  return week ?? WEEK_PLANS[0];
+  return week ?? WEEK_PLANS[0]!;
 }
 
 function getLayerForDay(dayIndex: number, layerWeights: Record<CurriculumLayer, number>): CurriculumLayer {

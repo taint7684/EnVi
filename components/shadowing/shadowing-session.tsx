@@ -52,27 +52,28 @@ export function ShadowingSession({
   const [totalSpeakingSeconds, setTotalSpeakingSeconds] = useState(0);
   const [segmentsCompleted, setSegmentsCompleted] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
   
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const startRef = useRef<number>(0);
-  const latenciesRef = useRef<number[]>([]);
+  const [latencies, setLatencies] = useState<number[]>([]);
+  const [audioReady, setAudioReady] = useState(false);
 
-  const currentSegment = config.segments[currentSegmentIndex];
+  const currentSegment = config.segments[currentSegmentIndex]!;
   const isLastSegment = currentSegmentIndex >= config.segments.length - 1;
   const progress = ((currentSegmentIndex + 1) / config.segments.length) * 100;
 
   const avgLatency = useMemo(() => {
-    const latencies = latenciesRef.current;
     return latencies.length
       ? Math.round(latencies.reduce((a, b) => a + b, 0) / latencies.length)
       : 0;
-  }, [latenciesRef.current.length]);
+  }, [latencies]);
 
   useEffect(() => {
     const audio = new Audio(config.audioUrl);
-    audio.addEventListener("timeupdate", () => setCurrentTime(audio.currentTime));
+    audio.addEventListener("timeupdate", () => setAudioCurrentTime(audio.currentTime));
     audio.addEventListener("ended", () => setIsPlaying(false));
+    audio.addEventListener("canplay", () => setAudioReady(true));
     audioRef.current = audio;
     return () => {
       audio.pause();
@@ -98,7 +99,7 @@ export function ShadowingSession({
   async function handleSpeech(spoken: string) {
     setTranscript(spoken);
     const latency = Math.round(performance.now() - startRef.current);
-    latenciesRef.current.push(latency);
+    setLatencies((prev) => [...prev, latency]);
     
     const evalResult = evaluateSpeech(currentSegment.text, spoken);
     setEvaluation(evalResult);
@@ -189,7 +190,7 @@ export function ShadowingSession({
           </div>
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Button onClick={() => { setCurrentSegmentIndex(0); setState("intro"); latenciesRef.current = []; }}>Làm lại</Button>
+          <Button onClick={() => { setCurrentSegmentIndex(0); setState("intro"); setLatencies([]); }}>Làm lại</Button>
           <Button variant="outline" onClick={() => onComplete?.({ totalSpeakingSeconds: 0, segmentsCompleted: 0, avgAccuracy: 0, avgLatencyMs: 0 })}>Về trang chủ</Button>
         </div>
       </div>
@@ -228,7 +229,7 @@ export function ShadowingSession({
           </p>
           
           <div className="mt-4 flex justify-center gap-2">
-            <Button variant="outline" onClick={togglePlayPause} disabled={!audioRef.current}>
+            <Button variant="outline" onClick={togglePlayPause} disabled={!audioReady}>
               {isPlaying ? <Pause className="size-5" /> : <Play className="size-5" />} Nghe trước toàn bộ ({formatTime(config.duration)})
             </Button>
           </div>
@@ -262,9 +263,9 @@ export function ShadowingSession({
             {currentSegment?.text}
           </div>
           <div className="mt-4 flex items-center justify-center gap-4 text-sm text-muted-foreground">
-            <span>{formatTime(currentTime)} / {formatTime(currentSegment?.endTime || 0)}</span>
+            <span>{formatTime(audioCurrentTime)} / {formatTime(currentSegment?.endTime || 0)}</span>
             <span className="text-emerald-600 font-semibold">
-              ← {Math.max(0, (currentSegment?.endTime || 0) - currentTime).toFixed(1)}s
+              ← {Math.max(0, (currentSegment?.endTime || 0) - audioCurrentTime).toFixed(1)}s
             </span>
           </div>
         </div>
@@ -314,11 +315,11 @@ export function ShadowingSession({
           <div className="flex-1 h-2 rounded-full bg-muted overflow-hidden">
             <div
               className="h-full rounded-full bg-primary transition-all"
-              style={{ width: `${audioRef.current ? ((audioRef.current.currentTime || 0) / config.duration) * 100 : 0}%` }}
+              style={{ width: `${config.duration > 0 ? (audioCurrentTime / config.duration) * 100 : 0}%` }}
             />
           </div>
           <span className="text-sm font-mono tabular-nums text-muted-foreground">
-            {formatTime(audioRef.current?.currentTime || 0)} / {formatTime(config.duration)}
+            {formatTime(audioCurrentTime)} / {formatTime(config.duration)}
           </span>
         </div>
       </div>

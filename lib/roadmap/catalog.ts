@@ -67,5 +67,5 @@ export const WEEK_THEMES: string[] = [
 ];
 
 export function themeForWeek(week: number): string {
-  return WEEK_THEMES[week - 1] ?? WEEK_THEMES[WEEK_THEMES.length - 1];
+  return WEEK_THEMES[week - 1]! ?? WEEK_THEMES[WEEK_THEMES.length - 1]!;
 }

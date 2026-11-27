@@ -24,7 +24,7 @@ export type PictureTalkConfig = {
   images: PictureTalkImage[];
 };
 
-export type PictureTalkState = "intro" | "describing" | "feedback" | "complete";
+export type PictureTalkState = "intro" | "describing" | "feedback" | "timer-setup" | "timer-running" | "timer-feedback" | "timer-complete" | "complete";
 
 export function PictureTalkSession({
   config,
@@ -49,12 +49,20 @@ export function PictureTalkSession({
     vocabUsed: string[];
     viSegments: number;
     wpm: number;
+    latency: number;
   } | null>(null);
   const [totalSpeakingSeconds, setTotalSpeakingSeconds] = useState(0);
   const [imagesDescribed, setImagesDescribed] = useState(0);
   const [isListening, setIsListening] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const startRef = useRef<number>(0);
+
+  // 4/3/2 Timer mode state
+  const [timerRound, setTimerRound] = useState(0); // 0, 1, 2 for 4min, 3min, 2min
+  const [timerSeconds, setTimerSeconds] = useState(0);
+  const [timerActive, setTimerActive] = useState(false);
+  const [roundWpmData, setRoundWpmData] = useState<{ round: number; wpm: number; words: number; time: number }[]>([]);
+  const timerDurations = [240, 180, 120]; // 4min, 3min, 2min in seconds
 
   const currentImage = config.images[currentImageIndex];
   const isLastImage = currentImageIndex >= config.images.length - 1;
@@ -67,6 +75,23 @@ export function PictureTalkSession({
     }
     return () => stopSpeaking();
   }, [state, currentImageIndex]);
+
+  // 4/3/2 Timer countdown
+  useEffect(() => {
+    if (state === "timer-running" && timerActive) {
+      const interval = setInterval(() => {
+        setTimerSeconds((prev) => {
+          if (prev <= 1) {
+            setTimerActive(false);
+            setState("timer-feedback");
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [state, timerActive]);
 
   async function handleSpeech(spoken: string) {
     setTranscript(spoken);
@@ -86,7 +111,7 @@ export function PictureTalkSession({
     // Layer-specific feedback
     const layerFeedback = getLayerFeedback(config.layer, spoken, currentImage, latency, viSegments, wpm);
     
-    setFeedback(layerFeedback);
+    setFeedback({ ...layerFeedback, latency });
 
     setShowHint(false);
   }
@@ -180,6 +205,59 @@ export function PictureTalkSession({
     setState("describing");
   }
 
+  // 4/3/2 Timer functions
+  function startTimerMode() {
+    setTimerRound(0);
+    setRoundWpmData([]);
+    setCurrentImageIndex(0);
+    setTimerSeconds(timerDurations[0]);
+    setState("timer-setup");
+  }
+
+  function beginTimerRound() {
+    setTimerActive(true);
+    setState("timer-running");
+    startRef.current = performance.now();
+  }
+
+  function handleTimerSpeech(spoken: string) {
+    setTranscript(spoken);
+    const latency = Math.round(performance.now() - startRef.current);
+    const evalResult = evaluateSpeech("", spoken);
+    setEvaluation(evalResult);
+
+    const viSegments = (spoken.match(/\b[vV]ietnamese\b|\b[tT]iếng\s*[vV]iệt\b|[àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ]/g) || []).length;
+    const words = spoken.trim().split(/\s+/).length;
+    const wpm = Math.round((words / Math.max(1, latency / 60000)) * 60);
+
+    setTotalSpeakingSeconds((prev) => prev + Math.ceil(latency / 1000));
+    setImagesDescribed((prev) => prev + 1);
+
+    // Store WPM for this round
+    setRoundWpmData((prev) => [...prev, {
+      round: timerRound,
+      wpm,
+      words,
+      time: timerDurations[timerRound] - timerSeconds,
+    }]);
+
+    const layerFeedback = getLayerFeedback(config.layer, spoken, currentImage, latency, viSegments, wpm);
+    setFeedback({ ...layerFeedback, latency });
+    setShowHint(false);
+  }
+
+  function nextTimerRound() {
+    if (timerRound < 2) {
+      setTimerRound((r) => r + 1);
+      setCurrentImageIndex(0);
+      setTimerSeconds(timerDurations[timerRound + 1]);
+      setState("timer-setup");
+    } else {
+      // Timer complete - show WPM chart
+      setState("timer-complete");
+    }
+  }
+
   function formatTime(seconds: number) {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -213,6 +291,217 @@ export function PictureTalkSession({
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button onClick={() => { setCurrentImageIndex(0); setState("intro"); }}>Retry</Button>
           <Button variant="outline" onClick={() => onComplete?.({ totalSpeakingSeconds: 0, imagesDescribed: 0, avgWpm: 0, viSegments: 0 })}>Back to home</Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Timer Setup State
+  if (state === "timer-setup") {
+    const roundLabels = ["4 minutes", "3 minutes", "2 minutes"];
+    const roundIcons = ["🏃‍♂️", "🏃", "⚡"];
+    return (
+      <div className="mx-auto max-w-xl rounded-3xl border border-amber-200 bg-amber-50 p-8 text-center shadow-sm">
+        <div className="text-4xl">{roundIcons[timerRound]}</div>
+        <h2 className="mt-4 font-serif text-2xl font-semibold text-foreground">
+          Round {timerRound + 1}: {roundLabels[timerRound]}
+        </h2>
+        <p className="mt-2 text-sm text-amber-600">
+          Describe the same {config.images.length} images in {timerDurations[timerRound] / 60} minute(s).
+          Speak continuously — fluency over perfection!
+        </p>
+        <div className="mt-4 p-4 rounded-xl bg-white/50 text-sm text-amber-700">
+          <p className="font-semibold mb-1">Cấu trúc gợi ý ({config.layer}):</p>
+          <p>{config.layer === "L1" 
+            ? "I usually... | Every day I... | I like to... | There is/are..."
+            : config.layer === "L2"
+            ? "First... Then... After that... Finally... It was... I felt... I remember..."
+            : "In my opinion... I think... From my perspective... I believe... because... however..."}
+          </p>
+        </div>
+        <Button className="mt-6 w-full size-14" onClick={beginTimerRound} size="lg">
+          <Zap className="size-6 mr-2" /> Bắt đầu Round {timerRound + 1}
+        </Button>
+      </div>
+    );
+  }
+
+  // Timer Running State
+  if (state === "timer-running") {
+    const minutes = Math.floor(timerSeconds / 60);
+    const seconds = timerSeconds % 60;
+    const timeColor = timerSeconds <= 30 ? "text-rose-600" : timerSeconds <= 60 ? "text-amber-600" : "text-emerald-600";
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-48 overflow-hidden rounded-full bg-muted">
+              <div
+                className="h-full rounded-full bg-amber-600 transition-all"
+                style={{ width: `${((timerDurations[timerRound] - timerSeconds) / timerDurations[timerRound]) * 100}%` }}
+              />
+            </div>
+            <span className="text-xs text-muted-foreground">
+              Round {timerRound + 1}/3 · Image {currentImageIndex + 1}/{config.images.length}
+            </span>
+          </div>
+          <span className={`text-2xl font-mono tabular-nums font-bold ${timeColor}`}>
+            {minutes}:{seconds.toString().padStart(2, "0")}
+          </span>
+        </div>
+
+        <div className="mb-4 rounded-2xl border border-border bg-card p-4 shadow-sm relative">
+          {currentImage && (
+            <img
+              src={currentImage.url}
+              alt={currentImage.prompt}
+              className="w-full h-48 object-cover rounded-xl"
+            />
+          )}
+          {showHint && currentImage && (
+            <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 p-3 shadow-lg text-sm">
+              <p className="font-semibold text-foreground">Structure hint ({config.layer}):</p>
+              <p className="mt-1 text-muted-foreground">{currentImage.expectedStructures.join(" | ")}</p>
+              <p className="mt-1 font-semibold text-foreground">Vocabulary:</p>
+              <p className="text-muted-foreground">{currentImage.vocab.join(", ")}</p>
+            </div>
+          )}
+        </div>
+
+        <div className="mb-4 rounded-2xl border border-amber-200 bg-amber-50 p-4">
+          <p className="text-center text-sm text-amber-700 font-medium">
+            Nói liên tục — không cần dừng lại giữa các ảnh!
+          </p>
+          <div className="mt-4 flex justify-center">
+            <Button
+              className={cn("w-full size-20 rounded-full", isListening && "bg-primary text-white")}
+              onClick={() => setIsListening(!isListening)}
+            >
+              <Mic className={cn("size-8", isListening && "animate-pulse")} />
+            </Button>
+          </div>
+          <div className="mt-3 flex justify-center gap-2">
+            <Button variant="outline" size="sm" onClick={() => setShowHint(!showHint)}>
+              <Lightbulb className="size-4" /> Hint
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Timer Feedback State (between images in timer mode)
+  if (state === "timer-feedback" && feedback) {
+    return (
+      <div className="mx-auto max-w-2xl">
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-48 overflow-hidden rounded-full bg-muted">
+              <div
+                className="h-full rounded-full bg-amber-600 transition-all"
+                style={{ width: `${((timerDurations[timerRound] - timerSeconds) / timerDurations[timerRound]) * 100}%` }}
+              />
+            </div>
+            <span className="text-xs text-muted-foreground">
+              Round {timerRound + 1}/3 · Image {currentImageIndex + 1}/{config.images.length}
+            </span>
+          </div>
+          <span className="text-sm font-mono tabular-nums text-muted-foreground">
+            Paused
+          </span>
+        </div>
+
+        <div className="mb-4 rounded-2xl border border-border bg-card p-4 shadow-sm">
+          {feedback.viSegments > 0 ? (
+            <div className="rounded-xl p-4 text-center bg-rose-50 text-rose-700">
+              <p className="flex items-center justify-center gap-2 font-semibold">
+                <X className="size-5" /> Detected {feedback.viSegments} Vietnamese segments — speak 100% English
+              </p>
+            </div>
+          ) : (
+            <div className="rounded-xl p-4 text-center bg-emerald-50 text-emerald-700">
+              <p className="flex items-center justify-center gap-2 font-semibold">
+                <Check className="size-5" /> {feedback.praise}
+              </p>
+              {feedback.naturalAlternative && (
+                <p className="mt-2 text-sm italic text-muted-foreground">{feedback.naturalAlternative}</p>
+              )}
+              <p className="mt-2 text-xs text-muted-foreground">
+                WPM: {feedback.wpm} | Latency: {feedback.latency}ms
+              </p>
+            </div>
+          )}
+          <div className="mt-4 flex justify-center gap-2">
+            <Button onClick={() => setState("timer-running")} variant="outline">
+              <RotateCcw className="size-4" /> Continue
+            </Button>
+            {currentImageIndex < config.images.length - 1 ? (
+              <Button onClick={() => { setCurrentImageIndex((i) => i + 1); setState("timer-running"); }}>
+                Next image <ArrowRight className="size-4" />
+              </Button>
+            ) : (
+              <Button onClick={nextTimerRound} size="lg">
+                Next Round <ArrowRight className="size-4" />
+              </Button>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Timer Complete - WPM Chart
+  if (state === "timer-complete") {
+    const avgWpm = roundWpmData.length > 0
+      ? Math.round(roundWpmData.reduce((sum, d) => sum + d.wpm, 0) / roundWpmData.length)
+      : 0;
+    const wpmImprovement = roundWpmData.length >= 2
+      ? roundWpmData[roundWpmData.length - 1].wpm - roundWpmData[0].wpm
+      : 0;
+
+    return (
+      <div className="mx-auto max-w-xl rounded-3xl border border-border bg-card p-10 text-center shadow-sm">
+        <div className="text-4xl">📊</div>
+        <h2 className="mt-4 font-serif text-2xl font-semibold text-foreground">4/3/2 Timer Complete!</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          You completed all 3 rounds in {formatTime(totalSpeakingSeconds)}.
+        </p>
+        
+        {/* WPM Chart */}
+        <div className="mt-8 rounded-2xl border border-border bg-background p-6">
+          <h3 className="font-semibold mb-4">WPM Progress Across Rounds</h3>
+          <div className="h-48 flex items-end justify-around gap-4">
+            {roundWpmData.map((data, i) => (
+              <div key={i} className="flex flex-col items-center flex-1">
+                <div
+                  className="w-full bg-amber-500 rounded-t transition-all"
+                  style={{ height: `${Math.max(20, (data.wpm / Math.max(1, ...roundWpmData.map(d => d.wpm))) * 100)}%` }}
+                />
+                <p className="mt-2 text-sm font-medium">Round {data.round + 1}</p>
+                <p className="text-lg font-bold text-amber-600">{data.wpm} WPM</p>
+                <p className="text-xs text-muted-foreground">{data.words} words</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 grid grid-cols-3 gap-4 text-center">
+          <div className="rounded-xl bg-emerald-50 p-3">
+            <p className="text-2xl font-bold text-emerald-700">{avgWpm}</p>
+            <p className="text-xs text-emerald-600">Avg WPM</p>
+          </div>
+          <div className="rounded-xl bg-blue-50 p-3">
+            <p className="text-2xl font-bold text-blue-700">{wpmImprovement >= 0 ? "+" : ""}{wpmImprovement}</p>
+            <p className="text-xs text-blue-600">Improvement</p>
+          </div>
+          <div className="rounded-xl bg-purple-50 p-3">
+            <p className="text-2xl font-bold text-purple-700">{formatTime(totalSpeakingSeconds)}</p>
+            <p className="text-xs text-purple-600">Total time</p>
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Button onClick={() => { setCurrentImageIndex(0); setState("intro"); }}>Retry</Button>
+          <Button variant="outline" onClick={() => onComplete?.({ totalSpeakingSeconds, imagesDescribed, avgWpm, viSegments: feedback?.viSegments || 0 })}>Back to home</Button>
         </div>
       </div>
     );
@@ -282,9 +571,14 @@ export function PictureTalkSession({
               : "In my opinion... I think... From my perspective... I believe... because... however..."}
             </p>
           </div>
-          <Button className="mt-4 w-full size-12" onClick={() => setState("describing")}>
-            <Image className="size-6" /> Bắt đầu ảnh 1
-          </Button>
+          <div className="mt-4 space-y-2">
+            <Button className="w-full size-12" onClick={() => setState("describing")}>
+              <Image className="size-6" /> Standard: Describe each image once
+            </Button>
+            <Button variant="outline" className="w-full size-12" onClick={startTimerMode}>
+              <Zap className="size-6" /> 4/3/2 Timer: 3 rounds, same images, faster each time
+            </Button>
+          </div>
         </div>
       )}
 
@@ -347,7 +641,7 @@ export function PictureTalkSession({
               </p>
             )}
             <p className="mt-2 text-xs text-muted-foreground">
-              WPM: {feedback.wpm} | Latency: {Math.round((performance.now() - startRef.current))}ms
+              WPM: {feedback.wpm} | Latency: {feedback.latency}ms
             </p>
           </div>
           <div className="mt-4 flex justify-center gap-2">

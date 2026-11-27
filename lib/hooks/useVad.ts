@@ -43,8 +43,11 @@ export function useVad(callbacks: VadCallbacks = {}) {
       const hasGetUserMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
       const hasAudioContext = !!(window.AudioContext || (window as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext);
       if (hasGetUserMedia && hasAudioContext) {
-        setIsSupported(true);
-        setIsModelLoaded(true);
+        // Defer state updates to avoid synchronous setState in effect
+        setTimeout(() => {
+          setIsSupported(true);
+          setIsModelLoaded(true);
+        }, 0);
       }
     } catch (e) {
       console.warn("VAD support check failed:", e);

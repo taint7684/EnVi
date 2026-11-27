@@ -36,8 +36,8 @@ const LEVELS = ["A1", "A2", "B1", "B2"] as const;
 
 function getNextLevel(current: "A1" | "A2" | "B1" | "B2", correct: boolean): "A1" | "A2" | "B1" | "B2" {
   const idx = LEVELS.indexOf(current);
-  if (correct && idx < LEVELS.length - 1) return LEVELS[idx + 1];
-  if (!correct && idx > 0) return LEVELS[idx - 1];
+  if (correct && idx < LEVELS.length - 1) return LEVELS[idx + 1]!;
+  if (!correct && idx > 0) return LEVELS[idx - 1]!;
   return current;
 }
 
@@ -51,8 +51,8 @@ function selectAdaptiveQuestions(
   // Get questions for current level and adjacent levels
   const targetLevels = [currentLevel];
   const idx = LEVELS.indexOf(currentLevel);
-  if (idx > 0) targetLevels.push(LEVELS[idx - 1]);
-  if (idx < LEVELS.length - 1) targetLevels.push(LEVELS[idx + 1]);
+  if (idx > 0) targetLevels.push(LEVELS[idx - 1]!);
+  if (idx < LEVELS.length - 1) targetLevels.push(LEVELS[idx + 1]!);
   
   const available = sectionQuestions.filter(q => targetLevels.includes(q.cefr_level as any));
   available.sort((a, b) => a.order_index - b.order_index);

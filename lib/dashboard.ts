@@ -108,7 +108,7 @@ export async function getWeeklyReport(): Promise<WeeklyReport> {
   const wordsPerDay = Array.from({ length: 7 }, (_, i) => {
     const d = new Date(last7Start.getTime() + i * DAY_MS);
     const key = dateOnly(d);
-    return { date: key, label: WEEKDAY_LABELS[d.getDay()], count: perDay.get(key) ?? 0 };
+    return { date: key, label: WEEKDAY_LABELS[d.getDay()]!, count: perDay.get(key) ?? 0 };
   });
   const wordsReviewed = wordsPerDay.reduce((s, d) => s + d.count, 0);
 
@@ -384,10 +384,10 @@ export async function getNorthStarMetrics(): Promise<NorthStarMetrics> {
     const lifeline = day?.lifelineCount || 0;
     const speakingMin = day ? Math.round(day.speakingMs / 60000) : 0;
 
-    wpmHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: wpm });
-    latencyHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: latency });
-    viHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: vi });
-    lifelineHistory.push({ date: WEEKDAY_LABELS[d.getDay()], value: lifeline });
+    wpmHistory.push({ date: WEEKDAY_LABELS[d.getDay()]!, value: wpm });
+    latencyHistory.push({ date: WEEKDAY_LABELS[d.getDay()]!, value: latency });
+    viHistory.push({ date: WEEKDAY_LABELS[d.getDay()]!, value: vi });
+    lifelineHistory.push({ date: WEEKDAY_LABELS[d.getDay()]!, value: lifeline });
 
     if (d >= weekStart) {
       if (day?.speakingMs) weekMs += day.speakingMs;

@@ -63,7 +63,7 @@ function buildListeningQuestions(level: "A2" | "B1" | "B2") {
   }
   return picked.map((lesson, i) => {
     const words = lesson.transcript!.split(/\s+/);
-    const target = words[Math.floor(Math.random() * words.length)].replace(/[.,!?]/g, "");
+    const target = words[Math.floor(Math.random() * words.length)]!.replace(/[.,!?]/g, "");
     const distractors = words
       .filter((w) => w !== target && w.length > 3)
       .sort(() => 0.5 - Math.random())
@@ -96,7 +96,7 @@ function buildReadingQuestions(level: "A2" | "B1" | "B2") {
     picked.push(p);
   }
   return picked.map((passage, i) => {
-    const q = passage.questions[0];
+    const q = passage.questions[0]!;
     return {
       key: `reading-${i}`,
       prompt: `${passage.titleVi || passage.title}\n${q.question}`,
@@ -214,20 +214,20 @@ export function scoreAssessment(
   else if (totalPercent >= 40) estimatedLevel = "A2";
   else estimatedLevel = "A1";
 
-  const weakSkill = skills
+const weakSkill = skills
     .filter((s) => s.skill !== "listening" && s.skill !== "reading")
-    .sort((a, b) => a.percent - b.percent)[0];
+    .sort((a, b) => a.percent - b.percent)[0]!;
   const notes =
     input.speakingNote || input.writingNote
       ? `Ghi chú: ${input.speakingNote} | ${input.writingNote}`.slice(0, 300)
       : weakSkill
-        ? `Nên luyện thêm: ${weakSkill.skill} (${weakSkill.percent}%).`
-        : "Tất cả kỹ năng đã đạt mức ổn định.";
+      ? `Nên luyện thêm: ${weakSkill.skill} (${weakSkill.percent}%).`
+      : "Tất cả kỹ năng đã đạt mức ổn định.";
 
   return {
     milestone,
     date: new Date().toISOString().split("T")[0],
-    level: MILESTONE_LEVEL[milestone],
+    level: MILESTONE_LEVEL[milestone]!,
     skills,
     totalPercent,
     estimatedLevel,

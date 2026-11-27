@@ -22,6 +22,15 @@ export async function createClient() {
           }
         },
       },
+      // Connection pooling config for Supabase
+      db: {
+        schema: "public",
+      },
+      global: {
+        headers: {
+          "X-Client-Info": "envi-server",
+        },
+      },
     },
   );
 }

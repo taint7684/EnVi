@@ -43,7 +43,7 @@ type ProgressFile = {
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_MODEL = process.env.GROQ_MODEL ?? "qwen/qwen3.8-27b";
-const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
 const MAX_ATTEMPTS = 5;
 const BASE_DELAY_MS = 8000;
 const PROGRESS_FILE = join(process.cwd(), "scripts", "reflex-progress.json");

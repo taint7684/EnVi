@@ -13,7 +13,9 @@ function seededShuffle<T>(arr: T[], seed: number): T[] {
   for (let i = a.length - 1; i > 0; i--) {
     s = (s * 9301 + 49297) % 233280;
     const j = Math.floor((s / 233280) * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    const temp = a[i];
+    a[i] = a[j]!;
+    a[j] = temp!;
   }
   return a;
 }
@@ -28,7 +30,7 @@ function escapeRe(s: string): string {
 
 function blankOut(example: string, phrase: string): { cloze: string; found: boolean } {
   const tokens = phrase.split(/\s+/);
-  const first = escapeRe(tokens[0]);
+  const first = escapeRe(tokens[0]!);
   const rest = tokens.slice(1).map(escapeRe).join("\\s+");
   const pattern = new RegExp(`\\b${first}(?:s|es|ed|ing)?(?:\\s+${rest})?\\b`, "i");
   if (pattern.test(example)) {

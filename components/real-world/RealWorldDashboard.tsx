@@ -7,6 +7,21 @@ import { Mic, Play, Pause, Volume2, VolumeX, ArrowRight, CheckCircle, AlertCircl
 import { createClient } from "@/lib/supabase/client";
 import { MirrorRecorder } from "@/components/mirror/MirrorRecorder";
 
+interface Situation {
+  id: string;
+  title: string;
+  prompt: string;
+}
+
+interface SituationDetailProps {
+  situation: Situation;
+  group: string;
+  onStartPreTask: () => void;
+  onStartRecording: () => void;
+  isCompleted: boolean;
+  onComplete: (id: string) => void;
+}
+
 const GROUPS = [
   { id: "G1", name: "G1: Voice Note → Friend", level: "A1", desc: "Send a 30s voice note to a friend" },
   { id: "G2", name: "G2: Language Exchange", level: "A2", desc: "5-min exchange with a language partner" },
@@ -66,11 +81,7 @@ export function RealWorldDashboard() {
   const [showRecorder, setShowRecorder] = useState(false);
   const [recordingId, setRecordingId] = useState<string | null>(null);
   const [completedTasks, setCompletedTasks] = useState<Set<string>>(new Set());
-
-  // Load completed tasks from DB
-  useEffect(() => {
-    loadCompletedTasks();
-  }, []);
+  const [weekNum] = useState(() => 1); // TODO: calculate actual week from user start date
 
   const loadCompletedTasks = async () => {
     const sb = createClient();
@@ -82,6 +93,11 @@ export function RealWorldDashboard() {
       setCompletedTasks(new Set(data.map((t: { situation_id: string }) => t.situation_id)));
     }
   };
+
+  // Load completed tasks from DB
+  useEffect(() => {
+    loadCompletedTasks();
+  }, []);
 
   const handleComplete = (id: string) => {
     setCompletedTasks(prev => new Set([...prev, id]));
@@ -162,7 +178,7 @@ export function RealWorldDashboard() {
       {/* Recorder Modal */}
       {showRecorder && situation && (
         <MirrorRecorder 
-          weekNum={Math.ceil((Date.now() - new Date().getTime()) / (7 * 86400000))} // TODO: actual week
+          weekNum={weekNum}
           topicId={situation.id}
           type="fixed"
           onComplete={handleComplete}
@@ -172,7 +188,7 @@ export function RealWorldDashboard() {
   );
 }
 
-function SituationDetail({ situation, group, onStartPreTask, onStartRecording, isCompleted, onComplete }: any) {
+function SituationDetail({ situation, group, onStartPreTask, onStartRecording, isCompleted, onComplete }: SituationDetailProps) {
   const openers = OPENER_PHRASES[group as keyof typeof OPENER_PHRASES] || [];
   const rescue = RESCUE_PHRASES[group as keyof typeof RESCUE_PHRASES] || [];
 
@@ -240,7 +256,7 @@ function SituationDetail({ situation, group, onStartPreTask, onStartRecording, i
   );
 }
 
-function PreTaskModal({ group, situation, onClose }: any) {
+function PreTaskModal({ group, situation, onClose }: { group: string; situation: Situation; onClose: () => void }) {
   const [activeTab, setActiveTab] = useState<"openers" | "rescue">("openers");
   const openers = OPENER_PHRASES[group as keyof typeof OPENER_PHRASES] || [];
   const rescue = RESCUE_PHRASES[group as keyof typeof RESCUE_PHRASES] || [];

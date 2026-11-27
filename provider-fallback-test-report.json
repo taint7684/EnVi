@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-11-26T17:50:36.331Z",
+  "forceFail": false,
+  "results": [
+    {
+      "test": "Groq Direct",
+      "provider": "groq",
+      "success": true,
+      "latencyMs": 835
+    },
+    {
+      "test": "Gemini Direct",
+      "provider": "gemini",
+      "success": false,
+      "latencyMs": 319,
+      "error": "HTTP 404: {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://aistudio.google.com/docs/get-started).\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
+    },
+    {
+      "test": "AI Speaking API",
+      "provider": "fallback",
+      "success": false,
+      "latencyMs": 284,
+      "error": "HTTP 404: The deployment could not be found on Vercel.\n\nDEPLOYMENT_NOT_FOUND\n\nhkg1::kpq44-1795715436857-620bbaa77f2b\n"
+    },
+    {
+      "test": "VI→EN API",
+      "provider": "fallback",
+      "success": false,
+      "latencyMs": 218,
+      "error": "HTTP 404: The deployment could not be found on Vercel.\n\nDEPLOYMENT_NOT_FOUND\n\nhkg1::ft6rj-1795715437079-5c66486b87e9\n"
+    },
+    {
+      "test": "Placement Test API",
+      "provider": "fallback",
+      "success": false,
+      "latencyMs": 71,
+      "error": "HTTP 404: The deployment could not be found on Vercel.\n\nDEPLOYMENT_NOT_FOUND\n\nhkg1::kpq44-1795715437156-d74614adf6e8\n"
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "passed": 1,
+    "failed": 4
+  }
+}

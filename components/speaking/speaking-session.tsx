@@ -939,9 +939,9 @@ export function SpeakingSession({
                     <p className="text-sm font-semibold text-foreground mb-2">
                       Câu hỏi {fallbackTurnIndex + 1}/{allQuestions.length}
                     </p>
-                    <p className="text-lg text-foreground italic mb-4">
-                      {allQuestions[fallbackTurnIndex]}
-                    </p>
+<p className="text-lg text-foreground italic mb-4">
+                       {allQuestions[fallbackTurnIndex]!}
+                     </p>
                     <div className="rounded-lg bg-green-50 p-3">
                       <p className="text-xs font-semibold text-green-700 mb-1">Câu mẫu gợi ý:</p>
                       <p className="text-sm text-green-800 italic">{fallbackSample.sampleAnswer}</p>
@@ -982,9 +982,9 @@ export function SpeakingSession({
                         <CheckCircle2 className="size-4 text-emerald-500" />
                       )}
                     </div>
-                    <p className="text-lg text-foreground italic">
-                      {allQuestions[fallbackTurnIndex]}
-                    </p>
+<p className="text-lg text-foreground italic">
+                       {allQuestions[fallbackTurnIndex]!}
+                     </p>
                   </div>
 
                   <div className="flex items-center gap-3">
@@ -1019,7 +1019,7 @@ export function SpeakingSession({
                     <button
                       type="button"
                       onClick={() => {
-                        speak(allQuestions[fallbackTurnIndex]);
+                        speak(allQuestions[fallbackTurnIndex]!);
                       }}
                       className="inline-flex h-10 items-center gap-1.5 rounded-lg border border-border px-4 text-sm text-muted-foreground transition-colors hover:bg-muted"
                     >

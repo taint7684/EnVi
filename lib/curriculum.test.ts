@@ -291,14 +291,14 @@ describe("curriculum.ts - getDayPlan", () => {
     it("Same day always returns same layer", () => {
       const plan1 = getDayPlan(1, baseStats);
       const plan2 = getDayPlan(1, baseStats);
-      expect(plan1.blocks[0].config.layer).toBe(plan2.blocks[0].config.layer);
+      expect(plan1.blocks[0]!.config.layer).toBe(plan2.blocks[0]!.config.layer);
     });
 
     it("Different days in same week can have different layers", () => {
       const layers = new Set<string>();
       for (let day = 1; day <= 7; day++) {
         const plan = getDayPlan(day, baseStats);
-        layers.add(plan.blocks[0].config.layer ?? "");
+        layers.add(plan.blocks[0]!.config.layer ?? "");
       }
       expect(layers.size).toBeGreaterThanOrEqual(1);
     });

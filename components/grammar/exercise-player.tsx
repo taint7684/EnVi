@@ -28,7 +28,9 @@ function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    const temp = a[i];
+    a[i] = a[j]!;
+    a[j] = temp!;
   }
   return a;
 }
@@ -272,7 +274,7 @@ export function ExercisePlayer({
 
     if (exerciseType === "mcq") {
       const mcq = q as GrammarMcq;
-      correctAnswer = mcq.options[mcq.answer];
+      correctAnswer = mcq.options[mcq.answer]!;
       explanation = mcq.explanation_vi ?? "";
       if (mcq.vn_trap) explanation += `\n⚠️ ${mcq.vn_trap}`;
     } else if (exerciseType === "translation") {

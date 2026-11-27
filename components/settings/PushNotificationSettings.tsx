@@ -14,10 +14,6 @@ export function PushNotificationSettings() {
   const [streakReminder, setStreakReminder] = useState(false);
   const [weeklyReport, setWeeklyReport] = useState(false);
 
-  useEffect(() => {
-    loadPreferences();
-  }, []);
-
   async function loadPreferences() {
     const supabase = createClient();
     const { data: { user } } = await supabase.auth.getUser();
@@ -35,6 +31,10 @@ export function PushNotificationSettings() {
       setWeeklyReport(data.weekly_report);
     }
   }
+
+  useEffect(() => {
+    loadPreferences();
+  }, []);
 
   async function savePreference(key: string, value: boolean) {
     const supabase = createClient();

@@ -377,7 +377,7 @@ export function AssessmentForm({
           )}
         <div className="flex justify-between">
           {stepIdx <= 0 ? null : (
-            <Button variant="outline" onClick={() => setStep(order[stepIdx - 1])}>
+            <Button variant="outline" onClick={() => setStep(order[stepIdx - 1]!)}>
               Quay lai
             </Button>
           )}

@@ -48,7 +48,7 @@ export function computeFluencyFromWords(
   const runLengths: number[] = [];
 
   for (let i = 1; i < words.length; i++) {
-    const gap = words[i].start - words[i - 1].end;
+    const gap = words[i]!.start - words[i - 1]!.end;
     if (gap > MLR_PAUSE_SEC) {
       pauseCount += 1;
       if (gap > LONG_PAUSE_SEC) pauseCountLong += 1;
@@ -61,8 +61,8 @@ export function computeFluencyFromWords(
   }
   runLengths.push(runWordCount);
 
-  const firstStart = words[0].start;
-  const lastEnd = words[words.length - 1].end;
+  const firstStart = words[0]!.start;
+  const lastEnd = words[words.length - 1]!.end;
   const totalSpanSec = lastEnd - firstStart;
   const speechSec = Math.max(0, totalSpanSec - totalPauseMs / 1000);
   const wordCount = words.length;

@@ -56,7 +56,7 @@ export function rowToCard(row: {
 export function repeatCard(card: FsrsCard, grade: ReviewGrade, now = new Date()) {
   const record = f().repeat(card, now) as unknown as Record<string, { card: FsrsCard }>;
   const key = String(GRADE_TO_RATING[grade]);
-  return record[key].card;
+  return record[key]!.card;
 }
 
 export function cardToRow(card: FsrsCard, now = new Date()) {

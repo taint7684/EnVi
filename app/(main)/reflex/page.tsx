@@ -38,7 +38,7 @@ export default async function ReflexPage({
   });
 
   if (sessionMode === "review") {
-    // Unified review mode: fetch ALL due phrases across all topics
+    // Unified review mode: fetch ALL due phrases across all topics (unlimited)
     const { data: duePhrases } = await supabase
       .from("phrase_reviews")
       .select(`
@@ -56,8 +56,7 @@ export default async function ReflexPage({
       `)
       .eq("user_id", user?.id)
       .lte("due_at", new Date().toISOString())
-      .order("due_at", { ascending: true })
-      .limit(50);
+      .order("due_at", { ascending: true });
 
     phrases = duePhrases?.map(dp => {
       const phrase = Array.isArray(dp.phrases) ? dp.phrases[0] : dp.phrases;

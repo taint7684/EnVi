@@ -9,7 +9,7 @@ export interface QueuedRecording {
   audioBlob: Blob;
   transcript: string;
   latencyMs: number;
-  metadata: Record<string, any>;
+  metadata: Record<string, unknown>;
   timestamp: number;
 }
 
@@ -94,9 +94,10 @@ export async function registerBackgroundSync(): Promise<void> {
   }
 
   const registration = await navigator.serviceWorker.ready;
-  try {
-    await (registration as any).sync.register("upload-recordings");
-  } catch (error) {
+try {
+      // TypeScript doesn't know about background sync by default
+      await (registration as ServiceWorkerRegistration & { sync: { register: (tag: string) => Promise<void> } }).sync.register("upload-recordings");
+    } catch (error) {
     console.warn("Background sync registration failed:", error);
   }
 }

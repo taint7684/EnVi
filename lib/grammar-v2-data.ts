@@ -1,7 +1,7 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
-import type { GrammarV2Question, MindMap } from "@/lib/grammar-v2-types";
+import type { GrammarV2Question, MindMap, MindMapBranch } from "@/lib/grammar-v2-types";
 
 export type {
   TranslationQuestion,
@@ -18,10 +18,10 @@ export {
   checkVerbConjugation,
 } from "@/lib/grammar-v2-types";
 
-function loadJsonl(filePath: string): any[] {
+function loadJsonl(filePath: string): unknown[] {
   if (!fs.existsSync(filePath)) return [];
   const lines = fs.readFileSync(filePath, "utf8").split(/\r?\n/).filter(Boolean);
-  const items: any[] = [];
+  const items: unknown[] = [];
   for (const line of lines) {
     try { items.push(JSON.parse(line)); } catch { /* skip bad lines */ }
   }
@@ -38,9 +38,10 @@ function load(): { questions: GrammarV2Question[]; mindmaps: Map<string, MindMap
   const mindmaps = new Map<string, MindMap>();
 
   for (const item of items) {
-    if (item._type === "mindmap" && item.data) {
-      mindmaps.set(item._topicId, { topic_id: item._topicId, data: item.data });
-    } else if (item.exercise_type && item.topic_id) {
+    const obj = item as Record<string, unknown>;
+    if (obj._type === "mindmap" && obj.data) {
+      mindmaps.set(obj._topicId as string, { topic_id: obj._topicId as string, data: obj.data as MindMapBranch });
+    } else if (obj.exercise_type && obj.topic_id) {
       questions.push(item as GrammarV2Question);
     }
   }

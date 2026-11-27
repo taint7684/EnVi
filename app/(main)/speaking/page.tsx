@@ -1,6 +1,10 @@
 import { getDayPlan } from "@/lib/curriculum";
 import { createClient } from "@/lib/supabase/server";
 import { AISpeakingSession } from "@/components/speaking/ai-speaking-session";
+import { DrillPlayer } from "@/components/drills/drill-player";
+import { getAllDrillPrompts } from "@/lib/drills/server";
+import { getMissions } from "@/lib/missions/server";
+import SpeakingClient from "./speaking-client";
 
 const OPENERS_BY_TOPIC: Record<string, string[]> = {
   "topic-01-self": ["Well, my day usually starts with...", "To be honest, my routine is...", "Actually, I'm quite structured."],
@@ -50,7 +54,7 @@ const CHUNKS_BY_TOPIC: Record<string, string[]> = {
   "topic-13-dreams": ["this year goal", "bucket list", "dream job", "pursuit story", "pivot moment"],
 };
 
-export default async function SpeakingPage() {
+async function getSpeakingData() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   let currentDay = 1;
@@ -90,17 +94,24 @@ export default async function SpeakingPage() {
     lifelinesUsed: { translate: 0, hint: 0, sample_peek: 0 },
   };
 
-  return (
-    <div className="mx-auto max-w-4xl space-y-8 py-4">
-      <div className="text-center">
-        <h1 className="font-serif text-2xl font-semibold text-foreground">
-          AI Speaking Coach
-        </h1>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Ngày {currentDay}/180 · {dayPlan.topicNameVi} · Layer {layer} · Round {round} · 30 phút
-        </p>
-      </div>
-      <AISpeakingSession config={config} />
-    </div>
-  );
+  const [prompts, missions] = await Promise.all([
+    getAllDrillPrompts(),
+    getMissions(),
+  ]);
+
+  return {
+    currentDay,
+    topicNameVi: dayPlan.topicNameVi,
+    layer,
+    round,
+    config,
+    prompts,
+    missions,
+  };
+}
+
+export default async function SpeakingPage() {
+  const data = await getSpeakingData();
+
+  return <SpeakingClient {...data} />;
 }

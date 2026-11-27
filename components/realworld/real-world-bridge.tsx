@@ -4,7 +4,6 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { logRealWorld } from "@/lib/realworld/server";
-import type { RealWorldTask } from "@/lib/realworld/catalog";
 
 const FEELINGS = [
   { value: 5, emoji: "😄", label: "dễ" },
@@ -14,8 +13,15 @@ const FEELINGS = [
   { value: 1, emoji: "😨", label: "sợ" },
 ] as const;
 
+type TaskProps = {
+  id: string;
+  step: number;
+  title_vi: string;
+  description_vi: string;
+};
+
 type Props = {
-  task: RealWorldTask;
+  task: TaskProps;
   done: boolean;
   isNext: boolean;
 };

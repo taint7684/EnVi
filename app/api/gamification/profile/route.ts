@@ -80,5 +80,9 @@ export async function GET() {
     leaderboard: leaderboard || [],
     user_rank: userRank?.rank || null,
     current_week: weekNum,
+  }, {
+    headers: {
+      "Cache-Control": "public, max-age=120, stale-while-revalidate=300", // 2 min cache
+    }
   });
 }

@@ -11,6 +11,12 @@ export function OfflineBanner() {
   const [online, setOnline] = useState(isOnlineStatus());
   const [syncing, setSyncing] = useState(false);
   const [lastSyncResult, setLastSyncResult] = useState<{ synced: number; failed: number } | null>(null);
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const unsubscribeQueue = subscribeToQueue(setQueue);
@@ -63,7 +69,7 @@ export function OfflineBanner() {
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm">{syncing ? "Đang đồng bộ..." : "Có dữ liệu chờ đồng bộ"}</p>
               <p className="text-xs text-muted-foreground">
-                {queue.length} mục chờ • Cũ nhất: {formatAge(Math.max(...queue.map(q => Date.now() - q.timestamp), 0))}
+                {queue.length} mục chờ • Cũ nhất: {formatAge(Math.max(...queue.map(q => now - q.timestamp), 0))}
               </p>
             </div>
             <Button 

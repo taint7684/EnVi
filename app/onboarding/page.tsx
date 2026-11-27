@@ -109,16 +109,16 @@ function OnboardingContent() {
         <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
           <div className="mb-6 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-4">
-              {STEPS[step].key === "goal" && <Target className="size-8 text-primary" />}
-              {STEPS[step].key === "time" && <Clock className="size-8 text-primary" />}
-              {STEPS[step].key === "level" && <User className="size-8 text-primary" />}
-              {STEPS[step].key === "confirm" && <Sparkles className="size-8 text-primary" />}
+              {STEPS[step]!.key === "goal" && <Target className="size-8 text-primary" />}
+              {STEPS[step]!.key === "time" && <Clock className="size-8 text-primary" />}
+              {STEPS[step]!.key === "level" && <User className="size-8 text-primary" />}
+              {STEPS[step]!.key === "confirm" && <Sparkles className="size-8 text-primary" />}
             </div>
             <h1 className="font-serif text-2xl font-semibold text-foreground">
-              {STEPS[step].title}
+              {STEPS[step]!.title}
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              {STEPS[step].subtitle}
+              {STEPS[step]!.subtitle}
             </p>
           </div>
 
@@ -128,7 +128,7 @@ function OnboardingContent() {
             </div>
           )}
 
-          {STEPS[step].key === "goal" && (
+          {STEPS[step]!.key === "goal" && (
             <div className="space-y-3">
               {GOALS.map((g) => (
                 <button
@@ -154,7 +154,7 @@ function OnboardingContent() {
             </div>
           )}
 
-          {STEPS[step].key === "time" && (
+          {STEPS[step]!.key === "time" && (
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground text-center">
                 Khuyến nghị: ≥ 90 phút để đạt mục tiêu B1/B2
@@ -179,7 +179,7 @@ function OnboardingContent() {
             </div>
           )}
 
-          {STEPS[step].key === "level" && (
+          {STEPS[step]!.key === "level" && (
             <div className="space-y-3">
               <div className="grid grid-cols-3 gap-3">
                 {["A1", "A2", "B1", "B2", "C1", "C2"].map((l) => (

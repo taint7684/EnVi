@@ -41,6 +41,12 @@ CREATE TABLE IF NOT EXISTS public.error_events (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Ensure columns exist (idempotent)
+ALTER TABLE public.error_events ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open', 'in_makeup', 'mastered', 'dismissed'));
+ALTER TABLE public.error_events ADD COLUMN IF NOT EXISTS makeup_count INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE public.error_events ADD COLUMN IF NOT EXISTS last_makeup_at TIMESTAMPTZ;
+ALTER TABLE public.error_events ADD COLUMN IF NOT EXISTS mastered_at TIMESTAMPTZ;
+
 CREATE INDEX IF NOT EXISTS idx_error_events_user_status ON public.error_events (user_id, status);
 CREATE INDEX IF NOT EXISTS idx_error_events_user_type ON public.error_events (user_id, error_type);
 CREATE INDEX IF NOT EXISTS idx_error_events_user_created ON public.error_events (user_id, created_at DESC);
@@ -60,6 +66,11 @@ CREATE TABLE IF NOT EXISTS public.error_patterns (
     mastery_level INTEGER NOT NULL DEFAULT 0, -- 0=never, 1=1day, 2=3days, 3=7days, 4=14days, 5=30days
     UNIQUE (user_id, pattern_key)
 );
+
+-- Ensure columns exist (idempotent)
+ALTER TABLE public.error_patterns ADD COLUMN IF NOT EXISTS status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active', 'improving', 'mastered'));
+ALTER TABLE public.error_patterns ADD COLUMN IF NOT EXISTS mastery_streak INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE public.error_patterns ADD COLUMN IF NOT EXISTS mastery_level INTEGER NOT NULL DEFAULT 0;
 
 CREATE INDEX IF NOT EXISTS idx_error_patterns_user_status ON public.error_patterns (user_id, status);
 
@@ -163,7 +174,7 @@ INSERT INTO public.pattern_catalog (id, pattern_type, name_vi, name_en, descript
 ('pronunciation:schwa', 'pronunciation', 'Âm schwa /ə/', 'Schwa /ə/', 'Âm yếu /ə/ trong từ nhiều âm tiết - người Việt đọc tất cả âm tiết rõ', 'Weak schwa /ə/ in multi-syllable words - Vietnamese read all syllables clearly', '[{"expected": "about /əˈbaʊt/", "wrong": "a-bout /eɪ baʊt/", "correction": "Âm tiết yếu: đọc nhẹ, nhanh, không rõ"}]', '["Âm tiết không trọng âm: đọc /ə/", "Nhanh, nhẹ, miệng mở vừa", "Tập: about, problem, today, banana"]', '["Unstressed syllables: read /ə/", "Quick, light, mouth slightly open", "Practice: about, problem, today, banana"]', 'B1', true),
 ('pronunciation:linking', 'pronunciation', 'Nối âm', 'Linking sounds', 'Nối phụ âm cuối từ trước với nguyên âm từ sau', 'Link final consonant to next vowel', '[{"expected": "turn off /tɜːr nɒf/", "wrong": "turn... off /tɜːr... ɒf/", "correction": "Nói liền mạch, không ngắt quãng"}]', '["Phụ âm cuối + nguyên âm đầu: nối liền", "Tập nói câu nhanh, không tách từ", "Tập: turn on, pick up, look at"]', '["Final consonant + initial vowel: link", "Practice sentences smoothly", "Practice: turn on, pick up, look at"]', 'B1', true),
 ('pronunciation:stress', 'pronunciation', 'Trọng âm từ/câu', 'Word/Sentence stress', 'Trọng âm sai làm người nghe khó hiểu - tiếng Việt không có trọng âm', 'Wrong stress makes speech hard to understand - Vietnamese has no stress', '[{"expected": "REcord (n) vs reCORD (v)", "wrong": "record vs record (ngang)", "correction": "Mở to miệng, to głos, kéo dài ở âm tiết trọng"}', '["Từ 2 âm tiết: danh từ trọng âm 1, động từ trọng âm 2", "Từ câu: từ mang ý nghĩa trọng, từ chức năng nhẹ", "Tập: PREsent vs preSENT, IMportant"]', '["2-syllable: noun stress 1st, verb stress 2nd", "Sentence: content words stressed", "Practice: PREsent vs preSENT, IMportant"]', 'B1', true),
-('pronunciation:intonation', 'pronunciation', 'Ngữ điệu câu', 'Sentence intonation', 'Ngữ điệu hỏi/khẳng định/mệnh lệnh - tiếng Việt dùng thanh điệu từ', 'Question/statement/command intonation - Vietnamese uses word tones', '[{"expected": "You're coming? ↗", "wrong": "You're coming ↘ (như câu khẳng định)", "correction": "Câu hỏi Yes/No: giọng lên cuối"} ]', '["Câu hỏi Yes/No: giọng lên ↗", "Câu hỏi Wh-: giọng xuống ↘", "Câu khẳng định: giọng xuống ↘", "Tập: Are you ready? What time?"]', '["Yes/No questions: rising ↗", "Wh-questions: falling ↘", "Statements: falling ↘", "Practice: Are you ready? What time?"]', 'B1', true),
+('pronunciation:intonation', 'pronunciation', 'Ngữ điệu câu', 'Sentence intonation', 'Ngữ điệu hỏi/khẳng định/mệnh lệnh - tiếng Việt dùng thanh điệu từ', 'Question/statement/command intonation - Vietnamese uses word tones', '[{"expected": "You''re coming? (rising)", "wrong": "You''re coming (falling like statement)", "correction": "Câu hỏi Yes/No: giọng lên cuối"} ]', '["Câu hỏi Yes/No: giọng lên", "Câu hỏi Wh-: giọng xuống", "Câu khẳng định: giọng xuống", "Tập: Are you ready? What time?"]', '["Yes/No questions: rising", "Wh-questions: falling", "Statements: falling", "Practice: Are you ready? What time?"]', 'B1', true),
 ('pronunciation:ng_nk', 'pronunciation', 'NG và NK', 'NG vs NK', 'Phân biệt /ŋ/ (ng) và /ŋk/ (nk) cuối từ', 'Distinguish /ŋ/ (ng) and /ŋk/ (nk) at word end', '[{"expected": "sing /sɪŋ/ vs sink /sɪŋk/", "wrong": "sing /sɪŋk/ thêm k", "correction": "NG: không có k, NK: có k nhẹ"}]', '["NG: Chỉ /ŋ/, lưỡi chạm vòm mềm", "NK: /ŋk/, có k nhẹ ở cuối", "Tập: sing, sink, ring, rink"]', '["NG: Just /ŋ/, tongue to soft palate", "NK: /ŋk/, light k at end", "Practice: sing, sink, ring, rink"]', 'A2', true),
 
 -- Grammar patterns
@@ -191,8 +202,7 @@ BEGIN
     VALUES (p_user_id, p_pattern_key, p_error_type, 1, now(), now())
     ON CONFLICT (user_id, pattern_key) DO UPDATE SET
         count = error_patterns.count + 1,
-        last_seen = now(),
-        status = 'active';
+        last_seen = now();
 END $$;
 
 GRANT EXECUTE ON FUNCTION public.process_error_event(UUID, TEXT, TEXT, TEXT, TEXT, TEXT) TO authenticated;

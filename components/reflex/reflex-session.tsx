@@ -5,22 +5,24 @@ import Link from "next/link";
 import {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
-import { ArrowRight, Check, Lightbulb, RotateCcw, X } from "lucide-react";
+import { ArrowRight, Check, Lightbulb, RotateCcw, X, Brain, MessageSquare, FileText, RefreshCw, Search } from "lucide-react";
 
 import { reviewPhrase } from "@/app/actions/phrase-review";
 import { Button } from "@/components/ui/button";
 import { speakEnglish, stopSpeaking } from "@/lib/speech";
 import { evaluateSpeech, evaluateReflexSpeech, getReflexLevel, type SpeechEval } from "@/lib/speech-eval";
 import { evaluateMeaning, recordReflexResult } from "@/lib/reflex/judge";
+import { dbToCardState, phraseReviewRowToDbCardState, type DbCardState } from "@/lib/reflex/scheduler";
 import type { ReflexMeaning } from "@/lib/reflex/schema";
 import type { DuePhrase, ReviewGrade } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { updateReflexProgress } from "@/app/actions/gamification";
 import { useVadWithMetrics } from "@/lib/hooks/useVad";
-import { scheduleReflexReview, dbToCardState, cardStateToDb } from "@/lib/reflex/scheduler";
+import { scheduleReflexReview, cardStateToDb } from "@/lib/reflex/scheduler";
 
 const AudioButton = dynamic(() =>
   import("./audio-button").then((m) => m.AudioButton),
@@ -44,6 +46,41 @@ const LEVEL_LABEL: Record<string, string> = {
   L3: "L3 - Advanced",
 };
 
+const QUESTION_TYPES: Record<string, { label: string; short: string; icon: React.ReactNode; description: string }> = {
+  qa: { 
+    label: "Hỏi–đáp", 
+    short: "Q&A", 
+    icon: <MessageSquare className="size-3" />,
+    description: "Trả lời câu hỏi cá nhân" 
+  },
+  situation: { 
+    label: "Tình huống", 
+    short: "Sit", 
+    icon: <Brain className="size-3" />,
+    description: "Phản ứng tình huống thực tế" 
+  },
+  continue: { 
+    label: "Nói tiếp", 
+    short: "Cont", 
+    icon: <FileText className="size-3" />,
+    description: "Mở rộng câu chuyện thêm 3 câu" 
+  },
+  paraphrase: { 
+    label: "Nói cách khác", 
+    short: "Para", 
+    icon: <RefreshCw className="size-3" />,
+    description: "Diễn đạt lại ý tương tự" 
+  },
+  circumlocution: { 
+    label: "Nói vòng", 
+    short: "Circ", 
+    icon: <Search className="size-3" />,
+    description: "Giải thích khi quên từ" 
+  },
+};
+
+type QuestionTypeKey = keyof typeof QUESTION_TYPES;
+
 export function ReflexSession({
   phrases,
   sessionMode = "learn",
@@ -53,7 +90,57 @@ export function ReflexSession({
   sessionMode?: "learn" | "review";
   level?: string;
 }) {
-  const [queue] = useState<DuePhrase[]>(phrases);
+  // Mix 5 question types evenly for learn mode
+  const mixedQueue = useMemo(() => {
+    if (sessionMode === "review") {
+      // Review mode: return all phrases (unlimited), shuffle for variety
+      return [...phrases].sort(() => Math.random() - 0.5);
+    }
+    
+    // Learn mode: balance 5 question types
+    const byType: Record<QuestionTypeKey, DuePhrase[]> = {
+      qa: [],
+      situation: [],
+      continue: [],
+      paraphrase: [],
+      circumlocution: [],
+    };
+    
+    for (const phrase of phrases) {
+      const type = (phrase.phrase.sentence_type as QuestionTypeKey) || "qa";
+      if (byType[type]) {
+        byType[type].push(phrase);
+      } else {
+        byType.qa.push(phrase);
+      }
+    }
+    
+    // Shuffle each type
+    for (const key of Object.keys(byType) as QuestionTypeKey[]) {
+      byType[key]!.sort(() => Math.random() - 0.5);
+    }
+    
+    // Interleave types: qa, situation, continue, paraphrase, circumlocution
+    const result: DuePhrase[] = [];
+    const types: QuestionTypeKey[] = ["qa", "situation", "continue", "paraphrase", "circumlocution"];
+    let allDone = false;
+    let round = 0;
+    
+    while (!allDone) {
+      allDone = true;
+      for (const type of types) {
+        if (byType[type].length > round) {
+          result.push(byType[type][round]!);
+          allDone = false;
+        }
+      }
+      round++;
+    }
+    
+    return result;
+  }, [phrases, sessionMode]);
+
+  const [queue] = useState<DuePhrase[]>(mixedQueue);
   const [index, setIndex] = useState(0);
   const [mode, setMode] = useState<Mode>("pure");
   const [result, setResult] = useState<SpeechEval | null>(null);
@@ -105,7 +192,8 @@ export function ReflexSession({
 
       // Client-side FSRS scheduling for immediate feedback (review mode)
       if (sessionMode === "review" && current.review) {
-        const cardState = dbToCardState(current.review);
+        const dbCardState = phraseReviewRowToDbCardState(current.review);
+        const cardState = dbToCardState(dbCardState);
         const meaningScore = judgment?.meaning.meaningCorrect ? 1 : 0;
         
         const { nextState, intervalDays, nextReview } = scheduleReflexReview({
@@ -334,7 +422,7 @@ export function ReflexSession({
     );
   }
 
-  const { phrase } = current;
+  const { phrase } = current!;
   const correct = result?.correct ?? false;
   const meaningCorrect = judgment?.meaning.meaningCorrect ?? false;
   const reflexLevel = getReflexLevel(phrase.difficulty);
@@ -352,6 +440,20 @@ export function ReflexSession({
         <span>
           {sessionMode === "review" ? "Ôn tập · " : ""}Câu {index + 1}/{queue.length}
         </span>
+        {/* Question Type Badge */}
+        {current && current.phrase.sentence_type && (
+          <span className="flex items-center gap-1">
+            {(() => {
+              const typeInfo = QUESTION_TYPES[current.phrase.sentence_type as QuestionTypeKey];
+              return typeInfo ? (
+                <span className="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+                  {typeInfo.icon}
+                  {typeInfo.short}
+                </span>
+              ) : null;
+            })()}
+          </span>
+        )}
         {mode === "pure" ? (
           <span className="flex items-center gap-2">
             <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-700">
@@ -432,6 +534,22 @@ export function ReflexSession({
             <p className="text-xs uppercase tracking-wide text-muted-foreground">
               Phản xạ thuần · Nghe rồi nói ngay, không nhìn chữ
             </p>
+            {/* Question type specific instruction */}
+            {current && current.phrase.sentence_type && (
+              <p className="mt-2 text-sm text-muted-foreground italic">
+                {(() => {
+                  const type = current.phrase.sentence_type as QuestionTypeKey;
+                  const instructions: Record<QuestionTypeKey, string> = {
+                    qa: "Trả lời câu hỏi về bản thân (1-3 câu)",
+                    situation: "Phản ứng tự nhiên trong tình huống này",
+                    continue: "Mở rộng thêm 3 câu về chủ đề này",
+                    paraphrase: "Diễn đạt lại ý tương tự bằng cách khác",
+                    circumlocution: "Giải thích từ này mà không dùng từ đó",
+                  };
+                  return instructions[type] || "Nghe rồi nói ngay";
+                })()}
+              </p>
+            )}
             <div className="mt-4 flex justify-center">
               <AudioButton
                 text={phrase.situation_en || phrase.en_text}
@@ -727,7 +845,7 @@ export function ReflexSession({
       </div>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Tip: Speak naturally in full sentences, don't translate word by word in your head.
+        Tip: Speak naturally in full sentences, don&apos;t translate word by word in your head.
       </p>
     </div>
   );

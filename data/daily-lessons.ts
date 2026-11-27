@@ -136,13 +136,13 @@ for (let day = 1; day <= 30; day++) {
 
   const tasks: DayTask[] = [
     A2_VOCAB(unit),
-    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx]!.id, GRAMMAR_TOPICS[grammarIdx]!.name),
     REFLEX_5(),
   ];
 
   if (isDictationDay) tasks.push(DICTATION_1());
   if (isShadowingDay) tasks.push(SHADOWING_1());
-  tasks.push(A2_READING(A2_READINGS[readingIdx], A2_READING_TITLES[readingIdx]));
+  tasks.push(A2_READING(A2_READINGS[readingIdx]!, A2_READING_TITLES[readingIdx]!));
 
   const output = isWritingDay
     ? { type: "writing" as const, label: `Viết email/tóm tắt ngày ${day}`, href: "/writing", minutes: 10 }
@@ -151,7 +151,7 @@ for (let day = 1; day <= 30; day++) {
   DAILY_LESSONS.push({
     day,
     level: "A2",
-    goal: `Ngày ${day}: Nắm vững 20 từ vựng A2 + ${GRAMMAR_TOPICS[grammarIdx].name} + 5 câu reflex`,
+    goal: `Ngày ${day}: Nắm vững 20 từ vựng A2 + ${GRAMMAR_TOPICS[grammarIdx]!.name} + 5 câu reflex`,
     tasks,
     output,
     totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,
@@ -170,13 +170,13 @@ for (let day = 31; day <= 60; day++) {
 
   const tasks: DayTask[] = [
     { id: `vocab-oxford-${unit}`, label: `Flashcard Oxford 5k đơn vị ${unit}`, href: "/vocab", minutes: 20 },
-    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx]!.id, GRAMMAR_TOPICS[grammarIdx]!.name),
     REFLEX_5(),
   ];
 
   if (isDictationDay) tasks.push(DICTATION_1());
   if (isShadowingDay) tasks.push(SHADOWING_1());
-  tasks.push(A2_READING(B1_READINGS[readingIdx], B1_READING_TITLES[readingIdx]));
+  tasks.push(A2_READING(B1_READINGS[readingIdx]!, B1_READING_TITLES[readingIdx]!));
 
   const output = isWritingDay
     ? { type: "writing" as const, label: `Viết email IT/BA ngày ${day}`, href: "/writing", minutes: 10 }
@@ -185,7 +185,7 @@ for (let day = 31; day <= 60; day++) {
   DAILY_LESSONS.push({
     day,
     level: "B1",
-    goal: `Ngày ${day}: Oxford 5k từ vựng B1 + ${GRAMMAR_TOPICS[grammarIdx].name} + reflex B1`,
+    goal: `Ngày ${day}: Oxford 5k từ vựng B1 + ${GRAMMAR_TOPICS[grammarIdx]!.name} + reflex B1`,
     tasks,
     output,
     totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,
@@ -204,13 +204,13 @@ for (let day = 61; day <= 90; day++) {
 
   const tasks: DayTask[] = [
     { id: `vocab-adv-${unit}`, label: `Flashcard từ nâng cao đơn vị ${unit}`, href: "/vocab", minutes: 20 },
-    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx]!.id, GRAMMAR_TOPICS[grammarIdx]!.name),
     REFLEX_5(),
   ];
 
   if (isDictationDay) tasks.push(DICTATION_1());
   if (isShadowingDay) tasks.push(SHADOWING_1());
-  tasks.push(A2_READING(B2_READINGS[readingIdx], B2_READING_TITLES[readingIdx]));
+  tasks.push(A2_READING(B2_READINGS[readingIdx]!, B2_READING_TITLES[readingIdx]!));
 
   const output = isWritingDay
     ? { type: "writing" as const, label: `Viết báo cáo/tóm tắt ngày ${day}`, href: "/writing", minutes: 10 }
@@ -219,7 +219,7 @@ for (let day = 61; day <= 90; day++) {
   DAILY_LESSONS.push({
     day,
     level: "B2",
-    goal: `Ngày ${day}: Từ vựng nâng cao + ${GRAMMAR_TOPICS[grammarIdx].name} + reflex B2`,
+    goal: `Ngày ${day}: Từ vựng nâng cao + ${GRAMMAR_TOPICS[grammarIdx]!.name} + reflex B2`,
     tasks,
     output,
     totalMinutes: tasks.reduce((s, t) => s + t.minutes, 0) + output.minutes,
@@ -238,13 +238,13 @@ for (let day = 91; day <= 120; day++) {
 
   const tasks: DayTask[] = [
     { id: `vocab-b2p-${unit}`, label: `Flashcard từ B2+ đơn vị ${unit}`, href: "/vocab", minutes: 25 },
-    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx]!.id, GRAMMAR_TOPICS[grammarIdx]!.name),
     REFLEX_5(),
   ];
 
   if (isDictationDay) tasks.push(DICTATION_1());
   if (isShadowingDay) tasks.push(SHADOWING_1());
-  tasks.push(A2_READING(B2_READINGS[readingIdx], B2_READING_TITLES[readingIdx]));
+  tasks.push(A2_READING(B2_READINGS[readingIdx]!, B2_READING_TITLES[readingIdx]!));
 
   const output = isWritingDay
     ? { type: "writing" as const, label: `Viết phân tích IT/BA ngày ${day}`, href: "/writing", minutes: 15 }
@@ -272,13 +272,13 @@ for (let day = 121; day <= 180; day++) {
 
   const tasks: DayTask[] = [
     { id: `vocab-real-${unit}`, label: `Flashcard thế giới thực đơn vị ${unit}`, href: "/vocab", minutes: 30 },
-    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx].id, GRAMMAR_TOPICS[grammarIdx].name),
+    A2_GRAMMAR(GRAMMAR_TOPICS[grammarIdx]!.id, GRAMMAR_TOPICS[grammarIdx]!.name),
     REFLEX_5(),
   ];
 
   if (isDictationDay) tasks.push(DICTATION_1());
   if (isShadowingDay) tasks.push(SHADOWING_1());
-  tasks.push(A2_READING(B2_READINGS[readingIdx], B2_READING_TITLES[readingIdx]));
+  tasks.push(A2_READING(B2_READINGS[readingIdx]!, B2_READING_TITLES[readingIdx]!));
 
   const output = isWritingDay
     ? { type: "writing" as const, label: `Viết báo cáo chuyên ngành ngày ${day}`, href: "/writing", minutes: 20 }

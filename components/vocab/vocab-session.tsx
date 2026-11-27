@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle2, RotateCcw, Trophy, Zap } from "lucide-react";
+import { BookOpen, CheckCircle2, RotateCcw, Trophy, Zap, Mic } from "lucide-react";
 
 import { reviewWord, updateSessionState } from "@/app/actions/srs";
 import {
@@ -17,6 +17,7 @@ import type { DueCard, ReviewGrade, VocabSessionState } from "@/lib/types";
 import { Flashcard } from "./flashcard";
 import { RatingBar } from "./rating-bar";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const GRADES: ReviewGrade[] = ["again", "hard", "good", "easy"];
 
@@ -44,14 +45,22 @@ export function VocabSession({
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [sessionState, setSessionState] = useState(initialSessionState);
+  const [flashcardMode, setFlashcardMode] = useState<"standard" | "speak-first" | "en-first">("standard");
 
   const requeueCount = useRef<Record<string, number>>({});
   const ratedIndex = useRef<number | null>(null);
 
   const { mode, queueIndex, groupSize, groupFinished, newWordsInGroup } = gradeState;
-  const current = queue[queueIndex];
+  const current = queue[queueIndex]!;
   const done = queueIndex >= queue.length;
   const groupProgress = Math.min(newWordsInGroup / groupSize, 1);
+
+  const handleSpeakComplete = useCallback(() => {
+    // Auto-flip in speak-first mode after speaking
+    if (flashcardMode === "speak-first" && !flipped) {
+      setFlipped(true);
+    }
+  }, [flashcardMode, flipped]);
 
   const rate = useCallback(
     (grade: ReviewGrade) => {
@@ -285,11 +294,28 @@ export function VocabSession({
         </p>
       ) : null}
 
+      {/* Mode Tabs */}
+      <Tabs value={flashcardMode} onValueChange={(v) => setFlashcardMode(v as "standard" | "speak-first" | "en-first")} className="mb-4">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="standard">
+            <BookOpen className="mr-2 h-4 w-4" /> Standard
+          </TabsTrigger>
+          <TabsTrigger value="speak-first">
+            <Mic className="mr-2 h-4 w-4" /> Speak First
+          </TabsTrigger>
+          <TabsTrigger value="en-first">
+            <Zap className="mr-2 h-4 w-4" /> EN First
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
+
       <div className="mt-6">
         <Flashcard
           card={current}
           flipped={flipped}
           onFlip={() => setFlipped((previous) => !previous)}
+          mode={flashcardMode}
+          onSpeakComplete={handleSpeakComplete}
         />
       </div>
 

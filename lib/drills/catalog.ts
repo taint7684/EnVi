@@ -19,8 +19,8 @@ export function summarizeDrill(kind: DrillKind, rounds: DrillRound[]): DrillSumm
 
   let trend: DrillSummary["trend"] = "na";
   if (wpms.length >= 2) {
-    const first = wpms[0];
-    const last = wpms[wpms.length - 1];
+    const first = wpms[0]!;
+    const last = wpms[wpms.length - 1]!;
     const delta = last - first;
     const threshold = Math.max(3, first * 0.05);
     if (delta > threshold) trend = "up";
